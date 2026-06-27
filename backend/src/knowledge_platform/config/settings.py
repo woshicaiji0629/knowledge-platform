@@ -14,6 +14,12 @@ class Settings(BaseSettings):
     aliyun_access_key_secret: str | None = None
     aliyun_customer_service_instance_id: str | None = None
 
+    vector_store_provider: str = "memory"
+    qdrant_endpoint: str = "http://localhost:6333"
+    qdrant_collection: str = "aliyun_docs_product_v1"
+    retrieval_top_k: int = 5
+    retrieval_context_max_chars: int = 6000
+
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
 

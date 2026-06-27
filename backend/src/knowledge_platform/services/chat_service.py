@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from uuid import uuid4
 
 from knowledge_platform.llm.intent import RuleBasedIntentClassifier
-from knowledge_platform.services.retrieval_service import RetrievalService
+from knowledge_platform.services.retrieval_service import RetrievalServiceProtocol
 from knowledge_platform.sessions.models import ChatMessage, ChatSession, MessageRole
 from knowledge_platform.sessions.store import InMemorySessionStore
 
@@ -17,14 +17,14 @@ class ChatService:
     def __init__(
         self,
         session_store: InMemorySessionStore,
-        retrieval_service: RetrievalService,
+        retrieval_service: RetrievalServiceProtocol,
         intent_classifier: RuleBasedIntentClassifier,
     ) -> None:
         self._session_store = session_store
         self._retrieval_service = retrieval_service
         self._intent_classifier = intent_classifier
 
-    def send_message(self, session_id: str, message: str) -> ChatTurnResult:
+    async def send_message(self, session_id: str, message: str) -> ChatTurnResult:
         intent = self._intent_classifier.classify(message)
         user_message = ChatMessage(
             id=str(uuid4()),
@@ -34,7 +34,7 @@ class ChatService:
         )
         self._session_store.append_message(session_id=session_id, message=user_message)
 
-        retrieval_context = self._retrieval_service.retrieve(query=message)
+        retrieval_context = await self._retrieval_service.retrieve(query=message)
         answer = self._build_skeleton_answer(message=message, context_text=retrieval_context.context_text)
         assistant_message = ChatMessage(
             id=str(uuid4()),

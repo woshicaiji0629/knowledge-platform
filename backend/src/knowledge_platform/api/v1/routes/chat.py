@@ -57,8 +57,8 @@ def get_session(session_id: str) -> ChatSessionResponse:
 
 
 @router.post("/sessions/{session_id}/messages", response_model=SendMessageResponse)
-def send_message(session_id: str, request: SendMessageRequest) -> SendMessageResponse:
-    result = create_chat_service().send_message(session_id=session_id, message=request.message)
+async def send_message(session_id: str, request: SendMessageRequest) -> SendMessageResponse:
+    result = await create_chat_service().send_message(session_id=session_id, message=request.message)
     return SendMessageResponse(
         session=_to_session_response(result.session),
         message=_to_message_response(result.assistant_message),
