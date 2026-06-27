@@ -69,11 +69,16 @@ class QdrantVectorStore:
                 "distance": self._config.distance,
             }
         }
-        self._request_json(
-            method="PUT",
-            path=f"/collections/{urllib.parse.quote(self._config.collection_name)}",
-            payload=payload,
-        )
+        try:
+            self._request_json(
+                method="PUT",
+                path=f"/collections/{urllib.parse.quote(self._config.collection_name)}",
+                payload=payload,
+            )
+        except RuntimeError as error:
+            if "HTTP 409" in str(error) and "already exists" in str(error):
+                return
+            raise
 
     def _upsert_points_sync(self, points: list[VectorPoint]) -> None:
         payload = {

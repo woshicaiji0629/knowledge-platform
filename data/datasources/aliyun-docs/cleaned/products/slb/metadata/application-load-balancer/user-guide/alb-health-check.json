@@ -1,0 +1,17 @@
+{
+  "id": "slb:application-load-balancer/user-guide/alb-health-check",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "features",
+  "title": "ALB健康检查-负载均衡(SLB)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/alb-health-check",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/slb/documents/application-load-balancer/user-guide/alb-health-check.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/alb-health-check.md",
+  "word_count": 881,
+  "text_units": 2924,
+  "local_links": 11,
+  "external_links": 68,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

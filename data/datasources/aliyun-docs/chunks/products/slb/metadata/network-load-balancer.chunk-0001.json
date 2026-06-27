@@ -1,0 +1,14 @@
+{
+  "id": "slb:network-load-balancer:1",
+  "document_id": "slb:network-load-balancer",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "features",
+  "title": "网络型负载均衡NLB-负载均衡-阿里云",
+  "source_url": "https://help.aliyun.com/zh/slb/network-load-balancer/",
+  "chunk_index": 1,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/slb/documents/network-load-balancer.chunk-0001.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/network-load-balancer.md",
+  "heading_path": "网络型负载均衡NLB > 为什么选择阿里云",
+  "char_count": 328
+}

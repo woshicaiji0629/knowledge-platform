@@ -1,0 +1,15 @@
+ded-eip、x-forwarded-port、x-forwarded-client-srcport、x-forwarded-host、connection、upgrade、content-length、transfer-encoding、keep-alive、te、host、cookie、remoteip、authority。这些字段为ALB系统保留字段或HTTP协议关键字段，修改可能导致请求转发异常或连接中断。
+限速：请根据需要配置以下参数。
+QPS(总限速)：输入每秒请求数，取值范围：1~1000000。
+QPS(基于客户端源IP限速)：输入基于客户端源IP限速，取值范围：1~1000000。同时配置QPS(总限速)和QPS(基于客户端源IP限速)时，基于客户端源IP限速值要小于总限速值。
+限速动作必须与转发至动作配合使用。限速值以内的请求转发至目标服务器组；超出限速值时，默认返回503状态码，也可附加重定向至或返回固定响应动作处理超出限速值的请求。开启QPS(基于客户端源IP限速)后，ALB从X-Forwarded-For头字段中获取源IP。如果请求经过多层代理，需要在监听中打开查找真实客户端源IP开关，确保获取到正确的客户端源IP。更多信息，请参见[创建和管理监听](create-and-manage-listeners.md)。
+流量镜像至：在服务器组列表中选择目标服务器组。支持选择服务器类型和IP类型的后端服务器组。
+跨域：配置CORS跨域访问策略，ALB自动处理OPTIONS预检请求并返回CORS响应头，无需后端服务器处理。相比通过写入Header动作手动设置Access-Control-Allow-Origin等响应头，跨域动作配置更简单。
+什么是跨域
+客户端发送的请求URL的协议、域名或者端口三者之间任意一个与当前返回的页面URL不同即为跨域。请求包括简单请求和预检请求。跨域动作适用于前后端分离架构等场景，例如前端部署在www.example.com，API服务部署在api.example.com，前端通过浏览器调用API时会触发跨域限制。
+允许的访问来源：设置允许通过浏览器访问服务资源的站点。
+允许的方法：选择跨域访问时允许的HTTP方法。包括：GET，POST、PUT、DELETE、HEAD、OPTIONS、PATCH。
+允许的请求头部：除了浏览器内置的基础Header，设置跨域访问时允许的Header。
+允许的响应头部：允许浏览器、JavaScript脚本访问的响应头部。
+允许的携带凭证：跨域访问时是否允许携带凭证信息，默认允许。
+浏览器缓存时间：对于预检请求，设置OPTIONS预检请求在浏览器的最大缓存时间。单位：秒。取值范围：-1~172800。

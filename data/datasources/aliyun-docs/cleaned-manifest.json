@@ -35,17 +35,6 @@
       "table_count": 0
     },
     {
-      "id": "ecs:developer-reference",
-      "product": "ecs",
-      "topic": "features",
-      "title": "开发参考-云服务器 ECS-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ecs/developer-reference/",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/developer-reference.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/metadata/developer-reference.json",
-      "word_count": 516,
-      "table_count": 0
-    },
-    {
       "id": "ecs:billing-2",
       "product": "ecs",
       "topic": "pricing",
@@ -200,17 +189,6 @@
       "table_count": 0
     },
     {
-      "id": "oss:developer-reference",
-      "product": "oss",
-      "topic": "features",
-      "title": "开发参考-对象存储-阿里云",
-      "source_url": "https://help.aliyun.com/zh/oss/developer-reference",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/developer-reference.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/metadata/developer-reference.json",
-      "word_count": 498,
-      "table_count": 0
-    },
-    {
       "id": "oss:billing",
       "product": "oss",
       "topic": "pricing",
@@ -244,6 +222,72 @@
       "table_count": 3
     },
     {
+      "id": "model-studio:model-user-guide",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "用户指南（模型）-大模型服务平台百炼-阿里云",
+      "source_url": "https://help.aliyun.com/zh/model-studio/model-user-guide",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/model-user-guide.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/model-user-guide.json",
+      "word_count": 543,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:application-user-guide",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "用户指南（应用）-大模型服务平台百炼-阿里云",
+      "source_url": "https://help.aliyun.com/zh/model-studio/application-user-guide",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/application-user-guide.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/application-user-guide.json",
+      "word_count": 542,
+      "table_count": 0
+    },
+    {
+      "id": "slb:index",
+      "product": "slb",
+      "topic": "features",
+      "title": "将流量按需分发到不同的后端-负载均衡-阿里云",
+      "source_url": "https://help.aliyun.com/zh/slb/",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/index.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/index.json",
+      "word_count": 1353,
+      "table_count": 0
+    },
+    {
+      "id": "slb:product-overview",
+      "product": "slb",
+      "topic": "features",
+      "title": "产品概述-负载均衡-阿里云",
+      "source_url": "https://help.aliyun.com/zh/slb/product-overview/",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/product-overview.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/product-overview.json",
+      "word_count": 499,
+      "table_count": 0
+    },
+    {
+      "id": "slb:security-and-compliance",
+      "product": "slb",
+      "topic": "features",
+      "title": "安全合规-负载均衡-阿里云",
+      "source_url": "https://help.aliyun.com/zh/slb/security-and-compliance/",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/security-and-compliance.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/security-and-compliance.json",
+      "word_count": 496,
+      "table_count": 0
+    },
+    {
+      "id": "slb:support",
+      "product": "slb",
+      "topic": "features",
+      "title": "服务支持-负载均衡-阿里云",
+      "source_url": "https://help.aliyun.com/zh/slb/support/",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/support.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/support.json",
+      "word_count": 464,
+      "table_count": 0
+    },
+    {
       "id": "slb:anipop-uses-alb",
       "product": "slb",
       "topic": "selection",
@@ -274,17 +318,6 @@
       "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/vpc-user-guide.md",
       "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/metadata/vpc-user-guide.json",
       "word_count": 493,
-      "table_count": 0
-    },
-    {
-      "id": "vpc:developer-reference",
-      "product": "vpc",
-      "topic": "features",
-      "title": "开发参考-专有网络VPC-阿里云",
-      "source_url": "https://help.aliyun.com/zh/vpc/developer-reference/",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/developer-reference.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/metadata/developer-reference.json",
-      "word_count": 486,
       "table_count": 0
     },
     {
@@ -596,39 +629,6 @@
       "table_count": 2
     },
     {
-      "id": "ecs:developer-reference/use-an-sdk-to-create-ecs-instances",
-      "product": "ecs",
-      "topic": "features",
-      "title": "使用Java SDK完成ECS实例的创建运维与释放-云服务器 ECS-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ecs/developer-reference/use-an-sdk-to-create-ecs-instances",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/developer-reference/use-an-sdk-to-create-ecs-instances.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/metadata/developer-reference/use-an-sdk-to-create-ecs-instances.json",
-      "word_count": 2908,
-      "table_count": 44
-    },
-    {
-      "id": "ecs:developer-reference/cli-reference",
-      "product": "ecs",
-      "topic": "features",
-      "title": "通过CLI创建并使用ECS实例-云服务器 ECS(ECS)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/ecs/developer-reference/cli-reference",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/developer-reference/cli-reference.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/metadata/developer-reference/cli-reference.json",
-      "word_count": 1523,
-      "table_count": 33
-    },
-    {
-      "id": "ecs:developer-reference/create-and-use-an-ecs-instance-by-using-terraform",
-      "product": "ecs",
-      "topic": "features",
-      "title": "使用Terraform创建ecs-云服务器 ECS(ECS)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/ecs/developer-reference/create-and-use-an-ecs-instance-by-using-terraform",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/developer-reference/create-and-use-an-ecs-instance-by-using-terraform.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/metadata/developer-reference/create-and-use-an-ecs-instance-by-using-terraform.json",
-      "word_count": 2354,
-      "table_count": 5
-    },
-    {
       "id": "ecs:user-guide/overview-of-instance-families",
       "product": "ecs",
       "topic": "performance",
@@ -747,17 +747,6 @@
       "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/security-compliance.md",
       "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/metadata/security-compliance.json",
       "word_count": 469,
-      "table_count": 0
-    },
-    {
-      "id": "rds:developer-reference",
-      "product": "rds",
-      "topic": "features",
-      "title": "开发参考-云数据库 RDS-阿里云",
-      "source_url": "https://help.aliyun.com/zh/rds/developer-reference",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/developer-reference.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/metadata/developer-reference.json",
-      "word_count": 512,
       "table_count": 0
     },
     {
@@ -926,17 +915,6 @@
       "table_count": 0
     },
     {
-      "id": "rds:list-of-operations-by-function",
-      "product": "rds",
-      "topic": "features",
-      "title": "API概览-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/rds/list-of-operations-by-function",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/list-of-operations-by-function.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/metadata/list-of-operations-by-function.json",
-      "word_count": 3024,
-      "table_count": 60
-    },
-    {
       "id": "rds:apsaradb-rds-for-mysql/data-migration-1",
       "product": "rds",
       "topic": "features",
@@ -1033,17 +1011,6 @@
       "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/security-compliance.md",
       "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/security-compliance.json",
       "word_count": 478,
-      "table_count": 0
-    },
-    {
-      "id": "redis:developer-reference",
-      "product": "redis",
-      "topic": "features",
-      "title": "开发参考-云数据库 Tair（兼容 Redis®）-阿里云",
-      "source_url": "https://help.aliyun.com/zh/redis/developer-reference",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/developer-reference.json",
-      "word_count": 498,
       "table_count": 0
     },
     {
@@ -1144,28 +1111,6 @@
       "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/product-overview/disaster-recovery.json",
       "word_count": 764,
       "table_count": 5
-    },
-    {
-      "id": "redis:developer-reference/commands-supported-by-apsaradb-for-redis-community-edition",
-      "product": "redis",
-      "topic": "performance",
-      "title": "命令支持范围与使用限制-云数据库 Tair（兼容 Redis®）-阿里云",
-      "source_url": "https://help.aliyun.com/zh/redis/developer-reference/commands-supported-by-apsaradb-for-redis-community-edition",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/commands-supported-by-apsaradb-for-redis-community-edition.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/developer-reference/commands-supported-by-apsaradb-for-redis-community-edition.json",
-      "word_count": 1433,
-      "table_count": 102
-    },
-    {
-      "id": "redis:developer-reference/limits-on-commands-supported-by-apsaradb-for-redis-enhanced-edition",
-      "product": "redis",
-      "topic": "performance",
-      "title": "Tair（企业版）命令支持与限制列表-云数据库 Tair（兼容 Redis®）-阿里云",
-      "source_url": "https://help.aliyun.com/zh/redis/developer-reference/limits-on-commands-supported-by-apsaradb-for-redis-enhanced-edition",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/limits-on-commands-supported-by-apsaradb-for-redis-enhanced-edition.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/developer-reference/limits-on-commands-supported-by-apsaradb-for-redis-enhanced-edition.json",
-      "word_count": 1601,
-      "table_count": 72
     },
     {
       "id": "redis:product-overview/billable-items",
@@ -1507,6 +1452,270 @@
       "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/product-overview/dram-based-instances.json",
       "word_count": 887,
       "table_count": 2
+    },
+    {
+      "id": "model-studio:application-call",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "应用调用-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/application-call",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/application-call.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/application-call.json",
+      "word_count": 491,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:long-term-memory-new",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "长期记忆-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/long-term-memory-new",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/long-term-memory-new.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/long-term-memory-new.json",
+      "word_count": 475,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:frameworks",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "框架-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/frameworks",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/frameworks.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/frameworks.json",
+      "word_count": 474,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:more",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "更多-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/more",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/more.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/more.json",
+      "word_count": 485,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:connection-multiplexing-configuration",
+      "product": "model-studio",
+      "topic": "deployment",
+      "title": "DashScope SDK连接复用配置-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/connection-multiplexing-configuration",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/connection-multiplexing-configuration.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/connection-multiplexing-configuration.json",
+      "word_count": 1278,
+      "table_count": 9
+    },
+    {
+      "id": "model-studio:start-using",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "开始使用-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/start-using",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/start-using.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/start-using.json",
+      "word_count": 479,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:llm-application",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "应用开发-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/llm-application",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/llm-application.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/llm-application.json",
+      "word_count": 494,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:prompt",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "Prompt-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/prompt",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/prompt.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/prompt.json",
+      "word_count": 487,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:memory-library-overview",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "记忆库-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/memory-library-overview",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/memory-library-overview.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/memory-library-overview.json",
+      "word_count": 484,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:data-connection-overview",
+      "product": "model-studio",
+      "topic": "deployment",
+      "title": "数据连接-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/data-connection-overview",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/data-connection-overview.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/data-connection-overview.json",
+      "word_count": 468,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:knowledge-base",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "知识库（RAG）-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/knowledge-base",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/knowledge-base.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/knowledge-base.json",
+      "word_count": 502,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:model-context-protocol",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "MCP-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/model-context-protocol",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/model-context-protocol.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/model-context-protocol.json",
+      "word_count": 493,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:plug-in",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "插件-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/plug-in",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/plug-in.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/plug-in.json",
+      "word_count": 476,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:application-publishing-and-sharing",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "应用发布与分享-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/application-publishing-and-sharing",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/application-publishing-and-sharing.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/application-publishing-and-sharing.json",
+      "word_count": 484,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:bailian-application-calling",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "应用调用-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/bailian-application-calling",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/bailian-application-calling.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/bailian-application-calling.json",
+      "word_count": 484,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:application-evaluation",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "应用评测-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/application-evaluation",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/application-evaluation.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/application-evaluation.json",
+      "word_count": 487,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:application-monitoring",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "应用观测-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/application-monitoring",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/application-monitoring.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/application-monitoring.json",
+      "word_count": 469,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:application-gallery",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "应用广场-大模型服务平台百炼-阿里云",
+      "source_url": "https://help.aliyun.com/zh/model-studio/application-gallery",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/application-gallery.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/application-gallery.json",
+      "word_count": 574,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:application-permission-management",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "权限管理-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/application-permission-management",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/application-permission-management.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/application-permission-management.json",
+      "word_count": 472,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:application-use-cases",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "实践教程-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/application-use-cases",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/application-use-cases.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/application-use-cases.json",
+      "word_count": 518,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:application-support",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "服务支持-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/application-support",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/application-support.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/application-support.json",
+      "word_count": 474,
+      "table_count": 0
+    },
+    {
+      "id": "slb:application-load-balancer/product-overview/what-is-alb",
+      "product": "slb",
+      "topic": "features",
+      "title": "什么是应用型负载均衡ALB-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/product-overview/what-is-alb",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/product-overview/what-is-alb.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/product-overview/what-is-alb.json",
+      "word_count": 1442,
+      "table_count": 12
+    },
+    {
+      "id": "slb:nlb-helps-emq-build-a-high-performance-enterprise-class-mqtt-iot-access-platform",
+      "product": "slb",
+      "topic": "performance",
+      "title": "使用NLB构建支持亿级并发的MQTT物联网接入平台-负载均衡-阿里云",
+      "source_url": "https://help.aliyun.com/zh/slb/nlb-helps-emq-build-a-high-performance-enterprise-class-mqtt-iot-access-platform",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/nlb-helps-emq-build-a-high-performance-enterprise-class-mqtt-iot-access-platform.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/nlb-helps-emq-build-a-high-performance-enterprise-class-mqtt-iot-access-platform.json",
+      "word_count": 507,
+      "table_count": 0
+    },
+    {
+      "id": "slb:application-load-balancer",
+      "product": "slb",
+      "topic": "features",
+      "title": "应用型负载均衡ALB-负载均衡-阿里云",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer.json",
+      "word_count": 462,
+      "table_count": 0
     },
     {
       "id": "vpc:vpc-terms-of-service",
@@ -2268,39 +2477,6 @@
       "table_count": 0
     },
     {
-      "id": "ecs:developer-reference/create-and-manage-an-ecs-instance-by-using-cli-commands",
-      "product": "ecs",
-      "topic": "features",
-      "title": "通过CLI使用和管理ECS实例-云服务器 ECS(ECS)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/ecs/developer-reference/create-and-manage-an-ecs-instance-by-using-cli-commands",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/developer-reference/create-and-manage-an-ecs-instance-by-using-cli-commands.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/metadata/developer-reference/create-and-manage-an-ecs-instance-by-using-cli-commands.json",
-      "word_count": 1617,
-      "table_count": 22
-    },
-    {
-      "id": "ecs:developer-reference/terraform",
-      "product": "ecs",
-      "topic": "deployment",
-      "title": "使用Terraform部署ECS-云服务器 ECS(ECS)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/ecs/developer-reference/terraform",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/developer-reference/terraform.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/metadata/developer-reference/terraform.json",
-      "word_count": 2342,
-      "table_count": 3
-    },
-    {
-      "id": "ecs:developer-reference/bind-an-eip-to-an-eni-using-terraform",
-      "product": "ecs",
-      "topic": "features",
-      "title": "Terraform绑定EIP至辅助弹性网卡-云服务器 ECS-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ecs/developer-reference/bind-an-eip-to-an-eni-using-terraform",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/developer-reference/bind-an-eip-to-an-eni-using-terraform.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/metadata/developer-reference/bind-an-eip-to-an-eni-using-terraform.json",
-      "word_count": 1121,
-      "table_count": 0
-    },
-    {
       "id": "ecs:user-guide/overview-10",
       "product": "ecs",
       "topic": "selection",
@@ -2312,50 +2488,6 @@
       "table_count": 17
     },
     {
-      "id": "ecs:developer-reference/ecs-v2-0-sdk-overview",
-      "product": "ecs",
-      "topic": "features",
-      "title": "封装API调用操作ECS资源-ECS SDK-云服务器 ECS-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ecs/developer-reference/ecs-v2-0-sdk-overview",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/developer-reference/ecs-v2-0-sdk-overview.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/metadata/developer-reference/ecs-v2-0-sdk-overview.json",
-      "word_count": 1400,
-      "table_count": 4
-    },
-    {
-      "id": "ecs:developer-reference/use-sdk-for-java",
-      "product": "ecs",
-      "topic": "features",
-      "title": "安装和使用Java V2.0 SDK调用API-云服务器 ECS-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ecs/developer-reference/use-sdk-for-java",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/developer-reference/use-sdk-for-java.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/metadata/developer-reference/use-sdk-for-java.json",
-      "word_count": 1519,
-      "table_count": 0
-    },
-    {
-      "id": "ecs:developer-reference/ros-reference",
-      "product": "ecs",
-      "topic": "features",
-      "title": "ROS参考-云服务器 ECS(ECS)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/ecs/developer-reference/ros-reference",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/developer-reference/ros-reference.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/metadata/developer-reference/ros-reference.json",
-      "word_count": 469,
-      "table_count": 0
-    },
-    {
-      "id": "ecs:developer-reference/ecs-sdk-reference",
-      "product": "ecs",
-      "topic": "features",
-      "title": "ECS SDK参考-云服务器 ECS-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ecs/developer-reference/ecs-sdk-reference",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/developer-reference/ecs-sdk-reference.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/metadata/developer-reference/ecs-sdk-reference.json",
-      "word_count": 553,
-      "table_count": 0
-    },
-    {
       "id": "ecs:user-guide/troubleshoot-problems",
       "product": "ecs",
       "topic": "troubleshoot",
@@ -2364,17 +2496,6 @@
       "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/troubleshoot-problems.md",
       "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/metadata/user-guide/troubleshoot-problems.json",
       "word_count": 472,
-      "table_count": 0
-    },
-    {
-      "id": "ecs:developer-reference/appendix",
-      "product": "ecs",
-      "topic": "troubleshoot",
-      "title": "开发最佳实践及常见问题-云服务器 ECS-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ecs/developer-reference/appendix",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/developer-reference/appendix.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/metadata/developer-reference/appendix.json",
-      "word_count": 558,
       "table_count": 0
     },
     {
@@ -3489,17 +3610,6 @@
       "table_count": 4
     },
     {
-      "id": "rds:apsaradb-rds-for-mariadb/developer-reference",
-      "product": "rds",
-      "topic": "features",
-      "title": "开发参考-云数据库 RDS-阿里云",
-      "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mariadb/developer-reference",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mariadb/developer-reference.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/metadata/apsaradb-rds-for-mariadb/developer-reference.json",
-      "word_count": 497,
-      "table_count": 0
-    },
-    {
       "id": "rds:apsaradb-rds-for-mariadb/support",
       "product": "rds",
       "topic": "features",
@@ -3717,17 +3827,6 @@
       "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/ai-capability-center.md",
       "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/metadata/apsaradb-rds-for-mysql/ai-capability-center.json",
       "word_count": 468,
-      "table_count": 0
-    },
-    {
-      "id": "rds:apsaradb-rds-for-mysql/developer-reference",
-      "product": "rds",
-      "topic": "features",
-      "title": "开发参考-云数据库 RDS-阿里云",
-      "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/developer-reference",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/developer-reference.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/metadata/apsaradb-rds-for-mysql/developer-reference.json",
-      "word_count": 508,
       "table_count": 0
     },
     {
@@ -4270,17 +4369,6 @@
       "table_count": 0
     },
     {
-      "id": "rds:apsaradb-rds-for-postgresql/developer-reference",
-      "product": "rds",
-      "topic": "features",
-      "title": "开发参考-云数据库 RDS-阿里云",
-      "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/developer-reference",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-postgresql/developer-reference.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/metadata/apsaradb-rds-for-postgresql/developer-reference.json",
-      "word_count": 500,
-      "table_count": 0
-    },
-    {
       "id": "rds:apsaradb-rds-for-postgresql/use-cases",
       "product": "rds",
       "topic": "features",
@@ -4622,39 +4710,6 @@
       "table_count": 2
     },
     {
-      "id": "redis:developer-reference/overview-3",
-      "product": "redis",
-      "topic": "performance",
-      "title": "命令支持范围与使用限制-云数据库 Tair（兼容 Redis®）-阿里云",
-      "source_url": "https://help.aliyun.com/zh/redis/developer-reference/overview-3",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/overview-3.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/developer-reference/overview-3.json",
-      "word_count": 721,
-      "table_count": 2
-    },
-    {
-      "id": "redis:developer-reference/limits-on-commands-supported-by-cluster-and-read-write-splitting-instances",
-      "product": "redis",
-      "topic": "performance",
-      "title": "命令支持列表及使用规范-云数据库Tair（兼容Redis®）-阿里云",
-      "source_url": "https://help.aliyun.com/zh/redis/developer-reference/limits-on-commands-supported-by-cluster-and-read-write-splitting-instances",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/limits-on-commands-supported-by-cluster-and-read-write-splitting-instances.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/developer-reference/limits-on-commands-supported-by-cluster-and-read-write-splitting-instances.json",
-      "word_count": 1414,
-      "table_count": 85
-    },
-    {
-      "id": "redis:developer-reference/extended-data-structures-of-apsaradb-for-redis-enhanced-edition",
-      "product": "redis",
-      "topic": "selection",
-      "title": "Tair拓展数据结构及与Redis stack的功能对比-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/redis/developer-reference/extended-data-structures-of-apsaradb-for-redis-enhanced-edition",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/extended-data-structures-of-apsaradb-for-redis-enhanced-edition.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/developer-reference/extended-data-structures-of-apsaradb-for-redis-enhanced-edition.json",
-      "word_count": 1980,
-      "table_count": 7
-    },
-    {
       "id": "redis:user-guide/modify-the-synchronization-mode-of-a-persistent-memory-optimized-instance",
       "product": "redis",
       "topic": "features",
@@ -4897,127 +4952,6 @@
       "table_count": 14
     },
     {
-      "id": "redis:developer-reference/tairsting-command",
-      "product": "redis",
-      "topic": "features",
-      "title": "exString数据结构命令详解-云数据库 Tair（兼容 Redis®）-阿里云",
-      "source_url": "https://help.aliyun.com/zh/redis/developer-reference/tairsting-command",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/tairsting-command.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/developer-reference/tairsting-command.json",
-      "word_count": 1624,
-      "table_count": 17
-    },
-    {
-      "id": "redis:developer-reference/cas-cad-command",
-      "product": "redis",
-      "topic": "features",
-      "title": "Redis String的CAS与CAD增强命令-云数据库 Tair（兼容 Redis®）-阿里云",
-      "source_url": "https://help.aliyun.com/zh/redis/developer-reference/cas-cad-command",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/cas-cad-command.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/developer-reference/cas-cad-command.json",
-      "word_count": 816,
-      "table_count": 7
-    },
-    {
-      "id": "redis:developer-reference/tairzset-command",
-      "product": "redis",
-      "topic": "features",
-      "title": "什么是Tair扩展数据结构TairZset-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/redis/developer-reference/tairzset-command",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/tairzset-command.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/developer-reference/tairzset-command.json",
-      "word_count": 2839,
-      "table_count": 43
-    },
-    {
-      "id": "redis:developer-reference/the-tairhash-command",
-      "product": "redis",
-      "topic": "features",
-      "title": "TairHash数据结构命令详解-云数据库Tair-阿里云",
-      "source_url": "https://help.aliyun.com/zh/redis/developer-reference/the-tairhash-command",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/the-tairhash-command.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/developer-reference/the-tairhash-command.json",
-      "word_count": 3258,
-      "table_count": 51
-    },
-    {
-      "id": "redis:developer-reference/tairbloom-command",
-      "product": "redis",
-      "topic": "features",
-      "title": "TairBloom介绍,命令列表-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/redis/developer-reference/tairbloom-command",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/tairbloom-command.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/developer-reference/tairbloom-command.json",
-      "word_count": 1650,
-      "table_count": 21
-    },
-    {
-      "id": "redis:developer-reference/tairdoc-command",
-      "product": "redis",
-      "topic": "features",
-      "title": "Tair文档数据结构命令使用详解-云数据库 Tair（兼容 Redis®）-阿里云",
-      "source_url": "https://help.aliyun.com/zh/redis/developer-reference/tairdoc-command",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/tairdoc-command.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/developer-reference/tairdoc-command.json",
-      "word_count": 2567,
-      "table_count": 31
-    },
-    {
-      "id": "redis:developer-reference/tairgis-command",
-      "product": "redis",
-      "topic": "features",
-      "title": "GIS扩展命令参考与语法详解-云数据库 Tair（兼容 Redis®）-阿里云",
-      "source_url": "https://help.aliyun.com/zh/redis/developer-reference/tairgis-command",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/tairgis-command.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/developer-reference/tairgis-command.json",
-      "word_count": 1672,
-      "table_count": 19
-    },
-    {
-      "id": "redis:developer-reference/the-tickets-command",
-      "product": "redis",
-      "topic": "features",
-      "title": "时序数据存储聚合计算-TairTS-云数据库 Tair（兼容 Redis®）-阿里云",
-      "source_url": "https://help.aliyun.com/zh/redis/developer-reference/the-tickets-command",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/the-tickets-command.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/developer-reference/the-tickets-command.json",
-      "word_count": 3880,
-      "table_count": 43
-    },
-    {
-      "id": "redis:developer-reference/tairroaring-command",
-      "product": "redis",
-      "topic": "features",
-      "title": "TairRoaring扩展数据结构命令参考-云数据库 Tair（兼容 Redis®）-阿里云",
-      "source_url": "https://help.aliyun.com/zh/redis/developer-reference/tairroaring-command",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/tairroaring-command.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/developer-reference/tairroaring-command.json",
-      "word_count": 3272,
-      "table_count": 57
-    },
-    {
-      "id": "redis:developer-reference/tairsearch",
-      "product": "redis",
-      "topic": "features",
-      "title": "全文搜索数据结构聚合查询-TairSearch-云数据库 Tair（兼容 Redis®）-阿里云",
-      "source_url": "https://help.aliyun.com/zh/redis/developer-reference/tairsearch",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/tairsearch.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/developer-reference/tairsearch.json",
-      "word_count": 6123,
-      "table_count": 58
-    },
-    {
-      "id": "redis:developer-reference/taircpc-command",
-      "product": "redis",
-      "topic": "features",
-      "title": "Cpc数据结构命令参考-云数据库 Tair（兼容 Redis®）-阿里云",
-      "source_url": "https://help.aliyun.com/zh/redis/developer-reference/taircpc-command",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/taircpc-command.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/developer-reference/taircpc-command.json",
-      "word_count": 1809,
-      "table_count": 23
-    },
-    {
       "id": "redis:user-guide/enable-tde",
       "product": "redis",
       "topic": "features",
@@ -5027,17 +4961,6 @@
       "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/user-guide/enable-tde.json",
       "word_count": 914,
       "table_count": 2
-    },
-    {
-      "id": "redis:developer-reference/tairvector",
-      "product": "redis",
-      "topic": "features",
-      "title": "什么是TairVector-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/redis/developer-reference/tairvector",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/tairvector.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/developer-reference/tairvector.json",
-      "word_count": 4333,
-      "table_count": 58
     },
     {
       "id": "redis:user-guide/enable-tls-encryption",
@@ -5546,17 +5469,6 @@
       "table_count": 4
     },
     {
-      "id": "redis:developer-reference/tairsearch-word-splitter",
-      "product": "redis",
-      "topic": "features",
-      "title": "Search分词器类型与配置方法-云数据库 Tair（兼容 Redis®）-阿里云",
-      "source_url": "https://help.aliyun.com/zh/redis/developer-reference/tairsearch-word-splitter",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/tairsearch-word-splitter.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/metadata/developer-reference/tairsearch-word-splitter.json",
-      "word_count": 4406,
-      "table_count": 6
-    },
-    {
       "id": "redis:user-guide/use-the-real-time-key-statistics-feature",
       "product": "redis",
       "topic": "features",
@@ -5733,17 +5645,6 @@
       "table_count": 2
     },
     {
-      "id": "oss:developer-reference/faq-24",
-      "product": "oss",
-      "topic": "troubleshoot",
-      "title": "排查SignatureDoesNotMatch签名错误的方法与常见场景-对象存储-阿里云",
-      "source_url": "https://help.aliyun.com/zh/oss/developer-reference/faq-24",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/developer-reference/faq-24.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/metadata/developer-reference/faq-24.json",
-      "word_count": 749,
-      "table_count": 0
-    },
-    {
       "id": "oss:billing-and-expense-management",
       "product": "oss",
       "topic": "pricing",
@@ -5766,28 +5667,6 @@
       "table_count": 46
     },
     {
-      "id": "oss:developer-reference/common-tools",
-      "product": "oss",
-      "topic": "features",
-      "title": "常用工具-对象存储-阿里云",
-      "source_url": "https://help.aliyun.com/zh/oss/developer-reference/common-tools",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/developer-reference/common-tools.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/metadata/developer-reference/common-tools.json",
-      "word_count": 604,
-      "table_count": 0
-    },
-    {
-      "id": "oss:developer-reference/sdk-code-samples",
-      "product": "oss",
-      "topic": "features",
-      "title": "SDK参考-对象存储-阿里云",
-      "source_url": "https://help.aliyun.com/zh/oss/developer-reference/sdk-code-samples",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/developer-reference/sdk-code-samples.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/metadata/developer-reference/sdk-code-samples.json",
-      "word_count": 631,
-      "table_count": 0
-    },
-    {
       "id": "oss:whether-the-oss-directory-level-has-a-depth-limit",
       "product": "oss",
       "topic": "performance",
@@ -5796,17 +5675,6 @@
       "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/whether-the-oss-directory-level-has-a-depth-limit.md",
       "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/metadata/whether-the-oss-directory-level-has-a-depth-limit.json",
       "word_count": 544,
-      "table_count": 0
-    },
-    {
-      "id": "oss:developer-reference/oss-signature-mechanism-guide",
-      "product": "oss",
-      "topic": "features",
-      "title": "OSS签名机制指南-对象存储-阿里云",
-      "source_url": "https://help.aliyun.com/zh/oss/developer-reference/oss-signature-mechanism-guide",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/developer-reference/oss-signature-mechanism-guide.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/metadata/developer-reference/oss-signature-mechanism-guide.json",
-      "word_count": 508,
       "table_count": 0
     },
     {
@@ -5821,17 +5689,6 @@
       "table_count": 0
     },
     {
-      "id": "oss:developer-reference/compatibility-with-amazon-s3-1",
-      "product": "oss",
-      "topic": "features",
-      "title": "OSS与Amazon S3兼容-对象存储-阿里云",
-      "source_url": "https://help.aliyun.com/zh/oss/developer-reference/compatibility-with-amazon-s3-1",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/developer-reference/compatibility-with-amazon-s3-1.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/metadata/developer-reference/compatibility-with-amazon-s3-1.json",
-      "word_count": 512,
-      "table_count": 0
-    },
-    {
       "id": "oss:user-guide/multipart-upload",
       "product": "oss",
       "topic": "features",
@@ -5841,28 +5698,6 @@
       "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/metadata/user-guide/multipart-upload.json",
       "word_count": 3183,
       "table_count": 8
-    },
-    {
-      "id": "oss:developer-reference/ossbrowser-2-0-overview",
-      "product": "oss",
-      "topic": "features",
-      "title": "图形化桌面客户端管理OSS资源-ossbrowser 2.0-对象存储-阿里云",
-      "source_url": "https://help.aliyun.com/zh/oss/developer-reference/ossbrowser-2-0-overview",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/developer-reference/ossbrowser-2-0-overview.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/metadata/developer-reference/ossbrowser-2-0-overview.json",
-      "word_count": 760,
-      "table_count": 4
-    },
-    {
-      "id": "oss:developer-reference/ossutil-overview",
-      "product": "oss",
-      "topic": "features",
-      "title": "如何通过Windows、Linux和macOS系统以命令行方式管理OSS数据-对象存储(OSS)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/oss/developer-reference/ossutil-overview/?spm=a2c4g.11186623.help-menu-31815.d_1_2.6a55a784mm3PDj",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/developer-reference/ossutil-overview.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/metadata/developer-reference/ossutil-overview.json",
-      "word_count": 4909,
-      "table_count": 48
     },
     {
       "id": "oss:user-guide/terms-of-service",
@@ -6184,6 +6019,182 @@
       "table_count": 0
     },
     {
+      "id": "model-studio:preparations",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "准备工作-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/preparations",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/preparations.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/preparations.json",
+      "word_count": 488,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:image-generation",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "图像生成-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/image-generation",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/image-generation.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/image-generation.json",
+      "word_count": 502,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:model-release-notes",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "模型平台功能更新-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/model-release-notes",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/model-release-notes.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/model-release-notes.json",
+      "word_count": 3044,
+      "table_count": 112
+    },
+    {
+      "id": "model-studio:3d-generation",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "3D模型生成-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/3d-generation",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/3d-generation.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/3d-generation.json",
+      "word_count": 471,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:vector-and-sort",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "通用文本向量-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/vector-and-sort",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/vector-and-sort.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/vector-and-sort.json",
+      "word_count": 480,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:toolkits-and-frameworks",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "工具包/框架-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/toolkits-and-frameworks",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/toolkits-and-frameworks.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/toolkits-and-frameworks.json",
+      "word_count": 539,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:component-management",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "最佳实践-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/component-management",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/component-management.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/component-management.json",
+      "word_count": 1916,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:more-about-models",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "更多-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/more-about-models",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/more-about-models.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/more-about-models.json",
+      "word_count": 502,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:more-models",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "更多-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/more-models",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/more-models.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/more-models.json",
+      "word_count": 509,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:model-production",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "模型生产-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/model-production",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/model-production.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/model-production.json",
+      "word_count": 478,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:get-started-with-models",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "开始使用-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/get-started-with-models",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/get-started-with-models.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/get-started-with-models.json",
+      "word_count": 491,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:test-1",
+      "product": "model-studio",
+      "topic": "pricing",
+      "title": "产品计费-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/test-1",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/test-1.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/test-1.json",
+      "word_count": 495,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:model-experience",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "模型体验-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/model-experience",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/model-experience.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/model-experience.json",
+      "word_count": 512,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:use-chat-client-or-development-tool",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "接入客户端/开发工具-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/use-chat-client-or-development-tool",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/use-chat-client-or-development-tool.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/use-chat-client-or-development-tool.json",
+      "word_count": 544,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:token-plan-guide",
+      "product": "model-studio",
+      "topic": "features",
+      "title": "Token Plan（团队版）-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/token-plan-guide",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/token-plan-guide.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/token-plan-guide.json",
+      "word_count": 503,
+      "table_count": 0
+    },
+    {
+      "id": "model-studio:model-deployment-1",
+      "product": "model-studio",
+      "topic": "deployment",
+      "title": "模型部署-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/model-studio/model-deployment-1",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/model-deployment-1.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/metadata/model-deployment-1.json",
+      "word_count": 488,
+      "table_count": 0
+    },
+    {
       "id": "sls:billing",
       "product": "sls",
       "topic": "pricing",
@@ -6214,6 +6225,94 @@
       "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/customer-use-cases.md",
       "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/metadata/customer-use-cases.json",
       "word_count": 475,
+      "table_count": 0
+    },
+    {
+      "id": "slb:network-load-balancer/user-guide",
+      "product": "slb",
+      "topic": "features",
+      "title": "操作指南-负载均衡-阿里云",
+      "source_url": "https://help.aliyun.com/zh/slb/network-load-balancer/user-guide/",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/network-load-balancer/user-guide.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/network-load-balancer/user-guide.json",
+      "word_count": 525,
+      "table_count": 0
+    },
+    {
+      "id": "slb:classic-load-balancer/user-guide",
+      "product": "slb",
+      "topic": "features",
+      "title": "操作指南-负载均衡-阿里云",
+      "source_url": "https://help.aliyun.com/zh/slb/classic-load-balancer/user-guide/",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/classic-load-balancer/user-guide.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/classic-load-balancer/user-guide.json",
+      "word_count": 530,
+      "table_count": 0
+    },
+    {
+      "id": "slb:network-load-balancer",
+      "product": "slb",
+      "topic": "features",
+      "title": "网络型负载均衡NLB-负载均衡-阿里云",
+      "source_url": "https://help.aliyun.com/zh/slb/network-load-balancer/",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/network-load-balancer.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/network-load-balancer.json",
+      "word_count": 462,
+      "table_count": 0
+    },
+    {
+      "id": "slb:network-load-balancer/product-overview",
+      "product": "slb",
+      "topic": "features",
+      "title": "产品概述-网络型负载均衡NLB-阿里云",
+      "source_url": "https://help.aliyun.com/zh/slb/network-load-balancer/product-overview/",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/network-load-balancer/product-overview.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/network-load-balancer/product-overview.json",
+      "word_count": 478,
+      "table_count": 0
+    },
+    {
+      "id": "slb:application-load-balancer/product-overview",
+      "product": "slb",
+      "topic": "features",
+      "title": "产品概述-负载均衡-阿里云",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/product-overview",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/product-overview.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/product-overview.json",
+      "word_count": 477,
+      "table_count": 0
+    },
+    {
+      "id": "slb:classic-load-balancer",
+      "product": "slb",
+      "topic": "features",
+      "title": "传统型负载均衡CLB-负载均衡-阿里云",
+      "source_url": "https://help.aliyun.com/zh/slb/classic-load-balancer/",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/classic-load-balancer.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/classic-load-balancer.json",
+      "word_count": 462,
+      "table_count": 0
+    },
+    {
+      "id": "slb:application-load-balancer/user-guide",
+      "product": "slb",
+      "topic": "features",
+      "title": "操作指南-负载均衡-阿里云",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/user-guide.json",
+      "word_count": 543,
+      "table_count": 0
+    },
+    {
+      "id": "slb:classic-load-balancer/product-overview",
+      "product": "slb",
+      "topic": "features",
+      "title": "产品概述-负载均衡-阿里云",
+      "source_url": "https://help.aliyun.com/zh/slb/classic-load-balancer/product-overview/",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/classic-load-balancer/product-overview.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/classic-load-balancer/product-overview.json",
+      "word_count": 477,
       "table_count": 0
     },
     {
@@ -6336,17 +6435,6 @@
       "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/metadata/vpc-connection-to-cloud-service.json",
       "word_count": 1799,
       "table_count": 7
-    },
-    {
-      "id": "vpc:use-privatelink-to-access-vpc-openapi-over-private-network",
-      "product": "vpc",
-      "topic": "features",
-      "title": "使用 PrivateLink 私网访问 VPC OpenAPI-专有网络VPC(VPC)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/vpc/use-privatelink-to-access-vpc-openapi-over-private-network",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/use-privatelink-to-access-vpc-openapi-over-private-network.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/metadata/use-privatelink-to-access-vpc-openapi-over-private-network.json",
-      "word_count": 697,
-      "table_count": 0
     },
     {
       "id": "vpc:vpc-sharing",
@@ -6855,17 +6943,6 @@
       "table_count": 0
     },
     {
-      "id": "cdn:developer-reference",
-      "product": "cdn",
-      "topic": "features",
-      "title": "开发参考-CDN-阿里云",
-      "source_url": "https://help.aliyun.com/zh/cdn/developer-reference",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/developer-reference.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/metadata/developer-reference.json",
-      "word_count": 518,
-      "table_count": 0
-    },
-    {
       "id": "cdn:support",
       "product": "cdn",
       "topic": "features",
@@ -7196,17 +7273,6 @@
       "table_count": 0
     },
     {
-      "id": "sls:developer-reference",
-      "product": "sls",
-      "topic": "features",
-      "title": "开发参考-日志服务-阿里云",
-      "source_url": "https://help.aliyun.com/zh/sls/developer-reference",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/developer-reference.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/metadata/developer-reference.json",
-      "word_count": 512,
-      "table_count": 0
-    },
-    {
       "id": "sls:security-compliance",
       "product": "sls",
       "topic": "features",
@@ -7249,17 +7315,6 @@
       "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/metadata/getting-started.json",
       "word_count": 1713,
       "table_count": 2
-    },
-    {
-      "id": "sls:developer-reference/get-started-with-log-service-sdk-for-python",
-      "product": "sls",
-      "topic": "features",
-      "title": "使用日志服务PythonSDK完成常见操作-日志服务(SLS)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/sls/developer-reference/get-started-with-log-service-sdk-for-python",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/developer-reference/get-started-with-log-service-sdk-for-python.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/metadata/developer-reference/get-started-with-log-service-sdk-for-python.json",
-      "word_count": 1161,
-      "table_count": 0
     },
     {
       "id": "sls:manage-a-logstore",
@@ -7821,83 +7876,6 @@
       "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/metadata/configure-system-recommended-features.json",
       "word_count": 643,
       "table_count": 9
-    },
-    {
-      "id": "cdn:developer-reference/announcement-on-discontinuation-of-2014-api",
-      "product": "cdn",
-      "topic": "features",
-      "title": "关于2014旧版API下线的公告-CDN-阿里云",
-      "source_url": "https://help.aliyun.com/zh/cdn/developer-reference/announcement-on-discontinuation-of-2014-api",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/developer-reference/announcement-on-discontinuation-of-2014-api.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/metadata/developer-reference/announcement-on-discontinuation-of-2014-api.json",
-      "word_count": 1023,
-      "table_count": 33
-    },
-    {
-      "id": "cdn:developer-reference/using-openapi",
-      "product": "cdn",
-      "topic": "features",
-      "title": "CDN集成概览-CDN(CDN)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/cdn/developer-reference/using-openapi",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/developer-reference/using-openapi.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/metadata/developer-reference/using-openapi.json",
-      "word_count": 1260,
-      "table_count": 9
-    },
-    {
-      "id": "cdn:developer-reference/sdk-reference",
-      "product": "cdn",
-      "topic": "features",
-      "title": "SDK参考-CDN-阿里云",
-      "source_url": "https://help.aliyun.com/zh/cdn/developer-reference/sdk-reference",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/developer-reference/sdk-reference.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/metadata/developer-reference/sdk-reference.json",
-      "word_count": 474,
-      "table_count": 0
-    },
-    {
-      "id": "cdn:developer-reference/cdn-setup-with-terraform",
-      "product": "cdn",
-      "topic": "features",
-      "title": "Terraform集成CDN参考指南-CDN-阿里云",
-      "source_url": "https://help.aliyun.com/zh/cdn/developer-reference/cdn-setup-with-terraform",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/developer-reference/cdn-setup-with-terraform.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/metadata/developer-reference/cdn-setup-with-terraform.json",
-      "word_count": 496,
-      "table_count": 0
-    },
-    {
-      "id": "cdn:developer-reference/cli-integration-example",
-      "product": "cdn",
-      "topic": "features",
-      "title": "使用阿里云CLI管理CDN操作示例-CDN-阿里云-CDN(CDN)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/cdn/developer-reference/cli-integration-example",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/developer-reference/cli-integration-example.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/metadata/developer-reference/cli-integration-example.json",
-      "word_count": 1001,
-      "table_count": 0
-    },
-    {
-      "id": "cdn:developer-reference/resource-orchestration-ros-integration-example",
-      "product": "cdn",
-      "topic": "features",
-      "title": "通过编写资源编排ROS添加加速域名-CDN(CDN)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/cdn/developer-reference/resource-orchestration-ros-integration-example",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/developer-reference/resource-orchestration-ros-integration-example.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/metadata/developer-reference/resource-orchestration-ros-integration-example.json",
-      "word_count": 1199,
-      "table_count": 0
-    },
-    {
-      "id": "cdn:developer-reference/apiappendix",
-      "product": "cdn",
-      "topic": "features",
-      "title": "附录-CDN-阿里云",
-      "source_url": "https://help.aliyun.com/zh/cdn/developer-reference/apiappendix",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/developer-reference/apiappendix.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/metadata/developer-reference/apiappendix.json",
-      "word_count": 483,
-      "table_count": 0
     },
     {
       "id": "cdn:security-and-compliance/cdn-compliance-certifications",
@@ -8593,17 +8571,6 @@
       "table_count": 0
     },
     {
-      "id": "ack:ack-edge/developer-reference",
-      "product": "ack",
-      "topic": "features",
-      "title": "开发参考-容器服务 Kubernetes 版-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference.json",
-      "word_count": 502,
-      "table_count": 0
-    },
-    {
       "id": "ack:ack-edge/support",
       "product": "ack",
       "topic": "features",
@@ -9033,72 +9000,6 @@
       "table_count": 0
     },
     {
-      "id": "cdn:developer-reference/parameters-for-configuring-features-for-domain-names",
-      "product": "cdn",
-      "topic": "features",
-      "title": "调用API接口配置域名功能及功能参数用法-CDN(CDN)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/cdn/developer-reference/parameters-for-configuring-features-for-domain-names",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/developer-reference/parameters-for-configuring-features-for-domain-names.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/metadata/developer-reference/parameters-for-configuring-features-for-domain-names.json",
-      "word_count": 8836,
-      "table_count": 323
-    },
-    {
-      "id": "cdn:developer-reference/usage-notes-on-configid",
-      "product": "cdn",
-      "topic": "features",
-      "title": "使用ConfigId管理域名配置-CDN-阿里云",
-      "source_url": "https://help.aliyun.com/zh/cdn/developer-reference/usage-notes-on-configid",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/developer-reference/usage-notes-on-configid.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/metadata/developer-reference/usage-notes-on-configid.json",
-      "word_count": 853,
-      "table_count": 2
-    },
-    {
-      "id": "cdn:developer-reference/http-status-code-description",
-      "product": "cdn",
-      "topic": "features",
-      "title": "HTTP状态码错误解析与处理方法-CDN-阿里云",
-      "source_url": "https://help.aliyun.com/zh/cdn/developer-reference/http-status-code-description",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/developer-reference/http-status-code-description.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/metadata/developer-reference/http-status-code-description.json",
-      "word_count": 743,
-      "table_count": 0
-    },
-    {
-      "id": "cdn:developer-reference/add-and-configure-a-cdndcdn-domain-name-by-using-terraform",
-      "product": "cdn",
-      "topic": "features",
-      "title": "通过Terraform添加并配置CDN域名的操作步骤及前提条件-CDN(CDN)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/cdn/developer-reference/add-and-configure-a-cdndcdn-domain-name-by-using-terraform",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/developer-reference/add-and-configure-a-cdndcdn-domain-name-by-using-terraform.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/metadata/developer-reference/add-and-configure-a-cdndcdn-domain-name-by-using-terraform.json",
-      "word_count": 1239,
-      "table_count": 0
-    },
-    {
-      "id": "cdn:developer-reference/using-terraform-to-add-cdn-domain-name-results-in-https-configuration-error",
-      "product": "cdn",
-      "topic": "troubleshoot",
-      "title": "解决Terraform添加CDN域名时的HTTPS配置报错-CDN-阿里云",
-      "source_url": "https://help.aliyun.com/zh/cdn/developer-reference/using-terraform-to-add-cdn-domain-name-results-in-https-configuration-error",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/developer-reference/using-terraform-to-add-cdn-domain-name-results-in-https-configuration-error.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/metadata/developer-reference/using-terraform-to-add-cdn-domain-name-results-in-https-configuration-error.json",
-      "word_count": 653,
-      "table_count": 0
-    },
-    {
-      "id": "cdn:developer-reference/terraform-configuration-faq",
-      "product": "cdn",
-      "topic": "troubleshoot",
-      "title": "使用Terraform配置CDN证书的常见问题-CDN-阿里云",
-      "source_url": "https://help.aliyun.com/zh/cdn/developer-reference/terraform-configuration-faq",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/developer-reference/terraform-configuration-faq.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/metadata/developer-reference/terraform-configuration-faq.json",
-      "word_count": 654,
-      "table_count": 0
-    },
-    {
       "id": "sls:ship-and-analyze-alibaba-cloud-cdn-real-time-logs-in-log-service",
       "product": "sls",
       "topic": "features",
@@ -9385,28 +9286,6 @@
       "table_count": 3
     },
     {
-      "id": "sls:developer-reference/service-entrance",
-      "product": "sls",
-      "topic": "features",
-      "title": "日志服务不同网络类型的服务入口-日志服务(SLS)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/sls/developer-reference/service-entrance",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/developer-reference/service-entrance.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/metadata/developer-reference/service-entrance.json",
-      "word_count": 1307,
-      "table_count": 15
-    },
-    {
-      "id": "sls:developer-reference/access-key",
-      "product": "sls",
-      "topic": "features",
-      "title": "了解并创建RAM用户的AccessKey-日志服务-阿里云",
-      "source_url": "https://help.aliyun.com/zh/sls/developer-reference/access-key",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/developer-reference/access-key.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/metadata/developer-reference/access-key.json",
-      "word_count": 563,
-      "table_count": 0
-    },
-    {
       "id": "sls:configure-alerts-2-k8s",
       "product": "sls",
       "topic": "features",
@@ -9605,50 +9484,6 @@
       "table_count": 0
     },
     {
-      "id": "ack:ack-edge/developer-reference/using-the-kubernetes-api",
-      "product": "ack",
-      "topic": "features",
-      "title": "使用Kubernetes API-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/using-the-kubernetes-api",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/using-the-kubernetes-api.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference/using-the-kubernetes-api.json",
-      "word_count": 1191,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-edge/developer-reference/sdk-reference",
-      "product": "ack",
-      "topic": "features",
-      "title": "SDK参考-容器服务 Kubernetes 版-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/sdk-reference",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/sdk-reference.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference/sdk-reference.json",
-      "word_count": 477,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-edge/developer-reference/cli-reference",
-      "product": "ack",
-      "topic": "features",
-      "title": "CLI参考-容器服务 Kubernetes 版-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/cli-reference",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/cli-reference.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference/cli-reference.json",
-      "word_count": 498,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-edge/developer-reference/terraform",
-      "product": "ack",
-      "topic": "features",
-      "title": "Terraform-容器服务 Kubernetes 版-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/terraform",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/terraform.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference/terraform.json",
-      "word_count": 534,
-      "table_count": 0
-    },
-    {
       "id": "ack:ack-edge/security-and-compliance/faq-about-container-security",
       "product": "ack",
       "topic": "troubleshoot",
@@ -9823,17 +9658,6 @@
       "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/user-guide/create-an-ack-edge-cluster.json",
       "word_count": 1714,
       "table_count": 9
-    },
-    {
-      "id": "ack:ack-edge/developer-reference/use-terraform-to-create-an-ack-edge-cluster",
-      "product": "ack",
-      "topic": "features",
-      "title": "使用Terraform创建ACK Edge集群-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/use-terraform-to-create-an-ack-edge-cluster",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/use-terraform-to-create-an-ack-edge-cluster.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference/use-terraform-to-create-an-ack-edge-cluster.json",
-      "word_count": 1977,
-      "table_count": 0
     },
     {
       "id": "ack:ack-edge/user-guide/add-an-edge-node",
@@ -10593,160 +10417,6 @@
       "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-argo-workflow-cluster/user-guide/observability.json",
       "word_count": 490,
       "table_count": 0
-    },
-    {
-      "id": "ack:ack-edge/developer-reference/cli-integration-example",
-      "product": "ack",
-      "topic": "features",
-      "title": "通过CLI工具使用容器服务-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/cli-integration-example",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/cli-integration-example.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference/cli-integration-example.json",
-      "word_count": 1287,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-edge/developer-reference/view-all-clusters",
-      "product": "ack",
-      "topic": "features",
-      "title": "使用CLI查看所有集群实例-容器服务 Kubernetes 版 ACK-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/view-all-clusters",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/view-all-clusters.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference/view-all-clusters.json",
-      "word_count": 481,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-edge/developer-reference/view-cluster",
-      "product": "ack",
-      "topic": "features",
-      "title": "通过CLI命令获取Edge集群详细信息-容器服务 Kubernetes 版 ACK-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/view-cluster",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/view-cluster.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference/view-cluster.json",
-      "word_count": 550,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-edge/developer-reference/create-a-cluster",
-      "product": "ack",
-      "topic": "features",
-      "title": "如何通过CLI创建ACK集群-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/create-a-cluster",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/create-a-cluster.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference/create-a-cluster.json",
-      "word_count": 965,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-edge/developer-reference/add-an-existing-ecs-instance",
-      "product": "ack",
-      "topic": "features",
-      "title": "使用CLI添加已有ECS实例到集群-容器服务 Kubernetes 版 ACK-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/add-an-existing-ecs-instance",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/add-an-existing-ecs-instance.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference/add-an-existing-ecs-instance.json",
-      "word_count": 517,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-edge/developer-reference/deleting-a-cluster",
-      "product": "ack",
-      "topic": "features",
-      "title": "使用CLI删除集群实例并释放节点资源-容器服务 Kubernetes 版 ACK-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/deleting-a-cluster",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/deleting-a-cluster.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference/deleting-a-cluster.json",
-      "word_count": 473,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-edge/developer-reference/install-the-sdk",
-      "product": "ack",
-      "topic": "deployment",
-      "title": "使用容器服务SDK-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/install-the-sdk",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/install-the-sdk.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference/install-the-sdk.json",
-      "word_count": 1074,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-edge/developer-reference/sdk-description",
-      "product": "ack",
-      "topic": "features",
-      "title": "SDK下载-容器服务 Kubernetes 版 ACK-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/sdk-description",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/sdk-description.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference/sdk-description.json",
-      "word_count": 1185,
-      "table_count": 3
-    },
-    {
-      "id": "ack:ack-edge/developer-reference/terraform-overview",
-      "product": "ack",
-      "topic": "features",
-      "title": "通过代码自动化管理云基础设施-Terraform-容器服务 Kubernetes 版 ACK-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/terraform-overview",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/terraform-overview.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference/terraform-overview.json",
-      "word_count": 1252,
-      "table_count": 6
-    },
-    {
-      "id": "ack:ack-edge/developer-reference/activate-ack-edge-for-the-first-time-and-authorize-the-default-role",
-      "product": "ack",
-      "topic": "deployment",
-      "title": "使用Terraform首次开通ACK Edge并授权默认角色-容器服务 Kubernetes 版 ACK-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/activate-ack-edge-for-the-first-time-and-authorize-the-default-role",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/activate-ack-edge-for-the-first-time-and-authorize-the-default-role.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference/activate-ack-edge-for-the-first-time-and-authorize-the-default-role.json",
-      "word_count": 2320,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-edge/developer-reference/authorize-the-default-role-through-terraform-when-using-ack-for",
-      "product": "ack",
-      "topic": "deployment",
-      "title": "使用Terraform首次开通ACK并对服务角色进行授权-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/authorize-the-default-role-through-terraform-when-using-ack-for",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/authorize-the-default-role-through-terraform-when-using-ack-for.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference/authorize-the-default-role-through-terraform-when-using-ack-for.json",
-      "word_count": 2787,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-edge/developer-reference/use-terraform-to-manage-created-clusters",
-      "product": "ack",
-      "topic": "features",
-      "title": "使用Terraform管理已创建的集群-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/use-terraform-to-manage-created-clusters",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/use-terraform-to-manage-created-clusters.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference/use-terraform-to-manage-created-clusters.json",
-      "word_count": 1603,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-edge/developer-reference/use-terraform-to-create-an-auto-scaling-node-pool",
-      "product": "ack",
-      "topic": "features",
-      "title": "使用Terraform创建具备自动伸缩功能的节点池-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/use-terraform-to-create-an-auto-scaling-node-pool",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/use-terraform-to-create-an-auto-scaling-node-pool.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference/use-terraform-to-create-an-auto-scaling-node-pool.json",
-      "word_count": 2228,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-edge/developer-reference/use-terraform-to-manage-components",
-      "product": "ack",
-      "topic": "features",
-      "title": "Terraform管理组件配置与生命周期-容器服务 Kubernetes 版 ACK-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/use-terraform-to-manage-components",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/use-terraform-to-manage-components.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/developer-reference/use-terraform-to-manage-components.json",
-      "word_count": 2371,
-      "table_count": 8
     },
     {
       "id": "ack:ack-managed-and-ack-dedicated/user-guide/create-an-ack-managed-cluster-2",
@@ -11552,17 +11222,6 @@
       "table_count": 0
     },
     {
-      "id": "ack:ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-assign-default-roles-to-ack-when-you-use-ack-for-the-first-time",
-      "product": "ack",
-      "topic": "deployment",
-      "title": "使用Terraform开通ACK后授权服务角色-容器服务 Kubernetes 版 ACK-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-assign-default-roles-to-ack-when-you-use-ack-for-the-first-time",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-assign-default-roles-to-ack-when-you-use-ack-for-the-first-time.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-assign-default-roles-to-ack-when-you-use-ack-for-the-first-time.json",
-      "word_count": 2776,
-      "table_count": 0
-    },
-    {
       "id": "sls:silence-policies",
       "product": "sls",
       "topic": "features",
@@ -11704,83 +11363,6 @@
       "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/metadata/default-alert-templates.json",
       "word_count": 1788,
       "table_count": 0
-    },
-    {
-      "id": "sls:developer-reference/overview-of-log-service-sdk",
-      "product": "sls",
-      "topic": "features",
-      "title": "日志服务全流程管理编程开发接口-日志服务SDK-日志服务-阿里云",
-      "source_url": "https://help.aliyun.com/zh/sls/developer-reference/overview-of-log-service-sdk",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/developer-reference/overview-of-log-service-sdk.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/metadata/developer-reference/overview-of-log-service-sdk.json",
-      "word_count": 1509,
-      "table_count": 3
-    },
-    {
-      "id": "sls:developer-reference/use-log-service-sdk-for-java-to-manage-indexes",
-      "product": "sls",
-      "topic": "features",
-      "title": "如何创建/修改/查询/删除索引-日志服务(SLS)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/sls/developer-reference/use-log-service-sdk-for-java-to-manage-indexes",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/developer-reference/use-log-service-sdk-for-java-to-manage-indexes.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/metadata/developer-reference/use-log-service-sdk-for-java-to-manage-indexes.json",
-      "word_count": 1518,
-      "table_count": 0
-    },
-    {
-      "id": "sls:developer-reference/use-log-service-sdk-for-python-to-manage-indexes",
-      "product": "sls",
-      "topic": "features",
-      "title": "如何创建、修改、查询、删除索引-日志服务(SLS)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/sls/developer-reference/use-log-service-sdk-for-python-to-manage-indexes",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/developer-reference/use-log-service-sdk-for-python-to-manage-indexes.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/metadata/developer-reference/use-log-service-sdk-for-python-to-manage-indexes.json",
-      "word_count": 1309,
-      "table_count": 0
-    },
-    {
-      "id": "sls:developer-reference/create-index",
-      "product": "sls",
-      "topic": "features",
-      "title": "使用CLI的create_index命令创建索引-日志服务-阿里云",
-      "source_url": "https://help.aliyun.com/zh/sls/developer-reference/create-index",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/developer-reference/create-index.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/metadata/developer-reference/create-index.json",
-      "word_count": 699,
-      "table_count": 5
-    },
-    {
-      "id": "sls:developer-reference/delete-index",
-      "product": "sls",
-      "topic": "features",
-      "title": "使用CLI delete_index命令删除Logstore索引-日志服务-阿里云",
-      "source_url": "https://help.aliyun.com/zh/sls/developer-reference/delete-index",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/developer-reference/delete-index.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/metadata/developer-reference/delete-index.json",
-      "word_count": 562,
-      "table_count": 5
-    },
-    {
-      "id": "sls:developer-reference/get-index-config",
-      "product": "sls",
-      "topic": "features",
-      "title": "使用get_index_config命令获取Logstore索引配置-日志服务-阿里云",
-      "source_url": "https://help.aliyun.com/zh/sls/developer-reference/get-index-config",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/developer-reference/get-index-config.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/metadata/developer-reference/get-index-config.json",
-      "word_count": 609,
-      "table_count": 5
-    },
-    {
-      "id": "sls:developer-reference/update-index",
-      "product": "sls",
-      "topic": "features",
-      "title": "使用CLI update_index命令修改LogStore索引-日志服务-阿里云",
-      "source_url": "https://help.aliyun.com/zh/sls/developer-reference/update-index",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/developer-reference/update-index.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/metadata/developer-reference/update-index.json",
-      "word_count": 697,
-      "table_count": 5
     },
     {
       "id": "sls:query-and-analyze-website-logs",
@@ -12044,17 +11626,6 @@
       "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/vpc-custom-permission-policy-reference.md",
       "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/metadata/vpc-custom-permission-policy-reference.json",
       "word_count": 652,
-      "table_count": 0
-    },
-    {
-      "id": "cdn:developer-reference/java-sdk-call-example",
-      "product": "cdn",
-      "topic": "features",
-      "title": "Java SDK调用示例-CDN(CDN)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/cdn/developer-reference/java-sdk-call-example",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/developer-reference/java-sdk-call-example.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/metadata/developer-reference/java-sdk-call-example.json",
-      "word_count": 901,
       "table_count": 0
     },
     {
@@ -12795,83 +12366,6 @@
       "table_count": 4
     },
     {
-      "id": "ack:ack-managed-and-ack-dedicated/developer-reference/view-all-clusters-1",
-      "product": "ack",
-      "topic": "features",
-      "title": "使用阿里云CLI查看所有集群-容器服务 Kubernetes 版 ACK-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/developer-reference/view-all-clusters-1",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/view-all-clusters-1.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-managed-and-ack-dedicated/developer-reference/view-all-clusters-1.json",
-      "word_count": 485,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-managed-and-ack-dedicated/developer-reference/view-information-about-a-cluster",
-      "product": "ack",
-      "topic": "features",
-      "title": "使用CLI根据集群ID查看集群详细信息-容器服务 Kubernetes 版 ACK-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/developer-reference/view-information-about-a-cluster",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/view-information-about-a-cluster.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-managed-and-ack-dedicated/developer-reference/view-information-about-a-cluster.json",
-      "word_count": 811,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-managed-and-ack-dedicated/developer-reference/create-a-cluster-2",
-      "product": "ack",
-      "topic": "features",
-      "title": "如何通过CLI创建ACK集群-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/developer-reference/create-a-cluster-2",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/create-a-cluster-2.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-managed-and-ack-dedicated/developer-reference/create-a-cluster-2.json",
-      "word_count": 962,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-managed-and-ack-dedicated/developer-reference/add-an-existing-ecs-instance",
-      "product": "ack",
-      "topic": "features",
-      "title": "使用CLI添加已有ECS实例到ACK集群-容器服务 Kubernetes 版 ACK-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/developer-reference/add-an-existing-ecs-instance",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/add-an-existing-ecs-instance.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-managed-and-ack-dedicated/developer-reference/add-an-existing-ecs-instance.json",
-      "word_count": 507,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-managed-and-ack-dedicated/developer-reference/delete-a-cluster-3",
-      "product": "ack",
-      "topic": "features",
-      "title": "使用aliyun cs命令删除集群实例-容器服务 Kubernetes 版 ACK-阿里云",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/developer-reference/delete-a-cluster-3",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/delete-a-cluster-3.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-managed-and-ack-dedicated/developer-reference/delete-a-cluster-3.json",
-      "word_count": 474,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-ack-managed-cluster",
-      "product": "ack",
-      "topic": "features",
-      "title": "使用Terraform创建ACK托管版集群-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-ack-managed-cluster",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-ack-managed-cluster.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-ack-managed-cluster.json",
-      "word_count": 1997,
-      "table_count": 0
-    },
-    {
-      "id": "ack:ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-auto-scaling-node-pool",
-      "product": "ack",
-      "topic": "features",
-      "title": "使用Terraform创建具备自动伸缩功能的节点池-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
-      "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-auto-scaling-node-pool",
-      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-auto-scaling-node-pool.md",
-      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-auto-scaling-node-pool.json",
-      "word_count": 2181,
-      "table_count": 0
-    },
-    {
       "id": "ack:ack-managed-and-ack-dedicated/user-guide/auto-scaling-of-nodes",
       "product": "ack",
       "topic": "features",
@@ -13266,6 +12760,259 @@
       "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/metadata/ack-edge/support/cve-2024-21626-repair-scheme.json",
       "word_count": 656,
       "table_count": 0
+    },
+    {
+      "id": "slb:application-load-balancer/product-overview/functional-characteristics",
+      "product": "slb",
+      "topic": "features",
+      "title": "功能特性-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/product-overview/functional-characteristics",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/product-overview/functional-characteristics.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/product-overview/functional-characteristics.json",
+      "word_count": 980,
+      "table_count": 5
+    },
+    {
+      "id": "slb:application-load-balancer/product-overview/billing-overview",
+      "product": "slb",
+      "topic": "pricing",
+      "title": "ALB计费概述-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/product-overview/billing-overview",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/product-overview/billing-overview.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/product-overview/billing-overview.json",
+      "word_count": 700,
+      "table_count": 3
+    },
+    {
+      "id": "slb:application-load-balancer/getting-started/use-an-alb-instance-to-provide-ipv4-services",
+      "product": "slb",
+      "topic": "features",
+      "title": "ALB快速实现IPv4服务的负载均衡-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/getting-started/use-an-alb-instance-to-provide-ipv4-services",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/getting-started/use-an-alb-instance-to-provide-ipv4-services.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/getting-started/use-an-alb-instance-to-provide-ipv4-services.json",
+      "word_count": 1307,
+      "table_count": 15
+    },
+    {
+      "id": "slb:application-load-balancer/getting-started/implement-load-balancing-for-ipv6-services",
+      "product": "slb",
+      "topic": "features",
+      "title": "ALB快速实现IPv6服务的负载均衡-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/getting-started/implement-load-balancing-for-ipv6-services",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/getting-started/implement-load-balancing-for-ipv6-services.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/getting-started/implement-load-balancing-for-ipv6-services.json",
+      "word_count": 2052,
+      "table_count": 16
+    },
+    {
+      "id": "slb:application-load-balancer/user-guide/alb-ingress",
+      "product": "slb",
+      "topic": "selection",
+      "title": "ALB Ingress的工作原理及应用场景-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/alb-ingress/",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/alb-ingress.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/user-guide/alb-ingress.json",
+      "word_count": 1485,
+      "table_count": 2
+    },
+    {
+      "id": "slb:application-load-balancer/user-guide/create-and-manage-alb-instances",
+      "product": "slb",
+      "topic": "features",
+      "title": "创建和管理ALB实例-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/create-and-manage-alb-instances",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/create-and-manage-alb-instances.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/user-guide/create-and-manage-alb-instances.json",
+      "word_count": 1154,
+      "table_count": 0
+    },
+    {
+      "id": "slb:application-load-balancer/user-guide/modify-the-configurations-of-alb-instances",
+      "product": "slb",
+      "topic": "features",
+      "title": "ALB实例变配-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/modify-the-configurations-of-alb-instances",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/modify-the-configurations-of-alb-instances.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/user-guide/modify-the-configurations-of-alb-instances.json",
+      "word_count": 1321,
+      "table_count": 19
+    },
+    {
+      "id": "slb:application-load-balancer/user-guide/change-the-network-type-of-an-alb-instance",
+      "product": "slb",
+      "topic": "features",
+      "title": "变更ALB实例的网络类型-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/change-the-network-type-of-an-alb-instance",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/change-the-network-type-of-an-alb-instance.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/user-guide/change-the-network-type-of-an-alb-instance.json",
+      "word_count": 1860,
+      "table_count": 10
+    },
+    {
+      "id": "slb:application-load-balancer/user-guide/create-and-manage-listeners",
+      "product": "slb",
+      "topic": "features",
+      "title": "创建和管理ALB监听-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/create-and-manage-listeners",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/create-and-manage-listeners.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/user-guide/create-and-manage-listeners.json",
+      "word_count": 1677,
+      "table_count": 18
+    },
+    {
+      "id": "slb:application-load-balancer/user-guide/manage-forwarding-rules-for-a-listener",
+      "product": "slb",
+      "topic": "features",
+      "title": "配置监听转发规则-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/manage-forwarding-rules-for-a-listener",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/manage-forwarding-rules-for-a-listener.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/user-guide/manage-forwarding-rules-for-a-listener.json",
+      "word_count": 1807,
+      "table_count": 18
+    },
+    {
+      "id": "slb:application-load-balancer/user-guide/programmable-script",
+      "product": "slb",
+      "topic": "features",
+      "title": "ALB可编程脚本AScript-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/programmable-script/",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/programmable-script.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/user-guide/programmable-script.json",
+      "word_count": 635,
+      "table_count": 4
+    },
+    {
+      "id": "slb:application-load-balancer/user-guide/create-and-manage-a-server-group",
+      "product": "slb",
+      "topic": "features",
+      "title": "创建和管理服务器组-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/create-and-manage-a-server-group",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/create-and-manage-a-server-group.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/user-guide/create-and-manage-a-server-group.json",
+      "word_count": 2129,
+      "table_count": 17
+    },
+    {
+      "id": "slb:application-load-balancer/user-guide/configure-session-persistence-1",
+      "product": "slb",
+      "topic": "features",
+      "title": "配置会话保持-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/configure-session-persistence-1",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/configure-session-persistence-1.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/user-guide/configure-session-persistence-1.json",
+      "word_count": 872,
+      "table_count": 0
+    },
+    {
+      "id": "slb:application-load-balancer/user-guide/network-acls",
+      "product": "slb",
+      "topic": "features",
+      "title": "访问控制-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/network-acls",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/network-acls.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/user-guide/network-acls.json",
+      "word_count": 1208,
+      "table_count": 9
+    },
+    {
+      "id": "slb:application-load-balancer/user-guide/alb-health-check",
+      "product": "slb",
+      "topic": "features",
+      "title": "ALB健康检查-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/alb-health-check",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/alb-health-check.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/user-guide/alb-health-check.json",
+      "word_count": 881,
+      "table_count": 0
+    },
+    {
+      "id": "slb:application-load-balancer/user-guide/manage-certificates",
+      "product": "slb",
+      "topic": "features",
+      "title": "ALB配置证书-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/manage-certificates",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/manage-certificates.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/user-guide/manage-certificates.json",
+      "word_count": 1693,
+      "table_count": 9
+    },
+    {
+      "id": "slb:application-load-balancer/user-guide/tls-security-policies",
+      "product": "slb",
+      "topic": "features",
+      "title": "TLS安全策略-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/tls-security-policies",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/tls-security-policies.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/user-guide/tls-security-policies.json",
+      "word_count": 1383,
+      "table_count": 11
+    },
+    {
+      "id": "slb:application-load-balancer/use-cases/redirect-http-requests-to-an-https-listener",
+      "product": "slb",
+      "topic": "features",
+      "title": "使用ALB将HTTP访问重定向至HTTPS-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/use-cases/redirect-http-requests-to-an-https-listener",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/use-cases/redirect-http-requests-to-an-https-listener.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/use-cases/redirect-http-requests-to-an-https-listener.json",
+      "word_count": 1258,
+      "table_count": 6
+    },
+    {
+      "id": "slb:application-load-balancer/use-cases/specify-an-ecs-instance-in-a-vpc-as-a-backend-server-of-alb-in-a-different-region",
+      "product": "slb",
+      "topic": "performance",
+      "title": "使用ALB挂载跨地域VPC内的服务器-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/use-cases/specify-an-ecs-instance-in-a-vpc-as-a-backend-server-of-alb-in-a-different-region",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/use-cases/specify-an-ecs-instance-in-a-vpc-as-a-backend-server-of-alb-in-a-different-region.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/use-cases/specify-an-ecs-instance-in-a-vpc-as-a-backend-server-of-alb-in-a-different-region.json",
+      "word_count": 1963,
+      "table_count": 21
+    },
+    {
+      "id": "slb:application-load-balancer/use-cases/enable-load-balancing-for-grpc-services",
+      "product": "slb",
+      "topic": "features",
+      "title": "如何使用ALB实现gRPC协议的负载均衡-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/use-cases/enable-load-balancing-for-grpc-services",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/use-cases/enable-load-balancing-for-grpc-services.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/application-load-balancer/use-cases/enable-load-balancing-for-grpc-services.json",
+      "word_count": 1115,
+      "table_count": 10
+    },
+    {
+      "id": "slb:network-load-balancer/product-overview/what-is-nlb",
+      "product": "slb",
+      "topic": "features",
+      "title": "网络型负载均衡NLB-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/network-load-balancer/product-overview/what-is-nlb",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/network-load-balancer/product-overview/what-is-nlb.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/network-load-balancer/product-overview/what-is-nlb.json",
+      "word_count": 1182,
+      "table_count": 6
+    },
+    {
+      "id": "slb:network-load-balancer/product-overview/functions-and-features",
+      "product": "slb",
+      "topic": "selection",
+      "title": "网络型与传统型负载均衡功能对比-负载均衡-阿里云",
+      "source_url": "https://help.aliyun.com/zh/slb/network-load-balancer/product-overview/functions-and-features",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/network-load-balancer/product-overview/functions-and-features.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/network-load-balancer/product-overview/functions-and-features.json",
+      "word_count": 494,
+      "table_count": 4
+    },
+    {
+      "id": "slb:network-load-balancer/product-overview/nlb-billable-items",
+      "product": "slb",
+      "topic": "pricing",
+      "title": "NLB计费规则-负载均衡(SLB)-阿里云帮助中心",
+      "source_url": "https://help.aliyun.com/zh/slb/network-load-balancer/product-overview/nlb-billable-items",
+      "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/network-load-balancer/product-overview/nlb-billable-items.md",
+      "metadata_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/metadata/network-load-balancer/product-overview/nlb-billable-items.json",
+      "word_count": 1072,
+      "table_count": 28
     }
   ]
 }

@@ -1,0 +1,17 @@
+{
+  "id": "slb:application-load-balancer/user-guide/create-and-manage-listeners",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "features",
+  "title": "创建和管理ALB监听-负载均衡(SLB)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/create-and-manage-listeners",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/slb/documents/application-load-balancer/user-guide/create-and-manage-listeners.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/create-and-manage-listeners.md",
+  "word_count": 1677,
+  "text_units": 5093,
+  "local_links": 20,
+  "external_links": 100,
+  "has_tables": true,
+  "table_count": 18,
+  "quality": "accepted"
+}

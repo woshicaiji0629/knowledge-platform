@@ -1,0 +1,17 @@
+{
+  "id": "slb:application-load-balancer/user-guide/create-and-manage-a-server-group",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "features",
+  "title": "创建和管理服务器组-负载均衡(SLB)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/create-and-manage-a-server-group",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/slb/documents/application-load-balancer/user-guide/create-and-manage-a-server-group.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/create-and-manage-a-server-group.md",
+  "word_count": 2129,
+  "text_units": 7938,
+  "local_links": 60,
+  "external_links": 80,
+  "has_tables": true,
+  "table_count": 17,
+  "quality": "accepted"
+}

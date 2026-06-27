@@ -1,0 +1,17 @@
+{
+  "id": "slb:application-load-balancer/user-guide/tls-security-policies",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "features",
+  "title": "TLS安全策略-负载均衡(SLB)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/tls-security-policies",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/slb/documents/application-load-balancer/user-guide/tls-security-policies.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/tls-security-policies.md",
+  "word_count": 1383,
+  "text_units": 3600,
+  "local_links": 18,
+  "external_links": 81,
+  "has_tables": true,
+  "table_count": 11,
+  "quality": "accepted"
+}

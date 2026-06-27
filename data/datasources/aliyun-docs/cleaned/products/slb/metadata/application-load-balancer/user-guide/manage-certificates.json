@@ -1,0 +1,17 @@
+{
+  "id": "slb:application-load-balancer/user-guide/manage-certificates",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "features",
+  "title": "ALB配置证书-负载均衡(SLB)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/manage-certificates",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/slb/documents/application-load-balancer/user-guide/manage-certificates.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/manage-certificates.md",
+  "word_count": 1693,
+  "text_units": 4523,
+  "local_links": 21,
+  "external_links": 101,
+  "has_tables": true,
+  "table_count": 9,
+  "quality": "accepted"
+}

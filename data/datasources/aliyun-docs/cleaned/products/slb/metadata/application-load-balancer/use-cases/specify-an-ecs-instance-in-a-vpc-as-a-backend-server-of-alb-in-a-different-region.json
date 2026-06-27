@@ -1,0 +1,17 @@
+{
+  "id": "slb:application-load-balancer/use-cases/specify-an-ecs-instance-in-a-vpc-as-a-backend-server-of-alb-in-a-different-region",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "performance",
+  "title": "使用ALB挂载跨地域VPC内的服务器-负载均衡(SLB)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/use-cases/specify-an-ecs-instance-in-a-vpc-as-a-backend-server-of-alb-in-a-different-region",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/slb/documents/application-load-balancer/use-cases/specify-an-ecs-instance-in-a-vpc-as-a-backend-server-of-alb-in-a-different-region.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/use-cases/specify-an-ecs-instance-in-a-vpc-as-a-backend-server-of-alb-in-a-different-region.md",
+  "word_count": 1963,
+  "text_units": 6129,
+  "local_links": 42,
+  "external_links": 93,
+  "has_tables": true,
+  "table_count": 21,
+  "quality": "accepted"
+}

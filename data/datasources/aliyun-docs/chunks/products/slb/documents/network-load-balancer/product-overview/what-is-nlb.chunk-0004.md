@@ -1,0 +1,6 @@
+| 概念 | 说明 |
+| --- | --- |
+| 实例 | NLB 面向四层，提供四层负载均衡能力，通过将流量分发至不同的后端服务器来扩展应用系统的服务吞吐能力。单实例最大支持 1 亿并发连接。 |
+| 监听 | 监听是 NLB 最小业务单元，监听上需要配置协议与端口以告知 NLB 需要处理什么流量，例如 TCP 协议，80 端口。 NLB 支持 TCP、UDP、TCPSSL 协议。每个 NLB 至少有一个监听，才能开始流量处理与分发。每个 NLB 默认最多配置的监听数量参见 [NLB](../user-guide/nlb-quotas.md) [配额](../user-guide/nlb-quotas.md) 。 |
+| 服务器组 | 服务器组是一个逻辑组，包含多个后端服务器用于处理 NLB 分发的业务请求。 NLB 中的服务器组独立于 NLB 存在，可以将同一服务器组挂载在不同 NLB 内。每个服务器组默认最多添加的后端服务器数量参见 [NLB](../user-guide/nlb-quotas.md) [配额](../user-guide/nlb-quotas.md) 。 NLB 服务器组支持云服务器 ECS、弹性容器实例 ECI、弹性网卡 ENI 和 IP 类型的后端服务器。更多信息，请参见： [什么是云服务器](../../../../ecs/documents/user-guide/what-is-ecs.md) [ECS](../../../../ecs/documents/user-guide/what-is-ecs.md) [什么是弹性容器实例](https://help.aliyun.com/zh/eci/product-overview/what-is-elastic-container-instance#topic-1860079) [ECI](https://help.aliyun.com/zh/eci/product-overview/what-is-elastic-container-instance#topic-1860079) [弹性网卡](../../../../ecs/documents/user-guide/eni-overview.md) [ENI](../../../../ecs/documents/user-guide/eni-overview.md) [概述](../../../../ecs/documents/user-guide/eni-overview.md) [IP](../user-guide/overview-of-nlb-server-groups.md) [类型后端服务器说明](../user-guide/overview-of-nlb-server-groups.md) |
+| 健康检查

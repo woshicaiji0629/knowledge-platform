@@ -1,0 +1,17 @@
+{
+  "id": "slb:application-load-balancer/getting-started/implement-load-balancing-for-ipv6-services",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "features",
+  "title": "ALB快速实现IPv6服务的负载均衡-负载均衡(SLB)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/getting-started/implement-load-balancing-for-ipv6-services",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/slb/documents/application-load-balancer/getting-started/implement-load-balancing-for-ipv6-services.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/getting-started/implement-load-balancing-for-ipv6-services.md",
+  "word_count": 2052,
+  "text_units": 5689,
+  "local_links": 36,
+  "external_links": 91,
+  "has_tables": true,
+  "table_count": 16,
+  "quality": "accepted"
+}

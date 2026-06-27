@@ -1,0 +1,17 @@
+{
+  "id": "slb:application-load-balancer/user-guide/manage-forwarding-rules-for-a-listener",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "features",
+  "title": "配置监听转发规则-负载均衡(SLB)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/manage-forwarding-rules-for-a-listener",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/slb/documents/application-load-balancer/user-guide/manage-forwarding-rules-for-a-listener.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/manage-forwarding-rules-for-a-listener.md",
+  "word_count": 1807,
+  "text_units": 6844,
+  "local_links": 21,
+  "external_links": 83,
+  "has_tables": true,
+  "table_count": 18,
+  "quality": "accepted"
+}

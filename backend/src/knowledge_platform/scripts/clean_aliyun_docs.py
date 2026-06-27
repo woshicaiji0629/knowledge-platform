@@ -39,6 +39,22 @@ NOISE_PATTERNS = [
     "[首页]",
 ]
 
+INTERFACE_REFERENCE_TITLE_PATTERNS = [
+    "API参考",
+    "API 概览",
+    "OpenAPI",
+    "SDK参考",
+    "SDK 参考",
+    "接口调用",
+]
+
+INTERFACE_REFERENCE_URL_SEGMENTS = {
+    "assistantapi",
+    "developer-reference",
+    "list-of-operations-by-function",
+    "sdk-reference",
+}
+
 
 def main() -> None:
     args = _parse_args()
@@ -110,6 +126,25 @@ def _clean_documents_concurrently(
 
 def clean_document(data_root: Path, document: dict[str, str]) -> CleanedDocument:
     source_path = Path(document["document_path"])
+    if _is_interface_reference_document(document=document, source_path=source_path):
+        output_path = _output_document_path(data_root=data_root, source_path=source_path, quality="discarded")
+        metadata_path = _output_metadata_path(data_root=data_root, document_path=output_path, quality="discarded")
+        return CleanedDocument(
+            id=document["id"],
+            product=document["product"],
+            topic=document.get("topic", "features"),
+            title=document["title"],
+            source_url=document["url"],
+            raw_document_path=document["document_path"],
+            cleaned_document_path=str(output_path),
+            metadata_path=str(metadata_path),
+            word_count=0,
+            local_links=0,
+            external_links=0,
+            table_count=0,
+            quality="discarded",
+            discard_reason="interface_reference",
+        )
     if _is_anti_bot_document(document):
         output_path = _output_document_path(data_root=data_root, source_path=source_path, quality="discarded")
         metadata_path = _output_metadata_path(data_root=data_root, document_path=output_path, quality="discarded")
@@ -314,6 +349,25 @@ def _quality(cleaned_markdown: str, text_units: int, table_count: int) -> tuple[
     if text_units < 240 and table_count == 0:
         return "candidate", "medium_confidence"
     return "accepted", None
+
+
+def _is_interface_reference_document(document: dict[str, str], source_path: Path) -> bool:
+    title = document.get("title", "")
+    if any(pattern in title for pattern in INTERFACE_REFERENCE_TITLE_PATTERNS):
+        return True
+
+    source_url = document.get("url", "")
+    url_segments = [segment.lower() for segment in source_url.split("/") if segment]
+    path_segments = [part.lower() for part in source_path.parts]
+    segments = url_segments + path_segments
+    for segment in segments:
+        if segment in INTERFACE_REFERENCE_URL_SEGMENTS:
+            return True
+        if segment.startswith("api-") or segment.endswith("-api"):
+            return True
+        if "api-reference" in segment or "openapi" in segment:
+            return True
+    return False
 
 
 def _is_anti_bot_document(document: dict[str, str]) -> bool:

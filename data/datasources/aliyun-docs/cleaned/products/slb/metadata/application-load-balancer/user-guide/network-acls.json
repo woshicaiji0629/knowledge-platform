@@ -1,0 +1,17 @@
+{
+  "id": "slb:application-load-balancer/user-guide/network-acls",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "features",
+  "title": "访问控制-负载均衡(SLB)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/network-acls",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/slb/documents/application-load-balancer/user-guide/network-acls.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/network-acls.md",
+  "word_count": 1208,
+  "text_units": 3412,
+  "local_links": 22,
+  "external_links": 69,
+  "has_tables": true,
+  "table_count": 9,
+  "quality": "accepted"
+}

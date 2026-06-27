@@ -1,0 +1,17 @@
+{
+  "id": "slb:network-load-balancer/product-overview/functions-and-features",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "selection",
+  "title": "网络型与传统型负载均衡功能对比-负载均衡-阿里云",
+  "source_url": "https://help.aliyun.com/zh/slb/network-load-balancer/product-overview/functions-and-features",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/slb/documents/network-load-balancer/product-overview/functions-and-features.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/network-load-balancer/product-overview/functions-and-features.md",
+  "word_count": 494,
+  "text_units": 926,
+  "local_links": 0,
+  "external_links": 61,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

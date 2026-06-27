@@ -1,0 +1,6 @@
+| 证书类别 | 操作 | 说明 |
+| --- | --- | --- |
+| 服务器证书 | 更换监听默认服务器证书 | 在 服务器证书 页签，找到监听默认服务器证书，在 操作 列单击 更换 。 在弹出的对话框，选择服务器证书，单击 确定 。 如果没有可选的服务器证书，您可以在下拉框中单击 创建 SSL 证书 进入证书中心，在证书中心 [购买](https://help.aliyun.com/zh/ssl-certificate/purchase-an-ssl-certificate#task-q3j-zfp-ydb) 或 [上传](https://help.aliyun.com/zh/ssl-certificate/upload-an-ssl-certificate) 服务器证书。 |
+| 添加服务器扩展证书 | 您可以通过添加扩展证书增加监听关联的证书。 在 服务器证书 页签，单击 添加扩展证书 。 在 添加扩展证书 对话框中，选择服务器证书，然后单击 确定 。 如果没有可选的服务器证书，您可以在右上角单击 购买证书 进入证书中心，在证书中心 [购买](https://help.aliyun.com/zh/ssl-certificate/purchase-an-ssl-certificate#task-q3j-zfp-ydb) 或 [上传](https://help.aliyun.com/zh/ssl-certificate/upload-an-ssl-certificate) 服务器证书。 |  |
+| 删除服务器扩展证书 | 您可以删除不需要的服务器扩展证书，删除后该证书将不再认证后端服务器。 在 服务器证书 页签，找到目标扩展证书，在 操作 列单击 删除 。 在弹出的对话框中，单击 确定删除 。 |  |
+| CA 证书 | 开启或关闭双向认证 | 开启双向认证 ：如果您创建的监听从未开启过双向认证，您可以通过以下方式开启双向认证。 单击 CA 证书 页签，打开 双向认证 开关或单击 点此开启双向认证 。 在 启用双向认证 对话框中，根据业务选择以下任一步骤完成操作。 选择 CA 证书来源为 阿里云签发 ，在 选择默认 CA 证书 下拉框中选择一个 CA 证书，然后单击 确定 。 如果没有可选的 CA 证书，您可以在下拉框中单击 购买 CA 证书 ，以 [创建新](https://help.aliyun.com/zh/ssl-certificate/purchase-and-enable-a-private-ca#task-2060468) [CA](https://help.aliyun.com/zh/ssl-certificate/purchase-and-enable-a-private-ca#task-2060468) [证书](htt

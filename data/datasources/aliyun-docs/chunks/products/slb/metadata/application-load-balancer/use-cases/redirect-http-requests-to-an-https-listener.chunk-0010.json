@@ -1,0 +1,14 @@
+{
+  "id": "slb:application-load-balancer/use-cases/redirect-http-requests-to-an-https-listener:10",
+  "document_id": "slb:application-load-balancer/use-cases/redirect-http-requests-to-an-https-listener",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "features",
+  "title": "使用ALB将HTTP访问重定向至HTTPS-负载均衡(SLB)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/use-cases/redirect-http-requests-to-an-https-listener",
+  "chunk_index": 10,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/slb/documents/application-load-balancer/use-cases/redirect-http-requests-to-an-https-listener.chunk-0010.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/use-cases/redirect-http-requests-to-an-https-listener.md",
+  "heading_path": "使用ALB将HTTP访问重定向至HTTPS > HTTP端口所有请求均重定向至HTTPS > 步骤三：结果验证",
+  "char_count": 167
+}

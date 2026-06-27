@@ -1,0 +1,17 @@
+{
+  "id": "slb:application-load-balancer/product-overview/functional-characteristics",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "features",
+  "title": "功能特性-负载均衡(SLB)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/product-overview/functional-characteristics",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/slb/documents/application-load-balancer/product-overview/functional-characteristics.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/product-overview/functional-characteristics.md",
+  "word_count": 980,
+  "text_units": 2090,
+  "local_links": 12,
+  "external_links": 62,
+  "has_tables": true,
+  "table_count": 5,
+  "quality": "accepted"
+}

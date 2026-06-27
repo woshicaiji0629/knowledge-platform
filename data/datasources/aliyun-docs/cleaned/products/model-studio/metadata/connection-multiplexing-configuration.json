@@ -1,0 +1,17 @@
+{
+  "id": "model-studio:connection-multiplexing-configuration",
+  "source": "aliyun_docs",
+  "product": "model-studio",
+  "topic": "deployment",
+  "title": "DashScope SDK连接复用配置-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/model-studio/connection-multiplexing-configuration",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/model-studio/documents/connection-multiplexing-configuration.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/connection-multiplexing-configuration.md",
+  "word_count": 1278,
+  "text_units": 2814,
+  "local_links": 0,
+  "external_links": 81,
+  "has_tables": true,
+  "table_count": 9,
+  "quality": "accepted"
+}

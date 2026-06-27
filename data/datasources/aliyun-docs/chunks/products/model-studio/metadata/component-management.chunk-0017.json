@@ -1,0 +1,14 @@
+{
+  "id": "model-studio:component-management:17",
+  "document_id": "model-studio:component-management",
+  "source": "aliyun_docs",
+  "product": "model-studio",
+  "topic": "features",
+  "title": "最佳实践-大模型服务平台百炼-阿里云-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/model-studio/component-management",
+  "chunk_index": 17,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/model-studio/documents/component-management.chunk-0017.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/component-management.md",
+  "heading_path": "示例代码仅供参考，请勿直接在生产环境中使用 def get_assistant_for_user(user_id: str): \"\"\" 根据user_id检索/创建专属Assistant。适用于多租户场景。 \"\"\" # 从本地数据库查找是否已有assistant_id record = get_assistant_record_by_user(user_id) if record: return record.assistant_id # 若无则创建一个 user_assistant = Assistants.create( model=\"qwen-plus\", instructions=f\"You are personal assistant for {user_id}.\", metadata={\"owner\": user_id} ) save_assistant_to_db(user_id, user_assistant.id) return user_assistant.id def user_send_message(user_id: str, content: str): # 获取用户专属Assistant assistant_id = get_assistant_for_user(user_id) # 根据assistant创建thread或检索现有thread... # 省略具体实现 > 4.2 负载均衡与扩容策略",
+  "char_count": 293
+}

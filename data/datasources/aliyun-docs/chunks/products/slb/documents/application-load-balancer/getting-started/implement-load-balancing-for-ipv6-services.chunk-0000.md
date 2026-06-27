@@ -1,0 +1,2 @@
+# ALB快速实现IPv6服务的负载均衡
+应用型负载均衡ALB（Application Load Balancer）支持转发IPv6网络请求，本文指导您如何为双栈ALB实例开启IPv6挂载，即ALB实例同时支持挂载IPv4和IPv6的云服务器ECS（Elastic Compute Service），使IPv6网络的客户端请求通过ALB可以访问部署在后端的IPv4和IPv6服务。

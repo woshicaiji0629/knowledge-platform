@@ -1,0 +1,2 @@
+# 使用ALB将HTTP访问重定向至HTTPS
+HTTPS是加密数据传输协议，安全性高。当您需要进行HTTPS安全改造时，您可以使用应用型负载均衡ALB将HTTP访问重定向至HTTPS，让用户在无感知的情况下将HTTP访问重定向至HTTPS。

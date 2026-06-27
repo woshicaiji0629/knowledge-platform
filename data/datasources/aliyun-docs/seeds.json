@@ -14,10 +14,8 @@
     "/developer-reference/api-"
   ],
   "crawl_products": [
-    "cdn",
-    "vpc",
-    "sls",
-    "ack"
+    "model-studio",
+    "slb"
   ],
   "products": [
     {

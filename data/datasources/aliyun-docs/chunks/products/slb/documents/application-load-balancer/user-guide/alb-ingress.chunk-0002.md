@@ -1,0 +1,2 @@
+## ALB Ingress的使用
+ALB Ingress基于阿里云应用型负载均衡ALB（Application Load Balancer）之上提供更强的Ingress流量管理方式，兼容Nginx Ingress，具备处理复杂业务路由和证书自动发现的能力，支持HTTP、HTTPS和QUIC协议，满足在云原生应用场景下对弹性和大规模七层流量处理能力的需求。

@@ -1,0 +1,14 @@
+{
+  "id": "slb:product-overview:0",
+  "document_id": "slb:product-overview",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "features",
+  "title": "产品概述-负载均衡-阿里云",
+  "source_url": "https://help.aliyun.com/zh/slb/product-overview/",
+  "chunk_index": 0,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/slb/documents/product-overview.chunk-0000.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/product-overview.md",
+  "heading_path": "产品概述",
+  "char_count": 476
+}

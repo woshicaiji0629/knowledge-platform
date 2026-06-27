@@ -1,0 +1,17 @@
+{
+  "id": "slb:application-load-balancer/user-guide/configure-session-persistence-1",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "features",
+  "title": "配置会话保持-负载均衡(SLB)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/configure-session-persistence-1",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/slb/documents/application-load-balancer/user-guide/configure-session-persistence-1.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/configure-session-persistence-1.md",
+  "word_count": 872,
+  "text_units": 2666,
+  "local_links": 9,
+  "external_links": 80,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

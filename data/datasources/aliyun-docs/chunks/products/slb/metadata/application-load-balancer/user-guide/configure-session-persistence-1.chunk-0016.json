@@ -1,0 +1,14 @@
+{
+  "id": "slb:application-load-balancer/user-guide/configure-session-persistence-1:16",
+  "document_id": "slb:application-load-balancer/user-guide/configure-session-persistence-1",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "features",
+  "title": "配置会话保持-负载均衡(SLB)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/configure-session-persistence-1",
+  "chunk_index": 16,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/slb/documents/application-load-balancer/user-guide/configure-session-persistence-1.chunk-0016.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/configure-session-persistence-1.md",
+  "heading_path": "... Listen 80 # BACKEND_SERVER是您配置重写Cookie时输入的Cookie名称；value您可使用自定义字符串。 Header always set Set-Cookie \"BACKEND_SERVER=value\" # ... > 相关文档 > 服务",
+  "char_count": 303
+}

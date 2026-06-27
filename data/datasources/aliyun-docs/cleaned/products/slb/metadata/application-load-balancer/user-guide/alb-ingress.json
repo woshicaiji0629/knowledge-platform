@@ -1,0 +1,17 @@
+{
+  "id": "slb:application-load-balancer/user-guide/alb-ingress",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "selection",
+  "title": "ALB Ingress的工作原理及应用场景-负载均衡(SLB)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/alb-ingress/",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/slb/documents/application-load-balancer/user-guide/alb-ingress.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/alb-ingress.md",
+  "word_count": 1485,
+  "text_units": 3174,
+  "local_links": 41,
+  "external_links": 61,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

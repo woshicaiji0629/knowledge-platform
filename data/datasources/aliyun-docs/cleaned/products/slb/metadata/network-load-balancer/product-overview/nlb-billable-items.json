@@ -1,0 +1,17 @@
+{
+  "id": "slb:network-load-balancer/product-overview/nlb-billable-items",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "pricing",
+  "title": "NLB计费规则-负载均衡(SLB)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/slb/network-load-balancer/product-overview/nlb-billable-items",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/slb/documents/network-load-balancer/product-overview/nlb-billable-items.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/network-load-balancer/product-overview/nlb-billable-items.md",
+  "word_count": 1072,
+  "text_units": 3175,
+  "local_links": 4,
+  "external_links": 65,
+  "has_tables": true,
+  "table_count": 28,
+  "quality": "accepted"
+}

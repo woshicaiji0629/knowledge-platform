@@ -1,0 +1,17 @@
+{
+  "id": "slb:network-load-balancer/product-overview/what-is-nlb",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "features",
+  "title": "网络型负载均衡NLB-负载均衡(SLB)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/slb/network-load-balancer/product-overview/what-is-nlb",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/slb/documents/network-load-balancer/product-overview/what-is-nlb.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/network-load-balancer/product-overview/what-is-nlb.md",
+  "word_count": 1182,
+  "text_units": 2955,
+  "local_links": 19,
+  "external_links": 88,
+  "has_tables": true,
+  "table_count": 6,
+  "quality": "accepted"
+}

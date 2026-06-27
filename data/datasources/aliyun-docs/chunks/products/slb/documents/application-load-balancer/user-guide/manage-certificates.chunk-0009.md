@@ -1,0 +1,1 @@
+task-2060468) 。 选择 CA 证书来源为 非阿里云签发 ，在 选择默认 CA 证书 下拉框中选择一个 CA 证书，然后单击 确定 。 如果没有可选的自签名 CA 证书，您可以在下拉框中单击 上传自签 CA 证书 ，在 证书应用仓库 页面，创建数据来源为 上传 CA 证书 的仓库，然后通过证书应用仓库 [上传](https://help.aliyun.com/zh/ssl-certificate/create-and-manage-a-certificate-application-repository) 自签名根 CA 或自签名子根 CA 证书。 |  |

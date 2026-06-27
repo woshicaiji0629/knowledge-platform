@@ -1,0 +1,17 @@
+{
+  "id": "slb:application-load-balancer/product-overview/billing-overview",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "pricing",
+  "title": "ALB计费概述-负载均衡(SLB)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/product-overview/billing-overview",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/slb/documents/application-load-balancer/product-overview/billing-overview.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/product-overview/billing-overview.md",
+  "word_count": 700,
+  "text_units": 1933,
+  "local_links": 1,
+  "external_links": 74,
+  "has_tables": true,
+  "table_count": 3,
+  "quality": "accepted"
+}

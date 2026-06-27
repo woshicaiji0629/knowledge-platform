@@ -1,0 +1,1 @@
+figure-mutual-authentication-on-an-https-listener.md)[业务（双向认证）](../use-cases/configure-mutual-authentication-on-an-https-listener.md)：在需要高安全性验证的场景（如金融、医疗等）下，可通过ALB的HTTPS双向认证功能，实现客户端与服务器之间的相互身份验证，确保数据传输的安全性。

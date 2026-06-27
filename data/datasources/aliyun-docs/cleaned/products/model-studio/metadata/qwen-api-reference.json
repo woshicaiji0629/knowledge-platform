@@ -1,0 +1,17 @@
+{
+  "id": "model-studio:qwen-api-reference",
+  "source": "aliyun_docs",
+  "product": "model-studio",
+  "topic": "features",
+  "title": "文本生成模型API参考-大模型服务平台百炼(Model Studio)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/model-studio/qwen-api-reference",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/model-studio/documents/qwen-api-reference.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/model-studio/documents/qwen-api-reference.md",
+  "word_count": 496,
+  "text_units": 877,
+  "local_links": 0,
+  "external_links": 67,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

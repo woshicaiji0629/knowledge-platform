@@ -1,0 +1,17 @@
+{
+  "id": "slb:application-load-balancer/user-guide/change-the-network-type-of-an-alb-instance",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "features",
+  "title": "变更ALB实例的网络类型-负载均衡(SLB)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/change-the-network-type-of-an-alb-instance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/slb/documents/application-load-balancer/user-guide/change-the-network-type-of-an-alb-instance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/application-load-balancer/user-guide/change-the-network-type-of-an-alb-instance.md",
+  "word_count": 1860,
+  "text_units": 4526,
+  "local_links": 40,
+  "external_links": 116,
+  "has_tables": true,
+  "table_count": 10,
+  "quality": "accepted"
+}

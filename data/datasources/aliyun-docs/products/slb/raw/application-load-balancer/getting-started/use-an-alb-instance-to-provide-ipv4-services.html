@@ -1,0 +1,849 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    ALB快速实现IPv4服务的负载均衡-负载均衡(SLB)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/slb/application-load-balancer/getting-started/use-an-alb-instance-to-provide-ipv4-services">
+  <meta name="keywords" content="应用型负载均衡,ALB,IPv4">
+  <meta name="description" content="阿里云应用型负载均衡ALB支持HTTP、HTTPS和QUIC协议，专门面向网络应用层。本文介绍如何快速创建一个IPv4版本的ALB实例，并将来自IPv4客户端的访问请求转发至后端服务器。">
+  <meta name="last-modified" content="2026-06-04T20:10:11+08:00">
+  <meta name="date" content="2021-04-02T02:40:12+08:00">
+  <meta property="og:title" content="ALB快速实现IPv4服务的负载均衡">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/slb/application-load-balancer/getting-started/use-an-alb-instance-to-provide-ipv4-services">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="阿里云应用型负载均衡ALB支持HTTP、HTTPS和QUIC协议，专门面向网络应用层。本文介绍如何快速创建一个IPv4版本的ALB实例，并将来自IPv4客户端的访问请求转发至后端服务器。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/slb/application-load-balancer/getting-started/use-an-alb-instance-to-provide-ipv4-services",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "210822",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/slb/application-load-balancer/getting-started/use-an-alb-instance-to-provide-ipv4-services","nodeId":null,"data":{"lastModifiedTime":1780575011000,"keywords":"应用型负载均衡,ALB,IPv4","docTitle":"ALB快速实现IPv4服务的负载均衡","language":"zh","seoTitle":"ALB快速实现IPv4服务的负载均衡-负载均衡(SLB)-阿里云帮助中心","title":"ALB快速实现IPv4服务的负载均衡","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"task-2065184\">\n    \n    \n    <p data-tag=\"shortdesc\" id=\"shortdesc-ucs-9xk-45v\" class=\"shortdesc\">阿里云<span data-tag=\"ph\" id=\"ph-w6j-2cr-fyx\" is-conref=\"true\" class=\"ph\">应用型负载均衡<span class=\"help-letter-space\"></span>ALB</span><span class=\"help-letter-space\"></span>支持<span class=\"help-letter-space\"></span>HTTP、HTTPS<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>QUIC<span class=\"help-letter-space\"></span>协议，专门面向网络应用层。本文介绍如何快速创建一个<span class=\"help-letter-space\"></span>IPv4<span class=\"help-letter-space\"></span>版本的<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"ph-suk-1mv-n08\" is-conref=\"true\" class=\"ph\">ALB</span><span class=\"help-letter-space\"></span>实例，并将来自<span class=\"help-letter-space\"></span>IPv4<span class=\"help-letter-space\"></span>客户端的访问请求转发至后端服务器。</p>\n    <div data-tag=\"taskbody\" id=\"taskbody-rcf-8el-5lh\" class=\"taskbody\">\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-2hi-sor-kym\" props=\"china\" data-cond-props=\"china\" class=\"section\"><video id=\"object-z3x-ky2-huc\" src=\"https://cloud.video.taobao.com/play/u/null/p/1/e/6/t/1/d/ud/362496704426.mp4\" controls=\"\" poster=\"https://img.alicdn.com/imgextra/i1/O1CN016UJXJm1Exws0KRfi2_!!6000000000419-0-tps-1204-677.jpg\" title=\"ALB快速实现IPv4服务的负载均衡\" alt=\"ALB快速实现IPv4服务的负载均衡\"></video></section>\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-lpc-odo-rxd\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-flc-2ao-kxq\" class=\"title\">前提条件</h2>\n        <ul data-tag=\"ul\" id=\"ul-u76-kzi-eiq\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-xas-8su-hiu\" class=\"li\">\n            <p id=\"391f7cc030g56\">您已在华东<span class=\"help-letter-space\"></span>2（上海）地域创建了一个专有网络<span class=\"help-letter-space\"></span>VPC1，并分别在可用区<span class=\"help-letter-space\"></span>E<span class=\"help-letter-space\"></span>和可用区<span class=\"help-letter-space\"></span>G<span class=\"help-letter-space\"></span>创建了一个交换机<span class=\"help-letter-space\"></span>VSW1<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>VSW2。具体操作，请参见<a href=\"https://help.aliyun.com/zh/vpc/user-guide/create-and-manage-a-vpc\" id=\"d0dc1ec44f3zo\" title=\"\" class=\"xref\">创建专有网络和交换机</a>。</p>\n            <p id=\"8b50ed0c55nlp\">如果计划将<span class=\"help-letter-space\"></span>ALB<span class=\"help-letter-space\"></span>部署在交换机<span class=\"help-letter-space\"></span>VSW1<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>VSW2，需注意：<a href=\"https://help.aliyun.com/zh/slb/product-overview/alb\" id=\"5f78856dcfvu2\" title=\"\" class=\"xref\">ALB<span class=\"help-letter-space\"></span>升级实例</a>会从每个指定的交换机中分配<span class=\"help-letter-space\"></span>3<span class=\"help-letter-space\"></span>个<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址，包含<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>个<span class=\"help-letter-space\"></span>VIP（对外提供服务）和<span class=\"help-letter-space\"></span>2<span class=\"help-letter-space\"></span>个<span class=\"help-letter-space\"></span>Local IP（用于与后端服务器通信），如果<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>不足会出现报错并且无法创建实例，请确保交换机<span class=\"help-letter-space\"></span>VSW1<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>VSW2<span class=\"help-letter-space\"></span>中已预留足够的可用<span class=\"help-letter-space\"></span>IP；升级前的<span class=\"help-letter-space\"></span>ALB<span class=\"help-letter-space\"></span>实例不受该限制。</p>\n            <div id=\"ae2e8bc901685\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n              <ul id=\"d3342867e9fr8\">\n                <li id=\"2145d2f535dhe\">\n                  <p id=\"f7f3c635cf2js\">为确保<span class=\"help-letter-space\"></span>ALB<span class=\"help-letter-space\"></span>升级实例各项弹性能力可用，建议您在<span class=\"help-letter-space\"></span><span data-tag=\"ph\" class=\"ph\" id=\"a4201ac1bcj6f\" is-conref=\"true\">ALB</span><span class=\"help-letter-space\"></span>实例所在的每个交换机内预留至少<span class=\"help-letter-space\"></span>8<span class=\"help-letter-space\"></span>个<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址。</p>\n                </li>\n                <li id=\"2b7dba2f26qgp\">\n                  <p id=\"877207504awos\">为确保<span class=\"help-letter-space\"></span>ALB<span class=\"help-letter-space\"></span>升级实例与后端服务正常连通，如您的后端服务中存在访问策略（包括<span class=\"help-letter-space\"></span>iptables<span class=\"help-letter-space\"></span>或其他任何第三方安全策略软件），建议您提前放通<span class=\"help-letter-space\"></span>ALB<span class=\"help-letter-space\"></span>实例所属交换机网段。</p>\n                </li>\n              </ul>\n            </div></div>\n          </li>\n          <li id=\"6fa00c8d80yj1\">\n            <p id=\"a3ad962ec4zho\">您已分别在<span class=\"help-letter-space\"></span>VSW1<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>VSW2<span class=\"help-letter-space\"></span>创建<span class=\"help-letter-space\"></span>ECS01<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>ECS02<span class=\"help-letter-space\"></span>实例，且<span class=\"help-letter-space\"></span>ECS01<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>ECS02<span class=\"help-letter-space\"></span>实例中部署了应用服务。</p>\n            <ul id=\"8eef84bff2xkd\">\n              <li class=\"li\" data-tag=\"li\" id=\"li-s25-yn2-13w\">\n                <p id=\"f340daea1ey8e\">关于创建<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例，请参见<a href=\"https://help.aliyun.com/zh/ecs/user-guide/create-an-instance-by-using-the-wizard#task-vwq-5g4-r2b\" id=\"002447672cdtf\" title=\"\" class=\"xref\">自定义购买实例</a>。</p>\n              </li>\n              <li class=\"li\" data-tag=\"li\" id=\"li-9c4-oey-d3m\">\n              <p id=\"3b61c93066y5f\">本文<span class=\"help-letter-space\"></span>ECS01<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>ECS02<span class=\"help-letter-space\"></span>部署测试应用示例如下：</p>\n<div id=\"29fa2aaf71ame\" outputclass=\"collapse\" class=\"collapse\">\n                  <p data-tag=\"expandable-title\" id=\"3931db93791du\" class=\"expandable-title\"><b>ECS01<span class=\"help-letter-space\"></span>服务部署命令</b></p>\n                  <div data-tag=\"expandable-content\" id=\"fbb7b4cf3c9jc\" class=\"expandable-content\"><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"c3a80b5687tv2\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>yum install -y nginx\nsystemctl start nginx.service\ncd /usr/share/nginx/html/\necho \"Hello World ! This is ECS01.\" &gt; index.html</code></pre></div>\n                  </div>\n                <div id=\"c5175be69b72q\" outputclass=\"collapse\" class=\"collapse\">\n                  <p data-tag=\"expandable-title\" id=\"23a39b0fc7ps4\" class=\"expandable-title\"><b>ECS02<span class=\"help-letter-space\"></span>服务部署命令</b></p>\n                  <div data-tag=\"expandable-content\" id=\"967de75f5bywz\" class=\"expandable-content\"><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"8e2a94988c9ul\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>yum install -y nginx\nsystemctl start nginx.service\ncd /usr/share/nginx/html/\necho \"Hello World ! This is ECS02.\" &gt; index.html</code></pre></div>\n                  </div>\n              </li>\n            </ul>\n          </li>\n          <li id=\"6cfc34c54dxv2\">\n            <p id=\"0f0db748bfi4t\">您已经注册域名并完成备案。具体操作，请参见<a href=\"https://help.aliyun.com/zh/dws/user-guide/how-to-register-a-domain-name\" id=\"d07d77f38fexl\" title=\"\" class=\"xref\">注册阿里云域名</a>、<a href=\"https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview\" id=\"0815b58d258pw\" title=\"\" class=\"xref\">ICP<span class=\"help-letter-space\"></span>备案流程</a>。</p>\n          </li>\n        </ul>\n        <p id=\"872ca4d4d5wa4\">本文<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>实例的相关配置如下所示，仅供参考。</p>\n        <div id=\"8b16524907ke3\" outputclass=\"collapse\" class=\"collapse\">\n          <p data-tag=\"expandable-title\" id=\"872214bfc8zyp\" class=\"expandable-title\">单击查看本文<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>的配置</p>\n          <div data-tag=\"expandable-content\" id=\"2ead94ef252nb\" class=\"expandable-content\">\n            <table id=\"5db51dc5d7n05\" tablewidth=\"100\" tablecolswidth=\"24.9 75.1\" autofit=\"true\" class=\"table\">\n              <colgroup colwidth=\"0.5*\" style=\"width:24.90%\"></colgroup>\n              <colgroup colwidth=\"1.5*\" style=\"width:75.10%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"b54ded8745jnk\">\n                  <td id=\"80218f5cb5njo\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"ee62c8b4dbver\"><b>配置</b></p>\n                  </td>\n                  <td id=\"ce1215593ajfp\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"fbaf3273892pd\"><b>说明</b></p>\n                  </td>\n                </tr>\n                <tr id=\"38a67e083f1jg\">\n                  <td id=\"3c7d7e0e54khu\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"bd73bcce2dkyo\"><b>名称</b></p>\n                  </td>\n                  <td id=\"74b26cba91lx7\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"a14b74043ding\">VPC1</p>\n                  </td>\n                </tr>\n                <tr id=\"a3dbda158dghs\">\n                  <td id=\"77505d906bvt3\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"f891dbad218gf\"><b>地域</b></p>\n                  </td>\n                  <td id=\"8bf2f49197lqd\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"2b8d589e33wdb\">华东<span class=\"help-letter-space\"></span>2（上海）</p>\n                  </td>\n                </tr>\n                <tr id=\"8e4663efd6wyj\">\n                  <td id=\"4a551f1621wmx\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"f2cacac474qiu\"><b>IPv4<span class=\"help-letter-space\"></span>网段</b></p>\n                  </td>\n                  <td id=\"b8bccf4a14gk7\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"757555c9fcl7y\">192.168.0.0/16</p>\n                  </td>\n                </tr>\n                <tr id=\"91e3961f4c8a8\">\n                  <td id=\"dbc4fc6bb8br6\" rowspan=\"2\" colspan=\"1\">\n                    <p id=\"8969bcd08bwwl\"><b>交换机</b></p>\n                  </td>\n                  <td id=\"eb69efe9f0heq\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"3422136a28jmn\"><b>名称</b>：VSW1</p>\n                    <p id=\"a9d12a248e5sw\"><b>可用区</b>：可用区<span class=\"help-letter-space\"></span>E</p>\n                    <p id=\"4c9ffe298ct5x\"><b>IPv4<span class=\"help-letter-space\"></span>网段</b>：192.168.5.0/24</p>\n                  </td>\n                </tr>\n                <tr id=\"fe6f065a33i0e\">\n                  <td id=\"b16d0a3c9bnz6\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"10b9d11c28k4e\"><b>名称</b>：VSW2</p>\n                    <p id=\"eb7d9c5bc0xvv\"><b>可用区</b>：可用区<span class=\"help-letter-space\"></span>G</p>\n                    <p id=\"8a212172159m3\"><b>IPv4<span class=\"help-letter-space\"></span>网段</b>：192.168.6.0/24</p>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </div>\n        <p id=\"cb19bc0332ov4\">本文<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例的相关配置如下所示，仅供参考。</p>\n        <div id=\"efd42b0a35mii\" outputclass=\"collapse\" class=\"collapse\">\n          <p data-tag=\"expandable-title\" id=\"52c6d44456huu\" class=\"expandable-title\">单击查看本文<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>的配置</p>\n          <div data-tag=\"expandable-content\" id=\"0f4e94be82tvh\" class=\"expandable-content\">\n            <table id=\"1c314f6eaaxre\" tablewidth=\"100\" tablecolswidth=\"20 20 20 20 20\" autofit=\"true\" class=\"table\">\n              <colgroup colwidth=\"1*\" style=\"width:20.00%\"></colgroup>\n              <colgroup colwidth=\"1*\" style=\"width:20.00%\"></colgroup>\n              <colgroup colwidth=\"1*\" style=\"width:20.00%\"></colgroup>\n              <colgroup colwidth=\"1*\" style=\"width:20.00%\"></colgroup>\n              <colgroup colwidth=\"1*\" style=\"width:20.00%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"0aaa8aa044vkp\">\n                  <td id=\"7ce732bd89dnm\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"84ccfef0501ma\"><b>名称</b></p>\n                  </td>\n                  <td id=\"04cb68f60b94a\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"de83c93f90sen\"><b>地域</b></p>\n                  </td>\n                  <td id=\"130604a1018i0\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"bade4d8fb1tbb\"><b>所属<span class=\"help-letter-space\"></span>VPC</b></p>\n                  </td>\n                  <td id=\"78a48f56cfdzm\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"9fe685c103hxw\"><b>所属可用区及交换机</b></p>\n                  </td>\n                  <td id=\"60a7bfc93a1vg\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"e93ca68009g2t\"><b>ECS<span class=\"help-letter-space\"></span>配置</b></p>\n                  </td>\n                </tr>\n                <tr id=\"d27b1af1746v8\">\n                  <td id=\"4342c56ff0sln\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"e23c15a9a5h9q\">ECS01</p>\n                  </td>\n                  <td id=\"f9b47c3ce0vma\" rowspan=\"2\" colspan=\"1\">\n                    <p id=\"b64af470efcc6\">华东<span class=\"help-letter-space\"></span>2（上海）</p>\n                  </td>\n                  <td id=\"a4c0d36fd0jsj\" rowspan=\"2\" colspan=\"1\">\n                    <p id=\"966427dd0dbq2\">VPC1</p>\n                  </td>\n                  <td id=\"cbc28ac2a1dor\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"6bbf7e3a68ib5\">可用区<span class=\"help-letter-space\"></span>E | VSW1</p>\n                  </td>\n                  <td id=\"3504ff8621bla\" rowspan=\"2\" colspan=\"1\">\n                    <ul id=\"48a3d35894xrt\">\n                      <li id=\"f8e0a177af9xs\">\n                        <p id=\"6c94691f54gvs\">实例规格：ecs.e-c1m1.large</p>\n                      </li>\n                      <li id=\"017a536462i5v\">\n                        <p id=\"02b15ffedbpky\">CPU&amp;内存：2<span class=\"help-letter-space\"></span>核（vCPU）2 GiB</p>\n                      </li>\n                      <li id=\"a202c2220blc8\">\n                        <p id=\"a4688835322s9\">镜像：Alibaba Cloud Linux 3.2104 LTS 64<span class=\"help-letter-space\"></span>位</p>\n                      </li>\n                    </ul>\n                  </td>\n                </tr>\n                <tr id=\"b10a96fd3az1b\">\n                  <td id=\"1af2a4df8bmsk\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"212ac6f8169jq\">ECS02</p>\n                  </td>\n                  <td id=\"e54da2ffaapph\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"d4f6cf326a4el\">可用区<span class=\"help-letter-space\"></span>G | VSW2</p>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </div>\n        </div>\n      </section>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-qsu-vxj-1cq\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-hto-ujl-rvw\" class=\"title\">步骤一：创建<span class=\"help-letter-space\"></span>ALB<span class=\"help-letter-space\"></span>实例</h2>\n        <ol data-tag=\"steps\" id=\"steps-pfg-kbf-4zx\" class=\"steps\">\n          <li data-tag=\"step\" id=\"step-g4s-4sz-ibm\" props=\"china intl\" platform=\"public\" is-conref=\"true\" data-cond-platform=\"public\" data-cond-props=\"china intl\" class=\"step\"><span data-tag=\"cmd\" id=\"cmd-hnx-hgx-x2d\" class=\"cmd\">登录<a href=\"https://slb.console.aliyun.com/alb\" id=\"xref-puj-1p3-hpa\" class=\"\" target=\"_blank\">应用型负载均衡<span class=\"help-letter-space\"></span>ALB<span class=\"help-letter-space\"></span>控制台</a>。</span></li>\n          <li data-tag=\"step\" id=\"step-mjh-9jq-tkd\" class=\"step\">\n            <p id=\"392aee7030lvd\"><span data-tag=\"cmd\" id=\"cmd-1sn-unk-1x7\" class=\"cmd\">在<b id=\"wintitle-qxe-9bh-g41\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">实例</b>页面，单击<b id=\"uicontrol-0qw-eoi-akf\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建应用型负载均衡</b>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-f4f-9t4-eey\" class=\"step\">\n            <p id=\"392aee7130kec\"><span data-tag=\"cmd\" id=\"cmd-9ow-au6-tbk\" class=\"cmd\">在<span props=\"china\" data-cond-props=\"china\">应用型负载均衡（按量付费）</span>购买页面，根据需要配置实例。</span></p>\n            <section id=\"c5126a7642hil\" class=\"section\">\n              <p id=\"d58e93ac6fabl\">此处仅列出和本文强相关的配置项，其他未列出的配置项使用默认值。关于参数的更多信息，请参见<a href=\"https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/create-and-manage-alb-instances#section-p5i-8h3-fka\" id=\"291ad54835jtn\" title=\"\" class=\"xref\">创建和管理<span class=\"help-letter-space\"></span>ALB<span class=\"help-letter-space\"></span>实例</a>。</p>\n              <table id=\"table-owm-j4o-vqn\" tablewidth=\"100\" tablecolswidth=\"16.69 83.31\" autofit=\"true\" class=\"table\">\n                <colgroup colwidth=\"0.33*\" style=\"width:16.69%\"></colgroup>\n                <colgroup colwidth=\"1.67*\" style=\"width:83.31%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"row-2cq-rcj-3ia\">\n                    <td id=\"task-2065184-entry-727-zxc-14g\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"392aee7230ud2\"><b>配置</b></p>\n                    </td>\n                    <td id=\"task-2065184-entry-ock-ahj-b96\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"392aee7330kd5\"><b>说明</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-hwv-ryc-6gp\">\n                    <td id=\"entry-ltn-n7a-37g\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"392aee7430ftb\"><b id=\"uicontrol-whl-ssm-gmi\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">地域</b></p>\n                    </td>\n                    <td id=\"entry-wa8-7ss-0j9\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"392aee7530fue\">选择实例所属的地域。本文选择<b>华东<span class=\"help-letter-space\"></span>2（上海）</b>。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-1q5-hp1-p70\">\n                    <td id=\"entry-kwg-73z-406\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"392aee7630hqn\"><b id=\"uicontrol-yyj-k4b-z6t\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">实例网络类型</b></p>\n                    </td>\n                    <td id=\"entry-sad-hh1-8lb\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"392b158030r38\">选择实例网络类型，系统会根据您的选择分配私网或公网服务地址。本文选择<b id=\"uicontrol-ghj-h9g-93j\" data-tag=\"uicontrol\" data-isbold=\"true\" data-params-value=\"Internet\" data-format-type=\"icu\" class=\"uicontrol\">公网</b>。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-cht-umv-q6e\">\n                    <td id=\"entry-rp2-3kr-xcd\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"392e97f1301hx\"><b>VPC</b></p>\n                    </td>\n                    <td id=\"entry-vmy-ys3-bzs\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"392e97f230hu4\">选择实例所属的<span class=\"help-letter-space\"></span>VPC。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-viu-p8b-zfj\">\n                    <td id=\"entry-kfg-qs4-ylp\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"392e97f3303m7\"><b id=\"uicontrol-2xl-ekr-eb7\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">可用区</b></p>\n                    </td>\n                    <td id=\"entry-63m-wex-0vr\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"9022d2836euki\">至少选择<span class=\"help-letter-space\"></span>2<span class=\"help-letter-space\"></span>个可用区。本文选择<b>上海 可用区<span class=\"help-letter-space\"></span>E</b><span class=\"help-letter-space\"></span>及该可用区下的交换机<span class=\"help-letter-space\"></span>VSW1，<b>上海 可用区<span class=\"help-letter-space\"></span>G</b><span class=\"help-letter-space\"></span>及该可用区下的交换机<span class=\"help-letter-space\"></span>VSW2。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-38q-g3m-8gk\">\n                    <td id=\"entry-jpd-cea-sfw\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"3931a53430n0k\"><b id=\"uicontrol-f4g-96u-6j0\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">协议版本</b></p>\n                    </td>\n                    <td id=\"entry-u7c-4ra-5rc\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"3931a53530yki\">选择实例的协议版本。本文选择<span class=\"help-letter-space\"></span><b>IPv4</b>。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-4c8-7xa-pyw\">\n                    <td id=\"entry-dsg-p30-gx6\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"3934163030sek\"><b id=\"uicontrol-pxw-if2-k6u\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">功能版本（实例费）</b></p>\n                    </td>\n                    <td id=\"entry-5m4-419-08l\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"39341631300o2\">选择实例的功能版本，本文选择<b id=\"uicontrol-csm-jl1-byu\" data-tag=\"uicontrol\" data-isbold=\"true\" data-params-value=\"Standard\" data-format-type=\"icu\" class=\"uicontrol\">标准版</b>。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-0a3-j6x-n7h\">\n                    <td id=\"entry-p6e-5ng-lwf\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"39391f4130cg4\"><b id=\"uicontrol-15q-zrd-0e0\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">实例名称</b></p>\n                    </td>\n                    <td id=\"entry-9er-x2o-1f9\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"39391f4230hb0\">输入自定义实例名称。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-15q-m5f-oq9\">\n                    <td id=\"entry-jjh-oa9-s5n\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"39391f4530645\"><b id=\"09fcd82314qfa\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">服务关联角色</b></p>\n                    </td>\n                    <td id=\"entry-fht-9tw-gfb\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"39391f46301l2\">首次创建应用型负载均衡实例时，需要单击<b>创建服务关联角色</b>，创建一个名称为<span class=\"help-letter-space\"></span><b>AliyunServiceRoleForAlb</b><span class=\"help-letter-space\"></span>的服务关联角色。系统会为该角色添加名称为<span class=\"help-letter-space\"></span><b>AliyunServiceRolePolicyForAlb</b><span class=\"help-letter-space\"></span>的权限策略，授予<span class=\"help-letter-space\"></span>ALB<span class=\"help-letter-space\"></span>拥有访问其他云产品实例的权限。更多操作，请参见<a href=\"https://help.aliyun.com/zh/slb/security-and-compliance/application-oriented-load-balancing-system-permission-policy-reference\" id=\"cb900e4f22tv4\" title=\"\" class=\"xref\">负载均衡系统权限策略参考</a>。</p>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </section>\n          </li>\n          <li id=\"da806cf3cchiz\">\n            <p id=\"6a9982b86e6il\">单击<b id=\"dcb850f03cj0h\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">立即购买</b>，根据控制台提示完成实例开通。</p>\n          </li>\n          <li id=\"step-sab-v5z-cmj\">\n            <p id=\"3f5791fbbeoc8\"><span class=\"cmd\" data-spm-anchor-id=\"a2c4g.11186623.0.i9.454f11ccziYLhE\" data-tag=\"cmd\" id=\"cmd-7wt-w0z-h8g\">返回<b id=\"uicontrol-fx3-sx8-r7f\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">实例</b>页面，选择对应的地域即可看到新建的实例。</span></p>\n          </li>\n        </ol>\n      </section>\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-535-is4-t41\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-dwk-jj8-vln\" class=\"title\">步骤二：创建服务器组</h2>\n        <ol data-tag=\"steps\" id=\"steps-b9d-lxi-6jk\" class=\"steps\">\n          <li id=\"26537baf80bpm\">\n            <p id=\"3b6446d2196u3\"><span data-tag=\"cmd\" id=\"cmd-v7t-vpb-uvw\" class=\"cmd\">在左侧导航栏，选择<span data-tag=\"menucascade\" id=\"menucascade-avl-e19-g92\" class=\"menucascade\"><b id=\"uicontrol-e3k-cm5-09e\" data-tag=\"uicontrol\" data-isbold=\"true\" data-params-value=\"alb\" data-format-type=\"icu\" class=\"uicontrol\">应用型负载均衡<span class=\"help-letter-space\"></span>ALB</b> &gt; <b id=\"uicontrol-rcc-rcx-61p\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">服务器组</b></span>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-gkp-yd7-moj\" class=\"step\">\n            <p id=\"393b904130bn7\"><span data-tag=\"cmd\" id=\"cmd-8lg-s9h-a1w\" class=\"cmd\">在<b id=\"wintitle-vvo-q9z-x8v\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">服务器组</b>页面，单击<b id=\"uicontrol-bwo-ryj-wml\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建服务器组</b>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-wds-x2a-78y\" class=\"step\">\n            <p id=\"393b904230fuu\"><span data-tag=\"cmd\" id=\"cmd-v3e-b86-mgg\" class=\"cmd\">在<b id=\"uicontrol-t7r-qsw-wy2\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建服务器组</b>对话框配置服务器组相关的参数，然后单击<b id=\"uicontrol-py5-ckb-vq9\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建</b>。</span></p>\n            <div data-tag=\"info\" id=\"info-2lo-xtl-8x9\" class=\"info\">\n              <p id=\"5ea3d88413gpv\">此处仅列出和本文强相关的配置项，其他未列出的配置项使用默认值。关于参数的更多信息，请参见<a href=\"https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/create-and-manage-a-server-group#section-yjz-1tk-4c8\" id=\"ef39d464d89vu\" title=\"\" class=\"xref\">创建/删除服务器组</a>。</p>\n              <table id=\"table-4z1-70f-vkl\" tablewidth=\"100\" tablecolswidth=\"17.17 82.83\" autofit=\"true\" class=\"table\">\n                <colgroup colwidth=\"0.34*\" style=\"width:17.17%\"></colgroup>\n                <colgroup colwidth=\"1.66*\" style=\"width:82.83%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"row-b7o-oub-tf9\">\n                    <td id=\"task-2065184-entry-73e-8la-hvi\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"393bb75030ccy\"><b>参数</b></p>\n                    </td>\n                    <td id=\"task-2065184-entry-7qv-p9q-bf6\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"393bb75130vz0\"><b>描述</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-9sb-ura-aao\">\n                    <td id=\"entry-5sq-kw4-wrj\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"393bb75230s9x\"><b id=\"uicontrol-zmb-c33-d7y\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">服务器组类型</b></p>\n                    </td>\n                    <td id=\"entry-q0v-1zw-36p\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"393bb75330rlz\">选择一种服务器组类型：本文选择<b id=\"uicontrol-kl2-uu7-13a\" data-tag=\"uicontrol\" data-isbold=\"true\" data-params-value=\"Instance\" data-format-type=\"icu\" class=\"uicontrol\">服务器类型</b>。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-iha-g3m-cls\">\n                    <td id=\"entry-87l-b9o-tvh\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"393bb75830zz2\"><b id=\"uicontrol-q59-ny3-smv\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">服务器组名称</b></p>\n                    </td>\n                    <td id=\"entry-0ui-psc-5gy\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"393bde6030c7f\">输入服务器组名称。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-tew-o1v-j1t\">\n                    <td id=\"entry-vbg-89a-9jp\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"393bde6130tga\"><b>VPC</b></p>\n                    </td>\n                    <td id=\"entry-lue-q4e-6na\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"393bde62301ur\">从<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>下拉列表中选择<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例所属的<span class=\"help-letter-space\"></span>VPC。</p>\n                      <div id=\"077acde4294g9\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                        <p id=\"8811ef4898o60\">确保您选择的<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>与创建<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"0c9546f87a2y7\" is-conref=\"true\" class=\"ph\">ALB</span><span class=\"help-letter-space\"></span>实例时选择的<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>相同。</p>\n                      </div></div>\n                    </td>\n                  </tr>\n                  <tr id=\"row-hye-i33-p4z\">\n                    <td id=\"entry-ezt-t0e-j9e\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"393bde633038p\"><b id=\"uicontrol-pha-kyv-vkw\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">选择后端协议</b></p>\n                    </td>\n                    <td id=\"entry-o4l-2on-h2t\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"393bde6430doc\">选择一种后端协议，本文选择<span class=\"help-letter-space\"></span><b>HTTP</b>。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-u5d-bmj-2tb\">\n                    <td id=\"entry-yd9-b1f-czd\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"393bde65308k8\"><b id=\"uicontrol-lxl-8l4-s6m\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">选择调度算法</b></p>\n                    </td>\n                    <td id=\"entry-nly-ksp-qa0\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"393bde6630n3j\">选择一种调度算法，本文选择<b id=\"uicontrol-qj7-n07-79n\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">加权轮询</b>。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-sn2-ef3-xld\">\n                    <td id=\"entry-1zg-dpb-kab\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"393dda3030dfb\"><b id=\"uicontrol-mda-mg5-5ln\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">开启会话保持</b></p>\n                    </td>\n                    <td id=\"entry-c4e-dtw-bu6\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"5ea44db413iaq\">开启或关闭会话保持。本文保持默认值即不开启会话保持。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-9ux-ono-15y\">\n                    <td id=\"entry-avt-fiz-0ge\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"393dda3230fmv\"><b id=\"5d965f769c52n\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">后端长连接</b></p>\n                    </td>\n                    <td id=\"entry-7ev-6xn-9xc\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"393dda33300fb\">开启或关闭后端长连接。本文保持默认开启。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-snn-jby-vuh\">\n                    <td id=\"entry-gbz-b4p-eco\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"39d956e030ywz\"><b id=\"uicontrol-wja-6ie-81w\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">健康检查</b></p>\n                    </td>\n                    <td id=\"entry-zmw-e5c-sc2\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"5ea474c1138b5\">开启或关闭健康检查。本文开启。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"e920449479m3s\">\n                    <td id=\"c8a410cc91i61\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"0ff451167f7bb\"><b id=\"8a2964e07exq5\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">健康检查配置</b></p>\n                    </td>\n                    <td id=\"ea0db89e93gyg\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"5ea474c313h0z\">开启健康检查后，您可以单击后面的<b id=\"uicontrol-b9r-459-fha\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">编辑</b>，展开进行更多配置。</p>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>\n          </li>\n          <li data-tag=\"step\" id=\"step-4jf-29c-hb9\" class=\"step\">\n            <p id=\"39d97df030tmt\"><span data-tag=\"cmd\" id=\"cmd-xgv-9fm-lst\" class=\"cmd\">在<b id=\"uicontrol-1e3-ivv-5t2\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">服务器组创建成功</b>对话框单击<b id=\"uicontrol-1ou-ej7-uqg\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">添加后端服务器</b>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-fhl-ind-9pm\" class=\"step\">\n            <p id=\"39d9a50030qgg\"><span data-tag=\"cmd\" id=\"cmd-7i2-fd6-18q\" class=\"cmd\">在<b id=\"uicontrol-1tk-n2a-rtu\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">后端服务器</b>页签单击<b id=\"uicontrol-j1a-v4d-me8\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">添加后端服务器</b>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-t86-mwd-87u\" class=\"step\">\n            <p id=\"39d9a50130x2p\"><span data-tag=\"cmd\" id=\"cmd-ua4-kse-s13\" class=\"cmd\">在<b id=\"wintitle-ps3-oi9-pgi\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">添加后端服务器</b>面板，选择已创建的<span class=\"help-letter-space\"></span>ECS01<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>ECS02<span class=\"help-letter-space\"></span>实例，然后单击<b id=\"uicontrol-khd-98r-i27\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">下一步</b>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-s99-7co-iku\" class=\"step\">\n            <p id=\"39d9a50230en7\"><span data-tag=\"cmd\" id=\"cmd-9zm-oh3-dav\" class=\"cmd\">在<b id=\"8436902b6276o\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">配置端口和权重</b>配置向导，为已添加的服务器设置<b id=\"uicontrol-se8-5dn-204\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">端口</b>和<b id=\"uicontrol-myh-9hh-r23\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">权重</b>，然后单击<b id=\"uicontrol-yd3-sne-hs0\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>。</span></p>\n            <section id=\"f3c3931c26htg\" class=\"section\">\n              <p id=\"5ea474c813wt2\">本文<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例端口配置为<kbd data-tag=\"userinput\" id=\"userinput-rzv-qty-uzh\" class=\"userinput\">80</kbd>，权重为默认值<kbd data-tag=\"userinput\" id=\"userinput-bds-efd-nc9\" class=\"userinput\">100</kbd>。</p>\n            </section>\n          </li>\n        </ol>\n      </section>\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-czn-bqv-z8f\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-2nb-trp-qte\" class=\"title\">步骤三：配置监听</h2>\n        <ol data-tag=\"steps\" id=\"steps-kpx-r85-s0u\" class=\"steps\">\n          <li id=\"1a84c69df54t2\">\n            <p id=\"742a2c1d26490\"><span data-tag=\"cmd\" id=\"cmd-h4w-iua-6ki\" class=\"cmd\">在左侧导航栏，选择<span data-tag=\"menucascade\" id=\"menucascade-4cz-ev6-uwx\" class=\"menucascade\"><b id=\"uicontrol-gqy-du2-7md\" data-tag=\"uicontrol\" data-isbold=\"true\" data-params-value=\"alb\" data-format-type=\"icu\" class=\"uicontrol\">应用型负载均衡<span class=\"help-letter-space\"></span>ALB</b> &gt; <b id=\"uicontrol-o5d-5na-3ho\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">实例</b></span>，单击实例<span class=\"help-letter-space\"></span>ID。</span></p>\n          </li>\n          <li id=\"b35d5705d70od\">\n            <p id=\"761ecb4fddyyp\"><span data-tag=\"cmd\" id=\"cmd-8lz-yco-vp1\" class=\"cmd\">单击<b id=\"uicontrol-fvo-83t-4vk\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">监听</b>页签，然后单击<b id=\"uicontrol-hda-g4o-po7\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建监听</b>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-wr6-e1y-0th\" class=\"step\">\n            <p id=\"39da685030xic\"><span data-tag=\"cmd\" id=\"cmd-ufh-9j2-zhq\" class=\"cmd\">在<b id=\"wintitle-a78-ijg-btm\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">配置监听</b>配置向导页面，完成以下配置，然后单击<b id=\"uicontrol-x5e-e5w-1u8\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">下一步</b>。</span></p>\n            <div data-tag=\"info\" id=\"info-bpf-u6e-022\" class=\"info\">\n              <p id=\"5ea4e9f0137gs\">此处仅列出和本文强相关的配置项，其他未列出的配置项使用默认值。关于配置监听的更多操作，请参见<a href=\"https://help.aliyun.com/zh/slb/add-an-http-listener#task-1960530\" id=\"aef43be3e5tr2\" title=\"\" class=\"xref\">添加<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>监听</a>。</p>\n              <table id=\"table-5jo-poy-a7t\" tablewidth=\"100\" tablecolswidth=\"22.99 77.01\" autofit=\"true\" class=\"table\">\n                <colgroup colwidth=\"0.46*\" style=\"width:22.99%\"></colgroup>\n                <colgroup colwidth=\"1.54*\" style=\"width:77.01%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"row-650-2aw-ykf\">\n                    <td id=\"task-2235898-entry-02e-0ju-j6d\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"5ea4e9f113dcm\"><b>参数</b></p>\n                    </td>\n                    <td id=\"task-2235898-entry-ljf-rjy-yr8\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"5ea4e9f213ptd\"><b>描述</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-8ey-6oc-ii7\">\n                    <td id=\"entry-l94-9yd-vag\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"5ea4e9f313888\"><b id=\"uicontrol-jz0-8rl-3oj\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">选择监听协议</b></p>\n                    </td>\n                    <td id=\"entry-6f6-goc-lu9\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"5ea4e9f413yru\">选择监听的协议类型。本文选择<span class=\"help-letter-space\"></span><b>HTTP</b>。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-2nm-xut-w86\">\n                    <td id=\"entry-jfk-48c-gs9\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"5ea4e9f513iz8\"><b id=\"uicontrol-mvt-x30-x4z\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">监听端口</b></p>\n                    </td>\n                    <td id=\"entry-pou-s2d-9us\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"5ea4e9f613rh8\">用来接收请求并向后端服务器进行请求转发的监听端口。本文输入<kbd data-tag=\"userinput\" id=\"userinput-voo-5ke-481\" class=\"userinput\">80</kbd>。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-vrf-my4-fvr\">\n                    <td id=\"entry-ni8-kg3-vth\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"5ea4e9f713ite\"><b id=\"uicontrol-455-249-u2v\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">监听名称</b></p>\n                    </td>\n                    <td id=\"entry-ntj-bro-ugs\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"5ea4e9f813091\">输入自定义监听名称。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-i31-82c-61j\">\n                    <td id=\"entry-8tk-hjg-dng\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"5ea5110013ynl\"><b id=\"uicontrol-iwp-sg5-r90\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">高级配置</b></p>\n                    </td>\n                    <td id=\"entry-eo8-6v9-396\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"5ea5110113wxq\">本文保持默认，可单击<b id=\"uicontrol-hgz-b3t-e0u\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">修改</b>进行设置。</p>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>\n          </li>\n          <li data-tag=\"step\" id=\"step-nx0-h1d-qq5\" class=\"step\">\n            <p id=\"39db2ba0305bb\"><span data-tag=\"cmd\" id=\"cmd-tvk-x2r-tt4\" class=\"cmd\">在<b id=\"uicontrol-glj-i63-mu6\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">选择服务器组</b>配置向导，选择<b id=\"uicontrol-0j2-d84-6pt\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">服务器类型</b>及<b id=\"uicontrol-xrg-a2t-yla\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">服务器类型</b>下的目标服务器组，查看后端服务器信息，然后单击<b id=\"uicontrol-qa5-99x-5ez\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">下一步</b>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-rqs-e9x-aut\" class=\"step\">\n            <p id=\"39dbeef030wrq\"><span data-tag=\"cmd\" id=\"cmd-qxx-eir-ecm\" class=\"cmd\">在<b id=\"uicontrol-6us-swv-dn6\" data-status=\"unpublished\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">配置审核</b>配置向导页面，确认监听配置信息，然后单击<b id=\"uicontrol-g77-wsy-0m8\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">提交</b>。</span></p>\n          </li>\n          <li id=\"04f8c0b098p6u\">\n            <p id=\"10ce312968ln4\"><span data-tag=\"cmd\" id=\"cmd-xwz-7i3-gp5\" class=\"cmd\">单击<b id=\"uicontrol-qkt-iug-ap6\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">知道了</b>返回<b id=\"uicontrol-1v3-ssd-7r6\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">监听</b>页签，查看目标监听的<b id=\"uicontrol-f0k-0gr-br9\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">健康检查状态</b>列为<b id=\"uicontrol-gvx-vhc-iug\" data-tag=\"uicontrol\" data-isbold=\"true\" data-params-value=\"success\" data-format-type=\"icu\" class=\"uicontrol\">正常</b>时，表示后端服务器<span class=\"help-letter-space\"></span>ECS01<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>ECS02<span class=\"help-letter-space\"></span>实例可以正常处理<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"cb5a5d5d8c2f5\" is-conref=\"true\" class=\"ph\">ALB</span><span class=\"help-letter-space\"></span>实例转发的请求。</span></p>\n          </li>\n        </ol>\n      </section>\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-ayy-web-h5g\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-f60-7ha-7j5\" class=\"title\">步骤四：设置域名解析</h2>\n        <p id=\"73140cc171hgd\">实际业务场景中，建议您使用自有域名，通过<span class=\"help-letter-space\"></span>CNAME<span class=\"help-letter-space\"></span>解析的方式将自有域名指向<span class=\"help-letter-space\"></span>ALB<span class=\"help-letter-space\"></span>实例域名。</p>\n        <div data-init-id=\"a3e3ad9fffadm\" id=\"3fe340d546bq6\" tagname=\"note\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n          <p id=\"49f408b25dqwm\"><a href=\"https://help.aliyun.com/zh/slb/product-overview/alb-and-nlb-domain-name-upgrade-announcement\" id=\"2e5db5bd0eijs\" title=\"\" class=\"xref\">负载均衡域名已升级</a>，不支持直接使用<span class=\"help-letter-space\"></span>ALB<span class=\"help-letter-space\"></span>提供的<span class=\"help-letter-space\"></span>DNS<span class=\"help-letter-space\"></span>域名进行访问。</p>\n        </div></div>\n        <ol data-tag=\"steps\" id=\"steps-a7s-86z-sfq\" class=\"steps\">\n          <li id=\"1156534710er6\">\n            <p id=\"a1b149d06fxyn\">在左侧导航栏，选择<span data-tag=\"menucascade\" id=\"c5bfb321e1pjg\" class=\"menucascade\"><b id=\"3d42b91e400wk\" data-tag=\"uicontrol\" data-isbold=\"true\" data-params-value=\"alb\" data-format-type=\"icu\" class=\"uicontrol\">应用型负载均衡<span class=\"help-letter-space\"></span>ALB</b> &gt; <b id=\"2435476f2acmu\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">实例</b></span></p>\n          </li>\n          <li id=\"6c7072efa6wwf\">\n            <p id=\"92a0a98536b4v\"><span class=\"cmd\" data-tag=\"cmd\" id=\"cmd-v10-ht4-yn2\">在<b id=\"uicontrol-icy-2jk-reh\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">实例</b>页面，复制已创建的<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"582c7eb6b74zm\" is-conref=\"true\" class=\"ph\">ALB</span><span class=\"help-letter-space\"></span>实例的<span class=\"help-letter-space\"></span>DNS<span class=\"help-letter-space\"></span>名称。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-5pn-ij7-6gv\" class=\"step\">\n            <p id=\"1f877d52c5fom\"><span data-tag=\"cmd\" id=\"cmd-aij-t9n-jzt\" class=\"cmd\">执行以下步骤添加<span class=\"help-letter-space\"></span>CNAME<span class=\"help-letter-space\"></span>解析记录。</span></p>\n            <div id=\"ee9736e26e39u\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n              <p id=\"c40ad75f04e8n\">对于非阿里云注册域名，需先将域名添加到云解析控制台，才可以进行域名解析设置。具体操作，请参见<a href=\"https://help.aliyun.com/zh/dns/domain-management#topic-2035895\" id=\"ec23760745bax\" title=\"\" class=\"xref\">域名管理</a>。如果您是阿里云注册的域名，请直接执行以下步骤。</p>\n            </div></div>\n            <ol data-tag=\"substeps\" id=\"substeps-gou-rzj-86x\" type=\"a\" class=\"substeps\">\n              <li data-tag=\"substep\" id=\"substep-gns-0q5-mfq\" class=\"substep\">\n                <p id=\"c42b07766dd8k\"><span data-tag=\"cmd\" id=\"cmd-kii-2bm-ixr\" class=\"cmd\">登录<a href=\"https://dns.console.aliyun.com/#/dns/domainList\" id=\"xref-qbw-zsa-wyp\" class=\"\" target=\"_blank\">域名解析控制台</a>。</span></p>\n              </li>\n              <li data-tag=\"substep\" id=\"substep-zy1-8ny-664\" class=\"substep\">\n                <p id=\"a1b426da6cbgj\">在<b id=\"27c5983e079lp\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">权威域名解析</b>页面，找到目标域名，在<b id=\"df3ca8b4c0pbp\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">操作</b>列单击<b id=\"c8d105935ei9r\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">解析设置</b>。</p>\n              </li>\n              <li data-tag=\"substep\" id=\"substep-6t5-97z-ovj\" class=\"substep\">\n                <p id=\"e96c3f5b8851x\"><span data-tag=\"cmd\" id=\"cmd-2zf-j03-k4m\" class=\"cmd\">在<b id=\"uicontrol-z2x-phu-zd2\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">解析设置</b>页面，单击<b id=\"uicontrol-yp9-h2r-83s\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">添加记录</b>。</span></p>\n              </li>\n              <li data-tag=\"substep\" id=\"substep-ov4-i9g-jyt\" class=\"substep\">\n                <p id=\"945754496e4jm\"><span data-tag=\"cmd\" id=\"cmd-et8-ry6-bb4\" class=\"cmd\">在<b id=\"uicontrol-fyf-kyc-ug6\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">添加记录</b>面板，配置以下信息完成<span class=\"help-letter-space\"></span>CNAME<span class=\"help-letter-space\"></span>解析配置，然后单击<b id=\"uicontrol-467-1wv-kq8\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>。</span></p>\n                <table id=\"table-v0r-5f5-prr\" tablewidth=\"100\" tablecolswidth=\"33.38 66.62\" autofit=\"true\" class=\"table\">\n                  <colgroup colwidth=\"0.67*\" style=\"width:33.38%\"></colgroup>\n                  <colgroup colwidth=\"1.33*\" style=\"width:66.62%\"></colgroup>\n                  <tbody class=\"tbody\">\n                    <tr id=\"row-l1d-4wg-h75\">\n                      <td id=\"task-2223529-entry-7sy-n9w-atm\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                        <p id=\"76612a9ad7ntg\"><b>配置</b></p>\n                      </td>\n                      <td id=\"task-2223529-entry-3k9-17y-39p\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                        <p id=\"9b0bdf9e887oa\"><b>说明</b></p>\n                      </td>\n                    </tr>\n                    <tr id=\"row-n1t-an4-fde\">\n                      <td id=\"entry-bja-t9n-bi8\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"01bd57afb8rsp\"><b id=\"uicontrol-dki-s6x-co7\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">记录类型</b></p>\n                      </td>\n                      <td id=\"entry-27s-vra-wq8\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"ed351ad5818qq\">在下拉列表中选择<span class=\"help-letter-space\"></span><b>CNAME</b>。</p>\n                      </td>\n                    </tr>\n                    <tr id=\"row-evl-io2-gxv\">\n                      <td id=\"entry-4b2-38e-dql\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"e75c06cad4r27\"><b id=\"uicontrol-7ss-fcw-266\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">主机记录</b></p>\n                      </td>\n                      <td id=\"entry-705-0wm-djx\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"8bb345da14o64\">您的域名的前缀。本文输入<kbd data-tag=\"userinput\" id=\"userinput-lbe-izf-t60\" class=\"userinput\">@</kbd>。</p>\n                        <div id=\"91640dcb6249k\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                          <p id=\"ebf8945c93tq2\">创建域名为根域名时，主机记录为<span data-tag=\"ph\" class=\"ph\" id=\"codeph-jh7-ird-q1k\"><code data-tag=\"code\" class=\"code\" code-type=\"xCode\" id=\"b44c0a479dzew\">@</code></span>。</p>\n                        </div></div>\n                      </td>\n                    </tr>\n                    <tr id=\"row-gcv-p14-wjd\">\n                      <td id=\"entry-f3d-mzo-qop\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"be7df3c8e0nye\"><b id=\"uicontrol-jmn-gha-tma\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">解析请求来源</b></p>\n                      </td>\n                      <td id=\"entry-9zx-4xi-ziv\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"cc58a1a534ati\">选择默认。</p>\n                      </td>\n                    </tr>\n                    <tr id=\"row-amk-2pt-x8h\">\n                      <td id=\"entry-bzd-8qc-oh7\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"186f368fd83m6\"><b id=\"uicontrol-psp-5n5-hky\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">记录值</b></p>\n                      </td>\n                      <td id=\"entry-ppp-ppg-3tk\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"f8391bdc4cfth\">输入域名对应的<span class=\"help-letter-space\"></span>CNAME<span class=\"help-letter-space\"></span>地址，即您复制的<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"c69f035b51aei\" is-conref=\"true\" class=\"ph\">ALB</span><span class=\"help-letter-space\"></span>实例的<span class=\"help-letter-space\"></span>DNS<span class=\"help-letter-space\"></span>名称。</p>\n                      </td>\n                    </tr>\n                    <tr id=\"row-12y-7jc-la4\">\n                      <td id=\"entry-jvr-0wb-6az\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"c4e47991de08o\"><b>TTL</b></p>\n                      </td>\n                      <td id=\"entry-k6d-09w-yub\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"d08eab638eq19\">全称<span class=\"help-letter-space\"></span>Time To Live，表示<span class=\"help-letter-space\"></span>DNS<span class=\"help-letter-space\"></span>记录在<span class=\"help-letter-space\"></span>DNS<span class=\"help-letter-space\"></span>服务器上的缓存时间，本文使用默认值。</p>\n                      </td>\n                    </tr>\n                  </tbody>\n                </table>\n                <p id=\"89f9ba31cdzc5\"></p>\n              </li>\n            </ol>\n          </li>\n        </ol>\n      </section>\n      <section id=\"1651414657uj0\" class=\"section\">\n        <h2 id=\"f351c1bb139zj\"><b>步骤五：测试连通性</b></h2>\n        <p id=\"5d091f30984mh\">测试客户端与<span class=\"help-letter-space\"></span>ECS01<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>ECS02<span class=\"help-letter-space\"></span>服务器之间的连通性。本文以任意一台可以访问公网的客户端为例。</p>\n        <p id=\"50891b92d3te2\">在浏览器中输入域名，例如<code data-tag=\"code\" code-type=\"xCode\" id=\"58e9503c38civ\" class=\"code\">http://&lt;域名&gt;</code>。多次刷新页面，您可以观察到客户端请求在<span class=\"help-letter-space\"></span>ECS01<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>ECS02<span class=\"help-letter-space\"></span>服务器之间转换。</p>\n        <p id=\"p-e5bed009eab8\">浏览器页面显示 <code data-tag=\"code\" class=\"code\">Hello World ! This is ECS01.</code>，表明请求已被转发至 ECS01 服务器。</p>\n        <pre data-tag=\"codeblock\" id=\"codeblock-620866922db2\" code-type=\"xCode\" outputclass=\"language-text\" class=\"pre codeblock language-text\"><code>Hello World ! This is ECS02.</code></pre>\n        <p id=\"f450d0c80058p\">完成上述操作后，表明客户端可以通过<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"51372eed9ezhu\" is-conref=\"true\" class=\"ph\">ALB</span><span class=\"help-letter-space\"></span>以轮询的方式访问不同的后端服务。</p>\n      </section>\n      <section id=\"16f2796bc8p9l\" class=\"section\">\n        <h2 id=\"0847c02189xio\"><b>释放资源</b></h2>\n        <ol id=\"10074ff05cdmj\">\n          <li id=\"509b66f030mp0\">\n            <section id=\"27aa34c030oud\" class=\"section\">\n              <p id=\"4530ee2d85jhk\">清理<span class=\"help-letter-space\"></span>ECS、安全组等资源：</p>\n              <ol id=\"1db2ddd230b5k\">\n                <li id=\"1db2ddd030aoa\">\n                  <section id=\"bcf659d030wd1\" class=\"section\">\n                    <p id=\"43615410ceuki\">删除<span class=\"help-letter-space\"></span>ECS01<span class=\"help-letter-space\"></span>实例及其安全组：</p>\n                    <ol id=\"bee2c08230gtw\">\n                      <li id=\"bfff7b2130ive\">\n                        <section id=\"bfff7b2230v0g\" class=\"section\">\n                          <p id=\"d39204f08eqvr\">登录<a class=\"\" href=\"https://ecs.console.aliyun.com/server\" id=\"4b972e605cq98\">云服务器<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例控制台</a>，顶部选择实例所属地域，单击<span class=\"help-letter-space\"></span>ECS01<span class=\"help-letter-space\"></span>实例右侧的<img alt=\"image.png\" height=\"30\" id=\"bfff7b24302cm\" placement=\"inline\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1986907861/p684375.png\" class=\"image inline\">，弹出的窗口中选择<b>释放</b>，立即释放实例并确认。</p>\n                        </section>\n                      </li>\n                      <li id=\"bfff7b2530ek7\">\n                        <section id=\"bfff7b2630ozf\" class=\"section\">\n                          <p id=\"000c1d7395qzs\">登录<a class=\"\" href=\"https://ecs.console.aliyun.com/securityGroup\" id=\"a66cf3f05cia2\">云服务器<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>安全组控制台</a>，顶部选择实例所属地域，勾选<span class=\"help-letter-space\"></span>ECS01<span class=\"help-letter-space\"></span>自定义安全组并单击<b>删除</b>，删除安全组。</p>\n                        </section>\n                      </li>\n                    </ol>\n                  </section>\n                </li>\n                <li id=\"ba3f02003075b\">\n                  <section id=\"3e72b26030cdm\" class=\"section\">\n                    <p id=\"732105fd0df0k\">参照上述步骤，删除<span class=\"help-letter-space\"></span>ECS02<span class=\"help-letter-space\"></span>实例及对应安全组资源。</p>\n                  </section>\n                </li>\n              </ol>\n            </section>\n          </li>\n          <li id=\"0e4e855e3c8ce\">\n            <section id=\"3b211e292c691\" class=\"section\">\n              <p id=\"a52febdff2hn6\">删除域名解析记录</p>\n              <p id=\"c3581d6b2322k\">删除域名解析记录，具体操作，请参见<a href=\"https://help.aliyun.com/zh/dns/delete-a-dns-record\" id=\"0cbe91fdd0ghu\" title=\"\" class=\"xref\">删除域名解析记录</a>。</p>\n            </section>\n          </li>\n          <li id=\"5a3856f030bcw\">\n            <section id=\"562ef0c0306wi\" class=\"section\">\n              <p id=\"90bc45c82bcgy\">清理<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"e731fdf80fwt1\" is-conref=\"true\" class=\"ph\">ALB</span><span class=\"help-letter-space\"></span>资源：</p>\n              <ol id=\"cabd722e5cbw2\">\n                <li id=\"1ba506f771iie\">\n                  <p id=\"f149d7ce246pa\"><span data-tag=\"cmd\" id=\"a92e384947y23\" class=\"cmd\">登录<a href=\"https://slb.console.aliyun.com/alb\" id=\"fc9f441b07j49\" class=\"\" target=\"_blank\">应用型负载均衡<span class=\"help-letter-space\"></span>ALB<span class=\"help-letter-space\"></span>控制台</a>。</span>顶部选择实例所属地域，单击实例右侧的<img alt=\"image.png\" height=\"30\" id=\"b2b88401307mz\" placement=\"inline\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1986907861/p684375.png\" class=\"image inline\">，弹出的窗口中选择<b id=\"f72000d130dzh\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">释放</b>并确认。</p>\n                </li>\n                <li id=\"ce54dba841138\">\n                  <p id=\"c06dfb29d815d\">移除后端服务器，具体操作，请参见<a href=\"https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/create-and-manage-a-server-group#title-23h-9o1-i54\" id=\"9f62ab624dysa\" title=\"\" class=\"xref\">创建和管理服务器组</a>。</p>\n                </li>\n                <li id=\"56ea2fc3ac4a4\">\n                  <p id=\"34ddbad64avbo\">删除服务器组，具体操作，请参见<a href=\"https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/create-and-manage-a-server-group#title-fqw-l4x-cbp\" id=\"8ac54c67ff6z5\" title=\"\" class=\"xref\">创建和管理服务器组</a>。</p>\n                </li>\n              </ol>\n            </section>\n          </li>\n          <li id=\"4ff06e00303w6\">\n            <section id=\"56c9c6a030xf5\" class=\"section\">\n              <p id=\"a84047fe821lo\">清理<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>资源：</p>\n              <ol id=\"590dc332303yj\">\n                <li id=\"590dc33030hg1\">\n                  <p id=\"ed26a85f8fv2s\">登录<a class=\"\" href=\"https://vpc.console.aliyun.com/vpc\" id=\"f29a4bb05c301\">专有网络<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>控制台</a>，顶部选择实例所属地域。</p>\n                </li>\n                <li id=\"f8e614e05cw1v\">\n                  <p id=\"9759ce77b3ash\">单击实例右侧<b>删除</b>，系统将校验是否存在未删除的云产品资源或关联资源。如有依赖资源时，您需要完全释放资源后，才可删除专有网络和交换机。</p>\n                </li>\n              </ol>\n            </section>\n          </li>\n        </ol>\n      </section>\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-t1j-ewk-9fj\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-e25-qx3-ivr\" class=\"title\">相关文档</h2>\n        <div data-tag=\"p\" id=\"p-v4l-j9s-iih\" class=\"p\">\n          <ul data-tag=\"ul\" id=\"ul-add-o2x-o5f\" class=\"ul\">\n            <li data-tag=\"li\" id=\"li-guc-mzk-zl3\" class=\"li\">\n              <p id=\"39e6764430f36\">了解<span class=\"help-letter-space\"></span>ALB<span class=\"help-letter-space\"></span>的应用场景、组成等信息，请参见<a href=\"https://help.aliyun.com/zh/slb/application-load-balancer/product-overview/what-is-alb/#concept-2011635\" id=\"xref-nsn-z8s-h7s\" title=\"\" class=\"xref\">什么是应用型负载均衡<span class=\"help-letter-space\"></span>ALB</a>。</p>\n            </li>\n            <li data-tag=\"li\" id=\"li-4oa-ntt-q77\" class=\"li\">\n              <p id=\"39e69d5030bda\">了解<span class=\"help-letter-space\"></span>ALB<span class=\"help-letter-space\"></span>的功能特性，请参见<a href=\"https://help.aliyun.com/zh/slb/application-load-balancer/product-overview/functional-characteristics#concept-2021067\" id=\"xref-gw7-y1n-vdd\" title=\"\" class=\"xref\">功能特性</a>。</p>\n            </li>\n            <li data-tag=\"li\" id=\"li-drc-iih-zpv\" class=\"li\">\n              <p id=\"39e6c460304zp\">了解<span class=\"help-letter-space\"></span>ALB<span class=\"help-letter-space\"></span>支持的地域信息，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/slb/application-load-balancer/product-overview/supported-regions-and-zones#task-2087008\" id=\"xref-njh-n4d-z4f\" title=\"\" class=\"xref\">ALB<span class=\"help-letter-space\"></span>支持的地域与可用区</a>。</p>\n            </li>\n            <li id=\"a39ddd323e51a\">\n              <p id=\"b6351dcbc8scn\">了解<span class=\"help-letter-space\"></span>ALB<span class=\"help-letter-space\"></span>的配额及提升配额方式，请参见<a href=\"https://help.aliyun.com/zh/slb/application-load-balancer/product-overview/quotas-and-limits\" id=\"fa70ea7e4fjsz\" title=\"\" class=\"xref\">配额与限制</a>。</p>\n            </li>\n            <li id=\"87aff63718kxn\">\n              <p id=\"7bbaafa9c3jnb\">了解<span class=\"help-letter-space\"></span>ALB<span class=\"help-letter-space\"></span>计费文档，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/slb/alb-billing/\" id=\"ac81754db6cme\" title=\"\" class=\"xref\">ALB<span class=\"help-letter-space\"></span>产品计费</a>。</p>\n            </li>\n          </ul>\n        </div>\n      </section>\n</div>\n  </main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/slb/application-load-balancer/getting-started/use-an-alb-instance-to-provide-ipv4-services","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"负载均衡","id":27537,"title":"负载均衡","url":"/zh/slb/"},"alias":"/slb/application-load-balancer/getting-started/use-an-alb-instance-to-provide-ipv4-services","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":6,"developerUrl":"https://developer.aliyun.com/group/networking/","nodeType":1,"version":47,"url":"/zh/slb/application-load-balancer/getting-started/use-an-alb-instance-to-provide-ipv4-services","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":210822,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"ALB快速实现IPv4服务的负载均衡","id":210822,"title":"ALB快速实现IPv4服务的负载均衡","url":"/zh/slb/application-load-balancer/getting-started/use-an-alb-instance-to-provide-ipv4-services"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"快速入门","id":2539965,"title":"快速入门","url":"/zh/slb/application-load-balancer/getting-started/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"应用型负载均衡ALB","id":196881,"title":"应用型负载均衡ALB","url":"/zh/slb/application-load-balancer/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"负载均衡","id":27537,"title":"负载均衡","url":"/zh/slb/"},"productUrl":"https://www.aliyun.com/product/slb","nodeId":210822,"desc":"阿里云应用型负载均衡ALB支持HTTP、HTTPS和QUIC协议，专门面向网络应用层。本文介绍如何快速创建一个IPv4版本的ALB实例，并将来自IPv4客户端的访问请求转发至后端服务器。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"负载均衡","id":27537,"title":"负载均衡","url":"/zh/slb/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"应用型负载均衡ALB","id":196881,"title":"应用型负载均衡ALB","url":"/zh/slb/application-load-balancer/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"快速入门","id":2539965,"title":"快速入门","url":"/zh/slb/application-load-balancer/getting-started/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"ALB快速实现IPv4服务的负载均衡","id":210822,"title":"ALB快速实现IPv4服务的负载均衡","url":"/zh/slb/application-load-balancer/getting-started/use-an-alb-instance-to-provide-ipv4-services"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=2150424317825647904347817e041b&asid=AQAAAAC2xz9qKqd1EQAAAACEMVIek+AMtg==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"><div class="help-subproduct-container"></div></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2539963" class="Menu--level1--UN3zYr3">
+<a href="/zh/slb/application-load-balancer/product-overview/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品概述</span>
+</a>
+</li>
+ <li id="2539965" class="Menu--level1--UN3zYr3">
+<a href="/zh/slb/application-load-balancer/getting-started/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">快速入门</span>
+</a>
+</li>
+ <li id="2539966" class="Menu--level1--UN3zYr3">
+<a href="/zh/slb/application-load-balancer/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">操作指南</span>
+</a>
+</li>
+ <li id="2539967" class="Menu--level1--UN3zYr3">
+<a href="/zh/slb/application-load-balancer/use-cases/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">实践教程</span>
+</a>
+</li>
+ <li id="2539968" class="Menu--level1--UN3zYr3">
+<a href="/zh/slb/application-load-balancer/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2539969" class="Menu--level1--UN3zYr3">
+<a href="/zh/slb/application-load-balancer/support/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">服务支持</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>ALB快速实现IPv4服务的负载均衡</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/slb" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="task-2065184">
+    
+    
+    <p data-tag="shortdesc" id="shortdesc-ucs-9xk-45v" class="shortdesc">阿里云<span data-tag="ph" id="ph-w6j-2cr-fyx" is-conref="true" class="ph">应用型负载均衡<span class="help-letter-space"></span>ALB</span><span class="help-letter-space"></span>支持<span class="help-letter-space"></span>HTTP、HTTPS<span class="help-letter-space"></span>和<span class="help-letter-space"></span>QUIC<span class="help-letter-space"></span>协议，专门面向网络应用层。本文介绍如何快速创建一个<span class="help-letter-space"></span>IPv4<span class="help-letter-space"></span>版本的<span class="help-letter-space"></span><span data-tag="ph" id="ph-suk-1mv-n08" is-conref="true" class="ph">ALB</span><span class="help-letter-space"></span>实例，并将来自<span class="help-letter-space"></span>IPv4<span class="help-letter-space"></span>客户端的访问请求转发至后端服务器。</p>
+    <div data-tag="taskbody" id="taskbody-rcf-8el-5lh" class="taskbody">
+      <section data-tag="section" data-type="section" id="section-2hi-sor-kym" props="china" data-cond-props="china" class="section"><video id="object-z3x-ky2-huc" src="https://cloud.video.taobao.com/play/u/null/p/1/e/6/t/1/d/ud/362496704426.mp4" controls="" poster="https://img.alicdn.com/imgextra/i1/O1CN016UJXJm1Exws0KRfi2_!!6000000000419-0-tps-1204-677.jpg" title="ALB快速实现IPv4服务的负载均衡" alt="ALB快速实现IPv4服务的负载均衡"></video></section>
+      <section data-tag="section" data-type="section" id="section-lpc-odo-rxd" class="section">
+        <h2 data-tag="title" id="title-flc-2ao-kxq" class="title">前提条件</h2>
+        <ul data-tag="ul" id="ul-u76-kzi-eiq" class="ul">
+          <li data-tag="li" id="li-xas-8su-hiu" class="li">
+            <p id="391f7cc030g56">您已在华东<span class="help-letter-space"></span>2（上海）地域创建了一个专有网络<span class="help-letter-space"></span>VPC1，并分别在可用区<span class="help-letter-space"></span>E<span class="help-letter-space"></span>和可用区<span class="help-letter-space"></span>G<span class="help-letter-space"></span>创建了一个交换机<span class="help-letter-space"></span>VSW1<span class="help-letter-space"></span>和<span class="help-letter-space"></span>VSW2。具体操作，请参见<a href="https://help.aliyun.com/zh/vpc/user-guide/create-and-manage-a-vpc" id="d0dc1ec44f3zo" title="" class="xref">创建专有网络和交换机</a>。</p>
+            <p id="8b50ed0c55nlp">如果计划将<span class="help-letter-space"></span>ALB<span class="help-letter-space"></span>部署在交换机<span class="help-letter-space"></span>VSW1<span class="help-letter-space"></span>和<span class="help-letter-space"></span>VSW2，需注意：<a href="https://help.aliyun.com/zh/slb/product-overview/alb" id="5f78856dcfvu2" title="" class="xref">ALB<span class="help-letter-space"></span>升级实例</a>会从每个指定的交换机中分配<span class="help-letter-space"></span>3<span class="help-letter-space"></span>个<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址，包含<span class="help-letter-space"></span>1<span class="help-letter-space"></span>个<span class="help-letter-space"></span>VIP（对外提供服务）和<span class="help-letter-space"></span>2<span class="help-letter-space"></span>个<span class="help-letter-space"></span>Local IP（用于与后端服务器通信），如果<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>不足会出现报错并且无法创建实例，请确保交换机<span class="help-letter-space"></span>VSW1<span class="help-letter-space"></span>和<span class="help-letter-space"></span>VSW2<span class="help-letter-space"></span>中已预留足够的可用<span class="help-letter-space"></span>IP；升级前的<span class="help-letter-space"></span>ALB<span class="help-letter-space"></span>实例不受该限制。</p>
+            <div id="ae2e8bc901685" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+              <ul id="d3342867e9fr8">
+                <li id="2145d2f535dhe">
+                  <p id="f7f3c635cf2js">为确保<span class="help-letter-space"></span>ALB<span class="help-letter-space"></span>升级实例各项弹性能力可用，建议您在<span class="help-letter-space"></span><span data-tag="ph" class="ph" id="a4201ac1bcj6f" is-conref="true">ALB</span><span class="help-letter-space"></span>实例所在的每个交换机内预留至少<span class="help-letter-space"></span>8<span class="help-letter-space"></span>个<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址。</p>
+                </li>
+                <li id="2b7dba2f26qgp">
+                  <p id="877207504awos">为确保<span class="help-letter-space"></span>ALB<span class="help-letter-space"></span>升级实例与后端服务正常连通，如您的后端服务中存在访问策略（包括<span class="help-letter-space"></span>iptables<span class="help-letter-space"></span>或其他任何第三方安全策略软件），建议您提前放通<span class="help-letter-space"></span>ALB<span class="help-letter-space"></span>实例所属交换机网段。</p>
+                </li>
+              </ul>
+            </div></div>
+          </li>
+          <li id="6fa00c8d80yj1">
+            <p id="a3ad962ec4zho">您已分别在<span class="help-letter-space"></span>VSW1<span class="help-letter-space"></span>和<span class="help-letter-space"></span>VSW2<span class="help-letter-space"></span>创建<span class="help-letter-space"></span>ECS01<span class="help-letter-space"></span>和<span class="help-letter-space"></span>ECS02<span class="help-letter-space"></span>实例，且<span class="help-letter-space"></span>ECS01<span class="help-letter-space"></span>和<span class="help-letter-space"></span>ECS02<span class="help-letter-space"></span>实例中部署了应用服务。</p>
+            <ul id="8eef84bff2xkd">
+              <li class="li" data-tag="li" id="li-s25-yn2-13w">
+                <p id="f340daea1ey8e">关于创建<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例，请参见<a href="https://help.aliyun.com/zh/ecs/user-guide/create-an-instance-by-using-the-wizard#task-vwq-5g4-r2b" id="002447672cdtf" title="" class="xref">自定义购买实例</a>。</p>
+              </li>
+              <li class="li" data-tag="li" id="li-9c4-oey-d3m">
+              <p id="3b61c93066y5f">本文<span class="help-letter-space"></span>ECS01<span class="help-letter-space"></span>和<span class="help-letter-space"></span>ECS02<span class="help-letter-space"></span>部署测试应用示例如下：</p>
+<div id="29fa2aaf71ame" outputclass="collapse" class="collapse">
+                  <p data-tag="expandable-title" id="3931db93791du" class="expandable-title"><b>ECS01<span class="help-letter-space"></span>服务部署命令</b></p>
+                  <div data-tag="expandable-content" id="fbb7b4cf3c9jc" class="expandable-content"><pre code-type="xCode" data-tag="codeblock" id="c3a80b5687tv2" outputclass="language-shell" class="pre codeblock language-shell"><code>yum install -y nginx
+systemctl start nginx.service
+cd /usr/share/nginx/html/
+echo "Hello World ! This is ECS01." &gt; index.html</code></pre></div>
+                  </div>
+                <div id="c5175be69b72q" outputclass="collapse" class="collapse">
+                  <p data-tag="expandable-title" id="23a39b0fc7ps4" class="expandable-title"><b>ECS02<span class="help-letter-space"></span>服务部署命令</b></p>
+                  <div data-tag="expandable-content" id="967de75f5bywz" class="expandable-content"><pre code-type="xCode" data-tag="codeblock" id="8e2a94988c9ul" outputclass="language-shell" class="pre codeblock language-shell"><code>yum install -y nginx
+systemctl start nginx.service
+cd /usr/share/nginx/html/
+echo "Hello World ! This is ECS02." &gt; index.html</code></pre></div>
+                  </div>
+              </li>
+            </ul>
+          </li>
+          <li id="6cfc34c54dxv2">
+            <p id="0f0db748bfi4t">您已经注册域名并完成备案。具体操作，请参见<a href="https://help.aliyun.com/zh/dws/user-guide/how-to-register-a-domain-name" id="d07d77f38fexl" title="" class="xref">注册阿里云域名</a>、<a href="https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-application-overview" id="0815b58d258pw" title="" class="xref">ICP<span class="help-letter-space"></span>备案流程</a>。</p>
+          </li>
+        </ul>
+        <p id="872ca4d4d5wa4">本文<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>实例的相关配置如下所示，仅供参考。</p>
+        <div id="8b16524907ke3" outputclass="collapse" class="collapse">
+          <p data-tag="expandable-title" id="872214bfc8zyp" class="expandable-title">单击查看本文<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>的配置</p>
+          <div data-tag="expandable-content" id="2ead94ef252nb" class="expandable-content">
+            <table id="5db51dc5d7n05" tablewidth="100" tablecolswidth="24.9 75.1" autofit="true" class="table">
+              <colgroup colwidth="0.5*" style="width:24.90%"></colgroup>
+              <colgroup colwidth="1.5*" style="width:75.10%"></colgroup>
+              <tbody class="tbody">
+                <tr id="b54ded8745jnk">
+                  <td id="80218f5cb5njo" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="ee62c8b4dbver"><b>配置</b></p>
+                  </td>
+                  <td id="ce1215593ajfp" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="fbaf3273892pd"><b>说明</b></p>
+                  </td>
+                </tr>
+                <tr id="38a67e083f1jg">
+                  <td id="3c7d7e0e54khu" rowspan="1" colspan="1">
+                    <p id="bd73bcce2dkyo"><b>名称</b></p>
+                  </td>
+                  <td id="74b26cba91lx7" rowspan="1" colspan="1">
+                    <p id="a14b74043ding">VPC1</p>
+                  </td>
+                </tr>
+                <tr id="a3dbda158dghs">
+                  <td id="77505d906bvt3" rowspan="1" colspan="1">
+                    <p id="f891dbad218gf"><b>地域</b></p>
+                  </td>
+                  <td id="8bf2f49197lqd" rowspan="1" colspan="1">
+                    <p id="2b8d589e33wdb">华东<span class="help-letter-space"></span>2（上海）</p>
+                  </td>
+                </tr>
+                <tr id="8e4663efd6wyj">
+                  <td id="4a551f1621wmx" rowspan="1" colspan="1">
+                    <p id="f2cacac474qiu"><b>IPv4<span class="help-letter-space"></span>网段</b></p>
+                  </td>
+                  <td id="b8bccf4a14gk7" rowspan="1" colspan="1">
+                    <p id="757555c9fcl7y">192.168.0.0/16</p>
+                  </td>
+                </tr>
+                <tr id="91e3961f4c8a8">
+                  <td id="dbc4fc6bb8br6" rowspan="2" colspan="1">
+                    <p id="8969bcd08bwwl"><b>交换机</b></p>
+                  </td>
+                  <td id="eb69efe9f0heq" rowspan="1" colspan="1">
+                    <p id="3422136a28jmn"><b>名称</b>：VSW1</p>
+                    <p id="a9d12a248e5sw"><b>可用区</b>：可用区<span class="help-letter-space"></span>E</p>
+                    <p id="4c9ffe298ct5x"><b>IPv4<span class="help-letter-space"></span>网段</b>：192.168.5.0/24</p>
+                  </td>
+                </tr>
+                <tr id="fe6f065a33i0e">
+                  <td id="b16d0a3c9bnz6" rowspan="1" colspan="1">
+                    <p id="10b9d11c28k4e"><b>名称</b>：VSW2</p>
+                    <p id="eb7d9c5bc0xvv"><b>可用区</b>：可用区<span class="help-letter-space"></span>G</p>
+                    <p id="8a212172159m3"><b>IPv4<span class="help-letter-space"></span>网段</b>：192.168.6.0/24</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <p id="cb19bc0332ov4">本文<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例的相关配置如下所示，仅供参考。</p>
+        <div id="efd42b0a35mii" outputclass="collapse" class="collapse">
+          <p data-tag="expandable-title" id="52c6d44456huu" class="expandable-title">单击查看本文<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>的配置</p>
+          <div data-tag="expandable-content" id="0f4e94be82tvh" class="expandable-content">
+            <table id="1c314f6eaaxre" tablewidth="100" tablecolswidth="20 20 20 20 20" autofit="true" class="table">
+              <colgroup colwidth="1*" style="width:20.00%"></colgroup>
+              <colgroup colwidth="1*" style="width:20.00%"></colgroup>
+              <colgroup colwidth="1*" style="width:20.00%"></colgroup>
+              <colgroup colwidth="1*" style="width:20.00%"></colgroup>
+              <colgroup colwidth="1*" style="width:20.00%"></colgroup>
+              <tbody class="tbody">
+                <tr id="0aaa8aa044vkp">
+                  <td id="7ce732bd89dnm" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="84ccfef0501ma"><b>名称</b></p>
+                  </td>
+                  <td id="04cb68f60b94a" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="de83c93f90sen"><b>地域</b></p>
+                  </td>
+                  <td id="130604a1018i0" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="bade4d8fb1tbb"><b>所属<span class="help-letter-space"></span>VPC</b></p>
+                  </td>
+                  <td id="78a48f56cfdzm" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="9fe685c103hxw"><b>所属可用区及交换机</b></p>
+                  </td>
+                  <td id="60a7bfc93a1vg" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="e93ca68009g2t"><b>ECS<span class="help-letter-space"></span>配置</b></p>
+                  </td>
+                </tr>
+                <tr id="d27b1af1746v8">
+                  <td id="4342c56ff0sln" rowspan="1" colspan="1">
+                    <p id="e23c15a9a5h9q">ECS01</p>
+                  </td>
+                  <td id="f9b47c3ce0vma" rowspan="2" colspan="1">
+                    <p id="b64af470efcc6">华东<span class="help-letter-space"></span>2（上海）</p>
+                  </td>
+                  <td id="a4c0d36fd0jsj" rowspan="2" colspan="1">
+                    <p id="966427dd0dbq2">VPC1</p>
+                  </td>
+                  <td id="cbc28ac2a1dor" rowspan="1" colspan="1">
+                    <p id="6bbf7e3a68ib5">可用区<span class="help-letter-space"></span>E | VSW1</p>
+                  </td>
+                  <td id="3504ff8621bla" rowspan="2" colspan="1">
+                    <ul id="48a3d35894xrt">
+                      <li id="f8e0a177af9xs">
+                        <p id="6c94691f54gvs">实例规格：ecs.e-c1m1.large</p>
+                      </li>
+                      <li id="017a536462i5v">
+                        <p id="02b15ffedbpky">CPU&amp;内存：2<span class="help-letter-space"></span>核（vCPU）2 GiB</p>
+                      </li>
+                      <li id="a202c2220blc8">
+                        <p id="a4688835322s9">镜像：Alibaba Cloud Linux 3.2104 LTS 64<span class="help-letter-space"></span>位</p>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr id="b10a96fd3az1b">
+                  <td id="1af2a4df8bmsk" rowspan="1" colspan="1">
+                    <p id="212ac6f8169jq">ECS02</p>
+                  </td>
+                  <td id="e54da2ffaapph" rowspan="1" colspan="1">
+                    <p id="d4f6cf326a4el">可用区<span class="help-letter-space"></span>G | VSW2</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+<section data-tag="section" data-type="section" id="section-qsu-vxj-1cq" class="section">
+        <h2 data-tag="title" id="title-hto-ujl-rvw" class="title">步骤一：创建<span class="help-letter-space"></span>ALB<span class="help-letter-space"></span>实例</h2>
+        <ol data-tag="steps" id="steps-pfg-kbf-4zx" class="steps">
+          <li data-tag="step" id="step-g4s-4sz-ibm" props="china intl" platform="public" is-conref="true" data-cond-platform="public" data-cond-props="china intl" class="step"><span data-tag="cmd" id="cmd-hnx-hgx-x2d" class="cmd">登录<a href="https://slb.console.aliyun.com/alb" id="xref-puj-1p3-hpa" class="" target="_blank">应用型负载均衡<span class="help-letter-space"></span>ALB<span class="help-letter-space"></span>控制台</a>。</span></li>
+          <li data-tag="step" id="step-mjh-9jq-tkd" class="step">
+            <p id="392aee7030lvd"><span data-tag="cmd" id="cmd-1sn-unk-1x7" class="cmd">在<b id="wintitle-qxe-9bh-g41" data-tag="uicontrol" data-isbold="true" class="uicontrol">实例</b>页面，单击<b id="uicontrol-0qw-eoi-akf" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建应用型负载均衡</b>。</span></p>
+          </li>
+          <li data-tag="step" id="step-f4f-9t4-eey" class="step">
+            <p id="392aee7130kec"><span data-tag="cmd" id="cmd-9ow-au6-tbk" class="cmd">在<span props="china" data-cond-props="china">应用型负载均衡（按量付费）</span>购买页面，根据需要配置实例。</span></p>
+            <section id="c5126a7642hil" class="section">
+              <p id="d58e93ac6fabl">此处仅列出和本文强相关的配置项，其他未列出的配置项使用默认值。关于参数的更多信息，请参见<a href="https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/create-and-manage-alb-instances#section-p5i-8h3-fka" id="291ad54835jtn" title="" class="xref">创建和管理<span class="help-letter-space"></span>ALB<span class="help-letter-space"></span>实例</a>。</p>
+              <table id="table-owm-j4o-vqn" tablewidth="100" tablecolswidth="16.69 83.31" autofit="true" class="table">
+                <colgroup colwidth="0.33*" style="width:16.69%"></colgroup>
+                <colgroup colwidth="1.67*" style="width:83.31%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="row-2cq-rcj-3ia">
+                    <td id="task-2065184-entry-727-zxc-14g" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="392aee7230ud2"><b>配置</b></p>
+                    </td>
+                    <td id="task-2065184-entry-ock-ahj-b96" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="392aee7330kd5"><b>说明</b></p>
+                    </td>
+                  </tr>
+                  <tr id="row-hwv-ryc-6gp">
+                    <td id="entry-ltn-n7a-37g" rowspan="1" colspan="1">
+                      <p id="392aee7430ftb"><b id="uicontrol-whl-ssm-gmi" data-tag="uicontrol" data-isbold="true" class="uicontrol">地域</b></p>
+                    </td>
+                    <td id="entry-wa8-7ss-0j9" rowspan="1" colspan="1">
+                      <p id="392aee7530fue">选择实例所属的地域。本文选择<b>华东<span class="help-letter-space"></span>2（上海）</b>。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-1q5-hp1-p70">
+                    <td id="entry-kwg-73z-406" rowspan="1" colspan="1">
+                      <p id="392aee7630hqn"><b id="uicontrol-yyj-k4b-z6t" data-tag="uicontrol" data-isbold="true" class="uicontrol">实例网络类型</b></p>
+                    </td>
+                    <td id="entry-sad-hh1-8lb" rowspan="1" colspan="1">
+                      <p id="392b158030r38">选择实例网络类型，系统会根据您的选择分配私网或公网服务地址。本文选择<b id="uicontrol-ghj-h9g-93j" data-tag="uicontrol" data-isbold="true" data-params-value="Internet" data-format-type="icu" class="uicontrol">公网</b>。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-cht-umv-q6e">
+                    <td id="entry-rp2-3kr-xcd" rowspan="1" colspan="1">
+                      <p id="392e97f1301hx"><b>VPC</b></p>
+                    </td>
+                    <td id="entry-vmy-ys3-bzs" rowspan="1" colspan="1">
+                      <p id="392e97f230hu4">选择实例所属的<span class="help-letter-space"></span>VPC。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-viu-p8b-zfj">
+                    <td id="entry-kfg-qs4-ylp" rowspan="1" colspan="1">
+                      <p id="392e97f3303m7"><b id="uicontrol-2xl-ekr-eb7" data-tag="uicontrol" data-isbold="true" class="uicontrol">可用区</b></p>
+                    </td>
+                    <td id="entry-63m-wex-0vr" rowspan="1" colspan="1">
+                      <p id="9022d2836euki">至少选择<span class="help-letter-space"></span>2<span class="help-letter-space"></span>个可用区。本文选择<b>上海 可用区<span class="help-letter-space"></span>E</b><span class="help-letter-space"></span>及该可用区下的交换机<span class="help-letter-space"></span>VSW1，<b>上海 可用区<span class="help-letter-space"></span>G</b><span class="help-letter-space"></span>及该可用区下的交换机<span class="help-letter-space"></span>VSW2。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-38q-g3m-8gk">
+                    <td id="entry-jpd-cea-sfw" rowspan="1" colspan="1">
+                      <p id="3931a53430n0k"><b id="uicontrol-f4g-96u-6j0" data-tag="uicontrol" data-isbold="true" class="uicontrol">协议版本</b></p>
+                    </td>
+                    <td id="entry-u7c-4ra-5rc" rowspan="1" colspan="1">
+                      <p id="3931a53530yki">选择实例的协议版本。本文选择<span class="help-letter-space"></span><b>IPv4</b>。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-4c8-7xa-pyw">
+                    <td id="entry-dsg-p30-gx6" rowspan="1" colspan="1">
+                      <p id="3934163030sek"><b id="uicontrol-pxw-if2-k6u" data-tag="uicontrol" data-isbold="true" class="uicontrol">功能版本（实例费）</b></p>
+                    </td>
+                    <td id="entry-5m4-419-08l" rowspan="1" colspan="1">
+                      <p id="39341631300o2">选择实例的功能版本，本文选择<b id="uicontrol-csm-jl1-byu" data-tag="uicontrol" data-isbold="true" data-params-value="Standard" data-format-type="icu" class="uicontrol">标准版</b>。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-0a3-j6x-n7h">
+                    <td id="entry-p6e-5ng-lwf" rowspan="1" colspan="1">
+                      <p id="39391f4130cg4"><b id="uicontrol-15q-zrd-0e0" data-tag="uicontrol" data-isbold="true" class="uicontrol">实例名称</b></p>
+                    </td>
+                    <td id="entry-9er-x2o-1f9" rowspan="1" colspan="1">
+                      <p id="39391f4230hb0">输入自定义实例名称。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-15q-m5f-oq9">
+                    <td id="entry-jjh-oa9-s5n" rowspan="1" colspan="1">
+                      <p id="39391f4530645"><b id="09fcd82314qfa" data-tag="uicontrol" data-isbold="true" class="uicontrol">服务关联角色</b></p>
+                    </td>
+                    <td id="entry-fht-9tw-gfb" rowspan="1" colspan="1">
+                      <p id="39391f46301l2">首次创建应用型负载均衡实例时，需要单击<b>创建服务关联角色</b>，创建一个名称为<span class="help-letter-space"></span><b>AliyunServiceRoleForAlb</b><span class="help-letter-space"></span>的服务关联角色。系统会为该角色添加名称为<span class="help-letter-space"></span><b>AliyunServiceRolePolicyForAlb</b><span class="help-letter-space"></span>的权限策略，授予<span class="help-letter-space"></span>ALB<span class="help-letter-space"></span>拥有访问其他云产品实例的权限。更多操作，请参见<a href="https://help.aliyun.com/zh/slb/security-and-compliance/application-oriented-load-balancing-system-permission-policy-reference" id="cb900e4f22tv4" title="" class="xref">负载均衡系统权限策略参考</a>。</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </section>
+          </li>
+          <li id="da806cf3cchiz">
+            <p id="6a9982b86e6il">单击<b id="dcb850f03cj0h" data-tag="uicontrol" data-isbold="true" class="uicontrol">立即购买</b>，根据控制台提示完成实例开通。</p>
+          </li>
+          <li id="step-sab-v5z-cmj">
+            <p id="3f5791fbbeoc8"><span class="cmd" data-spm-anchor-id="a2c4g.11186623.0.i9.454f11ccziYLhE" data-tag="cmd" id="cmd-7wt-w0z-h8g">返回<b id="uicontrol-fx3-sx8-r7f" data-tag="uicontrol" data-isbold="true" class="uicontrol">实例</b>页面，选择对应的地域即可看到新建的实例。</span></p>
+          </li>
+        </ol>
+      </section>
+      <section data-tag="section" data-type="section" id="section-535-is4-t41" class="section">
+        <h2 data-tag="title" id="title-dwk-jj8-vln" class="title">步骤二：创建服务器组</h2>
+        <ol data-tag="steps" id="steps-b9d-lxi-6jk" class="steps">
+          <li id="26537baf80bpm">
+            <p id="3b6446d2196u3"><span data-tag="cmd" id="cmd-v7t-vpb-uvw" class="cmd">在左侧导航栏，选择<span data-tag="menucascade" id="menucascade-avl-e19-g92" class="menucascade"><b id="uicontrol-e3k-cm5-09e" data-tag="uicontrol" data-isbold="true" data-params-value="alb" data-format-type="icu" class="uicontrol">应用型负载均衡<span class="help-letter-space"></span>ALB</b> &gt; <b id="uicontrol-rcc-rcx-61p" data-tag="uicontrol" data-isbold="true" class="uicontrol">服务器组</b></span>。</span></p>
+          </li>
+          <li data-tag="step" id="step-gkp-yd7-moj" class="step">
+            <p id="393b904130bn7"><span data-tag="cmd" id="cmd-8lg-s9h-a1w" class="cmd">在<b id="wintitle-vvo-q9z-x8v" data-tag="uicontrol" data-isbold="true" class="uicontrol">服务器组</b>页面，单击<b id="uicontrol-bwo-ryj-wml" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建服务器组</b>。</span></p>
+          </li>
+          <li data-tag="step" id="step-wds-x2a-78y" class="step">
+            <p id="393b904230fuu"><span data-tag="cmd" id="cmd-v3e-b86-mgg" class="cmd">在<b id="uicontrol-t7r-qsw-wy2" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建服务器组</b>对话框配置服务器组相关的参数，然后单击<b id="uicontrol-py5-ckb-vq9" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建</b>。</span></p>
+            <div data-tag="info" id="info-2lo-xtl-8x9" class="info">
+              <p id="5ea3d88413gpv">此处仅列出和本文强相关的配置项，其他未列出的配置项使用默认值。关于参数的更多信息，请参见<a href="https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/create-and-manage-a-server-group#section-yjz-1tk-4c8" id="ef39d464d89vu" title="" class="xref">创建/删除服务器组</a>。</p>
+              <table id="table-4z1-70f-vkl" tablewidth="100" tablecolswidth="17.17 82.83" autofit="true" class="table">
+                <colgroup colwidth="0.34*" style="width:17.17%"></colgroup>
+                <colgroup colwidth="1.66*" style="width:82.83%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="row-b7o-oub-tf9">
+                    <td id="task-2065184-entry-73e-8la-hvi" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="393bb75030ccy"><b>参数</b></p>
+                    </td>
+                    <td id="task-2065184-entry-7qv-p9q-bf6" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="393bb75130vz0"><b>描述</b></p>
+                    </td>
+                  </tr>
+                  <tr id="row-9sb-ura-aao">
+                    <td id="entry-5sq-kw4-wrj" rowspan="1" colspan="1">
+                      <p id="393bb75230s9x"><b id="uicontrol-zmb-c33-d7y" data-tag="uicontrol" data-isbold="true" class="uicontrol">服务器组类型</b></p>
+                    </td>
+                    <td id="entry-q0v-1zw-36p" rowspan="1" colspan="1">
+                      <p id="393bb75330rlz">选择一种服务器组类型：本文选择<b id="uicontrol-kl2-uu7-13a" data-tag="uicontrol" data-isbold="true" data-params-value="Instance" data-format-type="icu" class="uicontrol">服务器类型</b>。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-iha-g3m-cls">
+                    <td id="entry-87l-b9o-tvh" rowspan="1" colspan="1">
+                      <p id="393bb75830zz2"><b id="uicontrol-q59-ny3-smv" data-tag="uicontrol" data-isbold="true" class="uicontrol">服务器组名称</b></p>
+                    </td>
+                    <td id="entry-0ui-psc-5gy" rowspan="1" colspan="1">
+                      <p id="393bde6030c7f">输入服务器组名称。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-tew-o1v-j1t">
+                    <td id="entry-vbg-89a-9jp" rowspan="1" colspan="1">
+                      <p id="393bde6130tga"><b>VPC</b></p>
+                    </td>
+                    <td id="entry-lue-q4e-6na" rowspan="1" colspan="1">
+                      <p id="393bde62301ur">从<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>下拉列表中选择<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例所属的<span class="help-letter-space"></span>VPC。</p>
+                      <div id="077acde4294g9" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                        <p id="8811ef4898o60">确保您选择的<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>与创建<span class="help-letter-space"></span><span data-tag="ph" id="0c9546f87a2y7" is-conref="true" class="ph">ALB</span><span class="help-letter-space"></span>实例时选择的<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>相同。</p>
+                      </div></div>
+                    </td>
+                  </tr>
+                  <tr id="row-hye-i33-p4z">
+                    <td id="entry-ezt-t0e-j9e" rowspan="1" colspan="1">
+                      <p id="393bde633038p"><b id="uicontrol-pha-kyv-vkw" data-tag="uicontrol" data-isbold="true" class="uicontrol">选择后端协议</b></p>
+                    </td>
+                    <td id="entry-o4l-2on-h2t" rowspan="1" colspan="1">
+                      <p id="393bde6430doc">选择一种后端协议，本文选择<span class="help-letter-space"></span><b>HTTP</b>。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-u5d-bmj-2tb">
+                    <td id="entry-yd9-b1f-czd" rowspan="1" colspan="1">
+                      <p id="393bde65308k8"><b id="uicontrol-lxl-8l4-s6m" data-tag="uicontrol" data-isbold="true" class="uicontrol">选择调度算法</b></p>
+                    </td>
+                    <td id="entry-nly-ksp-qa0" rowspan="1" colspan="1">
+                      <p id="393bde6630n3j">选择一种调度算法，本文选择<b id="uicontrol-qj7-n07-79n" data-tag="uicontrol" data-isbold="true" class="uicontrol">加权轮询</b>。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-sn2-ef3-xld">
+                    <td id="entry-1zg-dpb-kab" rowspan="1" colspan="1">
+                      <p id="393dda3030dfb"><b id="uicontrol-mda-mg5-5ln" data-tag="uicontrol" data-isbold="true" class="uicontrol">开启会话保持</b></p>
+                    </td>
+                    <td id="entry-c4e-dtw-bu6" rowspan="1" colspan="1">
+                      <p id="5ea44db413iaq">开启或关闭会话保持。本文保持默认值即不开启会话保持。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-9ux-ono-15y">
+                    <td id="entry-avt-fiz-0ge" rowspan="1" colspan="1">
+                      <p id="393dda3230fmv"><b id="5d965f769c52n" data-tag="uicontrol" data-isbold="true" class="uicontrol">后端长连接</b></p>
+                    </td>
+                    <td id="entry-7ev-6xn-9xc" rowspan="1" colspan="1">
+                      <p id="393dda33300fb">开启或关闭后端长连接。本文保持默认开启。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-snn-jby-vuh">
+                    <td id="entry-gbz-b4p-eco" rowspan="1" colspan="1">
+                      <p id="39d956e030ywz"><b id="uicontrol-wja-6ie-81w" data-tag="uicontrol" data-isbold="true" class="uicontrol">健康检查</b></p>
+                    </td>
+                    <td id="entry-zmw-e5c-sc2" rowspan="1" colspan="1">
+                      <p id="5ea474c1138b5">开启或关闭健康检查。本文开启。</p>
+                    </td>
+                  </tr>
+                  <tr id="e920449479m3s">
+                    <td id="c8a410cc91i61" rowspan="1" colspan="1">
+                      <p id="0ff451167f7bb"><b id="8a2964e07exq5" data-tag="uicontrol" data-isbold="true" class="uicontrol">健康检查配置</b></p>
+                    </td>
+                    <td id="ea0db89e93gyg" rowspan="1" colspan="1">
+                      <p id="5ea474c313h0z">开启健康检查后，您可以单击后面的<b id="uicontrol-b9r-459-fha" data-tag="uicontrol" data-isbold="true" class="uicontrol">编辑</b>，展开进行更多配置。</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li data-tag="step" id="step-4jf-29c-hb9" class="step">
+            <p id="39d97df030tmt"><span data-tag="cmd" id="cmd-xgv-9fm-lst" class="cmd">在<b id="uicontrol-1e3-ivv-5t2" data-tag="uicontrol" data-isbold="true" class="uicontrol">服务器组创建成功</b>对话框单击<b id="uicontrol-1ou-ej7-uqg" data-tag="uicontrol" data-isbold="true" class="uicontrol">添加后端服务器</b>。</span></p>
+          </li>
+          <li data-tag="step" id="step-fhl-ind-9pm" class="step">
+            <p id="39d9a50030qgg"><span data-tag="cmd" id="cmd-7i2-fd6-18q" class="cmd">在<b id="uicontrol-1tk-n2a-rtu" data-tag="uicontrol" data-isbold="true" class="uicontrol">后端服务器</b>页签单击<b id="uicontrol-j1a-v4d-me8" data-tag="uicontrol" data-isbold="true" class="uicontrol">添加后端服务器</b>。</span></p>
+          </li>
+          <li data-tag="step" id="step-t86-mwd-87u" class="step">
+            <p id="39d9a50130x2p"><span data-tag="cmd" id="cmd-ua4-kse-s13" class="cmd">在<b id="wintitle-ps3-oi9-pgi" data-tag="uicontrol" data-isbold="true" class="uicontrol">添加后端服务器</b>面板，选择已创建的<span class="help-letter-space"></span>ECS01<span class="help-letter-space"></span>和<span class="help-letter-space"></span>ECS02<span class="help-letter-space"></span>实例，然后单击<b id="uicontrol-khd-98r-i27" data-tag="uicontrol" data-isbold="true" class="uicontrol">下一步</b>。</span></p>
+          </li>
+          <li data-tag="step" id="step-s99-7co-iku" class="step">
+            <p id="39d9a50230en7"><span data-tag="cmd" id="cmd-9zm-oh3-dav" class="cmd">在<b id="8436902b6276o" data-tag="uicontrol" data-isbold="true" class="uicontrol">配置端口和权重</b>配置向导，为已添加的服务器设置<b id="uicontrol-se8-5dn-204" data-tag="uicontrol" data-isbold="true" class="uicontrol">端口</b>和<b id="uicontrol-myh-9hh-r23" data-tag="uicontrol" data-isbold="true" class="uicontrol">权重</b>，然后单击<b id="uicontrol-yd3-sne-hs0" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>。</span></p>
+            <section id="f3c3931c26htg" class="section">
+              <p id="5ea474c813wt2">本文<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例端口配置为<kbd data-tag="userinput" id="userinput-rzv-qty-uzh" class="userinput">80</kbd>，权重为默认值<kbd data-tag="userinput" id="userinput-bds-efd-nc9" class="userinput">100</kbd>。</p>
+            </section>
+          </li>
+        </ol>
+      </section>
+      <section data-tag="section" data-type="section" id="section-czn-bqv-z8f" class="section">
+        <h2 data-tag="title" id="title-2nb-trp-qte" class="title">步骤三：配置监听</h2>
+        <ol data-tag="steps" id="steps-kpx-r85-s0u" class="steps">
+          <li id="1a84c69df54t2">
+            <p id="742a2c1d26490"><span data-tag="cmd" id="cmd-h4w-iua-6ki" class="cmd">在左侧导航栏，选择<span data-tag="menucascade" id="menucascade-4cz-ev6-uwx" class="menucascade"><b id="uicontrol-gqy-du2-7md" data-tag="uicontrol" data-isbold="true" data-params-value="alb" data-format-type="icu" class="uicontrol">应用型负载均衡<span class="help-letter-space"></span>ALB</b> &gt; <b id="uicontrol-o5d-5na-3ho" data-tag="uicontrol" data-isbold="true" class="uicontrol">实例</b></span>，单击实例<span class="help-letter-space"></span>ID。</span></p>
+          </li>
+          <li id="b35d5705d70od">
+            <p id="761ecb4fddyyp"><span data-tag="cmd" id="cmd-8lz-yco-vp1" class="cmd">单击<b id="uicontrol-fvo-83t-4vk" data-tag="uicontrol" data-isbold="true" class="uicontrol">监听</b>页签，然后单击<b id="uicontrol-hda-g4o-po7" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建监听</b>。</span></p>
+          </li>
+          <li data-tag="step" id="step-wr6-e1y-0th" class="step">
+            <p id="39da685030xic"><span data-tag="cmd" id="cmd-ufh-9j2-zhq" class="cmd">在<b id="wintitle-a78-ijg-btm" data-tag="uicontrol" data-isbold="true" class="uicontrol">配置监听</b>配置向导页面，完成以下配置，然后单击<b id="uicontrol-x5e-e5w-1u8" data-tag="uicontrol" data-isbold="true" class="uicontrol">下一步</b>。</span></p>
+            <div data-tag="info" id="info-bpf-u6e-022" class="info">
+              <p id="5ea4e9f0137gs">此处仅列出和本文强相关的配置项，其他未列出的配置项使用默认值。关于配置监听的更多操作，请参见<a href="https://help.aliyun.com/zh/slb/add-an-http-listener#task-1960530" id="aef43be3e5tr2" title="" class="xref">添加<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>监听</a>。</p>
+              <table id="table-5jo-poy-a7t" tablewidth="100" tablecolswidth="22.99 77.01" autofit="true" class="table">
+                <colgroup colwidth="0.46*" style="width:22.99%"></colgroup>
+                <colgroup colwidth="1.54*" style="width:77.01%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="row-650-2aw-ykf">
+                    <td id="task-2235898-entry-02e-0ju-j6d" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="5ea4e9f113dcm"><b>参数</b></p>
+                    </td>
+                    <td id="task-2235898-entry-ljf-rjy-yr8" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="5ea4e9f213ptd"><b>描述</b></p>
+                    </td>
+                  </tr>
+                  <tr id="row-8ey-6oc-ii7">
+                    <td id="entry-l94-9yd-vag" rowspan="1" colspan="1">
+                      <p id="5ea4e9f313888"><b id="uicontrol-jz0-8rl-3oj" data-tag="uicontrol" data-isbold="true" class="uicontrol">选择监听协议</b></p>
+                    </td>
+                    <td id="entry-6f6-goc-lu9" rowspan="1" colspan="1">
+                      <p id="5ea4e9f413yru">选择监听的协议类型。本文选择<span class="help-letter-space"></span><b>HTTP</b>。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-2nm-xut-w86">
+                    <td id="entry-jfk-48c-gs9" rowspan="1" colspan="1">
+                      <p id="5ea4e9f513iz8"><b id="uicontrol-mvt-x30-x4z" data-tag="uicontrol" data-isbold="true" class="uicontrol">监听端口</b></p>
+                    </td>
+                    <td id="entry-pou-s2d-9us" rowspan="1" colspan="1">
+                      <p id="5ea4e9f613rh8">用来接收请求并向后端服务器进行请求转发的监听端口。本文输入<kbd data-tag="userinput" id="userinput-voo-5ke-481" class="userinput">80</kbd>。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-vrf-my4-fvr">
+                    <td id="entry-ni8-kg3-vth" rowspan="1" colspan="1">
+                      <p id="5ea4e9f713ite"><b id="uicontrol-455-249-u2v" data-tag="uicontrol" data-isbold="true" class="uicontrol">监听名称</b></p>
+                    </td>
+                    <td id="entry-ntj-bro-ugs" rowspan="1" colspan="1">
+                      <p id="5ea4e9f813091">输入自定义监听名称。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-i31-82c-61j">
+                    <td id="entry-8tk-hjg-dng" rowspan="1" colspan="1">
+                      <p id="5ea5110013ynl"><b id="uicontrol-iwp-sg5-r90" data-tag="uicontrol" data-isbold="true" class="uicontrol">高级配置</b></p>
+                    </td>
+                    <td id="entry-eo8-6v9-396" rowspan="1" colspan="1">
+                      <p id="5ea5110113wxq">本文保持默认，可单击<b id="uicontrol-hgz-b3t-e0u" data-tag="uicontrol" data-isbold="true" class="uicontrol">修改</b>进行设置。</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li data-tag="step" id="step-nx0-h1d-qq5" class="step">
+            <p id="39db2ba0305bb"><span data-tag="cmd" id="cmd-tvk-x2r-tt4" class="cmd">在<b id="uicontrol-glj-i63-mu6" data-tag="uicontrol" data-isbold="true" class="uicontrol">选择服务器组</b>配置向导，选择<b id="uicontrol-0j2-d84-6pt" data-tag="uicontrol" data-isbold="true" class="uicontrol">服务器类型</b>及<b id="uicontrol-xrg-a2t-yla" data-tag="uicontrol" data-isbold="true" class="uicontrol">服务器类型</b>下的目标服务器组，查看后端服务器信息，然后单击<b id="uicontrol-qa5-99x-5ez" data-tag="uicontrol" data-isbold="true" class="uicontrol">下一步</b>。</span></p>
+          </li>
+          <li data-tag="step" id="step-rqs-e9x-aut" class="step">
+            <p id="39dbeef030wrq"><span data-tag="cmd" id="cmd-qxx-eir-ecm" class="cmd">在<b id="uicontrol-6us-swv-dn6" data-status="unpublished" data-tag="uicontrol" data-isbold="true" class="uicontrol">配置审核</b>配置向导页面，确认监听配置信息，然后单击<b id="uicontrol-g77-wsy-0m8" data-tag="uicontrol" data-isbold="true" class="uicontrol">提交</b>。</span></p>
+          </li>
+          <li id="04f8c0b098p6u">
+            <p id="10ce312968ln4"><span data-tag="cmd" id="cmd-xwz-7i3-gp5" class="cmd">单击<b id="uicontrol-qkt-iug-ap6" data-tag="uicontrol" data-isbold="true" class="uicontrol">知道了</b>返回<b id="uicontrol-1v3-ssd-7r6" data-tag="uicontrol" data-isbold="true" class="uicontrol">监听</b>页签，查看目标监听的<b id="uicontrol-f0k-0gr-br9" data-tag="uicontrol" data-isbold="true" class="uicontrol">健康检查状态</b>列为<b id="uicontrol-gvx-vhc-iug" data-tag="uicontrol" data-isbold="true" data-params-value="success" data-format-type="icu" class="uicontrol">正常</b>时，表示后端服务器<span class="help-letter-space"></span>ECS01<span class="help-letter-space"></span>和<span class="help-letter-space"></span>ECS02<span class="help-letter-space"></span>实例可以正常处理<span class="help-letter-space"></span><span data-tag="ph" id="cb5a5d5d8c2f5" is-conref="true" class="ph">ALB</span><span class="help-letter-space"></span>实例转发的请求。</span></p>
+          </li>
+        </ol>
+      </section>
+      <section data-tag="section" data-type="section" id="section-ayy-web-h5g" class="section">
+        <h2 data-tag="title" id="title-f60-7ha-7j5" class="title">步骤四：设置域名解析</h2>
+        <p id="73140cc171hgd">实际业务场景中，建议您使用自有域名，通过<span class="help-letter-space"></span>CNAME<span class="help-letter-space"></span>解析的方式将自有域名指向<span class="help-letter-space"></span>ALB<span class="help-letter-space"></span>实例域名。</p>
+        <div data-init-id="a3e3ad9fffadm" id="3fe340d546bq6" tagname="note" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+          <p id="49f408b25dqwm"><a href="https://help.aliyun.com/zh/slb/product-overview/alb-and-nlb-domain-name-upgrade-announcement" id="2e5db5bd0eijs" title="" class="xref">负载均衡域名已升级</a>，不支持直接使用<span class="help-letter-space"></span>ALB<span class="help-letter-space"></span>提供的<span class="help-letter-space"></span>DNS<span class="help-letter-space"></span>域名进行访问。</p>
+        </div></div>
+        <ol data-tag="steps" id="steps-a7s-86z-sfq" class="steps">
+          <li id="1156534710er6">
+            <p id="a1b149d06fxyn">在左侧导航栏，选择<span data-tag="menucascade" id="c5bfb321e1pjg" class="menucascade"><b id="3d42b91e400wk" data-tag="uicontrol" data-isbold="true" data-params-value="alb" data-format-type="icu" class="uicontrol">应用型负载均衡<span class="help-letter-space"></span>ALB</b> &gt; <b id="2435476f2acmu" data-tag="uicontrol" data-isbold="true" class="uicontrol">实例</b></span></p>
+          </li>
+          <li id="6c7072efa6wwf">
+            <p id="92a0a98536b4v"><span class="cmd" data-tag="cmd" id="cmd-v10-ht4-yn2">在<b id="uicontrol-icy-2jk-reh" data-tag="uicontrol" data-isbold="true" class="uicontrol">实例</b>页面，复制已创建的<span class="help-letter-space"></span><span data-tag="ph" id="582c7eb6b74zm" is-conref="true" class="ph">ALB</span><span class="help-letter-space"></span>实例的<span class="help-letter-space"></span>DNS<span class="help-letter-space"></span>名称。</span></p>
+          </li>
+          <li data-tag="step" id="step-5pn-ij7-6gv" class="step">
+            <p id="1f877d52c5fom"><span data-tag="cmd" id="cmd-aij-t9n-jzt" class="cmd">执行以下步骤添加<span class="help-letter-space"></span>CNAME<span class="help-letter-space"></span>解析记录。</span></p>
+            <div id="ee9736e26e39u" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+              <p id="c40ad75f04e8n">对于非阿里云注册域名，需先将域名添加到云解析控制台，才可以进行域名解析设置。具体操作，请参见<a href="https://help.aliyun.com/zh/dns/domain-management#topic-2035895" id="ec23760745bax" title="" class="xref">域名管理</a>。如果您是阿里云注册的域名，请直接执行以下步骤。</p>
+            </div></div>
+            <ol data-tag="substeps" id="substeps-gou-rzj-86x" type="a" class="substeps">
+              <li data-tag="substep" id="substep-gns-0q5-mfq" class="substep">
+                <p id="c42b07766dd8k"><span data-tag="cmd" id="cmd-kii-2bm-ixr" class="cmd">登录<a href="https://dns.console.aliyun.com/#/dns/domainList" id="xref-qbw-zsa-wyp" class="" target="_blank">域名解析控制台</a>。</span></p>
+              </li>
+              <li data-tag="substep" id="substep-zy1-8ny-664" class="substep">
+                <p id="a1b426da6cbgj">在<b id="27c5983e079lp" data-tag="uicontrol" data-isbold="true" class="uicontrol">权威域名解析</b>页面，找到目标域名，在<b id="df3ca8b4c0pbp" data-tag="uicontrol" data-isbold="true" class="uicontrol">操作</b>列单击<b id="c8d105935ei9r" data-tag="uicontrol" data-isbold="true" class="uicontrol">解析设置</b>。</p>
+              </li>
+              <li data-tag="substep" id="substep-6t5-97z-ovj" class="substep">
+                <p id="e96c3f5b8851x"><span data-tag="cmd" id="cmd-2zf-j03-k4m" class="cmd">在<b id="uicontrol-z2x-phu-zd2" data-tag="uicontrol" data-isbold="true" class="uicontrol">解析设置</b>页面，单击<b id="uicontrol-yp9-h2r-83s" data-tag="uicontrol" data-isbold="true" class="uicontrol">添加记录</b>。</span></p>
+              </li>
+              <li data-tag="substep" id="substep-ov4-i9g-jyt" class="substep">
+                <p id="945754496e4jm"><span data-tag="cmd" id="cmd-et8-ry6-bb4" class="cmd">在<b id="uicontrol-fyf-kyc-ug6" data-tag="uicontrol" data-isbold="true" class="uicontrol">添加记录</b>面板，配置以下信息完成<span class="help-letter-space"></span>CNAME<span class="help-letter-space"></span>解析配置，然后单击<b id="uicontrol-467-1wv-kq8" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>。</span></p>
+                <table id="table-v0r-5f5-prr" tablewidth="100" tablecolswidth="33.38 66.62" autofit="true" class="table">
+                  <colgroup colwidth="0.67*" style="width:33.38%"></colgroup>
+                  <colgroup colwidth="1.33*" style="width:66.62%"></colgroup>
+                  <tbody class="tbody">
+                    <tr id="row-l1d-4wg-h75">
+                      <td id="task-2223529-entry-7sy-n9w-atm" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                        <p id="76612a9ad7ntg"><b>配置</b></p>
+                      </td>
+                      <td id="task-2223529-entry-3k9-17y-39p" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                        <p id="9b0bdf9e887oa"><b>说明</b></p>
+                      </td>
+                    </tr>
+                    <tr id="row-n1t-an4-fde">
+                      <td id="entry-bja-t9n-bi8" rowspan="1" colspan="1">
+                        <p id="01bd57afb8rsp"><b id="uicontrol-dki-s6x-co7" data-tag="uicontrol" data-isbold="true" class="uicontrol">记录类型</b></p>
+                      </td>
+                      <td id="entry-27s-vra-wq8" rowspan="1" colspan="1">
+                        <p id="ed351ad5818qq">在下拉列表中选择<span class="help-letter-space"></span><b>CNAME</b>。</p>
+                      </td>
+                    </tr>
+                    <tr id="row-evl-io2-gxv">
+                      <td id="entry-4b2-38e-dql" rowspan="1" colspan="1">
+                        <p id="e75c06cad4r27"><b id="uicontrol-7ss-fcw-266" data-tag="uicontrol" data-isbold="true" class="uicontrol">主机记录</b></p>
+                      </td>
+                      <td id="entry-705-0wm-djx" rowspan="1" colspan="1">
+                        <p id="8bb345da14o64">您的域名的前缀。本文输入<kbd data-tag="userinput" id="userinput-lbe-izf-t60" class="userinput">@</kbd>。</p>
+                        <div id="91640dcb6249k" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                          <p id="ebf8945c93tq2">创建域名为根域名时，主机记录为<span data-tag="ph" class="ph" id="codeph-jh7-ird-q1k"><code data-tag="code" class="code" code-type="xCode" id="b44c0a479dzew">@</code></span>。</p>
+                        </div></div>
+                      </td>
+                    </tr>
+                    <tr id="row-gcv-p14-wjd">
+                      <td id="entry-f3d-mzo-qop" rowspan="1" colspan="1">
+                        <p id="be7df3c8e0nye"><b id="uicontrol-jmn-gha-tma" data-tag="uicontrol" data-isbold="true" class="uicontrol">解析请求来源</b></p>
+                      </td>
+                      <td id="entry-9zx-4xi-ziv" rowspan="1" colspan="1">
+                        <p id="cc58a1a534ati">选择默认。</p>
+                      </td>
+                    </tr>
+                    <tr id="row-amk-2pt-x8h">
+                      <td id="entry-bzd-8qc-oh7" rowspan="1" colspan="1">
+                        <p id="186f368fd83m6"><b id="uicontrol-psp-5n5-hky" data-tag="uicontrol" data-isbold="true" class="uicontrol">记录值</b></p>
+                      </td>
+                      <td id="entry-ppp-ppg-3tk" rowspan="1" colspan="1">
+                        <p id="f8391bdc4cfth">输入域名对应的<span class="help-letter-space"></span>CNAME<span class="help-letter-space"></span>地址，即您复制的<span class="help-letter-space"></span><span data-tag="ph" id="c69f035b51aei" is-conref="true" class="ph">ALB</span><span class="help-letter-space"></span>实例的<span class="help-letter-space"></span>DNS<span class="help-letter-space"></span>名称。</p>
+                      </td>
+                    </tr>
+                    <tr id="row-12y-7jc-la4">
+                      <td id="entry-jvr-0wb-6az" rowspan="1" colspan="1">
+                        <p id="c4e47991de08o"><b>TTL</b></p>
+                      </td>
+                      <td id="entry-k6d-09w-yub" rowspan="1" colspan="1">
+                        <p id="d08eab638eq19">全称<span class="help-letter-space"></span>Time To Live，表示<span class="help-letter-space"></span>DNS<span class="help-letter-space"></span>记录在<span class="help-letter-space"></span>DNS<span class="help-letter-space"></span>服务器上的缓存时间，本文使用默认值。</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <p id="89f9ba31cdzc5"></p>
+              </li>
+            </ol>
+          </li>
+        </ol>
+      </section>
+      <section id="1651414657uj0" class="section">
+        <h2 id="f351c1bb139zj"><b>步骤五：测试连通性</b></h2>
+        <p id="5d091f30984mh">测试客户端与<span class="help-letter-space"></span>ECS01<span class="help-letter-space"></span>和<span class="help-letter-space"></span>ECS02<span class="help-letter-space"></span>服务器之间的连通性。本文以任意一台可以访问公网的客户端为例。</p>
+        <p id="50891b92d3te2">在浏览器中输入域名，例如<code data-tag="code" code-type="xCode" id="58e9503c38civ" class="code">http://&lt;域名&gt;</code>。多次刷新页面，您可以观察到客户端请求在<span class="help-letter-space"></span>ECS01<span class="help-letter-space"></span>和<span class="help-letter-space"></span>ECS02<span class="help-letter-space"></span>服务器之间转换。</p>
+        <p id="p-e5bed009eab8">浏览器页面显示 <code data-tag="code" class="code">Hello World ! This is ECS01.</code>，表明请求已被转发至 ECS01 服务器。</p>
+        <pre data-tag="codeblock" id="codeblock-620866922db2" code-type="xCode" outputclass="language-text" class="pre codeblock language-text"><code>Hello World ! This is ECS02.</code></pre>
+        <p id="f450d0c80058p">完成上述操作后，表明客户端可以通过<span class="help-letter-space"></span><span data-tag="ph" id="51372eed9ezhu" is-conref="true" class="ph">ALB</span><span class="help-letter-space"></span>以轮询的方式访问不同的后端服务。</p>
+      </section>
+      <section id="16f2796bc8p9l" class="section">
+        <h2 id="0847c02189xio"><b>释放资源</b></h2>
+        <ol id="10074ff05cdmj">
+          <li id="509b66f030mp0">
+            <section id="27aa34c030oud" class="section">
+              <p id="4530ee2d85jhk">清理<span class="help-letter-space"></span>ECS、安全组等资源：</p>
+              <ol id="1db2ddd230b5k">
+                <li id="1db2ddd030aoa">
+                  <section id="bcf659d030wd1" class="section">
+                    <p id="43615410ceuki">删除<span class="help-letter-space"></span>ECS01<span class="help-letter-space"></span>实例及其安全组：</p>
+                    <ol id="bee2c08230gtw">
+                      <li id="bfff7b2130ive">
+                        <section id="bfff7b2230v0g" class="section">
+                          <p id="d39204f08eqvr">登录<a class="" href="https://ecs.console.aliyun.com/server" id="4b972e605cq98">云服务器<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例控制台</a>，顶部选择实例所属地域，单击<span class="help-letter-space"></span>ECS01<span class="help-letter-space"></span>实例右侧的<img alt="image.png" height="30" id="bfff7b24302cm" placement="inline" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1986907861/p684375.png" class="image inline">，弹出的窗口中选择<b>释放</b>，立即释放实例并确认。</p>
+                        </section>
+                      </li>
+                      <li id="bfff7b2530ek7">
+                        <section id="bfff7b2630ozf" class="section">
+                          <p id="000c1d7395qzs">登录<a class="" href="https://ecs.console.aliyun.com/securityGroup" id="a66cf3f05cia2">云服务器<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>安全组控制台</a>，顶部选择实例所属地域，勾选<span class="help-letter-space"></span>ECS01<span class="help-letter-space"></span>自定义安全组并单击<b>删除</b>，删除安全组。</p>
+                        </section>
+                      </li>
+                    </ol>
+                  </section>
+                </li>
+                <li id="ba3f02003075b">
+                  <section id="3e72b26030cdm" class="section">
+                    <p id="732105fd0df0k">参照上述步骤，删除<span class="help-letter-space"></span>ECS02<span class="help-letter-space"></span>实例及对应安全组资源。</p>
+                  </section>
+                </li>
+              </ol>
+            </section>
+          </li>
+          <li id="0e4e855e3c8ce">
+            <section id="3b211e292c691" class="section">
+              <p id="a52febdff2hn6">删除域名解析记录</p>
+              <p id="c3581d6b2322k">删除域名解析记录，具体操作，请参见<a href="https://help.aliyun.com/zh/dns/delete-a-dns-record" id="0cbe91fdd0ghu" title="" class="xref">删除域名解析记录</a>。</p>
+            </section>
+          </li>
+          <li id="5a3856f030bcw">
+            <section id="562ef0c0306wi" class="section">
+              <p id="90bc45c82bcgy">清理<span class="help-letter-space"></span><span data-tag="ph" id="e731fdf80fwt1" is-conref="true" class="ph">ALB</span><span class="help-letter-space"></span>资源：</p>
+              <ol id="cabd722e5cbw2">
+                <li id="1ba506f771iie">
+                  <p id="f149d7ce246pa"><span data-tag="cmd" id="a92e384947y23" class="cmd">登录<a href="https://slb.console.aliyun.com/alb" id="fc9f441b07j49" class="" target="_blank">应用型负载均衡<span class="help-letter-space"></span>ALB<span class="help-letter-space"></span>控制台</a>。</span>顶部选择实例所属地域，单击实例右侧的<img alt="image.png" height="30" id="b2b88401307mz" placement="inline" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1986907861/p684375.png" class="image inline">，弹出的窗口中选择<b id="f72000d130dzh" data-tag="uicontrol" data-isbold="true" class="uicontrol">释放</b>并确认。</p>
+                </li>
+                <li id="ce54dba841138">
+                  <p id="c06dfb29d815d">移除后端服务器，具体操作，请参见<a href="https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/create-and-manage-a-server-group#title-23h-9o1-i54" id="9f62ab624dysa" title="" class="xref">创建和管理服务器组</a>。</p>
+                </li>
+                <li id="56ea2fc3ac4a4">
+                  <p id="34ddbad64avbo">删除服务器组，具体操作，请参见<a href="https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/create-and-manage-a-server-group#title-fqw-l4x-cbp" id="8ac54c67ff6z5" title="" class="xref">创建和管理服务器组</a>。</p>
+                </li>
+              </ol>
+            </section>
+          </li>
+          <li id="4ff06e00303w6">
+            <section id="56c9c6a030xf5" class="section">
+              <p id="a84047fe821lo">清理<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>资源：</p>
+              <ol id="590dc332303yj">
+                <li id="590dc33030hg1">
+                  <p id="ed26a85f8fv2s">登录<a class="" href="https://vpc.console.aliyun.com/vpc" id="f29a4bb05c301">专有网络<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>控制台</a>，顶部选择实例所属地域。</p>
+                </li>
+                <li id="f8e614e05cw1v">
+                  <p id="9759ce77b3ash">单击实例右侧<b>删除</b>，系统将校验是否存在未删除的云产品资源或关联资源。如有依赖资源时，您需要完全释放资源后，才可删除专有网络和交换机。</p>
+                </li>
+              </ol>
+            </section>
+          </li>
+        </ol>
+      </section>
+      <section data-tag="section" data-type="section" id="section-t1j-ewk-9fj" class="section">
+        <h2 data-tag="title" id="title-e25-qx3-ivr" class="title">相关文档</h2>
+        <div data-tag="p" id="p-v4l-j9s-iih" class="p">
+          <ul data-tag="ul" id="ul-add-o2x-o5f" class="ul">
+            <li data-tag="li" id="li-guc-mzk-zl3" class="li">
+              <p id="39e6764430f36">了解<span class="help-letter-space"></span>ALB<span class="help-letter-space"></span>的应用场景、组成等信息，请参见<a href="https://help.aliyun.com/zh/slb/application-load-balancer/product-overview/what-is-alb/#concept-2011635" id="xref-nsn-z8s-h7s" title="" class="xref">什么是应用型负载均衡<span class="help-letter-space"></span>ALB</a>。</p>
+            </li>
+            <li data-tag="li" id="li-4oa-ntt-q77" class="li">
+              <p id="39e69d5030bda">了解<span class="help-letter-space"></span>ALB<span class="help-letter-space"></span>的功能特性，请参见<a href="https://help.aliyun.com/zh/slb/application-load-balancer/product-overview/functional-characteristics#concept-2021067" id="xref-gw7-y1n-vdd" title="" class="xref">功能特性</a>。</p>
+            </li>
+            <li data-tag="li" id="li-drc-iih-zpv" class="li">
+              <p id="39e6c460304zp">了解<span class="help-letter-space"></span>ALB<span class="help-letter-space"></span>支持的地域信息，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/slb/application-load-balancer/product-overview/supported-regions-and-zones#task-2087008" id="xref-njh-n4d-z4f" title="" class="xref">ALB<span class="help-letter-space"></span>支持的地域与可用区</a>。</p>
+            </li>
+            <li id="a39ddd323e51a">
+              <p id="b6351dcbc8scn">了解<span class="help-letter-space"></span>ALB<span class="help-letter-space"></span>的配额及提升配额方式，请参见<a href="https://help.aliyun.com/zh/slb/application-load-balancer/product-overview/quotas-and-limits" id="fa70ea7e4fjsz" title="" class="xref">配额与限制</a>。</p>
+            </li>
+            <li id="87aff63718kxn">
+              <p id="7bbaafa9c3jnb">了解<span class="help-letter-space"></span>ALB<span class="help-letter-space"></span>计费文档，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/slb/alb-billing/" id="ac81754db6cme" title="" class="xref">ALB<span class="help-letter-space"></span>产品计费</a>。</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+</div>
+  </main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/slb/application-load-balancer/getting-started/" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：快速入门</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/slb/application-load-balancer/getting-started/implement-load-balancing-for-ipv6-services" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：ALB快速实现IPv6服务的负载均衡<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

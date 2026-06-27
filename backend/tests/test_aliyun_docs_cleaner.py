@@ -97,6 +97,34 @@ def test_clean_document_writes_candidate_for_short_reviewable_page(tmp_path: Pat
     assert "/candidates/" in cleaned_document.cleaned_document_path
 
 
+def test_clean_document_discards_interface_reference_page(tmp_path: Path) -> None:
+    data_root = tmp_path / "aliyun-docs"
+    source_path = data_root / "products" / "model-studio" / "documents" / "model-api-reference.md"
+    source_path.parent.mkdir(parents=True)
+    source_path.write_text(
+        "# API参考（模型）\n\n"
+        "Source: https://help.aliyun.com/zh/model-studio/model-api-reference\n\n"
+        "# API参考（模型）\n\n"
+        "本文介绍模型调用接口、请求参数、返回参数和错误码。\n",
+        encoding="utf-8",
+    )
+    document = {
+        "id": "model-studio:model-api-reference",
+        "source": "aliyun_docs",
+        "product": "model-studio",
+        "topic": "features",
+        "title": "API参考（模型）-大模型服务平台百炼-阿里云",
+        "url": "https://help.aliyun.com/zh/model-studio/model-api-reference",
+        "document_path": str(source_path),
+    }
+
+    cleaned_document = clean_document(data_root=data_root, document=document)
+
+    assert cleaned_document.quality == "discarded"
+    assert cleaned_document.discard_reason == "interface_reference"
+    assert not Path(cleaned_document.cleaned_document_path).exists()
+
+
 def test_clean_document_marks_anti_bot_raw_page(tmp_path: Path) -> None:
     data_root = tmp_path / "aliyun-docs"
     source_path = data_root / "products" / "ecs" / "documents" / "index.md"

@@ -1,0 +1,17 @@
+{
+  "id": "slb:nlb-helps-emq-build-a-high-performance-enterprise-class-mqtt-iot-access-platform",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "performance",
+  "title": "使用NLB构建支持亿级并发的MQTT物联网接入平台-负载均衡-阿里云",
+  "source_url": "https://help.aliyun.com/zh/slb/nlb-helps-emq-build-a-high-performance-enterprise-class-mqtt-iot-access-platform",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/slb/documents/nlb-helps-emq-build-a-high-performance-enterprise-class-mqtt-iot-access-platform.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/nlb-helps-emq-build-a-high-performance-enterprise-class-mqtt-iot-access-platform.md",
+  "word_count": 507,
+  "text_units": 1273,
+  "local_links": 0,
+  "external_links": 61,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

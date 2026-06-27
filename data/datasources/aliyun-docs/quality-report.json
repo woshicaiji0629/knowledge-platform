@@ -1,40 +1,41 @@
 {
   "source": "aliyun_docs",
-  "accepted": 1206,
+  "accepted": 1183,
   "candidate": 0,
-  "discarded": 583,
+  "discarded": 629,
   "accepted_by_product": {
-    "ack": 260,
-    "cdn": 147,
-    "ecs": 148,
-    "model-studio": 1,
-    "oss": 76,
-    "rds": 136,
-    "redis": 131,
-    "slb": 1,
-    "sls": 241,
-    "vpc": 65
+    "ack": 232,
+    "cdn": 132,
+    "ecs": 136,
+    "model-studio": 40,
+    "oss": 68,
+    "rds": 131,
+    "redis": 112,
+    "slb": 39,
+    "sls": 230,
+    "vpc": 63
   },
   "candidate_by_product": {},
   "candidate_by_reason": {},
   "discarded_by_reason": {
-    "anti_bot_page": 583
+    "anti_bot_page": 493,
+    "interface_reference": 136
   },
   "accepted_by_topic": {
-    "deployment": 68,
-    "features": 913,
-    "performance": 60,
-    "pricing": 81,
-    "selection": 40,
-    "troubleshoot": 44
+    "deployment": 66,
+    "features": 894,
+    "performance": 58,
+    "pricing": 84,
+    "selection": 41,
+    "troubleshoot": 40
   },
   "candidate_by_topic": {},
-  "documents_with_tables": 646,
+  "documents_with_tables": 629,
   "candidate_documents_with_tables": 0,
-  "total_tables": 10749,
+  "total_tables": 9766,
   "candidate_total_tables": 0,
-  "total_local_links": 6799,
+  "total_local_links": 6607,
   "candidate_total_local_links": 0,
-  "total_external_links": 99920,
+  "total_external_links": 97662,
   "candidate_total_external_links": 0
 }
