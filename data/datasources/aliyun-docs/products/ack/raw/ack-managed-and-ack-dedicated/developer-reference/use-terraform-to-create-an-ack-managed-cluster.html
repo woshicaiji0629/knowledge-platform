@@ -1,0 +1,606 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    使用Terraform创建ACK托管版集群-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-ack-managed-cluster">
+  <meta name="keywords" content="Terraform,ACK托管版集群,Flannel,Terway">
+  <meta name="description" content="本文介绍如何使用Terraform创建ACK托管集群。">
+  <meta name="last-modified" content="2026-04-08T14:25:19+08:00">
+  <meta name="date" content="2020-12-31T06:28:14+08:00">
+  <meta property="og:title" content="通过Terraform创建ACK托管集群">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-ack-managed-cluster">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="本文介绍如何使用Terraform创建ACK托管集群。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-ack-managed-cluster",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "197780",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-ack-managed-cluster","nodeId":null,"data":{"lastModifiedTime":1775629519000,"keywords":"Terraform,ACK托管版集群,Flannel,Terway","docTitle":"使用Terraform创建ACK托管版集群","language":"zh","seoTitle":"使用Terraform创建ACK托管版集群-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心","title":"通过Terraform创建ACK托管集群","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"task-2005064\">\n    \n    \n    <p data-tag=\"shortdesc\" id=\"shortdesc-d6w-x9c-9j8\" class=\"shortdesc\">本文介绍如何使用<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>创建<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"46b127824fmmu\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK<span class=\"help-letter-space\"></span>托管集群</span>。</p>\n    <div data-tag=\"taskbody\" id=\"taskbody-gmq-ao7-kdi\" class=\"taskbody\">\n      <div id=\"e36f65bf86ukd\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n        <p id=\"222d8f7fb50lc\">本教程所含示例代码支持一键运行，您可以直接运行代码。<span props=\"china\"><a class=\"help-secondary-button\" href=\"https://api.aliyun.com/api-tools/terraform?resource=alicloud_cs_managed_kubernetes&amp;exampleId=201-use-case-create-ack-managed-cluster&amp;activeTab=example\" id=\"39405841eb3r1\">一键运行</a></span></p>\n      </div></div>\n      <section data-tag=\"prereq\" data-type=\"prereq\" id=\"prereq-kay-fy7-kfv\" class=\"section prereq\">\n        <h2 id=\"d41e25\">前提条件</h2>\n        <ul id=\"1c70e67fa9det\">\n          <li id=\"0da0bf9267835\">\n            <p id=\"0e34f13a8ecff\" docid=\"4688868\" is-conref=\"true\">已开通<span id=\"6ccdbc206dtzq\" outputclass=\"productName\" data-tag=\"ph\" data-ref-searchable=\"yes\" data-reuse-tag=\"productName\" data-type=\"productName\" data-product-code=\"csk\" docid=\"4265392\" is-conref=\"true\" class=\"ph productName\">容器服务 Kubernetes 版</span><span class=\"help-letter-space\"></span>ACK。若需要使用<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>开通，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-assign-default-roles-to-ack-when-you-use-ack-for-the-first-time\" id=\"799cf34ca9qvl\" title=\"\" class=\"xref\">通过<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>开通<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>并授权角色</a>。</p>\n          </li>\n          <li id=\"7c15ec08f3n8h\">\n            <section id=\"f448194e721xq\" docid=\"4065228\" is-conref=\"true\" class=\"section\"><p id=\"0db23a90bb4n5\">由于阿里云账号（主账号）具有资源的所有权限，一旦发生泄露将面临重大风险。建议您使用<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>用户，并为该<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>用户创建<span class=\"help-letter-space\"></span>AccessKey，具体操作方式请参见<a href=\"https://help.aliyun.com/zh/ram/user-guide/create-a-ram-user\" id=\"f638794d73uuc\" title=\"\" class=\"xref\">创建<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>用户</a>和<a href=\"https://help.aliyun.com/zh/ram/user-guide/create-an-accesskey-pair\" id=\"cbf8f311f5wj3\" title=\"\" class=\"xref\">创建<span class=\"help-letter-space\"></span>AccessKey</a>。</p></section>\n          </li>\n          <li id=\"2ff070575fyxu\">\n            <section id=\"ff9e79ba2anrh\" docid=\"4065228\" is-conref=\"true\" class=\"section\"><p id=\"6c2b4bc86b0zr\">为运行<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>命令的<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>用户绑定以下最小权限策略，以获取管理本示例所涉及资源的权限。更多信息，请参见<a href=\"https://help.aliyun.com/zh/ram/user-guide/grant-permissions-to-the-ram-user\" id=\"e560548197tam\" title=\"\" class=\"xref\">为<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>用户授权</a>。</p></section>\n            <p id=\"271069e48db1j\">该权限策略允许<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>用户进行<span class=\"help-letter-space\"></span>VPC、交换机及<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>的创建、查看与删除操作。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"a210ab5b81y84\" outputclass=\"language-yaml\" class=\"pre codeblock language-yaml\"><code>{\n  \"Version\": \"1\",\n  \"Statement\": [\n    {\n      \"Effect\": \"Allow\",\n      \"Action\": [\n        \"vpc:CreateVpc\",\n        \"vpc:CreateVSwitch\",\n        \"cs:CreateCluster\",\n        \"vpc:DescribeVpcAttribute\",\n        \"vpc:DescribeVSwitchAttributes\",\n        \"vpc:DescribeRouteTableList\",\n        \"vpc:DescribeNatGateways\",\n        \"cs:DescribeTaskInfo\",\n        \"cs:DescribeClusterDetail\",\n        \"cs:GetClusterCerts\",\n        \"cs:CheckControlPlaneLogEnable\",\n        \"cs:CreateClusterNodePool\",\n        \"cs:DescribeClusterNodePoolDetail\",\n        \"cs:ModifyClusterNodePool\",\n        \"vpc:DeleteVpc\",\n        \"vpc:DeleteVSwitch\",\n        \"cs:DeleteCluster\",\n        \"cs:DeleteClusterNodepool\"\n      ],\n      \"Resource\": \"*\"\n    }\n  ]\n}</code></pre>\n          </li>\n          <li id=\"f96aa28e40hdr\">\n            <section id=\"55e7aa1497dh8\" tagname=\"section\" class=\"section\">\n              <p id=\"2337ea9d32kom\">准备<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>运行环境，您可以选择以下任一方式来使用<span class=\"help-letter-space\"></span>Terraform。</p>\n              <ul id=\"c8213a8347kkk\">\n                <li id=\"9dfea23cebdzd\">\n                  <p id=\"02035973b60ok\"><a href=\"https://help.aliyun.com/zh/terraform/using-terraform-in-terraform-explorer\" id=\"8038a32873hek\" title=\"\" class=\"xref\">在<span class=\"help-letter-space\"></span>Terraform Explorer<span class=\"help-letter-space\"></span>中使用<span class=\"help-letter-space\"></span>Terraform</a>：阿里云提供了<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>的在线运行环境，您无需安装<span class=\"help-letter-space\"></span>Terraform，登录后即可在线使用和体验<span class=\"help-letter-space\"></span>Terraform。适用于零成本、快速、便捷地体验和调试<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>的场景。</p>\n                </li>\n                <li id=\"56b2e60c5cw8r\">\n                  <p id=\"d8aacbde4ezbf\"><a href=\"https://help.aliyun.com/zh/terraform/use-terraform-to-quickly-create-resources\" id=\"e4c08e5c26pv1\" title=\"\" class=\"xref\">使用<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>快速创建资源</a>：阿里云<span class=\"help-letter-space\"></span>Cloud Shell<span class=\"help-letter-space\"></span>中预装了<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>的组件，并已配置好身份凭证，您可直接在<span class=\"help-letter-space\"></span>Cloud Shell<span class=\"help-letter-space\"></span>中运行<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>的命令。适用于低成本、快速、便捷地访问和使用<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>的场景。</p>\n                </li>\n                <li id=\"ae62c8f3c8rg7\">\n                  <p id=\"a20fec3643twx\"><a href=\"https://help.aliyun.com/zh/ros/user-guide/create-a-terraform-template\" id=\"aea1b34ba5aud\" title=\"\" class=\"xref\">在资源编排（ROS）中使用<span class=\"help-letter-space\"></span>Terraform</a>：资源编排服务（ROS）为<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>提供了托管的能力，您可以创建<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>类型的模板，定义阿里云、AWS<span class=\"help-letter-space\"></span>或<span class=\"help-letter-space\"></span>Azure<span class=\"help-letter-space\"></span>资源，配置资源参数和资源间的依赖关系。</p>\n                </li>\n                <li id=\"a006a44fba9gv\">\n                  <p id=\"70515c5392r72\"><a href=\"https://help.aliyun.com/zh/terraform/install-and-configure-terraform-locally\" id=\"8a4b59ee5cems\" title=\"\" class=\"xref\">在本地安装和配置<span class=\"help-letter-space\"></span>Terraform</a>：适用于网络连接较差或需要自定义开发环境的场景。</p>\n                </li>\n              </ul>\n            </section>\n            <div id=\"4d788dcff8fct\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n              <p id=\"92832a8543c01\">请确保版本不低于<span class=\"help-letter-space\"></span>v0.12.28。如需检查现有版本，请运行<code class=\"code blog-code\" code-type=\"xCode\" data-tag=\"code\" id=\"5fe3292952nuc\">terraform --version</code>命令。</p>\n            </div></div>\n          </li>\n        </ul>\n      </section>\n      <section id=\"32ea0f8f101j3\" class=\"section\">\n        <h2 id=\"68eda85a74ey3\"><b>使用的资源</b></h2>\n        <div id=\"7f0009da905q5\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n          <p id=\"8c1d7a1ee2oz5\">本教程示例包含的部分资源会产生一定费用，请在不需要时及时进行释放或退订。</p>\n        </div></div>\n        <section id=\"7e08798814n9p\" props=\"china\" data-cond-props=\"china\" class=\"section\">\n          <ul id=\"50d4e701324kq\">\n            <li id=\"42fd8248019ik\">\n              <p id=\"b127300dccwk7\"><a href=\"https://help.aliyun.com/zh/terraform/alicloud-zones\" id=\"afe6bb628cogb\" title=\"\" class=\"xref\">alicloud_zones</a>：查询可用区。</p>\n            </li>\n            <li id=\"31d14db39aci7\">\n              <p id=\"1719d9f83evuv\"><a href=\"https://help.aliyun.com/zh/terraform/alicloud-instance-types\" id=\"6f38f4731bvmu\" title=\"\" class=\"xref\">alicloud_instance_types</a>：根据条件查询符合要求的<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例类型。</p>\n            </li>\n            <li id=\"4cb68a3b5fqac\">\n              <p id=\"b62940e0a6wpg\"><a href=\"https://help.aliyun.com/zh/terraform/alicloud-vpc\" id=\"ebb65e94e15xg\" title=\"\" class=\"xref\">alicloud_vpc</a>：创建专有网络<span class=\"help-letter-space\"></span>VPC。</p>\n            </li>\n            <li id=\"1e49354024s2k\">\n              <p id=\"b0b3107120mxn\"><a href=\"https://help.aliyun.com/zh/terraform/alicloud-vswitch\" id=\"3c6643c35d5gi\" title=\"\" class=\"xref\">alicloud_vswitch</a>：创建虚拟交换机（vSwitch）为<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>划分一个或多个子网。</p>\n            </li>\n            <li id=\"d0541bb7ca0ai\">\n              <p id=\"a5b6b7fd31l5h\"><a href=\"https://help.aliyun.com/zh/terraform/alicloud-cs-managed-kubernetes\" id=\"48243e2d256py\" title=\"\" class=\"xref\">alicloud_cs_managed_kubernetes</a>：创建<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>托管版集群。</p>\n            </li>\n            <li id=\"ca3e6a80af2ko\">\n              <p id=\"e4759c6846bkg\"><a href=\"https://help.aliyun.com/zh/terraform/alicloud-cs-kubernetes-node-pool\" id=\"1f099544d6zn6\" title=\"\" class=\"xref\">alicloud_cs_kubernetes_node_pool</a>：为<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>托管集群创建节点池。</p>\n            </li>\n          </ul>\n        </section>\n        \n      </section>\n      <section id=\"9656ce7abb993\" class=\"section\">\n        <h2 data-sourcepos=\"1:1-1:25\" data-spm-anchor-id=\"0.0.0.i1.717c20e0W16Tif\" id=\"通过控制台生成-openapi-请求参数\" jc=\"left\" style=\"text-align:left\"><b>通过控制台生成<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>请求参数</b></h2>\n        <p id=\"b777ca3e2aosk\" jc=\"left\" style=\"text-align:left\">如果由于请求参数组合不正确或以下示例中没有您需要的配置，您可以通过控制台生成创建集群所需的请求参数组合。具体操作如下：</p>\n        <ol data-sourcepos=\"4:1-12:33\" id=\"a2a8c2c605xoc\">\n          <li data-tag=\"step\" id=\"3da05dd7bdytd\" docid=\"3660168\" is-conref=\"true\" class=\"step\"><p id=\"7bdb0bf11b631\"><span data-tag=\"cmd\" id=\"cmd-mto-t3v-p7d\" class=\"cmd\">登录<span props=\"china intl\"><a href=\"https://cs.console.aliyun.com\" id=\"xref-c6s-99d-s5k\" class=\"\" target=\"_blank\">容器服务管理控制台</a></span>，在左侧导航栏选择<b id=\"uicontrol-42p-agm-35k\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>。</span></p></li>\n          <li data-tag=\"step\" id=\"5785367489igc\" docid=\"3660168\" is-conref=\"true\" class=\"step\"><p id=\"7bdb0bf31bdmm\"><span data-tag=\"cmd\" id=\"cmd-3ub-yna-yga\" class=\"cmd\">在<b id=\"wintitle-ixd-4tn-wnp\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>页面，单击<b id=\"uicontrol-j2x-5q2-z5p\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群模板</b>。</span></p></li>\n          <li data-sourcepos=\"8:1-8:43\" id=\"6696281a80ory\">\n            <p id=\"d9dd493091n7m\">在对话框，选择需要创建的集群类型，并单击<b id=\"8bcf764153dy5\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建</b>，然后在<b id=\"93f543eb32l7u\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群配置</b>页面配置集群信息。</p>\n          </li>\n          <li data-sourcepos=\"10:1-12:33\" id=\"5421ff11cdylr\">\n            <p id=\"ae9f1b520d7wf\">配置完成后，在<b>确认配置</b>页面，单击右上角的<b id=\"d441c24e8b5g7\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">同等代码</b>。</p>\n          </li>\n          <li id=\"648ab5c52a6e7\">\n            <p id=\"a57ea53727b2c\">在侧边栏中单击<span class=\"help-letter-space\"></span><b id=\"d36590a93fzpb\">Terraform</b><span class=\"help-letter-space\"></span>页签，将展示您创建集群时所需的参数组合，您可以复制使用。</p>\n          </li>\n        </ol>\n      </section>\n      <section id=\"5f8b0c89a3igj\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"62007ba14b3m5\" class=\"title\">使用<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>创建<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"0bbc7ff0bfy2a\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK<span class=\"help-letter-space\"></span>托管集群</span>（Terway）</h2>\n        <p id=\"d7d0122e37ffa\">本示例将创建一个包含普通节点池、托管节点池及自动伸缩节点池的<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"229347438er0r\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK<span class=\"help-letter-space\"></span>托管集群</span>，并为该集群默认安装一系列组件，包括<span class=\"help-letter-space\"></span>Terway（网络组件）、csi-plugin（存储组件）、csi-provisioner（存储组件）、日志采集组件、Nginx Ingress Controller、ack-arms-prometheus（监控组件）以及<span class=\"help-letter-space\"></span>ack-node-problem-detector（节点诊断组件）。</p>\n        <ol id=\"b6e3c4ee8bydi\" start=\"1\">\n          <li id=\"1c65fd2ff4ng2\">\n            <p id=\"846a1032a5cbz\">创建一个工作目录，并在该工作目录中创建名为<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"f7a2f233e3ak5\" class=\"ph\">main.tf</span><span class=\"help-letter-space\"></span>的配置文件，然后将以下代码复制到<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"1971fde788qlv\" class=\"ph\">main.tf</span><span class=\"help-letter-space\"></span>中。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"a932b4d4c1eor\" outputclass=\"language-terraform\" class=\"pre codeblock language-terraform\"><code>provider \"alicloud\" {\n  region = var.region_id\n}\n\nvariable \"region_id\" {\n  type    = string\n  default = \"cn-shenzhen\"\n}\n\nvariable \"cluster_spec\" {\n  type        = string\n  description = \"The cluster specifications of kubernetes cluster,which can be empty. Valid values:ack.standard : Standard managed clusters; ack.pro.small : Professional managed clusters.\"\n  default     = \"ack.pro.small\"\n}\n\n# 指定虚拟交换机（vSwitches）的可用区。\nvariable \"availability_zone\" {\n  description = \"The availability zones of vswitches.\"\n  default     = [\"cn-shenzhen-c\", \"cn-shenzhen-e\", \"cn-shenzhen-f\"]\n}\n\n# 指定交换机<span class=\"help-letter-space\"></span>ID（vSwitch IDs）的列表。\nvariable \"node_vswitch_ids\" {\n  description = \"List of existing node vswitch ids for terway.\"\n  type        = list(string)\n  default     = []\n}\n\n# 用于创建新<span class=\"help-letter-space\"></span>vSwitches<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>CIDR<span class=\"help-letter-space\"></span>地址块列表。\nvariable \"node_vswitch_cidrs\" {\n  description = \"List of cidr blocks used to create several new vswitches when 'node_vswitch_ids' is not specified.\"\n  type        = list(string)\n  default     = [\"172.16.0.0/23\", \"172.16.2.0/23\", \"172.16.4.0/23\"]\n}\n\n# 指定网络组件<span class=\"help-letter-space\"></span>Terway<span class=\"help-letter-space\"></span>配置。如果为空，默认会根据<span class=\"help-letter-space\"></span>terway_vswitch_cidrs<span class=\"help-letter-space\"></span>的创建新的<span class=\"help-letter-space\"></span>terway&nbsp;vSwitch。\nvariable \"terway_vswitch_ids\" {\n  description = \"List of existing pod vswitch ids for terway.\"\n  type        = list(string)\n  default     = []\n}\n\n# 当没有指定<span class=\"help-letter-space\"></span>terway_vswitch_ids<span class=\"help-letter-space\"></span>时，用于创建<span class=\"help-letter-space\"></span>Terway<span class=\"help-letter-space\"></span>使用的<span class=\"help-letter-space\"></span>vSwitch<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>CIDR<span class=\"help-letter-space\"></span>地址块。\nvariable \"terway_vswitch_cidrs\" {\n  description = \"List of cidr blocks used to create several new vswitches when 'terway_vswitch_ids' is not specified.\"\n  type        = list(string)\n  default     = [\"172.16.208.0/20\", \"172.16.224.0/20\", \"172.16.240.0/20\"]\n}\n\n# 定义了用于启动工作节点的<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例类型。\nvariable \"worker_instance_types\" {\n  description = \"The ecs instance types used to launch worker nodes.\"\n  default     = [\"ecs.g6.2xlarge\", \"ecs.g6.xlarge\"]\n}\n\n# 指定<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>集群安装的组件。包括<span class=\"help-letter-space\"></span>Terway（网络组件）、csi-plugin（存储组件）、csi-provisioner（存储组件）、loongcollector（日志组件）、Nginx Ingress Controller、ack-arms-prometheus（监控组件）以及<span class=\"help-letter-space\"></span>ack-node-problem-detector（节点诊断组件）。\nvariable \"cluster_addons\" {\n  type = list(object({\n    name   = string\n    config = string\n  }))\n  default = [\n    {\n      \"name\"   = \"terway-eniip\",\n      \"config\" = \"\",\n    },\n    {\n      \"name\"   = \"loongcollector\",\n      \"config\" = \"{\\\"IngressDashboardEnabled\\\":\\\"true\\\"}\",\n    },\n    {\n      \"name\"   = \"nginx-ingress-controller\",\n      \"config\" = \"{\\\"IngressSlbNetworkType\\\":\\\"internet\\\"}\",\n    },\n    {\n      \"name\"   = \"arms-prometheus\",\n      \"config\" = \"\",\n    },\n    {\n      \"name\"   = \"ack-node-problem-detector\",\n      \"config\" = \"{\\\"sls_project_name\\\":\\\"\\\"}\",\n    },\n    {\n      \"name\"   = \"csi-plugin\",\n      \"config\" = \"\",\n    },\n    {\n      \"name\"   = \"csi-provisioner\",\n      \"config\" = \"\",\n    }\n  ]\n}\n\n# 指定创建<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>托管集群名称的前缀。\nvariable \"k8s_name_prefix\" {\n  description = \"The name prefix used to create managed kubernetes cluster.\"\n  default     = \"tf-ack-shenzhen\"\n}\n\n# 默认资源名称。\nlocals {\n  k8s_name_terway         = substr(join(\"-\", [var.k8s_name_prefix, \"terway\"]), 0, 63)\n  k8s_name_flannel        = substr(join(\"-\", [var.k8s_name_prefix, \"flannel\"]), 0, 63)\n  k8s_name_ask            = substr(join(\"-\", [var.k8s_name_prefix, \"ask\"]), 0, 63)\n  new_vpc_name            = \"tf-vpc-172-16\"\n  new_vsw_name_azD        = \"tf-vswitch-azD-172-16-0\"\n  new_vsw_name_azE        = \"tf-vswitch-azE-172-16-2\"\n  new_vsw_name_azF        = \"tf-vswitch-azF-172-16-4\"\n  nodepool_name           = \"default-nodepool\"\n  managed_nodepool_name   = \"managed-node-pool\"\n  autoscale_nodepool_name = \"autoscale-node-pool\"\n  log_project_name        = \"log-for-${local.k8s_name_terway}\"\n}\n\n# 节点<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例配置。将查询满足<span class=\"help-letter-space\"></span>CPU、Memory<span class=\"help-letter-space\"></span>要求的<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例类型。\ndata \"alicloud_instance_types\" \"default\" {\n  cpu_core_count       = 8\n  memory_size          = 32\n  availability_zone    = var.availability_zone[0]\n  kubernetes_node_role = \"Worker\"\n}\n\n# 专有网络。\nresource \"alicloud_vpc\" \"default\" {\n  vpc_name   = local.new_vpc_name\n  cidr_block = \"172.16.0.0/12\"\n}\n\n# Node<span class=\"help-letter-space\"></span>交换机。\nresource \"alicloud_vswitch\" \"vswitches\" {\n  count      = length(var.node_vswitch_ids) &gt; 0 ? 0 : length(var.node_vswitch_cidrs)\n  vpc_id     = alicloud_vpc.default.id\n  cidr_block = element(var.node_vswitch_cidrs, count.index)\n  zone_id    = element(var.availability_zone, count.index)\n}\n\n# Pod<span class=\"help-letter-space\"></span>交换机。\nresource \"alicloud_vswitch\" \"terway_vswitches\" {\n  count      = length(var.terway_vswitch_ids) &gt; 0 ? 0 : length(var.terway_vswitch_cidrs)\n  vpc_id     = alicloud_vpc.default.id\n  cidr_block = element(var.terway_vswitch_cidrs, count.index)\n  zone_id    = element(var.availability_zone, count.index)\n}\n\n# Kubernetes<span class=\"help-letter-space\"></span>托管版。\nresource \"alicloud_cs_managed_kubernetes\" \"default\" {\n  name                         = local.k8s_name_terway                                         # Kubernetes<span class=\"help-letter-space\"></span>集群名称。\n  cluster_spec                 = var.cluster_spec                                              # 创建<span class=\"help-letter-space\"></span>Pro<span class=\"help-letter-space\"></span>版集群。\n  vswitch_ids                  = split(\",\", join(\",\", alicloud_vswitch.vswitches.*.id))        # 节点池所在的<span class=\"help-letter-space\"></span>vSwitch。指定一个或多个<span class=\"help-letter-space\"></span>vSwitch<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>ID，必须在<span class=\"help-letter-space\"></span>availability_zone<span class=\"help-letter-space\"></span>指定的区域中。\n  pod_vswitch_ids              = split(\",\", join(\",\", alicloud_vswitch.terway_vswitches.*.id)) # Pod<span class=\"help-letter-space\"></span>虚拟交换机。\n  new_nat_gateway              = true                                                          # 是否在创建<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>集群时创建新的<span class=\"help-letter-space\"></span>NAT<span class=\"help-letter-space\"></span>网关。默认为<span class=\"help-letter-space\"></span>true。\n  service_cidr                 = \"10.11.0.0/16\"                                                # Pod<span class=\"help-letter-space\"></span>网络的<span class=\"help-letter-space\"></span>CIDR<span class=\"help-letter-space\"></span>块。当<span class=\"help-letter-space\"></span>cluster_network_type<span class=\"help-letter-space\"></span>设置为<span class=\"help-letter-space\"></span>flannel，你必须设定该参数。它不能与<span class=\"help-letter-space\"></span>VPC CIDR<span class=\"help-letter-space\"></span>相同，并且不能与<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>中的<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>集群使用的<span class=\"help-letter-space\"></span>CIDR<span class=\"help-letter-space\"></span>相同，也不能在创建后进行修改。集群中允许的最大主机数量：256。\n  slb_internet_enabled         = true                                                          # 是否为<span class=\"help-letter-space\"></span>API Server<span class=\"help-letter-space\"></span>创建<span class=\"help-letter-space\"></span>Internet<span class=\"help-letter-space\"></span>负载均衡。默认为<span class=\"help-letter-space\"></span>false。\n  enable_rrsa                  = true\n  control_plane_log_components = [\"apiserver\", \"kcm\", \"scheduler\", \"ccm\"] # 控制平面日志。\n  dynamic \"addons\" {                                                      # 组件管理。\n    for_each = var.cluster_addons\n    content {\n      name   = lookup(addons.value, \"name\", var.cluster_addons)\n      config = lookup(addons.value, \"config\", var.cluster_addons)\n    }\n  }\n}\n\n# 普通节点池。\nresource \"alicloud_cs_kubernetes_node_pool\" \"default\" {\n  cluster_id            = alicloud_cs_managed_kubernetes.default.id              # Kubernetes<span class=\"help-letter-space\"></span>集群名称。\n  node_pool_name        = local.nodepool_name                                    # 节点池名称。\n  vswitch_ids           = split(\",\", join(\",\", alicloud_vswitch.vswitches.*.id)) # 节点池所在的<span class=\"help-letter-space\"></span>vSwitch。指定一个或多个<span class=\"help-letter-space\"></span>vSwitch<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>ID，必须在<span class=\"help-letter-space\"></span>availability_zone<span class=\"help-letter-space\"></span>指定的区域中。\n  instance_types        = var.worker_instance_types\n  instance_charge_type  = \"PostPaid\"\n  desired_size          = 2            # 节点池的期望节点数。\n  install_cloud_monitor = true         # 是否为<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>的节点安装云监控。\n  system_disk_category  = \"cloud_efficiency\"\n  system_disk_size      = 100\n  image_type            = \"AliyunLinux\"\n  data_disks {              # 节点数据盘配置。\n    category = \"cloud_essd\" # 节点数据盘种类。\n    size     = 120          # 节点数据盘大小。\n  }\n}\n\n# 创建托管节点池。\nresource \"alicloud_cs_kubernetes_node_pool\" \"managed_node_pool\" {\n  cluster_id     = alicloud_cs_managed_kubernetes.default.id              # Kubernetes<span class=\"help-letter-space\"></span>集群名称。\n  node_pool_name = local.managed_nodepool_name                            # 节点池名称。\n  vswitch_ids    = split(\",\", join(\",\", alicloud_vswitch.vswitches.*.id)) # 节点池所在的<span class=\"help-letter-space\"></span>vSwitch。指定一个或多个<span class=\"help-letter-space\"></span>vSwitch<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>ID，必须在<span class=\"help-letter-space\"></span>availability_zone<span class=\"help-letter-space\"></span>指定的区域中。\n  desired_size   = 0                                                      # 节点池的期望节点数。\n  management {\n    auto_repair     = true\n    auto_upgrade    = true\n    max_unavailable = 1\n  }\n  instance_types        = var.worker_instance_types\n  instance_charge_type  = \"PostPaid\"\n  install_cloud_monitor = true\n  system_disk_category  = \"cloud_efficiency\"\n  system_disk_size      = 100\n  image_type            = \"AliyunLinux\"\n  data_disks {\n    category = \"cloud_essd\"\n    size     = 120\n  }\n}\n\n# 创建自动伸缩节点池，节点池最多可以扩展到 10 个节点，最少保持 1 个节点。\nresource \"alicloud_cs_kubernetes_node_pool\" \"autoscale_node_pool\" {\n  cluster_id     = alicloud_cs_managed_kubernetes.default.id\n  node_pool_name = local.autoscale_nodepool_name\n  vswitch_ids    = split(\",\", join(\",\", alicloud_vswitch.vswitches.*.id))\n  scaling_config {\n    min_size = 1\n    max_size = 10\n  }\n  instance_types        = var.worker_instance_types\n  install_cloud_monitor = true         # 是否为<span class=\"help-letter-space\"></span>kubernetes<span class=\"help-letter-space\"></span>的节点安装云监控。\n  system_disk_category  = \"cloud_efficiency\"\n  system_disk_size      = 100\n  image_type            = \"AliyunLinux3\"\n  data_disks {              # 节点数据盘配置。\n    category = \"cloud_essd\" # 节点数据盘种类。\n    size     = 120          # 节点数据盘大小。\n  }\n}</code></pre>\n          </li>\n          <li id=\"66ba1234a7oc3\">\n            <p id=\"cf0656e116xyp\">执行以下命令，初始化<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>运行环境。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"a786fbacc3wzs\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>terraform init</code></pre>\n            <p id=\"6aa99ed044wwj\">返回如下信息，表示<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>初始化成功。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"fa844c24e48bg\" outputclass=\"language-json\" class=\"pre codeblock language-json\"><code>Terraform has been successfully initialized!\n\nYou may now begin working with Terraform. Try running \"terraform plan\" to see\nany changes that are required for your infrastructure. All Terraform commands\nshould now work.\n\nIf you ever set or change modules or backend configuration for Terraform,\nrerun this command to reinitialize your working directory. If you forget, other\ncommands will detect it and remind you to do so if necessary.</code></pre>\n          </li>\n          <li id=\"0e11450157s50\">\n            <p id=\"9fb3ce0657j6y\">创建执行计划，并预览变更。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"787f4e83ce3ea\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>terraform plan</code></pre>\n          </li>\n          <li id=\"f81a004fd9nob\">\n            <p id=\"02647f3011243\">执行以下命令，创建集群。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"f1b3a57e000gv\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>terraform apply</code></pre>\n            <p id=\"e5ccbe7b874wo\">在执行过程中，根据提示输入<span data-tag=\"ph\" id=\"a02b42e7dculj\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" id=\"918f6bf05e897\" class=\"code\">yes</code></span>并按下<span class=\"help-letter-space\"></span><b id=\"uicontrol-fy2-wi7-q2s\">Enter</b><span class=\"help-letter-space\"></span>键，等待命令执行完成，若出现以下信息，则表示<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>集群创建成功。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"afefe14ed49ne\" outputclass=\"language-json\" class=\"pre codeblock language-json\"><code>Do you want to perform these actions?\n  Terraform will perform the actions described above.\n  Only 'yes' will be accepted to approve.\n\n  Enter a value: yes\n\n...\nalicloud_cs_managed_kubernetes.default: Creation complete after 5m48s [id=ccb53e72ec6c447c990762800********]\n...\n\nApply complete! Resources: 11 added, 0 changed, 0 destroyed.</code></pre>\n          </li>\n          <li id=\"e8af6fa8e8bnd\">\n            <p id=\"398c38f6119px\">验证结果</p>\n            <section data-tag=\"tabbed-content-box\" id=\"414faaaf8dgef\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n              <section id=\"1512c34cb764z\" class=\"section\">\n                <h2 id=\"967d971b09ckz\">执行<span class=\"help-letter-space\"></span>terraform show<span class=\"help-letter-space\"></span>命令</h2>\n                <p id=\"cce55d60d89wm\">您可以使用以下命令查询<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>已创建资源的详细信息。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"460ad4379at86\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>terraform show</code></pre>\n              </section>\n              <section id=\"58dfdcd7164us\" class=\"section\">\n                <h2 id=\"d305cef63boib\">登录<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>控制台</h2>\n                <p id=\"8c2e61cd73b3x\">登录<span data-tag=\"ph\" id=\"5c353718barnk\" class=\"ph\"><span props=\"china intl\"><a href=\"https://cs.console.aliyun.com\" id=\"xref-z18-5ra-byr\" class=\"\" target=\"_blank\">容器服务管理控制台</a></span></span>，查看已创建的集群。</p>\n              </section>\n            </section>\n          </li>\n        </ol>\n      </section>\n      <section id=\"a22043e2de3ms\" class=\"section\">\n        <h2 id=\"40c82302919e0\">清理资源</h2>\n        <p id=\"319c8ffa24fip\">当您不再需要上述通过<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>创建或管理的资源时，请运行<code code-type=\"xCode\" data-tag=\"code\" id=\"4bd44aa7c1gn5\" class=\"code\">terraform destroy</code>命令以释放资源。关于<code code-type=\"xCode\" data-tag=\"code\" id=\"04acb23b20aq2\" class=\"code\">terraform destroy</code>的更多信息，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/terraform/terraform-common-commands\" id=\"5a2afa076drsl\" title=\"\" class=\"xref\">Terraform<span class=\"help-letter-space\"></span>常用命令</a>。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"095b92bcb1e72\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>terraform destroy</code></pre>\n      </section>\n      <section data-tag=\"related-links\" data-type=\"related-links\" id=\"related-links-00w-lqn-ltj\" role=\"navigation\" class=\"related-links section\">\n        <h2 id=\"d41e187\">相关文档</h2>\n        <ul id=\"6a06a6b63eq1k\">\n          <li id=\"d772bc10ed5ul\">\n            <p id=\"5b131f59242cs\">创建<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"93b46325d483v\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK<span class=\"help-letter-space\"></span>托管集群</span>时需要安装额外组件，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-manage-plug-ins\" id=\"24a0b2987bpee\" title=\"\" class=\"xref\">使用<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>管理组件</a>。</p>\n          </li>\n          <li id=\"32380e49946dc\">\n            <p id=\"2e70a7bdf1az9\">关于节点池创建的更多内容，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-auto-scaling-node-pool\" id=\"51066c5feb1m4\" title=\"\" class=\"xref\">通过<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>创建具备自动伸缩功能的节点池</a>。</p>\n          </li>\n          <li id=\"99aa984d5dmei\" props=\"china\" data-cond-props=\"china\">\n            <p id=\"63b57b100bo63\">当您遇到由于网络延迟等原因造成的<span class=\"help-letter-space\"></span>terraform init<span class=\"help-letter-space\"></span>超时，导致无法正常下载<span class=\"help-letter-space\"></span>Provider<span class=\"help-letter-space\"></span>等情况时，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/terraform/terraform-init-acceleration-solution-configuration\" id=\"96169cbcb1p5k\" title=\"\" class=\"xref\">Terraform Init 加速方案配置</a>。</p>\n          </li>\n          <li id=\"498e8758b0f9k\">\n            <p id=\"f4e6b8aa105oz\" docid=\"5288683\" is-conref=\"true\">ROS<span class=\"help-letter-space\"></span>提供了<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>托管服务，因此您可以直接在<span class=\"help-letter-space\"></span><a class=\"\" href=\"https://ros.console.aliyun.com/cn-hangzhou/welcome\" id=\"1173fef51dn2a\">ROS<span class=\"help-letter-space\"></span>控制台</a>部署<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>模板。详细操作，请参见<a href=\"https://help.aliyun.com/zh/ros/user-guide/create-a-terraform-stack\" id=\"ab9ff88fa3k7h\" title=\"\" class=\"xref\">创建<span class=\"help-letter-space\"></span>Terraform<span class=\"help-letter-space\"></span>类型资源栈</a>。</p>\n          </li>\n        </ul>\n      </section>\n      <p id=\"d86bc0a251y7u\"></p>\n    </div>\n  </main>\n\n\n\n\n</div>","path":"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-ack-managed-cluster","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"alias":"/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-ack-managed-cluster","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":7,"developerUrl":"https://developer.aliyun.com/group/kubernetes/","nodeType":1,"version":31,"url":"/zh/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-ack-managed-cluster","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":197780,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"通过Terraform创建ACK托管集群","id":197780,"title":"通过Terraform创建ACK托管集群","url":"/zh/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-ack-managed-cluster"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"Terraform","id":266781,"title":"Terraform","url":"/zh/ack/ack-managed-and-ack-dedicated/developer-reference/terraform/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"开发参考","id":2391838,"title":"开发参考","url":"/zh/ack/ack-managed-and-ack-dedicated/developer-reference/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"ACK托管与专有集群","id":126295,"title":"ACK托管与专有集群","url":"/zh/ack/ack-managed-and-ack-dedicated/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"productUrl":"https://www.aliyun.com/product/kubernetes","nodeId":197780,"desc":"本文介绍如何使用Terraform创建ACK托管集群。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"ACK托管与专有集群","id":126295,"title":"ACK托管与专有集群","url":"/zh/ack/ack-managed-and-ack-dedicated/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"开发参考","id":2391838,"title":"开发参考","url":"/zh/ack/ack-managed-and-ack-dedicated/developer-reference/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"Terraform","id":266781,"title":"Terraform","url":"/zh/ack/ack-managed-and-ack-dedicated/developer-reference/terraform/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"通过Terraform创建ACK托管集群","id":197780,"title":"通过Terraform创建ACK托管集群","url":"/zh/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-ack-managed-cluster"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=213e015517825535687624963e3516&asid=AQAAAADhmz9qFBqiZQAAAAATfYtjAPhbaQ==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"><div class="help-subproduct-container"></div></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2391827" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/product-overview/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品概述</span>
+</a>
+</li>
+ <li id="2391837" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/getting-started/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">快速入门</span>
+</a>
+</li>
+ <li id="2391836" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">操作指南</span>
+</a>
+</li>
+ <li id="2391840" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/use-cases/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">实践教程</span>
+</a>
+</li>
+ <li id="2543123" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="2391838" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2391839" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/support/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">服务支持</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>使用Terraform创建ACK托管版集群</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/kubernetes" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="task-2005064">
+    
+    
+    <p data-tag="shortdesc" id="shortdesc-d6w-x9c-9j8" class="shortdesc">本文介绍如何使用<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>创建<span class="help-letter-space"></span><span data-tag="ph" id="46b127824fmmu" docid="4431993" is-conref="true" class="ph">ACK<span class="help-letter-space"></span>托管集群</span>。</p>
+    <div data-tag="taskbody" id="taskbody-gmq-ao7-kdi" class="taskbody">
+      <div id="e36f65bf86ukd" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+        <p id="222d8f7fb50lc">本教程所含示例代码支持一键运行，您可以直接运行代码。<span props="china"><a class="help-secondary-button" href="https://api.aliyun.com/api-tools/terraform?resource=alicloud_cs_managed_kubernetes&amp;exampleId=201-use-case-create-ack-managed-cluster&amp;activeTab=example" id="39405841eb3r1">一键运行</a></span></p>
+      </div></div>
+      <section data-tag="prereq" data-type="prereq" id="prereq-kay-fy7-kfv" class="section prereq">
+        <h2 id="d41e25">前提条件</h2>
+        <ul id="1c70e67fa9det">
+          <li id="0da0bf9267835">
+            <p id="0e34f13a8ecff" docid="4688868" is-conref="true">已开通<span id="6ccdbc206dtzq" outputclass="productName" data-tag="ph" data-ref-searchable="yes" data-reuse-tag="productName" data-type="productName" data-product-code="csk" docid="4265392" is-conref="true" class="ph productName">容器服务 Kubernetes 版</span><span class="help-letter-space"></span>ACK。若需要使用<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>开通，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-assign-default-roles-to-ack-when-you-use-ack-for-the-first-time" id="799cf34ca9qvl" title="" class="xref">通过<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>开通<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>并授权角色</a>。</p>
+          </li>
+          <li id="7c15ec08f3n8h">
+            <section id="f448194e721xq" docid="4065228" is-conref="true" class="section"><p id="0db23a90bb4n5">由于阿里云账号（主账号）具有资源的所有权限，一旦发生泄露将面临重大风险。建议您使用<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>用户，并为该<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>用户创建<span class="help-letter-space"></span>AccessKey，具体操作方式请参见<a href="https://help.aliyun.com/zh/ram/user-guide/create-a-ram-user" id="f638794d73uuc" title="" class="xref">创建<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>用户</a>和<a href="https://help.aliyun.com/zh/ram/user-guide/create-an-accesskey-pair" id="cbf8f311f5wj3" title="" class="xref">创建<span class="help-letter-space"></span>AccessKey</a>。</p></section>
+          </li>
+          <li id="2ff070575fyxu">
+            <section id="ff9e79ba2anrh" docid="4065228" is-conref="true" class="section"><p id="6c2b4bc86b0zr">为运行<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>命令的<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>用户绑定以下最小权限策略，以获取管理本示例所涉及资源的权限。更多信息，请参见<a href="https://help.aliyun.com/zh/ram/user-guide/grant-permissions-to-the-ram-user" id="e560548197tam" title="" class="xref">为<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>用户授权</a>。</p></section>
+            <p id="271069e48db1j">该权限策略允许<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>用户进行<span class="help-letter-space"></span>VPC、交换机及<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>的创建、查看与删除操作。</p><pre code-type="xCode" data-tag="codeblock" id="a210ab5b81y84" outputclass="language-yaml" class="pre codeblock language-yaml"><code>{
+  "Version": "1",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "vpc:CreateVpc",
+        "vpc:CreateVSwitch",
+        "cs:CreateCluster",
+        "vpc:DescribeVpcAttribute",
+        "vpc:DescribeVSwitchAttributes",
+        "vpc:DescribeRouteTableList",
+        "vpc:DescribeNatGateways",
+        "cs:DescribeTaskInfo",
+        "cs:DescribeClusterDetail",
+        "cs:GetClusterCerts",
+        "cs:CheckControlPlaneLogEnable",
+        "cs:CreateClusterNodePool",
+        "cs:DescribeClusterNodePoolDetail",
+        "cs:ModifyClusterNodePool",
+        "vpc:DeleteVpc",
+        "vpc:DeleteVSwitch",
+        "cs:DeleteCluster",
+        "cs:DeleteClusterNodepool"
+      ],
+      "Resource": "*"
+    }
+  ]
+}</code></pre>
+          </li>
+          <li id="f96aa28e40hdr">
+            <section id="55e7aa1497dh8" tagname="section" class="section">
+              <p id="2337ea9d32kom">准备<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>运行环境，您可以选择以下任一方式来使用<span class="help-letter-space"></span>Terraform。</p>
+              <ul id="c8213a8347kkk">
+                <li id="9dfea23cebdzd">
+                  <p id="02035973b60ok"><a href="https://help.aliyun.com/zh/terraform/using-terraform-in-terraform-explorer" id="8038a32873hek" title="" class="xref">在<span class="help-letter-space"></span>Terraform Explorer<span class="help-letter-space"></span>中使用<span class="help-letter-space"></span>Terraform</a>：阿里云提供了<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>的在线运行环境，您无需安装<span class="help-letter-space"></span>Terraform，登录后即可在线使用和体验<span class="help-letter-space"></span>Terraform。适用于零成本、快速、便捷地体验和调试<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>的场景。</p>
+                </li>
+                <li id="56b2e60c5cw8r">
+                  <p id="d8aacbde4ezbf"><a href="https://help.aliyun.com/zh/terraform/use-terraform-to-quickly-create-resources" id="e4c08e5c26pv1" title="" class="xref">使用<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>快速创建资源</a>：阿里云<span class="help-letter-space"></span>Cloud Shell<span class="help-letter-space"></span>中预装了<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>的组件，并已配置好身份凭证，您可直接在<span class="help-letter-space"></span>Cloud Shell<span class="help-letter-space"></span>中运行<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>的命令。适用于低成本、快速、便捷地访问和使用<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>的场景。</p>
+                </li>
+                <li id="ae62c8f3c8rg7">
+                  <p id="a20fec3643twx"><a href="https://help.aliyun.com/zh/ros/user-guide/create-a-terraform-template" id="aea1b34ba5aud" title="" class="xref">在资源编排（ROS）中使用<span class="help-letter-space"></span>Terraform</a>：资源编排服务（ROS）为<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>提供了托管的能力，您可以创建<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>类型的模板，定义阿里云、AWS<span class="help-letter-space"></span>或<span class="help-letter-space"></span>Azure<span class="help-letter-space"></span>资源，配置资源参数和资源间的依赖关系。</p>
+                </li>
+                <li id="a006a44fba9gv">
+                  <p id="70515c5392r72"><a href="https://help.aliyun.com/zh/terraform/install-and-configure-terraform-locally" id="8a4b59ee5cems" title="" class="xref">在本地安装和配置<span class="help-letter-space"></span>Terraform</a>：适用于网络连接较差或需要自定义开发环境的场景。</p>
+                </li>
+              </ul>
+            </section>
+            <div id="4d788dcff8fct" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+              <p id="92832a8543c01">请确保版本不低于<span class="help-letter-space"></span>v0.12.28。如需检查现有版本，请运行<code class="code blog-code" code-type="xCode" data-tag="code" id="5fe3292952nuc">terraform --version</code>命令。</p>
+            </div></div>
+          </li>
+        </ul>
+      </section>
+      <section id="32ea0f8f101j3" class="section">
+        <h2 id="68eda85a74ey3"><b>使用的资源</b></h2>
+        <div id="7f0009da905q5" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+          <p id="8c1d7a1ee2oz5">本教程示例包含的部分资源会产生一定费用，请在不需要时及时进行释放或退订。</p>
+        </div></div>
+        <section id="7e08798814n9p" props="china" data-cond-props="china" class="section">
+          <ul id="50d4e701324kq">
+            <li id="42fd8248019ik">
+              <p id="b127300dccwk7"><a href="https://help.aliyun.com/zh/terraform/alicloud-zones" id="afe6bb628cogb" title="" class="xref">alicloud_zones</a>：查询可用区。</p>
+            </li>
+            <li id="31d14db39aci7">
+              <p id="1719d9f83evuv"><a href="https://help.aliyun.com/zh/terraform/alicloud-instance-types" id="6f38f4731bvmu" title="" class="xref">alicloud_instance_types</a>：根据条件查询符合要求的<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例类型。</p>
+            </li>
+            <li id="4cb68a3b5fqac">
+              <p id="b62940e0a6wpg"><a href="https://help.aliyun.com/zh/terraform/alicloud-vpc" id="ebb65e94e15xg" title="" class="xref">alicloud_vpc</a>：创建专有网络<span class="help-letter-space"></span>VPC。</p>
+            </li>
+            <li id="1e49354024s2k">
+              <p id="b0b3107120mxn"><a href="https://help.aliyun.com/zh/terraform/alicloud-vswitch" id="3c6643c35d5gi" title="" class="xref">alicloud_vswitch</a>：创建虚拟交换机（vSwitch）为<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>划分一个或多个子网。</p>
+            </li>
+            <li id="d0541bb7ca0ai">
+              <p id="a5b6b7fd31l5h"><a href="https://help.aliyun.com/zh/terraform/alicloud-cs-managed-kubernetes" id="48243e2d256py" title="" class="xref">alicloud_cs_managed_kubernetes</a>：创建<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>托管版集群。</p>
+            </li>
+            <li id="ca3e6a80af2ko">
+              <p id="e4759c6846bkg"><a href="https://help.aliyun.com/zh/terraform/alicloud-cs-kubernetes-node-pool" id="1f099544d6zn6" title="" class="xref">alicloud_cs_kubernetes_node_pool</a>：为<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>托管集群创建节点池。</p>
+            </li>
+          </ul>
+        </section>
+        
+      </section>
+      <section id="9656ce7abb993" class="section">
+        <h2 data-sourcepos="1:1-1:25" data-spm-anchor-id="0.0.0.i1.717c20e0W16Tif" id="通过控制台生成-openapi-请求参数" jc="left" style="text-align:left"><b>通过控制台生成<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>请求参数</b></h2>
+        <p id="b777ca3e2aosk" jc="left" style="text-align:left">如果由于请求参数组合不正确或以下示例中没有您需要的配置，您可以通过控制台生成创建集群所需的请求参数组合。具体操作如下：</p>
+        <ol data-sourcepos="4:1-12:33" id="a2a8c2c605xoc">
+          <li data-tag="step" id="3da05dd7bdytd" docid="3660168" is-conref="true" class="step"><p id="7bdb0bf11b631"><span data-tag="cmd" id="cmd-mto-t3v-p7d" class="cmd">登录<span props="china intl"><a href="https://cs.console.aliyun.com" id="xref-c6s-99d-s5k" class="" target="_blank">容器服务管理控制台</a></span>，在左侧导航栏选择<b id="uicontrol-42p-agm-35k" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>。</span></p></li>
+          <li data-tag="step" id="5785367489igc" docid="3660168" is-conref="true" class="step"><p id="7bdb0bf31bdmm"><span data-tag="cmd" id="cmd-3ub-yna-yga" class="cmd">在<b id="wintitle-ixd-4tn-wnp" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>页面，单击<b id="uicontrol-j2x-5q2-z5p" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群模板</b>。</span></p></li>
+          <li data-sourcepos="8:1-8:43" id="6696281a80ory">
+            <p id="d9dd493091n7m">在对话框，选择需要创建的集群类型，并单击<b id="8bcf764153dy5" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建</b>，然后在<b id="93f543eb32l7u" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群配置</b>页面配置集群信息。</p>
+          </li>
+          <li data-sourcepos="10:1-12:33" id="5421ff11cdylr">
+            <p id="ae9f1b520d7wf">配置完成后，在<b>确认配置</b>页面，单击右上角的<b id="d441c24e8b5g7" data-tag="uicontrol" data-isbold="true" class="uicontrol">同等代码</b>。</p>
+          </li>
+          <li id="648ab5c52a6e7">
+            <p id="a57ea53727b2c">在侧边栏中单击<span class="help-letter-space"></span><b id="d36590a93fzpb">Terraform</b><span class="help-letter-space"></span>页签，将展示您创建集群时所需的参数组合，您可以复制使用。</p>
+          </li>
+        </ol>
+      </section>
+      <section id="5f8b0c89a3igj" class="section">
+        <h2 data-tag="title" id="62007ba14b3m5" class="title">使用<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>创建<span class="help-letter-space"></span><span data-tag="ph" id="0bbc7ff0bfy2a" docid="4431993" is-conref="true" class="ph">ACK<span class="help-letter-space"></span>托管集群</span>（Terway）</h2>
+        <p id="d7d0122e37ffa">本示例将创建一个包含普通节点池、托管节点池及自动伸缩节点池的<span class="help-letter-space"></span><span data-tag="ph" id="229347438er0r" docid="4431993" is-conref="true" class="ph">ACK<span class="help-letter-space"></span>托管集群</span>，并为该集群默认安装一系列组件，包括<span class="help-letter-space"></span>Terway（网络组件）、csi-plugin（存储组件）、csi-provisioner（存储组件）、日志采集组件、Nginx Ingress Controller、ack-arms-prometheus（监控组件）以及<span class="help-letter-space"></span>ack-node-problem-detector（节点诊断组件）。</p>
+        <ol id="b6e3c4ee8bydi" start="1">
+          <li id="1c65fd2ff4ng2">
+            <p id="846a1032a5cbz">创建一个工作目录，并在该工作目录中创建名为<span class="help-letter-space"></span><span data-tag="ph" id="f7a2f233e3ak5" class="ph">main.tf</span><span class="help-letter-space"></span>的配置文件，然后将以下代码复制到<span class="help-letter-space"></span><span data-tag="ph" id="1971fde788qlv" class="ph">main.tf</span><span class="help-letter-space"></span>中。</p><pre code-type="xCode" data-tag="codeblock" id="a932b4d4c1eor" outputclass="language-terraform" class="pre codeblock language-terraform"><code>provider "alicloud" {
+  region = var.region_id
+}
+
+variable "region_id" {
+  type    = string
+  default = "cn-shenzhen"
+}
+
+variable "cluster_spec" {
+  type        = string
+  description = "The cluster specifications of kubernetes cluster,which can be empty. Valid values:ack.standard : Standard managed clusters; ack.pro.small : Professional managed clusters."
+  default     = "ack.pro.small"
+}
+
+# 指定虚拟交换机（vSwitches）的可用区。
+variable "availability_zone" {
+  description = "The availability zones of vswitches."
+  default     = ["cn-shenzhen-c", "cn-shenzhen-e", "cn-shenzhen-f"]
+}
+
+# 指定交换机<span class="help-letter-space"></span>ID（vSwitch IDs）的列表。
+variable "node_vswitch_ids" {
+  description = "List of existing node vswitch ids for terway."
+  type        = list(string)
+  default     = []
+}
+
+# 用于创建新<span class="help-letter-space"></span>vSwitches<span class="help-letter-space"></span>的<span class="help-letter-space"></span>CIDR<span class="help-letter-space"></span>地址块列表。
+variable "node_vswitch_cidrs" {
+  description = "List of cidr blocks used to create several new vswitches when 'node_vswitch_ids' is not specified."
+  type        = list(string)
+  default     = ["172.16.0.0/23", "172.16.2.0/23", "172.16.4.0/23"]
+}
+
+# 指定网络组件<span class="help-letter-space"></span>Terway<span class="help-letter-space"></span>配置。如果为空，默认会根据<span class="help-letter-space"></span>terway_vswitch_cidrs<span class="help-letter-space"></span>的创建新的<span class="help-letter-space"></span>terway&nbsp;vSwitch。
+variable "terway_vswitch_ids" {
+  description = "List of existing pod vswitch ids for terway."
+  type        = list(string)
+  default     = []
+}
+
+# 当没有指定<span class="help-letter-space"></span>terway_vswitch_ids<span class="help-letter-space"></span>时，用于创建<span class="help-letter-space"></span>Terway<span class="help-letter-space"></span>使用的<span class="help-letter-space"></span>vSwitch<span class="help-letter-space"></span>的<span class="help-letter-space"></span>CIDR<span class="help-letter-space"></span>地址块。
+variable "terway_vswitch_cidrs" {
+  description = "List of cidr blocks used to create several new vswitches when 'terway_vswitch_ids' is not specified."
+  type        = list(string)
+  default     = ["172.16.208.0/20", "172.16.224.0/20", "172.16.240.0/20"]
+}
+
+# 定义了用于启动工作节点的<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例类型。
+variable "worker_instance_types" {
+  description = "The ecs instance types used to launch worker nodes."
+  default     = ["ecs.g6.2xlarge", "ecs.g6.xlarge"]
+}
+
+# 指定<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>集群安装的组件。包括<span class="help-letter-space"></span>Terway（网络组件）、csi-plugin（存储组件）、csi-provisioner（存储组件）、loongcollector（日志组件）、Nginx Ingress Controller、ack-arms-prometheus（监控组件）以及<span class="help-letter-space"></span>ack-node-problem-detector（节点诊断组件）。
+variable "cluster_addons" {
+  type = list(object({
+    name   = string
+    config = string
+  }))
+  default = [
+    {
+      "name"   = "terway-eniip",
+      "config" = "",
+    },
+    {
+      "name"   = "loongcollector",
+      "config" = "{\"IngressDashboardEnabled\":\"true\"}",
+    },
+    {
+      "name"   = "nginx-ingress-controller",
+      "config" = "{\"IngressSlbNetworkType\":\"internet\"}",
+    },
+    {
+      "name"   = "arms-prometheus",
+      "config" = "",
+    },
+    {
+      "name"   = "ack-node-problem-detector",
+      "config" = "{\"sls_project_name\":\"\"}",
+    },
+    {
+      "name"   = "csi-plugin",
+      "config" = "",
+    },
+    {
+      "name"   = "csi-provisioner",
+      "config" = "",
+    }
+  ]
+}
+
+# 指定创建<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>托管集群名称的前缀。
+variable "k8s_name_prefix" {
+  description = "The name prefix used to create managed kubernetes cluster."
+  default     = "tf-ack-shenzhen"
+}
+
+# 默认资源名称。
+locals {
+  k8s_name_terway         = substr(join("-", [var.k8s_name_prefix, "terway"]), 0, 63)
+  k8s_name_flannel        = substr(join("-", [var.k8s_name_prefix, "flannel"]), 0, 63)
+  k8s_name_ask            = substr(join("-", [var.k8s_name_prefix, "ask"]), 0, 63)
+  new_vpc_name            = "tf-vpc-172-16"
+  new_vsw_name_azD        = "tf-vswitch-azD-172-16-0"
+  new_vsw_name_azE        = "tf-vswitch-azE-172-16-2"
+  new_vsw_name_azF        = "tf-vswitch-azF-172-16-4"
+  nodepool_name           = "default-nodepool"
+  managed_nodepool_name   = "managed-node-pool"
+  autoscale_nodepool_name = "autoscale-node-pool"
+  log_project_name        = "log-for-${local.k8s_name_terway}"
+}
+
+# 节点<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例配置。将查询满足<span class="help-letter-space"></span>CPU、Memory<span class="help-letter-space"></span>要求的<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例类型。
+data "alicloud_instance_types" "default" {
+  cpu_core_count       = 8
+  memory_size          = 32
+  availability_zone    = var.availability_zone[0]
+  kubernetes_node_role = "Worker"
+}
+
+# 专有网络。
+resource "alicloud_vpc" "default" {
+  vpc_name   = local.new_vpc_name
+  cidr_block = "172.16.0.0/12"
+}
+
+# Node<span class="help-letter-space"></span>交换机。
+resource "alicloud_vswitch" "vswitches" {
+  count      = length(var.node_vswitch_ids) &gt; 0 ? 0 : length(var.node_vswitch_cidrs)
+  vpc_id     = alicloud_vpc.default.id
+  cidr_block = element(var.node_vswitch_cidrs, count.index)
+  zone_id    = element(var.availability_zone, count.index)
+}
+
+# Pod<span class="help-letter-space"></span>交换机。
+resource "alicloud_vswitch" "terway_vswitches" {
+  count      = length(var.terway_vswitch_ids) &gt; 0 ? 0 : length(var.terway_vswitch_cidrs)
+  vpc_id     = alicloud_vpc.default.id
+  cidr_block = element(var.terway_vswitch_cidrs, count.index)
+  zone_id    = element(var.availability_zone, count.index)
+}
+
+# Kubernetes<span class="help-letter-space"></span>托管版。
+resource "alicloud_cs_managed_kubernetes" "default" {
+  name                         = local.k8s_name_terway                                         # Kubernetes<span class="help-letter-space"></span>集群名称。
+  cluster_spec                 = var.cluster_spec                                              # 创建<span class="help-letter-space"></span>Pro<span class="help-letter-space"></span>版集群。
+  vswitch_ids                  = split(",", join(",", alicloud_vswitch.vswitches.*.id))        # 节点池所在的<span class="help-letter-space"></span>vSwitch。指定一个或多个<span class="help-letter-space"></span>vSwitch<span class="help-letter-space"></span>的<span class="help-letter-space"></span>ID，必须在<span class="help-letter-space"></span>availability_zone<span class="help-letter-space"></span>指定的区域中。
+  pod_vswitch_ids              = split(",", join(",", alicloud_vswitch.terway_vswitches.*.id)) # Pod<span class="help-letter-space"></span>虚拟交换机。
+  new_nat_gateway              = true                                                          # 是否在创建<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>集群时创建新的<span class="help-letter-space"></span>NAT<span class="help-letter-space"></span>网关。默认为<span class="help-letter-space"></span>true。
+  service_cidr                 = "10.11.0.0/16"                                                # Pod<span class="help-letter-space"></span>网络的<span class="help-letter-space"></span>CIDR<span class="help-letter-space"></span>块。当<span class="help-letter-space"></span>cluster_network_type<span class="help-letter-space"></span>设置为<span class="help-letter-space"></span>flannel，你必须设定该参数。它不能与<span class="help-letter-space"></span>VPC CIDR<span class="help-letter-space"></span>相同，并且不能与<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>中的<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>集群使用的<span class="help-letter-space"></span>CIDR<span class="help-letter-space"></span>相同，也不能在创建后进行修改。集群中允许的最大主机数量：256。
+  slb_internet_enabled         = true                                                          # 是否为<span class="help-letter-space"></span>API Server<span class="help-letter-space"></span>创建<span class="help-letter-space"></span>Internet<span class="help-letter-space"></span>负载均衡。默认为<span class="help-letter-space"></span>false。
+  enable_rrsa                  = true
+  control_plane_log_components = ["apiserver", "kcm", "scheduler", "ccm"] # 控制平面日志。
+  dynamic "addons" {                                                      # 组件管理。
+    for_each = var.cluster_addons
+    content {
+      name   = lookup(addons.value, "name", var.cluster_addons)
+      config = lookup(addons.value, "config", var.cluster_addons)
+    }
+  }
+}
+
+# 普通节点池。
+resource "alicloud_cs_kubernetes_node_pool" "default" {
+  cluster_id            = alicloud_cs_managed_kubernetes.default.id              # Kubernetes<span class="help-letter-space"></span>集群名称。
+  node_pool_name        = local.nodepool_name                                    # 节点池名称。
+  vswitch_ids           = split(",", join(",", alicloud_vswitch.vswitches.*.id)) # 节点池所在的<span class="help-letter-space"></span>vSwitch。指定一个或多个<span class="help-letter-space"></span>vSwitch<span class="help-letter-space"></span>的<span class="help-letter-space"></span>ID，必须在<span class="help-letter-space"></span>availability_zone<span class="help-letter-space"></span>指定的区域中。
+  instance_types        = var.worker_instance_types
+  instance_charge_type  = "PostPaid"
+  desired_size          = 2            # 节点池的期望节点数。
+  install_cloud_monitor = true         # 是否为<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>的节点安装云监控。
+  system_disk_category  = "cloud_efficiency"
+  system_disk_size      = 100
+  image_type            = "AliyunLinux"
+  data_disks {              # 节点数据盘配置。
+    category = "cloud_essd" # 节点数据盘种类。
+    size     = 120          # 节点数据盘大小。
+  }
+}
+
+# 创建托管节点池。
+resource "alicloud_cs_kubernetes_node_pool" "managed_node_pool" {
+  cluster_id     = alicloud_cs_managed_kubernetes.default.id              # Kubernetes<span class="help-letter-space"></span>集群名称。
+  node_pool_name = local.managed_nodepool_name                            # 节点池名称。
+  vswitch_ids    = split(",", join(",", alicloud_vswitch.vswitches.*.id)) # 节点池所在的<span class="help-letter-space"></span>vSwitch。指定一个或多个<span class="help-letter-space"></span>vSwitch<span class="help-letter-space"></span>的<span class="help-letter-space"></span>ID，必须在<span class="help-letter-space"></span>availability_zone<span class="help-letter-space"></span>指定的区域中。
+  desired_size   = 0                                                      # 节点池的期望节点数。
+  management {
+    auto_repair     = true
+    auto_upgrade    = true
+    max_unavailable = 1
+  }
+  instance_types        = var.worker_instance_types
+  instance_charge_type  = "PostPaid"
+  install_cloud_monitor = true
+  system_disk_category  = "cloud_efficiency"
+  system_disk_size      = 100
+  image_type            = "AliyunLinux"
+  data_disks {
+    category = "cloud_essd"
+    size     = 120
+  }
+}
+
+# 创建自动伸缩节点池，节点池最多可以扩展到 10 个节点，最少保持 1 个节点。
+resource "alicloud_cs_kubernetes_node_pool" "autoscale_node_pool" {
+  cluster_id     = alicloud_cs_managed_kubernetes.default.id
+  node_pool_name = local.autoscale_nodepool_name
+  vswitch_ids    = split(",", join(",", alicloud_vswitch.vswitches.*.id))
+  scaling_config {
+    min_size = 1
+    max_size = 10
+  }
+  instance_types        = var.worker_instance_types
+  install_cloud_monitor = true         # 是否为<span class="help-letter-space"></span>kubernetes<span class="help-letter-space"></span>的节点安装云监控。
+  system_disk_category  = "cloud_efficiency"
+  system_disk_size      = 100
+  image_type            = "AliyunLinux3"
+  data_disks {              # 节点数据盘配置。
+    category = "cloud_essd" # 节点数据盘种类。
+    size     = 120          # 节点数据盘大小。
+  }
+}</code></pre>
+          </li>
+          <li id="66ba1234a7oc3">
+            <p id="cf0656e116xyp">执行以下命令，初始化<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>运行环境。</p><pre code-type="xCode" data-tag="codeblock" id="a786fbacc3wzs" outputclass="language-shell" class="pre codeblock language-shell"><code>terraform init</code></pre>
+            <p id="6aa99ed044wwj">返回如下信息，表示<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>初始化成功。</p><pre code-type="xCode" data-tag="codeblock" id="fa844c24e48bg" outputclass="language-json" class="pre codeblock language-json"><code>Terraform has been successfully initialized!
+
+You may now begin working with Terraform. Try running "terraform plan" to see
+any changes that are required for your infrastructure. All Terraform commands
+should now work.
+
+If you ever set or change modules or backend configuration for Terraform,
+rerun this command to reinitialize your working directory. If you forget, other
+commands will detect it and remind you to do so if necessary.</code></pre>
+          </li>
+          <li id="0e11450157s50">
+            <p id="9fb3ce0657j6y">创建执行计划，并预览变更。</p><pre code-type="xCode" data-tag="codeblock" id="787f4e83ce3ea" outputclass="language-shell" class="pre codeblock language-shell"><code>terraform plan</code></pre>
+          </li>
+          <li id="f81a004fd9nob">
+            <p id="02647f3011243">执行以下命令，创建集群。</p><pre code-type="xCode" data-tag="codeblock" id="f1b3a57e000gv" outputclass="language-shell" class="pre codeblock language-shell"><code>terraform apply</code></pre>
+            <p id="e5ccbe7b874wo">在执行过程中，根据提示输入<span data-tag="ph" id="a02b42e7dculj" class="ph"><code code-type="xCode" data-tag="code" id="918f6bf05e897" class="code">yes</code></span>并按下<span class="help-letter-space"></span><b id="uicontrol-fy2-wi7-q2s">Enter</b><span class="help-letter-space"></span>键，等待命令执行完成，若出现以下信息，则表示<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>集群创建成功。</p><pre code-type="xCode" data-tag="codeblock" id="afefe14ed49ne" outputclass="language-json" class="pre codeblock language-json"><code>Do you want to perform these actions?
+  Terraform will perform the actions described above.
+  Only 'yes' will be accepted to approve.
+
+  Enter a value: yes
+
+...
+alicloud_cs_managed_kubernetes.default: Creation complete after 5m48s [id=ccb53e72ec6c447c990762800********]
+...
+
+Apply complete! Resources: 11 added, 0 changed, 0 destroyed.</code></pre>
+          </li>
+          <li id="e8af6fa8e8bnd">
+            <p id="398c38f6119px">验证结果</p>
+            <section data-tag="tabbed-content-box" id="414faaaf8dgef" outputclass="tabbed-content-box" class="tabbed-content-box section">
+              <section id="1512c34cb764z" class="section">
+                <h2 id="967d971b09ckz">执行<span class="help-letter-space"></span>terraform show<span class="help-letter-space"></span>命令</h2>
+                <p id="cce55d60d89wm">您可以使用以下命令查询<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>已创建资源的详细信息。</p><pre code-type="xCode" data-tag="codeblock" id="460ad4379at86" outputclass="language-shell" class="pre codeblock language-shell"><code>terraform show</code></pre>
+              </section>
+              <section id="58dfdcd7164us" class="section">
+                <h2 id="d305cef63boib">登录<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>控制台</h2>
+                <p id="8c2e61cd73b3x">登录<span data-tag="ph" id="5c353718barnk" class="ph"><span props="china intl"><a href="https://cs.console.aliyun.com" id="xref-z18-5ra-byr" class="" target="_blank">容器服务管理控制台</a></span></span>，查看已创建的集群。</p>
+              </section>
+            </section>
+          </li>
+        </ol>
+      </section>
+      <section id="a22043e2de3ms" class="section">
+        <h2 id="40c82302919e0">清理资源</h2>
+        <p id="319c8ffa24fip">当您不再需要上述通过<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>创建或管理的资源时，请运行<code code-type="xCode" data-tag="code" id="4bd44aa7c1gn5" class="code">terraform destroy</code>命令以释放资源。关于<code code-type="xCode" data-tag="code" id="04acb23b20aq2" class="code">terraform destroy</code>的更多信息，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/terraform/terraform-common-commands" id="5a2afa076drsl" title="" class="xref">Terraform<span class="help-letter-space"></span>常用命令</a>。</p><pre code-type="xCode" data-tag="codeblock" id="095b92bcb1e72" outputclass="language-shell" class="pre codeblock language-shell"><code>terraform destroy</code></pre>
+      </section>
+      <section data-tag="related-links" data-type="related-links" id="related-links-00w-lqn-ltj" role="navigation" class="related-links section">
+        <h2 id="d41e187">相关文档</h2>
+        <ul id="6a06a6b63eq1k">
+          <li id="d772bc10ed5ul">
+            <p id="5b131f59242cs">创建<span class="help-letter-space"></span><span data-tag="ph" id="93b46325d483v" docid="4431993" is-conref="true" class="ph">ACK<span class="help-letter-space"></span>托管集群</span>时需要安装额外组件，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-manage-plug-ins" id="24a0b2987bpee" title="" class="xref">使用<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>管理组件</a>。</p>
+          </li>
+          <li id="32380e49946dc">
+            <p id="2e70a7bdf1az9">关于节点池创建的更多内容，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-auto-scaling-node-pool" id="51066c5feb1m4" title="" class="xref">通过<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>创建具备自动伸缩功能的节点池</a>。</p>
+          </li>
+          <li id="99aa984d5dmei" props="china" data-cond-props="china">
+            <p id="63b57b100bo63">当您遇到由于网络延迟等原因造成的<span class="help-letter-space"></span>terraform init<span class="help-letter-space"></span>超时，导致无法正常下载<span class="help-letter-space"></span>Provider<span class="help-letter-space"></span>等情况时，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/terraform/terraform-init-acceleration-solution-configuration" id="96169cbcb1p5k" title="" class="xref">Terraform Init 加速方案配置</a>。</p>
+          </li>
+          <li id="498e8758b0f9k">
+            <p id="f4e6b8aa105oz" docid="5288683" is-conref="true">ROS<span class="help-letter-space"></span>提供了<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>托管服务，因此您可以直接在<span class="help-letter-space"></span><a class="" href="https://ros.console.aliyun.com/cn-hangzhou/welcome" id="1173fef51dn2a">ROS<span class="help-letter-space"></span>控制台</a>部署<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>模板。详细操作，请参见<a href="https://help.aliyun.com/zh/ros/user-guide/create-a-terraform-stack" id="ab9ff88fa3k7h" title="" class="xref">创建<span class="help-letter-space"></span>Terraform<span class="help-letter-space"></span>类型资源栈</a>。</p>
+          </li>
+        </ul>
+      </section>
+      <p id="d86bc0a251y7u"></p>
+    </div>
+  </main>
+
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-assign-default-roles-to-ack-when-you-use-ack-for-the-first-time" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：通过Terraform开通ACK并授权角色</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-ack-proprietary-cluster" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：通过Terraform创建ACK专有集群<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

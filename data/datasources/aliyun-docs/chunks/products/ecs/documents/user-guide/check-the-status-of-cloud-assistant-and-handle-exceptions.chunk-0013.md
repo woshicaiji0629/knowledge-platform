@@ -1,0 +1,1 @@
+s, time 4005ms rtt min/avg/max/mdev = 1.295/1.305/1.318/0.010 ms [ @iZuf62njf1dkb ~]# curl https://cn-shanghai.axt.aliyun.com/luban/api/instance/instance-id i-uf62njf1dkbc2c xxx root@iZuf62njf1dkb xxx ~]#

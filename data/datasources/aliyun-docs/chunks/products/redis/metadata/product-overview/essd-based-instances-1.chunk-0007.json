@@ -1,0 +1,14 @@
+{
+  "id": "redis:product-overview/essd-based-instances-1:7",
+  "document_id": "redis:product-overview/essd-based-instances-1",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "磁盘型实例功能特性与技术架构-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/essd-based-instances-1",
+  "chunk_index": 7,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/product-overview/essd-based-instances-1.chunk-0007.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/essd-based-instances-1.md",
+  "heading_path": "磁盘型 > 相关文档 > 为什么选择阿里云",
+  "char_count": 328
+}

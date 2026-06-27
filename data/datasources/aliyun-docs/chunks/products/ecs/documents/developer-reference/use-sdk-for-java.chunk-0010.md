@@ -1,0 +1,12 @@
+查询抢占式实例库存](https://api.aliyun.com/api-tools/demo/Ecs/51a231f0-ee16-4731-80e2-6ba89957e6e1)
+[查询抢占式实例当前价格](https://api.aliyun.com/api-tools/demo/Ecs/65dabc40-8983-4d9a-b4ed-864e454941dd)
+[创建抢占式实例](https://api.aliyun.com/api-tools/demo/Ecs/adc4b58a-139e-4f4d-9df9-8033594485c4)
+[增加安全组规则](https://api.aliyun.com/api-tools/demo/Ecs/94406fd9-425f-443e-97f5-fdff3a0a8891)
+[新建安全组并将指定资源加入到安全组](https://api.aliyun.com/api-tools/demo/Ecs/d8a1f12d-4fa2-419f-a36c-9c907eff3a06)
+[创建弹性网卡](https://api.aliyun.com/api-tools/demo/Ecs/1d32980f-7dba-43e7-ab84-8684252fdadf)
+[附加弹性网卡](https://api.aliyun.com/api-tools/demo/Ecs/059b780d-9551-4ca3-8211-efeec3092bb6)
+[分离弹性网卡](https://api.aliyun.com/api-tools/demo/Ecs/01b7e0c3-9f1f-4532-aec3-f02926a21d6d)
+[删除弹性网卡](https://api.aliyun.com/api-tools/demo/Ecs/83a01923-5db8-4a56-a09d-65c0290f05b7)
+[变更](https://api.aliyun.com/api-tools/demo/Ecs/56ccacea-2cc5-431f-b6d5-5931c80c3968)[ECS](https://api.aliyun.com/api-tools/demo/Ecs/56ccacea-2cc5-431f-b6d5-5931c80c3968)[实例规格](https://api.aliyun.com/api-tools/demo/Ecs/56ccacea-2cc5-431f-b6d5-5931c80c3968)
+[调整实例的实例规格和公网带宽](https://api.aliyun.com/api-tools/demo/Ecs/9e85058e-bb8e-4f30-ba85-83f6b5633e8f)
+[指定实例规格获取一个或多个备选的实例规格](htt

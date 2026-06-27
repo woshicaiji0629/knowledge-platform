@@ -1,0 +1,17 @@
+{
+  "id": "ecs:switch-the-billing-method-of-a-disk",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "pricing",
+  "title": "转换云盘计费方式-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/switch-the-billing-method-of-a-disk",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/switch-the-billing-method-of-a-disk.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/switch-the-billing-method-of-a-disk.md",
+  "word_count": 779,
+  "text_units": 2108,
+  "local_links": 0,
+  "external_links": 78,
+  "has_tables": true,
+  "table_count": 3,
+  "quality": "accepted"
+}

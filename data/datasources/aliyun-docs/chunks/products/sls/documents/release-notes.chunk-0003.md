@@ -1,0 +1,6 @@
+| 功能名称 | 功能描述 | 支持地域 | 相关文档 |
+| --- | --- | --- | --- |
+| 软删除 | 阿里云日志服务新增软删除（Soft Deletion） 功能，允许用户在删除日志数据时，将数据标记为“已删除”状态而非立即物理清除。 | 新加坡和华北 6（乌兰察布） | [日志服务软删除](soft-delete.md) |
+| 消费处理器 | 基于消费处理器消费是一种通过设置 SPL 实时处理日志服务数据的方式，适用于第三方软件、多语言应用、云产品、流式计算框架等多种应用场景。SPL 是 SLS 推出的一种高性能数据处理语言，专门用于处理日志的弱结构化特点。其原理是在服务端使用 SPL 对日志数据进行预处理和清洗，例如执行行过滤、列裁剪、正则提取等操作。经过处理后，客户端接收到的数据已是规整格式。 | [全部地域](sls-supported-regions1.md) | [消费处理器](data-consumption-processor.md) |
+| 大语言模型（LLM）应用调用可观测 MCP 服务实现日志查询与分析 | 阿里云可观测的 MCP（Model Context Protocol）是一种统一的数据访问和分析协议，旨在通过自然语言交互和工具集成，帮助用户高效查询和分析阿里云可观测产品（如日志服务 SLS、ARMS 等）中的数据。 | 华北 1（青岛）、华北 2（北京）、华北 3（张家口）、华北 5（呼和浩特）、华北 6（乌兰察布）、华东 1（杭州）、华东 2（上海）、华南 1（深圳）、华南 2（河源）、华南 3（广州）、西南 1（成都） | [大语言模型（LLM）应用调用可观测](large-language-model-llm-application-calls-observable-mcp-service-to-implement-log-query-and-analysis.md) [MCP](large-language-model-llm-application-calls-observable-mcp-service-to-implement-log-query-and-analysis.md) [服务实现日志查询与分析](large-language-model-llm-application-calls-observable-mcp-service-to-implement-log-query-and-analysis.md) |
+| 语义富化 | SLS 推出的语义富化能力，借助于 LLM 处理自然语言的能力，从非结构化日志中提取关键和有效的信息。 | 华北 1（青岛）、华北 2（北京）、华北 3（张家口）、华北 5（呼和浩特）、华北 6（乌兰察布）、华东 1（杭州）、华东 2（上海）、华南 1（

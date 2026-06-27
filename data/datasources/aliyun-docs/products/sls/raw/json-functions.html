@@ -1,0 +1,1158 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    JSON函数-日志服务(SLS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/sls/json-functions">
+  <meta name="keywords" content="JSON,函数,SQL分析">
+  <meta name="description" content="本文介绍JSON函数的基本语法及示例。">
+  <meta name="last-modified" content="2026-06-10T09:58:49+08:00">
+  <meta name="date" content="2017-12-04T02:18:53+08:00">
+  <meta property="og:title" content="JSON函数">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/sls/json-functions">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="本文介绍JSON函数的基本语法及示例。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/sls/json-functions",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "63454",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/sls/json-functions","nodeId":null,"data":{"lastModifiedTime":1781056729000,"keywords":"JSON,函数,SQL分析","docTitle":"JSON函数","language":"zh","seoTitle":"JSON函数-日志服务(SLS)-阿里云帮助中心","title":"JSON函数","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"concept-afg-4lq-zdb\">\n    \n    \n    <p id=\"shortdesc-jgk-2ej-ij8\" data-tag=\"shortdesc\" class=\"shortdesc\">本文介绍<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>函数的基本语法及示例。</p>\n    <div class=\"conbody body\" data-tag=\"conbody\" id=\"conbody-aft-dfc-p5i\">\n      \n      <p data-tag=\"p\" id=\"p-69j-ylz-rk9\" class=\"p\">日志服务支持如下<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>函数。</p>\n      <div data-tag=\"note\" id=\"note-f0m-tkj-g0x\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n        <ul data-tag=\"ul\" id=\"ul-4lu-jyk-tqc\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-avi-y3k-363\" class=\"li\">\n            <p id=\"cd316d9035n6d\">在日志服务分析语句中，表示字符串的字符必须使用单引号（''）包裹，无符号包裹或被双引号（\"\"）包裹的字符表示字段名或列名。例如：<code data-tag=\"code\" code-type=\"xCode\" id=\"d85f0f4f6e1l0\" class=\"code\">'status'</code>表示字符串<span class=\"help-letter-space\"></span>status，<code data-tag=\"code\" code-type=\"xCode\" id=\"467e23ee5c9ra\" class=\"code\">status</code>或<code data-tag=\"code\" code-type=\"xCode\" id=\"55f7015726jbb\" class=\"code\">\"status\"</code>表示日志字段<span class=\"help-letter-space\"></span>status。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-r0c-1q8-3ju\" class=\"li\">\n            <p id=\"cd316d913502n\">如果日志字段的值为<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>类型且需要展开为多行，请使用<span class=\"help-letter-space\"></span>unnest<span class=\"help-letter-space\"></span>语法。更多信息，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/sls/unnest-clause#reference-z24-zyf-h2b\" id=\"xref-y46-uw7-zex\" title=\"\" class=\"xref\">UNNEST<span class=\"help-letter-space\"></span>子句</a>。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-ptq-68m-5n4\" class=\"li\">\n            <p id=\"cd31bbb03599c\">如果字符串被解析成<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>类型失败，则返回<span class=\"help-letter-space\"></span>null。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-jw0-bxw-xku\" class=\"li\">\n            <p id=\"cd31bbb135hyi\">如果在采集过程中，JSON<span class=\"help-letter-space\"></span>日志被截断，则在使用<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>函数进行查询与分析时，系统将报错且中止查询与分析。针对该错误，您可以使用<span class=\"help-letter-space\"></span>TRY<span class=\"help-letter-space\"></span>表达式捕获异常信息，使得系统继续执行查询和分析操作。例如<code data-tag=\"code\" code-type=\"xCode\" id=\"7c307bb933e1a\" class=\"code\">* | select message, try(json_parse(message))</code>。更多信息，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/sls/conditional-expressions#section-ylv-4pq-tdb\" id=\"xref-sg4-6nh-jrb\" title=\"\" class=\"xref\">TRY<span class=\"help-letter-space\"></span>表达式</a>。</p>\n          </li>\n        </ul>\n      </div></div>\n      <table id=\"table-cjs-sl5-2iz\" tablewidth=\"834\" tablecolswidth=\"148 222 222 101 141\" autofit=\"false\" class=\"table\">\n        <colgroup colwidth=\"0.89*\" style=\"width:17.75%\"></colgroup>\n        <colgroup colwidth=\"1.34*\" style=\"width:26.62%\"></colgroup>\n        <colgroup colwidth=\"1.34*\" style=\"width:26.62%\"></colgroup>\n        <colgroup colwidth=\"0.61*\" style=\"width:12.11%\"></colgroup>\n        <colgroup colwidth=\"0.85*\" style=\"width:16.91%\"></colgroup>\n        <tbody class=\"tbody\">\n          <tr id=\"row-38x-wom-99h\">\n            <td id=\"concept-afg-4lq-zdb-entry-ogw-ipa-mqm\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n              <p id=\"cd31e2c035jsn\"><b>函数名称</b></p>\n            </td>\n            <td id=\"concept-afg-4lq-zdb-entry-m2j-2kr-whl\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n              <p id=\"cd31e2c13557r\"><b>语法</b></p>\n            </td>\n            <td id=\"concept-afg-4lq-zdb-entry-6x6-m18-60g\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n              <p id=\"cd31e2c235myw\"><b>说明</b></p>\n            </td>\n            <td id=\"f0d2d3e1be6vg\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n              <p id=\"63d1f268e37du\">支持<span class=\"help-letter-space\"></span>SQL</p>\n            </td>\n            <td id=\"7ebe1053acjxi\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n              <p id=\"5112f8b57b0nd\">支持<span class=\"help-letter-space\"></span>SPL</p>\n            </td>\n          </tr>\n          <tr id=\"row-7il-25m-diw\">\n            <td id=\"entry-6x1-jdq-3u0\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd31e2c335kik\"><a href=\"#section-e8j-1om-8k0\" id=\"xref-1po-4jf-fre\" title=\"\" class=\"xref\">json_array_contains<span class=\"help-letter-space\"></span>函数</a></p>\n            </td>\n            <td id=\"entry-r3r-zjq-1ss\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd31e2c435qv9\">json_array_contains(<span data-tag=\"varname\" id=\"varname-ky5-cyr-4lt\" is-conref=\"true\" class=\"varname\"><i>x</i></span>, <span data-tag=\"varname\" id=\"varname-pzv-3sb-4xy\" class=\"varname\"><i>value</i></span>)</p>\n            </td>\n            <td id=\"entry-jd5-f15-yxa\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd32f43035snu\">判断<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组中是否包含某个值。</p>\n            </td>\n            <td id=\"b407df1e70v18\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"93120f37bax8o\">√</p>\n            </td>\n            <td id=\"061bf5dff587w\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"f3ccd3466fduh\">√</p>\n            </td>\n          </tr>\n          <tr id=\"row-jvh-1h5-94l\">\n            <td id=\"entry-2na-xs5-bh0\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd32f431354al\"><a href=\"#section-jjn-dv3-4y9\" id=\"xref-ct4-tyd-77v\" title=\"\" class=\"xref\">json_array_get<span class=\"help-letter-space\"></span>函数</a></p>\n            </td>\n            <td id=\"entry-5k0-o8a-ddv\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd32f43235f4e\">json_array_get(<span data-tag=\"varname\" id=\"varname-gla-bnd-u23\" is-conref=\"true\" class=\"varname\"><i>x</i></span>, <span data-tag=\"varname\" id=\"varname-4js-3r9-apb\" class=\"varname\"><i>index</i></span>)</p>\n            </td>\n            <td id=\"entry-e84-tvx-4hy\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd3405a035lq0\">获取<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组中某个下标对应的元素。</p>\n            </td>\n            <td id=\"e0feff59c9byp\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"a39c98179c93z\">√</p>\n            </td>\n            <td id=\"6adf8373b889o\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"2ad86e8c0foel\">×</p>\n            </td>\n          </tr>\n          <tr id=\"row-z8n-3ln-6j7\">\n            <td id=\"entry-wgh-xdu-g5p\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd342cb035mh1\"><a href=\"#section-697-fqh-nng\" id=\"xref-jtp-nw2-rm5\" title=\"\" class=\"xref\">json_array_length<span class=\"help-letter-space\"></span>函数</a></p>\n            </td>\n            <td id=\"entry-n45-628-9dw\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd342cb1351pj\">json_array_length(<span data-tag=\"varname\" id=\"varname-qal-dnk-d6u\" is-conref=\"true\" class=\"varname\"><i>x</i></span>)</p>\n            </td>\n            <td id=\"entry-y2i-7u2-a06\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd353e2035hd4\">计算<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组中元素的数量。</p>\n            </td>\n            <td id=\"be4bcb5a8fq8a\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"9d919ff480r4w\">√</p>\n            </td>\n            <td id=\"1755ab0087svj\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"ac738ffc34qet\">√</p>\n            </td>\n          </tr>\n          <tr id=\"row-a45-9sr-cee\" style=\"height:92px\">\n            <td id=\"entry-k26-ywf-34r\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd353e2135cts\"><a href=\"#section-uqz-6yr-bun\" id=\"xref-n5t-bkk-gti\" title=\"\" class=\"xref\">json_extract<span class=\"help-letter-space\"></span>函数</a></p>\n            </td>\n            <td id=\"entry-wzb-nfr-5hd\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd35653035abj\">json_extract(<span data-tag=\"varname\" id=\"varname-iq1-c7l-9un\" is-conref=\"true\" class=\"varname\"><i>x</i></span>, json_path)</p>\n            </td>\n            <td id=\"entry-tlb-wj9-ka0\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd364f9035uyt\">从<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象或<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组中提取一组<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>值（数组或对象）。</p>\n            </td>\n            <td id=\"77a7f1189eylb\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"50400b4d30jm8\">√</p>\n            </td>\n            <td id=\"178ec845f7aao\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"2287e4d6fdaeu\">√</p>\n            </td>\n          </tr>\n          <tr id=\"row-mdz-h1r-8n9\">\n            <td id=\"entry-sy5-v4r-iuo\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd364f9135qvx\"><a href=\"#section-8jj-a1y-076\" id=\"xref-pcz-zkn-2fz\" title=\"\" class=\"xref\">json_extract_scalar<span class=\"help-letter-space\"></span>函数</a></p>\n            </td>\n            <td id=\"entry-1mf-nka-t50\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd364f9235pm6\">json_extract_scalar(<span data-tag=\"varname\" id=\"varname-zfr-1e3-66s\" is-conref=\"true\" class=\"varname\"><i>x</i></span>, <span data-tag=\"varname\" id=\"varname-dk9-4y3-nkm\" class=\"varname\"><i>json_path</i></span>)</p>\n            </td>\n            <td id=\"entry-xhx-lbj-5ti\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd3739f035fpt\">从<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象或<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组中提取一组标量值（字符串、整数或布尔值）。类似于<span class=\"help-letter-space\"></span>json_extract<span class=\"help-letter-space\"></span>函数。</p>\n            </td>\n            <td id=\"3dae85bc7cij3\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"bc1228ed24gux\">√</p>\n            </td>\n            <td id=\"0ea643e6b68o2\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"b7385492d6ncx\">√</p>\n            </td>\n          </tr>\n          <tr id=\"7fad20a796623\">\n            <td id=\"fe63ca89656kv\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n              <p uuid=\"m4uw55tl2r1zrgk3t7u\" id=\"4dbd11ad0etxf\"><a href=\"#362158526d8q1\" id=\"581edbd456u3u\" title=\"\" class=\"xref\">json_extract_bool<span class=\"help-letter-space\"></span>函数</a></p>\n            </td>\n            <td id=\"200ecd3ae6zs4\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n              <p jc=\"left\" uuid=\"m4uw5sqbeaicobrzpxo\" id=\"01ef945a7a68k\" style=\"text-align:left\">json_extract_bool(x, json_path)</p>\n            </td>\n            <td id=\"1b13e68c5czbg\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n              <p uuid=\"m4uw55tn2lxj8znubv9\" id=\"0549e54fa9xin\">从<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象或<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组中提取<span class=\"help-letter-space\"></span>boolean<span class=\"help-letter-space\"></span>值。</p>\n            </td>\n            <td id=\"17eb2b73c9ryn\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n              <p jc=\"left\" uuid=\"m4uw4qoijibmgzmqlo8\" id=\"641e0f3ca3lgo\" style=\"text-align:left\">√</p>\n            </td>\n            <td id=\"29d674471fc1a\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n              <p jc=\"left\" uuid=\"m4uw4qoiwm6319xfxx9\" id=\"b3da8bb839ev2\" style=\"text-align:left\">×</p>\n            </td>\n          </tr>\n          <tr id=\"4e887f7df2bjd\">\n            <td id=\"520ad74114w4g\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n              <p uuid=\"m4uw55tnvl224ptfhfj\" id=\"456a46bea6vu7\"><a href=\"#5b2df973f3gr3\" id=\"1bbc96ed15ni8\" title=\"\" class=\"xref\">json_extract_long<span class=\"help-letter-space\"></span>函数</a></p>\n            </td>\n            <td id=\"951f4afba4bfr\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n              <p jc=\"left\" uuid=\"m4uw5zm1mfvo5b4l3fm\" id=\"f948641002stg\" style=\"text-align:left\">json_extract_long(x, json_path)</p>\n            </td>\n            <td id=\"02a9823e01c8n\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n              <p uuid=\"m4uw55tpwos4tei9ll\" id=\"3d76cc49782gn\">从<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象或<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组中提取<span class=\"help-letter-space\"></span>bigint<span class=\"help-letter-space\"></span>值。</p>\n            </td>\n            <td id=\"c77aa85c16kh2\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n              <p jc=\"left\" uuid=\"m4uw4qoj1ikb6ng6id6\" id=\"809430d948bic\" style=\"text-align:left\">√</p>\n            </td>\n            <td id=\"6257fd0db085o\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n              <p jc=\"left\" uuid=\"m4uw4qojkq03ur154i\" id=\"e8d718c82bx97\" style=\"text-align:left\">×</p>\n            </td>\n          </tr>\n          <tr id=\"604f01bd94ztw\">\n            <td id=\"72e873ef40w7w\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n              <p uuid=\"m4uw55tps1d6z2ai5t\" id=\"167b7f5aa6xgp\"><a href=\"#8858b03ab3b34\" id=\"6b188defc22nv\" title=\"\" class=\"xref\">json_extract_double<span class=\"help-letter-space\"></span>函数</a></p>\n            </td>\n            <td id=\"d7d8ec475f084\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n              <p jc=\"left\" uuid=\"m4uw664cqkq07zr2vvh\" id=\"7f23a9c0e483f\" style=\"text-align:left\">json_extract_double(x, json_path)</p>\n            </td>\n            <td id=\"49bbd55b4crbq\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n              <p uuid=\"m4uw55trkcbbqfvdho\" id=\"cccca4d3ff9x4\">从<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象或<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组中提取<span class=\"help-letter-space\"></span>double<span class=\"help-letter-space\"></span>值。</p>\n            </td>\n            <td id=\"f2e46f0610sfw\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n              <p jc=\"left\" uuid=\"m4uw4qojl79skhunp6g\" id=\"2a000ab52ftl9\" style=\"text-align:left\">√</p>\n            </td>\n            <td id=\"ccbaed469e23z\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n              <p jc=\"left\" uuid=\"m4uw4qoj4euaupbqg5p\" id=\"102cf8027dn3i\" style=\"text-align:left\">×</p>\n            </td>\n          </tr>\n          <tr id=\"row-ttw-fac-qdv\">\n            <td id=\"entry-x7d-qqi-udi\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd3739f1351c0\"><a href=\"#section-tfz-3s3-mac\" id=\"xref-ste-w5g-c12\" title=\"\" class=\"xref\">json_format<span class=\"help-letter-space\"></span>函数</a></p>\n            </td>\n            <td id=\"entry-h43-252-vq9\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd3739f235wmb\">json_format(<span data-tag=\"varname\" id=\"varname-yb0-gv5-aas\" is-conref=\"true\" class=\"varname\"><i>x</i></span>)</p>\n            </td>\n            <td id=\"entry-uui-d93-6lq\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd38245035rfx\">把<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>类型转换为字符串类型。</p>\n            </td>\n            <td id=\"569a9c4f660b1\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"7dbfe228b63sn\">√</p>\n            </td>\n            <td id=\"3bf0aa18c8fn2\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"6d636245f3ssu\">√</p>\n            </td>\n          </tr>\n          <tr id=\"row-qaq-477-td8\">\n            <td id=\"entry-kz4-0sf-x0b\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd384b603553z\"><a href=\"#section-c1r-zzw-94y\" id=\"xref-r5e-cpf-7mn\" title=\"\" class=\"xref\">json_parse<span class=\"help-letter-space\"></span>函数</a></p>\n            </td>\n            <td id=\"entry-sso-be5-xwd\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd384b6135k41\">json_parse(<span data-tag=\"varname\" id=\"varname-s3i-nic-qr0\" is-conref=\"true\" class=\"varname\"><i>x</i></span>)</p>\n            </td>\n            <td id=\"entry-p74-ebu-vg1\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd3935c035cfc\">把字符串类型转换为<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>类型。</p>\n            </td>\n            <td id=\"3fba7c19505es\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"6839e8cb8c8cg\">√</p>\n            </td>\n            <td id=\"cf86ddf9383d0\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"bb5edd373fm9l\">√</p>\n            </td>\n          </tr>\n          <tr id=\"row-fzq-bok-h7l\">\n            <td id=\"entry-sto-eiu-k59\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd3935c135el1\"><a href=\"#section-shf-55f-i4u\" id=\"xref-f79-mt4-nw6\" title=\"\" class=\"xref\">json_size<span class=\"help-letter-space\"></span>函数</a></p>\n            </td>\n            <td id=\"entry-es7-a85-533\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd395cd035nef\">json_size(<span data-tag=\"varname\" id=\"varname-oyc-ql4-ce0\" is-conref=\"true\" class=\"varname\"><i>x</i></span>, <span data-tag=\"varname\" id=\"varname-tao-70u-0s8\" class=\"varname\"><i>json_path</i></span>)</p>\n            </td>\n            <td id=\"entry-03p-p10-xgd\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cd3a202035m8o\">计算<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象或数组中元素的数量。</p>\n            </td>\n            <td id=\"e895e9e74479k\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"6cc3509273ae9\">√</p>\n            </td>\n            <td id=\"3c17d72562jxv\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"792f89f00b87e\">√</p>\n            </td>\n          </tr>\n          <tr id=\"788f33a358f3j\">\n            <td id=\"9a9e8436acy5s\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"227aaf3b46d0n\"><a href=\"#021ed56c02bgm\" id=\"d4a22b7167gqq\" title=\"\" class=\"xref\">json_object_flatten<span class=\"help-letter-space\"></span>函数</a></p>\n            </td>\n            <td id=\"6e69b2eb43bcz\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"cef729097c4qw\">json_object_flatten(x)</p>\n            </td>\n            <td id=\"b9947bb7b148v\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"53313675adwfr\">将<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象压缩为单层键值结构。</p>\n            </td>\n            <td id=\"8526f762d0xmr\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"c3cd572ef459f\">√</p>\n            </td>\n            <td id=\"7172b533a5yws\" rowspan=\"1\" colspan=\"1\">\n              <p id=\"324dd62f7a6mf\">×</p>\n            </td>\n          </tr>\n        </tbody>\n      </table>\n      <section class=\"section\" data-tag=\"section\" id=\"section-e8j-1om-8k0\" data-type=\"section\">\n        <h2 data-tag=\"title\" id=\"title-b7f-2wv-32o\" class=\"title\">json_array_contains<span class=\"help-letter-space\"></span>函数</h2>\n        <p data-tag=\"p\" id=\"p-i94-pbo-v9d\" class=\"p\">json_array_contains<span class=\"help-letter-space\"></span>函数用于判断<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组中是否包含某个值。</p>\n        <h3 id=\"ccd8c45032k6b\">语法</h3><pre data-tag=\"codeblock\" id=\"codeblock-nck-6ff-thi\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>json_array_contains(x, value)</code></pre>\n        <h3 id=\"dd6cffc032q7m\">参数说明</h3>\n        <table id=\"table-sh6-wd1-jy9\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n          <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-2fr-vst-qbh\">\n              <td id=\"concept-afg-4lq-zdb-entry-7pi-ya3-201\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"cd3bf4e035z2f\"><b>参数</b></p>\n              </td>\n              <td id=\"concept-afg-4lq-zdb-entry-eid-xzq-fph\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"cd3bf4e135rza\"><b>说明</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-i3m-sj2-zaw\">\n              <td id=\"entry-s6g-m2u-5j6\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd3bf4e235k3a\"><span data-tag=\"varname\" id=\"varname-ryt-eyi-fwi\" is-conref=\"true\" class=\"varname\"><i>x</i></span></p>\n              </td>\n              <td id=\"entry-e04-4u9-a2l\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd3cdf4035fyw\">参数值为<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组。</p>\n              </td>\n            </tr>\n            <tr id=\"row-z0o-qk3-f8z\">\n              <td id=\"entry-9pm-puq-zy4\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd3cdf4135phi\"><span data-tag=\"varname\" id=\"varname-iph-oow-9i8\" class=\"varname\"><i>value</i></span></p>\n              </td>\n              <td id=\"entry-vdm-gl1-hx3\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd3d065035eiq\">数值。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <h3 id=\"ba395a2032df6\">返回值类型</h3>\n        <p data-tag=\"p\" id=\"p-829-kdp-mnu\" class=\"p\">boolean<span class=\"help-letter-space\"></span>类型。</p>\n        <h3 id=\"c489467032r1u\">示例</h3>\n        <p id=\"p-bo4-8xe-sbb\" data-tag=\"p\" class=\"p\">判断<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组[1, 2, 3]中是否包含<span class=\"help-letter-space\"></span>2。</p>\n        <ul data-tag=\"ul\" id=\"ul-en2-roz-ymf\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-4b6-yfj-2re\" class=\"li\">\n            <p id=\"cd3f022035t0o\">查询和分析语句（<a href=\"https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-demo-log/logsearch/nginx-access-log?encode%3Dbase64%26queryString%3DKiB8IFNFTEVDVCBqc29uX2FycmF5X2NvbnRhaW5zKCdbMSwgMiwgM10nLCAyKQ%3D%3D\" id=\"041fb7c035krk\" class=\"\" target=\"_blank\">调试</a>）</p><pre data-tag=\"codeblock\" id=\"codeblock-trg-5xr-s19\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>* | SELECT json_array_contains('[1, 2, 3]', 2)</code></pre>\n          </li>\n          <li data-tag=\"li\" id=\"li-4ht-2ze-1qm\" class=\"li\">\n            <p id=\"cd3f022135naf\">查询和分析结果为<span class=\"help-letter-space\"></span><b id=\"b-2b940fce9d6b\">true</b>，表示<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组[1, 2, 3]中包含<span class=\"help-letter-space\"></span>2。</p>\n          </li>\n        </ul>\n      </section>\n      <section class=\"section\" data-tag=\"section\" id=\"section-jjn-dv3-4y9\" data-type=\"section\">\n        <h2 data-tag=\"title\" id=\"title-wgk-n93-ekt\" class=\"title\">json_array_get<span class=\"help-letter-space\"></span>函数</h2>\n        <p data-tag=\"p\" id=\"p-zx1-2mj-xks\" class=\"p\">json_array_get<span class=\"help-letter-space\"></span>函数用于获取<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组下标对应的元素。</p>\n        <h3 id=\"d8aba91035k3q\">语法</h3><pre data-tag=\"codeblock\" id=\"codeblock-9lu-p64-kn7\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>json_array_get(x, index)</code></pre>\n        <h3 id=\"00a4d0903586b\">参数说明</h3>\n        <table id=\"table-5bx-rgp-lqf\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n          <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-3oy-4pj-tor\">\n              <td id=\"concept-afg-4lq-zdb-entry-6ta-mm6-2k2\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"cd40d6e035dtm\"><b>参数</b></p>\n              </td>\n              <td id=\"concept-afg-4lq-zdb-entry-btx-w8d-vpz\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"cd40d6e135z7k\"><b>说明</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-gnc-9af-2qd\">\n              <td id=\"entry-95m-y2v-jug\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd40d6e235r8q\"><span data-tag=\"varname\" id=\"varname-fxo-ojx-1ce\" is-conref=\"true\" class=\"varname\"><i>x</i></span></p>\n              </td>\n              <td id=\"entry-1xg-948-deu\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd41c140358lm\">参数值为<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组。</p>\n              </td>\n            </tr>\n            <tr id=\"row-8tt-7it-3w2\">\n              <td id=\"entry-ly0-o42-j0v\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd41c14135sa3\"><span data-tag=\"varname\" id=\"varname-00w-p3j-ac9\" class=\"varname\"><i>index</i></span></p>\n              </td>\n              <td id=\"entry-o46-uox-tsh\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd41c14235cp9\">JSON<span class=\"help-letter-space\"></span>下标，从<span class=\"help-letter-space\"></span>0<span class=\"help-letter-space\"></span>开始。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <h3 id=\"8f7b4830359fy\">返回值类型</h3>\n        <p data-tag=\"p\" id=\"p-zxb-5bz-zfh\" class=\"p\">varchar<span class=\"help-letter-space\"></span>类型。</p>\n        <h3 id=\"a86574b035g4i\">示例</h3>\n        <p data-tag=\"p\" id=\"p-d21-7ym-szy\" class=\"p\">返回<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组[\"a\", [3, 9], \"c\"]下标为<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>的元素。</p>\n        <ul data-tag=\"ul\" id=\"ul-pq6-4c5-99d\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-az2-eb3-kcc\" class=\"li\">\n            <p id=\"cd439600358g8\">查询和分析语句（<a href=\"https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-demo-log/logsearch/nginx-access-log?encode%3Dbase64%26queryString%3DKiB8IFNFTEVDVCBqc29uX2FycmF5X2dldCgnWyJhIiwgWzMsIDldLCAiYyJdJywgMSk%3D\" id=\"1c86aa8035iyy\" class=\"\" target=\"_blank\">调试</a>）</p><pre data-tag=\"codeblock\" id=\"codeblock-okc-gnm-e74\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>* | SELECT json_array_get('[\"a\", [3, 9], \"c\"]', 1)</code></pre>\n          </li>\n          <li data-tag=\"li\" id=\"li-gq5-3gd-unn\" class=\"li\">\n            <p id=\"cd439601354w5\">查询和分析结果为<b id=\"b-939646bee359\">[3,9]</b>。</p>\n          </li>\n        </ul>\n      </section>\n      <section class=\"section\" data-tag=\"section\" id=\"section-697-fqh-nng\" data-type=\"section\">\n        <h2 data-tag=\"title\" id=\"title-9r3-79a-oju\" class=\"title\">json_array_length<span class=\"help-letter-space\"></span>函数</h2>\n        <p data-tag=\"p\" id=\"p-fut-gew-157\" class=\"p\">json_array_length<span class=\"help-letter-space\"></span>函数用于计算<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组中元素的数量。</p>\n        <h3 id=\"dae8a0c035bvh\">语法</h3><pre data-tag=\"codeblock\" id=\"codeblock-b36-bfu-js5\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>json_array_length(x)</code></pre>\n        <h3 id=\"03ff1f20351s2\">参数说明</h3>\n        <table id=\"table-pt0-c40-21v\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n          <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-9sn-sfn-za9\">\n              <td id=\"concept-afg-4lq-zdb-entry-r3o-24b-prx\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"cd45dff035v73\"><b>参数</b></p>\n              </td>\n              <td id=\"concept-afg-4lq-zdb-entry-y4g-b95-a6w\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"cd45dff135hsi\"><b>说明</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-ucy-eub-rd0\">\n              <td id=\"entry-bi0-5fo-tb1\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd45dff235iis\"><span data-tag=\"varname\" id=\"varname-rg4-zxj-k6a\" is-conref=\"true\" class=\"varname\"><i>x</i></span></p>\n              </td>\n              <td id=\"entry-aq0-z0d-n7k\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd46ca5035048\">参数值为<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <h3 id=\"91f4aca035dwt\">返回值类型</h3>\n        <p data-tag=\"p\" id=\"p-ll2-nim-45r\" class=\"p\">bigint<span class=\"help-letter-space\"></span>类型。</p>\n        <h3 id=\"aa377590356x8\">示例</h3>\n        <ul data-tag=\"ul\" id=\"ul-enc-gme-pbf\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-6cx-f65-9tj\" class=\"li\">\n            <p id=\"cd489f1035z0j\">示例<span class=\"help-letter-space\"></span>1：计算<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-tto-h89-zv4\" class=\"parmname\">Results</span><span class=\"help-letter-space\"></span>字段值中<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>元素的数量。</p>\n            <ul data-tag=\"ul\" id=\"ul-0h2-lt1-oeb\" class=\"ul\">\n              <li data-tag=\"li\" id=\"li-xa0-pj4-lcr\" class=\"li\">\n                <p id=\"cd489f1135xfw\">字段样例</p><pre data-tag=\"codeblock\" id=\"codeblock-j40-x27-ha1\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>Results:[{\"EndTime\":1626314920},{\"FireResult\":2}]</code></pre>\n              </li>\n              <li data-tag=\"li\" id=\"li-8yt-dtz-cgj\" class=\"li\">\n                <p id=\"cd489f1235559\">查询和分析语句</p><pre data-tag=\"codeblock\" id=\"codeblock-70d-62i-gsh\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>* | SELECT json_array_length(Results)</code></pre>\n              </li>\n              <li data-tag=\"li\" id=\"li-ymy-5b1-gd4\" class=\"li\">\n                <p id=\"cd489f13356yl\">查询和分析结果为<span class=\"help-letter-space\"></span><b id=\"b-18d289ffa18b\">2</b>。</p>\n              </li>\n            </ul>\n          </li>\n          <li data-tag=\"li\" id=\"li-unh-ctb-ahx\" class=\"li\">\n            <p id=\"cd489f1435mdg\">示例<span class=\"help-letter-space\"></span>2：计算<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-ab5-5dm-31u\" class=\"parmname\">time</span><span class=\"help-letter-space\"></span>字段值中<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>元素的数量。</p>\n            <ul data-tag=\"ul\" id=\"ul-voe-wsf-ggr\" class=\"ul\">\n              <li data-tag=\"li\" id=\"li-hej-fkd-tpo\" class=\"li\">\n                <p id=\"cd489f15356vw\">字段样例</p><pre data-tag=\"codeblock\" id=\"codeblock-aog-69d-fak\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>time:[\"time_local\",\"request_time\",\"upstream_response_time\"]</code></pre>\n              </li>\n              <li data-tag=\"li\" id=\"li-kgg-7y2-ofa\" class=\"li\">\n                <p id=\"cd489f1635imk\">查询和分析语句</p><pre data-tag=\"codeblock\" id=\"codeblock-os9-eks-0aq\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>* | SELECT json_array_length(time)</code></pre>\n              </li>\n              <li data-tag=\"li\" id=\"li-cug-fon-35x\" class=\"li\">\n                <p id=\"cd48c62035o9r\">查询和分析结果为<span class=\"help-letter-space\"></span><b id=\"b-3d793f6610e3\">3</b>。</p>\n              </li>\n            </ul>\n          </li>\n        </ul>\n      </section>\n      <section class=\"section\" data-tag=\"section\" id=\"section-uqz-6yr-bun\" data-type=\"section\">\n        <h2 data-tag=\"title\" id=\"title-ych-qwi-jml\" class=\"title\">json_extract<span class=\"help-letter-space\"></span>函数</h2>\n        <div class=\"p\" data-tag=\"p\" id=\"p-2a0-66q-ghq\">\n          <p id=\"cd48c62135a48\">json_extract<span class=\"help-letter-space\"></span>函数用于从<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象或<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组中提取一组<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>值（数组或对象）。</p>\n          <div data-tag=\"note\" id=\"note-wn6-51z-y2z\" type=\"notice\" class=\"note note-notice\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note notice\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n            <p id=\"cd48c622359ae\">针对非法的<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>类型，json_extract<span class=\"help-letter-space\"></span>函数会报错，建议您使用<span class=\"help-letter-space\"></span>json_extract_scalar<span class=\"help-letter-space\"></span>函数。</p>\n          </div></div>\n        </div>\n        <h3 id=\"e4a65f3035i7i\">语法</h3><pre data-tag=\"codeblock\" id=\"codeblock-gus-d3e-qy4\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>json_extract(x, json_path)</code></pre>\n        <h3 id=\"06774b1035cnz\">参数说明</h3>\n        <table id=\"table-dg5-n4r-rat\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n          <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-x35-0wk-sbz\">\n              <td id=\"concept-afg-4lq-zdb-entry-zbk-wxn-zed\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"cd4a73d035yk7\"><b>参数</b></p>\n              </td>\n              <td id=\"concept-afg-4lq-zdb-entry-il5-zyp-2m3\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"cd4a73d135oqz\"><b>说明</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-rr4-vqy-o9q\">\n              <td id=\"entry-jys-wzy-aoa\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd4a73d235zw9\"><span data-tag=\"varname\" id=\"varname-ica-ahy-1uk\" is-conref=\"true\" class=\"varname\"><i>x</i></span></p>\n              </td>\n              <td id=\"entry-j3o-b9v-u9c\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd4b5e3035dxv\">参数值为<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象或<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组。</p>\n              </td>\n            </tr>\n            <tr id=\"row-bw4-iq2-5cg\">\n              <td id=\"entry-mvl-378-xlo\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd4b5e3135wtd\"><span data-tag=\"varname\" id=\"varname-y39-7sa-e6o\" class=\"varname\"><i>json_path</i></span></p>\n              </td>\n              <td id=\"entry-eja-a6l-4mu\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd4b5e3235aav\">JSON<span class=\"help-letter-space\"></span>路径，格式为$.store.book[0].title。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/faq-about-the-query-and-analysis-of-json-logs#section-9ap-q5v-6zq\" id=\"xref-0jl-665-ajg\" title=\"\" class=\"xref\">如何设置<span class=\"help-letter-space\"></span>json_path</a>。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <h3 id=\"951ceeb035ex2\">返回值类型</h3>\n        <p data-tag=\"p\" id=\"p-kuc-nsr-26x\" class=\"p\">JSON<span class=\"help-letter-space\"></span>格式的<span class=\"help-letter-space\"></span>string<span class=\"help-letter-space\"></span>类型。</p>\n        <h3 id=\"acf70ac03504m\">示例</h3>\n        <section id=\"5f60db5d68jt7\" outputclass=\"tabbed-content-box\" data-tag=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n          <section id=\"45f88d3b0cq62\" class=\"section\">\n            <h4 id=\"57895ce45e548\"><b>SQL</b></h4>\n            <p id=\"d43841c8dakmj\">获取<code data-tag=\"code\" code-type=\"xCode\" id=\"16d39931184dp\" class=\"code\">Results</code>字段中<code data-tag=\"code\" code-type=\"xCode\" id=\"de4c8fc52f1n9\" class=\"code\">EndTime</code>字段的值。</p>\n            <ul data-tag=\"ul\" id=\"ul-jil-4x3-lej\" class=\"ul\">\n              <li data-tag=\"li\" id=\"li-r11-xi0-kw7\" class=\"li\">\n                <p id=\"cd4d0be035709\">字段样例</p><pre data-tag=\"codeblock\" id=\"codeblock-nox-1rc-jib\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>Results:[{\"EndTime\":1626314920},{\"FireResult\":2}]</code></pre>\n              </li>\n              <li data-tag=\"li\" id=\"li-omy-jm9-4km\" class=\"li\">\n                <p id=\"cd4d32f035187\">查询和分析语句</p><pre data-tag=\"codeblock\" id=\"codeblock-x6o-fg6-pho\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>* | SELECT json_extract(Results, '$.0.EndTime')</code></pre>\n              </li>\n              <li data-tag=\"li\" id=\"li-b5g-5ek-w4z\" class=\"li\">\n                <p id=\"cd4d32f135we7\">查询和分析结果为<span class=\"help-letter-space\"></span><b id=\"b-e18493d76424\">1626314920</b>。</p>\n              </li>\n            </ul>\n          </section>\n          <section id=\"7db15a2619jsg\" class=\"section\">\n            <h4 id=\"f3a7e48479fdv\"><b>SPL</b></h4>\n            <p id=\"e2f76868a0iw8\">获取<code data-tag=\"code\" code-type=\"xCode\" id=\"6f76bc3321wg2\" class=\"code\">Results</code>字段中<code data-tag=\"code\" code-type=\"xCode\" id=\"ea1fb6cd2edyx\" class=\"code\">EndTime</code>字段的值。</p>\n            <ul id=\"e511963145n94\">\n              <li id=\"b98286037816v\">\n                <p id=\"b1feb72839eer\">字段样例</p>\n              </li>\n            </ul><pre uuid=\"lqaw3gbd7c0j85anu3w\" data-tag=\"codeblock\" outputclass=\"language-plaintext\" id=\"4cf69788e78gx\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>Results:[{\"EndTime\":1626314920},{\"FireResult\":2}]</code></pre>\n            <ul id=\"71ae2aa631sad\">\n              <li id=\"280999d6d6v31\">\n                <p id=\"55f0d814ff2gn\">SPL<span class=\"help-letter-space\"></span>语句</p>\n              </li>\n            </ul><pre uuid=\"lq4vjmgn6au2uorkyl9\" data-tag=\"codeblock\" outputclass=\"language-plaintext\" id=\"340e5cec75op9\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>* | extend a = json_extract(Results, '$.0.EndTime')</code></pre>\n            <ul id=\"f7338d0707726\">\n              <li id=\"65734803e8360\">\n                <p id=\"907fdf8fe5fc7\">SPL<span class=\"help-letter-space\"></span>结果</p>\n              </li>\n            </ul>\n            <p id=\"p-5f0f03204413\">返回结果中，字段<span class=\"help-letter-space\"></span><b id=\"b-9b6a9dfc98ca\">a</b><span class=\"help-letter-space\"></span>的值为<span class=\"help-letter-space\"></span><b id=\"b-9a5faea56606\">1626314920</b>。</p>\n          </section>\n        </section>\n      </section>\n      <section id=\"section-8jj-a1y-076\" data-type=\"section\" data-tag=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-s0z-x0u-9gm\" class=\"title\">json_extract_scalar<span class=\"help-letter-space\"></span>函数</h2>\n        <p data-tag=\"p\" id=\"p-e5b-2lz-24n\" class=\"p\">json_extract_scalar<span class=\"help-letter-space\"></span>函数用于从<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象或<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组中提取一组标量值（字符串、整数或布尔值）。</p>\n        <h3 id=\"eb4f3c8035lm4\">语法</h3><pre data-tag=\"codeblock\" id=\"codeblock-jwz-9to-100\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>json_extract_scalar(x, json_path)</code></pre>\n        <h3 id=\"0893745035zqm\">参数说明</h3>\n        <table id=\"table-tvy-w2m-7ig\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n          <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-0y3-rhi-1mj\">\n              <td id=\"concept-afg-4lq-zdb-entry-mge-2t0-r51\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"cd4f07b035brh\"><b>参数</b></p>\n              </td>\n              <td id=\"concept-afg-4lq-zdb-entry-z5y-74w-5qt\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"cd4f07b135d99\"><b>说明</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-0hm-wid-w6l\">\n              <td id=\"entry-p4r-7tq-7r4\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd4f07b235q4w\"><span data-tag=\"varname\" id=\"varname-jzq-1se-82z\" is-conref=\"true\" class=\"varname\"><i>x</i></span></p>\n              </td>\n              <td id=\"entry-8u2-6ef-ikj\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd5019203508d\">参数值为<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象或<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组。</p>\n              </td>\n            </tr>\n            <tr id=\"row-oo9-pvl-pmv\">\n              <td id=\"entry-zf6-j1w-x9y\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd501921352ke\"><span data-tag=\"varname\" id=\"varname-ij1-e4z-6ty\" class=\"varname\"><i>json_path</i></span></p>\n              </td>\n              <td id=\"entry-ovv-2su-3gl\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd501922351r7\">JSON<span class=\"help-letter-space\"></span>路径，格式为$.store.book[0].title。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/faq-about-the-query-and-analysis-of-json-logs#section-9ap-q5v-6zq\" id=\"xref-r1f-qox-hzc\" title=\"\" class=\"xref\">如何设置<span class=\"help-letter-space\"></span>json_path</a>。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <h3 id=\"97a19dc0352l6\">返回值类型</h3>\n        <p data-tag=\"p\" id=\"p-arj-yx6-ig4\" class=\"p\">varchar<span class=\"help-letter-space\"></span>类型。</p>\n        <h3 id=\"af4d56d035urf\">示例</h3>\n        <section id=\"a74df8f58fu44\" outputclass=\"tabbed-content-box\" data-tag=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n          <section id=\"1702900b79gzh\" class=\"section\">\n            <h4 id=\"07448f0983nye\"><b>SQL</b></h4>\n            <p data-tag=\"p\" id=\"p-w87-10a-ejo\" class=\"p\">从<code data-tag=\"code\" code-type=\"xCode\" id=\"51274012fabto\" class=\"code\">Results</code>字段中获取<code data-tag=\"code\" code-type=\"xCode\" id=\"d60c8563f9nev\" class=\"code\">RawResultCount</code>字段的值，并将该值转换为<span class=\"help-letter-space\"></span>bigint<span class=\"help-letter-space\"></span>类型进行求和。</p>\n            <ul data-tag=\"ul\" id=\"344682b05brhe\" class=\"ul\">\n              <li data-tag=\"li\" id=\"3036d231692yx\" class=\"li\">\n                <p id=\"159285ff8dkx3\">字段样例</p><pre data-tag=\"codeblock\" id=\"codeblock-mq1-kuo-0ut\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>Results:[{\"EndTime\":1626314920},{\"RawResultCount\":1}]</code></pre>\n              </li>\n              <li data-tag=\"li\" id=\"li-ifd-ag9-boa\" class=\"li\">\n                <p id=\"cd51c6d135xwj\">查询和分析语句</p><pre data-tag=\"codeblock\" id=\"codeblock-jlg-zp0-b7t\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>* | SELECT sum(cast(json_extract_scalar(Results,'$.1.RawResultCount') AS bigint) )</code></pre>\n              </li>\n              <li data-tag=\"li\" id=\"li-px0-660-kw6\" class=\"li\">\n                <p id=\"cd51c6d235h7u\">查询和分析结果为<span class=\"help-letter-space\"></span><b id=\"b-22dd9f7f60fd\">288</b>。</p>\n              </li>\n            </ul>\n          </section>\n          <section id=\"5849399286xo6\" class=\"section\">\n            <h4 id=\"94f50d78654sw\"><b>SPL</b></h4>\n            <p jc=\"left\" uuid=\"lqdjb08t5g8f7ilkr9v\" id=\"61e33e5909zen\" style=\"text-align:left\">从<code data-tag=\"code\" code-type=\"xCode\" id=\"f75c36244az1f\" class=\"code\">Results</code>字段中获取<code data-tag=\"code\" code-type=\"xCode\" id=\"ede40e4705j1y\" class=\"code\">RawResultCount</code>字段的值。</p>\n            <ul id=\"46e3404bed7e9\">\n              <li id=\"15443f9a24oqj\">\n                <p id=\"7b04ebbe1bxja\">字段样例 </p>\n              </li>\n            </ul><pre uuid=\"lqdjcazja0qmat142dd\" data-tag=\"codeblock\" outputclass=\"language-plaintext\" id=\"bb49d6913779z\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>Results:[{\"EndTime\":1626314920},{\"RawResultCount\":1}]</code></pre>\n            <ul id=\"f189dbdd9bihd\">\n              <li id=\"873cc72e90d6v\">\n                <p id=\"e60ef855f8pwb\">SPL<span class=\"help-letter-space\"></span>语句</p>\n              </li>\n            </ul><pre uuid=\"lqdjcazkz1fizwy7wd\" data-tag=\"codeblock\" outputclass=\"language-plaintext\" id=\"cdd2ecd665858\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>* | extend a = json_extract_scalar(Results, '$.1.RawResultCount')</code></pre>\n            <ul id=\"5ecb0154b4k6z\">\n              <li id=\"6ca1be84021u3\">\n                <p id=\"88c5076bffk72\">SPL<span class=\"help-letter-space\"></span>结果中，字段<span class=\"help-letter-space\"></span><b id=\"b-5f6cd58b11f8\">a</b><span class=\"help-letter-space\"></span>的值为<span class=\"help-letter-space\"></span><b id=\"b-542739f2c5ca\">1</b>。</p>\n              </li>\n            </ul>\n          </section>\n        </section>\n      </section>\n      <section id=\"362158526d8q1\" class=\"section\">\n        <h2 uuid=\"m4uwdtnatuplacgzsb\" id=\"94a3473db5kio\">json_extract_bool<span class=\"help-letter-space\"></span>函数</h2>\n        <p id=\"a1a1302b28ri2\">json_extract_bool<span class=\"help-letter-space\"></span>函数用于从<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象或<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组中提取<span class=\"help-letter-space\"></span>boolean<span class=\"help-letter-space\"></span>值，提取失败返回<code data-tag=\"code\" code-type=\"xCode\" id=\"f105511fa8taq\" class=\"code\">null</code>。</p>\n        <h3 id=\"95e3bc3c8deqe\">语法</h3><pre data-tag=\"codeblock\" id=\"fbfb55ca5dp0c\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>json_extract_bool(x, json_path)</code></pre>\n        <h3 id=\"4a4758f45bdyl\">参数说明</h3>\n        <table id=\"719ec42831wms\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n          <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"cfe1dd41521j3\">\n              <td id=\"73462a5c79drd\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p id=\"8d7b779b7fvrb\"><b>参数</b></p>\n              </td>\n              <td id=\"aea4b1ddafgcz\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p id=\"005559f4620gb\"><b>说明</b></p>\n              </td>\n            </tr>\n            <tr id=\"5f1e1ec0fdsrx\">\n              <td id=\"76b9c44bda5tq\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"77591ca6ed4uf\"><span data-tag=\"varname\" id=\"68630d8d8ai8r\" is-conref=\"true\" class=\"varname\"><i>x</i></span></p>\n              </td>\n              <td id=\"944489cd2cbuy\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"1e3954dca05fm\">参数值为<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>类型。</p>\n              </td>\n            </tr>\n            <tr id=\"f322867340tqf\">\n              <td id=\"ec318c5c68kdg\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"d6e0c7f986x00\"><span data-tag=\"varname\" id=\"662aa176397mn\" class=\"varname\"><i>json_path</i></span></p>\n              </td>\n              <td id=\"c5e242803akq7\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"ba694218c4bm3\">JSON<span class=\"help-letter-space\"></span>路径，格式为$.store.book[0].title。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/faq-about-the-query-and-analysis-of-json-logs#section-9ap-q5v-6zq\" id=\"c3ad20a617axa\" title=\"\" class=\"xref\">如何设置<span class=\"help-letter-space\"></span>json_path</a>。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <h3 id=\"e44c71e865e6e\">返回值类型</h3>\n        <p data-tag=\"p\" id=\"06474ba7e38l5\" class=\"p\">boolean<span class=\"help-letter-space\"></span>类型。</p>\n        <h3 id=\"dbb09a0730863\">示例</h3>\n        <p data-tag=\"p\" id=\"a65be34008k6k\" class=\"p\">从<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组<code data-tag=\"code\" code-type=\"xCode\" id=\"c3a390f1c8q0j\" class=\"code\">Results</code>中提取<span class=\"help-letter-space\"></span>boolean<span class=\"help-letter-space\"></span>值。</p>\n        <ul data-tag=\"ul\" id=\"ccaaccdf2d52v\" class=\"ul\">\n          <li data-tag=\"li\" id=\"430198700azmw\" class=\"li\">\n            <p id=\"4af1e5e0353fc\">字段样例</p><pre data-tag=\"codeblock\" id=\"codeblock-3zh-pvk-blm\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>Results:[{\"ret\":true},{\"status\":FALSE}]</code></pre>\n          </li>\n          <li id=\"7a922fc2dfn9e\">\n            <p id=\"940ecc359ci2m\">查询和分析语句</p><pre data-tag=\"codeblock\" id=\"23acd80807f70\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>* | SELECT json_extract_bool(Results, '$.0.ret')</code></pre>\n          </li>\n          <li data-tag=\"li\" id=\"00f2472b7eric\" class=\"li\">\n            <p id=\"c123350742va7\">查询和分析结果</p>\n            <p id=\"p-60b7d8ace89c\">返回结果为<span class=\"help-letter-space\"></span><b id=\"b-5d336a3f08e1\">true</b>。</p>\n          </li>\n        </ul>\n      </section>\n      <section id=\"5b2df973f3gr3\" class=\"section\">\n        <h2 uuid=\"m4uwdtnatuplacgzsb\" id=\"6f36cac779mbk\">json_extract_long<span class=\"help-letter-space\"></span>函数</h2>\n        <p id=\"bd02bda4a7bwa\">json_extract_long<span class=\"help-letter-space\"></span>函数用于从<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象或<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组中提取<span class=\"help-letter-space\"></span>bigint<span class=\"help-letter-space\"></span>值，提取失败返回<code data-tag=\"code\" code-type=\"xCode\" id=\"6a69e8726civk\" class=\"code\">null</code>。</p>\n        <h3 id=\"e29526dd27vqm\">语法</h3><pre data-tag=\"codeblock\" id=\"89681785ddono\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>json_extract_long(x, json_path)</code></pre>\n        <h3 id=\"50fd93f777stv\">参数说明</h3>\n        <table id=\"14574a82a604o\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n          <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"ce8862a716y48\">\n              <td id=\"d37e4a3931qu4\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p id=\"6828b4f0fcwb1\"><b>参数</b></p>\n              </td>\n              <td id=\"599c18967f7am\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p id=\"19401a7a24cqi\"><b>说明</b></p>\n              </td>\n            </tr>\n            <tr id=\"51a65d923c8xc\">\n              <td id=\"4b22c76de4vbt\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"8b1d14eb47loj\"><span data-tag=\"varname\" id=\"b69fd113c9hmd\" is-conref=\"true\" class=\"varname\"><i>x</i></span></p>\n              </td>\n              <td id=\"68c78efdb0rm3\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"84d98b2d72x4x\">参数值为<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>类型。</p>\n              </td>\n            </tr>\n            <tr id=\"728fe490fenic\">\n              <td id=\"142a1ec5d7yq0\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"8c28f976b092h\"><span data-tag=\"varname\" id=\"008bf37ae6n2t\" class=\"varname\"><i>json_path</i></span></p>\n              </td>\n              <td id=\"5472d3aa2fp4z\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"d5333bcfbc3l2\">JSON<span class=\"help-letter-space\"></span>路径，格式为$.store.book[0].title。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/faq-about-the-query-and-analysis-of-json-logs#section-9ap-q5v-6zq\" id=\"cd558dccd7y2e\" title=\"\" class=\"xref\">如何设置<span class=\"help-letter-space\"></span>json_path</a>。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <h3 id=\"b7554b758chad\">返回值类型</h3>\n        <p data-tag=\"p\" id=\"7fc5ffa4584zj\" class=\"p\">bigint<span class=\"help-letter-space\"></span>类型。</p>\n        <h3 id=\"665a0418d884e\">示例</h3>\n        <p data-tag=\"p\" id=\"0dae89ab19duv\" class=\"p\">从<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组<code data-tag=\"code\" code-type=\"xCode\" id=\"27349697f85zw\" class=\"code\">Results</code>中提取<span class=\"help-letter-space\"></span>bigint<span class=\"help-letter-space\"></span>值。</p>\n        <ul data-tag=\"ul\" id=\"37d1fe90d4r8p\" class=\"ul\">\n          <li data-tag=\"li\" id=\"628054a5d8hq4\" class=\"li\">\n            <p id=\"235a5bede84sl\">字段样例</p><pre data-tag=\"codeblock\" id=\"ff31dedf4adpa\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>Results:[{\"EndTime\":1626314920},{\"FireResult\":2}]</code></pre>\n          </li>\n          <li id=\"cd98d45cabjyj\">\n            <p id=\"b3d96aa4aboeh\">查询和分析语句</p><pre data-tag=\"codeblock\" id=\"14ebcf8aa8rmj\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>* | SELECT json_extract_long(Results, '$.0.EndTime')</code></pre>\n          </li>\n          <li data-tag=\"li\" id=\"3d0592c7aa38o\" class=\"li\">\n            <p id=\"02764941202me\">查询和分析结果</p>\n            <p id=\"p-1c37ebf825ea\">返回结果为<span class=\"help-letter-space\"></span><b id=\"b-0a671d0226c5\">1626314920</b>。</p>\n          </li>\n        </ul>\n      </section>\n      <section id=\"8858b03ab3b34\" class=\"section\">\n        <h2 uuid=\"m4uwdtnatuplacgzsb\" id=\"b4bb6aa72dx4c\">json_extract_double<span class=\"help-letter-space\"></span>函数</h2>\n        <p id=\"716d3a5fdef24\">json_extract_double<span class=\"help-letter-space\"></span>函数用于从<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象或<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组中提取<span class=\"help-letter-space\"></span>double<span class=\"help-letter-space\"></span>值，提取失败返回<code data-tag=\"code\" code-type=\"xCode\" id=\"35546c7c84vzd\" class=\"code\">null</code>。</p>\n        <h3 id=\"4efa4a7e6coh7\">语法</h3><pre data-tag=\"codeblock\" id=\"283feefbb273x\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>json_extract_double(x, json_path)</code></pre>\n        <h3 id=\"305a5c36daw9g\">参数说明</h3>\n        <table id=\"3730c70f007kj\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n          <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"eb44279b2474i\">\n              <td id=\"32496f578f0f9\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p id=\"f084efcf6cmht\"><b>参数</b></p>\n              </td>\n              <td id=\"2bc7e38f3dm87\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p id=\"a1a4e558e6ulc\"><b>说明</b></p>\n              </td>\n            </tr>\n            <tr id=\"9efccfc01fvf5\">\n              <td id=\"95d9cda54bqrh\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"60be7a2eeezmw\"><span data-tag=\"varname\" id=\"873c882b79m12\" is-conref=\"true\" class=\"varname\"><i>x</i></span></p>\n              </td>\n              <td id=\"ce3434fc9erri\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"bd92f91645myp\">参数值为<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>类型。</p>\n              </td>\n            </tr>\n            <tr id=\"b72c05740f3tg\">\n              <td id=\"0879753b41yxy\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"a9f902d3c40qq\"><span data-tag=\"varname\" id=\"6286a605e0qfa\" class=\"varname\"><i>json_path</i></span></p>\n              </td>\n              <td id=\"094322ef49gni\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"9f9e909852ahz\">JSON<span class=\"help-letter-space\"></span>路径，格式为$.store.book[0].title。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/faq-about-the-query-and-analysis-of-json-logs#section-9ap-q5v-6zq\" id=\"3eac0149f1igu\" title=\"\" class=\"xref\">如何设置<span class=\"help-letter-space\"></span>json_path</a>。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <h3 id=\"07d8831313ynb\">返回值类型</h3>\n        <p data-tag=\"p\" id=\"228a27688e6kc\" class=\"p\">double<span class=\"help-letter-space\"></span>类型。</p>\n        <h3 id=\"158e693f4244c\">示例</h3>\n        <p data-tag=\"p\" id=\"a73cf256a1xxb\" class=\"p\">从<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组<code data-tag=\"code\" code-type=\"xCode\" id=\"b7a8a7e160z5b\" class=\"code\">Results</code>中提取<span class=\"help-letter-space\"></span>double<span class=\"help-letter-space\"></span>值。</p>\n        <ul data-tag=\"ul\" id=\"76ae833238co3\" class=\"ul\">\n          <li data-tag=\"li\" id=\"6c8d3c9be7pbz\" class=\"li\">\n            <p id=\"303cad8933d32\">字段样例</p><pre data-tag=\"codeblock\" id=\"657255d67ebnh\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>Results:[{\"EndTime\":1626314920},{\"FireResult\":2}]</code></pre>\n          </li>\n          <li id=\"08046235765uc\">\n            <p id=\"f2cf8961258e8\">查询和分析语句</p><pre data-tag=\"codeblock\" id=\"f452cd962cagh\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>* | SELECT json_extract_double(Results, '$.0.EndTime')</code></pre>\n          </li>\n          <li data-tag=\"li\" id=\"e5c10e5ec519r\" class=\"li\">\n            <p id=\"1029f20708fe5\">查询和分析结果</p>\n            <p id=\"p-0ada11acf680\">返回结果为<span class=\"help-letter-space\"></span><b id=\"b-521d14877c51\">1626314920.0</b>。</p>\n          </li>\n        </ul>\n      </section>\n      <section class=\"section\" data-tag=\"section\" id=\"section-tfz-3s3-mac\" data-type=\"section\">\n        <h2 data-tag=\"title\" id=\"title-vul-hvo-xy2\" class=\"title\">json_format<span class=\"help-letter-space\"></span>函数</h2>\n        <p data-tag=\"p\" id=\"p-58i-2nu-x16\" class=\"p\">json_format<span class=\"help-letter-space\"></span>函数用于将<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>类型转化成字符串类型。</p>\n        <h3 id=\"ee72005035i18\">语法</h3><pre data-tag=\"codeblock\" id=\"codeblock-jif-qxo-msb\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>json_format(x)</code></pre>\n        <h3 id=\"0b29135035qjh\">参数说明</h3>\n        <table id=\"table-f8n-ntb-aog\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n          <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-24n-ggk-vlx\">\n              <td id=\"concept-afg-4lq-zdb-entry-qvq-zxa-rwe\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"cd53c2a0358o6\"><b>参数</b></p>\n              </td>\n              <td id=\"concept-afg-4lq-zdb-entry-rh1-281-oi4\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"cd53e9b035fl0\"><b>说明</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-od9-hfp-fuf\">\n              <td id=\"entry-6o4-dql-bfj\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd53e9b135wkf\"><span data-tag=\"varname\" id=\"varname-u4s-7m9-vh4\" is-conref=\"true\" class=\"varname\"><i>x</i></span></p>\n              </td>\n              <td id=\"entry-gqq-sex-f82\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd54d41035syh\">参数值为<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>类型。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <h3 id=\"9a30d42035jrv\">返回值类型</h3>\n        <p data-tag=\"p\" id=\"p-pu7-xwp-zb9\" class=\"p\">varchar<span class=\"help-letter-space\"></span>类型。</p>\n        <h3 id=\"b154e6a035u64\">示例</h3>\n        <p data-tag=\"p\" id=\"p-478-ba7-aem\" class=\"p\">将<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组[1,2,3]转换为字符串[1, 2, 3]。</p>\n        <ul data-tag=\"ul\" id=\"ul-fde-d3e-cvy\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-j5a-jft-tvb\" class=\"li\">\n            <p id=\"cd5681c035ivh\">查询和分析语句（<a href=\"https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-demo-log/logsearch/nginx-access-log?encode%3Dbase64%26queryString%3DKiB8IFNFTEVDVCBqc29uX2Zvcm1hdChqc29uX3BhcnNlKCdbMSwgMiwgM10nKSk%3D\" id=\"07c70937028hx\" class=\"\" target=\"_blank\">调试</a>）</p><pre data-tag=\"codeblock\" id=\"codeblock-11i-zpv-3y0\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>* | SELECT json_format(json_parse('[1, 2, 3]'))</code></pre>\n          </li>\n          <li data-tag=\"li\" id=\"li-13q-7lo-hn4\" class=\"li\">\n            <p id=\"cd5681c135ra9\">查询和分析结果为<b id=\"b-614f44cd6a6f\">[1,2,3]</b>。</p>\n          </li>\n        </ul>\n      </section>\n      <section class=\"section\" data-tag=\"section\" id=\"section-c1r-zzw-94y\" data-type=\"section\">\n        <h2 data-tag=\"title\" id=\"title-r11-5sq-t7c\" class=\"title\">json_parse<span class=\"help-letter-space\"></span>函数</h2>\n        <p data-tag=\"p\" id=\"p-vv9-gi5-5vr\" class=\"p\">json_parse<span class=\"help-letter-space\"></span>函数只用于将字符串类型转化成<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>类型，判断是否符合<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>格式。一般情况下，json_parse<span class=\"help-letter-space\"></span>函数使用意义不大，如果您需要从<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>中提取值，建议使用<span class=\"help-letter-space\"></span>json_extract_scalar<span class=\"help-letter-space\"></span>函数。</p>\n        <h3 id=\"f118b65035sm9\">语法</h3><pre data-tag=\"codeblock\" id=\"codeblock-tqc-d6e-nj3\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>json_parse(x)</code></pre>\n        <h3 id=\"7f5f982035u7n\">参数说明</h3>\n        <table id=\"table-tps-j32-8ow\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n          <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-8yh-dxq-5oz\">\n              <td id=\"concept-afg-4lq-zdb-entry-eq4-crr-is6\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"cd582f70358ka\"><b>参数</b></p>\n              </td>\n              <td id=\"concept-afg-4lq-zdb-entry-g8f-h8a-7lg\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"cd582f7135ucx\"><b>说明</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-xai-at8-ej8\">\n              <td id=\"entry-lg1-9wm-vpy\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd582f723514r\"><span data-tag=\"varname\" id=\"varname-zpr-0es-x3t\" is-conref=\"true\" class=\"varname\"><i>x</i></span></p>\n              </td>\n              <td id=\"entry-nfp-jb5-ipu\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd5919d035pwf\">参数值为字符串。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <h3 id=\"52f4e6f034uk0\">返回值类型</h3>\n        <p data-tag=\"p\" id=\"p-m2z-csa-f7h\" class=\"p\">JSON<span class=\"help-letter-space\"></span>类型。</p>\n        <h3 id=\"b37073a0353ls\">示例</h3>\n        <section id=\"8f6dad2489eqm\" outputclass=\"tabbed-content-box\" data-tag=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n          <section id=\"5d1b7491b4em0\" class=\"section\">\n            <h4 id=\"df30a40e9eqdq\"><b>SQL</b></h4>\n            <ul data-tag=\"ul\" id=\"2bc2fb4fc970a\" class=\"ul\">\n              <li data-tag=\"li\" id=\"815a56fb6damj\" class=\"li\">\n                <p id=\"2bbb8fe531x25\">示例<span class=\"help-letter-space\"></span>1</p>\n                <p data-tag=\"p\" id=\"p-5d6-0r9-5ea\" class=\"p\">将字符串[1,2,3]转换为<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组[1, 2, 3]。</p>\n                <ul data-tag=\"ul\" id=\"ul-e9n-5f7-nbd\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-73g-rj2-4jm\" class=\"li\">\n                    <p id=\"cd5aee9135rzw\">查询和分析语句（<a href=\"https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-demo-log/logsearch/nginx-access-log?encode%3Dbase64%26queryString%3DICogfCBTRUxFQ1QganNvbl9wYXJzZSgnWzEsIDIsIDNdJyk%3D\" id=\"4cbacb90380wn\" class=\"\" target=\"_blank\">调试</a>）</p><pre data-tag=\"codeblock\" id=\"codeblock-3a9-jui-3tr\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code> * | SELECT json_parse('[1, 2, 3]')</code></pre>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-2p5-xdd-b7d\" class=\"li\">\n                    <p id=\"cd5aee92354da\">查询和分析结果为<b id=\"b-fec37ca16865\">[1,2,3]</b>。</p>\n                  </li>\n                </ul>\n              </li>\n              <li data-tag=\"li\" id=\"li-9ec-fv8-6q2\" class=\"li\">\n                <p id=\"cd5aee9335bk0\">示例<span class=\"help-letter-space\"></span>2</p>\n                <p data-tag=\"p\" id=\"p-bq8-fsl-euu\" class=\"p\">提取<code data-tag=\"code\" code-type=\"xCode\" id=\"af2ecd789czhl\" class=\"code\">logging</code>字段中的各个子字段。</p>\n                <ul data-tag=\"ul\" id=\"ul-z49-6xi-9tv\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-3bp-kvd-2ae\" class=\"li\">\n                    <p id=\"cd5aee9435nhs\">字段样例如下，logging<span class=\"help-letter-space\"></span>字段为<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象，包含<span class=\"help-letter-space\"></span>message、processName、thread、threadName、module、funcName、levelName、process<span class=\"help-letter-space\"></span>等键值对。</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-q2j-2o9-eg1\" class=\"li\">\n                    <p id=\"cd5b15a035ipg\">查询和分析语句（<a href=\"https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-demo-log/logsearch/internal-etl-log?encode%3Dbase64%26queryString%3DKnwgU0VMRUNUIG1hcF9rZXlzKHRyeV9jYXN0KGpzb25fcGFyc2UobG9nZ2luZykgQVMgbWFwKHZhcmNoYXIsIGpzb24pKSk%3D\" id=\"58ce3d0035rg9\" class=\"\" target=\"_blank\">调试</a>）</p><pre data-tag=\"codeblock\" id=\"codeblock-xs9-mo4-18u\" outputclass=\"language-plaintext\" height=\"48.44379425048828\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>*| SELECT map_keys(try_cast(json_parse(logging) AS map(varchar, json)))</code></pre>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-nw6-4ov-w0b\" class=\"li\">\n                    <p id=\"cd5b15a135l1w\">查询和分析结果为<b id=\"b-e7c04c4b17a1\">[\"funcName\",\"levelname\",\"message\",\"module\",\"process\",\"processName\",\"thread\",\"threadName\"]</b>。</p>\n                  </li>\n                </ul>\n              </li>\n            </ul>\n          </section>\n          <section id=\"f60fa38377lrh\" class=\"section\">\n            <h4 id=\"15b177291048i\"><b>SPL</b></h4>\n            <p jc=\"left\" uuid=\"lqdlomo6poy7lc8o3i\" id=\"c0478cce94pu3\" style=\"text-align:left\">将字符串<code data-tag=\"code\" code-type=\"xCode\" id=\"53f969c5f6hth\" class=\"code\">[1,2,3]</code>转换为<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组<code data-tag=\"code\" code-type=\"xCode\" id=\"47b7475f7d53f\" class=\"code\">[1, 2, 3]</code>。</p>\n            <ul id=\"e70b2a0448vdq\">\n              <li id=\"bf58acc94bjer\">\n                <p id=\"a47fc7b25fs4u\">SPL<span class=\"help-letter-space\"></span>语句</p>\n              </li>\n            </ul><pre uuid=\"lqdlomo6inv7k9ye7d\" data-tag=\"codeblock\" outputclass=\"language-plaintext\" id=\"ed3eb807d9a3q\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code> * | extend a = json_parse('[1, 2, 3]')</code></pre>\n            <ul id=\"7c6e9cbacaseb\">\n              <li id=\"05cf0687d23wx\">\n                <p id=\"00fd8909c9ygq\">SPL<span class=\"help-letter-space\"></span>结果</p>\n              </li>\n            </ul>\n            <p id=\"p-242296961cf5\">返回结果中，字段<span class=\"help-letter-space\"></span><b id=\"b-5ed83f2cfa83\">a</b><span class=\"help-letter-space\"></span>的值为<b id=\"b-8208e185f4c0\">[1, 2, 3]</b>。</p>\n          </section>\n        </section>\n      </section>\n      <section class=\"section\" data-tag=\"section\" id=\"section-shf-55f-i4u\" data-type=\"section\">\n        <h2 data-tag=\"title\" id=\"title-lqp-5m0-5g9\" class=\"title\">json_size<span class=\"help-letter-space\"></span>函数</h2>\n        <p data-tag=\"p\" id=\"p-5ft-62f-geb\" class=\"p\">json_size<span class=\"help-letter-space\"></span>函数用于计算<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象或<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组中元素的数量。</p>\n        <h3 id=\"f40b426035owu\">语法</h3><pre data-tag=\"codeblock\" id=\"codeblock-xz0-ive-rvb\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>json_size(x, json_path)</code></pre>\n        <h3 id=\"8250015035nb8\">参数说明</h3>\n        <table id=\"table-prv-uc9-1n2\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n          <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-qg7-8rj-jrr\">\n              <td id=\"concept-afg-4lq-zdb-entry-liy-idt-e53\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"cd5cc35035qy1\"><b>参数</b></p>\n              </td>\n              <td id=\"concept-afg-4lq-zdb-entry-sp4-gww-dxm\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"cd5cc351358qc\"><b>说明</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-bua-ikw-t2t\">\n              <td id=\"entry-5ek-2d6-7gg\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd5cc35235rlz\"><span data-tag=\"varname\" id=\"varname-nxn-xgd-gee\" is-conref=\"true\" class=\"varname\"><i>x</i></span></p>\n              </td>\n              <td id=\"entry-cq0-zdx-uai\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd5dadb03545v\">参数值为<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象或<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数组。</p>\n              </td>\n            </tr>\n            <tr id=\"row-vsr-kk6-sgy\">\n              <td id=\"entry-a3f-3mk-1nw\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd5dadb135s6j\"><span data-tag=\"varname\" id=\"varname-fzt-r3z-tcf\" class=\"varname\"><i>json_path</i></span></p>\n              </td>\n              <td id=\"entry-q2t-0xn-nif\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd5dadb2358bi\">JSON<span class=\"help-letter-space\"></span>路径，格式为$.store.book[0].title。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/faq-about-the-query-and-analysis-of-json-logs#section-9ap-q5v-6zq\" id=\"xref-3wq-0f3-23t\" title=\"\" class=\"xref\">如何设置<span class=\"help-letter-space\"></span>json_path</a>。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <h3 id=\"9d62650035kid\">返回值类型</h3>\n        <p data-tag=\"p\" id=\"p-6gg-bs9-w4w\" class=\"p\">bigint<span class=\"help-letter-space\"></span>类型。</p>\n        <h3 id=\"b5f87e1035idh\">示例</h3>\n        <p data-tag=\"p\" id=\"p-3cu-98i-h0q\" class=\"p\">返回<code data-tag=\"code\" code-type=\"xCode\" id=\"e60f1f99a7a0r\" class=\"code\">status</code>字段中元素的数量。</p>\n        <ul data-tag=\"ul\" id=\"ul-whp-p5p-00l\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-2c8-s4y-pb2\" class=\"li\">\n            <p id=\"cd5f827035teo\">字段样例</p><pre data-tag=\"codeblock\" id=\"codeblock-ff5-kqs-jse\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>Results:[{\"EndTime\":1626314920,\"FireResult\":2,\"RawResults\":[{\"_col0\":\"1094\"}]}]</code></pre>\n          </li>\n          <li data-tag=\"li\" id=\"li-sgd-161-maz\" class=\"li\">\n            <p id=\"cd5f8271357l4\">查询和分析语句</p><pre data-tag=\"codeblock\" id=\"codeblock-vhc-3cl-jmv\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>* | SELECT json_size(Results, '$.0.RawResults')</code></pre>\n          </li>\n          <li data-tag=\"li\" id=\"li-khz-pah-ghg\" class=\"li\">\n            <p id=\"cd5f82723562h\">查询和分析结果为<span class=\"help-letter-space\"></span><b id=\"b-0141764dcc76\">1</b>。</p>\n          </li>\n        </ul>\n      </section>\n      <section id=\"021ed56c02bgm\" class=\"section\">\n        <h2 uuid=\"mam7xam6s58pr1t2kqj\" id=\"591090b841nql\"><b>json_object_flatten<span class=\"help-letter-space\"></span>函数</b></h2>\n        <p uuid=\"mamc2tv459vos35sf2m\" id=\"182d0b63bauv6\">json_object_flatten<span class=\"help-letter-space\"></span>函数用于将<span class=\"help-letter-space\"></span>JSON 对象压缩为单层键值结构。</p>\n        <h3 uuid=\"mamc2tv6mght3p7pxbr\" id=\"ae5ac45f62dtf\"><b>语法</b></h3><pre code-type=\"xCode\" id=\"ac8f8b0bdc14m\" index=\"0\" data-tag=\"codeblock\" outputclass=\"language-sql\" class=\"pre codeblock language-sql\"><code>json_object_flatten(x)</code></pre>\n        <h3 uuid=\"mamc2tv64p4fkq7pv97\" id=\"4d4723c590cmp\"><b>参数说明</b></h3>\n        <table id=\"6eeba9dbe628e\" tablewidth=\"747\" tablecolswidth=\"283 464\" autofit=\"true\" class=\"table\">\n          <colgroup colwidth=\"0.76*\" style=\"width:37.88%\"></colgroup>\n          <colgroup colwidth=\"1.24*\" style=\"width:62.12%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"e6fc43e185awc\">\n              <td id=\"988ed89cfdkz9\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:top\" colspan=\"1\">\n                <p uuid=\"mamc2tv77qlvccsmtlo\" id=\"280fc8db9fgih\"><b>参数</b></p>\n              </td>\n              <td id=\"e71c4a9747k1e\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:top\" colspan=\"1\">\n                <p uuid=\"mamc2tv76adnsdi1u7l\" id=\"07fd089c0fpdo\"><b>说明</b></p>\n              </td>\n            </tr>\n            <tr id=\"bdab91c3fcdzc\" style=\"height:45px\">\n              <td id=\"a6dd969dbf8ml\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n                <p uuid=\"mamc2tv7p38yffy0qlk\" id=\"5c406bb530vqp\">x</p>\n              </td>\n              <td id=\"7178a4989c34e\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n                <p uuid=\"mamc2tv7lf05oy97wfe\" id=\"718f08e925ksw\">参数值为<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>类型。如果<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象非<span class=\"help-letter-space\"></span>Object，则返回<span class=\"help-letter-space\"></span>null。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <h3 uuid=\"mamc2tv72l0c598jc3p\" id=\"aa86688f80qs7\"><b>返回值类型</b></h3>\n        <p uuid=\"mamc2tv7hmvow2a2esd\" id=\"76b3c54ba6u2q\">map(varchar, varchar)类型。</p>\n        <h3 uuid=\"mamc2tv8ti8musgrzs\" id=\"48cab76fa5054\"><b>示例</b></h3>\n        <p jc=\"left\" uuid=\"mamc2tv8z0xjt1tg28\" id=\"1c714c36a8aj3\" style=\"text-align:left\">将<span class=\"help-letter-space\"></span>content<span class=\"help-letter-space\"></span>字段<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>内容压缩为<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>层键值对。</p>\n        <ul id=\"295b51f045gnr\">\n          <li id=\"8718e4f835qrz\">\n            <p id=\"e8b667fde04lg\">字段样例</p><pre code-type=\"xCode\" id=\"9dce7f34d4pj1\" index=\"0\" data-tag=\"codeblock\" outputclass=\"language-plaintext\" class=\"pre codeblock language-plaintext\"><code>content: '{\"Time\":1626314920,\"Info\":[{\"count\":\"1\"}],\"Body\":\"this is test\"}'</code></pre>\n          </li>\n          <li id=\"3fe952b794y03\">\n            <p id=\"5ccd222b428ex\">查询和分析语句</p><pre code-type=\"xCode\" id=\"2432e637a3zbn\" index=\"0\" data-tag=\"codeblock\" outputclass=\"language-sql\" class=\"pre codeblock language-sql\"><code>select json_object_flatten(content) as data from  (values '{\"Time\":1626314920,\"Info\":[{\"count\":\"1\"}],\"Body\":\"this is test\"}') t (content) limit 1;</code></pre>\n          </li>\n          <li id=\"12bbcb7f5dqxh\">\n            <p id=\"5cf2ebe304one\">输出数据</p>\n            <p id=\"p-150a8108c11a\">如下，data<span class=\"help-letter-space\"></span>字段的值为<b id=\"b-738251f18f0f\">{\"Time\":\"1626314920\",\"Info\":\"[{\\\"count\\\":\\\"1\\\"}]\",\"Body\":\"this is test\"}</b>，即原始<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象已被压缩为单层键值结构。</p>\n          </li>\n        </ul>\n      </section>\n    </div>\n  </main>\n\n\n\n\n</div>","path":"https://help.aliyun.com/zh/sls/json-functions","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"alias":"/sls/json-functions","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":8,"developerUrl":"https://developer.aliyun.com/group/sls/","nodeType":1,"version":24,"url":"/zh/sls/json-functions","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":63454,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":8,"validDocument":true,"headNavEnable":false,"docTitle":"JSON函数","id":63454,"title":"JSON函数","url":"/zh/sls/json-functions"}],"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"SQL函数","id":322173,"title":"SQL函数","url":"/zh/sls/sql-function/"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"SQL分析语法与功能","id":63443,"title":"SQL分析语法与功能","url":"/zh/sls/sql-syntax-and-functions/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"查询与分析语法说明","id":2930137,"title":"查询与分析语法说明","url":"/zh/sls/query-and-analysis-syntax-description/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"查询与分析","id":128135,"title":"查询与分析","url":"/zh/sls/index-and-query/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"productUrl":"https://www.aliyun.com/product/sls","nodeId":63454,"desc":"本文介绍JSON函数的基本语法及示例。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"查询与分析","id":128135,"title":"查询与分析","url":"/zh/sls/index-and-query/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"查询与分析语法说明","id":2930137,"title":"查询与分析语法说明","url":"/zh/sls/query-and-analysis-syntax-description/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"SQL分析语法与功能","id":63443,"title":"SQL分析语法与功能","url":"/zh/sls/sql-syntax-and-functions/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"SQL函数","id":322173,"title":"SQL函数","url":"/zh/sls/sql-function/"},{"emptyNode":false,"level":8,"validDocument":true,"headNavEnable":false,"docTitle":"JSON函数","id":63454,"title":"JSON函数","url":"/zh/sls/json-functions"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=2150428017825469359092911e1db9&asid=AQAAAAD4gT9qsrt4NgAAAAAyk5CaiJWlfw==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2929180" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/start-using-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开始使用</span>
+</a>
+</li>
+ <li id="128096" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/resource-management/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">资源管理</span>
+</a>
+</li>
+ <li id="128134" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-collection-1/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据采集</span>
+</a>
+</li>
+ <li id="2842370" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-processing-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据处理</span>
+</a>
+</li>
+ <li id="270795" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-storage/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据存储</span>
+</a>
+</li>
+ <li id="128135" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/index-and-query/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">查询与分析</span>
+</a>
+</li>
+ <li id="2928734" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-monitoring/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据监控</span>
+</a>
+</li>
+ <li id="2928732" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-log-output-and-integration/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据输出与集成</span>
+</a>
+</li>
+ <li id="2928739" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-technical-solutions/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">技术解决方案</span>
+</a>
+</li>
+ <li id="154068" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2528763" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/security-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="169976" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/faq-15">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>JSON函数</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/sls" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="concept-afg-4lq-zdb">
+    
+    
+    <p id="shortdesc-jgk-2ej-ij8" data-tag="shortdesc" class="shortdesc">本文介绍<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>函数的基本语法及示例。</p>
+    <div class="conbody body" data-tag="conbody" id="conbody-aft-dfc-p5i">
+      
+      <p data-tag="p" id="p-69j-ylz-rk9" class="p">日志服务支持如下<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>函数。</p>
+      <div data-tag="note" id="note-f0m-tkj-g0x" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+        <ul data-tag="ul" id="ul-4lu-jyk-tqc" class="ul">
+          <li data-tag="li" id="li-avi-y3k-363" class="li">
+            <p id="cd316d9035n6d">在日志服务分析语句中，表示字符串的字符必须使用单引号（''）包裹，无符号包裹或被双引号（""）包裹的字符表示字段名或列名。例如：<code data-tag="code" code-type="xCode" id="d85f0f4f6e1l0" class="code">'status'</code>表示字符串<span class="help-letter-space"></span>status，<code data-tag="code" code-type="xCode" id="467e23ee5c9ra" class="code">status</code>或<code data-tag="code" code-type="xCode" id="55f7015726jbb" class="code">"status"</code>表示日志字段<span class="help-letter-space"></span>status。</p>
+          </li>
+          <li data-tag="li" id="li-r0c-1q8-3ju" class="li">
+            <p id="cd316d913502n">如果日志字段的值为<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>类型且需要展开为多行，请使用<span class="help-letter-space"></span>unnest<span class="help-letter-space"></span>语法。更多信息，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/sls/unnest-clause#reference-z24-zyf-h2b" id="xref-y46-uw7-zex" title="" class="xref">UNNEST<span class="help-letter-space"></span>子句</a>。</p>
+          </li>
+          <li data-tag="li" id="li-ptq-68m-5n4" class="li">
+            <p id="cd31bbb03599c">如果字符串被解析成<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>类型失败，则返回<span class="help-letter-space"></span>null。</p>
+          </li>
+          <li data-tag="li" id="li-jw0-bxw-xku" class="li">
+            <p id="cd31bbb135hyi">如果在采集过程中，JSON<span class="help-letter-space"></span>日志被截断，则在使用<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>函数进行查询与分析时，系统将报错且中止查询与分析。针对该错误，您可以使用<span class="help-letter-space"></span>TRY<span class="help-letter-space"></span>表达式捕获异常信息，使得系统继续执行查询和分析操作。例如<code data-tag="code" code-type="xCode" id="7c307bb933e1a" class="code">* | select message, try(json_parse(message))</code>。更多信息，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/sls/conditional-expressions#section-ylv-4pq-tdb" id="xref-sg4-6nh-jrb" title="" class="xref">TRY<span class="help-letter-space"></span>表达式</a>。</p>
+          </li>
+        </ul>
+      </div></div>
+      <table id="table-cjs-sl5-2iz" tablewidth="834" tablecolswidth="148 222 222 101 141" autofit="false" class="table">
+        <colgroup colwidth="0.89*" style="width:17.75%"></colgroup>
+        <colgroup colwidth="1.34*" style="width:26.62%"></colgroup>
+        <colgroup colwidth="1.34*" style="width:26.62%"></colgroup>
+        <colgroup colwidth="0.61*" style="width:12.11%"></colgroup>
+        <colgroup colwidth="0.85*" style="width:16.91%"></colgroup>
+        <tbody class="tbody">
+          <tr id="row-38x-wom-99h">
+            <td id="concept-afg-4lq-zdb-entry-ogw-ipa-mqm" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+              <p id="cd31e2c035jsn"><b>函数名称</b></p>
+            </td>
+            <td id="concept-afg-4lq-zdb-entry-m2j-2kr-whl" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+              <p id="cd31e2c13557r"><b>语法</b></p>
+            </td>
+            <td id="concept-afg-4lq-zdb-entry-6x6-m18-60g" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+              <p id="cd31e2c235myw"><b>说明</b></p>
+            </td>
+            <td id="f0d2d3e1be6vg" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+              <p id="63d1f268e37du">支持<span class="help-letter-space"></span>SQL</p>
+            </td>
+            <td id="7ebe1053acjxi" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+              <p id="5112f8b57b0nd">支持<span class="help-letter-space"></span>SPL</p>
+            </td>
+          </tr>
+          <tr id="row-7il-25m-diw">
+            <td id="entry-6x1-jdq-3u0" rowspan="1" colspan="1">
+              <p id="cd31e2c335kik"><a href="#section-e8j-1om-8k0" id="xref-1po-4jf-fre" title="" class="xref">json_array_contains<span class="help-letter-space"></span>函数</a></p>
+            </td>
+            <td id="entry-r3r-zjq-1ss" rowspan="1" colspan="1">
+              <p id="cd31e2c435qv9">json_array_contains(<span data-tag="varname" id="varname-ky5-cyr-4lt" is-conref="true" class="varname"><i>x</i></span>, <span data-tag="varname" id="varname-pzv-3sb-4xy" class="varname"><i>value</i></span>)</p>
+            </td>
+            <td id="entry-jd5-f15-yxa" rowspan="1" colspan="1">
+              <p id="cd32f43035snu">判断<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组中是否包含某个值。</p>
+            </td>
+            <td id="b407df1e70v18" rowspan="1" colspan="1">
+              <p id="93120f37bax8o">√</p>
+            </td>
+            <td id="061bf5dff587w" rowspan="1" colspan="1">
+              <p id="f3ccd3466fduh">√</p>
+            </td>
+          </tr>
+          <tr id="row-jvh-1h5-94l">
+            <td id="entry-2na-xs5-bh0" rowspan="1" colspan="1">
+              <p id="cd32f431354al"><a href="#section-jjn-dv3-4y9" id="xref-ct4-tyd-77v" title="" class="xref">json_array_get<span class="help-letter-space"></span>函数</a></p>
+            </td>
+            <td id="entry-5k0-o8a-ddv" rowspan="1" colspan="1">
+              <p id="cd32f43235f4e">json_array_get(<span data-tag="varname" id="varname-gla-bnd-u23" is-conref="true" class="varname"><i>x</i></span>, <span data-tag="varname" id="varname-4js-3r9-apb" class="varname"><i>index</i></span>)</p>
+            </td>
+            <td id="entry-e84-tvx-4hy" rowspan="1" colspan="1">
+              <p id="cd3405a035lq0">获取<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组中某个下标对应的元素。</p>
+            </td>
+            <td id="e0feff59c9byp" rowspan="1" colspan="1">
+              <p id="a39c98179c93z">√</p>
+            </td>
+            <td id="6adf8373b889o" rowspan="1" colspan="1">
+              <p id="2ad86e8c0foel">×</p>
+            </td>
+          </tr>
+          <tr id="row-z8n-3ln-6j7">
+            <td id="entry-wgh-xdu-g5p" rowspan="1" colspan="1">
+              <p id="cd342cb035mh1"><a href="#section-697-fqh-nng" id="xref-jtp-nw2-rm5" title="" class="xref">json_array_length<span class="help-letter-space"></span>函数</a></p>
+            </td>
+            <td id="entry-n45-628-9dw" rowspan="1" colspan="1">
+              <p id="cd342cb1351pj">json_array_length(<span data-tag="varname" id="varname-qal-dnk-d6u" is-conref="true" class="varname"><i>x</i></span>)</p>
+            </td>
+            <td id="entry-y2i-7u2-a06" rowspan="1" colspan="1">
+              <p id="cd353e2035hd4">计算<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组中元素的数量。</p>
+            </td>
+            <td id="be4bcb5a8fq8a" rowspan="1" colspan="1">
+              <p id="9d919ff480r4w">√</p>
+            </td>
+            <td id="1755ab0087svj" rowspan="1" colspan="1">
+              <p id="ac738ffc34qet">√</p>
+            </td>
+          </tr>
+          <tr id="row-a45-9sr-cee" style="height:92px">
+            <td id="entry-k26-ywf-34r" rowspan="1" colspan="1">
+              <p id="cd353e2135cts"><a href="#section-uqz-6yr-bun" id="xref-n5t-bkk-gti" title="" class="xref">json_extract<span class="help-letter-space"></span>函数</a></p>
+            </td>
+            <td id="entry-wzb-nfr-5hd" rowspan="1" colspan="1">
+              <p id="cd35653035abj">json_extract(<span data-tag="varname" id="varname-iq1-c7l-9un" is-conref="true" class="varname"><i>x</i></span>, json_path)</p>
+            </td>
+            <td id="entry-tlb-wj9-ka0" rowspan="1" colspan="1">
+              <p id="cd364f9035uyt">从<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象或<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组中提取一组<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>值（数组或对象）。</p>
+            </td>
+            <td id="77a7f1189eylb" rowspan="1" colspan="1">
+              <p id="50400b4d30jm8">√</p>
+            </td>
+            <td id="178ec845f7aao" rowspan="1" colspan="1">
+              <p id="2287e4d6fdaeu">√</p>
+            </td>
+          </tr>
+          <tr id="row-mdz-h1r-8n9">
+            <td id="entry-sy5-v4r-iuo" rowspan="1" colspan="1">
+              <p id="cd364f9135qvx"><a href="#section-8jj-a1y-076" id="xref-pcz-zkn-2fz" title="" class="xref">json_extract_scalar<span class="help-letter-space"></span>函数</a></p>
+            </td>
+            <td id="entry-1mf-nka-t50" rowspan="1" colspan="1">
+              <p id="cd364f9235pm6">json_extract_scalar(<span data-tag="varname" id="varname-zfr-1e3-66s" is-conref="true" class="varname"><i>x</i></span>, <span data-tag="varname" id="varname-dk9-4y3-nkm" class="varname"><i>json_path</i></span>)</p>
+            </td>
+            <td id="entry-xhx-lbj-5ti" rowspan="1" colspan="1">
+              <p id="cd3739f035fpt">从<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象或<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组中提取一组标量值（字符串、整数或布尔值）。类似于<span class="help-letter-space"></span>json_extract<span class="help-letter-space"></span>函数。</p>
+            </td>
+            <td id="3dae85bc7cij3" rowspan="1" colspan="1">
+              <p id="bc1228ed24gux">√</p>
+            </td>
+            <td id="0ea643e6b68o2" rowspan="1" colspan="1">
+              <p id="b7385492d6ncx">√</p>
+            </td>
+          </tr>
+          <tr id="7fad20a796623">
+            <td id="fe63ca89656kv" rowspan="1" style="vertical-align:top" colspan="1">
+              <p uuid="m4uw55tl2r1zrgk3t7u" id="4dbd11ad0etxf"><a href="#362158526d8q1" id="581edbd456u3u" title="" class="xref">json_extract_bool<span class="help-letter-space"></span>函数</a></p>
+            </td>
+            <td id="200ecd3ae6zs4" rowspan="1" style="vertical-align:top" colspan="1">
+              <p jc="left" uuid="m4uw5sqbeaicobrzpxo" id="01ef945a7a68k" style="text-align:left">json_extract_bool(x, json_path)</p>
+            </td>
+            <td id="1b13e68c5czbg" rowspan="1" style="vertical-align:top" colspan="1">
+              <p uuid="m4uw55tn2lxj8znubv9" id="0549e54fa9xin">从<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象或<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组中提取<span class="help-letter-space"></span>boolean<span class="help-letter-space"></span>值。</p>
+            </td>
+            <td id="17eb2b73c9ryn" rowspan="1" style="vertical-align:top" colspan="1">
+              <p jc="left" uuid="m4uw4qoijibmgzmqlo8" id="641e0f3ca3lgo" style="text-align:left">√</p>
+            </td>
+            <td id="29d674471fc1a" rowspan="1" style="vertical-align:top" colspan="1">
+              <p jc="left" uuid="m4uw4qoiwm6319xfxx9" id="b3da8bb839ev2" style="text-align:left">×</p>
+            </td>
+          </tr>
+          <tr id="4e887f7df2bjd">
+            <td id="520ad74114w4g" rowspan="1" style="vertical-align:top" colspan="1">
+              <p uuid="m4uw55tnvl224ptfhfj" id="456a46bea6vu7"><a href="#5b2df973f3gr3" id="1bbc96ed15ni8" title="" class="xref">json_extract_long<span class="help-letter-space"></span>函数</a></p>
+            </td>
+            <td id="951f4afba4bfr" rowspan="1" style="vertical-align:top" colspan="1">
+              <p jc="left" uuid="m4uw5zm1mfvo5b4l3fm" id="f948641002stg" style="text-align:left">json_extract_long(x, json_path)</p>
+            </td>
+            <td id="02a9823e01c8n" rowspan="1" style="vertical-align:top" colspan="1">
+              <p uuid="m4uw55tpwos4tei9ll" id="3d76cc49782gn">从<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象或<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组中提取<span class="help-letter-space"></span>bigint<span class="help-letter-space"></span>值。</p>
+            </td>
+            <td id="c77aa85c16kh2" rowspan="1" style="vertical-align:top" colspan="1">
+              <p jc="left" uuid="m4uw4qoj1ikb6ng6id6" id="809430d948bic" style="text-align:left">√</p>
+            </td>
+            <td id="6257fd0db085o" rowspan="1" style="vertical-align:top" colspan="1">
+              <p jc="left" uuid="m4uw4qojkq03ur154i" id="e8d718c82bx97" style="text-align:left">×</p>
+            </td>
+          </tr>
+          <tr id="604f01bd94ztw">
+            <td id="72e873ef40w7w" rowspan="1" style="vertical-align:top" colspan="1">
+              <p uuid="m4uw55tps1d6z2ai5t" id="167b7f5aa6xgp"><a href="#8858b03ab3b34" id="6b188defc22nv" title="" class="xref">json_extract_double<span class="help-letter-space"></span>函数</a></p>
+            </td>
+            <td id="d7d8ec475f084" rowspan="1" style="vertical-align:top" colspan="1">
+              <p jc="left" uuid="m4uw664cqkq07zr2vvh" id="7f23a9c0e483f" style="text-align:left">json_extract_double(x, json_path)</p>
+            </td>
+            <td id="49bbd55b4crbq" rowspan="1" style="vertical-align:top" colspan="1">
+              <p uuid="m4uw55trkcbbqfvdho" id="cccca4d3ff9x4">从<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象或<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组中提取<span class="help-letter-space"></span>double<span class="help-letter-space"></span>值。</p>
+            </td>
+            <td id="f2e46f0610sfw" rowspan="1" style="vertical-align:top" colspan="1">
+              <p jc="left" uuid="m4uw4qojl79skhunp6g" id="2a000ab52ftl9" style="text-align:left">√</p>
+            </td>
+            <td id="ccbaed469e23z" rowspan="1" style="vertical-align:top" colspan="1">
+              <p jc="left" uuid="m4uw4qoj4euaupbqg5p" id="102cf8027dn3i" style="text-align:left">×</p>
+            </td>
+          </tr>
+          <tr id="row-ttw-fac-qdv">
+            <td id="entry-x7d-qqi-udi" rowspan="1" colspan="1">
+              <p id="cd3739f1351c0"><a href="#section-tfz-3s3-mac" id="xref-ste-w5g-c12" title="" class="xref">json_format<span class="help-letter-space"></span>函数</a></p>
+            </td>
+            <td id="entry-h43-252-vq9" rowspan="1" colspan="1">
+              <p id="cd3739f235wmb">json_format(<span data-tag="varname" id="varname-yb0-gv5-aas" is-conref="true" class="varname"><i>x</i></span>)</p>
+            </td>
+            <td id="entry-uui-d93-6lq" rowspan="1" colspan="1">
+              <p id="cd38245035rfx">把<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>类型转换为字符串类型。</p>
+            </td>
+            <td id="569a9c4f660b1" rowspan="1" colspan="1">
+              <p id="7dbfe228b63sn">√</p>
+            </td>
+            <td id="3bf0aa18c8fn2" rowspan="1" colspan="1">
+              <p id="6d636245f3ssu">√</p>
+            </td>
+          </tr>
+          <tr id="row-qaq-477-td8">
+            <td id="entry-kz4-0sf-x0b" rowspan="1" colspan="1">
+              <p id="cd384b603553z"><a href="#section-c1r-zzw-94y" id="xref-r5e-cpf-7mn" title="" class="xref">json_parse<span class="help-letter-space"></span>函数</a></p>
+            </td>
+            <td id="entry-sso-be5-xwd" rowspan="1" colspan="1">
+              <p id="cd384b6135k41">json_parse(<span data-tag="varname" id="varname-s3i-nic-qr0" is-conref="true" class="varname"><i>x</i></span>)</p>
+            </td>
+            <td id="entry-p74-ebu-vg1" rowspan="1" colspan="1">
+              <p id="cd3935c035cfc">把字符串类型转换为<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>类型。</p>
+            </td>
+            <td id="3fba7c19505es" rowspan="1" colspan="1">
+              <p id="6839e8cb8c8cg">√</p>
+            </td>
+            <td id="cf86ddf9383d0" rowspan="1" colspan="1">
+              <p id="bb5edd373fm9l">√</p>
+            </td>
+          </tr>
+          <tr id="row-fzq-bok-h7l">
+            <td id="entry-sto-eiu-k59" rowspan="1" colspan="1">
+              <p id="cd3935c135el1"><a href="#section-shf-55f-i4u" id="xref-f79-mt4-nw6" title="" class="xref">json_size<span class="help-letter-space"></span>函数</a></p>
+            </td>
+            <td id="entry-es7-a85-533" rowspan="1" colspan="1">
+              <p id="cd395cd035nef">json_size(<span data-tag="varname" id="varname-oyc-ql4-ce0" is-conref="true" class="varname"><i>x</i></span>, <span data-tag="varname" id="varname-tao-70u-0s8" class="varname"><i>json_path</i></span>)</p>
+            </td>
+            <td id="entry-03p-p10-xgd" rowspan="1" colspan="1">
+              <p id="cd3a202035m8o">计算<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象或数组中元素的数量。</p>
+            </td>
+            <td id="e895e9e74479k" rowspan="1" colspan="1">
+              <p id="6cc3509273ae9">√</p>
+            </td>
+            <td id="3c17d72562jxv" rowspan="1" colspan="1">
+              <p id="792f89f00b87e">√</p>
+            </td>
+          </tr>
+          <tr id="788f33a358f3j">
+            <td id="9a9e8436acy5s" rowspan="1" colspan="1">
+              <p id="227aaf3b46d0n"><a href="#021ed56c02bgm" id="d4a22b7167gqq" title="" class="xref">json_object_flatten<span class="help-letter-space"></span>函数</a></p>
+            </td>
+            <td id="6e69b2eb43bcz" rowspan="1" colspan="1">
+              <p id="cef729097c4qw">json_object_flatten(x)</p>
+            </td>
+            <td id="b9947bb7b148v" rowspan="1" colspan="1">
+              <p id="53313675adwfr">将<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象压缩为单层键值结构。</p>
+            </td>
+            <td id="8526f762d0xmr" rowspan="1" colspan="1">
+              <p id="c3cd572ef459f">√</p>
+            </td>
+            <td id="7172b533a5yws" rowspan="1" colspan="1">
+              <p id="324dd62f7a6mf">×</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <section class="section" data-tag="section" id="section-e8j-1om-8k0" data-type="section">
+        <h2 data-tag="title" id="title-b7f-2wv-32o" class="title">json_array_contains<span class="help-letter-space"></span>函数</h2>
+        <p data-tag="p" id="p-i94-pbo-v9d" class="p">json_array_contains<span class="help-letter-space"></span>函数用于判断<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组中是否包含某个值。</p>
+        <h3 id="ccd8c45032k6b">语法</h3><pre data-tag="codeblock" id="codeblock-nck-6ff-thi" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>json_array_contains(x, value)</code></pre>
+        <h3 id="dd6cffc032q7m">参数说明</h3>
+        <table id="table-sh6-wd1-jy9" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+          <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+          <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-2fr-vst-qbh">
+              <td id="concept-afg-4lq-zdb-entry-7pi-ya3-201" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="cd3bf4e035z2f"><b>参数</b></p>
+              </td>
+              <td id="concept-afg-4lq-zdb-entry-eid-xzq-fph" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="cd3bf4e135rza"><b>说明</b></p>
+              </td>
+            </tr>
+            <tr id="row-i3m-sj2-zaw">
+              <td id="entry-s6g-m2u-5j6" rowspan="1" colspan="1">
+                <p id="cd3bf4e235k3a"><span data-tag="varname" id="varname-ryt-eyi-fwi" is-conref="true" class="varname"><i>x</i></span></p>
+              </td>
+              <td id="entry-e04-4u9-a2l" rowspan="1" colspan="1">
+                <p id="cd3cdf4035fyw">参数值为<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组。</p>
+              </td>
+            </tr>
+            <tr id="row-z0o-qk3-f8z">
+              <td id="entry-9pm-puq-zy4" rowspan="1" colspan="1">
+                <p id="cd3cdf4135phi"><span data-tag="varname" id="varname-iph-oow-9i8" class="varname"><i>value</i></span></p>
+              </td>
+              <td id="entry-vdm-gl1-hx3" rowspan="1" colspan="1">
+                <p id="cd3d065035eiq">数值。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="ba395a2032df6">返回值类型</h3>
+        <p data-tag="p" id="p-829-kdp-mnu" class="p">boolean<span class="help-letter-space"></span>类型。</p>
+        <h3 id="c489467032r1u">示例</h3>
+        <p id="p-bo4-8xe-sbb" data-tag="p" class="p">判断<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组[1, 2, 3]中是否包含<span class="help-letter-space"></span>2。</p>
+        <ul data-tag="ul" id="ul-en2-roz-ymf" class="ul">
+          <li data-tag="li" id="li-4b6-yfj-2re" class="li">
+            <p id="cd3f022035t0o">查询和分析语句（<a href="https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-demo-log/logsearch/nginx-access-log?encode%3Dbase64%26queryString%3DKiB8IFNFTEVDVCBqc29uX2FycmF5X2NvbnRhaW5zKCdbMSwgMiwgM10nLCAyKQ%3D%3D" id="041fb7c035krk" class="" target="_blank">调试</a>）</p><pre data-tag="codeblock" id="codeblock-trg-5xr-s19" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>* | SELECT json_array_contains('[1, 2, 3]', 2)</code></pre>
+          </li>
+          <li data-tag="li" id="li-4ht-2ze-1qm" class="li">
+            <p id="cd3f022135naf">查询和分析结果为<span class="help-letter-space"></span><b id="b-2b940fce9d6b">true</b>，表示<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组[1, 2, 3]中包含<span class="help-letter-space"></span>2。</p>
+          </li>
+        </ul>
+      </section>
+      <section class="section" data-tag="section" id="section-jjn-dv3-4y9" data-type="section">
+        <h2 data-tag="title" id="title-wgk-n93-ekt" class="title">json_array_get<span class="help-letter-space"></span>函数</h2>
+        <p data-tag="p" id="p-zx1-2mj-xks" class="p">json_array_get<span class="help-letter-space"></span>函数用于获取<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组下标对应的元素。</p>
+        <h3 id="d8aba91035k3q">语法</h3><pre data-tag="codeblock" id="codeblock-9lu-p64-kn7" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>json_array_get(x, index)</code></pre>
+        <h3 id="00a4d0903586b">参数说明</h3>
+        <table id="table-5bx-rgp-lqf" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+          <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+          <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-3oy-4pj-tor">
+              <td id="concept-afg-4lq-zdb-entry-6ta-mm6-2k2" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="cd40d6e035dtm"><b>参数</b></p>
+              </td>
+              <td id="concept-afg-4lq-zdb-entry-btx-w8d-vpz" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="cd40d6e135z7k"><b>说明</b></p>
+              </td>
+            </tr>
+            <tr id="row-gnc-9af-2qd">
+              <td id="entry-95m-y2v-jug" rowspan="1" colspan="1">
+                <p id="cd40d6e235r8q"><span data-tag="varname" id="varname-fxo-ojx-1ce" is-conref="true" class="varname"><i>x</i></span></p>
+              </td>
+              <td id="entry-1xg-948-deu" rowspan="1" colspan="1">
+                <p id="cd41c140358lm">参数值为<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组。</p>
+              </td>
+            </tr>
+            <tr id="row-8tt-7it-3w2">
+              <td id="entry-ly0-o42-j0v" rowspan="1" colspan="1">
+                <p id="cd41c14135sa3"><span data-tag="varname" id="varname-00w-p3j-ac9" class="varname"><i>index</i></span></p>
+              </td>
+              <td id="entry-o46-uox-tsh" rowspan="1" colspan="1">
+                <p id="cd41c14235cp9">JSON<span class="help-letter-space"></span>下标，从<span class="help-letter-space"></span>0<span class="help-letter-space"></span>开始。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="8f7b4830359fy">返回值类型</h3>
+        <p data-tag="p" id="p-zxb-5bz-zfh" class="p">varchar<span class="help-letter-space"></span>类型。</p>
+        <h3 id="a86574b035g4i">示例</h3>
+        <p data-tag="p" id="p-d21-7ym-szy" class="p">返回<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组["a", [3, 9], "c"]下标为<span class="help-letter-space"></span>1<span class="help-letter-space"></span>的元素。</p>
+        <ul data-tag="ul" id="ul-pq6-4c5-99d" class="ul">
+          <li data-tag="li" id="li-az2-eb3-kcc" class="li">
+            <p id="cd439600358g8">查询和分析语句（<a href="https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-demo-log/logsearch/nginx-access-log?encode%3Dbase64%26queryString%3DKiB8IFNFTEVDVCBqc29uX2FycmF5X2dldCgnWyJhIiwgWzMsIDldLCAiYyJdJywgMSk%3D" id="1c86aa8035iyy" class="" target="_blank">调试</a>）</p><pre data-tag="codeblock" id="codeblock-okc-gnm-e74" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>* | SELECT json_array_get('["a", [3, 9], "c"]', 1)</code></pre>
+          </li>
+          <li data-tag="li" id="li-gq5-3gd-unn" class="li">
+            <p id="cd439601354w5">查询和分析结果为<b id="b-939646bee359">[3,9]</b>。</p>
+          </li>
+        </ul>
+      </section>
+      <section class="section" data-tag="section" id="section-697-fqh-nng" data-type="section">
+        <h2 data-tag="title" id="title-9r3-79a-oju" class="title">json_array_length<span class="help-letter-space"></span>函数</h2>
+        <p data-tag="p" id="p-fut-gew-157" class="p">json_array_length<span class="help-letter-space"></span>函数用于计算<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组中元素的数量。</p>
+        <h3 id="dae8a0c035bvh">语法</h3><pre data-tag="codeblock" id="codeblock-b36-bfu-js5" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>json_array_length(x)</code></pre>
+        <h3 id="03ff1f20351s2">参数说明</h3>
+        <table id="table-pt0-c40-21v" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+          <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+          <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-9sn-sfn-za9">
+              <td id="concept-afg-4lq-zdb-entry-r3o-24b-prx" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="cd45dff035v73"><b>参数</b></p>
+              </td>
+              <td id="concept-afg-4lq-zdb-entry-y4g-b95-a6w" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="cd45dff135hsi"><b>说明</b></p>
+              </td>
+            </tr>
+            <tr id="row-ucy-eub-rd0">
+              <td id="entry-bi0-5fo-tb1" rowspan="1" colspan="1">
+                <p id="cd45dff235iis"><span data-tag="varname" id="varname-rg4-zxj-k6a" is-conref="true" class="varname"><i>x</i></span></p>
+              </td>
+              <td id="entry-aq0-z0d-n7k" rowspan="1" colspan="1">
+                <p id="cd46ca5035048">参数值为<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="91f4aca035dwt">返回值类型</h3>
+        <p data-tag="p" id="p-ll2-nim-45r" class="p">bigint<span class="help-letter-space"></span>类型。</p>
+        <h3 id="aa377590356x8">示例</h3>
+        <ul data-tag="ul" id="ul-enc-gme-pbf" class="ul">
+          <li data-tag="li" id="li-6cx-f65-9tj" class="li">
+            <p id="cd489f1035z0j">示例<span class="help-letter-space"></span>1：计算<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-tto-h89-zv4" class="parmname">Results</span><span class="help-letter-space"></span>字段值中<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>元素的数量。</p>
+            <ul data-tag="ul" id="ul-0h2-lt1-oeb" class="ul">
+              <li data-tag="li" id="li-xa0-pj4-lcr" class="li">
+                <p id="cd489f1135xfw">字段样例</p><pre data-tag="codeblock" id="codeblock-j40-x27-ha1" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>Results:[{"EndTime":1626314920},{"FireResult":2}]</code></pre>
+              </li>
+              <li data-tag="li" id="li-8yt-dtz-cgj" class="li">
+                <p id="cd489f1235559">查询和分析语句</p><pre data-tag="codeblock" id="codeblock-70d-62i-gsh" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>* | SELECT json_array_length(Results)</code></pre>
+              </li>
+              <li data-tag="li" id="li-ymy-5b1-gd4" class="li">
+                <p id="cd489f13356yl">查询和分析结果为<span class="help-letter-space"></span><b id="b-18d289ffa18b">2</b>。</p>
+              </li>
+            </ul>
+          </li>
+          <li data-tag="li" id="li-unh-ctb-ahx" class="li">
+            <p id="cd489f1435mdg">示例<span class="help-letter-space"></span>2：计算<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-ab5-5dm-31u" class="parmname">time</span><span class="help-letter-space"></span>字段值中<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>元素的数量。</p>
+            <ul data-tag="ul" id="ul-voe-wsf-ggr" class="ul">
+              <li data-tag="li" id="li-hej-fkd-tpo" class="li">
+                <p id="cd489f15356vw">字段样例</p><pre data-tag="codeblock" id="codeblock-aog-69d-fak" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>time:["time_local","request_time","upstream_response_time"]</code></pre>
+              </li>
+              <li data-tag="li" id="li-kgg-7y2-ofa" class="li">
+                <p id="cd489f1635imk">查询和分析语句</p><pre data-tag="codeblock" id="codeblock-os9-eks-0aq" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>* | SELECT json_array_length(time)</code></pre>
+              </li>
+              <li data-tag="li" id="li-cug-fon-35x" class="li">
+                <p id="cd48c62035o9r">查询和分析结果为<span class="help-letter-space"></span><b id="b-3d793f6610e3">3</b>。</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section class="section" data-tag="section" id="section-uqz-6yr-bun" data-type="section">
+        <h2 data-tag="title" id="title-ych-qwi-jml" class="title">json_extract<span class="help-letter-space"></span>函数</h2>
+        <div class="p" data-tag="p" id="p-2a0-66q-ghq">
+          <p id="cd48c62135a48">json_extract<span class="help-letter-space"></span>函数用于从<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象或<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组中提取一组<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>值（数组或对象）。</p>
+          <div data-tag="note" id="note-wn6-51z-y2z" type="notice" class="note note-notice"><div class="note-icon-wrapper"><i class="icon-note note notice"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+            <p id="cd48c622359ae">针对非法的<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>类型，json_extract<span class="help-letter-space"></span>函数会报错，建议您使用<span class="help-letter-space"></span>json_extract_scalar<span class="help-letter-space"></span>函数。</p>
+          </div></div>
+        </div>
+        <h3 id="e4a65f3035i7i">语法</h3><pre data-tag="codeblock" id="codeblock-gus-d3e-qy4" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>json_extract(x, json_path)</code></pre>
+        <h3 id="06774b1035cnz">参数说明</h3>
+        <table id="table-dg5-n4r-rat" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+          <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+          <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-x35-0wk-sbz">
+              <td id="concept-afg-4lq-zdb-entry-zbk-wxn-zed" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="cd4a73d035yk7"><b>参数</b></p>
+              </td>
+              <td id="concept-afg-4lq-zdb-entry-il5-zyp-2m3" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="cd4a73d135oqz"><b>说明</b></p>
+              </td>
+            </tr>
+            <tr id="row-rr4-vqy-o9q">
+              <td id="entry-jys-wzy-aoa" rowspan="1" colspan="1">
+                <p id="cd4a73d235zw9"><span data-tag="varname" id="varname-ica-ahy-1uk" is-conref="true" class="varname"><i>x</i></span></p>
+              </td>
+              <td id="entry-j3o-b9v-u9c" rowspan="1" colspan="1">
+                <p id="cd4b5e3035dxv">参数值为<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象或<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组。</p>
+              </td>
+            </tr>
+            <tr id="row-bw4-iq2-5cg">
+              <td id="entry-mvl-378-xlo" rowspan="1" colspan="1">
+                <p id="cd4b5e3135wtd"><span data-tag="varname" id="varname-y39-7sa-e6o" class="varname"><i>json_path</i></span></p>
+              </td>
+              <td id="entry-eja-a6l-4mu" rowspan="1" colspan="1">
+                <p id="cd4b5e3235aav">JSON<span class="help-letter-space"></span>路径，格式为$.store.book[0].title。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/faq-about-the-query-and-analysis-of-json-logs#section-9ap-q5v-6zq" id="xref-0jl-665-ajg" title="" class="xref">如何设置<span class="help-letter-space"></span>json_path</a>。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="951ceeb035ex2">返回值类型</h3>
+        <p data-tag="p" id="p-kuc-nsr-26x" class="p">JSON<span class="help-letter-space"></span>格式的<span class="help-letter-space"></span>string<span class="help-letter-space"></span>类型。</p>
+        <h3 id="acf70ac03504m">示例</h3>
+        <section id="5f60db5d68jt7" outputclass="tabbed-content-box" data-tag="tabbed-content-box" class="tabbed-content-box section">
+          <section id="45f88d3b0cq62" class="section">
+            <h4 id="57895ce45e548"><b>SQL</b></h4>
+            <p id="d43841c8dakmj">获取<code data-tag="code" code-type="xCode" id="16d39931184dp" class="code">Results</code>字段中<code data-tag="code" code-type="xCode" id="de4c8fc52f1n9" class="code">EndTime</code>字段的值。</p>
+            <ul data-tag="ul" id="ul-jil-4x3-lej" class="ul">
+              <li data-tag="li" id="li-r11-xi0-kw7" class="li">
+                <p id="cd4d0be035709">字段样例</p><pre data-tag="codeblock" id="codeblock-nox-1rc-jib" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>Results:[{"EndTime":1626314920},{"FireResult":2}]</code></pre>
+              </li>
+              <li data-tag="li" id="li-omy-jm9-4km" class="li">
+                <p id="cd4d32f035187">查询和分析语句</p><pre data-tag="codeblock" id="codeblock-x6o-fg6-pho" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>* | SELECT json_extract(Results, '$.0.EndTime')</code></pre>
+              </li>
+              <li data-tag="li" id="li-b5g-5ek-w4z" class="li">
+                <p id="cd4d32f135we7">查询和分析结果为<span class="help-letter-space"></span><b id="b-e18493d76424">1626314920</b>。</p>
+              </li>
+            </ul>
+          </section>
+          <section id="7db15a2619jsg" class="section">
+            <h4 id="f3a7e48479fdv"><b>SPL</b></h4>
+            <p id="e2f76868a0iw8">获取<code data-tag="code" code-type="xCode" id="6f76bc3321wg2" class="code">Results</code>字段中<code data-tag="code" code-type="xCode" id="ea1fb6cd2edyx" class="code">EndTime</code>字段的值。</p>
+            <ul id="e511963145n94">
+              <li id="b98286037816v">
+                <p id="b1feb72839eer">字段样例</p>
+              </li>
+            </ul><pre uuid="lqaw3gbd7c0j85anu3w" data-tag="codeblock" outputclass="language-plaintext" id="4cf69788e78gx" code-type="xCode" class="pre codeblock language-plaintext"><code>Results:[{"EndTime":1626314920},{"FireResult":2}]</code></pre>
+            <ul id="71ae2aa631sad">
+              <li id="280999d6d6v31">
+                <p id="55f0d814ff2gn">SPL<span class="help-letter-space"></span>语句</p>
+              </li>
+            </ul><pre uuid="lq4vjmgn6au2uorkyl9" data-tag="codeblock" outputclass="language-plaintext" id="340e5cec75op9" code-type="xCode" class="pre codeblock language-plaintext"><code>* | extend a = json_extract(Results, '$.0.EndTime')</code></pre>
+            <ul id="f7338d0707726">
+              <li id="65734803e8360">
+                <p id="907fdf8fe5fc7">SPL<span class="help-letter-space"></span>结果</p>
+              </li>
+            </ul>
+            <p id="p-5f0f03204413">返回结果中，字段<span class="help-letter-space"></span><b id="b-9b6a9dfc98ca">a</b><span class="help-letter-space"></span>的值为<span class="help-letter-space"></span><b id="b-9a5faea56606">1626314920</b>。</p>
+          </section>
+        </section>
+      </section>
+      <section id="section-8jj-a1y-076" data-type="section" data-tag="section" class="section">
+        <h2 data-tag="title" id="title-s0z-x0u-9gm" class="title">json_extract_scalar<span class="help-letter-space"></span>函数</h2>
+        <p data-tag="p" id="p-e5b-2lz-24n" class="p">json_extract_scalar<span class="help-letter-space"></span>函数用于从<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象或<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组中提取一组标量值（字符串、整数或布尔值）。</p>
+        <h3 id="eb4f3c8035lm4">语法</h3><pre data-tag="codeblock" id="codeblock-jwz-9to-100" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>json_extract_scalar(x, json_path)</code></pre>
+        <h3 id="0893745035zqm">参数说明</h3>
+        <table id="table-tvy-w2m-7ig" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+          <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+          <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-0y3-rhi-1mj">
+              <td id="concept-afg-4lq-zdb-entry-mge-2t0-r51" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="cd4f07b035brh"><b>参数</b></p>
+              </td>
+              <td id="concept-afg-4lq-zdb-entry-z5y-74w-5qt" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="cd4f07b135d99"><b>说明</b></p>
+              </td>
+            </tr>
+            <tr id="row-0hm-wid-w6l">
+              <td id="entry-p4r-7tq-7r4" rowspan="1" colspan="1">
+                <p id="cd4f07b235q4w"><span data-tag="varname" id="varname-jzq-1se-82z" is-conref="true" class="varname"><i>x</i></span></p>
+              </td>
+              <td id="entry-8u2-6ef-ikj" rowspan="1" colspan="1">
+                <p id="cd5019203508d">参数值为<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象或<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组。</p>
+              </td>
+            </tr>
+            <tr id="row-oo9-pvl-pmv">
+              <td id="entry-zf6-j1w-x9y" rowspan="1" colspan="1">
+                <p id="cd501921352ke"><span data-tag="varname" id="varname-ij1-e4z-6ty" class="varname"><i>json_path</i></span></p>
+              </td>
+              <td id="entry-ovv-2su-3gl" rowspan="1" colspan="1">
+                <p id="cd501922351r7">JSON<span class="help-letter-space"></span>路径，格式为$.store.book[0].title。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/faq-about-the-query-and-analysis-of-json-logs#section-9ap-q5v-6zq" id="xref-r1f-qox-hzc" title="" class="xref">如何设置<span class="help-letter-space"></span>json_path</a>。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="97a19dc0352l6">返回值类型</h3>
+        <p data-tag="p" id="p-arj-yx6-ig4" class="p">varchar<span class="help-letter-space"></span>类型。</p>
+        <h3 id="af4d56d035urf">示例</h3>
+        <section id="a74df8f58fu44" outputclass="tabbed-content-box" data-tag="tabbed-content-box" class="tabbed-content-box section">
+          <section id="1702900b79gzh" class="section">
+            <h4 id="07448f0983nye"><b>SQL</b></h4>
+            <p data-tag="p" id="p-w87-10a-ejo" class="p">从<code data-tag="code" code-type="xCode" id="51274012fabto" class="code">Results</code>字段中获取<code data-tag="code" code-type="xCode" id="d60c8563f9nev" class="code">RawResultCount</code>字段的值，并将该值转换为<span class="help-letter-space"></span>bigint<span class="help-letter-space"></span>类型进行求和。</p>
+            <ul data-tag="ul" id="344682b05brhe" class="ul">
+              <li data-tag="li" id="3036d231692yx" class="li">
+                <p id="159285ff8dkx3">字段样例</p><pre data-tag="codeblock" id="codeblock-mq1-kuo-0ut" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>Results:[{"EndTime":1626314920},{"RawResultCount":1}]</code></pre>
+              </li>
+              <li data-tag="li" id="li-ifd-ag9-boa" class="li">
+                <p id="cd51c6d135xwj">查询和分析语句</p><pre data-tag="codeblock" id="codeblock-jlg-zp0-b7t" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>* | SELECT sum(cast(json_extract_scalar(Results,'$.1.RawResultCount') AS bigint) )</code></pre>
+              </li>
+              <li data-tag="li" id="li-px0-660-kw6" class="li">
+                <p id="cd51c6d235h7u">查询和分析结果为<span class="help-letter-space"></span><b id="b-22dd9f7f60fd">288</b>。</p>
+              </li>
+            </ul>
+          </section>
+          <section id="5849399286xo6" class="section">
+            <h4 id="94f50d78654sw"><b>SPL</b></h4>
+            <p jc="left" uuid="lqdjb08t5g8f7ilkr9v" id="61e33e5909zen" style="text-align:left">从<code data-tag="code" code-type="xCode" id="f75c36244az1f" class="code">Results</code>字段中获取<code data-tag="code" code-type="xCode" id="ede40e4705j1y" class="code">RawResultCount</code>字段的值。</p>
+            <ul id="46e3404bed7e9">
+              <li id="15443f9a24oqj">
+                <p id="7b04ebbe1bxja">字段样例 </p>
+              </li>
+            </ul><pre uuid="lqdjcazja0qmat142dd" data-tag="codeblock" outputclass="language-plaintext" id="bb49d6913779z" code-type="xCode" class="pre codeblock language-plaintext"><code>Results:[{"EndTime":1626314920},{"RawResultCount":1}]</code></pre>
+            <ul id="f189dbdd9bihd">
+              <li id="873cc72e90d6v">
+                <p id="e60ef855f8pwb">SPL<span class="help-letter-space"></span>语句</p>
+              </li>
+            </ul><pre uuid="lqdjcazkz1fizwy7wd" data-tag="codeblock" outputclass="language-plaintext" id="cdd2ecd665858" code-type="xCode" class="pre codeblock language-plaintext"><code>* | extend a = json_extract_scalar(Results, '$.1.RawResultCount')</code></pre>
+            <ul id="5ecb0154b4k6z">
+              <li id="6ca1be84021u3">
+                <p id="88c5076bffk72">SPL<span class="help-letter-space"></span>结果中，字段<span class="help-letter-space"></span><b id="b-5f6cd58b11f8">a</b><span class="help-letter-space"></span>的值为<span class="help-letter-space"></span><b id="b-542739f2c5ca">1</b>。</p>
+              </li>
+            </ul>
+          </section>
+        </section>
+      </section>
+      <section id="362158526d8q1" class="section">
+        <h2 uuid="m4uwdtnatuplacgzsb" id="94a3473db5kio">json_extract_bool<span class="help-letter-space"></span>函数</h2>
+        <p id="a1a1302b28ri2">json_extract_bool<span class="help-letter-space"></span>函数用于从<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象或<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组中提取<span class="help-letter-space"></span>boolean<span class="help-letter-space"></span>值，提取失败返回<code data-tag="code" code-type="xCode" id="f105511fa8taq" class="code">null</code>。</p>
+        <h3 id="95e3bc3c8deqe">语法</h3><pre data-tag="codeblock" id="fbfb55ca5dp0c" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>json_extract_bool(x, json_path)</code></pre>
+        <h3 id="4a4758f45bdyl">参数说明</h3>
+        <table id="719ec42831wms" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+          <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+          <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+          <tbody class="tbody">
+            <tr id="cfe1dd41521j3">
+              <td id="73462a5c79drd" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p id="8d7b779b7fvrb"><b>参数</b></p>
+              </td>
+              <td id="aea4b1ddafgcz" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p id="005559f4620gb"><b>说明</b></p>
+              </td>
+            </tr>
+            <tr id="5f1e1ec0fdsrx">
+              <td id="76b9c44bda5tq" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="77591ca6ed4uf"><span data-tag="varname" id="68630d8d8ai8r" is-conref="true" class="varname"><i>x</i></span></p>
+              </td>
+              <td id="944489cd2cbuy" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="1e3954dca05fm">参数值为<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>类型。</p>
+              </td>
+            </tr>
+            <tr id="f322867340tqf">
+              <td id="ec318c5c68kdg" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="d6e0c7f986x00"><span data-tag="varname" id="662aa176397mn" class="varname"><i>json_path</i></span></p>
+              </td>
+              <td id="c5e242803akq7" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="ba694218c4bm3">JSON<span class="help-letter-space"></span>路径，格式为$.store.book[0].title。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/faq-about-the-query-and-analysis-of-json-logs#section-9ap-q5v-6zq" id="c3ad20a617axa" title="" class="xref">如何设置<span class="help-letter-space"></span>json_path</a>。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="e44c71e865e6e">返回值类型</h3>
+        <p data-tag="p" id="06474ba7e38l5" class="p">boolean<span class="help-letter-space"></span>类型。</p>
+        <h3 id="dbb09a0730863">示例</h3>
+        <p data-tag="p" id="a65be34008k6k" class="p">从<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组<code data-tag="code" code-type="xCode" id="c3a390f1c8q0j" class="code">Results</code>中提取<span class="help-letter-space"></span>boolean<span class="help-letter-space"></span>值。</p>
+        <ul data-tag="ul" id="ccaaccdf2d52v" class="ul">
+          <li data-tag="li" id="430198700azmw" class="li">
+            <p id="4af1e5e0353fc">字段样例</p><pre data-tag="codeblock" id="codeblock-3zh-pvk-blm" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>Results:[{"ret":true},{"status":FALSE}]</code></pre>
+          </li>
+          <li id="7a922fc2dfn9e">
+            <p id="940ecc359ci2m">查询和分析语句</p><pre data-tag="codeblock" id="23acd80807f70" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>* | SELECT json_extract_bool(Results, '$.0.ret')</code></pre>
+          </li>
+          <li data-tag="li" id="00f2472b7eric" class="li">
+            <p id="c123350742va7">查询和分析结果</p>
+            <p id="p-60b7d8ace89c">返回结果为<span class="help-letter-space"></span><b id="b-5d336a3f08e1">true</b>。</p>
+          </li>
+        </ul>
+      </section>
+      <section id="5b2df973f3gr3" class="section">
+        <h2 uuid="m4uwdtnatuplacgzsb" id="6f36cac779mbk">json_extract_long<span class="help-letter-space"></span>函数</h2>
+        <p id="bd02bda4a7bwa">json_extract_long<span class="help-letter-space"></span>函数用于从<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象或<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组中提取<span class="help-letter-space"></span>bigint<span class="help-letter-space"></span>值，提取失败返回<code data-tag="code" code-type="xCode" id="6a69e8726civk" class="code">null</code>。</p>
+        <h3 id="e29526dd27vqm">语法</h3><pre data-tag="codeblock" id="89681785ddono" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>json_extract_long(x, json_path)</code></pre>
+        <h3 id="50fd93f777stv">参数说明</h3>
+        <table id="14574a82a604o" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+          <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+          <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+          <tbody class="tbody">
+            <tr id="ce8862a716y48">
+              <td id="d37e4a3931qu4" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p id="6828b4f0fcwb1"><b>参数</b></p>
+              </td>
+              <td id="599c18967f7am" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p id="19401a7a24cqi"><b>说明</b></p>
+              </td>
+            </tr>
+            <tr id="51a65d923c8xc">
+              <td id="4b22c76de4vbt" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="8b1d14eb47loj"><span data-tag="varname" id="b69fd113c9hmd" is-conref="true" class="varname"><i>x</i></span></p>
+              </td>
+              <td id="68c78efdb0rm3" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="84d98b2d72x4x">参数值为<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>类型。</p>
+              </td>
+            </tr>
+            <tr id="728fe490fenic">
+              <td id="142a1ec5d7yq0" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="8c28f976b092h"><span data-tag="varname" id="008bf37ae6n2t" class="varname"><i>json_path</i></span></p>
+              </td>
+              <td id="5472d3aa2fp4z" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="d5333bcfbc3l2">JSON<span class="help-letter-space"></span>路径，格式为$.store.book[0].title。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/faq-about-the-query-and-analysis-of-json-logs#section-9ap-q5v-6zq" id="cd558dccd7y2e" title="" class="xref">如何设置<span class="help-letter-space"></span>json_path</a>。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="b7554b758chad">返回值类型</h3>
+        <p data-tag="p" id="7fc5ffa4584zj" class="p">bigint<span class="help-letter-space"></span>类型。</p>
+        <h3 id="665a0418d884e">示例</h3>
+        <p data-tag="p" id="0dae89ab19duv" class="p">从<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组<code data-tag="code" code-type="xCode" id="27349697f85zw" class="code">Results</code>中提取<span class="help-letter-space"></span>bigint<span class="help-letter-space"></span>值。</p>
+        <ul data-tag="ul" id="37d1fe90d4r8p" class="ul">
+          <li data-tag="li" id="628054a5d8hq4" class="li">
+            <p id="235a5bede84sl">字段样例</p><pre data-tag="codeblock" id="ff31dedf4adpa" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>Results:[{"EndTime":1626314920},{"FireResult":2}]</code></pre>
+          </li>
+          <li id="cd98d45cabjyj">
+            <p id="b3d96aa4aboeh">查询和分析语句</p><pre data-tag="codeblock" id="14ebcf8aa8rmj" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>* | SELECT json_extract_long(Results, '$.0.EndTime')</code></pre>
+          </li>
+          <li data-tag="li" id="3d0592c7aa38o" class="li">
+            <p id="02764941202me">查询和分析结果</p>
+            <p id="p-1c37ebf825ea">返回结果为<span class="help-letter-space"></span><b id="b-0a671d0226c5">1626314920</b>。</p>
+          </li>
+        </ul>
+      </section>
+      <section id="8858b03ab3b34" class="section">
+        <h2 uuid="m4uwdtnatuplacgzsb" id="b4bb6aa72dx4c">json_extract_double<span class="help-letter-space"></span>函数</h2>
+        <p id="716d3a5fdef24">json_extract_double<span class="help-letter-space"></span>函数用于从<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象或<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组中提取<span class="help-letter-space"></span>double<span class="help-letter-space"></span>值，提取失败返回<code data-tag="code" code-type="xCode" id="35546c7c84vzd" class="code">null</code>。</p>
+        <h3 id="4efa4a7e6coh7">语法</h3><pre data-tag="codeblock" id="283feefbb273x" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>json_extract_double(x, json_path)</code></pre>
+        <h3 id="305a5c36daw9g">参数说明</h3>
+        <table id="3730c70f007kj" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+          <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+          <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+          <tbody class="tbody">
+            <tr id="eb44279b2474i">
+              <td id="32496f578f0f9" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p id="f084efcf6cmht"><b>参数</b></p>
+              </td>
+              <td id="2bc7e38f3dm87" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p id="a1a4e558e6ulc"><b>说明</b></p>
+              </td>
+            </tr>
+            <tr id="9efccfc01fvf5">
+              <td id="95d9cda54bqrh" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="60be7a2eeezmw"><span data-tag="varname" id="873c882b79m12" is-conref="true" class="varname"><i>x</i></span></p>
+              </td>
+              <td id="ce3434fc9erri" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="bd92f91645myp">参数值为<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>类型。</p>
+              </td>
+            </tr>
+            <tr id="b72c05740f3tg">
+              <td id="0879753b41yxy" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="a9f902d3c40qq"><span data-tag="varname" id="6286a605e0qfa" class="varname"><i>json_path</i></span></p>
+              </td>
+              <td id="094322ef49gni" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="9f9e909852ahz">JSON<span class="help-letter-space"></span>路径，格式为$.store.book[0].title。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/faq-about-the-query-and-analysis-of-json-logs#section-9ap-q5v-6zq" id="3eac0149f1igu" title="" class="xref">如何设置<span class="help-letter-space"></span>json_path</a>。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="07d8831313ynb">返回值类型</h3>
+        <p data-tag="p" id="228a27688e6kc" class="p">double<span class="help-letter-space"></span>类型。</p>
+        <h3 id="158e693f4244c">示例</h3>
+        <p data-tag="p" id="a73cf256a1xxb" class="p">从<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组<code data-tag="code" code-type="xCode" id="b7a8a7e160z5b" class="code">Results</code>中提取<span class="help-letter-space"></span>double<span class="help-letter-space"></span>值。</p>
+        <ul data-tag="ul" id="76ae833238co3" class="ul">
+          <li data-tag="li" id="6c8d3c9be7pbz" class="li">
+            <p id="303cad8933d32">字段样例</p><pre data-tag="codeblock" id="657255d67ebnh" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>Results:[{"EndTime":1626314920},{"FireResult":2}]</code></pre>
+          </li>
+          <li id="08046235765uc">
+            <p id="f2cf8961258e8">查询和分析语句</p><pre data-tag="codeblock" id="f452cd962cagh" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>* | SELECT json_extract_double(Results, '$.0.EndTime')</code></pre>
+          </li>
+          <li data-tag="li" id="e5c10e5ec519r" class="li">
+            <p id="1029f20708fe5">查询和分析结果</p>
+            <p id="p-0ada11acf680">返回结果为<span class="help-letter-space"></span><b id="b-521d14877c51">1626314920.0</b>。</p>
+          </li>
+        </ul>
+      </section>
+      <section class="section" data-tag="section" id="section-tfz-3s3-mac" data-type="section">
+        <h2 data-tag="title" id="title-vul-hvo-xy2" class="title">json_format<span class="help-letter-space"></span>函数</h2>
+        <p data-tag="p" id="p-58i-2nu-x16" class="p">json_format<span class="help-letter-space"></span>函数用于将<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>类型转化成字符串类型。</p>
+        <h3 id="ee72005035i18">语法</h3><pre data-tag="codeblock" id="codeblock-jif-qxo-msb" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>json_format(x)</code></pre>
+        <h3 id="0b29135035qjh">参数说明</h3>
+        <table id="table-f8n-ntb-aog" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+          <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+          <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-24n-ggk-vlx">
+              <td id="concept-afg-4lq-zdb-entry-qvq-zxa-rwe" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="cd53c2a0358o6"><b>参数</b></p>
+              </td>
+              <td id="concept-afg-4lq-zdb-entry-rh1-281-oi4" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="cd53e9b035fl0"><b>说明</b></p>
+              </td>
+            </tr>
+            <tr id="row-od9-hfp-fuf">
+              <td id="entry-6o4-dql-bfj" rowspan="1" colspan="1">
+                <p id="cd53e9b135wkf"><span data-tag="varname" id="varname-u4s-7m9-vh4" is-conref="true" class="varname"><i>x</i></span></p>
+              </td>
+              <td id="entry-gqq-sex-f82" rowspan="1" colspan="1">
+                <p id="cd54d41035syh">参数值为<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>类型。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="9a30d42035jrv">返回值类型</h3>
+        <p data-tag="p" id="p-pu7-xwp-zb9" class="p">varchar<span class="help-letter-space"></span>类型。</p>
+        <h3 id="b154e6a035u64">示例</h3>
+        <p data-tag="p" id="p-478-ba7-aem" class="p">将<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组[1,2,3]转换为字符串[1, 2, 3]。</p>
+        <ul data-tag="ul" id="ul-fde-d3e-cvy" class="ul">
+          <li data-tag="li" id="li-j5a-jft-tvb" class="li">
+            <p id="cd5681c035ivh">查询和分析语句（<a href="https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-demo-log/logsearch/nginx-access-log?encode%3Dbase64%26queryString%3DKiB8IFNFTEVDVCBqc29uX2Zvcm1hdChqc29uX3BhcnNlKCdbMSwgMiwgM10nKSk%3D" id="07c70937028hx" class="" target="_blank">调试</a>）</p><pre data-tag="codeblock" id="codeblock-11i-zpv-3y0" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>* | SELECT json_format(json_parse('[1, 2, 3]'))</code></pre>
+          </li>
+          <li data-tag="li" id="li-13q-7lo-hn4" class="li">
+            <p id="cd5681c135ra9">查询和分析结果为<b id="b-614f44cd6a6f">[1,2,3]</b>。</p>
+          </li>
+        </ul>
+      </section>
+      <section class="section" data-tag="section" id="section-c1r-zzw-94y" data-type="section">
+        <h2 data-tag="title" id="title-r11-5sq-t7c" class="title">json_parse<span class="help-letter-space"></span>函数</h2>
+        <p data-tag="p" id="p-vv9-gi5-5vr" class="p">json_parse<span class="help-letter-space"></span>函数只用于将字符串类型转化成<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>类型，判断是否符合<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>格式。一般情况下，json_parse<span class="help-letter-space"></span>函数使用意义不大，如果您需要从<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>中提取值，建议使用<span class="help-letter-space"></span>json_extract_scalar<span class="help-letter-space"></span>函数。</p>
+        <h3 id="f118b65035sm9">语法</h3><pre data-tag="codeblock" id="codeblock-tqc-d6e-nj3" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>json_parse(x)</code></pre>
+        <h3 id="7f5f982035u7n">参数说明</h3>
+        <table id="table-tps-j32-8ow" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+          <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+          <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-8yh-dxq-5oz">
+              <td id="concept-afg-4lq-zdb-entry-eq4-crr-is6" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="cd582f70358ka"><b>参数</b></p>
+              </td>
+              <td id="concept-afg-4lq-zdb-entry-g8f-h8a-7lg" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="cd582f7135ucx"><b>说明</b></p>
+              </td>
+            </tr>
+            <tr id="row-xai-at8-ej8">
+              <td id="entry-lg1-9wm-vpy" rowspan="1" colspan="1">
+                <p id="cd582f723514r"><span data-tag="varname" id="varname-zpr-0es-x3t" is-conref="true" class="varname"><i>x</i></span></p>
+              </td>
+              <td id="entry-nfp-jb5-ipu" rowspan="1" colspan="1">
+                <p id="cd5919d035pwf">参数值为字符串。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="52f4e6f034uk0">返回值类型</h3>
+        <p data-tag="p" id="p-m2z-csa-f7h" class="p">JSON<span class="help-letter-space"></span>类型。</p>
+        <h3 id="b37073a0353ls">示例</h3>
+        <section id="8f6dad2489eqm" outputclass="tabbed-content-box" data-tag="tabbed-content-box" class="tabbed-content-box section">
+          <section id="5d1b7491b4em0" class="section">
+            <h4 id="df30a40e9eqdq"><b>SQL</b></h4>
+            <ul data-tag="ul" id="2bc2fb4fc970a" class="ul">
+              <li data-tag="li" id="815a56fb6damj" class="li">
+                <p id="2bbb8fe531x25">示例<span class="help-letter-space"></span>1</p>
+                <p data-tag="p" id="p-5d6-0r9-5ea" class="p">将字符串[1,2,3]转换为<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组[1, 2, 3]。</p>
+                <ul data-tag="ul" id="ul-e9n-5f7-nbd" class="ul">
+                  <li data-tag="li" id="li-73g-rj2-4jm" class="li">
+                    <p id="cd5aee9135rzw">查询和分析语句（<a href="https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-demo-log/logsearch/nginx-access-log?encode%3Dbase64%26queryString%3DICogfCBTRUxFQ1QganNvbl9wYXJzZSgnWzEsIDIsIDNdJyk%3D" id="4cbacb90380wn" class="" target="_blank">调试</a>）</p><pre data-tag="codeblock" id="codeblock-3a9-jui-3tr" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code> * | SELECT json_parse('[1, 2, 3]')</code></pre>
+                  </li>
+                  <li data-tag="li" id="li-2p5-xdd-b7d" class="li">
+                    <p id="cd5aee92354da">查询和分析结果为<b id="b-fec37ca16865">[1,2,3]</b>。</p>
+                  </li>
+                </ul>
+              </li>
+              <li data-tag="li" id="li-9ec-fv8-6q2" class="li">
+                <p id="cd5aee9335bk0">示例<span class="help-letter-space"></span>2</p>
+                <p data-tag="p" id="p-bq8-fsl-euu" class="p">提取<code data-tag="code" code-type="xCode" id="af2ecd789czhl" class="code">logging</code>字段中的各个子字段。</p>
+                <ul data-tag="ul" id="ul-z49-6xi-9tv" class="ul">
+                  <li data-tag="li" id="li-3bp-kvd-2ae" class="li">
+                    <p id="cd5aee9435nhs">字段样例如下，logging<span class="help-letter-space"></span>字段为<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象，包含<span class="help-letter-space"></span>message、processName、thread、threadName、module、funcName、levelName、process<span class="help-letter-space"></span>等键值对。</p>
+                  </li>
+                  <li data-tag="li" id="li-q2j-2o9-eg1" class="li">
+                    <p id="cd5b15a035ipg">查询和分析语句（<a href="https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-demo-log/logsearch/internal-etl-log?encode%3Dbase64%26queryString%3DKnwgU0VMRUNUIG1hcF9rZXlzKHRyeV9jYXN0KGpzb25fcGFyc2UobG9nZ2luZykgQVMgbWFwKHZhcmNoYXIsIGpzb24pKSk%3D" id="58ce3d0035rg9" class="" target="_blank">调试</a>）</p><pre data-tag="codeblock" id="codeblock-xs9-mo4-18u" outputclass="language-plaintext" height="48.44379425048828" code-type="xCode" class="pre codeblock language-plaintext"><code>*| SELECT map_keys(try_cast(json_parse(logging) AS map(varchar, json)))</code></pre>
+                  </li>
+                  <li data-tag="li" id="li-nw6-4ov-w0b" class="li">
+                    <p id="cd5b15a135l1w">查询和分析结果为<b id="b-e7c04c4b17a1">["funcName","levelname","message","module","process","processName","thread","threadName"]</b>。</p>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section id="f60fa38377lrh" class="section">
+            <h4 id="15b177291048i"><b>SPL</b></h4>
+            <p jc="left" uuid="lqdlomo6poy7lc8o3i" id="c0478cce94pu3" style="text-align:left">将字符串<code data-tag="code" code-type="xCode" id="53f969c5f6hth" class="code">[1,2,3]</code>转换为<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组<code data-tag="code" code-type="xCode" id="47b7475f7d53f" class="code">[1, 2, 3]</code>。</p>
+            <ul id="e70b2a0448vdq">
+              <li id="bf58acc94bjer">
+                <p id="a47fc7b25fs4u">SPL<span class="help-letter-space"></span>语句</p>
+              </li>
+            </ul><pre uuid="lqdlomo6inv7k9ye7d" data-tag="codeblock" outputclass="language-plaintext" id="ed3eb807d9a3q" code-type="xCode" class="pre codeblock language-plaintext"><code> * | extend a = json_parse('[1, 2, 3]')</code></pre>
+            <ul id="7c6e9cbacaseb">
+              <li id="05cf0687d23wx">
+                <p id="00fd8909c9ygq">SPL<span class="help-letter-space"></span>结果</p>
+              </li>
+            </ul>
+            <p id="p-242296961cf5">返回结果中，字段<span class="help-letter-space"></span><b id="b-5ed83f2cfa83">a</b><span class="help-letter-space"></span>的值为<b id="b-8208e185f4c0">[1, 2, 3]</b>。</p>
+          </section>
+        </section>
+      </section>
+      <section class="section" data-tag="section" id="section-shf-55f-i4u" data-type="section">
+        <h2 data-tag="title" id="title-lqp-5m0-5g9" class="title">json_size<span class="help-letter-space"></span>函数</h2>
+        <p data-tag="p" id="p-5ft-62f-geb" class="p">json_size<span class="help-letter-space"></span>函数用于计算<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象或<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组中元素的数量。</p>
+        <h3 id="f40b426035owu">语法</h3><pre data-tag="codeblock" id="codeblock-xz0-ive-rvb" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>json_size(x, json_path)</code></pre>
+        <h3 id="8250015035nb8">参数说明</h3>
+        <table id="table-prv-uc9-1n2" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+          <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+          <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-qg7-8rj-jrr">
+              <td id="concept-afg-4lq-zdb-entry-liy-idt-e53" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="cd5cc35035qy1"><b>参数</b></p>
+              </td>
+              <td id="concept-afg-4lq-zdb-entry-sp4-gww-dxm" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="cd5cc351358qc"><b>说明</b></p>
+              </td>
+            </tr>
+            <tr id="row-bua-ikw-t2t">
+              <td id="entry-5ek-2d6-7gg" rowspan="1" colspan="1">
+                <p id="cd5cc35235rlz"><span data-tag="varname" id="varname-nxn-xgd-gee" is-conref="true" class="varname"><i>x</i></span></p>
+              </td>
+              <td id="entry-cq0-zdx-uai" rowspan="1" colspan="1">
+                <p id="cd5dadb03545v">参数值为<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象或<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数组。</p>
+              </td>
+            </tr>
+            <tr id="row-vsr-kk6-sgy">
+              <td id="entry-a3f-3mk-1nw" rowspan="1" colspan="1">
+                <p id="cd5dadb135s6j"><span data-tag="varname" id="varname-fzt-r3z-tcf" class="varname"><i>json_path</i></span></p>
+              </td>
+              <td id="entry-q2t-0xn-nif" rowspan="1" colspan="1">
+                <p id="cd5dadb2358bi">JSON<span class="help-letter-space"></span>路径，格式为$.store.book[0].title。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/faq-about-the-query-and-analysis-of-json-logs#section-9ap-q5v-6zq" id="xref-3wq-0f3-23t" title="" class="xref">如何设置<span class="help-letter-space"></span>json_path</a>。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="9d62650035kid">返回值类型</h3>
+        <p data-tag="p" id="p-6gg-bs9-w4w" class="p">bigint<span class="help-letter-space"></span>类型。</p>
+        <h3 id="b5f87e1035idh">示例</h3>
+        <p data-tag="p" id="p-3cu-98i-h0q" class="p">返回<code data-tag="code" code-type="xCode" id="e60f1f99a7a0r" class="code">status</code>字段中元素的数量。</p>
+        <ul data-tag="ul" id="ul-whp-p5p-00l" class="ul">
+          <li data-tag="li" id="li-2c8-s4y-pb2" class="li">
+            <p id="cd5f827035teo">字段样例</p><pre data-tag="codeblock" id="codeblock-ff5-kqs-jse" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>Results:[{"EndTime":1626314920,"FireResult":2,"RawResults":[{"_col0":"1094"}]}]</code></pre>
+          </li>
+          <li data-tag="li" id="li-sgd-161-maz" class="li">
+            <p id="cd5f8271357l4">查询和分析语句</p><pre data-tag="codeblock" id="codeblock-vhc-3cl-jmv" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>* | SELECT json_size(Results, '$.0.RawResults')</code></pre>
+          </li>
+          <li data-tag="li" id="li-khz-pah-ghg" class="li">
+            <p id="cd5f82723562h">查询和分析结果为<span class="help-letter-space"></span><b id="b-0141764dcc76">1</b>。</p>
+          </li>
+        </ul>
+      </section>
+      <section id="021ed56c02bgm" class="section">
+        <h2 uuid="mam7xam6s58pr1t2kqj" id="591090b841nql"><b>json_object_flatten<span class="help-letter-space"></span>函数</b></h2>
+        <p uuid="mamc2tv459vos35sf2m" id="182d0b63bauv6">json_object_flatten<span class="help-letter-space"></span>函数用于将<span class="help-letter-space"></span>JSON 对象压缩为单层键值结构。</p>
+        <h3 uuid="mamc2tv6mght3p7pxbr" id="ae5ac45f62dtf"><b>语法</b></h3><pre code-type="xCode" id="ac8f8b0bdc14m" index="0" data-tag="codeblock" outputclass="language-sql" class="pre codeblock language-sql"><code>json_object_flatten(x)</code></pre>
+        <h3 uuid="mamc2tv64p4fkq7pv97" id="4d4723c590cmp"><b>参数说明</b></h3>
+        <table id="6eeba9dbe628e" tablewidth="747" tablecolswidth="283 464" autofit="true" class="table">
+          <colgroup colwidth="0.76*" style="width:37.88%"></colgroup>
+          <colgroup colwidth="1.24*" style="width:62.12%"></colgroup>
+          <tbody class="tbody">
+            <tr id="e6fc43e185awc">
+              <td id="988ed89cfdkz9" rowspan="1" style="background-color:#e5e5e5;vertical-align:top" colspan="1">
+                <p uuid="mamc2tv77qlvccsmtlo" id="280fc8db9fgih"><b>参数</b></p>
+              </td>
+              <td id="e71c4a9747k1e" rowspan="1" style="background-color:#e5e5e5;vertical-align:top" colspan="1">
+                <p uuid="mamc2tv76adnsdi1u7l" id="07fd089c0fpdo"><b>说明</b></p>
+              </td>
+            </tr>
+            <tr id="bdab91c3fcdzc" style="height:45px">
+              <td id="a6dd969dbf8ml" rowspan="1" style="vertical-align:top" colspan="1">
+                <p uuid="mamc2tv7p38yffy0qlk" id="5c406bb530vqp">x</p>
+              </td>
+              <td id="7178a4989c34e" rowspan="1" style="vertical-align:top" colspan="1">
+                <p uuid="mamc2tv7lf05oy97wfe" id="718f08e925ksw">参数值为<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>类型。如果<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象非<span class="help-letter-space"></span>Object，则返回<span class="help-letter-space"></span>null。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 uuid="mamc2tv72l0c598jc3p" id="aa86688f80qs7"><b>返回值类型</b></h3>
+        <p uuid="mamc2tv7hmvow2a2esd" id="76b3c54ba6u2q">map(varchar, varchar)类型。</p>
+        <h3 uuid="mamc2tv8ti8musgrzs" id="48cab76fa5054"><b>示例</b></h3>
+        <p jc="left" uuid="mamc2tv8z0xjt1tg28" id="1c714c36a8aj3" style="text-align:left">将<span class="help-letter-space"></span>content<span class="help-letter-space"></span>字段<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>内容压缩为<span class="help-letter-space"></span>1<span class="help-letter-space"></span>层键值对。</p>
+        <ul id="295b51f045gnr">
+          <li id="8718e4f835qrz">
+            <p id="e8b667fde04lg">字段样例</p><pre code-type="xCode" id="9dce7f34d4pj1" index="0" data-tag="codeblock" outputclass="language-plaintext" class="pre codeblock language-plaintext"><code>content: '{"Time":1626314920,"Info":[{"count":"1"}],"Body":"this is test"}'</code></pre>
+          </li>
+          <li id="3fe952b794y03">
+            <p id="5ccd222b428ex">查询和分析语句</p><pre code-type="xCode" id="2432e637a3zbn" index="0" data-tag="codeblock" outputclass="language-sql" class="pre codeblock language-sql"><code>select json_object_flatten(content) as data from  (values '{"Time":1626314920,"Info":[{"count":"1"}],"Body":"this is test"}') t (content) limit 1;</code></pre>
+          </li>
+          <li id="12bbcb7f5dqxh">
+            <p id="5cf2ebe304one">输出数据</p>
+            <p id="p-150a8108c11a">如下，data<span class="help-letter-space"></span>字段的值为<b id="b-738251f18f0f">{"Time":"1626314920","Info":"[{\"count\":\"1\"}]","Body":"this is test"}</b>，即原始<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象已被压缩为单层键值结构。</p>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/sls/date-and-time-functions-1" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：日期和时间函数</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/sls/regular-expression-functions-1" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：正则式函数<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

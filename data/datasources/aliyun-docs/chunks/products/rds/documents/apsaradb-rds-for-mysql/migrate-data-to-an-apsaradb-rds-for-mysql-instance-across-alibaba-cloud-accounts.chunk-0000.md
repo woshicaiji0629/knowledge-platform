@@ -1,0 +1,2 @@
+# 通过专线、VPN网关或智能接入网关接入的自建MySQL迁移至其他账号下的RDS实例
+本文介绍如何使用数据传输服务DTS（Data Transmission Service），将通过专线、VPN网关、智能接入网关接入的自建MySQL迁移至其他云账号下的RDS MySQL或RDS MySQL Serverless实例。DTS支持结构迁移、全量数据迁移以及增量数据迁移，同时使用这三种迁移类型可以实现在自建应用不停服的情况下，平滑地完成数据库迁移。

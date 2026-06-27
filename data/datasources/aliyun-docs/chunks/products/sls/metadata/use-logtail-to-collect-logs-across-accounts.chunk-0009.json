@@ -1,0 +1,14 @@
+{
+  "id": "sls:use-logtail-to-collect-logs-across-accounts:9",
+  "document_id": "sls:use-logtail-to-collect-logs-across-accounts",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "如何通过Logtail跨阿里云账号采集服务器日志-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/use-logtail-to-collect-logs-across-accounts",
+  "chunk_index": 9,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/use-logtail-to-collect-logs-across-accounts.chunk-0009.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/use-logtail-to-collect-logs-across-accounts.md",
+  "heading_path": "将其他阿里云账号ECS上的日志集中采集到日志服务 > 相关操作 > 技术内容",
+  "char_count": 201
+}

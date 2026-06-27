@@ -1,0 +1,681 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    通过配置低频存储、归档存储降低日志存储成本。-日志服务(SLS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/sls/data-tiered-storage-overview">
+  <meta name="keywords" content="热存储,低频存储,归档存储">
+  <meta name="description" content="日志服务提供智能分层存储功能，您可以按需将数据进行热存储、低频存储和归档存储。降低您长周期存储的成本，并同时保证日志的查询、分析、可视化、告警、投递和加工等能力不受影响。本文将为您介绍日志服务数据存储生命周期管理。">
+  <meta name="last-modified" content="2026-05-20T20:39:06+08:00">
+  <meta name="date" content="2023-08-29T03:46:00+08:00">
+  <meta property="og:title" content="管理智能存储分层">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/sls/data-tiered-storage-overview">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="日志服务提供智能分层存储功能，您可以按需将数据进行热存储、低频存储和归档存储。降低您长周期存储的成本，并同时保证日志的查询、分析、可视化、告警、投递和加工等能力不受影响。本文将为您介绍日志服务数据存储生命周期管理。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/sls/data-tiered-storage-overview",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "2399161",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/sls/data-tiered-storage-overview","nodeId":null,"data":{"lastModifiedTime":1779280746000,"keywords":"热存储,低频存储,归档存储","docTitle":"管理智能存储分层","language":"zh","seoTitle":"通过配置低频存储、归档存储降低日志存储成本。-日志服务(SLS)-阿里云帮助中心","title":"管理智能存储分层","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"main-2358181\">\n    \n    \n    <p id=\"a1fc7fc816ift\" data-tag=\"shortdesc\" class=\"shortdesc\">日志服务提供智能分层存储功能，您可以按需将数据进行热存储、低频存储和归档存储。降低您长周期存储的成本，并同时保证日志的查询、分析、可视化、告警、投递和加工等能力不受影响。本文将为您介绍日志服务数据存储生命周期管理。</p>\n    <div id=\"a2c89667b7d5e\" data-tag=\"body\" class=\"body\">\n      <h2 id=\"53dab7a5a1f6a\"><b>什么是智能存储分层</b></h2>\n      <section id=\"792e96a994k71\" class=\"section\">\n        <h3 jc=\"left\" data-tag=\"p\" id=\"a1fc7fc716btz\" data-spm-anchor-id=\"a2c4g.11186623.0.i5.3e1d2288YEIeOR\" style=\"text-align:left\" class=\"p\"><b>存储类型</b></h3>\n        <table id=\"027684133d7d9\" tablewidth=\"100\" tablecolswidth=\"17.72 82.28\" autofit=\"true\" class=\"table\">\n          <colgroup colwidth=\"0.35*\" style=\"width:17.72%\"></colgroup>\n          <colgroup colwidth=\"1.65*\" style=\"width:82.28%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"0c31987dceep4\">\n              <td id=\"87812ad6afxz5\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"435e6a0e203k4\"><b>类型</b></p>\n              </td>\n              <td id=\"a0aad1b52ejoi\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"aaf56093348ij\"><b>说明</b></p>\n              </td>\n            </tr>\n            <tr id=\"8732c4c635b86\">\n              <td id=\"8ecaa82e99jfz\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"5f5f68420151b\">热存储</p>\n              </td>\n              <td id=\"d7476d3f37vy3\" rowspan=\"1\" colspan=\"1\">\n                <ul id=\"e55cc48745qso\">\n                  <li id=\"a585ba795cg8u\">\n                    <p id=\"0d28dd5311xz8\">热存储是一种可扩展、高可用的数据存储方案，用于存储经常被访问的数据。</p>\n                  </li>\n                  <li id=\"936889d9e6wvo\">\n                    <p id=\"5b28be9d9b6xa\">支持数据实时访问，提供高性能的日志查询和分析功能，适用于数据高频查询分析等业务场景。</p>\n                  </li>\n                </ul>\n              </td>\n            </tr>\n            <tr id=\"58db08bb898du\">\n              <td id=\"dc2227ebe5srd\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6161427398jaa\">低频存储</p>\n              </td>\n              <td id=\"494f2d3946ou4\" rowspan=\"1\" colspan=\"1\">\n                <ul id=\"d21e526adfuiv\">\n                  <li id=\"b96c3fe357sen\">\n                    <p id=\"1f1fcad0fe02j\">低频存储（原冷存储）是一种能降低您长周期存储的成本的存储类型，同时保证日志的查询、分析、可视化、告警、投递和加工等能力不受影响。</p>\n                  </li>\n                  <li id=\"759ad9f4d7tcl\">\n                    <p id=\"af2c708e19702\">适用于较低查询分析频率，问题回溯等业务场景。</p>\n                  </li>\n                </ul>\n              </td>\n            </tr>\n            <tr id=\"46195aec2dljc\">\n              <td id=\"aaecea7ad58wx\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"205487b2f9csb\">归档存储</p>\n              </td>\n              <td id=\"7bf7a59b2al4u\" rowspan=\"1\" colspan=\"1\">\n                <ul id=\"e9b8af1a329q9\">\n                  <li id=\"0d07bc5112131\">\n                    <p id=\"6183c479bciwv\">归档存储在现有热存储、低频存储的基础上，为您提供更低成本且可查询、分析的长期数据存储方案。</p>\n                  </li>\n                  <li id=\"3503d2af58q0k\">\n                    <p id=\"044776d609mg6\">适用于数据审计长期保存的业务场景。</p>\n                  </li>\n                </ul>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <h3 id=\"2a7e08a016vgd\">存储周期说明</h3>\n        <div type=\"important\" id=\"7bdf7940a5ukj\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n          <ul id=\"7e83dd6cf2d3g\">\n            <li id=\"40b209f957kn9\">\n              <p id=\"9d4b3e76caf2p\">热存储数据保存时间、低频存储数据保存时间和归档存储数据保存时间的总和，等于数据保存时间。</p>\n            </li>\n            <li id=\"68cdf130af17f\">\n              <p id=\"83f1ee886d9ij\">数据保存时间<span class=\"help-letter-space\"></span>3650<span class=\"help-letter-space\"></span>天表示永久保存，超过<span class=\"help-letter-space\"></span>3650<span class=\"help-letter-space\"></span>天的也会继续保存，计入归档存储数据层。查看数据保存时间可参考<a href=\"https://help.aliyun.com/zh/sls/manage-a-logstore#title-jxo-uhe-uyh\" id=\"0b9eb94ce0l7x\" title=\"\" class=\"xref\">删除指定日志/设置日志保存时间</a>。</p>\n            </li>\n          </ul>\n        </div></div>\n        <section id=\"90c4b7266334r\" class=\"section\">\n          <ul id=\"1c8d408c975jg\">\n            <li id=\"25a10d2218bzs\">\n              <p id=\"c9a50bcb8cpa4\">数据保存时间在<span class=\"help-letter-space\"></span>3650<span class=\"help-letter-space\"></span>天以内</p>\n              <p id=\"7ff10deb17oi8\"><b>场景<span class=\"help-letter-space\"></span>1</b>：数据保存时间为<span class=\"help-letter-space\"></span>90<span class=\"help-letter-space\"></span>天，将热存储数据保存<span class=\"help-letter-space\"></span>30<span class=\"help-letter-space\"></span>天后自动转换为归档存储，归档存储数据保存<span class=\"help-letter-space\"></span>60<span class=\"help-letter-space\"></span>天后自动删除。</p>\n              <p id=\"efd579a740iwg\"><b>场景<span class=\"help-letter-space\"></span>2</b>：数据保存时间为<span class=\"help-letter-space\"></span>97<span class=\"help-letter-space\"></span>天，将热存储数据保存<span class=\"help-letter-space\"></span>7<span class=\"help-letter-space\"></span>天后自动转换为低频存储，低频存储数据保存<span class=\"help-letter-space\"></span>30<span class=\"help-letter-space\"></span>天后自动转换为归档存储，归档存储数据保存<span class=\"help-letter-space\"></span>60<span class=\"help-letter-space\"></span>天后自动删除。</p>\n              <hetu type=\"flowchart\" id=\"7071248a59uhj\" versionid=\"CAEQTRiBgMDbns3GiBkiIGNiMWMzOWJjMjU5YjRhMGE4M2Q4MzVlZGQzMzE4YTUz\" uuid=\"4559873_20240801102521.603\" hetuid=\"faf277df-852b-479e-b894-55204dd2719f\"><img src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5470829771/CAEQTRiBgMDbns3GiBkiIGNiMWMzOWJjMjU5YjRhMGE4M2Q4MzVlZGQzMzE4YTUz4559873_20240801102521.603.svg\" alt=\"image\" class=\"image break flowchart hetu\"></hetu>\n            </li>\n            <li id=\"def5a2eb74qea\">\n              <p id=\"7ea8cb900fxr9\">数据保存时间在<span class=\"help-letter-space\"></span>3650<span class=\"help-letter-space\"></span>天及以上</p>\n              <p id=\"c3e32517cbabd\"><b>场景<span class=\"help-letter-space\"></span>3</b>：数据保存时间为<span class=\"help-letter-space\"></span>3650<span class=\"help-letter-space\"></span>天，热存储层数据保存时间为<span class=\"help-letter-space\"></span>30<span class=\"help-letter-space\"></span>天，全部转换为归档存储，则归档存储数据保存时间需设置为<span class=\"help-letter-space\"></span>3650 - 30 = 3620<span class=\"help-letter-space\"></span>天。同时，因为数据保存时间<span class=\"help-letter-space\"></span>3650<span class=\"help-letter-space\"></span>天表示永久保存，超过<span class=\"help-letter-space\"></span>3620<span class=\"help-letter-space\"></span>天的也会继续保存，计入归档存储数据层。</p>\n              <p id=\"38c5f5a570w3i\"><b>场景<span class=\"help-letter-space\"></span>4</b>：数据保存时间为<span class=\"help-letter-space\"></span>3650<span class=\"help-letter-space\"></span>天，热存储层数据保存时间为<span class=\"help-letter-space\"></span>7<span class=\"help-letter-space\"></span>天，低频存储数据保存时间为<span class=\"help-letter-space\"></span>30<span class=\"help-letter-space\"></span>天，则归档存储数据保存时间需设置为<span class=\"help-letter-space\"></span>3650 - 7- 30 = 3613<span class=\"help-letter-space\"></span>天。同时，因为数据保存时间<span class=\"help-letter-space\"></span>3650<span class=\"help-letter-space\"></span>天表示永久保存，超过<span class=\"help-letter-space\"></span>3613<span class=\"help-letter-space\"></span>天的也会继续保存，计入归档存储数据层。</p>\n              <hetu type=\"flowchart\" id=\"19e1e7bffafof\" versionid=\"CAEQTRiBgMCDovuAiRkiIDBlMDljNWQ2ZDY4OTRjZTY5YzE3NGJjNzUxMjUzODYw\" uuid=\"4559873_20240801140634.961\" hetuid=\"77d552a0-a303-4a89-a8d0-8f73202a6061\"><img src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5470829771/CAEQTRiBgMCDovuAiRkiIDBlMDljNWQ2ZDY4OTRjZTY5YzE3NGJjNzUxMjUzODYw4559873_20240801140634.961.svg\" alt=\"image\" class=\"image break flowchart hetu\"></hetu>\n            </li>\n          </ul>\n        </section>\n        <h3 id=\"2532c2c4cf1cy\"><b>存储类型对比</b></h3>\n        <table id=\"997c04c017vyl\" tablewidth=\"710\" tablecolswidth=\"83 167 161 151 148\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.58*\" style=\"width:11.69%\"></colgroup>\n          <colgroup colwidth=\"1.18*\" style=\"width:23.52%\"></colgroup>\n          <colgroup colwidth=\"1.13*\" style=\"width:22.68%\"></colgroup>\n          <colgroup colwidth=\"1.06*\" style=\"width:21.27%\"></colgroup>\n          <colgroup colwidth=\"1.04*\" style=\"width:20.85%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"997c52e117e9m\">\n              <td id=\"997c2bd117gv7\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"2\">\n                <p id=\"997c2bd017eky\"><b>存储类型</b></p>\n              </td>\n              <td id=\"997c2bd517u5y\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"b418270017r52\"><b>热存储</b></p>\n              </td>\n              <td id=\"997c2bd717ty3\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"b176c83017w7j\"><b>低频存储</b></p>\n              </td>\n              <td id=\"997c52e017m90\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"aec2cbc0172t0\"><b>归档存储</b></p>\n              </td>\n            </tr>\n            <tr id=\"997ca10017za2\">\n              <td id=\"997c52e317osc\" rowspan=\"1\" colspan=\"2\">\n                <p id=\"997c52e217ryz\">适用场景</p>\n              </td>\n              <td id=\"997c52e717cvg\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"997c52e617gru\">高频、高性能的查询与分析</p>\n              </td>\n              <td id=\"997c52e917hlh\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"997c52e817hpj\">问题回溯定位场景</p>\n              </td>\n              <td id=\"997c52eb17p68\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"997c52ea17a5k\">数据审计场景</p>\n              </td>\n            </tr>\n            <tr id=\"997cc81517phn\">\n              <td id=\"997ca102179h3\" rowspan=\"1\" colspan=\"2\">\n                <p id=\"997ca10117nqy\">费用</p>\n              </td>\n              <td id=\"997cc810179o8\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"9c706b9019qsq\"><span data-tag=\"ph\" id=\"ph-4d6-ymk-ayk\" props=\"china\" data-cond-props=\"china\" class=\"ph\">0.0115<span class=\"help-letter-space\"></span>元/GB/天</span></p>\n              </td>\n              <td id=\"997cc812171u1\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"a840412019bbn\"><span data-tag=\"ph\" id=\"ph-e5t-i0u-355\" props=\"china\" data-cond-props=\"china\" class=\"ph\">0.005<span class=\"help-letter-space\"></span>元/GB/天</span></p>\n              </td>\n              <td id=\"997cc81417738\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"997cc81317phq\"><span data-tag=\"ph\" id=\"422b54a019qkl\" props=\"china\" data-cond-props=\"china\" class=\"ph\">0.0017<span class=\"help-letter-space\"></span>元/GB/天</span></p>\n                <p id=\"48ebffb019y5f\"></p>\n              </td>\n            </tr>\n            <tr id=\"997cc82017jey\">\n              <td id=\"997cc81717hcj\" rowspan=\"2\" colspan=\"1\">\n                <p id=\"997cc81617v29\">性能</p>\n              </td>\n              <td id=\"997cc819177t7\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"997cc818179gl\">时延（十亿级规模）</p>\n              </td>\n              <td id=\"997cc81b17ysl\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"997cc81a17dsx\">十至百毫秒</p>\n              </td>\n              <td id=\"997cc81d17upo\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f113aac017tyu\">百毫秒至秒</p>\n              </td>\n              <td id=\"997cc81f17sg2\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"997cc81e17yzk\">分钟</p>\n              </td>\n            </tr>\n            <tr id=\"997cef2a17bru\">\n              <td id=\"997cef2317q17\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"997cef2217tg8\">并发（Project<span class=\"help-letter-space\"></span>级别）</p>\n              </td>\n              <td id=\"997cef2517vqo\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"997cef241791d\">查询并发数：100</p>\n                <p id=\"014b474017bj9\">分析并发数：2</p>\n              </td>\n              <td id=\"997cef2717szq\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"997cef2617aed\">查询并发数：10</p>\n                <p id=\"0c5ada1017soa\">分析并发数：2</p>\n              </td>\n              <td id=\"997cef2917rs3\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"997cef2817hja\">查询并发数：1</p>\n                <p id=\"135e0c60176tn\">分析并发数：1</p>\n              </td>\n            </tr>\n            <tr id=\"997d163117ezg\">\n              <td id=\"997cef2c178rb\" rowspan=\"2\" colspan=\"2\">\n                <p id=\"997cef2b17303\">优势</p>\n              </td>\n              <td id=\"997cef3017n4v\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"997cef2f17xk1\">快速高并发查询与分析</p>\n              </td>\n              <td id=\"997cef32174i9\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"997cef31173gk\">低频率查询与分析，高性价比</p>\n              </td>\n              <td id=\"997d163017vv7\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"997cef3317ini\">偶尔查询与分析，低成本</p>\n              </td>\n            </tr>\n            <tr id=\"2c21ec3017dm7\" style=\"height:42px\">\n              <td id=\"2c22134517180\" rowspan=\"1\" colspan=\"3\">\n                <p id=\"2c22134417zx0\">多种存储类型间可通过数据生命周期管理功能实现数据自动分层：</p>\n                <ul id=\"a3c6208217mlo\">\n                  <li id=\"a3c6208017la6\">\n                    <p id=\"862e4a7017f9z\">配置简便，无需编写脚本或手动迁移数据。</p>\n                  </li>\n                  <li id=\"a3c6479017zr8\">\n                    <p id=\"8f172cb017flq\">低频存储和归档存储数据与热存储数据一样可实时访问，无需手动取回或修改应用，无任何取回费用。</p>\n                  </li>\n                </ul>\n              </td>\n            </tr>\n            <tr id=\"c8757860173ga\">\n              <td id=\"c875786217vsm\" rowspan=\"2\" colspan=\"1\">\n                <p id=\"c875786117ut4\">存储时间限制</p>\n              </td>\n              <td id=\"c875786417nj6\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"c875786317prh\"><a href=\"https://help.aliyun.com/zh/sls/pay-as-you-go\" id=\"ed186c0872pw8\" title=\"\" class=\"xref\">按使用功能计费</a></p>\n              </td>\n              <td id=\"c875786617iry\" rowspan=\"1\" colspan=\"1\">\n                <ul id=\"d0565c5217qa6\">\n                  <li id=\"d0565c5017egi\">\n                    <p id=\"c875786517v14\">至少需保存<span class=\"help-letter-space\"></span>7<span class=\"help-letter-space\"></span>天热存储后可转为低频存储。</p>\n                  </li>\n                  <li id=\"d056836017jj9\">\n                    <p id=\"c5b31fe017cq9\">至少需保存<span class=\"help-letter-space\"></span>30<span class=\"help-letter-space\"></span>天热存储后可转为归档存储。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"c8757868176wh\" rowspan=\"2\" colspan=\"1\">\n                <p id=\"c8757867173tf\">至少保存<span class=\"help-letter-space\"></span>30<span class=\"help-letter-space\"></span>天低频存储后可转为归档存储。</p>\n              </td>\n              <td id=\"c875786a17g4d\" rowspan=\"2\" colspan=\"1\">\n                <p id=\"c875786917hq7\">最少存储时间为<span class=\"help-letter-space\"></span>60<span class=\"help-letter-space\"></span>天。</p>\n              </td>\n            </tr>\n            <tr id=\"c775467017lst\">\n              <td id=\"c775467417ejk\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"c7754673174el\"><a href=\"https://help.aliyun.com/zh/sls/billing-per-amount-of-data-written\" id=\"3032c6f635zg4\" title=\"\" class=\"xref\">按写入数据量计费</a></p>\n              </td>\n              <td id=\"c7756d8117f97\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"c7756d8017swq\">30<span class=\"help-letter-space\"></span>天热存储免费权益</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </section>\n      <h2 id=\"4c636b3b84gi0\"><b>存储分层的转换流程</b></h2>\n      <section id=\"8ef4f8311b5d2\" class=\"section\">\n        <hetu type=\"flowchart\" id=\"60cd275e9acke\" versionid=\"CAEQTRiBgIDelsLKiBkiIGYwZDNhZGFkODM3NDRmZTFiZjIyYTZjNDY4YzUzNmY2\" uuid=\"4559873_20240731172738.296\" hetuid=\"73dcb8ea-0d1a-43cf-8a3d-86ced9036a37\"><img src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5470829771/CAEQTRiBgIDelsLKiBkiIGYwZDNhZGFkODM3NDRmZTFiZjIyYTZjNDY4YzUzNmY24559873_20240731172738.296.svg\" alt=\"image\" class=\"image break flowchart hetu\"></hetu>\n        <p id=\"60837fe772wz5\">三种存储类型之间可以互相转换，存储类型转换说明参见下表。</p>\n        <table id=\"aba95e4289iot\" tablewidth=\"690\" tablecolswidth=\"74 616\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.21*\" style=\"width:10.72%\"></colgroup>\n          <colgroup colwidth=\"1.79*\" style=\"width:89.28%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"3792017a12i00\">\n              <td id=\"7a99ba38a6m74\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p jc=\"left\" id=\"ca9e058f4buwu\" style=\"text-align:left\"><b>序号&nbsp;</b></p>\n              </td>\n              <td id=\"fd2dc12c7ai9g\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"a417683f94330\"><b>说明</b></p>\n              </td>\n            </tr>\n            <tr id=\"d8bdb2aed3b6f\">\n              <td id=\"bac9608f626a0\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"28c9b72f69sd0\">1</p>\n              </td>\n              <td id=\"762e528789qbh\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"9bc11ab755725\">热存储数据至少需要保存<span class=\"help-letter-space\"></span>7<span class=\"help-letter-space\"></span>天才能转换为低频存储。</p>\n              </td>\n            </tr>\n            <tr id=\"9f467f489bqbk\">\n              <td id=\"3b8c339e056ro\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"096f4b762dq0j\">2</p>\n              </td>\n              <td id=\"e277bc8034cvt\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"9de19cd652w3w\">热存储数据至少需要保存<span class=\"help-letter-space\"></span>30<span class=\"help-letter-space\"></span>天才能转换为归档存储。</p>\n              </td>\n            </tr>\n            <tr id=\"4fa468d6646cf\">\n              <td id=\"6d8fd8bac9i3n\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"5abb29755dnpx\">3</p>\n              </td>\n              <td id=\"cb1862b181vzk\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"e3ad1b94d0me5\">低频存储数据至少需要保存<span class=\"help-letter-space\"></span>30<span class=\"help-letter-space\"></span>天才能转换为归档存储。</p>\n              </td>\n            </tr>\n            <tr id=\"350717f7d7ezi\">\n              <td id=\"b445aa47ebhxh\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"bdb2acf59cazq\">4</p>\n              </td>\n              <td id=\"3587bbb1c3wmq\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"9dd9d3f6b9bss\">通过修改热存储数据保存时间，将低频存储数据转回热存储中。</p>\n              </td>\n            </tr>\n            <tr id=\"0da1cd5841hnl\">\n              <td id=\"aae3b5c7260am\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"2c4732b45650m\">5</p>\n              </td>\n              <td id=\"64411e80afqac\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"2264fe490bg86\">通过修改低频储数据保存时间，将归档存储数据转回低频存储中。</p>\n              </td>\n            </tr>\n            <tr id=\"bc0d14099e32i\">\n              <td id=\"176ece22637b5\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"40aee3e2b9ppw\">6</p>\n              </td>\n              <td id=\"e1561427390o3\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"89b4d506edmdn\">通过修改热存储数据保存时间，实现将归档存储数据转回热存储中。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </section>\n      <h2 id=\"3ab65ca19am5s\"><b>管理存储分层</b></h2>\n      <section id=\"19984d77fbsm9\" data-tag=\"tabbed-content-box\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n        <section id=\"339efb2b9c7om\" class=\"section\">\n          <h2 id=\"a7f418f63fcj4\">控制台</h2>\n          <ol data-tag=\"steps\" id=\"c6da923af231g\" class=\"steps\">\n            <li data-tag=\"step\" id=\"2620255303cnt\" is-conref=\"true\" class=\"step\"><p id=\"6a7cc970501ga\"><span data-tag=\"ph\" id=\"ph-q0d-de9-ecs\" class=\"ph\">登录<span data-tag=\"ph\" id=\"ph-i3r-pp7-fzx\" props=\"china intl\" data-cond-props=\"china intl\" class=\"ph\"><a href=\"https://sls.console.aliyun.com\" id=\"xref-ivv-0k8-uct\" class=\"\" target=\"_blank\">日志服务控制台</a></span>。</span></p></li>\n            <li data-tag=\"step\" id=\"45ce44bfa0e2q\" is-conref=\"true\" class=\"step\"><p id=\"6a7cf08050vb9\">在<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>列表区域，单击目标<span class=\"help-letter-space\"></span>Project。</p><p id=\"bda792c94bjlg\"><img id=\"fffd2c11d911u\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8797827471/p955209.png\" alt=\"image\" placement=\"break\" class=\"image break\"></p></li>\n            <li data-tag=\"step\" id=\"90b82c71e9vlt\" class=\"step\">\n              <p id=\"983a70e773ifu\">在<span data-tag=\"menucascade\" id=\"26096ad019sz4\" class=\"menucascade\"><b id=\"260cc630194p8\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">日志存储</b> &gt; <b id=\"28f58e40192xp\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">日志库</b></span>页签中，单击目标<span class=\"help-letter-space\"></span>LogStore<span class=\"help-letter-space\"></span>对应的<span data-tag=\"cmd\" id=\"cmd-p6g-w07-qtl\" class=\"cmd\"><img data-tag=\"image\" id=\"image-5vb-6jb-etd\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4172085261/p292908.png\" alt=\"LogStore\" placement=\"inline\" class=\"image inline\"></span>图标，然后单击<b id=\"1405e7f019tsq\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">修改</b>。</p>\n            </li>\n            <li data-tag=\"step\" id=\"8836ec9789ro8\" class=\"step\">\n              <p id=\"38adc450c8u6j\">在<span class=\"help-letter-space\"></span><b id=\"0032fc4019v5s\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">Logstore<span class=\"help-letter-space\"></span>属性</b>页面，单击<b id=\"01954b601942t\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">修改</b>。配置开启<b id=\"ad42616019n85\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">智能存储分层</b>，然后单击<b id=\"297fc962a2rwl\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">保存</b>。</p>\n              <p id=\"550db92522ihm\">开启智能存储分层功能的相关参数如下表所示，其他参数说明请参见<a href=\"https://help.aliyun.com/zh/sls/manage-a-logstore#section-v52-2jx-ndb\" id=\"5b009b7da0yjq\" title=\"\" class=\"xref\">创建基础<span class=\"help-letter-space\"></span>LogStore</a>。</p>\n              <table id=\"593f976879jyy\" tablewidth=\"654\" tablecolswidth=\"147 507\" autofit=\"false\" class=\"table\">\n                <colgroup colwidth=\"0.45*\" style=\"width:22.48%\"></colgroup>\n                <colgroup colwidth=\"1.55*\" style=\"width:77.52%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"10d385934ddsu\">\n                    <td id=\"fdb8a87968go3\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"0ab16607c415e\"><b>参数</b></p>\n                    </td>\n                    <td id=\"612c823575cas\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"fd2652e248bmk\"><b>说明</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"e62c7b229800z\" style=\"height:240px\">\n                    <td id=\"75015be22d96h\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"0f0a6a5324j0w\"><b id=\"uicontrol-fjg-ig4-rc0\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">数据保存时间</b></p>\n                    </td>\n                    <td id=\"f1de3fc24eqeu\" rowspan=\"1\" colspan=\"1\">\n                      <ul id=\"8a588730d68ke\">\n                        <li id=\"43056fc1bc4k9\">\n                          <p id=\"bc2d0f6d3f9rg\"><b id=\"304b3448e4z3h\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">数据保存时间</b>支持设置为<b id=\"9b62672fd2oph\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">限定天数</b>和<b id=\"bc34eb413ccbk\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">永久保存</b>。</p>\n                        </li>\n                        <li id=\"8c003c1c7b28x\">\n                          <p jc=\"left\" id=\"5ed2e1f029jkk\" style=\"text-align:left\">热存储数据保存时间、低频存储数据保存时间和归档存储数据保存时间的总和，等于数据保存时间。</p>\n                        </li>\n                      </ul>\n                      <div id=\"164a8bdaaa62m\" type=\"important\" data-tag=\"note\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                        <p id=\"304c062ed0psl\">缩短数据保存时间后，会在<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>分钟内生效。 例如您原本的数据保存时间为<span class=\"help-letter-space\"></span>5<span class=\"help-letter-space\"></span>天，现修改为<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>天，则日志服务将会删除前<span class=\"help-letter-space\"></span>4<span class=\"help-letter-space\"></span>天的数据。 数据的实际删除时间最多会延迟<span class=\"help-letter-space\"></span>7<span class=\"help-letter-space\"></span>天，但延迟删除的这部分数据不会计入收费，也不会计入存储容量。</p>\n                      </div></div>\n                    </td>\n                  </tr>\n                  <tr id=\"7c1f85be6a34x\">\n                    <td id=\"fbc77a3f9afty\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"468e33920b4zx\"><b id=\"uicontrol-ob9-s5c-9s9\">智能分层存储</b></p>\n                    </td>\n                    <td id=\"ba2e92ad0fo6m\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"c4a4de51c7y1e\">打开<b id=\"uicontrol-mu1-cqi-jgg\">智能分层存储</b>开关，开启智能分层存储功能。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"feeed88246guw\">\n                    <td id=\"5765018038jrh\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"659a4ff89ck8g\"><b id=\"d5a31b101c455\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">存储策略</b></p>\n                    </td>\n                    <td id=\"a257a40c0b4rj\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"0cefc83b49tzs\">配置数据在各层的存储时间。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"e719f530e917f\">\n                    <td id=\"47ad8ab3b63rg\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"3dafca82e9bi7\"><b id=\"uicontrol-96j-a10-2ls\">热存储层数据保存</b></p>\n                    </td>\n                    <td id=\"6dd2934894j5d\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"f5c22ce177izl\">数据在<span class=\"help-letter-space\"></span>LogStore<span class=\"help-letter-space\"></span>热存储层中的存储时间。</p>\n                      <ul id=\"96d530c89afdd\">\n                        <li id=\"f67b31b4a7mgf\">\n                          <p id=\"cbd593a53c22q\">当热存储转为低频存储时，取值范围为<span class=\"help-letter-space\"></span>7～3650，单位：天。</p>\n                        </li>\n                        <li id=\"f4dfbd70192vu\">\n                          <p id=\"b4fc12a086bdk\">当热存储转为归档存储时，取值范围为<span class=\"help-letter-space\"></span>30～3650，单位：天。</p>\n                        </li>\n                      </ul>\n                      <div data-tag=\"note\" id=\"2bad105dc6bo3\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                        <ul data-tag=\"ul\" id=\"dd8eb09d6blmw\" class=\"ul\">\n                          <li data-tag=\"li\" id=\"b72e5f1812pxf\" class=\"li\">\n                            <p id=\"4ebcbd84ecu7k\">修改<b id=\"uicontrol-6lj-zb2-jvg\">热存储层数据保存</b>时间后，日志服务将在<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>分钟内生效。例如您原本的数据的热存储时间为<span class=\"help-letter-space\"></span>30<span class=\"help-letter-space\"></span>天，现修改为<span class=\"help-letter-space\"></span>40<span class=\"help-letter-space\"></span>天，则日志服务将在<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>分钟内将低频存储数据或归档存储数据转回热存储。</p>\n                          </li>\n                          <li data-tag=\"li\" id=\"3267dd6511mmd\" class=\"li\">\n                            <p id=\"0fb4aba58bvwh\"><b id=\"uicontrol-jd6-b2n-h54\">热存储层数据保存</b>时间参数值要小于<b id=\"uicontrol-76f-rxn-g2u\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">数据保存时间</b>参数值。</p>\n                          </li>\n                        </ul>\n                      </div></div>\n                    </td>\n                  </tr>\n                  <tr id=\"bb54004a89d9a\">\n                    <td id=\"1e324d742fxfa\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6b72c527ceuar\"><b id=\"d37320c01b2jr\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">低频存储数据保存</b></p>\n                    </td>\n                    <td id=\"e4eeb3490eya9\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"51b2ae42a1h85\">数据在<span class=\"help-letter-space\"></span>LogStore<span class=\"help-letter-space\"></span>低频存储层中的存储时间。</p>\n                      <p id=\"8650cfc50199w\">当低频存储转为归档存储时，取值范围为<span class=\"help-letter-space\"></span>30～3650，单位：天。</p>\n                      <div type=\"important\" id=\"3bb66f014e0vi\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                        <ul data-tag=\"ul\" id=\"bbd9caa787rqv\" class=\"ul\">\n                          <li data-tag=\"li\" id=\"d7e85d72050j7\" class=\"li\">\n                            <p id=\"f69abb558c6q2\">修改<b id=\"42a0b1131blmy\">低频存储层数据保存</b>时间后，日志服务将在<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>分钟内生效。例如您原本的数据的低频存储时间为<span class=\"help-letter-space\"></span>30<span class=\"help-letter-space\"></span>天，现修改为<span class=\"help-letter-space\"></span>40<span class=\"help-letter-space\"></span>天，则日志服务将在<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>分钟内将归档存储数据转回低频存储。</p>\n                          </li>\n                          <li data-tag=\"li\" id=\"6a7a676d125h4\" class=\"li\">\n                            <p id=\"e90e992347ky9\"><b id=\"42a0b1141bcgq\">低频存储层数据保存</b>时间参数值要小于<b id=\"42a0b1151bpnu\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">数据保存时间</b>参数值。</p>\n                          </li>\n                        </ul>\n                      </div></div>\n                    </td>\n                  </tr>\n                  <tr id=\"8c3b81cb8bh9u\">\n                    <td id=\"c50c4de3b643a\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"b390442bbe7nx\"><b id=\"08269fd01c16s\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">归档存储数据保存</b></p>\n                    </td>\n                    <td id=\"b8a9c06d89cur\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"ac924cf0aeo4g\">数据在<span class=\"help-letter-space\"></span>LogStore<span class=\"help-letter-space\"></span>归档存储层中的存储时间。取值范围为<span class=\"help-letter-space\"></span>60～3650，单位：天。当数据的存储时间超过您所配置的<b id=\"12b7be601cvv9\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">归档存储数据保存</b>时间后，数据将自动删除。</p>\n                      <div type=\"important\" id=\"b94b39cf4ezoj\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                        <p id=\"9998125b4cf5u\"><b id=\"cbb687811ewsx\">归档存储层数据保存</b>时间参数值要小于<b id=\"cbb687821euv6\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">数据保存时间</b>参数值。</p>\n                      </div></div>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </li>\n          </ol>\n        </section>\n        <section id=\"8faf3e39bb884\" class=\"section\">\n          <h2 id=\"7468790fb647y\">API</h2>\n          <ul id=\"9bf7a925629dg\">\n            <li id=\"a5971bccedjt2\">\n              <p id=\"906d35d6dbnrb\">您可以在创建<span class=\"help-letter-space\"></span>LogStore<span class=\"help-letter-space\"></span>的过程中，通过<span class=\"help-letter-space\"></span>API<span class=\"help-letter-space\"></span>调用<a href=\"https://help.aliyun.com/zh/sls/developer-reference/api-sls-2020-12-30-createlogstore\" id=\"72fbf568766h9\" title=\"\" class=\"xref\">创建<span class=\"help-letter-space\"></span>LogStore</a><span class=\"help-letter-space\"></span>传递<code data-tag=\"code\" code-type=\"xCode\" id=\"c5697037b4s2a\" class=\"code\">ttl</code>（数据保存时间）、<code data-tag=\"code\" code-type=\"xCode\" id=\"d9e0e66a46wxc\" class=\"code\">hot_ttl</code>（热存储数据保存时间）、<code data-tag=\"code\" code-type=\"xCode\" id=\"2097697126fin\" class=\"code\">infrequentAccessTTL</code>（低频存储数据保存时间）参数来配置存储分层的保留策略。</p>\n            </li>\n            <li id=\"701698c4bdhgd\">\n              <p jc=\"left\" id=\"41f754b282kjk\" style=\"text-align:left\">同样地，对于已经创建的<span class=\"help-letter-space\"></span>LogStore，您也可以通过调用<a href=\"https://help.aliyun.com/zh/sls/developer-reference/api-sls-2020-12-30-updatelogstore\" id=\"7e0699ef0fgqv\" title=\"\" class=\"xref\">更新<span class=\"help-letter-space\"></span>LogStore</a><span class=\"help-letter-space\"></span>接口，更新<code data-tag=\"code\" class=\"code inline\" code-type=\"xCode\" id=\"b9fcab5ca9pc0\">ttl</code>、<code data-tag=\"code\" class=\"code inline\" code-type=\"xCode\" id=\"a7937a44e87iv\">hot_ttl</code>和<code data-tag=\"code\" class=\"code inline\" code-type=\"xCode\" id=\"936c50e23dpug\">infrequentAccessTTL</code>参数的值，来动态调整存储分层的保留策略，以满足您对数据保留和成本控制的需求。</p>\n            </li>\n          </ul>\n        </section>\n      </section>\n      <h2 id=\"63556e1f0fcue\"><b>相关文档</b></h2>\n      <section id=\"5c84f0a31b3dt\" class=\"section\">\n        <ul id=\"7dc178b945bo0\">\n          <li id=\"159f55775c57p\">\n            <p id=\"7bf6abb3eb4fo\">管理<span class=\"help-letter-space\"></span>LogStore<span class=\"help-letter-space\"></span>相关信息请参见<a href=\"https://help.aliyun.com/zh/sls/manage-a-logstore\" id=\"c5c4bd378b0of\" title=\"\" class=\"xref\">管理<span class=\"help-letter-space\"></span>LogStore</a>。</p>\n          </li>\n          <li id=\"13973297cdlp9\">\n            <p id=\"6878f09c325ly\">分层存储数据的存储费用按照存储空间计费，数据转换不会产生费用。详细信息请参见<a href=\"https://help.aliyun.com/zh/sls/billing-overview\" id=\"0c95f04ff1lhf\" title=\"\" class=\"xref\">计费概述</a>。</p>\n          </li>\n          <li id=\"b78e4cc11bo36\">\n            <p id=\"7e34eeea01g6v\">按写入数据量计费模式下，存在<span class=\"help-letter-space\"></span>30<span class=\"help-letter-space\"></span>天免费存储额度，当开启智能分层存储后，存储费用将根据具体存储时间及当前存储类型进行计算，更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/billing-examples\" id=\"bffd86997fqv7\" title=\"\" class=\"xref\">计费案例</a>。</p>\n          </li>\n          <li id=\"52fbaff11byui\">\n            <p id=\"d94bd373e1e4a\">按使用功能计费与按写入数据量计费模式具体信息请参见<a href=\"https://help.aliyun.com/zh/sls/pay-by-volume/\" id=\"83d0987bd0tld\" title=\"\" class=\"xref\">按量付费</a>。</p>\n          </li>\n          <li id=\"1a1eb595d7189\">\n            <p id=\"dcac98bee9cdf\">日志服务提供本地冗余存储和同城冗余存储两种存储冗余类型，详细信息请参见<a href=\"https://help.aliyun.com/zh/sls/storage-redundancy\" id=\"758b83f7da9oy\" title=\"\" class=\"xref\">存储冗余</a>。</p>\n          </li>\n        </ul>\n      </section>\n    </div>\n  </main>\n\n\n\n\n</div>","path":"https://help.aliyun.com/zh/sls/data-tiered-storage-overview","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"alias":"/sls/data-tiered-storage-overview","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":5,"developerUrl":"https://developer.aliyun.com/group/sls/","nodeType":1,"version":16,"url":"/zh/sls/data-tiered-storage-overview","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":2399161,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"管理智能存储分层","id":2399161,"title":"管理智能存储分层","url":"/zh/sls/data-tiered-storage-overview"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据存储","id":270795,"title":"数据存储","url":"/zh/sls/data-storage/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"productUrl":"https://www.aliyun.com/product/sls","nodeId":2399161,"desc":"日志服务提供智能分层存储功能，您可以按需将数据进行热存储、低频存储和归档存储。降低您长周期存储的成本，并同时保证日志的查询、分析、可视化、告警、投递和加工等能力不受影响。本文将为您介绍日志服务数据存储生命周期管理。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据存储","id":270795,"title":"数据存储","url":"/zh/sls/data-storage/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"管理智能存储分层","id":2399161,"title":"管理智能存储分层","url":"/zh/sls/data-tiered-storage-overview"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=2150424f17825394082386144e6bb9&asid=AQAAAACQZD9qfHEnUwAAAAAFHC2xkUoNXA==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2929180" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/start-using-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开始使用</span>
+</a>
+</li>
+ <li id="128096" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/resource-management/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">资源管理</span>
+</a>
+</li>
+ <li id="128134" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-collection-1/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据采集</span>
+</a>
+</li>
+ <li id="2842370" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-processing-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据处理</span>
+</a>
+</li>
+ <li id="270795" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-storage/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据存储</span>
+</a>
+</li>
+ <li id="128135" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/index-and-query/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">查询与分析</span>
+</a>
+</li>
+ <li id="2928734" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-monitoring/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据监控</span>
+</a>
+</li>
+ <li id="2928732" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-log-output-and-integration/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据输出与集成</span>
+</a>
+</li>
+ <li id="2928739" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-technical-solutions/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">技术解决方案</span>
+</a>
+</li>
+ <li id="154068" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2528763" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/security-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="169976" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/faq-15">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>管理智能存储分层</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/sls" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="main-2358181">
+    
+    
+    <p id="a1fc7fc816ift" data-tag="shortdesc" class="shortdesc">日志服务提供智能分层存储功能，您可以按需将数据进行热存储、低频存储和归档存储。降低您长周期存储的成本，并同时保证日志的查询、分析、可视化、告警、投递和加工等能力不受影响。本文将为您介绍日志服务数据存储生命周期管理。</p>
+    <div id="a2c89667b7d5e" data-tag="body" class="body">
+      <h2 id="53dab7a5a1f6a"><b>什么是智能存储分层</b></h2>
+      <section id="792e96a994k71" class="section">
+        <h3 jc="left" data-tag="p" id="a1fc7fc716btz" data-spm-anchor-id="a2c4g.11186623.0.i5.3e1d2288YEIeOR" style="text-align:left" class="p"><b>存储类型</b></h3>
+        <table id="027684133d7d9" tablewidth="100" tablecolswidth="17.72 82.28" autofit="true" class="table">
+          <colgroup colwidth="0.35*" style="width:17.72%"></colgroup>
+          <colgroup colwidth="1.65*" style="width:82.28%"></colgroup>
+          <tbody class="tbody">
+            <tr id="0c31987dceep4">
+              <td id="87812ad6afxz5" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="435e6a0e203k4"><b>类型</b></p>
+              </td>
+              <td id="a0aad1b52ejoi" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="aaf56093348ij"><b>说明</b></p>
+              </td>
+            </tr>
+            <tr id="8732c4c635b86">
+              <td id="8ecaa82e99jfz" rowspan="1" colspan="1">
+                <p id="5f5f68420151b">热存储</p>
+              </td>
+              <td id="d7476d3f37vy3" rowspan="1" colspan="1">
+                <ul id="e55cc48745qso">
+                  <li id="a585ba795cg8u">
+                    <p id="0d28dd5311xz8">热存储是一种可扩展、高可用的数据存储方案，用于存储经常被访问的数据。</p>
+                  </li>
+                  <li id="936889d9e6wvo">
+                    <p id="5b28be9d9b6xa">支持数据实时访问，提供高性能的日志查询和分析功能，适用于数据高频查询分析等业务场景。</p>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr id="58db08bb898du">
+              <td id="dc2227ebe5srd" rowspan="1" colspan="1">
+                <p id="6161427398jaa">低频存储</p>
+              </td>
+              <td id="494f2d3946ou4" rowspan="1" colspan="1">
+                <ul id="d21e526adfuiv">
+                  <li id="b96c3fe357sen">
+                    <p id="1f1fcad0fe02j">低频存储（原冷存储）是一种能降低您长周期存储的成本的存储类型，同时保证日志的查询、分析、可视化、告警、投递和加工等能力不受影响。</p>
+                  </li>
+                  <li id="759ad9f4d7tcl">
+                    <p id="af2c708e19702">适用于较低查询分析频率，问题回溯等业务场景。</p>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr id="46195aec2dljc">
+              <td id="aaecea7ad58wx" rowspan="1" colspan="1">
+                <p id="205487b2f9csb">归档存储</p>
+              </td>
+              <td id="7bf7a59b2al4u" rowspan="1" colspan="1">
+                <ul id="e9b8af1a329q9">
+                  <li id="0d07bc5112131">
+                    <p id="6183c479bciwv">归档存储在现有热存储、低频存储的基础上，为您提供更低成本且可查询、分析的长期数据存储方案。</p>
+                  </li>
+                  <li id="3503d2af58q0k">
+                    <p id="044776d609mg6">适用于数据审计长期保存的业务场景。</p>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="2a7e08a016vgd">存储周期说明</h3>
+        <div type="important" id="7bdf7940a5ukj" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+          <ul id="7e83dd6cf2d3g">
+            <li id="40b209f957kn9">
+              <p id="9d4b3e76caf2p">热存储数据保存时间、低频存储数据保存时间和归档存储数据保存时间的总和，等于数据保存时间。</p>
+            </li>
+            <li id="68cdf130af17f">
+              <p id="83f1ee886d9ij">数据保存时间<span class="help-letter-space"></span>3650<span class="help-letter-space"></span>天表示永久保存，超过<span class="help-letter-space"></span>3650<span class="help-letter-space"></span>天的也会继续保存，计入归档存储数据层。查看数据保存时间可参考<a href="https://help.aliyun.com/zh/sls/manage-a-logstore#title-jxo-uhe-uyh" id="0b9eb94ce0l7x" title="" class="xref">删除指定日志/设置日志保存时间</a>。</p>
+            </li>
+          </ul>
+        </div></div>
+        <section id="90c4b7266334r" class="section">
+          <ul id="1c8d408c975jg">
+            <li id="25a10d2218bzs">
+              <p id="c9a50bcb8cpa4">数据保存时间在<span class="help-letter-space"></span>3650<span class="help-letter-space"></span>天以内</p>
+              <p id="7ff10deb17oi8"><b>场景<span class="help-letter-space"></span>1</b>：数据保存时间为<span class="help-letter-space"></span>90<span class="help-letter-space"></span>天，将热存储数据保存<span class="help-letter-space"></span>30<span class="help-letter-space"></span>天后自动转换为归档存储，归档存储数据保存<span class="help-letter-space"></span>60<span class="help-letter-space"></span>天后自动删除。</p>
+              <p id="efd579a740iwg"><b>场景<span class="help-letter-space"></span>2</b>：数据保存时间为<span class="help-letter-space"></span>97<span class="help-letter-space"></span>天，将热存储数据保存<span class="help-letter-space"></span>7<span class="help-letter-space"></span>天后自动转换为低频存储，低频存储数据保存<span class="help-letter-space"></span>30<span class="help-letter-space"></span>天后自动转换为归档存储，归档存储数据保存<span class="help-letter-space"></span>60<span class="help-letter-space"></span>天后自动删除。</p>
+              <hetu type="flowchart" id="7071248a59uhj" versionid="CAEQTRiBgMDbns3GiBkiIGNiMWMzOWJjMjU5YjRhMGE4M2Q4MzVlZGQzMzE4YTUz" uuid="4559873_20240801102521.603" hetuid="faf277df-852b-479e-b894-55204dd2719f"><img src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5470829771/CAEQTRiBgMDbns3GiBkiIGNiMWMzOWJjMjU5YjRhMGE4M2Q4MzVlZGQzMzE4YTUz4559873_20240801102521.603.svg" alt="image" class="image break flowchart hetu"></hetu>
+            </li>
+            <li id="def5a2eb74qea">
+              <p id="7ea8cb900fxr9">数据保存时间在<span class="help-letter-space"></span>3650<span class="help-letter-space"></span>天及以上</p>
+              <p id="c3e32517cbabd"><b>场景<span class="help-letter-space"></span>3</b>：数据保存时间为<span class="help-letter-space"></span>3650<span class="help-letter-space"></span>天，热存储层数据保存时间为<span class="help-letter-space"></span>30<span class="help-letter-space"></span>天，全部转换为归档存储，则归档存储数据保存时间需设置为<span class="help-letter-space"></span>3650 - 30 = 3620<span class="help-letter-space"></span>天。同时，因为数据保存时间<span class="help-letter-space"></span>3650<span class="help-letter-space"></span>天表示永久保存，超过<span class="help-letter-space"></span>3620<span class="help-letter-space"></span>天的也会继续保存，计入归档存储数据层。</p>
+              <p id="38c5f5a570w3i"><b>场景<span class="help-letter-space"></span>4</b>：数据保存时间为<span class="help-letter-space"></span>3650<span class="help-letter-space"></span>天，热存储层数据保存时间为<span class="help-letter-space"></span>7<span class="help-letter-space"></span>天，低频存储数据保存时间为<span class="help-letter-space"></span>30<span class="help-letter-space"></span>天，则归档存储数据保存时间需设置为<span class="help-letter-space"></span>3650 - 7- 30 = 3613<span class="help-letter-space"></span>天。同时，因为数据保存时间<span class="help-letter-space"></span>3650<span class="help-letter-space"></span>天表示永久保存，超过<span class="help-letter-space"></span>3613<span class="help-letter-space"></span>天的也会继续保存，计入归档存储数据层。</p>
+              <hetu type="flowchart" id="19e1e7bffafof" versionid="CAEQTRiBgMCDovuAiRkiIDBlMDljNWQ2ZDY4OTRjZTY5YzE3NGJjNzUxMjUzODYw" uuid="4559873_20240801140634.961" hetuid="77d552a0-a303-4a89-a8d0-8f73202a6061"><img src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5470829771/CAEQTRiBgMCDovuAiRkiIDBlMDljNWQ2ZDY4OTRjZTY5YzE3NGJjNzUxMjUzODYw4559873_20240801140634.961.svg" alt="image" class="image break flowchart hetu"></hetu>
+            </li>
+          </ul>
+        </section>
+        <h3 id="2532c2c4cf1cy"><b>存储类型对比</b></h3>
+        <table id="997c04c017vyl" tablewidth="710" tablecolswidth="83 167 161 151 148" autofit="false" class="table">
+          <colgroup colwidth="0.58*" style="width:11.69%"></colgroup>
+          <colgroup colwidth="1.18*" style="width:23.52%"></colgroup>
+          <colgroup colwidth="1.13*" style="width:22.68%"></colgroup>
+          <colgroup colwidth="1.06*" style="width:21.27%"></colgroup>
+          <colgroup colwidth="1.04*" style="width:20.85%"></colgroup>
+          <tbody class="tbody">
+            <tr id="997c52e117e9m">
+              <td id="997c2bd117gv7" rowspan="1" style="background-color:#e5e5e5" colspan="2">
+                <p id="997c2bd017eky"><b>存储类型</b></p>
+              </td>
+              <td id="997c2bd517u5y" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="b418270017r52"><b>热存储</b></p>
+              </td>
+              <td id="997c2bd717ty3" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="b176c83017w7j"><b>低频存储</b></p>
+              </td>
+              <td id="997c52e017m90" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="aec2cbc0172t0"><b>归档存储</b></p>
+              </td>
+            </tr>
+            <tr id="997ca10017za2">
+              <td id="997c52e317osc" rowspan="1" colspan="2">
+                <p id="997c52e217ryz">适用场景</p>
+              </td>
+              <td id="997c52e717cvg" rowspan="1" colspan="1">
+                <p id="997c52e617gru">高频、高性能的查询与分析</p>
+              </td>
+              <td id="997c52e917hlh" rowspan="1" colspan="1">
+                <p id="997c52e817hpj">问题回溯定位场景</p>
+              </td>
+              <td id="997c52eb17p68" rowspan="1" colspan="1">
+                <p id="997c52ea17a5k">数据审计场景</p>
+              </td>
+            </tr>
+            <tr id="997cc81517phn">
+              <td id="997ca102179h3" rowspan="1" colspan="2">
+                <p id="997ca10117nqy">费用</p>
+              </td>
+              <td id="997cc810179o8" rowspan="1" colspan="1">
+                <p id="9c706b9019qsq"><span data-tag="ph" id="ph-4d6-ymk-ayk" props="china" data-cond-props="china" class="ph">0.0115<span class="help-letter-space"></span>元/GB/天</span></p>
+              </td>
+              <td id="997cc812171u1" rowspan="1" colspan="1">
+                <p id="a840412019bbn"><span data-tag="ph" id="ph-e5t-i0u-355" props="china" data-cond-props="china" class="ph">0.005<span class="help-letter-space"></span>元/GB/天</span></p>
+              </td>
+              <td id="997cc81417738" rowspan="1" colspan="1">
+                <p id="997cc81317phq"><span data-tag="ph" id="422b54a019qkl" props="china" data-cond-props="china" class="ph">0.0017<span class="help-letter-space"></span>元/GB/天</span></p>
+                <p id="48ebffb019y5f"></p>
+              </td>
+            </tr>
+            <tr id="997cc82017jey">
+              <td id="997cc81717hcj" rowspan="2" colspan="1">
+                <p id="997cc81617v29">性能</p>
+              </td>
+              <td id="997cc819177t7" rowspan="1" colspan="1">
+                <p id="997cc818179gl">时延（十亿级规模）</p>
+              </td>
+              <td id="997cc81b17ysl" rowspan="1" colspan="1">
+                <p id="997cc81a17dsx">十至百毫秒</p>
+              </td>
+              <td id="997cc81d17upo" rowspan="1" colspan="1">
+                <p id="f113aac017tyu">百毫秒至秒</p>
+              </td>
+              <td id="997cc81f17sg2" rowspan="1" colspan="1">
+                <p id="997cc81e17yzk">分钟</p>
+              </td>
+            </tr>
+            <tr id="997cef2a17bru">
+              <td id="997cef2317q17" rowspan="1" colspan="1">
+                <p id="997cef2217tg8">并发（Project<span class="help-letter-space"></span>级别）</p>
+              </td>
+              <td id="997cef2517vqo" rowspan="1" colspan="1">
+                <p id="997cef241791d">查询并发数：100</p>
+                <p id="014b474017bj9">分析并发数：2</p>
+              </td>
+              <td id="997cef2717szq" rowspan="1" colspan="1">
+                <p id="997cef2617aed">查询并发数：10</p>
+                <p id="0c5ada1017soa">分析并发数：2</p>
+              </td>
+              <td id="997cef2917rs3" rowspan="1" colspan="1">
+                <p id="997cef2817hja">查询并发数：1</p>
+                <p id="135e0c60176tn">分析并发数：1</p>
+              </td>
+            </tr>
+            <tr id="997d163117ezg">
+              <td id="997cef2c178rb" rowspan="2" colspan="2">
+                <p id="997cef2b17303">优势</p>
+              </td>
+              <td id="997cef3017n4v" rowspan="1" colspan="1">
+                <p id="997cef2f17xk1">快速高并发查询与分析</p>
+              </td>
+              <td id="997cef32174i9" rowspan="1" colspan="1">
+                <p id="997cef31173gk">低频率查询与分析，高性价比</p>
+              </td>
+              <td id="997d163017vv7" rowspan="1" colspan="1">
+                <p id="997cef3317ini">偶尔查询与分析，低成本</p>
+              </td>
+            </tr>
+            <tr id="2c21ec3017dm7" style="height:42px">
+              <td id="2c22134517180" rowspan="1" colspan="3">
+                <p id="2c22134417zx0">多种存储类型间可通过数据生命周期管理功能实现数据自动分层：</p>
+                <ul id="a3c6208217mlo">
+                  <li id="a3c6208017la6">
+                    <p id="862e4a7017f9z">配置简便，无需编写脚本或手动迁移数据。</p>
+                  </li>
+                  <li id="a3c6479017zr8">
+                    <p id="8f172cb017flq">低频存储和归档存储数据与热存储数据一样可实时访问，无需手动取回或修改应用，无任何取回费用。</p>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr id="c8757860173ga">
+              <td id="c875786217vsm" rowspan="2" colspan="1">
+                <p id="c875786117ut4">存储时间限制</p>
+              </td>
+              <td id="c875786417nj6" rowspan="1" colspan="1">
+                <p id="c875786317prh"><a href="https://help.aliyun.com/zh/sls/pay-as-you-go" id="ed186c0872pw8" title="" class="xref">按使用功能计费</a></p>
+              </td>
+              <td id="c875786617iry" rowspan="1" colspan="1">
+                <ul id="d0565c5217qa6">
+                  <li id="d0565c5017egi">
+                    <p id="c875786517v14">至少需保存<span class="help-letter-space"></span>7<span class="help-letter-space"></span>天热存储后可转为低频存储。</p>
+                  </li>
+                  <li id="d056836017jj9">
+                    <p id="c5b31fe017cq9">至少需保存<span class="help-letter-space"></span>30<span class="help-letter-space"></span>天热存储后可转为归档存储。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="c8757868176wh" rowspan="2" colspan="1">
+                <p id="c8757867173tf">至少保存<span class="help-letter-space"></span>30<span class="help-letter-space"></span>天低频存储后可转为归档存储。</p>
+              </td>
+              <td id="c875786a17g4d" rowspan="2" colspan="1">
+                <p id="c875786917hq7">最少存储时间为<span class="help-letter-space"></span>60<span class="help-letter-space"></span>天。</p>
+              </td>
+            </tr>
+            <tr id="c775467017lst">
+              <td id="c775467417ejk" rowspan="1" colspan="1">
+                <p id="c7754673174el"><a href="https://help.aliyun.com/zh/sls/billing-per-amount-of-data-written" id="3032c6f635zg4" title="" class="xref">按写入数据量计费</a></p>
+              </td>
+              <td id="c7756d8117f97" rowspan="1" colspan="1">
+                <p id="c7756d8017swq">30<span class="help-letter-space"></span>天热存储免费权益</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <h2 id="4c636b3b84gi0"><b>存储分层的转换流程</b></h2>
+      <section id="8ef4f8311b5d2" class="section">
+        <hetu type="flowchart" id="60cd275e9acke" versionid="CAEQTRiBgIDelsLKiBkiIGYwZDNhZGFkODM3NDRmZTFiZjIyYTZjNDY4YzUzNmY2" uuid="4559873_20240731172738.296" hetuid="73dcb8ea-0d1a-43cf-8a3d-86ced9036a37"><img src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5470829771/CAEQTRiBgIDelsLKiBkiIGYwZDNhZGFkODM3NDRmZTFiZjIyYTZjNDY4YzUzNmY24559873_20240731172738.296.svg" alt="image" class="image break flowchart hetu"></hetu>
+        <p id="60837fe772wz5">三种存储类型之间可以互相转换，存储类型转换说明参见下表。</p>
+        <table id="aba95e4289iot" tablewidth="690" tablecolswidth="74 616" autofit="false" class="table">
+          <colgroup colwidth="0.21*" style="width:10.72%"></colgroup>
+          <colgroup colwidth="1.79*" style="width:89.28%"></colgroup>
+          <tbody class="tbody">
+            <tr id="3792017a12i00">
+              <td id="7a99ba38a6m74" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p jc="left" id="ca9e058f4buwu" style="text-align:left"><b>序号&nbsp;</b></p>
+              </td>
+              <td id="fd2dc12c7ai9g" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="a417683f94330"><b>说明</b></p>
+              </td>
+            </tr>
+            <tr id="d8bdb2aed3b6f">
+              <td id="bac9608f626a0" rowspan="1" colspan="1">
+                <p id="28c9b72f69sd0">1</p>
+              </td>
+              <td id="762e528789qbh" rowspan="1" colspan="1">
+                <p id="9bc11ab755725">热存储数据至少需要保存<span class="help-letter-space"></span>7<span class="help-letter-space"></span>天才能转换为低频存储。</p>
+              </td>
+            </tr>
+            <tr id="9f467f489bqbk">
+              <td id="3b8c339e056ro" rowspan="1" colspan="1">
+                <p id="096f4b762dq0j">2</p>
+              </td>
+              <td id="e277bc8034cvt" rowspan="1" colspan="1">
+                <p id="9de19cd652w3w">热存储数据至少需要保存<span class="help-letter-space"></span>30<span class="help-letter-space"></span>天才能转换为归档存储。</p>
+              </td>
+            </tr>
+            <tr id="4fa468d6646cf">
+              <td id="6d8fd8bac9i3n" rowspan="1" colspan="1">
+                <p id="5abb29755dnpx">3</p>
+              </td>
+              <td id="cb1862b181vzk" rowspan="1" colspan="1">
+                <p id="e3ad1b94d0me5">低频存储数据至少需要保存<span class="help-letter-space"></span>30<span class="help-letter-space"></span>天才能转换为归档存储。</p>
+              </td>
+            </tr>
+            <tr id="350717f7d7ezi">
+              <td id="b445aa47ebhxh" rowspan="1" colspan="1">
+                <p id="bdb2acf59cazq">4</p>
+              </td>
+              <td id="3587bbb1c3wmq" rowspan="1" colspan="1">
+                <p id="9dd9d3f6b9bss">通过修改热存储数据保存时间，将低频存储数据转回热存储中。</p>
+              </td>
+            </tr>
+            <tr id="0da1cd5841hnl">
+              <td id="aae3b5c7260am" rowspan="1" colspan="1">
+                <p id="2c4732b45650m">5</p>
+              </td>
+              <td id="64411e80afqac" rowspan="1" colspan="1">
+                <p id="2264fe490bg86">通过修改低频储数据保存时间，将归档存储数据转回低频存储中。</p>
+              </td>
+            </tr>
+            <tr id="bc0d14099e32i">
+              <td id="176ece22637b5" rowspan="1" colspan="1">
+                <p id="40aee3e2b9ppw">6</p>
+              </td>
+              <td id="e1561427390o3" rowspan="1" colspan="1">
+                <p id="89b4d506edmdn">通过修改热存储数据保存时间，实现将归档存储数据转回热存储中。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <h2 id="3ab65ca19am5s"><b>管理存储分层</b></h2>
+      <section id="19984d77fbsm9" data-tag="tabbed-content-box" outputclass="tabbed-content-box" class="tabbed-content-box section">
+        <section id="339efb2b9c7om" class="section">
+          <h2 id="a7f418f63fcj4">控制台</h2>
+          <ol data-tag="steps" id="c6da923af231g" class="steps">
+            <li data-tag="step" id="2620255303cnt" is-conref="true" class="step"><p id="6a7cc970501ga"><span data-tag="ph" id="ph-q0d-de9-ecs" class="ph">登录<span data-tag="ph" id="ph-i3r-pp7-fzx" props="china intl" data-cond-props="china intl" class="ph"><a href="https://sls.console.aliyun.com" id="xref-ivv-0k8-uct" class="" target="_blank">日志服务控制台</a></span>。</span></p></li>
+            <li data-tag="step" id="45ce44bfa0e2q" is-conref="true" class="step"><p id="6a7cf08050vb9">在<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>列表区域，单击目标<span class="help-letter-space"></span>Project。</p><p id="bda792c94bjlg"><img id="fffd2c11d911u" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8797827471/p955209.png" alt="image" placement="break" class="image break"></p></li>
+            <li data-tag="step" id="90b82c71e9vlt" class="step">
+              <p id="983a70e773ifu">在<span data-tag="menucascade" id="26096ad019sz4" class="menucascade"><b id="260cc630194p8" data-tag="uicontrol" data-isbold="true" class="uicontrol">日志存储</b> &gt; <b id="28f58e40192xp" data-tag="uicontrol" data-isbold="true" class="uicontrol">日志库</b></span>页签中，单击目标<span class="help-letter-space"></span>LogStore<span class="help-letter-space"></span>对应的<span data-tag="cmd" id="cmd-p6g-w07-qtl" class="cmd"><img data-tag="image" id="image-5vb-6jb-etd" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4172085261/p292908.png" alt="LogStore" placement="inline" class="image inline"></span>图标，然后单击<b id="1405e7f019tsq" data-tag="uicontrol" data-isbold="true" class="uicontrol">修改</b>。</p>
+            </li>
+            <li data-tag="step" id="8836ec9789ro8" class="step">
+              <p id="38adc450c8u6j">在<span class="help-letter-space"></span><b id="0032fc4019v5s" data-tag="uicontrol" data-isbold="true" class="uicontrol">Logstore<span class="help-letter-space"></span>属性</b>页面，单击<b id="01954b601942t" data-tag="uicontrol" data-isbold="true" class="uicontrol">修改</b>。配置开启<b id="ad42616019n85" data-tag="uicontrol" data-isbold="true" class="uicontrol">智能存储分层</b>，然后单击<b id="297fc962a2rwl" data-tag="uicontrol" data-isbold="true" class="uicontrol">保存</b>。</p>
+              <p id="550db92522ihm">开启智能存储分层功能的相关参数如下表所示，其他参数说明请参见<a href="https://help.aliyun.com/zh/sls/manage-a-logstore#section-v52-2jx-ndb" id="5b009b7da0yjq" title="" class="xref">创建基础<span class="help-letter-space"></span>LogStore</a>。</p>
+              <table id="593f976879jyy" tablewidth="654" tablecolswidth="147 507" autofit="false" class="table">
+                <colgroup colwidth="0.45*" style="width:22.48%"></colgroup>
+                <colgroup colwidth="1.55*" style="width:77.52%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="10d385934ddsu">
+                    <td id="fdb8a87968go3" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="0ab16607c415e"><b>参数</b></p>
+                    </td>
+                    <td id="612c823575cas" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="fd2652e248bmk"><b>说明</b></p>
+                    </td>
+                  </tr>
+                  <tr id="e62c7b229800z" style="height:240px">
+                    <td id="75015be22d96h" rowspan="1" colspan="1">
+                      <p id="0f0a6a5324j0w"><b id="uicontrol-fjg-ig4-rc0" data-tag="uicontrol" data-isbold="true" class="uicontrol">数据保存时间</b></p>
+                    </td>
+                    <td id="f1de3fc24eqeu" rowspan="1" colspan="1">
+                      <ul id="8a588730d68ke">
+                        <li id="43056fc1bc4k9">
+                          <p id="bc2d0f6d3f9rg"><b id="304b3448e4z3h" data-tag="uicontrol" data-isbold="true" class="uicontrol">数据保存时间</b>支持设置为<b id="9b62672fd2oph" data-tag="uicontrol" data-isbold="true" class="uicontrol">限定天数</b>和<b id="bc34eb413ccbk" data-tag="uicontrol" data-isbold="true" class="uicontrol">永久保存</b>。</p>
+                        </li>
+                        <li id="8c003c1c7b28x">
+                          <p jc="left" id="5ed2e1f029jkk" style="text-align:left">热存储数据保存时间、低频存储数据保存时间和归档存储数据保存时间的总和，等于数据保存时间。</p>
+                        </li>
+                      </ul>
+                      <div id="164a8bdaaa62m" type="important" data-tag="note" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                        <p id="304c062ed0psl">缩短数据保存时间后，会在<span class="help-letter-space"></span>1<span class="help-letter-space"></span>分钟内生效。 例如您原本的数据保存时间为<span class="help-letter-space"></span>5<span class="help-letter-space"></span>天，现修改为<span class="help-letter-space"></span>1<span class="help-letter-space"></span>天，则日志服务将会删除前<span class="help-letter-space"></span>4<span class="help-letter-space"></span>天的数据。 数据的实际删除时间最多会延迟<span class="help-letter-space"></span>7<span class="help-letter-space"></span>天，但延迟删除的这部分数据不会计入收费，也不会计入存储容量。</p>
+                      </div></div>
+                    </td>
+                  </tr>
+                  <tr id="7c1f85be6a34x">
+                    <td id="fbc77a3f9afty" rowspan="1" colspan="1">
+                      <p id="468e33920b4zx"><b id="uicontrol-ob9-s5c-9s9">智能分层存储</b></p>
+                    </td>
+                    <td id="ba2e92ad0fo6m" rowspan="1" colspan="1">
+                      <p id="c4a4de51c7y1e">打开<b id="uicontrol-mu1-cqi-jgg">智能分层存储</b>开关，开启智能分层存储功能。</p>
+                    </td>
+                  </tr>
+                  <tr id="feeed88246guw">
+                    <td id="5765018038jrh" rowspan="1" colspan="1">
+                      <p id="659a4ff89ck8g"><b id="d5a31b101c455" data-tag="uicontrol" data-isbold="true" class="uicontrol">存储策略</b></p>
+                    </td>
+                    <td id="a257a40c0b4rj" rowspan="1" colspan="1">
+                      <p id="0cefc83b49tzs">配置数据在各层的存储时间。</p>
+                    </td>
+                  </tr>
+                  <tr id="e719f530e917f">
+                    <td id="47ad8ab3b63rg" rowspan="1" colspan="1">
+                      <p id="3dafca82e9bi7"><b id="uicontrol-96j-a10-2ls">热存储层数据保存</b></p>
+                    </td>
+                    <td id="6dd2934894j5d" rowspan="1" colspan="1">
+                      <p id="f5c22ce177izl">数据在<span class="help-letter-space"></span>LogStore<span class="help-letter-space"></span>热存储层中的存储时间。</p>
+                      <ul id="96d530c89afdd">
+                        <li id="f67b31b4a7mgf">
+                          <p id="cbd593a53c22q">当热存储转为低频存储时，取值范围为<span class="help-letter-space"></span>7～3650，单位：天。</p>
+                        </li>
+                        <li id="f4dfbd70192vu">
+                          <p id="b4fc12a086bdk">当热存储转为归档存储时，取值范围为<span class="help-letter-space"></span>30～3650，单位：天。</p>
+                        </li>
+                      </ul>
+                      <div data-tag="note" id="2bad105dc6bo3" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                        <ul data-tag="ul" id="dd8eb09d6blmw" class="ul">
+                          <li data-tag="li" id="b72e5f1812pxf" class="li">
+                            <p id="4ebcbd84ecu7k">修改<b id="uicontrol-6lj-zb2-jvg">热存储层数据保存</b>时间后，日志服务将在<span class="help-letter-space"></span>1<span class="help-letter-space"></span>分钟内生效。例如您原本的数据的热存储时间为<span class="help-letter-space"></span>30<span class="help-letter-space"></span>天，现修改为<span class="help-letter-space"></span>40<span class="help-letter-space"></span>天，则日志服务将在<span class="help-letter-space"></span>1<span class="help-letter-space"></span>分钟内将低频存储数据或归档存储数据转回热存储。</p>
+                          </li>
+                          <li data-tag="li" id="3267dd6511mmd" class="li">
+                            <p id="0fb4aba58bvwh"><b id="uicontrol-jd6-b2n-h54">热存储层数据保存</b>时间参数值要小于<b id="uicontrol-76f-rxn-g2u" data-tag="uicontrol" data-isbold="true" class="uicontrol">数据保存时间</b>参数值。</p>
+                          </li>
+                        </ul>
+                      </div></div>
+                    </td>
+                  </tr>
+                  <tr id="bb54004a89d9a">
+                    <td id="1e324d742fxfa" rowspan="1" colspan="1">
+                      <p id="6b72c527ceuar"><b id="d37320c01b2jr" data-tag="uicontrol" data-isbold="true" class="uicontrol">低频存储数据保存</b></p>
+                    </td>
+                    <td id="e4eeb3490eya9" rowspan="1" colspan="1">
+                      <p id="51b2ae42a1h85">数据在<span class="help-letter-space"></span>LogStore<span class="help-letter-space"></span>低频存储层中的存储时间。</p>
+                      <p id="8650cfc50199w">当低频存储转为归档存储时，取值范围为<span class="help-letter-space"></span>30～3650，单位：天。</p>
+                      <div type="important" id="3bb66f014e0vi" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                        <ul data-tag="ul" id="bbd9caa787rqv" class="ul">
+                          <li data-tag="li" id="d7e85d72050j7" class="li">
+                            <p id="f69abb558c6q2">修改<b id="42a0b1131blmy">低频存储层数据保存</b>时间后，日志服务将在<span class="help-letter-space"></span>1<span class="help-letter-space"></span>分钟内生效。例如您原本的数据的低频存储时间为<span class="help-letter-space"></span>30<span class="help-letter-space"></span>天，现修改为<span class="help-letter-space"></span>40<span class="help-letter-space"></span>天，则日志服务将在<span class="help-letter-space"></span>1<span class="help-letter-space"></span>分钟内将归档存储数据转回低频存储。</p>
+                          </li>
+                          <li data-tag="li" id="6a7a676d125h4" class="li">
+                            <p id="e90e992347ky9"><b id="42a0b1141bcgq">低频存储层数据保存</b>时间参数值要小于<b id="42a0b1151bpnu" data-tag="uicontrol" data-isbold="true" class="uicontrol">数据保存时间</b>参数值。</p>
+                          </li>
+                        </ul>
+                      </div></div>
+                    </td>
+                  </tr>
+                  <tr id="8c3b81cb8bh9u">
+                    <td id="c50c4de3b643a" rowspan="1" colspan="1">
+                      <p id="b390442bbe7nx"><b id="08269fd01c16s" data-tag="uicontrol" data-isbold="true" class="uicontrol">归档存储数据保存</b></p>
+                    </td>
+                    <td id="b8a9c06d89cur" rowspan="1" colspan="1">
+                      <p id="ac924cf0aeo4g">数据在<span class="help-letter-space"></span>LogStore<span class="help-letter-space"></span>归档存储层中的存储时间。取值范围为<span class="help-letter-space"></span>60～3650，单位：天。当数据的存储时间超过您所配置的<b id="12b7be601cvv9" data-tag="uicontrol" data-isbold="true" class="uicontrol">归档存储数据保存</b>时间后，数据将自动删除。</p>
+                      <div type="important" id="b94b39cf4ezoj" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                        <p id="9998125b4cf5u"><b id="cbb687811ewsx">归档存储层数据保存</b>时间参数值要小于<b id="cbb687821euv6" data-tag="uicontrol" data-isbold="true" class="uicontrol">数据保存时间</b>参数值。</p>
+                      </div></div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ol>
+        </section>
+        <section id="8faf3e39bb884" class="section">
+          <h2 id="7468790fb647y">API</h2>
+          <ul id="9bf7a925629dg">
+            <li id="a5971bccedjt2">
+              <p id="906d35d6dbnrb">您可以在创建<span class="help-letter-space"></span>LogStore<span class="help-letter-space"></span>的过程中，通过<span class="help-letter-space"></span>API<span class="help-letter-space"></span>调用<a href="https://help.aliyun.com/zh/sls/developer-reference/api-sls-2020-12-30-createlogstore" id="72fbf568766h9" title="" class="xref">创建<span class="help-letter-space"></span>LogStore</a><span class="help-letter-space"></span>传递<code data-tag="code" code-type="xCode" id="c5697037b4s2a" class="code">ttl</code>（数据保存时间）、<code data-tag="code" code-type="xCode" id="d9e0e66a46wxc" class="code">hot_ttl</code>（热存储数据保存时间）、<code data-tag="code" code-type="xCode" id="2097697126fin" class="code">infrequentAccessTTL</code>（低频存储数据保存时间）参数来配置存储分层的保留策略。</p>
+            </li>
+            <li id="701698c4bdhgd">
+              <p jc="left" id="41f754b282kjk" style="text-align:left">同样地，对于已经创建的<span class="help-letter-space"></span>LogStore，您也可以通过调用<a href="https://help.aliyun.com/zh/sls/developer-reference/api-sls-2020-12-30-updatelogstore" id="7e0699ef0fgqv" title="" class="xref">更新<span class="help-letter-space"></span>LogStore</a><span class="help-letter-space"></span>接口，更新<code data-tag="code" class="code inline" code-type="xCode" id="b9fcab5ca9pc0">ttl</code>、<code data-tag="code" class="code inline" code-type="xCode" id="a7937a44e87iv">hot_ttl</code>和<code data-tag="code" class="code inline" code-type="xCode" id="936c50e23dpug">infrequentAccessTTL</code>参数的值，来动态调整存储分层的保留策略，以满足您对数据保留和成本控制的需求。</p>
+            </li>
+          </ul>
+        </section>
+      </section>
+      <h2 id="63556e1f0fcue"><b>相关文档</b></h2>
+      <section id="5c84f0a31b3dt" class="section">
+        <ul id="7dc178b945bo0">
+          <li id="159f55775c57p">
+            <p id="7bf6abb3eb4fo">管理<span class="help-letter-space"></span>LogStore<span class="help-letter-space"></span>相关信息请参见<a href="https://help.aliyun.com/zh/sls/manage-a-logstore" id="c5c4bd378b0of" title="" class="xref">管理<span class="help-letter-space"></span>LogStore</a>。</p>
+          </li>
+          <li id="13973297cdlp9">
+            <p id="6878f09c325ly">分层存储数据的存储费用按照存储空间计费，数据转换不会产生费用。详细信息请参见<a href="https://help.aliyun.com/zh/sls/billing-overview" id="0c95f04ff1lhf" title="" class="xref">计费概述</a>。</p>
+          </li>
+          <li id="b78e4cc11bo36">
+            <p id="7e34eeea01g6v">按写入数据量计费模式下，存在<span class="help-letter-space"></span>30<span class="help-letter-space"></span>天免费存储额度，当开启智能分层存储后，存储费用将根据具体存储时间及当前存储类型进行计算，更多信息，请参见<a href="https://help.aliyun.com/zh/sls/billing-examples" id="bffd86997fqv7" title="" class="xref">计费案例</a>。</p>
+          </li>
+          <li id="52fbaff11byui">
+            <p id="d94bd373e1e4a">按使用功能计费与按写入数据量计费模式具体信息请参见<a href="https://help.aliyun.com/zh/sls/pay-by-volume/" id="83d0987bd0tld" title="" class="xref">按量付费</a>。</p>
+          </li>
+          <li id="1a1eb595d7189">
+            <p id="dcac98bee9cdf">日志服务提供本地冗余存储和同城冗余存储两种存储冗余类型，详细信息请参见<a href="https://help.aliyun.com/zh/sls/storage-redundancy" id="758b83f7da9oy" title="" class="xref">存储冗余</a>。</p>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/sls/data-storage/" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：数据存储</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/sls/storage-redundancy" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：存储冗余<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

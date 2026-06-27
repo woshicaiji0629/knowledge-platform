@@ -1,0 +1,17 @@
+{
+  "id": "sls:processing-plug-ins",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "处理插件-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/processing-plug-ins",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/processing-plug-ins.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/processing-plug-ins.md",
+  "word_count": 988,
+  "text_units": 2774,
+  "local_links": 0,
+  "external_links": 119,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

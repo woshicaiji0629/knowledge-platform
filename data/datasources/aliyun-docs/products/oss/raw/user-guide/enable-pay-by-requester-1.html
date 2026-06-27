@@ -1,0 +1,579 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    请求者付费-对象存储(OSS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/oss/user-guide/enable-pay-by-requester-1">
+  <meta name="keywords" content="降低访问成本,请求者付费,OSS">
+  <meta name="description" content="对外共享大量数据时，可开启存储空间（Bucket）的请求者付费模式，将访问数据产生的流量、请求等费用转由数据请求者承担，Bucket拥有者仅支付存储费用等固定成本。为Bucket开启请求者付费模式后，匿名访问将被禁用，所有请求需经过身份验证。">
+  <meta name="last-modified" content="2026-04-17T09:50:21+08:00">
+  <meta name="date" content="2018-09-17T05:02:37+08:00">
+  <meta property="og:title" content="请求者付费">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/oss/user-guide/enable-pay-by-requester-1">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="对外共享大量数据时，可开启存储空间（Bucket）的请求者付费模式，将访问数据产生的流量、请求等费用转由数据请求者承担，Bucket拥有者仅支付存储费用等固定成本。为Bucket开启请求者付费模式后，匿名访问将被禁用，所有请求需经过身份验证。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/oss/user-guide/enable-pay-by-requester-1",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "91337",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/oss/user-guide/enable-pay-by-requester-1","nodeId":null,"data":{"lastModifiedTime":1776390621000,"keywords":"降低访问成本,请求者付费,OSS","docTitle":"请求者付费","language":"zh","seoTitle":"请求者付费-对象存储(OSS)-阿里云帮助中心","title":"请求者付费","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n<main id=\"concept-yls-jm2-2fb\"><p id=\"shortdesc-v35-op3-ec6\" data-tag=\"shortdesc\" class=\"shortdesc\">对外共享大量数据时，可开启存储空间（Bucket）的请求者付费模式，将访问数据产生的流量、请求等费用转由数据请求者承担，Bucket<span class=\"help-letter-space\"></span>拥有者仅支付存储费用等固定成本。为<span class=\"help-letter-space\"></span>Bucket<span class=\"help-letter-space\"></span>开启请求者付费模式后，匿名访问将被禁用，所有请求需经过身份验证。</p><div data-tag=\"taskbody\" id=\"conbody-zyk-j3j-fc9\" class=\"taskbody\"><section id=\"7812c67abd4x6\" class=\"section\"><h2 jc=\"left\" id=\"11ba1b2327w05\" style=\"text-align:left\">适用范围</h2><p id=\"df6c8fede1mft\">仅有地域属性的<span class=\"help-letter-space\"></span>Bucket<span class=\"help-letter-space\"></span>支持开启请求者付费模式。</p></section><section id=\"38585eae7bzm8\" class=\"section\"><h2 jc=\"left\" id=\"314283cf22cmn\" style=\"text-align:left\">工作原理</h2><p id=\"bb84827cbat8i\">OSS 按以下逻辑处理请求：</p><ul id=\"e40148978emkl\"><li id=\"f79a5c11067xw\"><p id=\"f062beeecbe4a\">请求中携带&nbsp;<code data-tag=\"code\" id=\"174e26e1a5m4d\" class=\"code\">x-oss-request-payer</code>头，OSS 对请求者进行身份验证，验证通过后，流量和请求等费用由请求者承担。</p></li><li id=\"c42100e592gn9\"><p id=\"a8e18acc010qp\">请求中不携带&nbsp;<code data-tag=\"code\" class=\"code blog-code\" id=\"2e8510c689g24\">x-oss-request-payer</code>&nbsp;头：</p><ul id=\"38261dfbfepu8\"><li data-spm-anchor-id=\"idealab.4d3ad9aa.0.i348.1c953d33b0fZLc\" id=\"6b3aa968bcs9j\"><p id=\"da553faefe5bz\">请求者为 Bucket&nbsp;拥有者：请求正常处理，所有费用由<span class=\"help-letter-space\"></span>Bucket<span class=\"help-letter-space\"></span>拥有者承担。</p></li><li data-spm-anchor-id=\"idealab.4d3ad9aa.0.i349.1c953d33b0fZLc\" id=\"2fb5922901h8s\"><p id=\"8e5f100599mod\">请求者非 Bucket&nbsp;拥有者：请求被拒绝。</p></li></ul></li></ul></section><section id=\"73caed2ca2ear\" class=\"section\"><h2 jc=\"left\" data-spm-anchor-id=\"idealab.3edd8474.0.i911.2ce97f9c86g2M1\" id=\"5c7873245dgae\" style=\"text-align:left\">Bucket 拥有者<b>配置请求者付费</b></h2><section id=\"9b2443e8b2vhc\" class=\"section\"><h4 jc=\"left\" data-spm-anchor-id=\"idealab.3edd8474.0.i911.2ce97f9c86g2M1\" id=\"9f31eddc47778\" style=\"text-align:left\"><b>步骤一：开启请求者付费</b></h4><ol data-tag=\"steps\" id=\"a406fc9e07cjn\" class=\"steps\"><li data-tag=\"step\" id=\"efb9f632f2ib1\" class=\"step\"><p id=\"b15b1dec99edx\" data-init-id=\"cb592be0e5665\"><span data-tag=\"cmd\" id=\"cmd-rse-rnw-ios\" class=\"cmd\">登录<span props=\"china intl\"><span class=\"help-letter-space\"></span><a href=\"https://oss.console.aliyun.com/\" id=\"xref-4qu-r1e-rc2\" class=\"\" target=\"_blank\">OSS<span class=\"help-letter-space\"></span>管理控制台</a></span>。</span></p></li><li data-tag=\"step\" id=\"7789f35ad47fx\" class=\"step\"><p id=\"a4be4f826b3b3\" data-init-id=\"cb597a00e5yer\">单击<span class=\"help-letter-space\"></span><b id=\"bucket.list\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">Bucket 列表</b>，然后单击目标<span class=\"help-letter-space\"></span>Bucket<span class=\"help-letter-space\"></span>名称。</p></li><li data-tag=\"step\" id=\"step-e6l-5qk-s9c\" class=\"step\"><p id=\"ed25ea2e5cws7\">在左侧导航栏，选择<span data-tag=\"menucascade\" id=\"menucascade-2y4-337-tvr\" class=\"menucascade\"><span class=\"help-letter-space\"></span><b id=\"uicontrol-43c-4jp-3ca\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">Bucket 配置</b> &gt; <b id=\"uicontrol-1ow-a6j-xev\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">请求者付费</b></span>。</p></li><li data-tag=\"step\" id=\"step-znu-0h1-9ut\" class=\"step\"><p id=\"f9290232b2e8c\"><span data-tag=\"cmd\" id=\"cmd-twr-p8r-6wc\" class=\"cmd\">在<b id=\"uicontrol-sgu-o1p-0k2\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">请求者付费</b>页面，打开<b id=\"uicontrol-jk8-wsf-47e\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">请求者付费</b>开关。</span></p></li><li data-tag=\"step\" id=\"step-kdu-jy0-re2\" class=\"step\"><p id=\"cae307f1707xu\"><span data-tag=\"cmd\" id=\"cmd-v3u-q1n-c5p\" class=\"cmd\">在弹出的对话框，单击<b id=\"uicontrol-qxe-v2m-dh6\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>。</span></p></li></ol></section><section id=\"4942d79c4ed2l\" class=\"section\"><h4 jc=\"left\" data-spm-anchor-id=\"idealab.3edd8474.0.i911.2ce97f9c86g2M1\" id=\"f07568e1a2rhf\" style=\"text-align:left\"><b>步骤二：为请求者授予访问权限</b></h4><p id=\"bf2a2dbaa1sb7\">通过 Bucket Policy 为请求者授权访问，否则请求者将无法访问数据。</p><ol id=\"substeps-b41-5ww-4xo\" type=\"a\" data-tag=\"substeps\" class=\"substeps\" data-spm-anchor-id=\"a2c4g.11186623.0.i6.6694623ctl5M5W\"><li data-tag=\"substep\" id=\"substep-l58-iqs-aql\" class=\"substep\"><p id=\"e6b1e93b89l2b\"><span data-tag=\"cmd\" id=\"cmd-nvy-x4g-5jd\" class=\"cmd\">在<span class=\"help-letter-space\"></span><a class=\"\" href=\"https://oss.console.aliyun.com/bucket/\" id=\"8639e91110trg\">Bucket<span class=\"help-letter-space\"></span>列表</a>，单击目标<span class=\"help-letter-space\"></span>Bucket<span class=\"help-letter-space\"></span>名称</span>。</p></li><li id=\"9791985278zqe\"><p id=\"091f547745qy6\"><span id=\"7efe9ace15r0v\" data-tag=\"cmd\" class=\"cmd\" data-init-id=\"cmd-nvy-x4g-5jd\">在左侧导航栏，选择<span data-tag=\"menucascade\" id=\"menucascade-c0x-pe1-vrn\" class=\"menucascade\"><b id=\"uicontrol-3wk-hpm-5pp\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">权限控制</b> &gt; <b id=\"uicontrol-rhi-qcf-n07\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">Bucket 授权策略</b></span>。</span></p></li><li data-tag=\"substep\" id=\"substep-rh0-pat-1ks\" class=\"substep\"><p id=\"093d3a4826kb0\"><span data-tag=\"cmd\" id=\"cmd-zai-2b1-bgg\" class=\"cmd\">在<span class=\"help-letter-space\"></span><b id=\"uicontrol-hlp-srg-rqi\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">Bucket 授权策略</b>页面的<b id=\"uicontrol-9e0-tv4-1q8\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">按图形策略添加</b>页签，单击<b id=\"uicontrol-9p9-bxn-3xs\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">新增授权</b>。</span></p></li><li data-tag=\"substep\" id=\"substep-azr-587-ciz\" class=\"substep\"><p id=\"62fd0c0bb6fne\">在<b id=\"uicontrol-ru3-sho-c8f\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">新增授权</b>面板，填写授权策略。其中，<b id=\"uicontrol-8bt-aey-gdy\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">授权用户</b>选择<b>其他账号</b>，填写请求者的账号<span class=\"help-letter-space\"></span>ID<span class=\"help-letter-space\"></span>或<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>角色<span class=\"help-letter-space\"></span>ARN（格式为 <code data-tag=\"code\" id=\"ee410d97eebs0\" class=\"code\">arn:sts::{RoleOwnerUid}:assumed-role/{RoleName}/{RoleSessionName}</code>）。</p></li><li data-tag=\"substep\" id=\"substep-axr-eut-7eh\" class=\"substep\"><p id=\"f96c029cf0zjo\"><span data-tag=\"cmd\" id=\"cmd-qm2-3kz-qh4\" class=\"cmd\">单击<b id=\"uicontrol-rjg-ka6-6p2\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>。</span></p></li></ol></section></section><section id=\"2e43d39a098pe\" class=\"section\"><h2 id=\"0f9d895775wsu\">请求者发起付费请求</h2><p id=\"d038cc833cjk5\">作为请求者，访问已开启请求者付费模式的<span class=\"help-letter-space\"></span>Bucket<span class=\"help-letter-space\"></span>时，必须在请求中声明将承担本次请求产生的费用。</p><section id=\"d92ce1f906f29\" data-tag=\"tabbed-content-box\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\"><section id=\"0ce3b1c3adb4q\" class=\"section\"><h2 id=\"e0dfc778eatrn\">控制台</h2><ol data-tag=\"steps\" id=\"00194ee2c8szr\" class=\"steps\"><li data-tag=\"step\" id=\"1a5c96d606j52\" class=\"step\"><p id=\"4eaaf4d1ceo05\" data-init-id=\"cb592be0e5665\"><span data-tag=\"cmd\" id=\"a12019cdba0gp\" data-init-id=\"cmd_rse_rnw_ios\" class=\"cmd\">登录<span props=\"china intl\"><span class=\"help-letter-space\"></span><a href=\"https://oss.console.aliyun.com/\" id=\"5ec25ae3afwf6\" class=\"\" target=\"_blank\">OSS<span class=\"help-letter-space\"></span>管理控制台</a></span>。</span></p></li><li data-tag=\"step\" id=\"step-4n3-lcq-nk7\" class=\"step\" data-spm-anchor-id=\"a2c4g.11186623.0.i15.178b77342PDGlk\"><p id=\"6aab98803dax0\"><span data-tag=\"cmd\" id=\"cmd-k0g-1n4-dtb\" class=\"cmd\">在左侧导航栏，单击<b id=\"uicontrol-vkm-tgz-3gm\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">我收藏的路径</b>右侧的加号（+）。</span></p></li><li data-tag=\"step\" id=\"step-4dh-5x2-mbo\" class=\"step\"><p id=\"c8709949dehty\"><span data-tag=\"cmd\" id=\"cmd-2pq-v0f-c28\" class=\"cmd\">在<b id=\"uicontrol-vfz-496-ek4\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">添加收藏路径</b>对话框，按以下说明配置各项参数。</span></p><div data-tag=\"info\" id=\"info-708-79g-x1z\" class=\"info\"><table id=\"table-ex9-hd0-6at\" tablewidth=\"100\" tablecolswidth=\"25.84 74.16\" autofit=\"true\" class=\"table\"><colgroup colwidth=\"0.52*\" style=\"width:25.84%\"></colgroup><colgroup colwidth=\"1.48*\" style=\"width:74.16%\"></colgroup><tbody class=\"tbody\"><tr id=\"2160f587a40if\"><td id=\"72b1f51e2534d\" rowspan=\"1\" style=\"background-color:rgb(229, 229, 229)\" colspan=\"1\"><p jc=\"left\" id=\"5c2fb98788te5\" style=\"text-align:left\">参数</p></td><td id=\"9c7af30aadtsk\" rowspan=\"1\" style=\"background-color:rgb(229, 229, 229)\" colspan=\"1\"><p jc=\"left\" id=\"79969e7419e0v\" style=\"text-align:left\">说明</p></td></tr><tr id=\"row-635-dyy-kns\"><td id=\"entry-0b5-4xm-ld3\" rowspan=\"1\" colspan=\"1\"><p jc=\"left\" id=\"bec78633fad5d\" style=\"text-align:left\"><b>添加方式</b></p></td><td id=\"entry-xwy-97k-rv6\" rowspan=\"1\" colspan=\"1\"><p jc=\"left\" id=\"b7ffce632ahqe\" style=\"text-align:left\">选中<b>从其他已授权<span class=\"help-letter-space\"></span>bucket<span class=\"help-letter-space\"></span>添加</b>，将授权访问的<span class=\"help-letter-space\"></span>Bucket<span class=\"help-letter-space\"></span>添加到收藏路径。</p></td></tr><tr id=\"row-06t-kse-bwh\"><td id=\"entry-5xm-3io-5v9\" rowspan=\"1\" colspan=\"1\"><p jc=\"left\" id=\"b2a865abe6hhp\" style=\"text-align:left\"><b>地域</b></p></td><td id=\"entry-ggp-otf-kpq\" rowspan=\"1\" colspan=\"1\"><p jc=\"left\" id=\"2e0e3aa00123x\" style=\"text-align:left\">下拉选择授权访问的<span class=\"help-letter-space\"></span>Bucket<span class=\"help-letter-space\"></span>所在地域。</p></td></tr><tr id=\"4658316140goo\"><td id=\"a9135a044bby8\" rowspan=\"1\" colspan=\"1\"><p id=\"68bbf67a61n61\"><b>Bucket</b></p></td><td id=\"6d31e8dc24wiq\" rowspan=\"1\" colspan=\"1\"><p id=\"a6862a24318w3\">添加授权访问的<span class=\"help-letter-space\"></span>Bucket<span class=\"help-letter-space\"></span>名称。</p></td></tr><tr id=\"row-j55-c2f-1k1\"><td id=\"entry-t6w-q9f-yxs\" rowspan=\"1\" colspan=\"1\"><p jc=\"left\" id=\"92de938fd2kdl\" style=\"text-align:left\"><b id=\"uicontrol-yej-oev-e8h\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">请求者付费</b></p></td><td id=\"entry-q57-5vf-ape\" rowspan=\"1\" colspan=\"1\"><p jc=\"left\" id=\"6bf93d0e48t1g\" style=\"text-align:left\">选中<b id=\"c7362b7148ebz\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">我已知晓并同意</b>后，即声明付费意愿。可以正常访问文件路径下的指定资源，访问该<span class=\"help-letter-space\"></span>Bucket<span class=\"help-letter-space\"></span>产生的流量、请求次数等费用将由您支付。</p></td></tr></tbody></table></div></li></ol></section><section id=\"30139f0edfzst\" class=\"section\"><h2 id=\"2d1df444da9cp\"><b>SDK</b></h2><p data-tag=\"p\" id=\"p-j12-kiv-qp0\" is-conref=\"true\" class=\"p\">以下代码以<span class=\"help-letter-space\"></span><span data-tag=\"apiname\" id=\"apiname-5b9-lun-4fb\" class=\"apiname\">PutObject</span>、<span data-tag=\"apiname\" id=\"apiname-us5-ptk-a40\" class=\"apiname\">GetObject</span><span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span><span data-tag=\"apiname\" id=\"apiname-c9d-h6b-iy5\" class=\"apiname\">DeleteObject</span><span class=\"help-letter-space\"></span>为例，用于指定第三方付费访问<span class=\"help-letter-space\"></span>Object。其他用于指定第三方付费的<span class=\"help-letter-space\"></span>Object<span class=\"help-letter-space\"></span>读写操作接口设置方法类似。</p><p data-tag=\"p\" id=\"p-534-h9k-dr5\" tagname=\"p\" class=\"p\">第三方操作<span class=\"help-letter-space\"></span>Object<span class=\"help-letter-space\"></span>时需在<span class=\"help-letter-space\"></span>HTTP Header<span class=\"help-letter-space\"></span>中携带<span class=\"help-letter-space\"></span>x-oss-request-payer:requester<span class=\"help-letter-space\"></span>参数，否则会报错。</p><section id=\"a9385986df6n1\" data-tag=\"tabbed-content-box\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\"><section id=\"6ad713a05cj9m\" class=\"section\"><h2 id=\"0bb04a6e0945h\">Java</h2><pre data-tag=\"codeblock\" id=\"1b83409a0941p\" outputclass=\"\" code-type=\"xCode\" syntax=\"java\" theme=\"default\" docid=\"5507625\" is-conref=\"true\" class=\"pre codeblock\"><code>import com.aliyun.oss.ClientBuilderConfiguration;\nimport com.aliyun.oss.OSS;\nimport com.aliyun.oss.common.auth.*;\nimport com.aliyun.oss.OSSClientBuilder;\nimport com.aliyun.oss.OSSException;\nimport com.aliyun.oss.common.comm.SignVersion;\nimport com.aliyun.oss.model.*;\nimport java.io.ByteArrayInputStream;\n\npublic class Demo {\n    public static void main(String[] args) throws Exception{\n        // Endpoint以华东1（杭州）为例，其它Region请按实际情况填写。关于其他Region对应的Endpoint信息，请参见访问域名和数据中心。\n        String endpoint = \"https://oss-cn-hangzhou.aliyuncs.com\";\n        // 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。\n        EnvironmentVariableCredentialsProvider credentialsProvider = CredentialsProviderFactory.newEnvironmentVariableCredentialsProvider();\n        // 填写Bucket名称，例如examplebucket。\n        String bucketName = \"examplebucket\";\n        // 填写Object完整路径，例如exampledir/exampleobject.txt。Object完整路径中不能包含Bucket名称。\n        String objectName = \"exampledir/exampleobject.txt\";\n        Payer payer = Payer.Requester;\n        // 填写Bucket所在地域。以华东1（杭州）为例，Region填写为cn-hangzhou。\n        String region = \"cn-hangzhou\";\n\n        // 创建OSSClient实例。\n        // 当OSSClient实例不再使用时，调用shutdown方法以释放资源。\n        ClientBuilderConfiguration clientBuilderConfiguration = new ClientBuilderConfiguration();\n        clientBuilderConfiguration.setSignatureVersion(SignVersion.V4);\n        OSS ossClient = OSSClientBuilder.create()\n                .endpoint(endpoint)\n                .credentialsProvider(credentialsProvider)\n                .clientConfiguration(clientBuilderConfiguration)\n                .region(region)\n                .build();\n        try {\n            // PutObject接口指定付费者。\n            String content = \"hello\";\n            PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, objectName, new ByteArrayInputStream(content.getBytes()));\n            putObjectRequest.setRequestPayer(payer);\n            ossClient.putObject(putObjectRequest);\n\n            // GetObject接口指定付费者。\n            GetObjectRequest getObjectRequest = new GetObjectRequest(bucketName, objectName);\n            getObjectRequest.setRequestPayer(payer);\n            OSSObject ossObject = ossClient.getObject(getObjectRequest);\n            ossObject.close();\n\n            // DeleteObject接口指定付费者。\n            GenericRequest genericRequest = new GenericRequest(bucketName, objectName);\n            genericRequest.setRequestPayer(payer);\n            ossClient.deleteObject(genericRequest);\n        } catch (OSSException oe) {\n            System.out.println(\"Caught an OSSException, which means your request made it to OSS, \"\n                    + \"but was rejected with an error response for some reason.\");\n            System.out.println(\"Error Message:\" + oe.getErrorMessage());\n            System.out.println(\"Error Code:\" + oe.getErrorCode());\n            System.out.println(\"Request ID:\" + oe.getRequestId());\n            System.out.println(\"Host ID:\" + oe.getHostId());\n        } catch (Throwable ce) {\n            System.out.println(\"Caught an ClientException, which means the client encountered \"\n                    + \"a serious internal problem while trying to communicate with OSS, \"\n                    + \"such as not being able to access the network.\");\n            System.out.println(\"Error Message:\" + ce.getMessage());\n        } finally {\n            // 关闭OSSClient。\n            if (ossClient != null) {\n                ossClient.shutdown();\n            }\n        }\n    }\n}</code></pre></section><section id=\"28e1f031cevva\" class=\"section\"><h2 id=\"48665250f3cqt\">Python</h2><pre data-tag=\"codeblock\" id=\"e0703a1bcfopo\" outputclass=\"\" code-type=\"xCode\" syntax=\"python\" theme=\"default\" docid=\"5575427\" is-conref=\"true\" class=\"pre codeblock\"><code># -*- coding: utf-8 -*-\n\nimport oss2\nfrom oss2.credentials import EnvironmentVariableCredentialsProvider\nfrom oss2.headers import OSS_REQUEST_PAYER\n\n# 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。\nauth = oss2.ProviderAuthV4(EnvironmentVariableCredentialsProvider())\n\n# 填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。\nendpoint = \"https://oss-cn-hangzhou.aliyuncs.com\"\n\n# 填写Endpoint对应的Region信息，例如cn-hangzhou。注意，v4签名下，必须填写该参数\nregion = \"cn-hangzhou\"\n\n# yourBucketName填写存储空间名称。\nbucket = oss2.Bucket(auth, endpoint, \"yourBucketName\", region=region)\n\n# 填写Object完整路径，完整路径中不能包含Bucket名称，例如exampledir/exampleobject.txt。\nobject_name = 'exampledir/exampleobject.txt'\nheaders = dict()\nheaders[OSS_REQUEST_PAYER] = \"requester\"\n\n# 上传文件时指定header。\nresult = bucket.put_object(object_name, 'test-content', headers=headers)\n\n# 下载文件时指定header。\nresult = bucket.get_object(object_name, headers=headers)\n\n# 删除文件时指定header。\nresult = bucket.delete_object(object_name, headers=headers);</code></pre></section><section id=\"a6ef4c7df7lic\" class=\"section\"><h2 id=\"dc8714f0c1pil\">Go</h2><pre data-tag=\"codeblock\" id=\"e25b460097ui5\" outputclass=\"\" code-type=\"xCode\" syntax=\"go\" theme=\"default\" docid=\"4725547\" is-conref=\"true\" class=\"pre codeblock\"><code>package main\n\nimport (\n\t\"fmt\"\n\t\"io\"\n\t\"os\"\n\t\"strings\"\n\n\t\"github.com/aliyun/aliyun-oss-go-sdk/oss\"\n)\n\nfunc main() {\n\t// 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。\n\tprovider, err := oss.NewEnvironmentVariableCredentialsProvider()\n\tif err != nil {\n\t\tfmt.Println(\"Error:\", err)\n\t\tos.Exit(-1)\n\t}\n\t// 创建OSSClient实例。\n\t// yourEndpoint填写Bucket对应的Endpoint，以华东1（杭州）为例，填写为https://oss-cn-hangzhou.aliyuncs.com。其它Region请按实际情况填写。\n\t// yourRegion填写Bucket所在地域，以华东1（杭州）为例，填写为cn-hangzhou。其它Region请按实际情况填写。\n\tclientOptions := []oss.ClientOption{oss.SetCredentialsProvider(&amp;provider)}\n\tclientOptions = append(clientOptions, oss.Region(\"yourRegion\"))\n\t// 设置签名版本\n\tclientOptions = append(clientOptions, oss.AuthVersion(oss.AuthV4))\n\tpayerClient, err := oss.New(\"yourEndpoint\", \"\", \"\", clientOptions...)\n\tif err != nil {\n\t\tfmt.Println(\"New Error:\", err)\n\t\tos.Exit(-1)\n\t}\n\n\t// 填写Bucket名称。\n\tpayerBucket, err := payerClient.Bucket(\"examplebucket\")\n\tif err != nil {\n\t\tfmt.Println(\"Error:\", err)\n\t\tos.Exit(-1)\n\t}\n\n\t// 当Bucket拥有者开启请求者付费模式后，外部访问者必须设置oss.RequestPayer(oss.Requester)参数才可以访问授权的内容。\n\t// 当Bucket拥有者没有开启付费模式时，外部访问者可以不用携带oss.RequestPayer(oss.Requester)参数即可访问授权的内容。\n\n\t// 上传Object。\n\t// 填写Object完整路径，完整路径中不能包含Bucket名称，例如exampledir/exampleobject.txt。\n\tkey := \"exampledir/exampleobject.txt\"\n\terr = payerBucket.PutObject(key, strings.NewReader(\"objectValue\"), oss.RequestPayer(\"requester\"))\n\tif err != nil {\n\t\tfmt.Println(\"put Error:\", err)\n\t\tos.Exit(-1)\n\t}\n\n\t// 列举Bucket下的所有Object。\n\tlor, err := payerBucket.ListObjects(oss.RequestPayer(oss.Requester))\n\tif err != nil {\n\t\tfmt.Println(\"Error:\", err)\n\t\tos.Exit(-1)\n\t}\n\t// 打印Object名称列表。\n\tfor _, l := range lor.Objects {\n\t\tfmt.Println(\"the Key name is :\", l.Key)\n\t}\n\n\t// 下载Object。\n\tbody, err := payerBucket.GetObject(key, oss.RequestPayer(oss.Requester))\n\tif err != nil {\n\t\tfmt.Println(\"Get Error:\", err)\n\t\tos.Exit(-1)\n\t}\n\t// 数据读取完成后，获取的流必须关闭，否则会造成连接泄漏，导致请求无连接可用，程序无法正常工作。\n\tdefer body.Close()\n\n\t// 读取并打印获取的内容。\n\tdata, err := io.ReadAll(body)\n\tif err != nil {\n\t\tfmt.Println(\"Error:\", err)\n\t\tos.Exit(-1)\n\t}\n\tfmt.Println(\"data:\", string(data))\n\n\t// 删除Object。\n\terr = payerBucket.DeleteObject(key, oss.RequestPayer(oss.Requester))\n\tif err != nil {\n\t\tfmt.Println(\"Error:\", err)\n\t\tos.Exit(-1)\n\t}\n}\n</code></pre></section><section id=\"b9944a0bb6qcu\" class=\"section\"><h2 id=\"1755bcf360yb9\">Node.js</h2><pre data-tag=\"codeblock\" id=\"d0f3c04348noq\" outputclass=\"\" code-type=\"xCode\" syntax=\"nodejs\" theme=\"default\" docid=\"5794231\" is-conref=\"true\" class=\"pre codeblock\"><code>const OSS = require('ali-oss');\nconst bucket = 'bucket-name';\nconst payer = 'Requester';\n\nconst client = new OSS({\n  // yourregion填写Bucket所在地域。以华东1（杭州）为例，Region填写为oss-cn-hangzhou。\n  region: 'yourregion',\n  // 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。\n  accessKeyId: process.env.OSS_ACCESS_KEY_ID,\n  accessKeySecret: process.env.OSS_ACCESS_KEY_SECRET,\n  authorizationV4: true,\n  // yourBucketName填写Bucket名称。\n  bucket: 'yourBucketName',\n\n});\n\nasync function main() {\n  await put();\n  await get();\n  await del();\n}\n\nasync function put() {\n  const result = await client.putBucketRequestPayment(bucket, payer);\n  console.log('putBucketRequestPayment:', result);\n  // PutObject接口指定付费者。\n  const response = await client.put('fileName', path.normalize('D:\\\\localpath\\\\examplefile.txt'), {\n    headers: {\n      'x-oss-request-payer': 'requester'\n    }\n  });\n  console.log('put:', response);\n}\n\nasync function get() {\n  const result = await client.putBucketRequestPayment(bucket, payer);\n  console.log('putBucketRequestPayment:', result);\n  // GetObject接口指定付费者。\n  const response = await client.get('fileName', {\n    headers: {\n      'x-oss-request-payer': 'requester'\n    }\n  });\n  console.log('get:', response);\n}\n\nasync function del() {\n  const result = await client.putBucketRequestPayment(bucket, payer);\n  console.log('putBucketRequestPayment:', result);\n  // DeleteObject接口指定付费者。\n  const response = await client.delete('fileName', {\n    headers: {\n      'x-oss-request-payer': 'requester'\n    }\n  });\n  console.log('delete:', response);\n}\n\nmain();\n</code></pre></section><section id=\"35a81c699eh22\" class=\"section\"><h2 id=\"4fb0edf39a1hy\">C#</h2><pre id=\"12a977b1eex5q\" data-tag=\"codeblock\" outputclass=\"\" code-type=\"xCode\" syntax=\"csharp\" theme=\"default\" docid=\"5713584\" is-conref=\"true\" class=\"pre codeblock\"><code>using System;\nusing System.IO;\nusing System.Text;\nusing Aliyun.OSS;\nusing Aliyun.OSS.Common;\n\n\nnamespace Samples\n{\n    public class Program\n    {\n        public static void Main(string[] args)\n        {\n            // yourEndpoint填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。\n            var endpoint = \"https://oss-cn-hangzhou.aliyuncs.com\";\n            // 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。\n            var accessKeyId = Environment.GetEnvironmentVariable(\"OSS_ACCESS_KEY_ID\");\n            var accessKeySecret = Environment.GetEnvironmentVariable(\"OSS_ACCESS_KEY_SECRET\");\n            // 填写Bucket名称，例如examplebucket。\n            var bucketName = \"examplebucket\";\n            var objectName = \"example.txt\";\n            var objectContent = \"More than just cloud.\";\n            // 填写Bucket所在地域对应的Region。以华东1（杭州）为例，Region填写为cn-hangzhou。\n            const string region = \"cn-hangzhou\";\n            // 创建ClientConfiguration实例，按照您的需要修改默认参数。\n            var conf = new ClientConfiguration();\n            // 设置v4签名。\n            conf.SignatureVersion = SignatureVersion.V4;\n\n            // 创建OssClient实例。\n            var client = new OssClient(endpoint, accessKeyId, accessKeySecret, conf);\n\n            try\n            {\n                byte[] binaryData = Encoding.ASCII.GetBytes(objectContent);\n                MemoryStream requestContent = new MemoryStream(binaryData);\n                // PutObject接口指定付费者。\n                var putRequest = new PutObjectRequest(bucketName, objectName, requestContent);\n                putRequest.RequestPayer = RequestPayer.Requester;\n                var result = client.PutObject(putRequest);\n\n                // GetObject接口指定付费者。\n                var getRequest = new GetObjectRequest(bucketName, objectName);\n                getRequest.RequestPayer = RequestPayer.Requester;\n                var getResult = client.GetObject(getRequest);\n\n                // DeleteObject接口指定付费者。\n                var delRequest = new DeleteObjectRequest(bucketName, objectName);\n                delRequest.RequestPayer = RequestPayer.Requester;\n                client.DeleteObject(delRequest);\n            }\n            catch (OssException ex)\n            {\n                Console.WriteLine(\"Failed with error code: {0}; Error info: {1}. \\nRequestID:{2}\\tHostID:{3}\",\n                    ex.ErrorCode, ex.Message, ex.RequestId, ex.HostId);\n            }\n            catch (Exception ex)\n            {\n                Console.WriteLine(\"Failed with error info: {0}\", ex.Message);\n            }\n        }\n    }\n}</code></pre></section><section id=\"110cf48600zz2\" class=\"section\"><h2 id=\"b93202e8d635e\">PHP</h2><pre data-tag=\"codeblock\" id=\"90f1eb5b7brxv\" outputclass=\"\" code-type=\"xCode\" syntax=\"php\" theme=\"default\" docid=\"5728042\" is-conref=\"true\" class=\"pre codeblock\"><code>&lt;?php\nif (is_file(__DIR__ . '/../autoload.php')) {\n    require_once __DIR__ . '/../autoload.php';\n}\nif (is_file(__DIR__ . '/../vendor/autoload.php')) {\n    require_once __DIR__ . '/../vendor/autoload.php';\n}\nuse OSS\\Credentials\\EnvironmentVariableCredentialsProvider;\nuse OSS\\OssClient;\nuse OSS\\Core\\OssException;\n\n// 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。\n$provider = new EnvironmentVariableCredentialsProvider();\n// Endpoint以杭州为例，其它Region请按实际情况填写。\n$endpoint = \"http://oss-cn-hangzhou.aliyuncs.com\";\n// 填写Bucket名称，例如examplebucket。\n$bucket= \"examplebucket\";\n// 填写Object的完整路径，完整路径中不能包含Bucket名称，例如exampledir/exampleobject.txt。\n$object = \"exampledir/exampleobject.txt\";\n\n// 指定为请求者付费模式。\n$options = array(\n  OssClient::OSS_HEADERS =&gt; array(\n  OssClient::OSS_REQUEST_PAYER =&gt; 'requester',\n));\n\ntry {\n    $config = array(\n        \"provider\" =&gt; $provider,\n        \"endpoint\" =&gt; $endpoint,\n        \"signatureVersion\" =&gt; OssClient::OSS_SIGNATURE_VERSION_V4,\n        \"region\"=&gt; \"cn-hangzhou\"\n    );\n    $ossClient = new OssClient($config);\n    // PutObject接口指定付费者。\n    $content = \"hello\";\n    $ossClient-&gt;putObject($bucket, $object, $content, $options);\n\n    // GetObject接口指定付费者。\n    $ossClient-&gt;getObject($bucket, $object, $options);\n\n    // DeleteObject接口指定付费者。\n    $ossClient-&gt;deleteObject($bucket, $object, $options);\n} catch (OssException $e) {\n    printf(__FUNCTION__ . \": FAILED\\n\");\n    printf($e-&gt;getMessage() . \"\\n\");\n    return;\n}\n\nprint(__FUNCTION__ . \": OK\" . \"\\n\"); </code></pre></section><section id=\"5e96e6aad1zbo\" class=\"section\"><h2 id=\"8183dd2fe878z\">C++</h2><pre data-tag=\"codeblock\" id=\"4a40094915l7t\" outputclass=\"\" code-type=\"xCode\" syntax=\"c++\" theme=\"default\" docid=\"4727843\" is-conref=\"true\" class=\"pre codeblock\"><code>\n#include &lt;alibabacloud/oss/OssClient.h&gt;\n#include &lt;fstream&gt;\nusing namespace AlibabaCloud::OSS;\nint main(void)\n{\n    /*初始化OSS账号信息。*/\n    \n    /*yourEndpoint填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。*/\n    std::string Endpoint = \"yourEndpoint\";\n    \n    / *yourRegion填写Bucket所在地域对应的Region。以华东1（杭州）为例，Region填写为cn - hangzhou。 * /\n    std::string Region = \"yourRegion\";\n    \n    /*填写请求者访问的Bucket名称，例如examplebucket。*/\n    std::string BucketName = \"examplebucket\";    \n    /*填写请求者访问的Object的完整路径，完整路径中不能包含Bucket名称，例如exampledir/exampleobject.txt。*/\n    std::string ObjectName = \"exampleobject.txt\";\n    /* 初始化网络等资源。*/\n    InitializeSdk();\n\n    ClientConfiguration conf;\n    conf.signatureVersion = SignatureVersionType::V4;\n    /* 从环境变量中获取访问凭证。运行本代码示例之前，请确保已通过环境变量设置请求者的OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。*/\n    auto credentialsProvider = std::make_shared&lt;EnvironmentVariableCredentialsProvider&gt;();\n    OssClient client(Endpoint, credentialsProvider, conf);\n    client.SetRegion(Region);    \n\n    /* 上传文件时设置请求者付费模式。*/\n    std::shared_ptr&lt;std::iostream&gt; content = std::make_shared&lt;std::stringstream&gt;();\n    *content &lt;&lt; \"test cpp sdk\";\n    PutObjectRequest putrequest(BucketName, ObjectName, content);\n    putrequest.setRequestPayer(RequestPayer::Requester);\n    auto putoutcome = client.PutObject(putrequest);\n\n    /* 下载文件到本地内存时设置请求者付费模式。*/\n    GetObjectRequest getrequest(BucketName, ObjectName);\n    getrequest.setRequestPayer(RequestPayer::Requester);\n    auto getoutcome = client.GetObject(getrequest);\n\n    /* 删除文件时设置请求者付费模式。*/\n    DeleteObjectRequest delrequest(BucketName, ObjectName);\n    delrequest.setRequestPayer(RequestPayer::Requester);\n    auto deloutcome = client.DeleteObject(delrequest);\n\n    /* 释放网络等资源。*/\n    ShutdownSdk();\n    return 0;\n}</code></pre></section></section></section><section id=\"92bc3fa0e79n3\" class=\"section\"><h2 id=\"ac0a2d3d8fv7i\"><b>ossutil</b></h2><p data-tag=\"p\" id=\"eefc9d6fd0h9u\" class=\"p\">使用命令行工具<span class=\"help-letter-space\"></span>ossutil<span class=\"help-letter-space\"></span>前，请先<a href=\"https://help.aliyun.com/zh/oss/install-ossutil2#DAS\" id=\"e257c0e864zj0\" title=\"\" class=\"xref\">安装<span class=\"help-letter-space\"></span>ossutil</a>。</p><p id=\"386f5173a3qsm\">以使用 cp 命令下载对象为例，请指定&nbsp;<code data-tag=\"code\" class=\"code\" id=\"2ee7d9ea6dij0\">--request-payer=requester</code>参数</p><pre outputclass=\"language-bash\" data-tag=\"codeblock\" code-type=\"xCode\" id=\"fdcaedeac1e8l\" class=\"pre codeblock language-bash\"><code>ossutil cp oss://examplebucket/examplefile.txt  /localpath  --request-payer=requester</code></pre></section><section id=\"9845dd229btq8\" class=\"section\"><h2 id=\"892841eb89tgq\">API</h2><p id=\"1432a76450g2e\">可直接发起<span class=\"help-letter-space\"></span>REST API<span class=\"help-letter-space\"></span>请求，需在请求头中加入&nbsp;<span data-tag=\"ph\" id=\"4ba715a36dzld\" class=\"ph\"><code data-tag=\"code\" id=\"b3245a0e836wv\" data-init-id=\"174e26e1a5m4d\" class=\"code\">x-oss-request-payer: requester</code></span>，并确保此请求头包含在签名计算中，签名的计算方法见<a href=\"https://help.aliyun.com/zh/oss/developer-reference/recommend-to-use-signature-version-4\" id=\"b1a0ac53ace57\" title=\"\" class=\"xref\">在<span class=\"help-letter-space\"></span>Header<span class=\"help-letter-space\"></span>中包含签名</a>。</p><pre outputclass=\"language-http\" data-tag=\"codeblock\" code-type=\"xCode\" id=\"93434f2b36ljf\" class=\"pre codeblock language-http\"><code>GET /oss.jpg HTTP/1.1\nHost: oss-example.oss-cn-hangzhou.aliyuncs.com\nDate: Fri, 24 Feb 2012 06:38:30 GMT\nAuthorization: OSS4-HMAC-SHA256 Credential=LTAI********************/20250417/cn-hangzhou/oss/aliyun_v4_request,Signature=a7c3554c729d71929e0b84489addee6b2e8d5cb48595adfc51868c299c0c218e</code></pre></section></section></section><section id=\"33061c25d1d6l\" class=\"section\"><h2 jc=\"left\" data-spm-anchor-id=\"idealab.3edd8474.0.i83.19f47f9clWftQi\" id=\"df71ef87fexwv\" style=\"text-align:left\">应用于生产环境</h2><ul id=\"1ff30bb772mkf\"><li id=\"9e3d662fdate0\"><p id=\"141db6e2ce1d0\"><b>RAM 角色访问的计费归属</b>：当请求者通过扮演阿里云<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>角色来访问数据时，该角色所属的账户将为此请求付费。</p><ul id=\"7eb0939501jh8\"><li id=\"a484aa6d711r4\"><p id=\"c8f1c1854de8d\"><b>错误做法</b>：让请求者扮演<span class=\"help-letter-space\"></span>Bucket 拥有者账号下的 RAM 角色来获取访问数据的权限。此场景下，所有请求是以 Bucket 拥有者的身份执行，产生的请求和流量费用仍将由 Bucket 拥有者支付，无法实现成本转移。</p></li><li id=\"a8ea910f5a1u1\"><p id=\"41969e87a4gav\"><b>正确做法</b>：通过<span class=\"help-letter-space\"></span>Bucket Policy 直接为请求者授予访问数据的权限。</p></li></ul></li><li id=\"df6d29e8a5aia\"><p id=\"63a24f33eeb6b\"><b>预签名 URL 陷阱</b>：</p><ul id=\"f915ccaa5697t\" data-init-id=\"1ff30bb772mkf\"><li id=\"8c1e2630b4y46\"><p id=\"8c499e317c01t\"><b>错误做法</b>：由 Bucket 拥有者使用身份凭证（AccessKey 或 STS 临时凭证）生成预签名 URL 并对外分享，此时请求是以<span class=\"help-letter-space\"></span>Bucket 拥有者身份发起，相关费用由<span class=\"help-letter-space\"></span>Bucket 拥有者承担。</p></li><li id=\"174a10487dmot\"><p id=\"e24ef2ca67iru\"><b>正确做法</b>：由请求方使用身份凭证（AccessKey 或 STS 临时凭证）来生成预签名 URL，并在生成时包含&nbsp;<code data-tag=\"code\" class=\"code inline-code___1DWt-\" id=\"4f0c233fc4hxj\">x-oss-request-payer=requester</code>&nbsp;参数，签名的计算方法见<a href=\"https://help.aliyun.com/zh/oss/developer-reference/add-signatures-to-urls\" id=\"d6cdb760a5pwq\" title=\"\" class=\"xref\">在<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>中包含签名</a>。请求方将此 URL 对外分享使用时，费用由请求方承担。</p></li></ul></li><li id=\"65de193cdb2i3\"><p id=\"bb291c07cdm2u\"><b>兼容性风险</b>：开启请求者付费会影响静态网站托管依赖的匿名访问机制，导致网站无法正常工作，建议将网站前端资源（HTML/CSS/JS）与需要请求者付费的数据分别部署在不同的<span class=\"help-letter-space\"></span>Bucket<span class=\"help-letter-space\"></span>中。</p></li></ul></section><section data-tag=\"section\" id=\"section-95o-yvf-opn\" data-type=\"section\" class=\"section\"><h2 data-tag=\"title\" id=\"title-hia-uiq-tmb\" class=\"title\">计费说明</h2><p id=\"3374865306p5h\">Bucket<span class=\"help-letter-space\"></span>开启请求者付费前，所有费用均由<span class=\"help-letter-space\"></span>Bucket<span class=\"help-letter-space\"></span>拥有者支付。开启请求者付费后，以下付费项由请求者的账号支付，其余计费项还是由<span class=\"help-letter-space\"></span>Bucket<span class=\"help-letter-space\"></span>拥有者的账号支付，完整计费项参见<span data-tag=\"ph\" id=\"cff7ff289crre\" docid=\"5477073\" is-conref=\"true\" class=\"ph\"><span props=\"china\"><a class=\"\" href=\"https://www.aliyun.com/price/product?spm=a2c4g.11186623.0.0.628c4d22ZdP2B0#/oss/detail/oss\" id=\"db7d77e83bkzb\">OSS<span class=\"help-letter-space\"></span>产品定价</a></span></span>。</p><table id=\"99369ea611l6m\" props=\"china\" tablewidth=\"100\" tablecolswidth=\"50 50\" autofit=\"true\" data-cond-props=\"china\" class=\"table\"><colgroup colwidth=\"1*\" style=\"width:50.00%\"></colgroup><colgroup colwidth=\"1*\" style=\"width:50.00%\"></colgroup><tbody class=\"tbody\"><tr id=\"f49347c034kcr\"><td id=\"96f761d28cfgn\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\"><p id=\"c7c26e8ebd11t\"><b>费用</b></p></td><td id=\"dbc8f46a5d5id\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\"><p id=\"0ce3ac38dcjqv\"><b>计费项</b></p></td></tr><tr id=\"0e07e963f52f3\"><td id=\"037f96dd1f3kj\" rowspan=\"2\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"4fa9c71a5dkur\"><a href=\"https://help.aliyun.com/zh/oss/traffic-fees\" id=\"06806720406ot\" title=\"\" class=\"xref\">流量费用</a></p></td><td id=\"9e9ddaf9b62n9\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"0cc9dd4de2mpn\">外网流出流量</p></td></tr><tr id=\"b5f2b4b13b21m\"><td id=\"fd93879e5855i\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"87b0ba84e4wj5\">CDN<span class=\"help-letter-space\"></span>回源流出流量</p></td></tr><tr id=\"23585958b7ogk\"><td id=\"7c51896c06qw3\" rowspan=\"2\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"2019439c92w6v\"><a href=\"https://help.aliyun.com/zh/oss/api-operation-calling-fees\" id=\"b857c2ca67bta\" title=\"\" class=\"xref\">请求费用</a></p></td><td id=\"711914e5e8a2e\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"ddd9976d705v3\">Put<span class=\"help-letter-space\"></span>类型请求</p></td></tr><tr id=\"f0daa9daee66y\"><td id=\"72f081711d41n\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"52a36b04c7kds\">Get<span class=\"help-letter-space\"></span>类型请求</p></td></tr><tr id=\"daa5bc398553n\"><td id=\"84da9eb3b1t1e\" rowspan=\"4\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"5801653dcdjft\"><a href=\"https://help.aliyun.com/zh/oss/data-processing-fees\" id=\"d44f1155eb70c\" title=\"\" class=\"xref\">数据处理</a></p></td><td id=\"de0f5d9e5d5tn\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"d735faa2c26yf\">图片处理</p></td></tr><tr id=\"dc5ae0332d0pf\"><td id=\"e8209adf64tbb\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"d157e12cbc8ew\">视频截帧</p></td></tr><tr id=\"61c7869cc9r6x\"><td id=\"edd634133awb5\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"58f15950752in\">低频访问数据取回容量</p></td></tr><tr id=\"52d39e729cqlq\"><td id=\"1bf7477d09lon\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"e95ae5d0c8xts\">归档存储数据取回容量</p></td></tr></tbody></table></section><p id=\"029b24a3414mt\"></p></div></main>\n\n</div>","path":"https://help.aliyun.com/zh/oss/user-guide/enable-pay-by-requester-1","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"对象存储","id":31815,"title":"对象存储","url":"/zh/oss/"},"alias":"/oss/user-guide/enable-pay-by-requester-1","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":6,"developerUrl":"https://developer.aliyun.com/storage/oss/","nodeType":1,"version":51,"url":"/zh/oss/user-guide/enable-pay-by-requester-1","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":91337,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"请求者付费","id":91337,"title":"请求者付费","url":"/zh/oss/user-guide/enable-pay-by-requester-1"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"成本优化","id":2977364,"title":"成本优化","url":"/zh/oss/user-guide/expense-optimization/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"对象存储","id":31815,"title":"对象存储","url":"/zh/oss/"},"productUrl":"https://www.aliyun.com/product/oss","nodeId":91337,"desc":"对外共享大量数据时，可开启存储空间（Bucket）的请求者付费模式，将访问数据产生的流量、请求等费用转由数据请求者承担，Bucket拥有者仅支付存储费用等固定成本。为Bucket开启请求者付费模式后，匿名访问将被禁用，所有请求需经过身份验证。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"对象存储","id":31815,"title":"对象存储","url":"/zh/oss/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"成本优化","id":2977364,"title":"成本优化","url":"/zh/oss/user-guide/expense-optimization/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"请求者付费","id":91337,"title":"请求者付费","url":"/zh/oss/user-guide/enable-pay-by-requester-1"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=213e02f217825380422566642e3cb9&asid=AQAAAAA6Xz9qMcFLeAAAAADn78hcx+92rQ==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="31823" class="Menu--level1--UN3zYr3">
+<a href="/zh/oss/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">用户指南</span>
+</a>
+</li>
+ <li id="2391490" class="Menu--level1--UN3zYr3">
+<a href="/zh/oss/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="48259" class="Menu--level1--UN3zYr3">
+<a href="/zh/oss/billing/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品计费</span>
+</a>
+</li>
+ <li id="2982296" class="Menu--level1--UN3zYr3">
+<a href="/zh/oss/oss-faq/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+ <li id="384052" class="Menu--level1--UN3zYr3">
+<a href="/zh/oss/announcements-and-updates/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">动态与公告</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>请求者付费</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/oss" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+<main id="concept-yls-jm2-2fb"><p id="shortdesc-v35-op3-ec6" data-tag="shortdesc" class="shortdesc">对外共享大量数据时，可开启存储空间（Bucket）的请求者付费模式，将访问数据产生的流量、请求等费用转由数据请求者承担，Bucket<span class="help-letter-space"></span>拥有者仅支付存储费用等固定成本。为<span class="help-letter-space"></span>Bucket<span class="help-letter-space"></span>开启请求者付费模式后，匿名访问将被禁用，所有请求需经过身份验证。</p><div data-tag="taskbody" id="conbody-zyk-j3j-fc9" class="taskbody"><section id="7812c67abd4x6" class="section"><h2 jc="left" id="11ba1b2327w05" style="text-align:left">适用范围</h2><p id="df6c8fede1mft">仅有地域属性的<span class="help-letter-space"></span>Bucket<span class="help-letter-space"></span>支持开启请求者付费模式。</p></section><section id="38585eae7bzm8" class="section"><h2 jc="left" id="314283cf22cmn" style="text-align:left">工作原理</h2><p id="bb84827cbat8i">OSS 按以下逻辑处理请求：</p><ul id="e40148978emkl"><li id="f79a5c11067xw"><p id="f062beeecbe4a">请求中携带&nbsp;<code data-tag="code" id="174e26e1a5m4d" class="code">x-oss-request-payer</code>头，OSS 对请求者进行身份验证，验证通过后，流量和请求等费用由请求者承担。</p></li><li id="c42100e592gn9"><p id="a8e18acc010qp">请求中不携带&nbsp;<code data-tag="code" class="code blog-code" id="2e8510c689g24">x-oss-request-payer</code>&nbsp;头：</p><ul id="38261dfbfepu8"><li data-spm-anchor-id="idealab.4d3ad9aa.0.i348.1c953d33b0fZLc" id="6b3aa968bcs9j"><p id="da553faefe5bz">请求者为 Bucket&nbsp;拥有者：请求正常处理，所有费用由<span class="help-letter-space"></span>Bucket<span class="help-letter-space"></span>拥有者承担。</p></li><li data-spm-anchor-id="idealab.4d3ad9aa.0.i349.1c953d33b0fZLc" id="2fb5922901h8s"><p id="8e5f100599mod">请求者非 Bucket&nbsp;拥有者：请求被拒绝。</p></li></ul></li></ul></section><section id="73caed2ca2ear" class="section"><h2 jc="left" data-spm-anchor-id="idealab.3edd8474.0.i911.2ce97f9c86g2M1" id="5c7873245dgae" style="text-align:left">Bucket 拥有者<b>配置请求者付费</b></h2><section id="9b2443e8b2vhc" class="section"><h4 jc="left" data-spm-anchor-id="idealab.3edd8474.0.i911.2ce97f9c86g2M1" id="9f31eddc47778" style="text-align:left"><b>步骤一：开启请求者付费</b></h4><ol data-tag="steps" id="a406fc9e07cjn" class="steps"><li data-tag="step" id="efb9f632f2ib1" class="step"><p id="b15b1dec99edx" data-init-id="cb592be0e5665"><span data-tag="cmd" id="cmd-rse-rnw-ios" class="cmd">登录<span props="china intl"><span class="help-letter-space"></span><a href="https://oss.console.aliyun.com/" id="xref-4qu-r1e-rc2" class="" target="_blank">OSS<span class="help-letter-space"></span>管理控制台</a></span>。</span></p></li><li data-tag="step" id="7789f35ad47fx" class="step"><p id="a4be4f826b3b3" data-init-id="cb597a00e5yer">单击<span class="help-letter-space"></span><b id="bucket.list" data-tag="uicontrol" data-isbold="true" class="uicontrol">Bucket 列表</b>，然后单击目标<span class="help-letter-space"></span>Bucket<span class="help-letter-space"></span>名称。</p></li><li data-tag="step" id="step-e6l-5qk-s9c" class="step"><p id="ed25ea2e5cws7">在左侧导航栏，选择<span data-tag="menucascade" id="menucascade-2y4-337-tvr" class="menucascade"><span class="help-letter-space"></span><b id="uicontrol-43c-4jp-3ca" data-tag="uicontrol" data-isbold="true" class="uicontrol">Bucket 配置</b> &gt; <b id="uicontrol-1ow-a6j-xev" data-tag="uicontrol" data-isbold="true" class="uicontrol">请求者付费</b></span>。</p></li><li data-tag="step" id="step-znu-0h1-9ut" class="step"><p id="f9290232b2e8c"><span data-tag="cmd" id="cmd-twr-p8r-6wc" class="cmd">在<b id="uicontrol-sgu-o1p-0k2" data-tag="uicontrol" data-isbold="true" class="uicontrol">请求者付费</b>页面，打开<b id="uicontrol-jk8-wsf-47e" data-tag="uicontrol" data-isbold="true" class="uicontrol">请求者付费</b>开关。</span></p></li><li data-tag="step" id="step-kdu-jy0-re2" class="step"><p id="cae307f1707xu"><span data-tag="cmd" id="cmd-v3u-q1n-c5p" class="cmd">在弹出的对话框，单击<b id="uicontrol-qxe-v2m-dh6" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>。</span></p></li></ol></section><section id="4942d79c4ed2l" class="section"><h4 jc="left" data-spm-anchor-id="idealab.3edd8474.0.i911.2ce97f9c86g2M1" id="f07568e1a2rhf" style="text-align:left"><b>步骤二：为请求者授予访问权限</b></h4><p id="bf2a2dbaa1sb7">通过 Bucket Policy 为请求者授权访问，否则请求者将无法访问数据。</p><ol id="substeps-b41-5ww-4xo" type="a" data-tag="substeps" class="substeps" data-spm-anchor-id="a2c4g.11186623.0.i6.6694623ctl5M5W"><li data-tag="substep" id="substep-l58-iqs-aql" class="substep"><p id="e6b1e93b89l2b"><span data-tag="cmd" id="cmd-nvy-x4g-5jd" class="cmd">在<span class="help-letter-space"></span><a class="" href="https://oss.console.aliyun.com/bucket/" id="8639e91110trg">Bucket<span class="help-letter-space"></span>列表</a>，单击目标<span class="help-letter-space"></span>Bucket<span class="help-letter-space"></span>名称</span>。</p></li><li id="9791985278zqe"><p id="091f547745qy6"><span id="7efe9ace15r0v" data-tag="cmd" class="cmd" data-init-id="cmd-nvy-x4g-5jd">在左侧导航栏，选择<span data-tag="menucascade" id="menucascade-c0x-pe1-vrn" class="menucascade"><b id="uicontrol-3wk-hpm-5pp" data-tag="uicontrol" data-isbold="true" class="uicontrol">权限控制</b> &gt; <b id="uicontrol-rhi-qcf-n07" data-tag="uicontrol" data-isbold="true" class="uicontrol">Bucket 授权策略</b></span>。</span></p></li><li data-tag="substep" id="substep-rh0-pat-1ks" class="substep"><p id="093d3a4826kb0"><span data-tag="cmd" id="cmd-zai-2b1-bgg" class="cmd">在<span class="help-letter-space"></span><b id="uicontrol-hlp-srg-rqi" data-tag="uicontrol" data-isbold="true" class="uicontrol">Bucket 授权策略</b>页面的<b id="uicontrol-9e0-tv4-1q8" data-tag="uicontrol" data-isbold="true" class="uicontrol">按图形策略添加</b>页签，单击<b id="uicontrol-9p9-bxn-3xs" data-tag="uicontrol" data-isbold="true" class="uicontrol">新增授权</b>。</span></p></li><li data-tag="substep" id="substep-azr-587-ciz" class="substep"><p id="62fd0c0bb6fne">在<b id="uicontrol-ru3-sho-c8f" data-tag="uicontrol" data-isbold="true" class="uicontrol">新增授权</b>面板，填写授权策略。其中，<b id="uicontrol-8bt-aey-gdy" data-tag="uicontrol" data-isbold="true" class="uicontrol">授权用户</b>选择<b>其他账号</b>，填写请求者的账号<span class="help-letter-space"></span>ID<span class="help-letter-space"></span>或<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>角色<span class="help-letter-space"></span>ARN（格式为 <code data-tag="code" id="ee410d97eebs0" class="code">arn:sts::{RoleOwnerUid}:assumed-role/{RoleName}/{RoleSessionName}</code>）。</p></li><li data-tag="substep" id="substep-axr-eut-7eh" class="substep"><p id="f96c029cf0zjo"><span data-tag="cmd" id="cmd-qm2-3kz-qh4" class="cmd">单击<b id="uicontrol-rjg-ka6-6p2" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>。</span></p></li></ol></section></section><section id="2e43d39a098pe" class="section"><h2 id="0f9d895775wsu">请求者发起付费请求</h2><p id="d038cc833cjk5">作为请求者，访问已开启请求者付费模式的<span class="help-letter-space"></span>Bucket<span class="help-letter-space"></span>时，必须在请求中声明将承担本次请求产生的费用。</p><section id="d92ce1f906f29" data-tag="tabbed-content-box" outputclass="tabbed-content-box" class="tabbed-content-box section"><section id="0ce3b1c3adb4q" class="section"><h2 id="e0dfc778eatrn">控制台</h2><ol data-tag="steps" id="00194ee2c8szr" class="steps"><li data-tag="step" id="1a5c96d606j52" class="step"><p id="4eaaf4d1ceo05" data-init-id="cb592be0e5665"><span data-tag="cmd" id="a12019cdba0gp" data-init-id="cmd_rse_rnw_ios" class="cmd">登录<span props="china intl"><span class="help-letter-space"></span><a href="https://oss.console.aliyun.com/" id="5ec25ae3afwf6" class="" target="_blank">OSS<span class="help-letter-space"></span>管理控制台</a></span>。</span></p></li><li data-tag="step" id="step-4n3-lcq-nk7" class="step" data-spm-anchor-id="a2c4g.11186623.0.i15.178b77342PDGlk"><p id="6aab98803dax0"><span data-tag="cmd" id="cmd-k0g-1n4-dtb" class="cmd">在左侧导航栏，单击<b id="uicontrol-vkm-tgz-3gm" data-tag="uicontrol" data-isbold="true" class="uicontrol">我收藏的路径</b>右侧的加号（+）。</span></p></li><li data-tag="step" id="step-4dh-5x2-mbo" class="step"><p id="c8709949dehty"><span data-tag="cmd" id="cmd-2pq-v0f-c28" class="cmd">在<b id="uicontrol-vfz-496-ek4" data-tag="uicontrol" data-isbold="true" class="uicontrol">添加收藏路径</b>对话框，按以下说明配置各项参数。</span></p><div data-tag="info" id="info-708-79g-x1z" class="info"><table id="table-ex9-hd0-6at" tablewidth="100" tablecolswidth="25.84 74.16" autofit="true" class="table"><colgroup colwidth="0.52*" style="width:25.84%"></colgroup><colgroup colwidth="1.48*" style="width:74.16%"></colgroup><tbody class="tbody"><tr id="2160f587a40if"><td id="72b1f51e2534d" rowspan="1" style="background-color:rgb(229, 229, 229)" colspan="1"><p jc="left" id="5c2fb98788te5" style="text-align:left">参数</p></td><td id="9c7af30aadtsk" rowspan="1" style="background-color:rgb(229, 229, 229)" colspan="1"><p jc="left" id="79969e7419e0v" style="text-align:left">说明</p></td></tr><tr id="row-635-dyy-kns"><td id="entry-0b5-4xm-ld3" rowspan="1" colspan="1"><p jc="left" id="bec78633fad5d" style="text-align:left"><b>添加方式</b></p></td><td id="entry-xwy-97k-rv6" rowspan="1" colspan="1"><p jc="left" id="b7ffce632ahqe" style="text-align:left">选中<b>从其他已授权<span class="help-letter-space"></span>bucket<span class="help-letter-space"></span>添加</b>，将授权访问的<span class="help-letter-space"></span>Bucket<span class="help-letter-space"></span>添加到收藏路径。</p></td></tr><tr id="row-06t-kse-bwh"><td id="entry-5xm-3io-5v9" rowspan="1" colspan="1"><p jc="left" id="b2a865abe6hhp" style="text-align:left"><b>地域</b></p></td><td id="entry-ggp-otf-kpq" rowspan="1" colspan="1"><p jc="left" id="2e0e3aa00123x" style="text-align:left">下拉选择授权访问的<span class="help-letter-space"></span>Bucket<span class="help-letter-space"></span>所在地域。</p></td></tr><tr id="4658316140goo"><td id="a9135a044bby8" rowspan="1" colspan="1"><p id="68bbf67a61n61"><b>Bucket</b></p></td><td id="6d31e8dc24wiq" rowspan="1" colspan="1"><p id="a6862a24318w3">添加授权访问的<span class="help-letter-space"></span>Bucket<span class="help-letter-space"></span>名称。</p></td></tr><tr id="row-j55-c2f-1k1"><td id="entry-t6w-q9f-yxs" rowspan="1" colspan="1"><p jc="left" id="92de938fd2kdl" style="text-align:left"><b id="uicontrol-yej-oev-e8h" data-tag="uicontrol" data-isbold="true" class="uicontrol">请求者付费</b></p></td><td id="entry-q57-5vf-ape" rowspan="1" colspan="1"><p jc="left" id="6bf93d0e48t1g" style="text-align:left">选中<b id="c7362b7148ebz" data-tag="uicontrol" data-isbold="true" class="uicontrol">我已知晓并同意</b>后，即声明付费意愿。可以正常访问文件路径下的指定资源，访问该<span class="help-letter-space"></span>Bucket<span class="help-letter-space"></span>产生的流量、请求次数等费用将由您支付。</p></td></tr></tbody></table></div></li></ol></section><section id="30139f0edfzst" class="section"><h2 id="2d1df444da9cp"><b>SDK</b></h2><p data-tag="p" id="p-j12-kiv-qp0" is-conref="true" class="p">以下代码以<span class="help-letter-space"></span><span data-tag="apiname" id="apiname-5b9-lun-4fb" class="apiname">PutObject</span>、<span data-tag="apiname" id="apiname-us5-ptk-a40" class="apiname">GetObject</span><span class="help-letter-space"></span>和<span class="help-letter-space"></span><span data-tag="apiname" id="apiname-c9d-h6b-iy5" class="apiname">DeleteObject</span><span class="help-letter-space"></span>为例，用于指定第三方付费访问<span class="help-letter-space"></span>Object。其他用于指定第三方付费的<span class="help-letter-space"></span>Object<span class="help-letter-space"></span>读写操作接口设置方法类似。</p><p data-tag="p" id="p-534-h9k-dr5" tagname="p" class="p">第三方操作<span class="help-letter-space"></span>Object<span class="help-letter-space"></span>时需在<span class="help-letter-space"></span>HTTP Header<span class="help-letter-space"></span>中携带<span class="help-letter-space"></span>x-oss-request-payer:requester<span class="help-letter-space"></span>参数，否则会报错。</p><section id="a9385986df6n1" data-tag="tabbed-content-box" outputclass="tabbed-content-box" class="tabbed-content-box section"><section id="6ad713a05cj9m" class="section"><h2 id="0bb04a6e0945h">Java</h2><pre data-tag="codeblock" id="1b83409a0941p" outputclass="" code-type="xCode" syntax="java" theme="default" docid="5507625" is-conref="true" class="pre codeblock"><code>import com.aliyun.oss.ClientBuilderConfiguration;
+import com.aliyun.oss.OSS;
+import com.aliyun.oss.common.auth.*;
+import com.aliyun.oss.OSSClientBuilder;
+import com.aliyun.oss.OSSException;
+import com.aliyun.oss.common.comm.SignVersion;
+import com.aliyun.oss.model.*;
+import java.io.ByteArrayInputStream;
+
+public class Demo {
+    public static void main(String[] args) throws Exception{
+        // Endpoint以华东1（杭州）为例，其它Region请按实际情况填写。关于其他Region对应的Endpoint信息，请参见访问域名和数据中心。
+        String endpoint = "https://oss-cn-hangzhou.aliyuncs.com";
+        // 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
+        EnvironmentVariableCredentialsProvider credentialsProvider = CredentialsProviderFactory.newEnvironmentVariableCredentialsProvider();
+        // 填写Bucket名称，例如examplebucket。
+        String bucketName = "examplebucket";
+        // 填写Object完整路径，例如exampledir/exampleobject.txt。Object完整路径中不能包含Bucket名称。
+        String objectName = "exampledir/exampleobject.txt";
+        Payer payer = Payer.Requester;
+        // 填写Bucket所在地域。以华东1（杭州）为例，Region填写为cn-hangzhou。
+        String region = "cn-hangzhou";
+
+        // 创建OSSClient实例。
+        // 当OSSClient实例不再使用时，调用shutdown方法以释放资源。
+        ClientBuilderConfiguration clientBuilderConfiguration = new ClientBuilderConfiguration();
+        clientBuilderConfiguration.setSignatureVersion(SignVersion.V4);
+        OSS ossClient = OSSClientBuilder.create()
+                .endpoint(endpoint)
+                .credentialsProvider(credentialsProvider)
+                .clientConfiguration(clientBuilderConfiguration)
+                .region(region)
+                .build();
+        try {
+            // PutObject接口指定付费者。
+            String content = "hello";
+            PutObjectRequest putObjectRequest = new PutObjectRequest(bucketName, objectName, new ByteArrayInputStream(content.getBytes()));
+            putObjectRequest.setRequestPayer(payer);
+            ossClient.putObject(putObjectRequest);
+
+            // GetObject接口指定付费者。
+            GetObjectRequest getObjectRequest = new GetObjectRequest(bucketName, objectName);
+            getObjectRequest.setRequestPayer(payer);
+            OSSObject ossObject = ossClient.getObject(getObjectRequest);
+            ossObject.close();
+
+            // DeleteObject接口指定付费者。
+            GenericRequest genericRequest = new GenericRequest(bucketName, objectName);
+            genericRequest.setRequestPayer(payer);
+            ossClient.deleteObject(genericRequest);
+        } catch (OSSException oe) {
+            System.out.println("Caught an OSSException, which means your request made it to OSS, "
+                    + "but was rejected with an error response for some reason.");
+            System.out.println("Error Message:" + oe.getErrorMessage());
+            System.out.println("Error Code:" + oe.getErrorCode());
+            System.out.println("Request ID:" + oe.getRequestId());
+            System.out.println("Host ID:" + oe.getHostId());
+        } catch (Throwable ce) {
+            System.out.println("Caught an ClientException, which means the client encountered "
+                    + "a serious internal problem while trying to communicate with OSS, "
+                    + "such as not being able to access the network.");
+            System.out.println("Error Message:" + ce.getMessage());
+        } finally {
+            // 关闭OSSClient。
+            if (ossClient != null) {
+                ossClient.shutdown();
+            }
+        }
+    }
+}</code></pre></section><section id="28e1f031cevva" class="section"><h2 id="48665250f3cqt">Python</h2><pre data-tag="codeblock" id="e0703a1bcfopo" outputclass="" code-type="xCode" syntax="python" theme="default" docid="5575427" is-conref="true" class="pre codeblock"><code># -*- coding: utf-8 -*-
+
+import oss2
+from oss2.credentials import EnvironmentVariableCredentialsProvider
+from oss2.headers import OSS_REQUEST_PAYER
+
+# 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
+auth = oss2.ProviderAuthV4(EnvironmentVariableCredentialsProvider())
+
+# 填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。
+endpoint = "https://oss-cn-hangzhou.aliyuncs.com"
+
+# 填写Endpoint对应的Region信息，例如cn-hangzhou。注意，v4签名下，必须填写该参数
+region = "cn-hangzhou"
+
+# yourBucketName填写存储空间名称。
+bucket = oss2.Bucket(auth, endpoint, "yourBucketName", region=region)
+
+# 填写Object完整路径，完整路径中不能包含Bucket名称，例如exampledir/exampleobject.txt。
+object_name = 'exampledir/exampleobject.txt'
+headers = dict()
+headers[OSS_REQUEST_PAYER] = "requester"
+
+# 上传文件时指定header。
+result = bucket.put_object(object_name, 'test-content', headers=headers)
+
+# 下载文件时指定header。
+result = bucket.get_object(object_name, headers=headers)
+
+# 删除文件时指定header。
+result = bucket.delete_object(object_name, headers=headers);</code></pre></section><section id="a6ef4c7df7lic" class="section"><h2 id="dc8714f0c1pil">Go</h2><pre data-tag="codeblock" id="e25b460097ui5" outputclass="" code-type="xCode" syntax="go" theme="default" docid="4725547" is-conref="true" class="pre codeblock"><code>package main
+
+import (
+	"fmt"
+	"io"
+	"os"
+	"strings"
+
+	"github.com/aliyun/aliyun-oss-go-sdk/oss"
+)
+
+func main() {
+	// 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
+	provider, err := oss.NewEnvironmentVariableCredentialsProvider()
+	if err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(-1)
+	}
+	// 创建OSSClient实例。
+	// yourEndpoint填写Bucket对应的Endpoint，以华东1（杭州）为例，填写为https://oss-cn-hangzhou.aliyuncs.com。其它Region请按实际情况填写。
+	// yourRegion填写Bucket所在地域，以华东1（杭州）为例，填写为cn-hangzhou。其它Region请按实际情况填写。
+	clientOptions := []oss.ClientOption{oss.SetCredentialsProvider(&amp;provider)}
+	clientOptions = append(clientOptions, oss.Region("yourRegion"))
+	// 设置签名版本
+	clientOptions = append(clientOptions, oss.AuthVersion(oss.AuthV4))
+	payerClient, err := oss.New("yourEndpoint", "", "", clientOptions...)
+	if err != nil {
+		fmt.Println("New Error:", err)
+		os.Exit(-1)
+	}
+
+	// 填写Bucket名称。
+	payerBucket, err := payerClient.Bucket("examplebucket")
+	if err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(-1)
+	}
+
+	// 当Bucket拥有者开启请求者付费模式后，外部访问者必须设置oss.RequestPayer(oss.Requester)参数才可以访问授权的内容。
+	// 当Bucket拥有者没有开启付费模式时，外部访问者可以不用携带oss.RequestPayer(oss.Requester)参数即可访问授权的内容。
+
+	// 上传Object。
+	// 填写Object完整路径，完整路径中不能包含Bucket名称，例如exampledir/exampleobject.txt。
+	key := "exampledir/exampleobject.txt"
+	err = payerBucket.PutObject(key, strings.NewReader("objectValue"), oss.RequestPayer("requester"))
+	if err != nil {
+		fmt.Println("put Error:", err)
+		os.Exit(-1)
+	}
+
+	// 列举Bucket下的所有Object。
+	lor, err := payerBucket.ListObjects(oss.RequestPayer(oss.Requester))
+	if err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(-1)
+	}
+	// 打印Object名称列表。
+	for _, l := range lor.Objects {
+		fmt.Println("the Key name is :", l.Key)
+	}
+
+	// 下载Object。
+	body, err := payerBucket.GetObject(key, oss.RequestPayer(oss.Requester))
+	if err != nil {
+		fmt.Println("Get Error:", err)
+		os.Exit(-1)
+	}
+	// 数据读取完成后，获取的流必须关闭，否则会造成连接泄漏，导致请求无连接可用，程序无法正常工作。
+	defer body.Close()
+
+	// 读取并打印获取的内容。
+	data, err := io.ReadAll(body)
+	if err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(-1)
+	}
+	fmt.Println("data:", string(data))
+
+	// 删除Object。
+	err = payerBucket.DeleteObject(key, oss.RequestPayer(oss.Requester))
+	if err != nil {
+		fmt.Println("Error:", err)
+		os.Exit(-1)
+	}
+}
+</code></pre></section><section id="b9944a0bb6qcu" class="section"><h2 id="1755bcf360yb9">Node.js</h2><pre data-tag="codeblock" id="d0f3c04348noq" outputclass="" code-type="xCode" syntax="nodejs" theme="default" docid="5794231" is-conref="true" class="pre codeblock"><code>const OSS = require('ali-oss');
+const bucket = 'bucket-name';
+const payer = 'Requester';
+
+const client = new OSS({
+  // yourregion填写Bucket所在地域。以华东1（杭州）为例，Region填写为oss-cn-hangzhou。
+  region: 'yourregion',
+  // 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
+  accessKeyId: process.env.OSS_ACCESS_KEY_ID,
+  accessKeySecret: process.env.OSS_ACCESS_KEY_SECRET,
+  authorizationV4: true,
+  // yourBucketName填写Bucket名称。
+  bucket: 'yourBucketName',
+
+});
+
+async function main() {
+  await put();
+  await get();
+  await del();
+}
+
+async function put() {
+  const result = await client.putBucketRequestPayment(bucket, payer);
+  console.log('putBucketRequestPayment:', result);
+  // PutObject接口指定付费者。
+  const response = await client.put('fileName', path.normalize('D:\\localpath\\examplefile.txt'), {
+    headers: {
+      'x-oss-request-payer': 'requester'
+    }
+  });
+  console.log('put:', response);
+}
+
+async function get() {
+  const result = await client.putBucketRequestPayment(bucket, payer);
+  console.log('putBucketRequestPayment:', result);
+  // GetObject接口指定付费者。
+  const response = await client.get('fileName', {
+    headers: {
+      'x-oss-request-payer': 'requester'
+    }
+  });
+  console.log('get:', response);
+}
+
+async function del() {
+  const result = await client.putBucketRequestPayment(bucket, payer);
+  console.log('putBucketRequestPayment:', result);
+  // DeleteObject接口指定付费者。
+  const response = await client.delete('fileName', {
+    headers: {
+      'x-oss-request-payer': 'requester'
+    }
+  });
+  console.log('delete:', response);
+}
+
+main();
+</code></pre></section><section id="35a81c699eh22" class="section"><h2 id="4fb0edf39a1hy">C#</h2><pre id="12a977b1eex5q" data-tag="codeblock" outputclass="" code-type="xCode" syntax="csharp" theme="default" docid="5713584" is-conref="true" class="pre codeblock"><code>using System;
+using System.IO;
+using System.Text;
+using Aliyun.OSS;
+using Aliyun.OSS.Common;
+
+
+namespace Samples
+{
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            // yourEndpoint填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。
+            var endpoint = "https://oss-cn-hangzhou.aliyuncs.com";
+            // 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
+            var accessKeyId = Environment.GetEnvironmentVariable("OSS_ACCESS_KEY_ID");
+            var accessKeySecret = Environment.GetEnvironmentVariable("OSS_ACCESS_KEY_SECRET");
+            // 填写Bucket名称，例如examplebucket。
+            var bucketName = "examplebucket";
+            var objectName = "example.txt";
+            var objectContent = "More than just cloud.";
+            // 填写Bucket所在地域对应的Region。以华东1（杭州）为例，Region填写为cn-hangzhou。
+            const string region = "cn-hangzhou";
+            // 创建ClientConfiguration实例，按照您的需要修改默认参数。
+            var conf = new ClientConfiguration();
+            // 设置v4签名。
+            conf.SignatureVersion = SignatureVersion.V4;
+
+            // 创建OssClient实例。
+            var client = new OssClient(endpoint, accessKeyId, accessKeySecret, conf);
+
+            try
+            {
+                byte[] binaryData = Encoding.ASCII.GetBytes(objectContent);
+                MemoryStream requestContent = new MemoryStream(binaryData);
+                // PutObject接口指定付费者。
+                var putRequest = new PutObjectRequest(bucketName, objectName, requestContent);
+                putRequest.RequestPayer = RequestPayer.Requester;
+                var result = client.PutObject(putRequest);
+
+                // GetObject接口指定付费者。
+                var getRequest = new GetObjectRequest(bucketName, objectName);
+                getRequest.RequestPayer = RequestPayer.Requester;
+                var getResult = client.GetObject(getRequest);
+
+                // DeleteObject接口指定付费者。
+                var delRequest = new DeleteObjectRequest(bucketName, objectName);
+                delRequest.RequestPayer = RequestPayer.Requester;
+                client.DeleteObject(delRequest);
+            }
+            catch (OssException ex)
+            {
+                Console.WriteLine("Failed with error code: {0}; Error info: {1}. \nRequestID:{2}\tHostID:{3}",
+                    ex.ErrorCode, ex.Message, ex.RequestId, ex.HostId);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Failed with error info: {0}", ex.Message);
+            }
+        }
+    }
+}</code></pre></section><section id="110cf48600zz2" class="section"><h2 id="b93202e8d635e">PHP</h2><pre data-tag="codeblock" id="90f1eb5b7brxv" outputclass="" code-type="xCode" syntax="php" theme="default" docid="5728042" is-conref="true" class="pre codeblock"><code>&lt;?php
+if (is_file(__DIR__ . '/../autoload.php')) {
+    require_once __DIR__ . '/../autoload.php';
+}
+if (is_file(__DIR__ . '/../vendor/autoload.php')) {
+    require_once __DIR__ . '/../vendor/autoload.php';
+}
+use OSS\Credentials\EnvironmentVariableCredentialsProvider;
+use OSS\OssClient;
+use OSS\Core\OssException;
+
+// 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
+$provider = new EnvironmentVariableCredentialsProvider();
+// Endpoint以杭州为例，其它Region请按实际情况填写。
+$endpoint = "http://oss-cn-hangzhou.aliyuncs.com";
+// 填写Bucket名称，例如examplebucket。
+$bucket= "examplebucket";
+// 填写Object的完整路径，完整路径中不能包含Bucket名称，例如exampledir/exampleobject.txt。
+$object = "exampledir/exampleobject.txt";
+
+// 指定为请求者付费模式。
+$options = array(
+  OssClient::OSS_HEADERS =&gt; array(
+  OssClient::OSS_REQUEST_PAYER =&gt; 'requester',
+));
+
+try {
+    $config = array(
+        "provider" =&gt; $provider,
+        "endpoint" =&gt; $endpoint,
+        "signatureVersion" =&gt; OssClient::OSS_SIGNATURE_VERSION_V4,
+        "region"=&gt; "cn-hangzhou"
+    );
+    $ossClient = new OssClient($config);
+    // PutObject接口指定付费者。
+    $content = "hello";
+    $ossClient-&gt;putObject($bucket, $object, $content, $options);
+
+    // GetObject接口指定付费者。
+    $ossClient-&gt;getObject($bucket, $object, $options);
+
+    // DeleteObject接口指定付费者。
+    $ossClient-&gt;deleteObject($bucket, $object, $options);
+} catch (OssException $e) {
+    printf(__FUNCTION__ . ": FAILED\n");
+    printf($e-&gt;getMessage() . "\n");
+    return;
+}
+
+print(__FUNCTION__ . ": OK" . "\n"); </code></pre></section><section id="5e96e6aad1zbo" class="section"><h2 id="8183dd2fe878z">C++</h2><pre data-tag="codeblock" id="4a40094915l7t" outputclass="" code-type="xCode" syntax="c++" theme="default" docid="4727843" is-conref="true" class="pre codeblock"><code>
+#include &lt;alibabacloud/oss/OssClient.h&gt;
+#include &lt;fstream&gt;
+using namespace AlibabaCloud::OSS;
+int main(void)
+{
+    /*初始化OSS账号信息。*/
+    
+    /*yourEndpoint填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。*/
+    std::string Endpoint = "yourEndpoint";
+    
+    / *yourRegion填写Bucket所在地域对应的Region。以华东1（杭州）为例，Region填写为cn - hangzhou。 * /
+    std::string Region = "yourRegion";
+    
+    /*填写请求者访问的Bucket名称，例如examplebucket。*/
+    std::string BucketName = "examplebucket";    
+    /*填写请求者访问的Object的完整路径，完整路径中不能包含Bucket名称，例如exampledir/exampleobject.txt。*/
+    std::string ObjectName = "exampleobject.txt";
+    /* 初始化网络等资源。*/
+    InitializeSdk();
+
+    ClientConfiguration conf;
+    conf.signatureVersion = SignatureVersionType::V4;
+    /* 从环境变量中获取访问凭证。运行本代码示例之前，请确保已通过环境变量设置请求者的OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。*/
+    auto credentialsProvider = std::make_shared&lt;EnvironmentVariableCredentialsProvider&gt;();
+    OssClient client(Endpoint, credentialsProvider, conf);
+    client.SetRegion(Region);    
+
+    /* 上传文件时设置请求者付费模式。*/
+    std::shared_ptr&lt;std::iostream&gt; content = std::make_shared&lt;std::stringstream&gt;();
+    *content &lt;&lt; "test cpp sdk";
+    PutObjectRequest putrequest(BucketName, ObjectName, content);
+    putrequest.setRequestPayer(RequestPayer::Requester);
+    auto putoutcome = client.PutObject(putrequest);
+
+    /* 下载文件到本地内存时设置请求者付费模式。*/
+    GetObjectRequest getrequest(BucketName, ObjectName);
+    getrequest.setRequestPayer(RequestPayer::Requester);
+    auto getoutcome = client.GetObject(getrequest);
+
+    /* 删除文件时设置请求者付费模式。*/
+    DeleteObjectRequest delrequest(BucketName, ObjectName);
+    delrequest.setRequestPayer(RequestPayer::Requester);
+    auto deloutcome = client.DeleteObject(delrequest);
+
+    /* 释放网络等资源。*/
+    ShutdownSdk();
+    return 0;
+}</code></pre></section></section></section><section id="92bc3fa0e79n3" class="section"><h2 id="ac0a2d3d8fv7i"><b>ossutil</b></h2><p data-tag="p" id="eefc9d6fd0h9u" class="p">使用命令行工具<span class="help-letter-space"></span>ossutil<span class="help-letter-space"></span>前，请先<a href="https://help.aliyun.com/zh/oss/install-ossutil2#DAS" id="e257c0e864zj0" title="" class="xref">安装<span class="help-letter-space"></span>ossutil</a>。</p><p id="386f5173a3qsm">以使用 cp 命令下载对象为例，请指定&nbsp;<code data-tag="code" class="code" id="2ee7d9ea6dij0">--request-payer=requester</code>参数</p><pre outputclass="language-bash" data-tag="codeblock" code-type="xCode" id="fdcaedeac1e8l" class="pre codeblock language-bash"><code>ossutil cp oss://examplebucket/examplefile.txt  /localpath  --request-payer=requester</code></pre></section><section id="9845dd229btq8" class="section"><h2 id="892841eb89tgq">API</h2><p id="1432a76450g2e">可直接发起<span class="help-letter-space"></span>REST API<span class="help-letter-space"></span>请求，需在请求头中加入&nbsp;<span data-tag="ph" id="4ba715a36dzld" class="ph"><code data-tag="code" id="b3245a0e836wv" data-init-id="174e26e1a5m4d" class="code">x-oss-request-payer: requester</code></span>，并确保此请求头包含在签名计算中，签名的计算方法见<a href="https://help.aliyun.com/zh/oss/developer-reference/recommend-to-use-signature-version-4" id="b1a0ac53ace57" title="" class="xref">在<span class="help-letter-space"></span>Header<span class="help-letter-space"></span>中包含签名</a>。</p><pre outputclass="language-http" data-tag="codeblock" code-type="xCode" id="93434f2b36ljf" class="pre codeblock language-http"><code>GET /oss.jpg HTTP/1.1
+Host: oss-example.oss-cn-hangzhou.aliyuncs.com
+Date: Fri, 24 Feb 2012 06:38:30 GMT
+Authorization: OSS4-HMAC-SHA256 Credential=LTAI********************/20250417/cn-hangzhou/oss/aliyun_v4_request,Signature=a7c3554c729d71929e0b84489addee6b2e8d5cb48595adfc51868c299c0c218e</code></pre></section></section></section><section id="33061c25d1d6l" class="section"><h2 jc="left" data-spm-anchor-id="idealab.3edd8474.0.i83.19f47f9clWftQi" id="df71ef87fexwv" style="text-align:left">应用于生产环境</h2><ul id="1ff30bb772mkf"><li id="9e3d662fdate0"><p id="141db6e2ce1d0"><b>RAM 角色访问的计费归属</b>：当请求者通过扮演阿里云<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>角色来访问数据时，该角色所属的账户将为此请求付费。</p><ul id="7eb0939501jh8"><li id="a484aa6d711r4"><p id="c8f1c1854de8d"><b>错误做法</b>：让请求者扮演<span class="help-letter-space"></span>Bucket 拥有者账号下的 RAM 角色来获取访问数据的权限。此场景下，所有请求是以 Bucket 拥有者的身份执行，产生的请求和流量费用仍将由 Bucket 拥有者支付，无法实现成本转移。</p></li><li id="a8ea910f5a1u1"><p id="41969e87a4gav"><b>正确做法</b>：通过<span class="help-letter-space"></span>Bucket Policy 直接为请求者授予访问数据的权限。</p></li></ul></li><li id="df6d29e8a5aia"><p id="63a24f33eeb6b"><b>预签名 URL 陷阱</b>：</p><ul id="f915ccaa5697t" data-init-id="1ff30bb772mkf"><li id="8c1e2630b4y46"><p id="8c499e317c01t"><b>错误做法</b>：由 Bucket 拥有者使用身份凭证（AccessKey 或 STS 临时凭证）生成预签名 URL 并对外分享，此时请求是以<span class="help-letter-space"></span>Bucket 拥有者身份发起，相关费用由<span class="help-letter-space"></span>Bucket 拥有者承担。</p></li><li id="174a10487dmot"><p id="e24ef2ca67iru"><b>正确做法</b>：由请求方使用身份凭证（AccessKey 或 STS 临时凭证）来生成预签名 URL，并在生成时包含&nbsp;<code data-tag="code" class="code inline-code___1DWt-" id="4f0c233fc4hxj">x-oss-request-payer=requester</code>&nbsp;参数，签名的计算方法见<a href="https://help.aliyun.com/zh/oss/developer-reference/add-signatures-to-urls" id="d6cdb760a5pwq" title="" class="xref">在<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>中包含签名</a>。请求方将此 URL 对外分享使用时，费用由请求方承担。</p></li></ul></li><li id="65de193cdb2i3"><p id="bb291c07cdm2u"><b>兼容性风险</b>：开启请求者付费会影响静态网站托管依赖的匿名访问机制，导致网站无法正常工作，建议将网站前端资源（HTML/CSS/JS）与需要请求者付费的数据分别部署在不同的<span class="help-letter-space"></span>Bucket<span class="help-letter-space"></span>中。</p></li></ul></section><section data-tag="section" id="section-95o-yvf-opn" data-type="section" class="section"><h2 data-tag="title" id="title-hia-uiq-tmb" class="title">计费说明</h2><p id="3374865306p5h">Bucket<span class="help-letter-space"></span>开启请求者付费前，所有费用均由<span class="help-letter-space"></span>Bucket<span class="help-letter-space"></span>拥有者支付。开启请求者付费后，以下付费项由请求者的账号支付，其余计费项还是由<span class="help-letter-space"></span>Bucket<span class="help-letter-space"></span>拥有者的账号支付，完整计费项参见<span data-tag="ph" id="cff7ff289crre" docid="5477073" is-conref="true" class="ph"><span props="china"><a class="" href="https://www.aliyun.com/price/product?spm=a2c4g.11186623.0.0.628c4d22ZdP2B0#/oss/detail/oss" id="db7d77e83bkzb">OSS<span class="help-letter-space"></span>产品定价</a></span></span>。</p><table id="99369ea611l6m" props="china" tablewidth="100" tablecolswidth="50 50" autofit="true" data-cond-props="china" class="table"><colgroup colwidth="1*" style="width:50.00%"></colgroup><colgroup colwidth="1*" style="width:50.00%"></colgroup><tbody class="tbody"><tr id="f49347c034kcr"><td id="96f761d28cfgn" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1"><p id="c7c26e8ebd11t"><b>费用</b></p></td><td id="dbc8f46a5d5id" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1"><p id="0ce3ac38dcjqv"><b>计费项</b></p></td></tr><tr id="0e07e963f52f3"><td id="037f96dd1f3kj" rowspan="2" style="vertical-align:middle" colspan="1"><p id="4fa9c71a5dkur"><a href="https://help.aliyun.com/zh/oss/traffic-fees" id="06806720406ot" title="" class="xref">流量费用</a></p></td><td id="9e9ddaf9b62n9" rowspan="1" style="vertical-align:middle" colspan="1"><p id="0cc9dd4de2mpn">外网流出流量</p></td></tr><tr id="b5f2b4b13b21m"><td id="fd93879e5855i" rowspan="1" style="vertical-align:middle" colspan="1"><p id="87b0ba84e4wj5">CDN<span class="help-letter-space"></span>回源流出流量</p></td></tr><tr id="23585958b7ogk"><td id="7c51896c06qw3" rowspan="2" style="vertical-align:middle" colspan="1"><p id="2019439c92w6v"><a href="https://help.aliyun.com/zh/oss/api-operation-calling-fees" id="b857c2ca67bta" title="" class="xref">请求费用</a></p></td><td id="711914e5e8a2e" rowspan="1" style="vertical-align:middle" colspan="1"><p id="ddd9976d705v3">Put<span class="help-letter-space"></span>类型请求</p></td></tr><tr id="f0daa9daee66y"><td id="72f081711d41n" rowspan="1" style="vertical-align:middle" colspan="1"><p id="52a36b04c7kds">Get<span class="help-letter-space"></span>类型请求</p></td></tr><tr id="daa5bc398553n"><td id="84da9eb3b1t1e" rowspan="4" style="vertical-align:middle" colspan="1"><p id="5801653dcdjft"><a href="https://help.aliyun.com/zh/oss/data-processing-fees" id="d44f1155eb70c" title="" class="xref">数据处理</a></p></td><td id="de0f5d9e5d5tn" rowspan="1" style="vertical-align:middle" colspan="1"><p id="d735faa2c26yf">图片处理</p></td></tr><tr id="dc5ae0332d0pf"><td id="e8209adf64tbb" rowspan="1" style="vertical-align:middle" colspan="1"><p id="d157e12cbc8ew">视频截帧</p></td></tr><tr id="61c7869cc9r6x"><td id="edd634133awb5" rowspan="1" style="vertical-align:middle" colspan="1"><p id="58f15950752in">低频访问数据取回容量</p></td></tr><tr id="52d39e729cqlq"><td id="1bf7477d09lon" rowspan="1" style="vertical-align:middle" colspan="1"><p id="e95ae5d0c8xts">归档存储数据取回容量</p></td></tr></tbody></table></section><p id="029b24a3414mt"></p></div></main>
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/oss/user-guide/archive-direct-reading" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：归档直读</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/oss/user-guide/acceleration-and-qos/" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：性能加速和管理<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

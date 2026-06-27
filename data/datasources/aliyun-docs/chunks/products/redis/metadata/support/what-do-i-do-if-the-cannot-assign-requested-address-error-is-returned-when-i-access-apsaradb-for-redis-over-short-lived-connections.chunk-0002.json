@@ -1,0 +1,14 @@
+{
+  "id": "redis:support/what-do-i-do-if-the-cannot-assign-requested-address-error-is-returned-when-i-access-apsaradb-for-redis-over-short-lived-connections:2",
+  "document_id": "redis:support/what-do-i-do-if-the-cannot-assign-requested-address-error-is-returned-when-i-access-apsaradb-for-redis-over-short-lived-connections",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "deployment",
+  "title": "解决因短连接导致的“Cannot assign requested address”报错-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/support/what-do-i-do-if-the-cannot-assign-requested-address-error-is-returned-when-i-access-apsaradb-for-redis-over-short-lived-connections",
+  "chunk_index": 2,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/support/what-do-i-do-if-the-cannot-assign-requested-address-error-is-returned-when-i-access-apsaradb-for-redis-over-short-lived-connections.chunk-0002.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/support/what-do-i-do-if-the-cannot-assign-requested-address-error-is-returned-when-i-access-apsaradb-for-redis-over-short-lived-connections.md",
+  "heading_path": "Cannot assign requested address报错 > 解决方案 > 修改客户端所在ECS实例的tcp_max_tw_buckets内核参数",
+  "char_count": 606
+}

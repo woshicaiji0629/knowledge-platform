@@ -1,0 +1,17 @@
+{
+  "id": "ecs:instance-types",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "pricing",
+  "title": "实例规格计费体系成本优化-云服务器 ECS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ecs/instance-types",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/instance-types.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/instance-types.md",
+  "word_count": 1097,
+  "text_units": 3467,
+  "local_links": 0,
+  "external_links": 90,
+  "has_tables": true,
+  "table_count": 11,
+  "quality": "accepted"
+}

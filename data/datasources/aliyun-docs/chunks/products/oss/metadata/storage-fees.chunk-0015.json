@@ -1,0 +1,14 @@
+{
+  "id": "oss:storage-fees:15",
+  "document_id": "oss:storage-fees",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "pricing",
+  "title": "OSS存储费用的计费项-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/storage-fees",
+  "chunk_index": 15,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/oss/documents/storage-fees.chunk-0015.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/storage-fees.md",
+  "heading_path": "存储费用 > 常见问题 > 购买归档-本地冗余存储包后，为什么还会在某个计费周期（小时）产生归档（本地冗余）不足规定时长容量的大额账单？",
+  "char_count": 465
+}

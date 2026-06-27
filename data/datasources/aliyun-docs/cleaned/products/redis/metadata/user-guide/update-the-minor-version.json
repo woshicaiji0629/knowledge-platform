@@ -1,0 +1,17 @@
+{
+  "id": "redis:user-guide/update-the-minor-version",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "实例版本升级配置与操作指南-云数据库Tair-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/update-the-minor-version",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/user-guide/update-the-minor-version.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/update-the-minor-version.md",
+  "word_count": 754,
+  "text_units": 2738,
+  "local_links": 8,
+  "external_links": 65,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

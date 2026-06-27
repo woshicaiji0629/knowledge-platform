@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/configure-multiple-automatic-snapshot-policies-for-a-cloud-disk-whitelist",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "为云盘设置自动快照策略-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/configure-multiple-automatic-snapshot-policies-for-a-cloud-disk-whitelist",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/configure-multiple-automatic-snapshot-policies-for-a-cloud-disk-whitelist.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/configure-multiple-automatic-snapshot-policies-for-a-cloud-disk-whitelist.md",
+  "word_count": 727,
+  "text_units": 2243,
+  "local_links": 7,
+  "external_links": 71,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

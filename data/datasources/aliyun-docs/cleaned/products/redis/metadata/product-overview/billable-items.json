@@ -1,0 +1,17 @@
+{
+  "id": "redis:product-overview/billable-items",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "pricing",
+  "title": "云数据库Tair（兼容 Redis）的计费项和计费规则-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/billable-items",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/product-overview/billable-items.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/billable-items.md",
+  "word_count": 865,
+  "text_units": 1878,
+  "local_links": 1,
+  "external_links": 66,
+  "has_tables": true,
+  "table_count": 7,
+  "quality": "accepted"
+}

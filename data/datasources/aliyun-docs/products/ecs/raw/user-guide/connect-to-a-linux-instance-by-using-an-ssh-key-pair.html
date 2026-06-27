@@ -1,0 +1,692 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    使用OpenSSH/Xshell远程连接Linux实例-云服务器 ECS(ECS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair">
+  <meta name="keywords" content="登录Linux实例,连接Linux实例,SSH密钥对,密钥连接,密钥登录">
+  <meta name="description" content="当本地设备为macOS或Windows 10/11，可直接使用系统内置的OpenSSH命令行工具连接Linux实例。此外，本地Windows设备也可以通过Xshell工具连接实例，两种方式均支持密码或密钥对认证。">
+  <meta name="last-modified" content="2026-04-12T20:52:28+08:00">
+  <meta name="date" content="2017-03-20T02:03:39+08:00">
+  <meta property="og:title" content="使用OpenSSH/Xshell远程连接Linux实例">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="当本地设备为macOS或Windows 10/11，可直接使用系统内置的OpenSSH命令行工具连接Linux实例。此外，本地Windows设备也可以通过Xshell工具连接实例，两种方式均支持密码或密钥对认证。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "51798",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/ecs/user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair","nodeId":null,"data":{"lastModifiedTime":1775998348000,"keywords":"登录Linux实例,连接Linux实例,SSH密钥对,密钥连接,密钥登录","docTitle":"使用OpenSSH/Xshell远程连接Linux实例","language":"zh","seoTitle":"使用OpenSSH/Xshell远程连接Linux实例-云服务器 ECS(ECS)-阿里云帮助中心","title":"使用OpenSSH/Xshell远程连接Linux实例","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n<main id=\"concept-ucj-wrx-wdb\">\n\n\n<p data-tag=\"shortdesc\" id=\"shortdesc-nrf-4yt-i4w\" class=\"shortdesc\">当本地设备为<span class=\"help-letter-space\"></span>macOS<span class=\"help-letter-space\"></span>或<span class=\"help-letter-space\"></span>Windows 10/11，可直接使用系统内置的<span class=\"help-letter-space\"></span>OpenSSH<span class=\"help-letter-space\"></span>命令行工具连接<span class=\"help-letter-space\"></span>Linux<span class=\"help-letter-space\"></span>实例。此外，本地<span class=\"help-letter-space\"></span>Windows<span class=\"help-letter-space\"></span>设备也可以通过<span class=\"help-letter-space\"></span>Xshell<span class=\"help-letter-space\"></span>工具连接实例，两种方式均支持密码或密钥对认证。</p>\n<div data-tag=\"taskbody\" id=\"taskbody-v2l-rhx-vt0\" class=\"taskbody\">\n<div id=\"246fa96f53wvn\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n<p id=\"159dbbe530vzq\">推荐通过<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-linux-instance-by-using-a-password-or-key\" id=\"6ee98b5eeehom\" title=\"\" class=\"xref\">Workbench</a><span class=\"help-letter-space\"></span>连接阿里云上的实例，该工具可直接通过浏览器使用、支持免密登录，相比使用<span class=\"help-letter-space\"></span>OpenSSH、Xshell<span class=\"help-letter-space\"></span>更便捷。</p>\n</div></div>\n<section id=\"dd716b813cbv5\" class=\"section\">\n<h2 id=\"53495a362dgyr\"><b>适用范围</b></h2>\n<ul id=\"30106b8252cdt\">\n<li id=\"1103516c90jct\">\n<p id=\"d54e860346cix\">实例操作系统为<span class=\"help-letter-space\"></span><b>Linux</b>。</p>\n</li>\n<li id=\"dffa5faedf5su\">\n<p id=\"7236de8d54rc7\">实例已绑定<a href=\"https://help.aliyun.com/zh/ecs/user-guide/public-ip-address\" id=\"ce202bde73zk2\" title=\"\" class=\"xref\">固定公网<span class=\"help-letter-space\"></span>IP</a><span class=\"help-letter-space\"></span>或<a href=\"https://help.aliyun.com/zh/ecs/user-guide/associate-or-disassociate-an-eip\" id=\"edd05d2bdfrs1\" title=\"\" class=\"xref\">弹性公网<span class=\"help-letter-space\"></span>IP</a>。</p>\n</li>\n</ul>\n</section>\n<section id=\"71ff8782ea227\" class=\"section\">\n<h2 id=\"acf12c47dexpa\"><b>方式一：使用<span class=\"help-letter-space\"></span>OpenSSH<span class=\"help-letter-space\"></span>客户端（命令行）</b></h2>\n<p id=\"2c90c75d5bj2u\">OpenSSH<span class=\"help-letter-space\"></span>是<span class=\"help-letter-space\"></span>macOS<span class=\"help-letter-space\"></span>和新版<span class=\"help-letter-space\"></span>Windows<span class=\"help-letter-space\"></span>系统内置的标准<span class=\"help-letter-space\"></span>SSH<span class=\"help-letter-space\"></span>客户端，通过命令行即可快速连接。</p>\n<section id=\"a4fc8064e92s3\" class=\"section\">\n<h3 id=\"de8a1a4ebakk4\"><b>准备工作</b></h3>\n<ul id=\"8703e232dfa1t\">\n<li id=\"6efa4e65feny2\">\n<p id=\"5de47b12eaq11\"><b>实例公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址：</b>在<span data-tag=\"ph\" id=\"595026ce70n8l\" data-init-id=\"e4cf865092dq6\" docid=\"5423368\" is-conref=\"true\" class=\"ph\"><span props=\"china\"><a class=\"\" href=\"https://ecs.console.aliyun.com/server/region\" id=\"f4e5a2e258w9y\">ECS<span class=\"help-letter-space\"></span>控制台-实例</a></span></span>，找到目标实例进入详情，在<b id=\"ef1de20aab2s9\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">配置信息</b>区域找到<b id=\"fd8c389eafsqr\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">公网<span class=\"help-letter-space\"></span>IP</b>。</p>\n</li>\n<li id=\"52f9a9d459q9y\">\n<p id=\"8664bd59625gh\"><b>实例登录凭证：</b>为实例<a href=\"https://help.aliyun.com/zh/ecs/user-guide/instance-logon-credential-management#0125b54267ba1\" id=\"15779f233efck\" title=\"\" class=\"xref\">设置密码</a>或<a href=\"https://help.aliyun.com/zh/ecs/user-guide/instance-logon-credential-management#d63a004e87306\" id=\"de9370e914dsl\" title=\"\" class=\"xref\">绑定密钥对</a>。</p>\n</li>\n<li id=\"d658ec646eu1s\">\n<p id=\"16e0d0776ecm4\"><b>配置安全组：</b>为实例关联的安全组<a href=\"#3f58c0bfaboi4\" id=\"9ed46ac341u8x\" title=\"\" class=\"xref\">配置入方向规则</a>，允许本地<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>通过<span class=\"help-letter-space\"></span>SSH（22<span class=\"help-letter-space\"></span>端口）访问实例。</p>\n</li>\n</ul>\n</section>\n<section id=\"7b4158d33fbar\" class=\"section\">\n<h3 id=\"5963cfdcca9dm\"><b>操作步骤</b></h3>\n<section data-tag=\"tabbed-content-box\" id=\"dcad45acf7zfu\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n<section id=\"5155c452662k8\" class=\"section\">\n<h2 id=\"ba1e035560e7i\">Windows 10/11</h2>\n<section data-tag=\"tabbed-content-box\" id=\"76d28501bcnyo\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n<section id=\"c220e4908bu5a\" class=\"section\">\n<h2 id=\"fdee7c9bc3tbj\">密码登录</h2>\n<ol id=\"c7f3aa4dd42x6\" start=\"1\">\n<li id=\"4461bf4eae6ts\">\n<p id=\"f4969731bdvef\">打开<span class=\"help-letter-space\"></span>PowerShell</p>\n<p id=\"5318d491f91jn\">按<code data-tag=\"code\" id=\"eda8b2c507mj7\" class=\"code\">Win</code>+<code data-tag=\"code\" id=\"fd62c5e493tri\" class=\"code\">R</code>输入<code data-tag=\"code\" id=\"072b3972bfxd5\" class=\"code\">powershell</code>后按<code data-tag=\"code\" id=\"5ddeea1c6ffcm\" class=\"code\">Enter</code>键进入<span class=\"help-letter-space\"></span>PowerShell<span class=\"help-letter-space\"></span>命令行界面。</p>\n</li>\n<li id=\"63183c9065g7m\">\n<p id=\"fe4a725214j4s\">发起远程连接</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"bf117411dbyxt\" index=\"0\" outputclass=\"language-powershell\" class=\"pre codeblock language-powershell\"><code>ssh &lt;实例登录名&gt;@&lt;实例公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址&gt;</code></pre>\n<blockquote id=\"3cad8654c1v85\">示例：<code data-tag=\"code\" id=\"1dd8d57baazs5\" class=\"code\">ssh root@47.98.xxx.xxx</code></blockquote>\n</li>\n<li id=\"9dc2e2b8f4dds\">\n<p id=\"8840b9f969v0v\">（首次连接时）验证主机指纹</p>\n<p id=\"58d09e9ae4vkr\">当首次连接一台新的<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>时，会显示类似下方的信息，提示验证主机密钥指纹。</p>\n<blockquote id=\"3c2a9bca5fft8\">这是<span class=\"help-letter-space\"></span>SSH<span class=\"help-letter-space\"></span>的一项安全机制，为确保安全，请<a href=\"#66719a5b83n6e\" id=\"2765680200ydn\" title=\"\" class=\"xref\">获取实例的主机密钥指纹后比对差异</a>。若不一致，则说明正在遭受中间人攻击，请切换到安全的网络环境下重新连接实例。</blockquote>\n<p id=\"31436b523f3yd\">确认主机指纹无误后，输入<code data-tag=\"inlineCode\" id=\"e1bde1304c5rw\" class=\"inlineCode\">yes</code>并按回车。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"6aecf9d4e2sml\" index=\"0\" outputclass=\"language-powershell\" class=\"pre codeblock language-powershell\"><code>The authenticity of host '47.98.xxx.xxx (47.98.xxx.xxx)' can't be established.\nED25519 key fingerprint is SHA256:AbCdEf123456...\nThis key is not known by any other names.\nAre you sure you want to continue connecting (yes/no/[fingerprint])? </code></pre>\n</li>\n<li id=\"10dd608490yxs\">\n<p id=\"b0ddfabb10mwt\">输入密码，进入实例</p>\n<blockquote id=\"785af1917d3q1\">输入密码时屏幕不会显示字符，这是正常现象，输入完成后按回车即可。</blockquote>\n<p id=\"1b1e9924f7tmz\">密码验证通过后，将看到类似下方的欢迎信息，并且命令提示符会变为 <code data-tag=\"inlineCode\" id=\"8b0a0ef18360e\" class=\"inlineCode\">[&lt;实例登录名&gt;@&lt;hostname&gt; ~]$</code> 的形式。表示已成功登录到<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"3e6e6b5f40z63\" index=\"0\" outputclass=\"language-powershell\" class=\"pre codeblock language-powershell\"><code>Welcome to Alibaba Cloud Elastic Compute Service !\n\n[root@Connect-Instance-Example ~]#</code></pre>\n</li>\n</ol>\n</section>\n<section id=\"778a7583e2npk\" class=\"section\">\n<h2 id=\"bad67a50f7zkp\">密钥对登录</h2>\n<ol id=\"a95939329c6ox\" start=\"1\">\n<li id=\"d3ad9018b3j8l\">\n<p id=\"d23fb63584isq\">打开<span class=\"help-letter-space\"></span>PowerShell</p>\n<p id=\"3b891291c4x8a\">按<code data-init-id=\"eda8b2c507mj7\" data-tag=\"code\" id=\"3b0d8017d3sjk\" class=\"code\">Win</code>+<code data-init-id=\"fd62c5e493tri\" data-tag=\"code\" id=\"f962b4dad56h3\" class=\"code\">R</code>输入<code data-init-id=\"072b3972bfxd5\" data-tag=\"code\" id=\"77f3561306k32\" class=\"code\">powershell</code>后按<code data-init-id=\"5ddeea1c6ffcm\" data-tag=\"code\" id=\"166715bd26pa8\" class=\"code\">Enter</code>键进入<span class=\"help-letter-space\"></span>PowerShell<span class=\"help-letter-space\"></span>命令行界面。</p>\n</li>\n<li id=\"cf137a5091688\">\n<p id=\"d710ee2e21t6h\">发起远程连接</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"b1137df909s55\" index=\"0\" outputclass=\"language-powershell\" class=\"pre codeblock language-powershell\"><code>ssh -i /path/to/private_key.pem &lt;实例登录名&gt;@&lt;实例公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址&gt;</code></pre>\n<blockquote id=\"8927193d7f6kb\">示例：<code data-init-id=\"1dd8d57baazs5\" data-tag=\"code\" id=\"d2f802c176t5l\" class=\"code\">ssh -i /path/to/private_key.pem root@47.98.xxx.xxx</code>。其中<code data-init-id=\"1dd8d57baazs5\" data-tag=\"code\" id=\"318df9fab0wl8\" class=\"code\">/path/to/private_key.pem</code>为私钥文件路径，例如<code data-tag=\"code\" id=\"52a3c1e5f4yxn\" class=\"code\">C:\\Users\\Administrator\\Downloads\\private_key.pem</code>。</blockquote>\n</li>\n<li id=\"8c1fdd454bwgm\">\n<p id=\"6bd09204b1va7\">（首次连接时）验证主机指纹</p>\n<p id=\"f837ebcfdce0o\">当首次连接一台新的<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>时，会显示类似下方的信息，提示验证主机密钥指纹。</p>\n<blockquote id=\"6c9c5fb5805vl\">这是<span class=\"help-letter-space\"></span>SSH<span class=\"help-letter-space\"></span>的一项安全机制，为确保安全，请<a href=\"#66719a5b83n6e\" id=\"91a2e793116f8\" title=\"\" class=\"xref\">获取实例的主机密钥指纹后比对差异</a>。若不一致，则说明正在遭受中间人攻击，请切换到安全的网络环境下重新连接实例。</blockquote>\n<p id=\"f286d7d55dlsf\">确认主机指纹无误后，输入<code data-init-id=\"e1bde1304c5rw\" data-tag=\"inlineCode\" id=\"f6558cbbe81j3\" class=\"inlineCode\">yes</code>并按回车。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"27f48fecd07ka\" index=\"0\" outputclass=\"language-powershell\" class=\"pre codeblock language-powershell\"><code>The authenticity of host '47.98.xxx.xxx (47.98.xxx.xxx)' can't be established.\nED25519 key fingerprint is SHA256:AbCdEf123456...\nThis key is not known by any other names.\nAre you sure you want to continue connecting (yes/no/[fingerprint])? </code></pre>\n</li>\n<li id=\"587a7b32d37bk\">\n<p id=\"29617f7f3crzb\">验证密钥，进入实例</p>\n<p id=\"9e47e50be8dyn\">当密钥验证通过后，将看到类似下方的欢迎信息，并且命令提示符会变为 <code data-init-id=\"8b0a0ef18360e\" data-tag=\"inlineCode\" id=\"29384ce6fbkz0\" class=\"inlineCode\">[&lt;实例登录名&gt;@&lt;hostname&gt; ~]$</code> 的形式。表示已成功登录到<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"3886fee199t1z\" index=\"0\" outputclass=\"language-powershell\" class=\"pre codeblock language-powershell\"><code>Welcome to Alibaba Cloud Elastic Compute Service !\n\n[root@Connect-Instance-Example ~]#</code></pre>\n</li>\n</ol>\n</section>\n</section>\n</section>\n<section id=\"d0667f3a0ennm\" class=\"section\">\n<h2 id=\"cf27685c36pvv\">macOS</h2>\n<section data-tag=\"tabbed-content-box\" id=\"c7a5c35607akp\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n<section id=\"393d22bf925ez\" class=\"section\">\n<h2 id=\"3b0a2c2700wlw\">密码登录</h2>\n<ol id=\"92b10961700w5\" start=\"1\">\n<li id=\"afbaae4dd2m33\">\n<p id=\"3155102e1eeic\">打开<b>终端（Terminal）</b>。</p>\n</li>\n<li id=\"8566cd83a4is7\">\n<p id=\"366972d3c85mb\">发起远程连接。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"738d3627663eo\" index=\"0\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>ssh &lt;实例登录名&gt;@&lt;实例公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址&gt;</code></pre>\n<blockquote id=\"ab6d8ce696c1z\">示例：<code data-init-id=\"1dd8d57baazs5\" data-tag=\"code\" id=\"3056b34f14c8a\" class=\"code\">ssh root@47.98.xxx.xxx</code></blockquote>\n</li>\n<li id=\"e0997d379fhqn\">\n<p id=\"4c8bc9e309yot\">（首次连接时）验证主机指纹</p>\n<p id=\"fba545476e2a6\">当首次连接一台新的<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>时，会显示类似下方的信息，提示验证主机密钥指纹。</p>\n<blockquote id=\"06349122de5kk\">这是<span class=\"help-letter-space\"></span>SSH<span class=\"help-letter-space\"></span>的一项安全机制，为确保安全，请<a href=\"#66719a5b83n6e\" id=\"bafd4f0124ugo\" title=\"\" class=\"xref\">获取实例的主机密钥指纹后比对差异</a>。若不一致，则说明正在遭受中间人攻击，请切换到安全的网络环境下重新连接实例。</blockquote>\n<p id=\"bc890c63aa2mc\">确认主机指纹无误后，输入<code data-init-id=\"e1bde1304c5rw\" data-tag=\"inlineCode\" id=\"8d5410d765qv0\" class=\"inlineCode\">yes</code>并按回车。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"e67f676d81k1n\" index=\"0\" outputclass=\"language-powershell\" class=\"pre codeblock language-powershell\"><code>The authenticity of host '47.98.xxx.xxx (47.98.xxx.xxx)' can't be established.\nED25519 key fingerprint is SHA256:AbCdEf123456...\nThis key is not known by any other names.\nAre you sure you want to continue connecting (yes/no/[fingerprint])? </code></pre>\n</li>\n<li id=\"992ab49075n1a\">\n<p id=\"d235755214y6r\">输入密码，进入实例</p>\n<blockquote id=\"33ae1b8f9d0bb\">输入密码时屏幕不会显示字符，这是正常现象，输入完成后按回车即可。</blockquote>\n<p id=\"09e41c741676u\">密码验证通过后，将看到系统的登录欢迎信息（具体内容因操作系统镜像而异），并且命令提示符会变为 <code data-init-id=\"8b0a0ef18360e\" data-tag=\"inlineCode\" id=\"16e89e15d0h65\" class=\"inlineCode\">[&lt;实例登录名&gt;@&lt;hostname&gt; ~]$</code> 的形式。表示已成功登录到<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"868ae7a58bwbh\" index=\"0\" outputclass=\"language-powershell\" class=\"pre codeblock language-powershell\"><code>Welcome to Alibaba Cloud Elastic Compute Service !\n\n[root@Connect-Instance-Example ~]#</code></pre>\n</li>\n</ol>\n</section>\n<section id=\"937b8a57dakcy\" class=\"section\">\n<h2 id=\"fdfa82cb3c8j4\">密钥对登录</h2>\n<ol id=\"a18735985777f\" start=\"1\">\n<li id=\"21ec4e80c31z4\">\n<p id=\"7f8e7e3a49moz\">打开<b>终端（Terminal）</b>。</p>\n</li>\n<li id=\"d0925c06b1sym\">\n<p id=\"ef0e4b81c11ee\">发起远程连接</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"56a8826877xnr\" index=\"0\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code># chmod 400: 为私钥文件设置仅所有者可读的权限，这是<span class=\"help-letter-space\"></span>SSH<span class=\"help-letter-space\"></span>客户端的安全要求\nchmod 400 /path/to/private_key.pem\nssh -i /path/to/private_key.pem &lt;实例登录名&gt;@&lt;实例公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址&gt;</code></pre>\n<blockquote id=\"dbb53e7871mcy\">示例：<code data-init-id=\"1dd8d57baazs5\" data-tag=\"code\" id=\"3bc531594365u\" class=\"code\">ssh -i /path/to/private_key.pem root@47.98.xxx.xxx</code>。其中<code data-init-id=\"1dd8d57baazs5\" data-tag=\"code\" id=\"32129e011erms\" class=\"code\">/path/to/private_key.pem</code>为私钥文件路径。</blockquote>\n</li>\n<li id=\"551b689805lbi\">\n<p id=\"4ac1713d81iel\">（首次连接时）验证主机指纹</p>\n<p id=\"cf7351d99ddls\">当首次连接一台新的<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>时，会显示类似下方的信息，提示验证主机密钥指纹。</p>\n<blockquote id=\"2ac44f44743sm\">这是<span class=\"help-letter-space\"></span>SSH<span class=\"help-letter-space\"></span>的一项安全机制，为确保安全，请<a href=\"#66719a5b83n6e\" id=\"3ecfbecb2dg9a\" title=\"\" class=\"xref\">获取实例的主机密钥指纹后比对差异</a>。若不一致，则说明正在遭受中间人攻击，请切换到安全的网络环境下重新连接实例。</blockquote>\n<p id=\"4c0d0499c11vs\">确认主机指纹无误后，输入<code data-init-id=\"e1bde1304c5rw\" data-tag=\"inlineCode\" id=\"daeb64130bkyu\" class=\"inlineCode\">yes</code>并按回车。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"6cbdf173f62qt\" index=\"0\" outputclass=\"language-powershell\" class=\"pre codeblock language-powershell\"><code>The authenticity of host '47.98.xxx.xxx (47.98.xxx.xxx)' can't be established.\nED25519 key fingerprint is SHA256:AbCdEf123456...\nThis key is not known by any other names.\nAre you sure you want to continue connecting (yes/no/[fingerprint])? </code></pre>\n</li>\n<li id=\"d7e808a157mwr\">\n<p id=\"3551ba28353bx\">验证密钥，进入实例</p>\n<p id=\"1076b6d4c8pxs\">当密钥验证通过后，将看到类似下方的欢迎信息，并且命令提示符会变为 <code data-init-id=\"8b0a0ef18360e\" data-tag=\"inlineCode\" id=\"b1c826cfb0v0g\" class=\"inlineCode\">[&lt;username&gt;@&lt;hostname&gt; ~]$</code> 的形式。表示已成功登录到<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"014839aac1o9a\" index=\"0\" outputclass=\"language-powershell\" class=\"pre codeblock language-powershell\"><code>Welcome to Alibaba Cloud Elastic Compute Service !\n\n[root@Connect-Instance-Example ~]#</code></pre>\n</li>\n</ol>\n</section>\n</section>\n</section>\n</section>\n</section>\n</section>\n<section id=\"1c98a275a25cy\" class=\"section\">\n<h2 id=\"f53e7a3771oya\"><b>方式二：使用<span class=\"help-letter-space\"></span>Xshell<span class=\"help-letter-space\"></span>客户端（仅适用于<span class=\"help-letter-space\"></span>Windows）</b></h2>\n<p id=\"7d685607883hp\">Xshell<span class=\"help-letter-space\"></span>是一款<span class=\"help-letter-space\"></span>SSH<span class=\"help-letter-space\"></span>客户端工具，用于在<span class=\"help-letter-space\"></span>Windows<span class=\"help-letter-space\"></span>系统远程登录和管理<span class=\"help-letter-space\"></span>Linux<span class=\"help-letter-space\"></span>服务器。</p>\n<section id=\"bf18fbe1934fg\" class=\"section\">\n<h3 id=\"5b3cca6acbnsr\"><b>准备工作</b></h3>\n<ul id=\"c521ff0b037vr\">\n<li id=\"16db671db3r1v\">\n<p id=\"339a664e22n0s\"><b>下载并安装<span class=\"help-letter-space\"></span>Xshell：</b>访问&nbsp;<a href=\"https://www.google.com/url?sa=E&amp;q=https%3A%2F%2Fwww.xshell.com%2Fzh%2Fxshell%2F\" id=\"6c4d98d3d2rf5\" class=\"ng-star-inserted\" target=\"_blank\">Xshell 官方网站</a>下载并安装最新客户端。</p>\n</li>\n<li id=\"1e30b9ea22u69\">\n<p id=\"d19f47c94azeq\"><b>实例公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址：</b>在<span data-tag=\"ph\" id=\"1fc1854eeeyrm\" data-init-id=\"e4cf865092dq6\" docid=\"5423368\" is-conref=\"true\" class=\"ph\"><span props=\"china\"><a class=\"\" href=\"https://ecs.console.aliyun.com/server/region\" id=\"f4e5a2e258w9y\">ECS<span class=\"help-letter-space\"></span>控制台-实例</a></span></span>，找到目标实例进入详情，在<b id=\"6a07782c35xtq\" data-tag=\"uicontrol\" data-isbold=\"true\" data-init-id=\"ef1de20aab2s9\" class=\"uicontrol\">配置信息</b>区域找到<b id=\"f70a642875s8z\" data-tag=\"uicontrol\" data-isbold=\"true\" data-init-id=\"fd8c389eafsqr\" class=\"uicontrol\">公网<span class=\"help-letter-space\"></span>IP</b>。</p>\n</li>\n<li id=\"02a8b9f45aib0\">\n<p id=\"c4b97c3f09gg6\"><b>实例登录凭证：</b>为实例<a href=\"https://help.aliyun.com/zh/ecs/user-guide/instance-logon-credential-management#0125b54267ba1\" id=\"9e8ba7fa07lbr\" title=\"\" class=\"xref\">设置密码</a>或<a href=\"https://help.aliyun.com/zh/ecs/user-guide/instance-logon-credential-management#d63a004e87306\" id=\"038a58a11bz03\" title=\"\" class=\"xref\">绑定密钥对</a>。</p>\n</li>\n<li id=\"5190605a7ehvd\">\n<p id=\"0f09290f548k9\"><b>配置安全组：</b>为实例关联的安全组<a href=\"#3f58c0bfaboi4\" id=\"d178f9ad36z5v\" title=\"\" class=\"xref\">配置入方向规则</a>，允许本地<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>通过<span class=\"help-letter-space\"></span>SSH（22<span class=\"help-letter-space\"></span>端口）访问实例。</p>\n</li>\n</ul>\n</section>\n<section id=\"82269ef374fr2\" class=\"section\">\n<h3 id=\"f20171cc91lur\"><b>操作步骤</b></h3>\n<ol _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"232982bfadcu3\">\n<li _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"ddab8c9b76mhr\">\n<p id=\"9c57bfa3a9y6n\">启动 Xshell 并新建会话</p>\n<ol id=\"b286981ad97gj\" start=\"1\">\n<li id=\"ea33a11f9db7d\">\n<p id=\"aef9612cecm9u\">打开 Xshell 应用程序。</p>\n</li>\n<li id=\"7e386d11e3zfr\">\n<p id=\"844e78e977w6v\">在弹出的<b data-tag=\"uicontrol\" id=\"e9d21e0ac7w6u\" class=\"uicontrol\">会话</b>窗口中，单击<b id=\"314f536bdadgk\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">新建</b>（或通过菜单栏<span data-tag=\"menucascade\" id=\"044576f7289mb\" class=\"menucascade\"><b data-tag=\"uicontrol\" id=\"d987407265rkz\" class=\"uicontrol\">文件</b> &gt; <b id=\"71c39fc347482\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">新建</b></span>）。</p>\n</li>\n</ol>\n</li>\n<li id=\"96751720042qt\">\n<p id=\"f9797b44bcb2s\">配置连接基本信息</p>\n<p id=\"fbe8824bfbaan\">单击左侧导航栏下的<b data-tag=\"uicontrol\" id=\"b9a1276c38c18\" class=\"uicontrol\">连接</b>，完成配置：</p>\n<ul _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"4fdc3232a8v5k\">\n<li _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"e4442b687eyb8\">\n<p id=\"3b794c70c5pjh\"><b id=\"62ebbe0eceq7x\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">名称</b>：为会话取一个易于识别的名称（例如：My-Web-Server）。</p>\n</li>\n<li _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"0eac4e7a53k6o\">\n<p id=\"7145739424p81\"><b id=\"65e1a85926ftu\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">协议</b>：保持默认的<span class=\"help-letter-space\"></span><b id=\"d9ec589d9c7y8\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">SSH</b>。</p>\n</li>\n<li _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"ea0a6ca6fa6bx\">\n<p id=\"cffb87a85ars6\"><b data-tag=\"uicontrol\" id=\"2eb6dee148gev\" class=\"uicontrol\">主机</b>：输入实例的公网 IP。</p>\n</li>\n<li _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"4d6e23962f4pf\">\n<p id=\"2a4168e272t9b\"><b data-tag=\"uicontrol\" id=\"9826c8299fzur\" class=\"uicontrol\">端口号</b>：保持默认的<span class=\"help-letter-space\"></span><b data-tag=\"uicontrol\" id=\"07895b084dv7w\" class=\"uicontrol\">22</b>。</p>\n</li>\n</ul>\n</li>\n<li id=\"46f87c4ca8vm5\">\n<p id=\"0abb791f6fb7o\">配置用户身份验证</p>\n<p id=\"e470102f90eni\">在左侧导航栏中，单击<b data-tag=\"uicontrol\" id=\"b4e6036929kc9\" class=\"uicontrol\">用户身份验证</b><b>。</b></p>\n<section data-tag=\"tabbed-content-box\" id=\"34b8b987b3t2a\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n<section id=\"df4d9f914bf0x\" class=\"section\">\n<h2 id=\"eb8c01a554p4z\">密码登录</h2>\n<ol id=\"f7ecae7afasfj\">\n<li _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"67cf264d1d9ix\">\n<p id=\"cb79429d64q4n\"><b data-tag=\"uicontrol\" id=\"01ad1160beuvk\" class=\"uicontrol\">方法</b>：选择<span class=\"help-letter-space\"></span><b data-tag=\"uicontrol\" id=\"b5afc73d5faa7\" class=\"uicontrol\">Password</b>。</p>\n</li>\n<li _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"91952ffac21l1\">\n<p id=\"0a0aedcbe1ujz\"><b id=\"ec728326fdyc8\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">用户名</b>：输入服务器的登录名（如<span class=\"help-letter-space\"></span>root）。</p>\n</li>\n<li _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"8e6e3e26452ya\">\n<p id=\"48004f8d384zp\"><b data-tag=\"uicontrol\" id=\"44364a0cda9ir\" class=\"uicontrol\">密码</b>：输入对应的登录密码。</p>\n</li>\n</ol>\n</section>\n<section id=\"a1f18ad102juq\" class=\"section\">\n<h2 id=\"ec5bd1835b7ff\">密钥对登录</h2>\n<ol _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"29f3c07c56vvy\">\n<li _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"d546369054dh3\">\n<p id=\"bbfb7d0c5fe2a\"><b>用户名：</b>输入服务器的登录名（如<span class=\"help-letter-space\"></span>root）。</p>\n</li>\n<li id=\"496af7d004v0k\">\n<p id=\"e4c0c895c8oka\"><b>方法：</b>选择<span class=\"help-letter-space\"></span><b>Public Key</b>，并按以下步骤配置用户密钥：</p>\n<ol id=\"6d3cdb05834np\" start=\"1\">\n<li id=\"08b0bbbb118qh\">\n<p id=\"ae86d0512b1xd\">单击<b>设置...</b>。</p>\n</li>\n<li id=\"56ae2bf1a1ljr\">\n<p id=\"f37330f6e2w6n\">在弹出的窗口中，选择<b>密钥文件</b>选项，单击<b>用户密钥</b>配置项后的<b>...</b>，单击<b>导入...</b>，选择本地存储的<code data-tag=\"code\" id=\"035e2b919bm1s\" class=\"code\">.pem</code>后缀私钥文件。</p>\n</li>\n<li id=\"867e1907b9kzw\">\n<p id=\"9fea4c30f0fem\">导入成功后，选中该密钥，单击<b>确定</b>。</p>\n</li>\n<li id=\"1efee96ec4vf3\">\n<p id=\"5abbc98c9emvq\">（可选）如密钥文件设置了密码，则需要提供<b>密码</b>。</p>\n</li>\n</ol>\n</li>\n</ol>\n</section>\n</section>\n</li>\n<li id=\"3ebc49bc6eq1i\">\n<p id=\"dccdbbc96133p\">连接到服务器</p>\n<p id=\"25d9b5f65dn0b\">完成上述配置后，单击<b>连接</b>。</p>\n</li>\n<li id=\"0ddf1b9278lbg\">\n<p id=\"10b5bbf065jmu\">（首次连接时）验证主机密钥</p>\n<p id=\"8d5a49a327876\">当首次连接一台新的<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>时，Xshell<span class=\"help-letter-space\"></span>会弹出<span class=\"help-letter-space\"></span><b>SSH<span class=\"help-letter-space\"></span>安全警告</b>窗口，显示主机密钥指纹。</p>\n<blockquote id=\"c7051a48b6mjl\">这是<span class=\"help-letter-space\"></span>SSH<span class=\"help-letter-space\"></span>的一项安全机制，为确保安全，请<a href=\"#66719a5b83n6e\" id=\"8878db0c8d83x\" title=\"\" class=\"xref\">获取实例的主机密钥指纹后比对差异</a>。若不一致，则说明正在遭受中间人攻击，请切换到安全的网络环境下重新连接实例。</blockquote>\n<p id=\"35a9133239hmy\">确认无误后，单击<b>接受并保存</b>，这样以后连接就不会再弹出此提示。</p>\n</li>\n<li id=\"cd4e5bedb8uxt\">\n<p id=\"03169d6771j7n\">连接到服务器</p>\n<p id=\"1df1165082qyi\">当看到命令提示符出现以下内容时，表示已经通过验证，成功连接。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"9efc5786492qt\" index=\"0\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>Welcome to Alibaba Cloud Elastic Compute Service !\n\n[root@Connect-Instance-Example ~]#</code></pre>\n</li>\n</ol>\n</section>\n</section>\n<section id=\"cfbe98944ak0q\" class=\"section\">\n<h2 id=\"ed38d8f799orz\"><b>应用于生产环境</b></h2>\n<p id=\"537dc15215ahg\">在实际生产环境中，建议通过以下操作提升远程连接安全。</p>\n<ul id=\"6e417ea190moq\">\n<li id=\"3e5b58f22b5bo\">\n<h4 id=\"41d75647bb0zj\"><b>主动验证主机指纹，防范中间人攻击</b></h4>\n<p id=\"d86b020313gy2\">在第一次连接到实例时，应先<a href=\"#66719a5b83n6e\" id=\"9964a28d3cl1l\" title=\"\" class=\"xref\">验证实例的主机密钥指纹</a>，确认连接的是目标实例而非攻击者的服务器。</p>\n</li>\n<li id=\"48a6a67eacsfl\">\n<h4 id=\"3d36ebd5dbu7j\"><b>禁用密码登录，强制使用密钥对</b></h4>\n<p id=\"009fe2c501r4g\">密钥对认证远比密码认证安全，可降低暴力破解风险。操作如下：</p>\n<ol id=\"572c1c2cf5u4p\" start=\"1\">\n<li id=\"c7f1a7bb7ff0c\">\n<p id=\"7a2a8164e54wg\">为实例<a href=\"https://help.aliyun.com/zh/ecs/user-guide/instance-logon-credential-management#939ea2f00ekaf\" id=\"ae01c160a1l5a\" title=\"\" class=\"xref\">绑定密钥对</a>。</p>\n</li>\n<li id=\"91727d78b45io\">\n<p id=\"c119e1e4aa7mg\">禁用密码登录：登录实例，编辑<code class=\"inlineCode\" data-tag=\"inlineCode\" id=\"bbc9287a52rtw\">/etc/ssh/sshd_config</code>配置文件，找到<code class=\"inlineCode\" data-tag=\"inlineCode\" id=\"57a21d3e43byh\">PasswordAuthentication</code>，修改为<code class=\"inlineCode\" data-tag=\"inlineCode\" id=\"c0b40455c7vjb\">PasswordAuthentication no</code>，重启<span class=\"help-letter-space\"></span>SSH<span class=\"help-letter-space\"></span>服务生效配置。</p>\n</li>\n</ol>\n</li>\n<li id=\"06afab63016pg\">\n<h4 id=\"b67095f854asv\"><b>修改默认<span class=\"help-letter-space\"></span>SSH<span class=\"help-letter-space\"></span>端口 </b></h4>\n<p id=\"6c17fa16b53uu\">将默认<span class=\"help-letter-space\"></span>22<span class=\"help-letter-space\"></span>端口改为其他数值较大的非标准端口（如<span class=\"help-letter-space\"></span>2222），可有效减少被恶意扫描。</p>\n<ol id=\"103b5e3e7117s\" start=\"1\">\n<li id=\"05c62664e4esr\">\n<p id=\"bf502ce6c9fwg\"><b>放行新端口：</b>&nbsp;在实例所属的安全组中<a href=\"https://help.aliyun.com/zh/ecs/user-guide/start-using-security-groups#233050ea35twy\" id=\"b226bc0881cog\" title=\"\" class=\"xref\">添加入方向规则</a>，放行新的端口（如<span class=\"help-letter-space\"></span>2222）</p>\n</li>\n<li id=\"fdfcacb0475bu\">\n<p id=\"2130384fdakej\"><b>修改<span class=\"help-letter-space\"></span>SSH<span class=\"help-letter-space\"></span>服务端口：</b>登录实例，编辑<code class=\"inlineCode\" data-init-id=\"bbc9287a52rtw\" data-tag=\"inlineCode\" id=\"0b9a1d10e7j1f\">/etc/ssh/sshd_config</code>配置文件，将<code data-tag=\"inlineCode\" id=\"9e9c6c774ebj5\" class=\"inlineCode\">#Port 22</code>修改为<code data-tag=\"inlineCode\" id=\"0bc9089a343qm\" class=\"inlineCode\">Port 2222</code>。重启<span class=\"help-letter-space\"></span>SSH<span class=\"help-letter-space\"></span>服务生效配置。</p>\n</li>\n<li id=\"6d5148095bkuj\">\n<p id=\"0ad1704663jwt\"><b>使用新端口连接：</b>&nbsp;此后使用<span class=\"help-letter-space\"></span>ssh<span class=\"help-letter-space\"></span>命令时，需通过<code data-tag=\"code\" id=\"c2164c080cqjs\" class=\"code\">-p</code>指定<span class=\"help-letter-space\"></span>ssh<span class=\"help-letter-space\"></span>的服务端口，例如：<code data-tag=\"inlineCode\" id=\"0becd1d9f4l7y\" class=\"inlineCode\">ssh -p 2222 username@instance_ip</code>。</p>\n</li>\n</ol>\n</li>\n<li id=\"bfa0da6b4aalh\">\n<h4 id=\"86b727481e0b5\"><b>仅授权可信的<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>访问实例</b></h4>\n<p id=\"3a44b8ff51s6s\"><a href=\"https://help.aliyun.com/zh/ecs/user-guide/start-using-security-groups#233050ea35twy\" id=\"029fce7c2a92y\" title=\"\" class=\"xref\">修改安全组规则</a>安全组规则，仅允许本机<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>或其他受信任的<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>访问实例<span class=\"help-letter-space\"></span>SSH<span class=\"help-letter-space\"></span>服务，拦截未知主机访问实例。</p>\n</li>\n</ul>\n</section>\n<section id=\"e4a73b4f11cse\" class=\"section\">\n<h2 id=\"e787c470cfjw1\"><b>常见问题</b></h2>\n<ul id=\"9a08eb1c14nb3\">\n<li id=\"df648229e6lz0\">\n<h4 id=\"3f58c0bfaboi4\">如何配置安全组规则以放行<span class=\"help-letter-space\"></span>22<span class=\"help-letter-space\"></span>端口？</h4>\n<p id=\"c4cf0a8b9f78o\">在实例所在安全组<a href=\"https://help.aliyun.com/zh/ecs/user-guide/start-using-security-groups#233050ea35twy\" id=\"8ba40c4510dft\" title=\"\" class=\"xref\">添加</a>如下安全组规则：</p>\n<table autofit=\"true\" id=\"c945477f65ngj\" tablecolswidth=\"16 21 32 32\" tablewidth=\"101\" class=\"table\">\n<colgroup colwidth=\"0.64*\" style=\"width:15.84%\"></colgroup>\n<colgroup colwidth=\"0.84*\" style=\"width:20.79%\"></colgroup>\n<colgroup colwidth=\"1.28*\" style=\"width:31.68%\"></colgroup>\n<colgroup colwidth=\"1.28*\" style=\"width:31.68%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"f7474c0990ilj\">\n<td id=\"a30c052141jcp\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"d299b23fe9zm5\"><b>授权策略</b></p>\n</td>\n<td id=\"fed8e43e358u2\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"495f0f1e6bkt5\"><b>协议</b></p>\n</td>\n<td id=\"7ded8380f66xk\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"40acb6c6c51vk\"><b>访问来源</b></p>\n</td>\n<td id=\"fe893795996m2\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"80e864468bl3n\"><b>访问目的(本实例)</b></p>\n</td>\n</tr>\n<tr id=\"abb94daccding\">\n<td id=\"a79c6429b7jo0\" rowspan=\"1\" colspan=\"1\">\n<p id=\"836412a8ddto0\">允许</p>\n</td>\n<td id=\"c748db0d00r7y\" rowspan=\"1\" colspan=\"1\">\n<p id=\"ef098234a7wmy\">自定义 TCP</p>\n</td>\n<td id=\"3d22ee4bb39au\" rowspan=\"1\" colspan=\"1\">\n<p id=\"ef6e2cf015oim\">输入本地客户端的公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址。</p>\n<div id=\"0fcf9025b4xse\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n<p id=\"9a3def3fce3nd\">若使用<code class=\"code\" code-type=\"xCode\" data-tag=\"code\" id=\"5689663cfb9ha\">0.0.0.0/0</code>，表示允许任意 IP 访问远程服务端口，存在安全风险，请谨慎使用。</p>\n</div></div>\n</td>\n<td id=\"b2408a343fat5\" rowspan=\"1\" colspan=\"1\">\n<p id=\"18f5bf1a35ync\">SSH(22)</p>\n<blockquote id=\"ba3090eb2f7z2\">如果修改了实例的<span class=\"help-letter-space\"></span>SSH<span class=\"help-letter-space\"></span>服务的端口，需调整为实际端口。</blockquote>\n</td>\n</tr>\n</tbody>\n</table>\n</li>\n<li id=\"58cab35f6fzuc\">\n<h4 id=\"66719a5b83n6e\"><b>如何验证实例的主机密钥指纹？</b></h4>\n<p id=\"06d111643bca9\">首次连接实例时，会提示验证主机密钥指纹，确认方法如下：</p>\n<section data-tag=\"tabbed-content-box\" id=\"76844f0c2bpfh\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n<section id=\"832b78efbfqlh\" class=\"section\">\n<h2 id=\"afaa8b99bdzij\">控制台</h2>\n<ol id=\"b1566ef8bbmy0\" start=\"1\">\n<li id=\"b3a7aa70d4mo5\">\n<p id=\"b1e71476b0fi9\">进入<span data-tag=\"ph\" id=\"9d77a19eb352t\" docid=\"5423368\" is-conref=\"true\" class=\"ph\"><span props=\"china\"><a class=\"\" href=\"https://ecs.console.aliyun.com/server/region\" id=\"f4e5a2e258w9y\">ECS<span class=\"help-letter-space\"></span>控制台-实例</a></span></span>，在左上角选择地域与资源组。</p>\n</li>\n<li id=\"5f65e7ad41fce\">\n<p id=\"f717b334c4hkn\">找到对应实例后，单击<span data-tag=\"menucascade\" id=\"b42d8e5d0914g\" class=\"menucascade\"><b data-tag=\"uicontrol\" id=\"2f52194050ma2\" class=\"uicontrol\"><img alt=\"image\" id=\"34b41835dab2e\" placement=\"inline\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/2914398571/p1009481.png\" width=\"23\" class=\"image inline\"></b> &gt; <b id=\"177a64b3c0c5y\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">获取实例系统日志</b></span>，然后找到<code data-tag=\"code\" id=\"54ba6e4f1fud0\" class=\"code\">BEGIN SSH HOST KEY FINGERPRINTS</code>，会显示所有主机指纹。</p>\n<p id=\"0df63979e608s\"><img alt=\"image\" id=\"96e6a8202fesr\" placement=\"break\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/2914398571/p1009486.png\" width=\"600\" class=\"image break\"></p>\n<p id=\"4d4296d7713v8\">请仔细核对本地客户端提示的指纹（如上例中的&nbsp;SHA256:******）是否与日志中显示的指纹<b>完全一致</b>。若不一致，则可能正在遭受中间人攻击，需切换至安全网络环境后重试连接。</p>\n<blockquote id=\"3617bee20emd9\">若找不到<code data-init-id=\"54ba6e4f1fud0\" data-tag=\"code\" id=\"96bbc4e94bzpp\" class=\"code\">BEGIN SSH HOST KEY FINGERPRINTS</code>，需进入实例内查看主机指纹。</blockquote>\n</li>\n</ol>\n</section>\n<section id=\"dcaf18d02b88j\" class=\"section\">\n<h2 id=\"316ff00definp\">实例内</h2>\n<p id=\"a02e6bc104ohs\"><a href=\"https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-linux-instance-by-using-a-password-or-key\" id=\"9298faaf805lk\" title=\"\" class=\"xref\">使用<span class=\"help-letter-space\"></span>Workbench<span class=\"help-letter-space\"></span>登录实例</a>后执行以下命令，查看主机密钥指纹：</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"4bb21fdef6f4c\" index=\"0\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>for f in /etc/ssh/ssh_host_*_key.pub; do ssh-keygen -l -f \"$f\"; done</code></pre>\n<p id=\"fe63918c3cmyx\">输出示例：</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"e7e2b00c4e8pd\" index=\"0\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>1024 SHA256:9C******co root@Connect-Instance-Example (DSA)\n256 SHA256:u6******SU root@Connect-Instance-Example (ECDSA)\n256 SHA256:iQ******jg root@Connect-Instance-Example (ED25519)\n3072 SHA256:8R******64 root@Connect-Instance-Example (RSA)</code></pre>\n<p id=\"aa3515d37eaoi\">请仔细核对本地客户端提示的指纹（如上例中的&nbsp;SHA256:******）是否与日志中显示的指纹<b>完全一致</b>。若不一致，则可能正在遭受中间人攻击，需切换至安全网络环境后重试连接。</p>\n</section>\n</section>\n</li>\n<li id=\"c004a222f97c1\">\n<h4 id=\"c535a310c7iyz\"><b>如何通过<span class=\"help-letter-space\"></span>SSH<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>config<span class=\"help-letter-space\"></span>配置文件简化连接命令？</b></h4>\n<p id=\"16a23720f6sbh\">每次连接都输入完整的<code data-init-id=\"abd8d77d30y0f\" data-tag=\"code\" id=\"c733cad9d2rh4\" class=\"code\">ssh -i /path/to/key.pem username@instance_ip</code>命令较为繁琐。通过在本地创建和配置<span class=\"help-letter-space\"></span>SSH<code data-init-id=\"f8dcb9192bfsi\" data-tag=\"code\" id=\"d29b821133lka\" class=\"code\">config</code>文件，可以为服务器设置别名，简化连接命令。</p>\n<ol id=\"f95924f0a94j1\">\n<li id=\"13089b5146f3q\">\n<p id=\"222c1320bf529\">找到或创建<span class=\"help-letter-space\"></span>config<span class=\"help-letter-space\"></span>文件</p>\n<section data-tag=\"tabbed-content-box\" id=\"d393e5035eitr\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n<section id=\"9a64538068cl6\" class=\"section\">\n<h2 id=\"c162f96f66oe7\">Windows 10/11</h2>\n<p id=\"436ef117e67nh\">config<span class=\"help-letter-space\"></span>配置文件默认路径为<code data-init-id=\"6bae1e946fytj\" data-tag=\"inlineCode\" id=\"5757bb0f925yc\" class=\"inlineCode\">C:\\Users\\YourUsername\\.ssh\\config</code>。若不存在，需手动创建。</p>\n<blockquote id=\"35cf3bd1e4k48\">使用时，请替换<code data-init-id=\"6bae1e946fytj\" data-tag=\"inlineCode\" id=\"d05a5021ebjit\" class=\"inlineCode\">YourUsername</code>为当前<span class=\"help-letter-space\"></span>Windows<span class=\"help-letter-space\"></span>的用户名。</blockquote>\n</section>\n<section id=\"5148dcd1c5kjv\" class=\"section\">\n<h2 id=\"5ac4b2265f8zi\">macOS</h2>\n<p id=\"9cf9b1907b10j\"><code data-tag=\"code\" id=\"2fd688062c5ea\" class=\"code\">config</code>配置文件默认路径为<code data-init-id=\"6bae1e946fytj\" data-tag=\"inlineCode\" id=\"61bc7bb441f78\" class=\"inlineCode\">~/.ssh/config</code>。若不存在，需手动创建。</p>\n</section>\n</section>\n</li>\n<li id=\"3e7158af8ff60\">\n<p id=\"36412c1f3352l\">编辑<span class=\"help-letter-space\"></span>config<span class=\"help-letter-space\"></span>文件并添加实例信息</p>\n<p id=\"4572556c2egba\">使用文本编辑器打开<code data-init-id=\"1aa21967863za\" data-tag=\"inlineCode\" id=\"2b16965768lwq\" class=\"inlineCode\">config</code>文件，添加类似如下的配置。每一段<code data-init-id=\"e126ca11a1h12\" data-tag=\"inlineCode\" id=\"67c4b36e2d5mk\" class=\"inlineCode\">Host</code>配置对应一个服务器实例。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"8a9b27b2e7di8\" index=\"0\" outputclass=\"language-plaintext\" class=\"pre codeblock language-plaintext\"><code># 为<span class=\"help-letter-space\"></span>Web<span class=\"help-letter-space\"></span>服务器配置一个别名 \"web-server\"\nHost web-server\n    HostName        47.98.xxx.xxx\n    User            root\n    Port            22\n    （可选）如果使用密钥对登录，请指定私钥路径，使用密码登录请忽略\n    IdentityFile    /path/to/your/private_key.pem\n\n# 可以为其他服务器添加更多配置\nHost other-server\n    HostName        8.123.xxx.xxx\n    User            ecs-user\n    Port            2222\n    IdentityFile    ~/.ssh/another_key.pem</code></pre>\n<p id=\"f35b2e60128nv\"><b>参数说明：</b></p>\n<ul id=\"0cd065d4batzp\">\n<li id=\"657f3b0e418uq\">\n<p id=\"7ed601e610ajk\"><b>Host</b>：服务器的别名，可自定义。</p>\n</li>\n<li id=\"304a9c9278a28\">\n<p id=\"47980430fegz5\"><b>HostName</b>：实例的公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址。</p>\n</li>\n<li id=\"7c8c47c5f15ck\">\n<p id=\"63588408f17h6\"><b>User</b>：登录用户名。</p>\n</li>\n<li id=\"900442139dmp9\">\n<p id=\"e1022f7f31mgx\"><b>Port</b>：SSH<span class=\"help-letter-space\"></span>端口号（默认为<span class=\"help-letter-space\"></span>22）。</p>\n</li>\n<li id=\"36b974dad3vz7\">\n<p id=\"79adcf18b9tne\"><b>IdentityFile</b>：私钥文件的绝对路径。</p>\n</li>\n</ul>\n</li>\n<li id=\"6dc928a89azot\">\n<p id=\"97e7a6b89cbk8\">使用别名快速连接</p>\n<p id=\"27c941de65fd5\">保存<code data-init-id=\"15812782b8trr\" data-tag=\"inlineCode\" id=\"7f63b387desko\" class=\"inlineCode\">config</code>文件后，可以直接使用别名来连接实例。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"fac32694d7svm\" index=\"0\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code># 直接使用别名连接，SSH<span class=\"help-letter-space\"></span>会自动读取<span class=\"help-letter-space\"></span>config<span class=\"help-letter-space\"></span>中的<span class=\"help-letter-space\"></span>IP、用户名和密钥信息\nssh web-server</code></pre>\n</li>\n</ol>\n</li>\n<li id=\"c5befbcfff7oj\">\n<h4 id=\"958ef149f2igr\"><b>连接时出现</b><code data-tag=\"code\" id=\"a741f6121bydx\" class=\"code\"><b>Connection timed out</b></code><b>或提示连接超时？</b></h4>\n<p id=\"4929038e3epnj\">表示客户端无法连接到服务器。排查顺序：</p>\n<ol id=\"1fb3128826lr2\" start=\"1\">\n<li id=\"4160a052c6v6j\">\n<p id=\"e4ef12e72bp6c\">检查公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>是否正确。</p>\n</li>\n<li id=\"fdccc67f8fdgu\">\n<p id=\"33ebc6d222a7e\">检查安全组是否放行端口。</p>\n</li>\n<li id=\"7eb3e7f256r49\">\n<p id=\"50a33eff2ce6r\">检查实例是否处于运行状态。</p>\n</li>\n<li id=\"bb4d32320ff26\">\n<p id=\"e53b6955e9pba\">使用<span data-tag=\"ph\" id=\"d9962581a1oz3\" docid=\"5750564\" is-conref=\"true\" class=\"ph\"><span props=\"china\"><a class=\"\" href=\"https://ecs.console.aliyun.com/troubleshooting\" id=\"f8fd9c21desb4\">ECS<span class=\"help-letter-space\"></span>控制台-自助问题排查</a></span></span>排查异常。</p>\n</li>\n</ol>\n</li>\n<li id=\"6f831e7ea85cs\">\n<h4 id=\"73767fb51d6mw\"><b>密码输入正确，但提示</b><code data-tag=\"code\" id=\"dfa415d78154b\" class=\"code\"><b>Permission denied, please try again</b></code></h4>\n<p id=\"968d4a464fje9\">表示服务器拒绝了密码。排查顺序：</p>\n<ol id=\"285166b30ftd3\" start=\"1\">\n<li id=\"7cd72abf3a1ig\">\n<p id=\"79139c8d0bqh0\">在控制台<a href=\"https://help.aliyun.com/zh/ecs/user-guide/instance-logon-credential-management#0125b54267ba1\" id=\"039b364f675mz\" title=\"\" class=\"xref\">重置密码</a>后重试。</p>\n</li>\n<li id=\"fc6339054csb0\">\n<p id=\"849825c0b1f7s\">使用<span data-tag=\"ph\" id=\"30ac190f466qh\" data-init-id=\"d9962581a1oz3\" docid=\"5750564\" is-conref=\"true\" class=\"ph\"><span props=\"china\"><a class=\"\" href=\"https://ecs.console.aliyun.com/troubleshooting\" id=\"f8fd9c21desb4\">ECS<span class=\"help-letter-space\"></span>控制台-自助问题排查</a></span></span>排查异常。</p>\n</li>\n</ol>\n</li>\n<li id=\"c9d261368633q\">\n<h4 id=\"96154c5cd7iw6\"><b>使用密钥对登录时提示</b><code data-tag=\"code\" id=\"acf0a561a4mbs\" class=\"code\"><b>Permission denied (publickey)</b></code><b>？</b></h4>\n<p id=\"259ae1037aexh\">表示服务器拒绝了密钥。排查顺序：</p>\n<ol id=\"1c153a5d70rlk\" start=\"1\">\n<li id=\"6d78304644863\">\n<p id=\"5294acfb52dpc\">在控制台重新<a href=\"https://help.aliyun.com/zh/ecs/user-guide/instance-logon-credential-management#939ea2f00ekaf\" id=\"3ea7322832vm6\" title=\"\" class=\"xref\">绑定</a>密钥对后重试。</p>\n</li>\n<li id=\"dba9fe3eadffc\">\n<p id=\"8f3688a70ecjo\">检查私钥文件路径及是否与实例匹配。</p>\n</li>\n<li id=\"b7b9cd9faeqnr\">\n<p id=\"b6502289cb37t\">（macOS<span class=\"help-letter-space\"></span>系统下）检查私钥文件权限是否为<code data-tag=\"inlineCode\" id=\"015aafaedbkgc\" class=\"inlineCode\">400</code>或<code data-tag=\"inlineCode\" id=\"d841a92895zla\" class=\"inlineCode\">600</code>。</p>\n</li>\n<li id=\"faa1b8e088sge\">\n<p id=\"617089dfb2iz0\">使用<span data-tag=\"ph\" id=\"81470c9760cng\" data-init-id=\"d9962581a1oz3\" docid=\"5750564\" is-conref=\"true\" class=\"ph\"><span props=\"china\"><a class=\"\" href=\"https://ecs.console.aliyun.com/troubleshooting\" id=\"f8fd9c21desb4\">ECS<span class=\"help-letter-space\"></span>控制台-自助问题排查</a></span></span>排查异常。</p>\n</li>\n</ol>\n</li>\n<li id=\"661dcb7b2dca7\">\n<h4 id=\"4eaa9c3ec9ibu\"><b>通过<span class=\"help-letter-space\"></span>SSH<span class=\"help-letter-space\"></span>命令登录实例时，提示</b><code data-tag=\"code\" id=\"df3bf35cd06be\" class=\"code\">WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!</code></h4>\n<p id=\"9ad4d040e9bes\">这是<span class=\"help-letter-space\"></span>SSH<span class=\"help-letter-space\"></span>的安全机制：在第一次连接实例后，会记住主机密钥指纹，后续连接时若指纹不一致，会提示该错误。可能是由于执行过更换系统盘、更换操作系统、删除了实例系统中的主机密钥文件等操作。</p>\n<p id=\"05aba60e6dpbe\"><b>解决办法：</b><a href=\"#66719a5b83n6e\" id=\"c6113066fc59h\" title=\"\" class=\"xref\">验证实例的主机密钥指纹</a>，若无误，执行以下命令，删除本地保存的主机密钥指纹。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"2544cb55734ip\" index=\"0\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>ssh-keygen -R &lt;实例公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址&gt;</code></pre>\n</li>\n</ul>\n</section>\n</div>\n</main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云服务器 ECS","id":25365,"title":"云服务器 ECS","url":"/zh/ecs/"},"alias":"/ecs/user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":8,"developerUrl":"https://developer.aliyun.com/group/ecs/","nodeType":1,"version":49,"url":"/zh/ecs/user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":51798,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":8,"validDocument":true,"headNavEnable":false,"docTitle":"使用OpenSSH/Xshell远程连接Linux实例","id":51798,"title":"使用OpenSSH/Xshell远程连接Linux实例","url":"/zh/ecs/user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair"}],"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"使用第三方客户端工具连接实例","id":201399,"title":"使用第三方客户端工具连接实例","url":"/zh/ecs/user-guide/connect-to-an-instance-by-using-third-party-client-tools/"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"连接实例","id":48428,"title":"连接实例","url":"/zh/ecs/user-guide/connect-to-an-instance-overview/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"实例","id":108375,"title":"实例","url":"/zh/ecs/user-guide/instances-4/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云服务器 ECS","id":25365,"title":"云服务器 ECS","url":"/zh/ecs/"},"productUrl":"https://www.aliyun.com/product/ecs","nodeId":51798,"desc":"当本地设备为macOS或Windows 10/11，可直接使用系统内置的OpenSSH命令行工具连接Linux实例。此外，本地Windows设备也可以通过Xshell工具连接实例，两种方式均支持密码或密钥对认证。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云服务器 ECS","id":25365,"title":"云服务器 ECS","url":"/zh/ecs/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"实例","id":108375,"title":"实例","url":"/zh/ecs/user-guide/instances-4/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"连接实例","id":48428,"title":"连接实例","url":"/zh/ecs/user-guide/connect-to-an-instance-overview/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"使用第三方客户端工具连接实例","id":201399,"title":"使用第三方客户端工具连接实例","url":"/zh/ecs/user-guide/connect-to-an-instance-by-using-third-party-client-tools/"},{"emptyNode":false,"level":8,"validDocument":true,"headNavEnable":false,"docTitle":"使用OpenSSH/Xshell远程连接Linux实例","id":51798,"title":"使用OpenSSH/Xshell远程连接Linux实例","url":"/zh/ecs/user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=213e055817825361805201936ee14c&asid=AQAAAAD0Vz9qB12SLwAAAAAyD+oe560hHg==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2399509" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">用户指南</span>
+</a>
+</li>
+ <li id="2399511" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="25396" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/billing-2/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品计费</span>
+</a>
+</li>
+ <li id="2983136" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/faqs/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+ <li id="117482" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/announcements-and-updates/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">动态与公告</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>使用OpenSSH/Xshell远程连接Linux实例</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/ecs" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+<main id="concept-ucj-wrx-wdb">
+
+
+<p data-tag="shortdesc" id="shortdesc-nrf-4yt-i4w" class="shortdesc">当本地设备为<span class="help-letter-space"></span>macOS<span class="help-letter-space"></span>或<span class="help-letter-space"></span>Windows 10/11，可直接使用系统内置的<span class="help-letter-space"></span>OpenSSH<span class="help-letter-space"></span>命令行工具连接<span class="help-letter-space"></span>Linux<span class="help-letter-space"></span>实例。此外，本地<span class="help-letter-space"></span>Windows<span class="help-letter-space"></span>设备也可以通过<span class="help-letter-space"></span>Xshell<span class="help-letter-space"></span>工具连接实例，两种方式均支持密码或密钥对认证。</p>
+<div data-tag="taskbody" id="taskbody-v2l-rhx-vt0" class="taskbody">
+<div id="246fa96f53wvn" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+<p id="159dbbe530vzq">推荐通过<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-linux-instance-by-using-a-password-or-key" id="6ee98b5eeehom" title="" class="xref">Workbench</a><span class="help-letter-space"></span>连接阿里云上的实例，该工具可直接通过浏览器使用、支持免密登录，相比使用<span class="help-letter-space"></span>OpenSSH、Xshell<span class="help-letter-space"></span>更便捷。</p>
+</div></div>
+<section id="dd716b813cbv5" class="section">
+<h2 id="53495a362dgyr"><b>适用范围</b></h2>
+<ul id="30106b8252cdt">
+<li id="1103516c90jct">
+<p id="d54e860346cix">实例操作系统为<span class="help-letter-space"></span><b>Linux</b>。</p>
+</li>
+<li id="dffa5faedf5su">
+<p id="7236de8d54rc7">实例已绑定<a href="https://help.aliyun.com/zh/ecs/user-guide/public-ip-address" id="ce202bde73zk2" title="" class="xref">固定公网<span class="help-letter-space"></span>IP</a><span class="help-letter-space"></span>或<a href="https://help.aliyun.com/zh/ecs/user-guide/associate-or-disassociate-an-eip" id="edd05d2bdfrs1" title="" class="xref">弹性公网<span class="help-letter-space"></span>IP</a>。</p>
+</li>
+</ul>
+</section>
+<section id="71ff8782ea227" class="section">
+<h2 id="acf12c47dexpa"><b>方式一：使用<span class="help-letter-space"></span>OpenSSH<span class="help-letter-space"></span>客户端（命令行）</b></h2>
+<p id="2c90c75d5bj2u">OpenSSH<span class="help-letter-space"></span>是<span class="help-letter-space"></span>macOS<span class="help-letter-space"></span>和新版<span class="help-letter-space"></span>Windows<span class="help-letter-space"></span>系统内置的标准<span class="help-letter-space"></span>SSH<span class="help-letter-space"></span>客户端，通过命令行即可快速连接。</p>
+<section id="a4fc8064e92s3" class="section">
+<h3 id="de8a1a4ebakk4"><b>准备工作</b></h3>
+<ul id="8703e232dfa1t">
+<li id="6efa4e65feny2">
+<p id="5de47b12eaq11"><b>实例公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址：</b>在<span data-tag="ph" id="595026ce70n8l" data-init-id="e4cf865092dq6" docid="5423368" is-conref="true" class="ph"><span props="china"><a class="" href="https://ecs.console.aliyun.com/server/region" id="f4e5a2e258w9y">ECS<span class="help-letter-space"></span>控制台-实例</a></span></span>，找到目标实例进入详情，在<b id="ef1de20aab2s9" data-tag="uicontrol" data-isbold="true" class="uicontrol">配置信息</b>区域找到<b id="fd8c389eafsqr" data-tag="uicontrol" data-isbold="true" class="uicontrol">公网<span class="help-letter-space"></span>IP</b>。</p>
+</li>
+<li id="52f9a9d459q9y">
+<p id="8664bd59625gh"><b>实例登录凭证：</b>为实例<a href="https://help.aliyun.com/zh/ecs/user-guide/instance-logon-credential-management#0125b54267ba1" id="15779f233efck" title="" class="xref">设置密码</a>或<a href="https://help.aliyun.com/zh/ecs/user-guide/instance-logon-credential-management#d63a004e87306" id="de9370e914dsl" title="" class="xref">绑定密钥对</a>。</p>
+</li>
+<li id="d658ec646eu1s">
+<p id="16e0d0776ecm4"><b>配置安全组：</b>为实例关联的安全组<a href="#3f58c0bfaboi4" id="9ed46ac341u8x" title="" class="xref">配置入方向规则</a>，允许本地<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>通过<span class="help-letter-space"></span>SSH（22<span class="help-letter-space"></span>端口）访问实例。</p>
+</li>
+</ul>
+</section>
+<section id="7b4158d33fbar" class="section">
+<h3 id="5963cfdcca9dm"><b>操作步骤</b></h3>
+<section data-tag="tabbed-content-box" id="dcad45acf7zfu" outputclass="tabbed-content-box" class="tabbed-content-box section">
+<section id="5155c452662k8" class="section">
+<h2 id="ba1e035560e7i">Windows 10/11</h2>
+<section data-tag="tabbed-content-box" id="76d28501bcnyo" outputclass="tabbed-content-box" class="tabbed-content-box section">
+<section id="c220e4908bu5a" class="section">
+<h2 id="fdee7c9bc3tbj">密码登录</h2>
+<ol id="c7f3aa4dd42x6" start="1">
+<li id="4461bf4eae6ts">
+<p id="f4969731bdvef">打开<span class="help-letter-space"></span>PowerShell</p>
+<p id="5318d491f91jn">按<code data-tag="code" id="eda8b2c507mj7" class="code">Win</code>+<code data-tag="code" id="fd62c5e493tri" class="code">R</code>输入<code data-tag="code" id="072b3972bfxd5" class="code">powershell</code>后按<code data-tag="code" id="5ddeea1c6ffcm" class="code">Enter</code>键进入<span class="help-letter-space"></span>PowerShell<span class="help-letter-space"></span>命令行界面。</p>
+</li>
+<li id="63183c9065g7m">
+<p id="fe4a725214j4s">发起远程连接</p><pre code-type="xCode" data-tag="codeblock" id="bf117411dbyxt" index="0" outputclass="language-powershell" class="pre codeblock language-powershell"><code>ssh &lt;实例登录名&gt;@&lt;实例公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址&gt;</code></pre>
+<blockquote id="3cad8654c1v85">示例：<code data-tag="code" id="1dd8d57baazs5" class="code">ssh root@47.98.xxx.xxx</code></blockquote>
+</li>
+<li id="9dc2e2b8f4dds">
+<p id="8840b9f969v0v">（首次连接时）验证主机指纹</p>
+<p id="58d09e9ae4vkr">当首次连接一台新的<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>时，会显示类似下方的信息，提示验证主机密钥指纹。</p>
+<blockquote id="3c2a9bca5fft8">这是<span class="help-letter-space"></span>SSH<span class="help-letter-space"></span>的一项安全机制，为确保安全，请<a href="#66719a5b83n6e" id="2765680200ydn" title="" class="xref">获取实例的主机密钥指纹后比对差异</a>。若不一致，则说明正在遭受中间人攻击，请切换到安全的网络环境下重新连接实例。</blockquote>
+<p id="31436b523f3yd">确认主机指纹无误后，输入<code data-tag="inlineCode" id="e1bde1304c5rw" class="inlineCode">yes</code>并按回车。</p><pre code-type="xCode" data-tag="codeblock" id="6aecf9d4e2sml" index="0" outputclass="language-powershell" class="pre codeblock language-powershell"><code>The authenticity of host '47.98.xxx.xxx (47.98.xxx.xxx)' can't be established.
+ED25519 key fingerprint is SHA256:AbCdEf123456...
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? </code></pre>
+</li>
+<li id="10dd608490yxs">
+<p id="b0ddfabb10mwt">输入密码，进入实例</p>
+<blockquote id="785af1917d3q1">输入密码时屏幕不会显示字符，这是正常现象，输入完成后按回车即可。</blockquote>
+<p id="1b1e9924f7tmz">密码验证通过后，将看到类似下方的欢迎信息，并且命令提示符会变为 <code data-tag="inlineCode" id="8b0a0ef18360e" class="inlineCode">[&lt;实例登录名&gt;@&lt;hostname&gt; ~]$</code> 的形式。表示已成功登录到<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例。</p><pre code-type="xCode" data-tag="codeblock" id="3e6e6b5f40z63" index="0" outputclass="language-powershell" class="pre codeblock language-powershell"><code>Welcome to Alibaba Cloud Elastic Compute Service !
+
+[root@Connect-Instance-Example ~]#</code></pre>
+</li>
+</ol>
+</section>
+<section id="778a7583e2npk" class="section">
+<h2 id="bad67a50f7zkp">密钥对登录</h2>
+<ol id="a95939329c6ox" start="1">
+<li id="d3ad9018b3j8l">
+<p id="d23fb63584isq">打开<span class="help-letter-space"></span>PowerShell</p>
+<p id="3b891291c4x8a">按<code data-init-id="eda8b2c507mj7" data-tag="code" id="3b0d8017d3sjk" class="code">Win</code>+<code data-init-id="fd62c5e493tri" data-tag="code" id="f962b4dad56h3" class="code">R</code>输入<code data-init-id="072b3972bfxd5" data-tag="code" id="77f3561306k32" class="code">powershell</code>后按<code data-init-id="5ddeea1c6ffcm" data-tag="code" id="166715bd26pa8" class="code">Enter</code>键进入<span class="help-letter-space"></span>PowerShell<span class="help-letter-space"></span>命令行界面。</p>
+</li>
+<li id="cf137a5091688">
+<p id="d710ee2e21t6h">发起远程连接</p><pre code-type="xCode" data-tag="codeblock" id="b1137df909s55" index="0" outputclass="language-powershell" class="pre codeblock language-powershell"><code>ssh -i /path/to/private_key.pem &lt;实例登录名&gt;@&lt;实例公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址&gt;</code></pre>
+<blockquote id="8927193d7f6kb">示例：<code data-init-id="1dd8d57baazs5" data-tag="code" id="d2f802c176t5l" class="code">ssh -i /path/to/private_key.pem root@47.98.xxx.xxx</code>。其中<code data-init-id="1dd8d57baazs5" data-tag="code" id="318df9fab0wl8" class="code">/path/to/private_key.pem</code>为私钥文件路径，例如<code data-tag="code" id="52a3c1e5f4yxn" class="code">C:\Users\Administrator\Downloads\private_key.pem</code>。</blockquote>
+</li>
+<li id="8c1fdd454bwgm">
+<p id="6bd09204b1va7">（首次连接时）验证主机指纹</p>
+<p id="f837ebcfdce0o">当首次连接一台新的<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>时，会显示类似下方的信息，提示验证主机密钥指纹。</p>
+<blockquote id="6c9c5fb5805vl">这是<span class="help-letter-space"></span>SSH<span class="help-letter-space"></span>的一项安全机制，为确保安全，请<a href="#66719a5b83n6e" id="91a2e793116f8" title="" class="xref">获取实例的主机密钥指纹后比对差异</a>。若不一致，则说明正在遭受中间人攻击，请切换到安全的网络环境下重新连接实例。</blockquote>
+<p id="f286d7d55dlsf">确认主机指纹无误后，输入<code data-init-id="e1bde1304c5rw" data-tag="inlineCode" id="f6558cbbe81j3" class="inlineCode">yes</code>并按回车。</p><pre code-type="xCode" data-tag="codeblock" id="27f48fecd07ka" index="0" outputclass="language-powershell" class="pre codeblock language-powershell"><code>The authenticity of host '47.98.xxx.xxx (47.98.xxx.xxx)' can't be established.
+ED25519 key fingerprint is SHA256:AbCdEf123456...
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? </code></pre>
+</li>
+<li id="587a7b32d37bk">
+<p id="29617f7f3crzb">验证密钥，进入实例</p>
+<p id="9e47e50be8dyn">当密钥验证通过后，将看到类似下方的欢迎信息，并且命令提示符会变为 <code data-init-id="8b0a0ef18360e" data-tag="inlineCode" id="29384ce6fbkz0" class="inlineCode">[&lt;实例登录名&gt;@&lt;hostname&gt; ~]$</code> 的形式。表示已成功登录到<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例。</p><pre code-type="xCode" data-tag="codeblock" id="3886fee199t1z" index="0" outputclass="language-powershell" class="pre codeblock language-powershell"><code>Welcome to Alibaba Cloud Elastic Compute Service !
+
+[root@Connect-Instance-Example ~]#</code></pre>
+</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="d0667f3a0ennm" class="section">
+<h2 id="cf27685c36pvv">macOS</h2>
+<section data-tag="tabbed-content-box" id="c7a5c35607akp" outputclass="tabbed-content-box" class="tabbed-content-box section">
+<section id="393d22bf925ez" class="section">
+<h2 id="3b0a2c2700wlw">密码登录</h2>
+<ol id="92b10961700w5" start="1">
+<li id="afbaae4dd2m33">
+<p id="3155102e1eeic">打开<b>终端（Terminal）</b>。</p>
+</li>
+<li id="8566cd83a4is7">
+<p id="366972d3c85mb">发起远程连接。</p><pre code-type="xCode" data-tag="codeblock" id="738d3627663eo" index="0" outputclass="language-shell" class="pre codeblock language-shell"><code>ssh &lt;实例登录名&gt;@&lt;实例公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址&gt;</code></pre>
+<blockquote id="ab6d8ce696c1z">示例：<code data-init-id="1dd8d57baazs5" data-tag="code" id="3056b34f14c8a" class="code">ssh root@47.98.xxx.xxx</code></blockquote>
+</li>
+<li id="e0997d379fhqn">
+<p id="4c8bc9e309yot">（首次连接时）验证主机指纹</p>
+<p id="fba545476e2a6">当首次连接一台新的<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>时，会显示类似下方的信息，提示验证主机密钥指纹。</p>
+<blockquote id="06349122de5kk">这是<span class="help-letter-space"></span>SSH<span class="help-letter-space"></span>的一项安全机制，为确保安全，请<a href="#66719a5b83n6e" id="bafd4f0124ugo" title="" class="xref">获取实例的主机密钥指纹后比对差异</a>。若不一致，则说明正在遭受中间人攻击，请切换到安全的网络环境下重新连接实例。</blockquote>
+<p id="bc890c63aa2mc">确认主机指纹无误后，输入<code data-init-id="e1bde1304c5rw" data-tag="inlineCode" id="8d5410d765qv0" class="inlineCode">yes</code>并按回车。</p><pre code-type="xCode" data-tag="codeblock" id="e67f676d81k1n" index="0" outputclass="language-powershell" class="pre codeblock language-powershell"><code>The authenticity of host '47.98.xxx.xxx (47.98.xxx.xxx)' can't be established.
+ED25519 key fingerprint is SHA256:AbCdEf123456...
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? </code></pre>
+</li>
+<li id="992ab49075n1a">
+<p id="d235755214y6r">输入密码，进入实例</p>
+<blockquote id="33ae1b8f9d0bb">输入密码时屏幕不会显示字符，这是正常现象，输入完成后按回车即可。</blockquote>
+<p id="09e41c741676u">密码验证通过后，将看到系统的登录欢迎信息（具体内容因操作系统镜像而异），并且命令提示符会变为 <code data-init-id="8b0a0ef18360e" data-tag="inlineCode" id="16e89e15d0h65" class="inlineCode">[&lt;实例登录名&gt;@&lt;hostname&gt; ~]$</code> 的形式。表示已成功登录到<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例。</p><pre code-type="xCode" data-tag="codeblock" id="868ae7a58bwbh" index="0" outputclass="language-powershell" class="pre codeblock language-powershell"><code>Welcome to Alibaba Cloud Elastic Compute Service !
+
+[root@Connect-Instance-Example ~]#</code></pre>
+</li>
+</ol>
+</section>
+<section id="937b8a57dakcy" class="section">
+<h2 id="fdfa82cb3c8j4">密钥对登录</h2>
+<ol id="a18735985777f" start="1">
+<li id="21ec4e80c31z4">
+<p id="7f8e7e3a49moz">打开<b>终端（Terminal）</b>。</p>
+</li>
+<li id="d0925c06b1sym">
+<p id="ef0e4b81c11ee">发起远程连接</p><pre code-type="xCode" data-tag="codeblock" id="56a8826877xnr" index="0" outputclass="language-shell" class="pre codeblock language-shell"><code># chmod 400: 为私钥文件设置仅所有者可读的权限，这是<span class="help-letter-space"></span>SSH<span class="help-letter-space"></span>客户端的安全要求
+chmod 400 /path/to/private_key.pem
+ssh -i /path/to/private_key.pem &lt;实例登录名&gt;@&lt;实例公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址&gt;</code></pre>
+<blockquote id="dbb53e7871mcy">示例：<code data-init-id="1dd8d57baazs5" data-tag="code" id="3bc531594365u" class="code">ssh -i /path/to/private_key.pem root@47.98.xxx.xxx</code>。其中<code data-init-id="1dd8d57baazs5" data-tag="code" id="32129e011erms" class="code">/path/to/private_key.pem</code>为私钥文件路径。</blockquote>
+</li>
+<li id="551b689805lbi">
+<p id="4ac1713d81iel">（首次连接时）验证主机指纹</p>
+<p id="cf7351d99ddls">当首次连接一台新的<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>时，会显示类似下方的信息，提示验证主机密钥指纹。</p>
+<blockquote id="2ac44f44743sm">这是<span class="help-letter-space"></span>SSH<span class="help-letter-space"></span>的一项安全机制，为确保安全，请<a href="#66719a5b83n6e" id="3ecfbecb2dg9a" title="" class="xref">获取实例的主机密钥指纹后比对差异</a>。若不一致，则说明正在遭受中间人攻击，请切换到安全的网络环境下重新连接实例。</blockquote>
+<p id="4c0d0499c11vs">确认主机指纹无误后，输入<code data-init-id="e1bde1304c5rw" data-tag="inlineCode" id="daeb64130bkyu" class="inlineCode">yes</code>并按回车。</p><pre code-type="xCode" data-tag="codeblock" id="6cbdf173f62qt" index="0" outputclass="language-powershell" class="pre codeblock language-powershell"><code>The authenticity of host '47.98.xxx.xxx (47.98.xxx.xxx)' can't be established.
+ED25519 key fingerprint is SHA256:AbCdEf123456...
+This key is not known by any other names.
+Are you sure you want to continue connecting (yes/no/[fingerprint])? </code></pre>
+</li>
+<li id="d7e808a157mwr">
+<p id="3551ba28353bx">验证密钥，进入实例</p>
+<p id="1076b6d4c8pxs">当密钥验证通过后，将看到类似下方的欢迎信息，并且命令提示符会变为 <code data-init-id="8b0a0ef18360e" data-tag="inlineCode" id="b1c826cfb0v0g" class="inlineCode">[&lt;username&gt;@&lt;hostname&gt; ~]$</code> 的形式。表示已成功登录到<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例。</p><pre code-type="xCode" data-tag="codeblock" id="014839aac1o9a" index="0" outputclass="language-powershell" class="pre codeblock language-powershell"><code>Welcome to Alibaba Cloud Elastic Compute Service !
+
+[root@Connect-Instance-Example ~]#</code></pre>
+</li>
+</ol>
+</section>
+</section>
+</section>
+</section>
+</section>
+</section>
+<section id="1c98a275a25cy" class="section">
+<h2 id="f53e7a3771oya"><b>方式二：使用<span class="help-letter-space"></span>Xshell<span class="help-letter-space"></span>客户端（仅适用于<span class="help-letter-space"></span>Windows）</b></h2>
+<p id="7d685607883hp">Xshell<span class="help-letter-space"></span>是一款<span class="help-letter-space"></span>SSH<span class="help-letter-space"></span>客户端工具，用于在<span class="help-letter-space"></span>Windows<span class="help-letter-space"></span>系统远程登录和管理<span class="help-letter-space"></span>Linux<span class="help-letter-space"></span>服务器。</p>
+<section id="bf18fbe1934fg" class="section">
+<h3 id="5b3cca6acbnsr"><b>准备工作</b></h3>
+<ul id="c521ff0b037vr">
+<li id="16db671db3r1v">
+<p id="339a664e22n0s"><b>下载并安装<span class="help-letter-space"></span>Xshell：</b>访问&nbsp;<a href="https://www.google.com/url?sa=E&amp;q=https%3A%2F%2Fwww.xshell.com%2Fzh%2Fxshell%2F" id="6c4d98d3d2rf5" class="ng-star-inserted" target="_blank">Xshell 官方网站</a>下载并安装最新客户端。</p>
+</li>
+<li id="1e30b9ea22u69">
+<p id="d19f47c94azeq"><b>实例公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址：</b>在<span data-tag="ph" id="1fc1854eeeyrm" data-init-id="e4cf865092dq6" docid="5423368" is-conref="true" class="ph"><span props="china"><a class="" href="https://ecs.console.aliyun.com/server/region" id="f4e5a2e258w9y">ECS<span class="help-letter-space"></span>控制台-实例</a></span></span>，找到目标实例进入详情，在<b id="6a07782c35xtq" data-tag="uicontrol" data-isbold="true" data-init-id="ef1de20aab2s9" class="uicontrol">配置信息</b>区域找到<b id="f70a642875s8z" data-tag="uicontrol" data-isbold="true" data-init-id="fd8c389eafsqr" class="uicontrol">公网<span class="help-letter-space"></span>IP</b>。</p>
+</li>
+<li id="02a8b9f45aib0">
+<p id="c4b97c3f09gg6"><b>实例登录凭证：</b>为实例<a href="https://help.aliyun.com/zh/ecs/user-guide/instance-logon-credential-management#0125b54267ba1" id="9e8ba7fa07lbr" title="" class="xref">设置密码</a>或<a href="https://help.aliyun.com/zh/ecs/user-guide/instance-logon-credential-management#d63a004e87306" id="038a58a11bz03" title="" class="xref">绑定密钥对</a>。</p>
+</li>
+<li id="5190605a7ehvd">
+<p id="0f09290f548k9"><b>配置安全组：</b>为实例关联的安全组<a href="#3f58c0bfaboi4" id="d178f9ad36z5v" title="" class="xref">配置入方向规则</a>，允许本地<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>通过<span class="help-letter-space"></span>SSH（22<span class="help-letter-space"></span>端口）访问实例。</p>
+</li>
+</ul>
+</section>
+<section id="82269ef374fr2" class="section">
+<h3 id="f20171cc91lur"><b>操作步骤</b></h3>
+<ol _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="232982bfadcu3">
+<li _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="ddab8c9b76mhr">
+<p id="9c57bfa3a9y6n">启动 Xshell 并新建会话</p>
+<ol id="b286981ad97gj" start="1">
+<li id="ea33a11f9db7d">
+<p id="aef9612cecm9u">打开 Xshell 应用程序。</p>
+</li>
+<li id="7e386d11e3zfr">
+<p id="844e78e977w6v">在弹出的<b data-tag="uicontrol" id="e9d21e0ac7w6u" class="uicontrol">会话</b>窗口中，单击<b id="314f536bdadgk" data-tag="uicontrol" data-isbold="true" class="uicontrol">新建</b>（或通过菜单栏<span data-tag="menucascade" id="044576f7289mb" class="menucascade"><b data-tag="uicontrol" id="d987407265rkz" class="uicontrol">文件</b> &gt; <b id="71c39fc347482" data-tag="uicontrol" data-isbold="true" class="uicontrol">新建</b></span>）。</p>
+</li>
+</ol>
+</li>
+<li id="96751720042qt">
+<p id="f9797b44bcb2s">配置连接基本信息</p>
+<p id="fbe8824bfbaan">单击左侧导航栏下的<b data-tag="uicontrol" id="b9a1276c38c18" class="uicontrol">连接</b>，完成配置：</p>
+<ul _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="4fdc3232a8v5k">
+<li _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="e4442b687eyb8">
+<p id="3b794c70c5pjh"><b id="62ebbe0eceq7x" data-tag="uicontrol" data-isbold="true" class="uicontrol">名称</b>：为会话取一个易于识别的名称（例如：My-Web-Server）。</p>
+</li>
+<li _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="0eac4e7a53k6o">
+<p id="7145739424p81"><b id="65e1a85926ftu" data-tag="uicontrol" data-isbold="true" class="uicontrol">协议</b>：保持默认的<span class="help-letter-space"></span><b id="d9ec589d9c7y8" data-tag="uicontrol" data-isbold="true" class="uicontrol">SSH</b>。</p>
+</li>
+<li _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="ea0a6ca6fa6bx">
+<p id="cffb87a85ars6"><b data-tag="uicontrol" id="2eb6dee148gev" class="uicontrol">主机</b>：输入实例的公网 IP。</p>
+</li>
+<li _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="4d6e23962f4pf">
+<p id="2a4168e272t9b"><b data-tag="uicontrol" id="9826c8299fzur" class="uicontrol">端口号</b>：保持默认的<span class="help-letter-space"></span><b data-tag="uicontrol" id="07895b084dv7w" class="uicontrol">22</b>。</p>
+</li>
+</ul>
+</li>
+<li id="46f87c4ca8vm5">
+<p id="0abb791f6fb7o">配置用户身份验证</p>
+<p id="e470102f90eni">在左侧导航栏中，单击<b data-tag="uicontrol" id="b4e6036929kc9" class="uicontrol">用户身份验证</b><b>。</b></p>
+<section data-tag="tabbed-content-box" id="34b8b987b3t2a" outputclass="tabbed-content-box" class="tabbed-content-box section">
+<section id="df4d9f914bf0x" class="section">
+<h2 id="eb8c01a554p4z">密码登录</h2>
+<ol id="f7ecae7afasfj">
+<li _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="67cf264d1d9ix">
+<p id="cb79429d64q4n"><b data-tag="uicontrol" id="01ad1160beuvk" class="uicontrol">方法</b>：选择<span class="help-letter-space"></span><b data-tag="uicontrol" id="b5afc73d5faa7" class="uicontrol">Password</b>。</p>
+</li>
+<li _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="91952ffac21l1">
+<p id="0a0aedcbe1ujz"><b id="ec728326fdyc8" data-tag="uicontrol" data-isbold="true" class="uicontrol">用户名</b>：输入服务器的登录名（如<span class="help-letter-space"></span>root）。</p>
+</li>
+<li _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="8e6e3e26452ya">
+<p id="48004f8d384zp"><b data-tag="uicontrol" id="44364a0cda9ir" class="uicontrol">密码</b>：输入对应的登录密码。</p>
+</li>
+</ol>
+</section>
+<section id="a1f18ad102juq" class="section">
+<h2 id="ec5bd1835b7ff">密钥对登录</h2>
+<ol _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="29f3c07c56vvy">
+<li _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="d546369054dh3">
+<p id="bbfb7d0c5fe2a"><b>用户名：</b>输入服务器的登录名（如<span class="help-letter-space"></span>root）。</p>
+</li>
+<li id="496af7d004v0k">
+<p id="e4c0c895c8oka"><b>方法：</b>选择<span class="help-letter-space"></span><b>Public Key</b>，并按以下步骤配置用户密钥：</p>
+<ol id="6d3cdb05834np" start="1">
+<li id="08b0bbbb118qh">
+<p id="ae86d0512b1xd">单击<b>设置...</b>。</p>
+</li>
+<li id="56ae2bf1a1ljr">
+<p id="f37330f6e2w6n">在弹出的窗口中，选择<b>密钥文件</b>选项，单击<b>用户密钥</b>配置项后的<b>...</b>，单击<b>导入...</b>，选择本地存储的<code data-tag="code" id="035e2b919bm1s" class="code">.pem</code>后缀私钥文件。</p>
+</li>
+<li id="867e1907b9kzw">
+<p id="9fea4c30f0fem">导入成功后，选中该密钥，单击<b>确定</b>。</p>
+</li>
+<li id="1efee96ec4vf3">
+<p id="5abbc98c9emvq">（可选）如密钥文件设置了密码，则需要提供<b>密码</b>。</p>
+</li>
+</ol>
+</li>
+</ol>
+</section>
+</section>
+</li>
+<li id="3ebc49bc6eq1i">
+<p id="dccdbbc96133p">连接到服务器</p>
+<p id="25d9b5f65dn0b">完成上述配置后，单击<b>连接</b>。</p>
+</li>
+<li id="0ddf1b9278lbg">
+<p id="10b5bbf065jmu">（首次连接时）验证主机密钥</p>
+<p id="8d5a49a327876">当首次连接一台新的<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>时，Xshell<span class="help-letter-space"></span>会弹出<span class="help-letter-space"></span><b>SSH<span class="help-letter-space"></span>安全警告</b>窗口，显示主机密钥指纹。</p>
+<blockquote id="c7051a48b6mjl">这是<span class="help-letter-space"></span>SSH<span class="help-letter-space"></span>的一项安全机制，为确保安全，请<a href="#66719a5b83n6e" id="8878db0c8d83x" title="" class="xref">获取实例的主机密钥指纹后比对差异</a>。若不一致，则说明正在遭受中间人攻击，请切换到安全的网络环境下重新连接实例。</blockquote>
+<p id="35a9133239hmy">确认无误后，单击<b>接受并保存</b>，这样以后连接就不会再弹出此提示。</p>
+</li>
+<li id="cd4e5bedb8uxt">
+<p id="03169d6771j7n">连接到服务器</p>
+<p id="1df1165082qyi">当看到命令提示符出现以下内容时，表示已经通过验证，成功连接。</p><pre code-type="xCode" data-tag="codeblock" id="9efc5786492qt" index="0" outputclass="language-shell" class="pre codeblock language-shell"><code>Welcome to Alibaba Cloud Elastic Compute Service !
+
+[root@Connect-Instance-Example ~]#</code></pre>
+</li>
+</ol>
+</section>
+</section>
+<section id="cfbe98944ak0q" class="section">
+<h2 id="ed38d8f799orz"><b>应用于生产环境</b></h2>
+<p id="537dc15215ahg">在实际生产环境中，建议通过以下操作提升远程连接安全。</p>
+<ul id="6e417ea190moq">
+<li id="3e5b58f22b5bo">
+<h4 id="41d75647bb0zj"><b>主动验证主机指纹，防范中间人攻击</b></h4>
+<p id="d86b020313gy2">在第一次连接到实例时，应先<a href="#66719a5b83n6e" id="9964a28d3cl1l" title="" class="xref">验证实例的主机密钥指纹</a>，确认连接的是目标实例而非攻击者的服务器。</p>
+</li>
+<li id="48a6a67eacsfl">
+<h4 id="3d36ebd5dbu7j"><b>禁用密码登录，强制使用密钥对</b></h4>
+<p id="009fe2c501r4g">密钥对认证远比密码认证安全，可降低暴力破解风险。操作如下：</p>
+<ol id="572c1c2cf5u4p" start="1">
+<li id="c7f1a7bb7ff0c">
+<p id="7a2a8164e54wg">为实例<a href="https://help.aliyun.com/zh/ecs/user-guide/instance-logon-credential-management#939ea2f00ekaf" id="ae01c160a1l5a" title="" class="xref">绑定密钥对</a>。</p>
+</li>
+<li id="91727d78b45io">
+<p id="c119e1e4aa7mg">禁用密码登录：登录实例，编辑<code class="inlineCode" data-tag="inlineCode" id="bbc9287a52rtw">/etc/ssh/sshd_config</code>配置文件，找到<code class="inlineCode" data-tag="inlineCode" id="57a21d3e43byh">PasswordAuthentication</code>，修改为<code class="inlineCode" data-tag="inlineCode" id="c0b40455c7vjb">PasswordAuthentication no</code>，重启<span class="help-letter-space"></span>SSH<span class="help-letter-space"></span>服务生效配置。</p>
+</li>
+</ol>
+</li>
+<li id="06afab63016pg">
+<h4 id="b67095f854asv"><b>修改默认<span class="help-letter-space"></span>SSH<span class="help-letter-space"></span>端口 </b></h4>
+<p id="6c17fa16b53uu">将默认<span class="help-letter-space"></span>22<span class="help-letter-space"></span>端口改为其他数值较大的非标准端口（如<span class="help-letter-space"></span>2222），可有效减少被恶意扫描。</p>
+<ol id="103b5e3e7117s" start="1">
+<li id="05c62664e4esr">
+<p id="bf502ce6c9fwg"><b>放行新端口：</b>&nbsp;在实例所属的安全组中<a href="https://help.aliyun.com/zh/ecs/user-guide/start-using-security-groups#233050ea35twy" id="b226bc0881cog" title="" class="xref">添加入方向规则</a>，放行新的端口（如<span class="help-letter-space"></span>2222）</p>
+</li>
+<li id="fdfcacb0475bu">
+<p id="2130384fdakej"><b>修改<span class="help-letter-space"></span>SSH<span class="help-letter-space"></span>服务端口：</b>登录实例，编辑<code class="inlineCode" data-init-id="bbc9287a52rtw" data-tag="inlineCode" id="0b9a1d10e7j1f">/etc/ssh/sshd_config</code>配置文件，将<code data-tag="inlineCode" id="9e9c6c774ebj5" class="inlineCode">#Port 22</code>修改为<code data-tag="inlineCode" id="0bc9089a343qm" class="inlineCode">Port 2222</code>。重启<span class="help-letter-space"></span>SSH<span class="help-letter-space"></span>服务生效配置。</p>
+</li>
+<li id="6d5148095bkuj">
+<p id="0ad1704663jwt"><b>使用新端口连接：</b>&nbsp;此后使用<span class="help-letter-space"></span>ssh<span class="help-letter-space"></span>命令时，需通过<code data-tag="code" id="c2164c080cqjs" class="code">-p</code>指定<span class="help-letter-space"></span>ssh<span class="help-letter-space"></span>的服务端口，例如：<code data-tag="inlineCode" id="0becd1d9f4l7y" class="inlineCode">ssh -p 2222 username@instance_ip</code>。</p>
+</li>
+</ol>
+</li>
+<li id="bfa0da6b4aalh">
+<h4 id="86b727481e0b5"><b>仅授权可信的<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>访问实例</b></h4>
+<p id="3a44b8ff51s6s"><a href="https://help.aliyun.com/zh/ecs/user-guide/start-using-security-groups#233050ea35twy" id="029fce7c2a92y" title="" class="xref">修改安全组规则</a>安全组规则，仅允许本机<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>或其他受信任的<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>访问实例<span class="help-letter-space"></span>SSH<span class="help-letter-space"></span>服务，拦截未知主机访问实例。</p>
+</li>
+</ul>
+</section>
+<section id="e4a73b4f11cse" class="section">
+<h2 id="e787c470cfjw1"><b>常见问题</b></h2>
+<ul id="9a08eb1c14nb3">
+<li id="df648229e6lz0">
+<h4 id="3f58c0bfaboi4">如何配置安全组规则以放行<span class="help-letter-space"></span>22<span class="help-letter-space"></span>端口？</h4>
+<p id="c4cf0a8b9f78o">在实例所在安全组<a href="https://help.aliyun.com/zh/ecs/user-guide/start-using-security-groups#233050ea35twy" id="8ba40c4510dft" title="" class="xref">添加</a>如下安全组规则：</p>
+<table autofit="true" id="c945477f65ngj" tablecolswidth="16 21 32 32" tablewidth="101" class="table">
+<colgroup colwidth="0.64*" style="width:15.84%"></colgroup>
+<colgroup colwidth="0.84*" style="width:20.79%"></colgroup>
+<colgroup colwidth="1.28*" style="width:31.68%"></colgroup>
+<colgroup colwidth="1.28*" style="width:31.68%"></colgroup>
+<tbody class="tbody">
+<tr id="f7474c0990ilj">
+<td id="a30c052141jcp" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="d299b23fe9zm5"><b>授权策略</b></p>
+</td>
+<td id="fed8e43e358u2" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="495f0f1e6bkt5"><b>协议</b></p>
+</td>
+<td id="7ded8380f66xk" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="40acb6c6c51vk"><b>访问来源</b></p>
+</td>
+<td id="fe893795996m2" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="80e864468bl3n"><b>访问目的(本实例)</b></p>
+</td>
+</tr>
+<tr id="abb94daccding">
+<td id="a79c6429b7jo0" rowspan="1" colspan="1">
+<p id="836412a8ddto0">允许</p>
+</td>
+<td id="c748db0d00r7y" rowspan="1" colspan="1">
+<p id="ef098234a7wmy">自定义 TCP</p>
+</td>
+<td id="3d22ee4bb39au" rowspan="1" colspan="1">
+<p id="ef6e2cf015oim">输入本地客户端的公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址。</p>
+<div id="0fcf9025b4xse" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+<p id="9a3def3fce3nd">若使用<code class="code" code-type="xCode" data-tag="code" id="5689663cfb9ha">0.0.0.0/0</code>，表示允许任意 IP 访问远程服务端口，存在安全风险，请谨慎使用。</p>
+</div></div>
+</td>
+<td id="b2408a343fat5" rowspan="1" colspan="1">
+<p id="18f5bf1a35ync">SSH(22)</p>
+<blockquote id="ba3090eb2f7z2">如果修改了实例的<span class="help-letter-space"></span>SSH<span class="help-letter-space"></span>服务的端口，需调整为实际端口。</blockquote>
+</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li id="58cab35f6fzuc">
+<h4 id="66719a5b83n6e"><b>如何验证实例的主机密钥指纹？</b></h4>
+<p id="06d111643bca9">首次连接实例时，会提示验证主机密钥指纹，确认方法如下：</p>
+<section data-tag="tabbed-content-box" id="76844f0c2bpfh" outputclass="tabbed-content-box" class="tabbed-content-box section">
+<section id="832b78efbfqlh" class="section">
+<h2 id="afaa8b99bdzij">控制台</h2>
+<ol id="b1566ef8bbmy0" start="1">
+<li id="b3a7aa70d4mo5">
+<p id="b1e71476b0fi9">进入<span data-tag="ph" id="9d77a19eb352t" docid="5423368" is-conref="true" class="ph"><span props="china"><a class="" href="https://ecs.console.aliyun.com/server/region" id="f4e5a2e258w9y">ECS<span class="help-letter-space"></span>控制台-实例</a></span></span>，在左上角选择地域与资源组。</p>
+</li>
+<li id="5f65e7ad41fce">
+<p id="f717b334c4hkn">找到对应实例后，单击<span data-tag="menucascade" id="b42d8e5d0914g" class="menucascade"><b data-tag="uicontrol" id="2f52194050ma2" class="uicontrol"><img alt="image" id="34b41835dab2e" placement="inline" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/2914398571/p1009481.png" width="23" class="image inline"></b> &gt; <b id="177a64b3c0c5y" data-tag="uicontrol" data-isbold="true" class="uicontrol">获取实例系统日志</b></span>，然后找到<code data-tag="code" id="54ba6e4f1fud0" class="code">BEGIN SSH HOST KEY FINGERPRINTS</code>，会显示所有主机指纹。</p>
+<p id="0df63979e608s"><img alt="image" id="96e6a8202fesr" placement="break" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/2914398571/p1009486.png" width="600" class="image break"></p>
+<p id="4d4296d7713v8">请仔细核对本地客户端提示的指纹（如上例中的&nbsp;SHA256:******）是否与日志中显示的指纹<b>完全一致</b>。若不一致，则可能正在遭受中间人攻击，需切换至安全网络环境后重试连接。</p>
+<blockquote id="3617bee20emd9">若找不到<code data-init-id="54ba6e4f1fud0" data-tag="code" id="96bbc4e94bzpp" class="code">BEGIN SSH HOST KEY FINGERPRINTS</code>，需进入实例内查看主机指纹。</blockquote>
+</li>
+</ol>
+</section>
+<section id="dcaf18d02b88j" class="section">
+<h2 id="316ff00definp">实例内</h2>
+<p id="a02e6bc104ohs"><a href="https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-linux-instance-by-using-a-password-or-key" id="9298faaf805lk" title="" class="xref">使用<span class="help-letter-space"></span>Workbench<span class="help-letter-space"></span>登录实例</a>后执行以下命令，查看主机密钥指纹：</p><pre code-type="xCode" data-tag="codeblock" id="4bb21fdef6f4c" index="0" outputclass="language-shell" class="pre codeblock language-shell"><code>for f in /etc/ssh/ssh_host_*_key.pub; do ssh-keygen -l -f "$f"; done</code></pre>
+<p id="fe63918c3cmyx">输出示例：</p><pre code-type="xCode" data-tag="codeblock" id="e7e2b00c4e8pd" index="0" outputclass="language-shell" class="pre codeblock language-shell"><code>1024 SHA256:9C******co root@Connect-Instance-Example (DSA)
+256 SHA256:u6******SU root@Connect-Instance-Example (ECDSA)
+256 SHA256:iQ******jg root@Connect-Instance-Example (ED25519)
+3072 SHA256:8R******64 root@Connect-Instance-Example (RSA)</code></pre>
+<p id="aa3515d37eaoi">请仔细核对本地客户端提示的指纹（如上例中的&nbsp;SHA256:******）是否与日志中显示的指纹<b>完全一致</b>。若不一致，则可能正在遭受中间人攻击，需切换至安全网络环境后重试连接。</p>
+</section>
+</section>
+</li>
+<li id="c004a222f97c1">
+<h4 id="c535a310c7iyz"><b>如何通过<span class="help-letter-space"></span>SSH<span class="help-letter-space"></span>的<span class="help-letter-space"></span>config<span class="help-letter-space"></span>配置文件简化连接命令？</b></h4>
+<p id="16a23720f6sbh">每次连接都输入完整的<code data-init-id="abd8d77d30y0f" data-tag="code" id="c733cad9d2rh4" class="code">ssh -i /path/to/key.pem username@instance_ip</code>命令较为繁琐。通过在本地创建和配置<span class="help-letter-space"></span>SSH<code data-init-id="f8dcb9192bfsi" data-tag="code" id="d29b821133lka" class="code">config</code>文件，可以为服务器设置别名，简化连接命令。</p>
+<ol id="f95924f0a94j1">
+<li id="13089b5146f3q">
+<p id="222c1320bf529">找到或创建<span class="help-letter-space"></span>config<span class="help-letter-space"></span>文件</p>
+<section data-tag="tabbed-content-box" id="d393e5035eitr" outputclass="tabbed-content-box" class="tabbed-content-box section">
+<section id="9a64538068cl6" class="section">
+<h2 id="c162f96f66oe7">Windows 10/11</h2>
+<p id="436ef117e67nh">config<span class="help-letter-space"></span>配置文件默认路径为<code data-init-id="6bae1e946fytj" data-tag="inlineCode" id="5757bb0f925yc" class="inlineCode">C:\Users\YourUsername\.ssh\config</code>。若不存在，需手动创建。</p>
+<blockquote id="35cf3bd1e4k48">使用时，请替换<code data-init-id="6bae1e946fytj" data-tag="inlineCode" id="d05a5021ebjit" class="inlineCode">YourUsername</code>为当前<span class="help-letter-space"></span>Windows<span class="help-letter-space"></span>的用户名。</blockquote>
+</section>
+<section id="5148dcd1c5kjv" class="section">
+<h2 id="5ac4b2265f8zi">macOS</h2>
+<p id="9cf9b1907b10j"><code data-tag="code" id="2fd688062c5ea" class="code">config</code>配置文件默认路径为<code data-init-id="6bae1e946fytj" data-tag="inlineCode" id="61bc7bb441f78" class="inlineCode">~/.ssh/config</code>。若不存在，需手动创建。</p>
+</section>
+</section>
+</li>
+<li id="3e7158af8ff60">
+<p id="36412c1f3352l">编辑<span class="help-letter-space"></span>config<span class="help-letter-space"></span>文件并添加实例信息</p>
+<p id="4572556c2egba">使用文本编辑器打开<code data-init-id="1aa21967863za" data-tag="inlineCode" id="2b16965768lwq" class="inlineCode">config</code>文件，添加类似如下的配置。每一段<code data-init-id="e126ca11a1h12" data-tag="inlineCode" id="67c4b36e2d5mk" class="inlineCode">Host</code>配置对应一个服务器实例。</p><pre code-type="xCode" data-tag="codeblock" id="8a9b27b2e7di8" index="0" outputclass="language-plaintext" class="pre codeblock language-plaintext"><code># 为<span class="help-letter-space"></span>Web<span class="help-letter-space"></span>服务器配置一个别名 "web-server"
+Host web-server
+    HostName        47.98.xxx.xxx
+    User            root
+    Port            22
+    （可选）如果使用密钥对登录，请指定私钥路径，使用密码登录请忽略
+    IdentityFile    /path/to/your/private_key.pem
+
+# 可以为其他服务器添加更多配置
+Host other-server
+    HostName        8.123.xxx.xxx
+    User            ecs-user
+    Port            2222
+    IdentityFile    ~/.ssh/another_key.pem</code></pre>
+<p id="f35b2e60128nv"><b>参数说明：</b></p>
+<ul id="0cd065d4batzp">
+<li id="657f3b0e418uq">
+<p id="7ed601e610ajk"><b>Host</b>：服务器的别名，可自定义。</p>
+</li>
+<li id="304a9c9278a28">
+<p id="47980430fegz5"><b>HostName</b>：实例的公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址。</p>
+</li>
+<li id="7c8c47c5f15ck">
+<p id="63588408f17h6"><b>User</b>：登录用户名。</p>
+</li>
+<li id="900442139dmp9">
+<p id="e1022f7f31mgx"><b>Port</b>：SSH<span class="help-letter-space"></span>端口号（默认为<span class="help-letter-space"></span>22）。</p>
+</li>
+<li id="36b974dad3vz7">
+<p id="79adcf18b9tne"><b>IdentityFile</b>：私钥文件的绝对路径。</p>
+</li>
+</ul>
+</li>
+<li id="6dc928a89azot">
+<p id="97e7a6b89cbk8">使用别名快速连接</p>
+<p id="27c941de65fd5">保存<code data-init-id="15812782b8trr" data-tag="inlineCode" id="7f63b387desko" class="inlineCode">config</code>文件后，可以直接使用别名来连接实例。</p><pre code-type="xCode" data-tag="codeblock" id="fac32694d7svm" index="0" outputclass="language-shell" class="pre codeblock language-shell"><code># 直接使用别名连接，SSH<span class="help-letter-space"></span>会自动读取<span class="help-letter-space"></span>config<span class="help-letter-space"></span>中的<span class="help-letter-space"></span>IP、用户名和密钥信息
+ssh web-server</code></pre>
+</li>
+</ol>
+</li>
+<li id="c5befbcfff7oj">
+<h4 id="958ef149f2igr"><b>连接时出现</b><code data-tag="code" id="a741f6121bydx" class="code"><b>Connection timed out</b></code><b>或提示连接超时？</b></h4>
+<p id="4929038e3epnj">表示客户端无法连接到服务器。排查顺序：</p>
+<ol id="1fb3128826lr2" start="1">
+<li id="4160a052c6v6j">
+<p id="e4ef12e72bp6c">检查公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>是否正确。</p>
+</li>
+<li id="fdccc67f8fdgu">
+<p id="33ebc6d222a7e">检查安全组是否放行端口。</p>
+</li>
+<li id="7eb3e7f256r49">
+<p id="50a33eff2ce6r">检查实例是否处于运行状态。</p>
+</li>
+<li id="bb4d32320ff26">
+<p id="e53b6955e9pba">使用<span data-tag="ph" id="d9962581a1oz3" docid="5750564" is-conref="true" class="ph"><span props="china"><a class="" href="https://ecs.console.aliyun.com/troubleshooting" id="f8fd9c21desb4">ECS<span class="help-letter-space"></span>控制台-自助问题排查</a></span></span>排查异常。</p>
+</li>
+</ol>
+</li>
+<li id="6f831e7ea85cs">
+<h4 id="73767fb51d6mw"><b>密码输入正确，但提示</b><code data-tag="code" id="dfa415d78154b" class="code"><b>Permission denied, please try again</b></code></h4>
+<p id="968d4a464fje9">表示服务器拒绝了密码。排查顺序：</p>
+<ol id="285166b30ftd3" start="1">
+<li id="7cd72abf3a1ig">
+<p id="79139c8d0bqh0">在控制台<a href="https://help.aliyun.com/zh/ecs/user-guide/instance-logon-credential-management#0125b54267ba1" id="039b364f675mz" title="" class="xref">重置密码</a>后重试。</p>
+</li>
+<li id="fc6339054csb0">
+<p id="849825c0b1f7s">使用<span data-tag="ph" id="30ac190f466qh" data-init-id="d9962581a1oz3" docid="5750564" is-conref="true" class="ph"><span props="china"><a class="" href="https://ecs.console.aliyun.com/troubleshooting" id="f8fd9c21desb4">ECS<span class="help-letter-space"></span>控制台-自助问题排查</a></span></span>排查异常。</p>
+</li>
+</ol>
+</li>
+<li id="c9d261368633q">
+<h4 id="96154c5cd7iw6"><b>使用密钥对登录时提示</b><code data-tag="code" id="acf0a561a4mbs" class="code"><b>Permission denied (publickey)</b></code><b>？</b></h4>
+<p id="259ae1037aexh">表示服务器拒绝了密钥。排查顺序：</p>
+<ol id="1c153a5d70rlk" start="1">
+<li id="6d78304644863">
+<p id="5294acfb52dpc">在控制台重新<a href="https://help.aliyun.com/zh/ecs/user-guide/instance-logon-credential-management#939ea2f00ekaf" id="3ea7322832vm6" title="" class="xref">绑定</a>密钥对后重试。</p>
+</li>
+<li id="dba9fe3eadffc">
+<p id="8f3688a70ecjo">检查私钥文件路径及是否与实例匹配。</p>
+</li>
+<li id="b7b9cd9faeqnr">
+<p id="b6502289cb37t">（macOS<span class="help-letter-space"></span>系统下）检查私钥文件权限是否为<code data-tag="inlineCode" id="015aafaedbkgc" class="inlineCode">400</code>或<code data-tag="inlineCode" id="d841a92895zla" class="inlineCode">600</code>。</p>
+</li>
+<li id="faa1b8e088sge">
+<p id="617089dfb2iz0">使用<span data-tag="ph" id="81470c9760cng" data-init-id="d9962581a1oz3" docid="5750564" is-conref="true" class="ph"><span props="china"><a class="" href="https://ecs.console.aliyun.com/troubleshooting" id="f8fd9c21desb4">ECS<span class="help-letter-space"></span>控制台-自助问题排查</a></span></span>排查异常。</p>
+</li>
+</ol>
+</li>
+<li id="661dcb7b2dca7">
+<h4 id="4eaa9c3ec9ibu"><b>通过<span class="help-letter-space"></span>SSH<span class="help-letter-space"></span>命令登录实例时，提示</b><code data-tag="code" id="df3bf35cd06be" class="code">WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!</code></h4>
+<p id="9ad4d040e9bes">这是<span class="help-letter-space"></span>SSH<span class="help-letter-space"></span>的安全机制：在第一次连接实例后，会记住主机密钥指纹，后续连接时若指纹不一致，会提示该错误。可能是由于执行过更换系统盘、更换操作系统、删除了实例系统中的主机密钥文件等操作。</p>
+<p id="05aba60e6dpbe"><b>解决办法：</b><a href="#66719a5b83n6e" id="c6113066fc59h" title="" class="xref">验证实例的主机密钥指纹</a>，若无误，执行以下命令，删除本地保存的主机密钥指纹。</p><pre code-type="xCode" data-tag="codeblock" id="2544cb55734ip" index="0" outputclass="language-shell" class="pre codeblock language-shell"><code>ssh-keygen -R &lt;实例公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址&gt;</code></pre>
+</li>
+</ul>
+</section>
+</div>
+</main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/ecs/user-guide/connect-to-an-instance-by-using-third-party-client-tools/" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：使用第三方客户端工具连接实例</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/ecs/user-guide/connect-to-a-windows-instance-by-using-a-username-and-password" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：使用远程桌面/Windows App远程连接Windows实例<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

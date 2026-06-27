@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/user-guide/component-overview",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "管理ACK托管集群的相关组件-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/component-overview",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/component-overview.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/component-overview.md",
+  "word_count": 1564,
+  "text_units": 3999,
+  "local_links": 52,
+  "external_links": 70,
+  "has_tables": true,
+  "table_count": 24,
+  "quality": "accepted"
+}

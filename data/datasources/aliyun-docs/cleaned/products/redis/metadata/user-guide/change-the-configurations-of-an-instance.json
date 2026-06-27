@@ -1,0 +1,17 @@
+{
+  "id": "redis:user-guide/change-the-configurations-of-an-instance",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "变更内存容量和实例架构-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/change-the-configurations-of-an-instance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/user-guide/change-the-configurations-of-an-instance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/change-the-configurations-of-an-instance.md",
+  "word_count": 856,
+  "text_units": 2357,
+  "local_links": 6,
+  "external_links": 78,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

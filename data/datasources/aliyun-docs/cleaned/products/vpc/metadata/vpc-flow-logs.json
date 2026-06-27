@@ -1,0 +1,17 @@
+{
+  "id": "vpc:vpc-flow-logs",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "VPC流日志-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/vpc-flow-logs",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/vpc-flow-logs.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/vpc-flow-logs.md",
+  "word_count": 3174,
+  "text_units": 9837,
+  "local_links": 20,
+  "external_links": 96,
+  "has_tables": true,
+  "table_count": 28,
+  "quality": "accepted"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "redis:product-overview/dram-based-instances",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "兼容Redis的内存型扩展数据结构数据库-Tair内存型-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/dram-based-instances",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/product-overview/dram-based-instances.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/dram-based-instances.md",
+  "word_count": 887,
+  "text_units": 2349,
+  "local_links": 27,
+  "external_links": 64,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

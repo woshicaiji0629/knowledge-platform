@@ -1,0 +1,727 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    配置缓存出站响应头-CDN(CDN)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/cdn/user-guide/create-a-custom-http-response-header">
+  <meta name="keywords" content="缓存响应头,控制缓存,跨域请求,跨域共享">
+  <meta name="description" content="出站响应头是HTTP响应消息头的组成部分之一，可携带特定响应参数并传递给客户端，用来控制缓存行为。通过修改出站响应头，当用户请求加速域名下的资源时，CDN返回的响应消息会携带您配置的响应头，从而实现跨域访问等特定功能。">
+  <meta name="last-modified" content="2026-05-29T16:51:36+08:00">
+  <meta name="date" content="2016-05-06T10:42:10+08:00">
+  <meta property="og:title" content="修改出站响应头">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/cdn/user-guide/create-a-custom-http-response-header">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="出站响应头是HTTP响应消息头的组成部分之一，可携带特定响应参数并传递给客户端，用来控制缓存行为。通过修改出站响应头，当用户请求加速域名下的资源时，CDN返回的响应消息会携带您配置的响应头，从而实现跨域访问等特定功能。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/cdn/user-guide/create-a-custom-http-response-header",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "27137",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/cdn/user-guide/create-a-custom-http-response-header","nodeId":null,"data":{"lastModifiedTime":1780044696000,"keywords":"缓存响应头,控制缓存,跨域请求,跨域共享","docTitle":"修改出站响应头","language":"zh","seoTitle":"配置缓存出站响应头-CDN(CDN)-阿里云帮助中心","title":"修改出站响应头","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"task-261642\">\n    \n    \n    <p _forcerepaint=\"1705385679586\" data-tag=\"shortdesc\" id=\"shortdesc-pgj-kbz-mwl\" class=\"shortdesc\">出站响应头是<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>响应消息头的组成部分之一，可携带特定响应参数并传递给客户端，用来控制缓存行为。通过修改出站响应头，当用户请求加速域名下的资源时，<span data-tag=\"ph\" id=\"64e70000ebt8m\" docid=\"1039844\" is-conref=\"true\" class=\"ph\"><span data-tag=\"text\" id=\"text-3zl-dl4-idi\" product=\"CDN\" data-cond-product=\"CDN\" class=\"text\">CDN</span><span class=\"help-letter-space\"></span></span>返回的响应消息会携带您配置的响应头，从而实现跨域访问等特定功能。</p>\n    <div data-tag=\"taskbody\" id=\"taskbody-djy-ykm-zl4\" class=\"taskbody\">\n      <section data-tag=\"context\" data-type=\"context\" id=\"context-2i2-r5w-cah\" class=\"context section\">\n        <h2 id=\"d41e14\">背景信息</h2>\n        <p id=\"f011ffa255wdu\">出站响应头是<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>协议中用于控制缓存的机制。当客户端请求资源时，<span data-tag=\"ph\" id=\"1bb6e0d7becvr\" docid=\"1039844\" is-conref=\"true\" class=\"ph\"><span data-tag=\"text\" id=\"text-3zl-dl4-idi\" product=\"CDN\" data-cond-product=\"CDN\" class=\"text\">CDN</span><span class=\"help-letter-space\"></span></span>节点返回的<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>响应头允许在特定条件下缓存内容。</p>\n        <hetu type=\"flowchart\" id=\"08f4cfc1baz8e\" uuid=\"5272057_20250611095755.507\" versionid=\"CAEQWhiBgMDZqfqHuxkiIGQyYzhlYmU0MGIxZDRlMDBiNjlhZjYzMGNlOWMxMjQz\" hetuid=\"5ed46f9e-3965-483f-a416-b751945ddca9\"><img src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3964400871/CAEQWhiBgMDZqfqHuxkiIGQyYzhlYmU0MGIxZDRlMDBiNjlhZjYzMGNlOWMxMjQz5272057_20250611095755.507.svg\" alt=\"image\" class=\"image break flowchart hetu\"></hetu>\n        <div data-tag=\"note\" id=\"note-5ic-vdq-jld\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n          <ul data-tag=\"ul\" id=\"ul-awz-at7-4lt\" class=\"ul\">\n            <li data-tag=\"li\" id=\"li-fgq-rc7-6ch\" class=\"li\">\n              <p id=\"a0de4c9c589hf\">HTTP<span class=\"help-letter-space\"></span>响应头的配置属于域名维度的配置，一旦配置生效，便会对域名下所有资源的响应消息生效。</p>\n            </li>\n            <li data-tag=\"li\" id=\"li-zob-bfw-8hy\" class=\"li\">\n              <p id=\"d6f5c3fa26qgl\">配置<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>响应头仅影响客户端（例如浏览器）的响应行为，不影响<span data-tag=\"ph\" id=\"8d03351a40htj\" data-init-id=\"1bb6e0d7becvr\" docid=\"1039844\" is-conref=\"true\" class=\"ph\"><span class=\"help-letter-space\"></span><span data-tag=\"text\" id=\"text-3zl-dl4-idi\" product=\"CDN\" data-cond-product=\"CDN\" class=\"text\">CDN</span><span class=\"help-letter-space\"></span></span>节点的缓存行为。<span data-tag=\"ph\" id=\"5b60be12d60za\" class=\"ph\">泛域名暂不支持修改出站响应头。</span></p>\n            </li>\n          </ul>\n        </div></div>\n      </section>\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-aa1-k4q-30s\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-l8f-sqq-7sw\" class=\"title\">适用场景</h2>\n        <ul id=\"7ab537055a4j0\">\n          <li id=\"751fb3e01flbp\">\n            <p id=\"c5641cf109tnd\"><b>告知客户端</b><span data-tag=\"ph\" id=\"b7bc92c85bpal\" data-init-id=\"1bb6e0d7becvr\" docid=\"1039844\" is-conref=\"true\" class=\"ph\"><span data-tag=\"text\" id=\"text-3zl-dl4-idi\" product=\"CDN\" data-cond-product=\"CDN\" class=\"text\">CDN</span></span><b>响应文件的资源类型</b>：添加响应头<code data-tag=\"code\" id=\"b5c7b386d404f\" class=\"code\">Content-Type: text/html</code>告知客户端<span data-tag=\"ph\" id=\"bf9107af9av9c\" data-init-id=\"1bb6e0d7becvr\" docid=\"1039844\" is-conref=\"true\" class=\"ph\"><span class=\"help-letter-space\"></span><span data-tag=\"text\" id=\"text-3zl-dl4-idi\" product=\"CDN\" data-cond-product=\"CDN\" class=\"text\">CDN</span><span class=\"help-letter-space\"></span></span>响应文件的格式是<span class=\"help-letter-space\"></span>HTML<span class=\"help-letter-space\"></span>格式。</p>\n          </li>\n          <li id=\"1bde8ffab91eh\">\n            <p id=\"bd743044f52rw\"><b>实现跨域资源访问</b>：当用户请求<span data-tag=\"ph\" id=\"8baad5c892j20\" data-init-id=\"1bb6e0d7becvr\" docid=\"1039844\" is-conref=\"true\" class=\"ph\"><span class=\"help-letter-space\"></span><span data-tag=\"text\" id=\"text-3zl-dl4-idi\" product=\"CDN\" data-cond-product=\"CDN\" class=\"text\">CDN</span><span class=\"help-letter-space\"></span></span>上某个域名的资源时，您可以在<span data-tag=\"ph\" id=\"676a9dc8c0yvs\" data-init-id=\"1bb6e0d7becvr\" docid=\"1039844\" is-conref=\"true\" class=\"ph\"><span class=\"help-letter-space\"></span><span data-tag=\"text\" id=\"text-3zl-dl4-idi\" product=\"CDN\" data-cond-product=\"CDN\" class=\"text\">CDN</span><span class=\"help-letter-space\"></span></span>返回的响应消息中配置响应头<code data-tag=\"code\" id=\"1b4001286afit\" class=\"code\">Access-Control-Allow-Origin</code>，以实现跨域访问，您可以参考<a href=\"https://help.aliyun.com/zh/cdn/user-guide/configure-cors#task-2100263\" id=\"79e5e118858x0\" title=\"\" class=\"xref\">配置跨域资源共享</a>来了解详细信息。阿里云<span data-tag=\"ph\" id=\"5507053351a28\" data-init-id=\"1bb6e0d7becvr\" docid=\"1039844\" is-conref=\"true\" class=\"ph\"><span class=\"help-letter-space\"></span><span data-tag=\"text\" id=\"text-3zl-dl4-idi\" product=\"CDN\" data-cond-product=\"CDN\" class=\"text\">CDN</span><span class=\"help-letter-space\"></span></span>还支持按照已配置<span class=\"help-letter-space\"></span>CORS<span class=\"help-letter-space\"></span>规则对接收到的用户的跨域请求进行校验，以实现更灵活的跨域资源访问控制。</p>\n          </li>\n          <li data-spm-anchor-id=\"5176.28103460.0.i15.5c6e3f998Ol1KY\" id=\"6fca88213bqn0\">\n            <p id=\"82c294fa2a4ih\"><b>自定义响应行为</b>：根据业务需求添加或修改自定义头部信息，调整客户端接收的响应内容和格式。</p>\n          </li>\n        </ul>\n      </section>\n      <section id=\"4916ac230b9fd\" docid=\"2217049\" is-conref=\"true\" class=\"section\"><h2 id=\"3deec379ecqin\"><b>注意事项</b></h2><ul id=\"d2c193c709qo1\"><li id=\"73d59f070csl0\"><p id=\"0e0b2e6831vhn\">在添加了多条配置的情况下，执行顺序按配置列表从上到下，因此需要注意多个配置操作将会叠加，最终结果可能会与预期不符。以下例子中配置<span class=\"help-letter-space\"></span>2<span class=\"help-letter-space\"></span>最终生效：</p><ul id=\"27881f7c0851b\" data-init-id=\"d2c193c709qo1\"><li id=\"2b1ed55b0658v\"><p id=\"9d51eb493fhvz\">配置<span class=\"help-letter-space\"></span>1：增加<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>响应头：<code data-tag=\"code\" id=\"504fb0bb35vaq\" class=\"code\">cache-control: max-age=3600</code></p></li><li id=\"357ea5d862r2v\"><p id=\"98cff884f0vwt\">配置<span class=\"help-letter-space\"></span>2：增加<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>响应头：<code data-tag=\"code\" id=\"4fa1021bcbz73\" class=\"code\">cache-control: no-cache</code></p></li></ul></li><li id=\"bc60d7eb11ly8\"><p id=\"4d8b65160cfon\">引用规则条件时，按所关联规则条件的优先级匹配，而非按功能自身的配置顺序匹配。</p></li></ul></section>\n      <ul id=\"supplementary-notes\">\n        <li id=\"note-reserved-headers\">\n          <p id=\"p-reserved-headers\">CDN<span class=\"help-letter-space\"></span>不支持删除或修改<span class=\"help-letter-space\"></span>Via、EagleId<span class=\"help-letter-space\"></span>等系统保留响应头。这些<span class=\"help-letter-space\"></span>Header<span class=\"help-letter-space\"></span>用于<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点信息记录，即使配置删除或修改也无效，系统仍会保留最后一个节点的信息。</p>\n        </li>\n        <li id=\"note-cache-effective-time\">\n          <p id=\"p-cache-effective-time\">出站响应头配置修改后一般在<span class=\"help-letter-space\"></span>5<span class=\"help-letter-space\"></span>分钟内生效，无需重新预热（预热不会改变已缓存资源的响应头）。若需确保客户端获取最新的响应头信息，请在控制台对受影响的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>执行<a href=\"#section-ilc-9cc-1z0\" id=\"xref-cache-refresh\" title=\"\" class=\"xref\">操作步骤</a>（清除缓存）操作后测试验证。</p>\n        </li>\n      </ul>\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-ilc-9cc-1z0\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-2uz-4uz-icq\" class=\"title\">操作步骤</h2>\n        <ol data-tag=\"steps\" id=\"steps-45n-y6q-n6y\" class=\"steps\">\n          <li data-tag=\"step\" id=\"step-cd4-jwd-r7o\" is-conref=\"true\" class=\"step\"><p id=\"57912ad06cz5r\">登录<span data-tag=\"ph\" id=\"70e318298ar3q\" props=\"china\" data-cond-props=\"china\" class=\"ph\"><span data-tag=\"cmd\" id=\"cmd-a5o-xbu-9jk\" class=\"cmd\"><a href=\"https://cdn.console.aliyun.com\" id=\"xref-3wg-wkz-yew\" class=\"\" target=\"_blank\">CDN<span class=\"help-letter-space\"></span>控制台</a></span></span>。</p></li>\n          <li data-tag=\"step\" id=\"step-0hr-3uu-kti\" is-conref=\"true\" class=\"step\"><p id=\"579178f06cxyc\"><span data-tag=\"cmd\" id=\"cmd-s7b-t59-yfo\" class=\"cmd\">在左侧导航栏，单击<b id=\"uicontrol-7gx-exp-h8x\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">域名管理</b>。</span></p></li>\n          <li data-tag=\"step\" id=\"step-q2g-6of-jek\" is-conref=\"true\" class=\"step\"><p id=\"579178f16caqi\"><span data-tag=\"cmd\" id=\"cmd-1ap-nxp-wdb\" class=\"cmd\"><span data-tag=\"ph\" id=\"ph-taj-8l0-rpq\" class=\"ph\">在<b id=\"uicontrol-xdy-plp-3xe\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">域名管理</b>页面，找到目标域名，单击<b id=\"2574e6a087kfg\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">操作</b>列的<b id=\"67ed12d08796d\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">管理</b>。</span></span></p></li>\n          <li data-tag=\"step\" id=\"step-n5i-5a3-64s\" is-conref=\"true\" class=\"step\"><p id=\"57923c406chb9\"><span data-tag=\"cmd\" id=\"cmd-b9l-z6m-n09\" class=\"cmd\">在指定域名的左侧导航栏，单击<b id=\"uicontrol-evr-x23-45b\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">缓存配置</b>。</span></p></li>\n          <li data-tag=\"step\" id=\"step-nnm-omk-5rd\" class=\"step\">\n            <p id=\"8712ead040rst\"><span data-tag=\"cmd\" id=\"cmd-bkj-0b6-l1k\" class=\"cmd\">单击<b>\n                  修改出站响应头\n                </b>页签。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-usq-xcm-6hd\" class=\"step\">\n            <p id=\"8713fc4040b03\"><span data-tag=\"cmd\" id=\"cmd-d1u-6hu-w37\" class=\"cmd\">单击<b id=\"uicontrol-gc1-aww-yeq\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">添加</b>，修改出站响应头。</span></p>\n            <div data-tag=\"info\" id=\"info-igj-15z-5jc\" class=\"info\">\n              <div data-tag=\"p\" id=\"p-9sw-sbn-n14\" class=\"p\">\n                <p id=\"8714e6a040ywe\">下面以增加出站响应头为例，为您介绍配置方法。</p>\n                <table id=\"table-dob-qib-fqy\" tablewidth=\"100\" tablecolswidth=\"23.84 76.16\" autofit=\"true\" class=\"table\">\n                  <colgroup colwidth=\"0.48*\" style=\"width:23.84%\"></colgroup>\n                  <colgroup colwidth=\"1.52*\" style=\"width:76.16%\"></colgroup>\n                  <tbody class=\"tbody\">\n                    <tr id=\"row-ga3-hfh-enm\">\n                      <td id=\"task-261642-entry-l61-mjn-rlq\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                        <p id=\"8714e6a140qm2\"><b>参数</b></p>\n                      </td>\n                      <td id=\"task-261642-entry-gaf-oph-dlw\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                        <p id=\"8714e6a240aef\"><b>说明</b></p>\n                      </td>\n                    </tr>\n                    <tr id=\"row-8le-mwd-ok9\">\n                      <td id=\"entry-j27-5j2-5tl\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"8714e6a3406io\"><b id=\"uicontrol-3oz-y2v-tnd\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">响应头操作</b></p>\n                      </td>\n                      <td id=\"entry-uoe-9qq-hy7\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"8715f810403cy\">增加、删除、变更和替换指定的响应头。</p>\n                      </td>\n                    </tr>\n                    <tr id=\"row-8au-0du-adn\">\n                      <td id=\"entry-9q4-s1y-lo7\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"8715f811403da\"><b id=\"uicontrol-8e9-dfo-aux\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">自定义响应头参数</b></p>\n                      </td>\n                      <td id=\"entry-kmf-6ny-ayu\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"8717098040elc\">选择自定义响应头参数。详细信息，请参见<a href=\"#section-wj7-ax2-xre\" id=\"xref-k49-32x-9v5\" title=\"\" class=\"xref\">响应头参数</a>。</p>\n                      </td>\n                    </tr>\n                    <tr id=\"row-dwg-amv-dq8\">\n                      <td id=\"entry-jhk-77h-0mt\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"8717098140pmd\"><b id=\"uicontrol-k3p-wn2-0yu\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">自定义响应头名称</b></p>\n                      </td>\n                      <td id=\"entry-tfu-hsh-z6g\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"8718902040bvn\">当自定义响应头参数选择为<b id=\"uicontrol-at7-z5h-1no\" data-status=\"unpublished\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">自定义</b>时，需要配置自定义响应头名称。自定义响应头名称要求如下：</p>\n                        <ul data-tag=\"ul\" id=\"ul-nb5-i8b-g2o\" class=\"ul\">\n                          <li data-tag=\"li\" id=\"li-oo6-8kz-5m5\" class=\"li\">\n                            <p id=\"8718902140gkt\">由大小写字母、短划线和数字组成。</p>\n                          </li>\n                          <li data-tag=\"li\" id=\"li-93r-462-r6r\" class=\"li\">\n                            <p id=\"8718902240par\">长度为<span class=\"help-letter-space\"></span>1~100<span class=\"help-letter-space\"></span>个字符。</p>\n                          </li>\n                        </ul>\n                      </td>\n                    </tr>\n                    <tr id=\"row-r6x-dw5-1v9\">\n                      <td id=\"entry-t91-4ey-6jy\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"8718902340g2a\"><b id=\"uicontrol-58h-cg6-6hl\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">响应头值</b></p>\n                      </td>\n                      <td id=\"entry-937-xvg-kmg\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"8719c8a040l82\">输入您要设置的响应头值。详细信息，请参见<a href=\"#section-wj7-ax2-xre\" id=\"xref-4jx-qx6-fbx\" title=\"\" class=\"xref\">响应头参数</a>。</p>\n                      </td>\n                    </tr>\n                    <tr id=\"row-0sg-luq-8z9\">\n                      <td id=\"entry-y9w-lps-6r4\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"8719c8a1409qr\"><b id=\"uicontrol-l0l-7t6-aqw\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">是否允许重复</b></p>\n                      </td>\n                      <td id=\"entry-apz-5eo-li9\" rowspan=\"1\" colspan=\"1\">\n                        <ul data-tag=\"ul\" id=\"ul-p66-gcl-br4\" class=\"ul\">\n                          <li data-tag=\"li\" id=\"li-vls-r81-q70\" class=\"li\">\n                            <p id=\"871b283040nk2\"><b id=\"uicontrol-9ko-8qk-4k1\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">允许</b>：保留源站返回的头，同时会加上一个同名的头。</p>\n                          </li>\n                          <li data-tag=\"li\" id=\"li-9m9-vvi-eob\" class=\"li\">\n                            <p id=\"871c39a040ehe\"><b id=\"uicontrol-uxp-po1-8gi\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">不允许</b>：源站返回的头会被新配置的同名头覆盖。</p>\n                          </li>\n                        </ul>\n                      </td>\n                    </tr>\n                    <tr id=\"row-wyo-1wx-ck2\">\n                      <td id=\"entry-u2z-feo-9a4\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"871d722040rvt\"><b id=\"uicontrol-02t-ly9-29l\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">跨域验证</b></p>\n                      </td>\n                      <td id=\"entry-69c-sy6-cpn\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"871d722140lw8\">跨域校验默认为关闭状态，只有在<b id=\"uicontrol-59h-cws-w5j\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">响应头操作</b>为“增加”且<b id=\"uicontrol-zh7-vn2-nmo\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">自定义响应头参数</b>为“Access-Control-Allow-Origin”的时候才可以配置。</p>\n                        <ul data-tag=\"ul\" id=\"ul-z2i-gd0-op5\" class=\"ul\">\n                          <li data-tag=\"li\" id=\"li-zub-c2y-ce6\" class=\"li\">\n                            <p id=\"871f46e040bsz\"><b id=\"uicontrol-vx2-6oi-kky\" data-status=\"unpublished\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">开启</b>：开启状态下<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点将按以下规则对用户做跨域校验，并根据校验结果响应“Access-Control-Allow-Origin”的值。</p>\n                          </li>\n                          <li data-tag=\"li\" id=\"li-but-6ig-pb6\" class=\"li\">\n                            <p id=\"871f6df0407sy\"><b id=\"uicontrol-55f-bn1-7k4\" data-status=\"unpublished\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">关闭</b>：关闭状态下<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点不会校验用户请求中携带的<span class=\"help-letter-space\"></span>Origin<span class=\"help-letter-space\"></span>头，只会固定响应已配置的<span class=\"help-letter-space\"></span>Access-Control-Allow-Origin<span class=\"help-letter-space\"></span>值。</p>\n                          </li>\n                        </ul>\n                        <p id=\"3c788206faknq\">跨域校验规则请参见<a href=\"#170b54382axvd\" id=\"152b6f5607yqa\" title=\"\" class=\"xref\">跨域校验规则</a>。</p>\n                      </td>\n                    </tr>\n                    <tr id=\"c9c113c040emn\">\n                      <td id=\"c9c113c14011n\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"c9c113c240z5j\"><b id=\"573cb65040igt\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">规则条件</b></p>\n                      </td>\n                      <td id=\"c9c113c3404tb\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"57f623d6fc6ce\">规则条件能够对用户请求中携带的各种参数信息进行识别，以此来决定某个配置是否对该请求生效。</p>\n                        <div id=\"x1wjiwtoqhty\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                          <p id=\"dabce259f9zmj\">引用规则条件时，按所关联规则条件的优先级匹配，而非按功能自身的配置顺序匹配。</p>\n                        </div></div>\n                        <ul id=\"10120cf22c805\">\n                          <li id=\"10120cf02ckox\">\n                            <p id=\"60ba04a3583fp\"><b>不使用</b>：不使用规则条件。</p>\n                          </li>\n                          <li id=\"157990a02cfay\">\n                            <p id=\"f453f1d4dcvce\">若需新增或编辑规则条件，请在<span data-tag=\"ph\" id=\"bb18d4aadcb9j\" class=\"ph\"><span product=\"CDN\"><a href=\"https://help.aliyun.com/zh/cdn/user-guide/rules-engine\" id=\"6ff70b2a3agk8\" title=\"\" class=\"xref\">规则引擎</a></span></span>中进行管理。</p>\n                          </li>\n                        </ul>\n                      </td>\n                    </tr>\n                  </tbody>\n                </table>\n              </div>\n            </div>\n          </li>\n          <li data-tag=\"step\" id=\"step-g6d-ngp-u47\" class=\"step\">\n            <p id=\"8722f060403rw\"><span data-tag=\"cmd\" id=\"cmd-f7x-zfq-5h0\" class=\"cmd\">单击<b id=\"uicontrol-fco-2w1-xge\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>，完成配置。</span></p>\n            <div data-tag=\"info\" id=\"info-q1q-ois-zl3\" class=\"info\">\n              <p data-tag=\"p\" id=\"p-b53-a1n-if6\" class=\"p\">成功修改出站响应头后，您可以在出站响应头<b id=\"uicontrol-8ji-ppq-fuf\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">节点<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>响应头</b>列表中，对当前的配置进行<b id=\"uicontrol-4ra-q7b-skb\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">修改</b>或<b id=\"uicontrol-w3v-qm2-oc7\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">删除</b>操作。</p>\n            </div>\n          </li>\n        </ol>\n      </section>\n      <section id=\"section-pdf-cache-example\" class=\"section\">\n        <h2 id=\"h2-pdf-cache-example\">配置示例：为<span class=\"help-letter-space\"></span>PDF<span class=\"help-letter-space\"></span>文件配置 Cache-Control:no-cache</h2>\n        <p id=\"p-pdf-cache-intro\">如果希望客户端对<span class=\"help-letter-space\"></span>PDF<span class=\"help-letter-space\"></span>文件进行协商缓存（每次请求都向<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点验证文件是否更新），可以通过规则引擎实现：</p>\n        <ol id=\"ol-pdf-cache-steps\">\n          <li id=\"li-pdf-step1\">\n            <p id=\"p-pdf-step1\">在<b id=\"uicontrol-pdf-add\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">添加</b>出站响应头配置时，选择使用<b data-tag=\"uicontrol\" id=\"uicontrol-rule-condition\" class=\"uicontrol\">规则条件</b>。</p>\n          </li>\n          <li id=\"li-pdf-step2\">\n            <p id=\"p-pdf-step2\">设置匹配条件为「文件扩展名」包含 <code data-tag=\"code\" id=\"code-pdf-ext\" class=\"code\">.pdf</code>。</p>\n          </li>\n          <li id=\"li-pdf-step3\">\n            <p id=\"p-pdf-step3\">配置动作为修改出站响应头，添加 <code data-tag=\"code\" id=\"code-cache-control\" class=\"code\">cache-control:no-cache</code>。</p>\n          </li>\n        </ol>\n        <div id=\"note-pdf-cache\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n          <p id=\"p-pdf-cache-note\">此配置仅影响<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>返回给客户端的响应头，使客户端进行协商缓存，但不影响<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点本身对该<span class=\"help-letter-space\"></span>PDF<span class=\"help-letter-space\"></span>文件的缓存策略。</p>\n        </div></div>\n      </section>\n      <section id=\"170b54382axvd\" class=\"section\">\n        <h2 id=\"11c247c7baz7g\"><b>跨域校验规则</b></h2>\n        <div id=\"ef756bdc61giv\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n          <p data-tag=\"p\" id=\"e686091e57vzw\" class=\"p\"><b id=\"72780c3385c3y\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">是否允许重复</b>和<b id=\"e63c4b264atzl\" data-status=\"unpublished\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">跨域校验</b>这两个配置项之间存在互斥，<b id=\"98d7f19c23fft\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">是否允许重复</b>配置为<b id=\"a444d7255cyo4\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">允许</b>的情况下，跨域校验将会失效。</p>\n        </div></div>\n        <ul id=\"28ba0518aezr1\">\n          <li id=\"59258e340d3tn\">\n            <p id=\"06df7f6fa6f3h\">任意匹配：自定义响应头参数<code data-tag=\"code\" id=\"9172df9c75n77\" class=\"code\">Access-Control-Allow-Origin</code>的值设置为<code data-tag=\"code\" id=\"d1bf55ccb1pbp\" class=\"code\">*</code>不论用户请求里面是否携带<code data-tag=\"code\" id=\"dcd59c9858y2k\" class=\"code\">Origin</code>参数，也不论携带的<code data-tag=\"code\" id=\"c7d489b10dvo9\" class=\"code\">Origin</code>参数为何值，都固定返回<code data-tag=\"code\" id=\"546dc30ea8scx\" class=\"code\">Access-Control-Allow-Origin:*</code>。</p>\n          </li>\n          <li id=\"90f70339f6e9l\">\n            <p id=\"382c2a08eegjc\">精确匹配：自定义响应头参数<code data-tag=\"code\" id=\"c4968ff18fj7w\" class=\"code\">Access-Control-Allow-Origin</code>的值设置了单个或者多个值（多个值之间用<code data-tag=\"code\" id=\"c9c0ca5f03ql4\" class=\"code\">,</code>分隔）。</p>\n            <ul data-tag=\"ul\" id=\"56bdf4802eno1\" class=\"ul\">\n              <li data-tag=\"li\" id=\"de48ac2311beq\" class=\"li\">\n                <p id=\"95015f3ff03qi\">如果用户请求头里携带的<code data-tag=\"code\" id=\"56218cc451tah\" class=\"code\">Origin</code>参数值与被设置的任意一个值精确匹配，就会响应对应的跨域头。</p>\n              </li>\n              <li data-tag=\"li\" id=\"6d0df2849b7kl\" class=\"li\">\n                <p id=\"3b39d7eeea6s3\">如果都没有精确匹配上，则不响应跨域头。</p>\n              </li>\n            </ul>\n          </li>\n          <li id=\"cc7bbf9c6br63\">\n            <p id=\"9270c64ab69d6\">泛域名匹配：自定义响应头参数<code data-tag=\"code\" id=\"0d55fbde64pyf\" class=\"code\">Access-Control-Allow-Origin</code>的值设置了泛域名，则会校验请求头中<span class=\"help-letter-space\"></span>Origin<span class=\"help-letter-space\"></span>值是否能匹配上<code data-tag=\"code\" id=\"81b008378etk8\" class=\"code\">Access-Control-Allow-Origin</code>的泛域名。</p>\n          </li>\n        </ul>\n        <p data-tag=\"p\" id=\"c906ddd5ef07u\" class=\"p\">您可以参考<a href=\"https://help.aliyun.com/zh/cdn/user-guide/configure-cors#task-2100263\" id=\"992304f83emd4\" title=\"\" class=\"xref\">配置跨域资源共享</a>来了解如何配置。</p>\n      </section>\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-wj7-ax2-xre\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-jko-z97-6rp\" class=\"title\">响应头参数</h2>\n        <table id=\"table-rje-mu1-u81\" tablewidth=\"100\" tablecolswidth=\"30.89 47.67 21.439999999999998\" autofit=\"true\" class=\"table\">\n          <colgroup colwidth=\"0.94*\" style=\"width:30.89%\"></colgroup>\n          <colgroup colwidth=\"1.44*\" style=\"width:47.67%\"></colgroup>\n          <colgroup colwidth=\"0.65*\" style=\"width:21.44%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-sac-yoz-bnm\">\n              <td id=\"task-261642-entry-k2m-w88-5mq\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"8727844040vs4\"><b>响应头参数</b></p>\n              </td>\n              <td id=\"task-261642-entry-zlp-1ns-8z5\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"8727844140dz5\"><b>说明</b></p>\n              </td>\n              <td id=\"task-261642-entry-l1l-kev-vi6\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"8727844240a1o\"><b>示例</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-39y-5y9-qux\">\n              <td id=\"entry-4sq-864-61o\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"8727844340ppd\">自定义</p>\n              </td>\n              <td id=\"entry-pev-da3-1b6\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"8727844440q2l\">支持添加自定义响应头。自定义响应头名称要求如下：</p>\n                <ul data-tag=\"ul\" id=\"ul-jcl-v8j-q70\" is-conref=\"true\" class=\"ul\">\n                          <li data-tag=\"li\" id=\"li-oo6-8kz-5m5\" class=\"li\">\n                            <p id=\"8718902140gkt\">由大小写字母、短划线和数字组成。</p>\n                          </li>\n                          <li data-tag=\"li\" id=\"li-93r-462-r6r\" class=\"li\">\n                            <p id=\"8718902240par\">长度为<span class=\"help-letter-space\"></span>1~100<span class=\"help-letter-space\"></span>个字符。</p>\n                          </li>\n                        </ul>\n              </td>\n              <td id=\"entry-hnh-sqv-oiy\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"872895b040j3d\">Test-Header</p>\n              </td>\n            </tr>\n            <tr id=\"row-n9m-yrf-0fe\">\n              <td id=\"entry-2gt-4gr-pn8\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"872895b140mmp\">Cache-Control</p>\n              </td>\n              <td id=\"entry-rnl-tas-kus\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"872895b240oft\">指定客户端程序请求和响应遵循的缓存机制。</p>\n              </td>\n              <td id=\"entry-jv8-7as-u3p\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"872895b340mr3\">no-cache</p>\n              </td>\n            </tr>\n            <tr id=\"row-lfj-l56-slg\">\n              <td id=\"entry-7lc-tws-j4e\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"872895b440c18\">Content-Disposition</p>\n              </td>\n              <td id=\"entry-blz-5kh-gl3\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"872895b540ofp\">指定客户端程序把请求所得的内容存为一个文件时提供的默认的文件名。</p>\n              </td>\n              <td id=\"entry-3at-1do-7lw\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"872895b6402hs\">examplefile.txt</p>\n              </td>\n            </tr>\n            <tr id=\"row-i91-88f-wox\">\n              <td id=\"entry-0zx-1mx-l3n\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"8728bcc040opy\">Content-Type</p>\n              </td>\n              <td id=\"entry-izp-fcp-rt8\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"8728bcc140lrf\">指定客户端程序响应对象的内容类型。</p>\n              </td>\n              <td id=\"entry-x9u-mh9-4gr\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"8728bcc24038k\">text/plain</p>\n              </td>\n            </tr>\n            <tr id=\"row-27t-vro-rr7\">\n              <td id=\"entry-yup-bl5-osw\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"8728bcc340q5m\">Pragma</p>\n              </td>\n              <td id=\"entry-vue-y7k-jve\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"8728bcc4402zj\">Pragma 是一个在 HTTP/1.0 中规定的通用首部，这个首部通常用于在服务器的响应中定义客户端对文件的缓存行为。</p>\n              </td>\n              <td id=\"entry-vbt-ajz-v8a\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"8728bcc54091v\">no-cache</p>\n              </td>\n            </tr>\n            <tr id=\"row-aw2-r50-7zr\">\n              <td id=\"entry-qdo-bc5-0zo\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"8728bcc64082c\">Access-Control-Allow-Origin</p>\n              </td>\n              <td id=\"entry-67f-i1j-6of\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"8728bcc740w5w\"><code data-tag=\"code\" id=\"b02bd526e28jg\" class=\"code\">Access-Control-Allow-Origin</code> 是 HTTP 响应头，用于指示哪些源可以访问资源。它是跨域资源共享（CORS, Cross-Origin Resource Sharing）机制的一部分，该机制允许服务器声明其资源是否可以被某个指定的源（域名）访问。该响应头的值支持以下类型：</p>\n                <ul id=\"5039b87c38gjl\">\n                  <li id=\"267e9b3f62lw4\">\n                    <p id=\"25494e26d44ew\"><b>通配符 </b><code data-tag=\"code\" id=\"35122ba7f4zf7\" uuid=\"f7e6f27c-424b-4903-88d2-ef2258af8666\" class=\"code\"><b>*</b></code>：使用通配符表示允许任何源访问资源。这种方式非常宽松，适用于那些公开无需认证或授权即可访问的资源。不过，在生产环境中使用通配符时需要谨慎，因为它可能带来安全风险，比如跨站请求伪造攻击。</p>\n                  </li>\n                  <li id=\"7f765bb56ft4q\">\n                    <p id=\"cb5883d73fzsm\"><b>单个指定源</b>：你可以指定一个具体的源（域名），表示仅允许该特定源访问资源。例如，<code data-tag=\"code\" id=\"2b1a44408ddax\" uuid=\"87608b80-7e3a-41bf-b5bb-c57da815a6da\" class=\"code\">http://example.com</code> 或 <code data-tag=\"code\" id=\"746a2a766d734\" uuid=\"1b7274bc-4d2a-4555-9140-372e73e9eea2\" class=\"code\">https://api.example.com</code>。这要求请求必须来自指定的源，否则将被拒绝。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-t8h-kpa-x92\" rowspan=\"1\" colspan=\"1\">\n                <ul data-tag=\"ul\" id=\"ul-x8e-z3g-7u2\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-58c-oqn-tps\" class=\"li\">\n                    <p id=\"8728e3d540h23\">*</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-ure-v66-gxp\" class=\"li\">\n                    <p id=\"8728e3d640pyn\">http://www.aliyun.com</p>\n                  </li>\n                </ul>\n              </td>\n            </tr>\n            <tr id=\"row-jqp-dtp-qew\">\n              <td id=\"entry-mfy-esq-hue\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"87290ae0409q1\">Access-Control-Allow-Methods</p>\n              </td>\n              <td id=\"entry-7x5-2uk-1gf\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"87290ae140zuy\">指定允许的跨域请求方法。多个方法用英文逗号<code data-tag=\"code\" id=\"fe85d76188uy3\" class=\"code\">,</code>分隔。</p>\n              </td>\n              <td id=\"entry-r7r-9y4-fov\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"87290ae2404gr\">POST,GET</p>\n              </td>\n            </tr>\n            <tr id=\"row-ilp-fuz-yh2\">\n              <td id=\"entry-h8w-xg4-e9e\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"87290ae340g29\">Access-Control-Allow-Headers</p>\n              </td>\n              <td id=\"entry-l40-7vr-jlf\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"87290ae440pvs\">指定允许的跨域请求字段。</p>\n              </td>\n              <td id=\"entry-ft1-dij-w7i\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"87290ae540xre\">X-Custom-Header</p>\n              </td>\n            </tr>\n            <tr id=\"row-nzo-4vh-9or\">\n              <td id=\"entry-15y-09e-n11\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"87290ae640c3z\">Access-Control-Expose-Headers</p>\n              </td>\n              <td id=\"entry-yi1-r6x-tcs\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"87290ae740oqj\">指定允许访问的自定义头信息。</p>\n              </td>\n              <td id=\"entry-8a7-1q8-gpr\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"87290ae8406n5\">Content-Length</p>\n              </td>\n            </tr>\n            <tr id=\"row-njn-dca-q1o\">\n              <td id=\"entry-2yd-mt5-0n1\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"87290ae940zyb\">Access-Control-Allow-Credentials</p>\n              </td>\n              <td id=\"entry-9oa-0w6-px5\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"87290aea40bjx\">该响应头表示是否可以将对请求的响应暴露给页面。</p>\n                <ul data-tag=\"ul\" id=\"ul-fbf-e05-cer\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-34l-l8e-kfd\" class=\"li\">\n                    <p id=\"87290aeb40be0\">返回<span class=\"help-letter-space\"></span>true：表示可以暴露。</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-c13-oh5-rb8\" class=\"li\">\n                    <p id=\"872931f040spp\">返回其他值：表示不可以暴露。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-641-tqz-kpg\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"872931f140gwl\">true</p>\n              </td>\n            </tr>\n            <tr id=\"row-6lp-609-7p5\">\n              <td id=\"entry-gw1-s03-eij\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"872931f240bvw\">Access-Control-Max-Age</p>\n              </td>\n              <td id=\"entry-x0m-37r-bzp\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"872931f34072g\">指定客户端程序对特定资源的预请求返回结果的缓存时间，单位为秒。</p>\n              </td>\n              <td id=\"entry-2k6-07g-xjc\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"872931f4403v2\">600</p>\n              </td>\n            </tr>\n            <tr id=\"row-csp-policy\">\n              <td id=\"entry-csp-param\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"p-csp-param\">Content-Security-Policy</p>\n              </td>\n              <td id=\"entry-csp-desc\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"p-csp-desc\">配置内容安全策略（CSP），用于控制页面可以加载哪些资源，防范 XSS 攻击和数据注入等安全威胁。CDN<span class=\"help-letter-space\"></span>不对<span class=\"help-letter-space\"></span>CSP<span class=\"help-letter-space\"></span>策略内容做语义校验，仅校验<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>响应头基本格式。策略内容需为单行字符串，不能包含换行符、非法控制字符或未转义的引号，且不要包含外层双引号。建议先在浏览器开发者工具中验证策略正确性后再填入，或在源站配置<span class=\"help-letter-space\"></span>CSP<span class=\"help-letter-space\"></span>由<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>透传。</p>\n              </td>\n              <td id=\"entry-csp-example\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"p-csp-example\">default-src 'self'; script-src 'self' 'unsafe-inline'</p>\n              </td>\n            </tr>\n            <tr id=\"row-permissions-policy\">\n              <td id=\"entry-permissions-param\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"p-permissions-param\">Permissions-Policy</p>\n              </td>\n              <td id=\"entry-permissions-desc\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"p-permissions-desc\">配置权限策略，用于控制浏览器特定功能（如摄像头、麦克风、地理位置等）的访问权限。</p>\n              </td>\n              <td id=\"entry-permissions-example\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"p-permissions-example\">camera=(), microphone=()</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <div data-tag=\"note\" id=\"note-vra-4y0-wek\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n          <ul data-tag=\"ul\" id=\"ul-a9e-urk-out\" class=\"ul\">\n            <li data-tag=\"li\" id=\"li-qoi-30q-aau\" class=\"li\">\n              <p id=\"8728e3d040oxq\">响应头值支持配置为“*”，表示任意来源。</p>\n            </li>\n            <li data-tag=\"li\" id=\"li-nfc-0e6-kya\" class=\"li\">\n              <p id=\"8728e3d140eya\">响应头值非“*”的情况下，支持配置单个或者多个<span class=\"help-letter-space\"></span>IP、域名、或者<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>和域名混合。相互间用英文（,）分隔。</p>\n            </li>\n            <li data-tag=\"li\" id=\"li-js0-lj2-8c2\" class=\"li\">\n              <p id=\"8728e3d240rxj\">响应头值非“*”的情况下，必须包含协议头“http:// ”或者“https://”。</p>\n            </li>\n            <li data-tag=\"li\" id=\"li-m9c-jha-and\" class=\"li\">\n              <p id=\"8728e3d340lyg\">响应头值支持携带端口。</p>\n            </li>\n            <li data-tag=\"li\" id=\"li-eww-xo2-e36\" class=\"li\">\n              <p id=\"8728e3d44087w\">响应头值支持泛域名。</p>\n            </li>\n          </ul>\n        </div></div>\n        <div id=\"note-csp-info\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n          <ul id=\"ul-csp-notes\">\n            <li id=\"li-csp-alb\">\n              <p id=\"p-csp-alb\">CDN<span class=\"help-letter-space\"></span>支持通过自定义响应头配置 Content-Security-Policy（CSP）和 Permissions-Policy 安全响应头。ALB（应用型负载均衡）本身不支持直接添加这两个安全响应头，如需配置，建议通过<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>或<span class=\"help-letter-space\"></span>WAF<span class=\"help-letter-space\"></span>等产品实现。</p>\n            </li>\n            <li id=\"li-csp-no-quotes\">\n              <p id=\"p-csp-no-quotes\">CSP<span class=\"help-letter-space\"></span>响应头值不要包含外层双引号，这是常见的配置报错原因。正确格式示例：<code data-tag=\"code\" id=\"code-csp-example\" class=\"code\">default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:</code></p>\n            </li>\n            <li id=\"li-csp-f12\">\n              <p id=\"p-csp-f12\">浏览器<span class=\"help-letter-space\"></span>F12<span class=\"help-letter-space\"></span>开发者工具中的<span class=\"help-letter-space\"></span>CSP<span class=\"help-letter-space\"></span>语法提示属于浏览器自身的限制，与实际请求无关，不影响响应头的实际生效，请通过实际请求验证。</p>\n            </li>\n          </ul>\n        </div></div>\n      </section>\n      <section id=\"5ded398429t8k\" class=\"section\">\n        <h2 id=\"ff7c9b6bbbdxm\"><b>常见问题</b></h2>\n        <ul id=\"30b29c60aenvc\">\n          <li id=\"dc652368b2fv3\">\n            <p id=\"ed063309485p8\"><a href=\"https://help.aliyun.com/zh/cdn/user-guide/cache-related-faq#baec2b5193okp\" id=\"74cf5e4c87f2k\" title=\"\" class=\"xref\">为什么已经配置了响应头<span class=\"help-letter-space\"></span>Access-Control-Allow-Origin，但是访问资源仍提示跨域问题，response header<span class=\"help-letter-space\"></span>中没有配置的响应头？</a></p>\n          </li>\n          <li id=\"e344274a47vk9\">\n            <p id=\"c2479b3ec9ok4\"><a href=\"https://help.aliyun.com/zh/cdn/user-guide/cache-related-faq#389228aa9b042\" id=\"4b04cbaf08rjs\" title=\"\" class=\"xref\">出站响应头和入站响应头有什么区别？</a></p>\n          </li>\n          <li id=\"faq-header-not-working\">\n            <p id=\"p-faq-header-not-working\"><b>配置自定义响应头后未生效，如何排查？</b></p>\n            <ul id=\"ul-faq-header-not-working\">\n              <li id=\"li-faq-dns\">\n                <p id=\"p-faq-dns\"><b>DNS<span class=\"help-letter-space\"></span>解析问题</b>：确认域名<span class=\"help-letter-space\"></span>DNS<span class=\"help-letter-space\"></span>解析仅保留了<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>CNAME<span class=\"help-letter-space\"></span>记录，删除了<span class=\"help-letter-space\"></span>OSS<span class=\"help-letter-space\"></span>等源站的直接解析记录，确保流量经过<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点。如果流量直接到达源站，CDN<span class=\"help-letter-space\"></span>配置的响应头不会生效。</p>\n              </li>\n              <li id=\"li-faq-origin\">\n                <p id=\"p-faq-origin\"><b>源站未返回该响应头</b>：CDN<span class=\"help-letter-space\"></span>默认透传源站响应头，若源站未返回该<span class=\"help-letter-space\"></span>Header<span class=\"help-letter-space\"></span>则<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>也不会返回。请确保源站配置正确并返回该响应头；或在<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>控制台「修改出站响应头」中强制添加该响应头，CDN<span class=\"help-letter-space\"></span>会在出站时自动添加。</p>\n              </li>\n              <li id=\"li-faq-content-type\">\n                <p id=\"p-faq-content-type\"><b>Content-Type<span class=\"help-letter-space\"></span>等响应头未生效</b>：CDN<span class=\"help-letter-space\"></span>配置自定义出站响应头仅在请求经过<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>时生效。若源站（如<span class=\"help-letter-space\"></span>OSS、OBS）在上传文件时未指定正确的<span class=\"help-letter-space\"></span>Content-Type，可能导致回源获取的元数据与预期不符。建议检查源站上传文件时的<span class=\"help-letter-space\"></span>Content-Type<span class=\"help-letter-space\"></span>设置，并提供具体<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>进行测试验证。</p>\n              </li>\n            </ul>\n          </li>\n          <li id=\"faq-inbound-outbound\">\n            <p id=\"p-faq-inbound-outbound\"><b>修改入站响应头配置后未生效，是什么原因？</b></p>\n            <ul id=\"ul-faq-inbound-outbound\">\n              <li id=\"li-faq-inbound\">\n                <p id=\"p-faq-inbound\"><b>入站响应头</b>：仅作用于源站返回给<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点之间的通信，不影响最终用户收到的响应。</p>\n              </li>\n              <li id=\"li-faq-outbound\">\n                <p id=\"p-faq-outbound\"><b>出站响应头</b>：影响<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>返回给最终用户的响应。</p>\n              </li>\n              <li id=\"li-faq-inbound-advice\">\n                <p id=\"p-faq-inbound-advice\">如果配置的是「修改入站响应头」（如修改<span class=\"help-letter-space\"></span>Set-Cookie<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>domain<span class=\"help-letter-space\"></span>字段），该配置只会影响源站到<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点之间的通信，终端用户不会感知到变化。如需影响终端用户收到的响应，请配置「修改出站响应头」。如仍无效，建议直接在源站修改响应头。</p>\n              </li>\n            </ul>\n          </li>\n          <li id=\"faq-configuring-status\">\n            <p id=\"p-faq-configuring-status\"><b>出站响应头配置生效时间及状态一直显示「配置中」，如何处理？</b></p>\n            <ul id=\"ul-faq-configuring-status\">\n              <li id=\"li-faq-config-time\">\n                <p id=\"p-faq-config-time\">配置一般在<span class=\"help-letter-space\"></span>5<span class=\"help-letter-space\"></span>分钟内生效。若长时间显示「配置中」或未生效，请检查：</p>\n                <ol id=\"ol-faq-config-steps\">\n                  <li id=\"li-faq-config-step1\">\n                    <p id=\"p-faq-config-step1\">配置格式是否正确（如响应头值是否符合规范，是否为单行字符串）。</p>\n                  </li>\n                  <li id=\"li-faq-config-step2\">\n                    <p id=\"p-faq-config-step2\">是否已单击<b id=\"uicontrol-faq-ok\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>完成保存。</p>\n                  </li>\n                  <li id=\"li-faq-config-step3\">\n                    <p id=\"p-faq-config-step3\">尝试刷新页面或稍后再次查看状态。</p>\n                  </li>\n                </ol>\n              </li>\n            </ul>\n          </li>\n          <li id=\"faq-batch-domains\">\n            <p id=\"p-faq-batch-domains\"><b>是否支持将出站响应头配置批量添加到多个域名？</b></p>\n            <ul id=\"ul-faq-batch-domains\">\n              <li id=\"li-faq-batch-answer\">\n                <p id=\"p-faq-batch-answer\">支持。可以使用<span class=\"help-letter-space\"></span>CDN API<span class=\"help-letter-space\"></span>接口 <code data-tag=\"code\" id=\"code-batch-api\" class=\"code\">BatchSetCdnDomainConfig</code> 进行批量域名配置，通过该接口的功能参数设置响应头添加规则。</p>\n              </li>\n            </ul>\n          </li>\n          <li id=\"faq-js-custom-header\">\n            <p id=\"p-faq-js-custom-header\"><b>前端<span class=\"help-letter-space\"></span>JavaScript<span class=\"help-letter-space\"></span>代码中拿不到后端返回的自定义响应头（如<span class=\"help-letter-space\"></span>filename），如何处理？</b></p>\n            <ol id=\"ol-faq-js-steps\">\n              <li id=\"li-faq-js-step1\">\n                <p id=\"p-faq-js-step1\">清除<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>缓存，确保未缓存旧响应头。</p>\n              </li>\n              <li id=\"li-faq-js-step2\">\n                <p id=\"p-faq-js-step2\">确认源站实际返回的响应头中包含该字段。</p>\n              </li>\n              <li id=\"li-faq-js-step3\">\n                <p id=\"p-faq-js-step3\">在<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>控制台「修改出站响应头」中，显式添加 <code data-tag=\"code\" id=\"code-expose-example\" class=\"code\">Access-Control-Expose-Headers: &lt;header-name&gt;</code> 配置，以覆盖源站的<span class=\"help-letter-space\"></span>CORS<span class=\"help-letter-space\"></span>设置，确保前端<span class=\"help-letter-space\"></span>JavaScript<span class=\"help-letter-space\"></span>能获取该字段。例如，需要获取 <code data-tag=\"code\" id=\"code-filename-example\" class=\"code\">filename</code> 响应头时，添加 <code data-tag=\"code\" id=\"code-expose-filename\" class=\"code\">Access-Control-Expose-Headers: filename</code>。</p>\n              </li>\n              <li id=\"li-faq-js-step4\">\n                <p id=\"p-faq-js-step4\">使用浏览器无痕模式重新请求，确认问题是否解决。</p>\n              </li>\n            </ol>\n          </li>\n        </ul>\n      </section>\n    </div>\n  </main>\n\n\n\n\n</div>","path":"https://help.aliyun.com/zh/cdn/user-guide/create-a-custom-http-response-header","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"CDN","id":27099,"title":"CDN","url":"/zh/cdn/"},"alias":"/cdn/user-guide/create-a-custom-http-response-header","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":7,"developerUrl":"https://developer.aliyun.com/group/videocloud/","nodeType":1,"version":57,"url":"/zh/cdn/user-guide/create-a-custom-http-response-header","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":27137,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"修改出站响应头","id":27137,"title":"修改出站响应头","url":"/zh/cdn/user-guide/create-a-custom-http-response-header"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"其他缓存配置","id":2998697,"title":"其他缓存配置","url":"/zh/cdn/user-guide/other-cache-configurations/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"缓存配置","id":43228,"title":"缓存配置","url":"/zh/cdn/user-guide/cache-settings/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"操作指南","id":2399342,"title":"操作指南","url":"/zh/cdn/user-guide/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"CDN","id":27099,"title":"CDN","url":"/zh/cdn/"},"productUrl":"https://www.aliyun.com/product/cdn","nodeId":27137,"desc":"出站响应头是HTTP响应消息头的组成部分之一，可携带特定响应参数并传递给客户端，用来控制缓存行为。通过修改出站响应头，当用户请求加速域名下的资源时，CDN返回的响应消息会携带您配置的响应头，从而实现跨域访问等特定功能。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"CDN","id":27099,"title":"CDN","url":"/zh/cdn/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"操作指南","id":2399342,"title":"操作指南","url":"/zh/cdn/user-guide/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"缓存配置","id":43228,"title":"缓存配置","url":"/zh/cdn/user-guide/cache-settings/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"其他缓存配置","id":2998697,"title":"其他缓存配置","url":"/zh/cdn/user-guide/other-cache-configurations/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"修改出站响应头","id":27137,"title":"修改出站响应头","url":"/zh/cdn/user-guide/create-a-custom-http-response-header"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=2150425b17825530679201531e0d21&asid=AQAAAADsmT9qa/r1QQAAAAAB4f81T6fVQQ==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2399341" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/product-overview/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品概述</span>
+</a>
+</li>
+ <li id="27111" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/getting-started/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">快速入门</span>
+</a>
+</li>
+ <li id="2399342" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">操作指南</span>
+</a>
+</li>
+ <li id="2399344" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/use-cases/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">实践教程</span>
+</a>
+</li>
+ <li id="2743872" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/security-and-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="2399346" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2399343" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/support/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">服务支持</span>
+</a>
+</li>
+ <li id="40215" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/videos/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">视频专区</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>修改出站响应头</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/cdn" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="task-261642">
+    
+    
+    <p _forcerepaint="1705385679586" data-tag="shortdesc" id="shortdesc-pgj-kbz-mwl" class="shortdesc">出站响应头是<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>响应消息头的组成部分之一，可携带特定响应参数并传递给客户端，用来控制缓存行为。通过修改出站响应头，当用户请求加速域名下的资源时，<span data-tag="ph" id="64e70000ebt8m" docid="1039844" is-conref="true" class="ph"><span data-tag="text" id="text-3zl-dl4-idi" product="CDN" data-cond-product="CDN" class="text">CDN</span><span class="help-letter-space"></span></span>返回的响应消息会携带您配置的响应头，从而实现跨域访问等特定功能。</p>
+    <div data-tag="taskbody" id="taskbody-djy-ykm-zl4" class="taskbody">
+      <section data-tag="context" data-type="context" id="context-2i2-r5w-cah" class="context section">
+        <h2 id="d41e14">背景信息</h2>
+        <p id="f011ffa255wdu">出站响应头是<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>协议中用于控制缓存的机制。当客户端请求资源时，<span data-tag="ph" id="1bb6e0d7becvr" docid="1039844" is-conref="true" class="ph"><span data-tag="text" id="text-3zl-dl4-idi" product="CDN" data-cond-product="CDN" class="text">CDN</span><span class="help-letter-space"></span></span>节点返回的<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>响应头允许在特定条件下缓存内容。</p>
+        <hetu type="flowchart" id="08f4cfc1baz8e" uuid="5272057_20250611095755.507" versionid="CAEQWhiBgMDZqfqHuxkiIGQyYzhlYmU0MGIxZDRlMDBiNjlhZjYzMGNlOWMxMjQz" hetuid="5ed46f9e-3965-483f-a416-b751945ddca9"><img src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3964400871/CAEQWhiBgMDZqfqHuxkiIGQyYzhlYmU0MGIxZDRlMDBiNjlhZjYzMGNlOWMxMjQz5272057_20250611095755.507.svg" alt="image" class="image break flowchart hetu"></hetu>
+        <div data-tag="note" id="note-5ic-vdq-jld" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+          <ul data-tag="ul" id="ul-awz-at7-4lt" class="ul">
+            <li data-tag="li" id="li-fgq-rc7-6ch" class="li">
+              <p id="a0de4c9c589hf">HTTP<span class="help-letter-space"></span>响应头的配置属于域名维度的配置，一旦配置生效，便会对域名下所有资源的响应消息生效。</p>
+            </li>
+            <li data-tag="li" id="li-zob-bfw-8hy" class="li">
+              <p id="d6f5c3fa26qgl">配置<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>响应头仅影响客户端（例如浏览器）的响应行为，不影响<span data-tag="ph" id="8d03351a40htj" data-init-id="1bb6e0d7becvr" docid="1039844" is-conref="true" class="ph"><span class="help-letter-space"></span><span data-tag="text" id="text-3zl-dl4-idi" product="CDN" data-cond-product="CDN" class="text">CDN</span><span class="help-letter-space"></span></span>节点的缓存行为。<span data-tag="ph" id="5b60be12d60za" class="ph">泛域名暂不支持修改出站响应头。</span></p>
+            </li>
+          </ul>
+        </div></div>
+      </section>
+      <section data-tag="section" data-type="section" id="section-aa1-k4q-30s" class="section">
+        <h2 data-tag="title" id="title-l8f-sqq-7sw" class="title">适用场景</h2>
+        <ul id="7ab537055a4j0">
+          <li id="751fb3e01flbp">
+            <p id="c5641cf109tnd"><b>告知客户端</b><span data-tag="ph" id="b7bc92c85bpal" data-init-id="1bb6e0d7becvr" docid="1039844" is-conref="true" class="ph"><span data-tag="text" id="text-3zl-dl4-idi" product="CDN" data-cond-product="CDN" class="text">CDN</span></span><b>响应文件的资源类型</b>：添加响应头<code data-tag="code" id="b5c7b386d404f" class="code">Content-Type: text/html</code>告知客户端<span data-tag="ph" id="bf9107af9av9c" data-init-id="1bb6e0d7becvr" docid="1039844" is-conref="true" class="ph"><span class="help-letter-space"></span><span data-tag="text" id="text-3zl-dl4-idi" product="CDN" data-cond-product="CDN" class="text">CDN</span><span class="help-letter-space"></span></span>响应文件的格式是<span class="help-letter-space"></span>HTML<span class="help-letter-space"></span>格式。</p>
+          </li>
+          <li id="1bde8ffab91eh">
+            <p id="bd743044f52rw"><b>实现跨域资源访问</b>：当用户请求<span data-tag="ph" id="8baad5c892j20" data-init-id="1bb6e0d7becvr" docid="1039844" is-conref="true" class="ph"><span class="help-letter-space"></span><span data-tag="text" id="text-3zl-dl4-idi" product="CDN" data-cond-product="CDN" class="text">CDN</span><span class="help-letter-space"></span></span>上某个域名的资源时，您可以在<span data-tag="ph" id="676a9dc8c0yvs" data-init-id="1bb6e0d7becvr" docid="1039844" is-conref="true" class="ph"><span class="help-letter-space"></span><span data-tag="text" id="text-3zl-dl4-idi" product="CDN" data-cond-product="CDN" class="text">CDN</span><span class="help-letter-space"></span></span>返回的响应消息中配置响应头<code data-tag="code" id="1b4001286afit" class="code">Access-Control-Allow-Origin</code>，以实现跨域访问，您可以参考<a href="https://help.aliyun.com/zh/cdn/user-guide/configure-cors#task-2100263" id="79e5e118858x0" title="" class="xref">配置跨域资源共享</a>来了解详细信息。阿里云<span data-tag="ph" id="5507053351a28" data-init-id="1bb6e0d7becvr" docid="1039844" is-conref="true" class="ph"><span class="help-letter-space"></span><span data-tag="text" id="text-3zl-dl4-idi" product="CDN" data-cond-product="CDN" class="text">CDN</span><span class="help-letter-space"></span></span>还支持按照已配置<span class="help-letter-space"></span>CORS<span class="help-letter-space"></span>规则对接收到的用户的跨域请求进行校验，以实现更灵活的跨域资源访问控制。</p>
+          </li>
+          <li data-spm-anchor-id="5176.28103460.0.i15.5c6e3f998Ol1KY" id="6fca88213bqn0">
+            <p id="82c294fa2a4ih"><b>自定义响应行为</b>：根据业务需求添加或修改自定义头部信息，调整客户端接收的响应内容和格式。</p>
+          </li>
+        </ul>
+      </section>
+      <section id="4916ac230b9fd" docid="2217049" is-conref="true" class="section"><h2 id="3deec379ecqin"><b>注意事项</b></h2><ul id="d2c193c709qo1"><li id="73d59f070csl0"><p id="0e0b2e6831vhn">在添加了多条配置的情况下，执行顺序按配置列表从上到下，因此需要注意多个配置操作将会叠加，最终结果可能会与预期不符。以下例子中配置<span class="help-letter-space"></span>2<span class="help-letter-space"></span>最终生效：</p><ul id="27881f7c0851b" data-init-id="d2c193c709qo1"><li id="2b1ed55b0658v"><p id="9d51eb493fhvz">配置<span class="help-letter-space"></span>1：增加<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>响应头：<code data-tag="code" id="504fb0bb35vaq" class="code">cache-control: max-age=3600</code></p></li><li id="357ea5d862r2v"><p id="98cff884f0vwt">配置<span class="help-letter-space"></span>2：增加<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>响应头：<code data-tag="code" id="4fa1021bcbz73" class="code">cache-control: no-cache</code></p></li></ul></li><li id="bc60d7eb11ly8"><p id="4d8b65160cfon">引用规则条件时，按所关联规则条件的优先级匹配，而非按功能自身的配置顺序匹配。</p></li></ul></section>
+      <ul id="supplementary-notes">
+        <li id="note-reserved-headers">
+          <p id="p-reserved-headers">CDN<span class="help-letter-space"></span>不支持删除或修改<span class="help-letter-space"></span>Via、EagleId<span class="help-letter-space"></span>等系统保留响应头。这些<span class="help-letter-space"></span>Header<span class="help-letter-space"></span>用于<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点信息记录，即使配置删除或修改也无效，系统仍会保留最后一个节点的信息。</p>
+        </li>
+        <li id="note-cache-effective-time">
+          <p id="p-cache-effective-time">出站响应头配置修改后一般在<span class="help-letter-space"></span>5<span class="help-letter-space"></span>分钟内生效，无需重新预热（预热不会改变已缓存资源的响应头）。若需确保客户端获取最新的响应头信息，请在控制台对受影响的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>执行<a href="#section-ilc-9cc-1z0" id="xref-cache-refresh" title="" class="xref">操作步骤</a>（清除缓存）操作后测试验证。</p>
+        </li>
+      </ul>
+      <section data-tag="section" data-type="section" id="section-ilc-9cc-1z0" class="section">
+        <h2 data-tag="title" id="title-2uz-4uz-icq" class="title">操作步骤</h2>
+        <ol data-tag="steps" id="steps-45n-y6q-n6y" class="steps">
+          <li data-tag="step" id="step-cd4-jwd-r7o" is-conref="true" class="step"><p id="57912ad06cz5r">登录<span data-tag="ph" id="70e318298ar3q" props="china" data-cond-props="china" class="ph"><span data-tag="cmd" id="cmd-a5o-xbu-9jk" class="cmd"><a href="https://cdn.console.aliyun.com" id="xref-3wg-wkz-yew" class="" target="_blank">CDN<span class="help-letter-space"></span>控制台</a></span></span>。</p></li>
+          <li data-tag="step" id="step-0hr-3uu-kti" is-conref="true" class="step"><p id="579178f06cxyc"><span data-tag="cmd" id="cmd-s7b-t59-yfo" class="cmd">在左侧导航栏，单击<b id="uicontrol-7gx-exp-h8x" data-tag="uicontrol" data-isbold="true" class="uicontrol">域名管理</b>。</span></p></li>
+          <li data-tag="step" id="step-q2g-6of-jek" is-conref="true" class="step"><p id="579178f16caqi"><span data-tag="cmd" id="cmd-1ap-nxp-wdb" class="cmd"><span data-tag="ph" id="ph-taj-8l0-rpq" class="ph">在<b id="uicontrol-xdy-plp-3xe" data-tag="uicontrol" data-isbold="true" class="uicontrol">域名管理</b>页面，找到目标域名，单击<b id="2574e6a087kfg" data-tag="uicontrol" data-isbold="true" class="uicontrol">操作</b>列的<b id="67ed12d08796d" data-tag="uicontrol" data-isbold="true" class="uicontrol">管理</b>。</span></span></p></li>
+          <li data-tag="step" id="step-n5i-5a3-64s" is-conref="true" class="step"><p id="57923c406chb9"><span data-tag="cmd" id="cmd-b9l-z6m-n09" class="cmd">在指定域名的左侧导航栏，单击<b id="uicontrol-evr-x23-45b" data-tag="uicontrol" data-isbold="true" class="uicontrol">缓存配置</b>。</span></p></li>
+          <li data-tag="step" id="step-nnm-omk-5rd" class="step">
+            <p id="8712ead040rst"><span data-tag="cmd" id="cmd-bkj-0b6-l1k" class="cmd">单击<b>
+                  修改出站响应头
+                </b>页签。</span></p>
+          </li>
+          <li data-tag="step" id="step-usq-xcm-6hd" class="step">
+            <p id="8713fc4040b03"><span data-tag="cmd" id="cmd-d1u-6hu-w37" class="cmd">单击<b id="uicontrol-gc1-aww-yeq" data-tag="uicontrol" data-isbold="true" class="uicontrol">添加</b>，修改出站响应头。</span></p>
+            <div data-tag="info" id="info-igj-15z-5jc" class="info">
+              <div data-tag="p" id="p-9sw-sbn-n14" class="p">
+                <p id="8714e6a040ywe">下面以增加出站响应头为例，为您介绍配置方法。</p>
+                <table id="table-dob-qib-fqy" tablewidth="100" tablecolswidth="23.84 76.16" autofit="true" class="table">
+                  <colgroup colwidth="0.48*" style="width:23.84%"></colgroup>
+                  <colgroup colwidth="1.52*" style="width:76.16%"></colgroup>
+                  <tbody class="tbody">
+                    <tr id="row-ga3-hfh-enm">
+                      <td id="task-261642-entry-l61-mjn-rlq" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                        <p id="8714e6a140qm2"><b>参数</b></p>
+                      </td>
+                      <td id="task-261642-entry-gaf-oph-dlw" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                        <p id="8714e6a240aef"><b>说明</b></p>
+                      </td>
+                    </tr>
+                    <tr id="row-8le-mwd-ok9">
+                      <td id="entry-j27-5j2-5tl" rowspan="1" colspan="1">
+                        <p id="8714e6a3406io"><b id="uicontrol-3oz-y2v-tnd" data-tag="uicontrol" data-isbold="true" class="uicontrol">响应头操作</b></p>
+                      </td>
+                      <td id="entry-uoe-9qq-hy7" rowspan="1" colspan="1">
+                        <p id="8715f810403cy">增加、删除、变更和替换指定的响应头。</p>
+                      </td>
+                    </tr>
+                    <tr id="row-8au-0du-adn">
+                      <td id="entry-9q4-s1y-lo7" rowspan="1" colspan="1">
+                        <p id="8715f811403da"><b id="uicontrol-8e9-dfo-aux" data-tag="uicontrol" data-isbold="true" class="uicontrol">自定义响应头参数</b></p>
+                      </td>
+                      <td id="entry-kmf-6ny-ayu" rowspan="1" colspan="1">
+                        <p id="8717098040elc">选择自定义响应头参数。详细信息，请参见<a href="#section-wj7-ax2-xre" id="xref-k49-32x-9v5" title="" class="xref">响应头参数</a>。</p>
+                      </td>
+                    </tr>
+                    <tr id="row-dwg-amv-dq8">
+                      <td id="entry-jhk-77h-0mt" rowspan="1" colspan="1">
+                        <p id="8717098140pmd"><b id="uicontrol-k3p-wn2-0yu" data-tag="uicontrol" data-isbold="true" class="uicontrol">自定义响应头名称</b></p>
+                      </td>
+                      <td id="entry-tfu-hsh-z6g" rowspan="1" colspan="1">
+                        <p id="8718902040bvn">当自定义响应头参数选择为<b id="uicontrol-at7-z5h-1no" data-status="unpublished" data-tag="uicontrol" data-isbold="true" class="uicontrol">自定义</b>时，需要配置自定义响应头名称。自定义响应头名称要求如下：</p>
+                        <ul data-tag="ul" id="ul-nb5-i8b-g2o" class="ul">
+                          <li data-tag="li" id="li-oo6-8kz-5m5" class="li">
+                            <p id="8718902140gkt">由大小写字母、短划线和数字组成。</p>
+                          </li>
+                          <li data-tag="li" id="li-93r-462-r6r" class="li">
+                            <p id="8718902240par">长度为<span class="help-letter-space"></span>1~100<span class="help-letter-space"></span>个字符。</p>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr id="row-r6x-dw5-1v9">
+                      <td id="entry-t91-4ey-6jy" rowspan="1" colspan="1">
+                        <p id="8718902340g2a"><b id="uicontrol-58h-cg6-6hl" data-tag="uicontrol" data-isbold="true" class="uicontrol">响应头值</b></p>
+                      </td>
+                      <td id="entry-937-xvg-kmg" rowspan="1" colspan="1">
+                        <p id="8719c8a040l82">输入您要设置的响应头值。详细信息，请参见<a href="#section-wj7-ax2-xre" id="xref-4jx-qx6-fbx" title="" class="xref">响应头参数</a>。</p>
+                      </td>
+                    </tr>
+                    <tr id="row-0sg-luq-8z9">
+                      <td id="entry-y9w-lps-6r4" rowspan="1" colspan="1">
+                        <p id="8719c8a1409qr"><b id="uicontrol-l0l-7t6-aqw" data-tag="uicontrol" data-isbold="true" class="uicontrol">是否允许重复</b></p>
+                      </td>
+                      <td id="entry-apz-5eo-li9" rowspan="1" colspan="1">
+                        <ul data-tag="ul" id="ul-p66-gcl-br4" class="ul">
+                          <li data-tag="li" id="li-vls-r81-q70" class="li">
+                            <p id="871b283040nk2"><b id="uicontrol-9ko-8qk-4k1" data-tag="uicontrol" data-isbold="true" class="uicontrol">允许</b>：保留源站返回的头，同时会加上一个同名的头。</p>
+                          </li>
+                          <li data-tag="li" id="li-9m9-vvi-eob" class="li">
+                            <p id="871c39a040ehe"><b id="uicontrol-uxp-po1-8gi" data-tag="uicontrol" data-isbold="true" class="uicontrol">不允许</b>：源站返回的头会被新配置的同名头覆盖。</p>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                    <tr id="row-wyo-1wx-ck2">
+                      <td id="entry-u2z-feo-9a4" rowspan="1" colspan="1">
+                        <p id="871d722040rvt"><b id="uicontrol-02t-ly9-29l" data-tag="uicontrol" data-isbold="true" class="uicontrol">跨域验证</b></p>
+                      </td>
+                      <td id="entry-69c-sy6-cpn" rowspan="1" colspan="1">
+                        <p id="871d722140lw8">跨域校验默认为关闭状态，只有在<b id="uicontrol-59h-cws-w5j" data-tag="uicontrol" data-isbold="true" class="uicontrol">响应头操作</b>为“增加”且<b id="uicontrol-zh7-vn2-nmo" data-tag="uicontrol" data-isbold="true" class="uicontrol">自定义响应头参数</b>为“Access-Control-Allow-Origin”的时候才可以配置。</p>
+                        <ul data-tag="ul" id="ul-z2i-gd0-op5" class="ul">
+                          <li data-tag="li" id="li-zub-c2y-ce6" class="li">
+                            <p id="871f46e040bsz"><b id="uicontrol-vx2-6oi-kky" data-status="unpublished" data-tag="uicontrol" data-isbold="true" class="uicontrol">开启</b>：开启状态下<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点将按以下规则对用户做跨域校验，并根据校验结果响应“Access-Control-Allow-Origin”的值。</p>
+                          </li>
+                          <li data-tag="li" id="li-but-6ig-pb6" class="li">
+                            <p id="871f6df0407sy"><b id="uicontrol-55f-bn1-7k4" data-status="unpublished" data-tag="uicontrol" data-isbold="true" class="uicontrol">关闭</b>：关闭状态下<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点不会校验用户请求中携带的<span class="help-letter-space"></span>Origin<span class="help-letter-space"></span>头，只会固定响应已配置的<span class="help-letter-space"></span>Access-Control-Allow-Origin<span class="help-letter-space"></span>值。</p>
+                          </li>
+                        </ul>
+                        <p id="3c788206faknq">跨域校验规则请参见<a href="#170b54382axvd" id="152b6f5607yqa" title="" class="xref">跨域校验规则</a>。</p>
+                      </td>
+                    </tr>
+                    <tr id="c9c113c040emn">
+                      <td id="c9c113c14011n" rowspan="1" colspan="1">
+                        <p id="c9c113c240z5j"><b id="573cb65040igt" data-tag="uicontrol" data-isbold="true" class="uicontrol">规则条件</b></p>
+                      </td>
+                      <td id="c9c113c3404tb" rowspan="1" colspan="1">
+                        <p id="57f623d6fc6ce">规则条件能够对用户请求中携带的各种参数信息进行识别，以此来决定某个配置是否对该请求生效。</p>
+                        <div id="x1wjiwtoqhty" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                          <p id="dabce259f9zmj">引用规则条件时，按所关联规则条件的优先级匹配，而非按功能自身的配置顺序匹配。</p>
+                        </div></div>
+                        <ul id="10120cf22c805">
+                          <li id="10120cf02ckox">
+                            <p id="60ba04a3583fp"><b>不使用</b>：不使用规则条件。</p>
+                          </li>
+                          <li id="157990a02cfay">
+                            <p id="f453f1d4dcvce">若需新增或编辑规则条件，请在<span data-tag="ph" id="bb18d4aadcb9j" class="ph"><span product="CDN"><a href="https://help.aliyun.com/zh/cdn/user-guide/rules-engine" id="6ff70b2a3agk8" title="" class="xref">规则引擎</a></span></span>中进行管理。</p>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </li>
+          <li data-tag="step" id="step-g6d-ngp-u47" class="step">
+            <p id="8722f060403rw"><span data-tag="cmd" id="cmd-f7x-zfq-5h0" class="cmd">单击<b id="uicontrol-fco-2w1-xge" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>，完成配置。</span></p>
+            <div data-tag="info" id="info-q1q-ois-zl3" class="info">
+              <p data-tag="p" id="p-b53-a1n-if6" class="p">成功修改出站响应头后，您可以在出站响应头<b id="uicontrol-8ji-ppq-fuf" data-tag="uicontrol" data-isbold="true" class="uicontrol">节点<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>响应头</b>列表中，对当前的配置进行<b id="uicontrol-4ra-q7b-skb" data-tag="uicontrol" data-isbold="true" class="uicontrol">修改</b>或<b id="uicontrol-w3v-qm2-oc7" data-tag="uicontrol" data-isbold="true" class="uicontrol">删除</b>操作。</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <section id="section-pdf-cache-example" class="section">
+        <h2 id="h2-pdf-cache-example">配置示例：为<span class="help-letter-space"></span>PDF<span class="help-letter-space"></span>文件配置 Cache-Control:no-cache</h2>
+        <p id="p-pdf-cache-intro">如果希望客户端对<span class="help-letter-space"></span>PDF<span class="help-letter-space"></span>文件进行协商缓存（每次请求都向<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点验证文件是否更新），可以通过规则引擎实现：</p>
+        <ol id="ol-pdf-cache-steps">
+          <li id="li-pdf-step1">
+            <p id="p-pdf-step1">在<b id="uicontrol-pdf-add" data-tag="uicontrol" data-isbold="true" class="uicontrol">添加</b>出站响应头配置时，选择使用<b data-tag="uicontrol" id="uicontrol-rule-condition" class="uicontrol">规则条件</b>。</p>
+          </li>
+          <li id="li-pdf-step2">
+            <p id="p-pdf-step2">设置匹配条件为「文件扩展名」包含 <code data-tag="code" id="code-pdf-ext" class="code">.pdf</code>。</p>
+          </li>
+          <li id="li-pdf-step3">
+            <p id="p-pdf-step3">配置动作为修改出站响应头，添加 <code data-tag="code" id="code-cache-control" class="code">cache-control:no-cache</code>。</p>
+          </li>
+        </ol>
+        <div id="note-pdf-cache" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+          <p id="p-pdf-cache-note">此配置仅影响<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>返回给客户端的响应头，使客户端进行协商缓存，但不影响<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点本身对该<span class="help-letter-space"></span>PDF<span class="help-letter-space"></span>文件的缓存策略。</p>
+        </div></div>
+      </section>
+      <section id="170b54382axvd" class="section">
+        <h2 id="11c247c7baz7g"><b>跨域校验规则</b></h2>
+        <div id="ef756bdc61giv" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+          <p data-tag="p" id="e686091e57vzw" class="p"><b id="72780c3385c3y" data-tag="uicontrol" data-isbold="true" class="uicontrol">是否允许重复</b>和<b id="e63c4b264atzl" data-status="unpublished" data-tag="uicontrol" data-isbold="true" class="uicontrol">跨域校验</b>这两个配置项之间存在互斥，<b id="98d7f19c23fft" data-tag="uicontrol" data-isbold="true" class="uicontrol">是否允许重复</b>配置为<b id="a444d7255cyo4" data-tag="uicontrol" data-isbold="true" class="uicontrol">允许</b>的情况下，跨域校验将会失效。</p>
+        </div></div>
+        <ul id="28ba0518aezr1">
+          <li id="59258e340d3tn">
+            <p id="06df7f6fa6f3h">任意匹配：自定义响应头参数<code data-tag="code" id="9172df9c75n77" class="code">Access-Control-Allow-Origin</code>的值设置为<code data-tag="code" id="d1bf55ccb1pbp" class="code">*</code>不论用户请求里面是否携带<code data-tag="code" id="dcd59c9858y2k" class="code">Origin</code>参数，也不论携带的<code data-tag="code" id="c7d489b10dvo9" class="code">Origin</code>参数为何值，都固定返回<code data-tag="code" id="546dc30ea8scx" class="code">Access-Control-Allow-Origin:*</code>。</p>
+          </li>
+          <li id="90f70339f6e9l">
+            <p id="382c2a08eegjc">精确匹配：自定义响应头参数<code data-tag="code" id="c4968ff18fj7w" class="code">Access-Control-Allow-Origin</code>的值设置了单个或者多个值（多个值之间用<code data-tag="code" id="c9c0ca5f03ql4" class="code">,</code>分隔）。</p>
+            <ul data-tag="ul" id="56bdf4802eno1" class="ul">
+              <li data-tag="li" id="de48ac2311beq" class="li">
+                <p id="95015f3ff03qi">如果用户请求头里携带的<code data-tag="code" id="56218cc451tah" class="code">Origin</code>参数值与被设置的任意一个值精确匹配，就会响应对应的跨域头。</p>
+              </li>
+              <li data-tag="li" id="6d0df2849b7kl" class="li">
+                <p id="3b39d7eeea6s3">如果都没有精确匹配上，则不响应跨域头。</p>
+              </li>
+            </ul>
+          </li>
+          <li id="cc7bbf9c6br63">
+            <p id="9270c64ab69d6">泛域名匹配：自定义响应头参数<code data-tag="code" id="0d55fbde64pyf" class="code">Access-Control-Allow-Origin</code>的值设置了泛域名，则会校验请求头中<span class="help-letter-space"></span>Origin<span class="help-letter-space"></span>值是否能匹配上<code data-tag="code" id="81b008378etk8" class="code">Access-Control-Allow-Origin</code>的泛域名。</p>
+          </li>
+        </ul>
+        <p data-tag="p" id="c906ddd5ef07u" class="p">您可以参考<a href="https://help.aliyun.com/zh/cdn/user-guide/configure-cors#task-2100263" id="992304f83emd4" title="" class="xref">配置跨域资源共享</a>来了解如何配置。</p>
+      </section>
+      <section data-tag="section" data-type="section" id="section-wj7-ax2-xre" class="section">
+        <h2 data-tag="title" id="title-jko-z97-6rp" class="title">响应头参数</h2>
+        <table id="table-rje-mu1-u81" tablewidth="100" tablecolswidth="30.89 47.67 21.439999999999998" autofit="true" class="table">
+          <colgroup colwidth="0.94*" style="width:30.89%"></colgroup>
+          <colgroup colwidth="1.44*" style="width:47.67%"></colgroup>
+          <colgroup colwidth="0.65*" style="width:21.44%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-sac-yoz-bnm">
+              <td id="task-261642-entry-k2m-w88-5mq" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="8727844040vs4"><b>响应头参数</b></p>
+              </td>
+              <td id="task-261642-entry-zlp-1ns-8z5" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="8727844140dz5"><b>说明</b></p>
+              </td>
+              <td id="task-261642-entry-l1l-kev-vi6" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="8727844240a1o"><b>示例</b></p>
+              </td>
+            </tr>
+            <tr id="row-39y-5y9-qux">
+              <td id="entry-4sq-864-61o" rowspan="1" colspan="1">
+                <p id="8727844340ppd">自定义</p>
+              </td>
+              <td id="entry-pev-da3-1b6" rowspan="1" colspan="1">
+                <p id="8727844440q2l">支持添加自定义响应头。自定义响应头名称要求如下：</p>
+                <ul data-tag="ul" id="ul-jcl-v8j-q70" is-conref="true" class="ul">
+                          <li data-tag="li" id="li-oo6-8kz-5m5" class="li">
+                            <p id="8718902140gkt">由大小写字母、短划线和数字组成。</p>
+                          </li>
+                          <li data-tag="li" id="li-93r-462-r6r" class="li">
+                            <p id="8718902240par">长度为<span class="help-letter-space"></span>1~100<span class="help-letter-space"></span>个字符。</p>
+                          </li>
+                        </ul>
+              </td>
+              <td id="entry-hnh-sqv-oiy" rowspan="1" colspan="1">
+                <p id="872895b040j3d">Test-Header</p>
+              </td>
+            </tr>
+            <tr id="row-n9m-yrf-0fe">
+              <td id="entry-2gt-4gr-pn8" rowspan="1" colspan="1">
+                <p id="872895b140mmp">Cache-Control</p>
+              </td>
+              <td id="entry-rnl-tas-kus" rowspan="1" colspan="1">
+                <p id="872895b240oft">指定客户端程序请求和响应遵循的缓存机制。</p>
+              </td>
+              <td id="entry-jv8-7as-u3p" rowspan="1" colspan="1">
+                <p id="872895b340mr3">no-cache</p>
+              </td>
+            </tr>
+            <tr id="row-lfj-l56-slg">
+              <td id="entry-7lc-tws-j4e" rowspan="1" colspan="1">
+                <p id="872895b440c18">Content-Disposition</p>
+              </td>
+              <td id="entry-blz-5kh-gl3" rowspan="1" colspan="1">
+                <p id="872895b540ofp">指定客户端程序把请求所得的内容存为一个文件时提供的默认的文件名。</p>
+              </td>
+              <td id="entry-3at-1do-7lw" rowspan="1" colspan="1">
+                <p id="872895b6402hs">examplefile.txt</p>
+              </td>
+            </tr>
+            <tr id="row-i91-88f-wox">
+              <td id="entry-0zx-1mx-l3n" rowspan="1" colspan="1">
+                <p id="8728bcc040opy">Content-Type</p>
+              </td>
+              <td id="entry-izp-fcp-rt8" rowspan="1" colspan="1">
+                <p id="8728bcc140lrf">指定客户端程序响应对象的内容类型。</p>
+              </td>
+              <td id="entry-x9u-mh9-4gr" rowspan="1" colspan="1">
+                <p id="8728bcc24038k">text/plain</p>
+              </td>
+            </tr>
+            <tr id="row-27t-vro-rr7">
+              <td id="entry-yup-bl5-osw" rowspan="1" colspan="1">
+                <p id="8728bcc340q5m">Pragma</p>
+              </td>
+              <td id="entry-vue-y7k-jve" rowspan="1" colspan="1">
+                <p id="8728bcc4402zj">Pragma 是一个在 HTTP/1.0 中规定的通用首部，这个首部通常用于在服务器的响应中定义客户端对文件的缓存行为。</p>
+              </td>
+              <td id="entry-vbt-ajz-v8a" rowspan="1" colspan="1">
+                <p id="8728bcc54091v">no-cache</p>
+              </td>
+            </tr>
+            <tr id="row-aw2-r50-7zr">
+              <td id="entry-qdo-bc5-0zo" rowspan="1" colspan="1">
+                <p id="8728bcc64082c">Access-Control-Allow-Origin</p>
+              </td>
+              <td id="entry-67f-i1j-6of" rowspan="1" colspan="1">
+                <p id="8728bcc740w5w"><code data-tag="code" id="b02bd526e28jg" class="code">Access-Control-Allow-Origin</code> 是 HTTP 响应头，用于指示哪些源可以访问资源。它是跨域资源共享（CORS, Cross-Origin Resource Sharing）机制的一部分，该机制允许服务器声明其资源是否可以被某个指定的源（域名）访问。该响应头的值支持以下类型：</p>
+                <ul id="5039b87c38gjl">
+                  <li id="267e9b3f62lw4">
+                    <p id="25494e26d44ew"><b>通配符 </b><code data-tag="code" id="35122ba7f4zf7" uuid="f7e6f27c-424b-4903-88d2-ef2258af8666" class="code"><b>*</b></code>：使用通配符表示允许任何源访问资源。这种方式非常宽松，适用于那些公开无需认证或授权即可访问的资源。不过，在生产环境中使用通配符时需要谨慎，因为它可能带来安全风险，比如跨站请求伪造攻击。</p>
+                  </li>
+                  <li id="7f765bb56ft4q">
+                    <p id="cb5883d73fzsm"><b>单个指定源</b>：你可以指定一个具体的源（域名），表示仅允许该特定源访问资源。例如，<code data-tag="code" id="2b1a44408ddax" uuid="87608b80-7e3a-41bf-b5bb-c57da815a6da" class="code">http://example.com</code> 或 <code data-tag="code" id="746a2a766d734" uuid="1b7274bc-4d2a-4555-9140-372e73e9eea2" class="code">https://api.example.com</code>。这要求请求必须来自指定的源，否则将被拒绝。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-t8h-kpa-x92" rowspan="1" colspan="1">
+                <ul data-tag="ul" id="ul-x8e-z3g-7u2" class="ul">
+                  <li data-tag="li" id="li-58c-oqn-tps" class="li">
+                    <p id="8728e3d540h23">*</p>
+                  </li>
+                  <li data-tag="li" id="li-ure-v66-gxp" class="li">
+                    <p id="8728e3d640pyn">http://www.aliyun.com</p>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr id="row-jqp-dtp-qew">
+              <td id="entry-mfy-esq-hue" rowspan="1" colspan="1">
+                <p id="87290ae0409q1">Access-Control-Allow-Methods</p>
+              </td>
+              <td id="entry-7x5-2uk-1gf" rowspan="1" colspan="1">
+                <p id="87290ae140zuy">指定允许的跨域请求方法。多个方法用英文逗号<code data-tag="code" id="fe85d76188uy3" class="code">,</code>分隔。</p>
+              </td>
+              <td id="entry-r7r-9y4-fov" rowspan="1" colspan="1">
+                <p id="87290ae2404gr">POST,GET</p>
+              </td>
+            </tr>
+            <tr id="row-ilp-fuz-yh2">
+              <td id="entry-h8w-xg4-e9e" rowspan="1" colspan="1">
+                <p id="87290ae340g29">Access-Control-Allow-Headers</p>
+              </td>
+              <td id="entry-l40-7vr-jlf" rowspan="1" colspan="1">
+                <p id="87290ae440pvs">指定允许的跨域请求字段。</p>
+              </td>
+              <td id="entry-ft1-dij-w7i" rowspan="1" colspan="1">
+                <p id="87290ae540xre">X-Custom-Header</p>
+              </td>
+            </tr>
+            <tr id="row-nzo-4vh-9or">
+              <td id="entry-15y-09e-n11" rowspan="1" colspan="1">
+                <p id="87290ae640c3z">Access-Control-Expose-Headers</p>
+              </td>
+              <td id="entry-yi1-r6x-tcs" rowspan="1" colspan="1">
+                <p id="87290ae740oqj">指定允许访问的自定义头信息。</p>
+              </td>
+              <td id="entry-8a7-1q8-gpr" rowspan="1" colspan="1">
+                <p id="87290ae8406n5">Content-Length</p>
+              </td>
+            </tr>
+            <tr id="row-njn-dca-q1o">
+              <td id="entry-2yd-mt5-0n1" rowspan="1" colspan="1">
+                <p id="87290ae940zyb">Access-Control-Allow-Credentials</p>
+              </td>
+              <td id="entry-9oa-0w6-px5" rowspan="1" colspan="1">
+                <p id="87290aea40bjx">该响应头表示是否可以将对请求的响应暴露给页面。</p>
+                <ul data-tag="ul" id="ul-fbf-e05-cer" class="ul">
+                  <li data-tag="li" id="li-34l-l8e-kfd" class="li">
+                    <p id="87290aeb40be0">返回<span class="help-letter-space"></span>true：表示可以暴露。</p>
+                  </li>
+                  <li data-tag="li" id="li-c13-oh5-rb8" class="li">
+                    <p id="872931f040spp">返回其他值：表示不可以暴露。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-641-tqz-kpg" rowspan="1" colspan="1">
+                <p id="872931f140gwl">true</p>
+              </td>
+            </tr>
+            <tr id="row-6lp-609-7p5">
+              <td id="entry-gw1-s03-eij" rowspan="1" colspan="1">
+                <p id="872931f240bvw">Access-Control-Max-Age</p>
+              </td>
+              <td id="entry-x0m-37r-bzp" rowspan="1" colspan="1">
+                <p id="872931f34072g">指定客户端程序对特定资源的预请求返回结果的缓存时间，单位为秒。</p>
+              </td>
+              <td id="entry-2k6-07g-xjc" rowspan="1" colspan="1">
+                <p id="872931f4403v2">600</p>
+              </td>
+            </tr>
+            <tr id="row-csp-policy">
+              <td id="entry-csp-param" rowspan="1" colspan="1">
+                <p id="p-csp-param">Content-Security-Policy</p>
+              </td>
+              <td id="entry-csp-desc" rowspan="1" colspan="1">
+                <p id="p-csp-desc">配置内容安全策略（CSP），用于控制页面可以加载哪些资源，防范 XSS 攻击和数据注入等安全威胁。CDN<span class="help-letter-space"></span>不对<span class="help-letter-space"></span>CSP<span class="help-letter-space"></span>策略内容做语义校验，仅校验<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>响应头基本格式。策略内容需为单行字符串，不能包含换行符、非法控制字符或未转义的引号，且不要包含外层双引号。建议先在浏览器开发者工具中验证策略正确性后再填入，或在源站配置<span class="help-letter-space"></span>CSP<span class="help-letter-space"></span>由<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>透传。</p>
+              </td>
+              <td id="entry-csp-example" rowspan="1" colspan="1">
+                <p id="p-csp-example">default-src 'self'; script-src 'self' 'unsafe-inline'</p>
+              </td>
+            </tr>
+            <tr id="row-permissions-policy">
+              <td id="entry-permissions-param" rowspan="1" colspan="1">
+                <p id="p-permissions-param">Permissions-Policy</p>
+              </td>
+              <td id="entry-permissions-desc" rowspan="1" colspan="1">
+                <p id="p-permissions-desc">配置权限策略，用于控制浏览器特定功能（如摄像头、麦克风、地理位置等）的访问权限。</p>
+              </td>
+              <td id="entry-permissions-example" rowspan="1" colspan="1">
+                <p id="p-permissions-example">camera=(), microphone=()</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div data-tag="note" id="note-vra-4y0-wek" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+          <ul data-tag="ul" id="ul-a9e-urk-out" class="ul">
+            <li data-tag="li" id="li-qoi-30q-aau" class="li">
+              <p id="8728e3d040oxq">响应头值支持配置为“*”，表示任意来源。</p>
+            </li>
+            <li data-tag="li" id="li-nfc-0e6-kya" class="li">
+              <p id="8728e3d140eya">响应头值非“*”的情况下，支持配置单个或者多个<span class="help-letter-space"></span>IP、域名、或者<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>和域名混合。相互间用英文（,）分隔。</p>
+            </li>
+            <li data-tag="li" id="li-js0-lj2-8c2" class="li">
+              <p id="8728e3d240rxj">响应头值非“*”的情况下，必须包含协议头“http:// ”或者“https://”。</p>
+            </li>
+            <li data-tag="li" id="li-m9c-jha-and" class="li">
+              <p id="8728e3d340lyg">响应头值支持携带端口。</p>
+            </li>
+            <li data-tag="li" id="li-eww-xo2-e36" class="li">
+              <p id="8728e3d44087w">响应头值支持泛域名。</p>
+            </li>
+          </ul>
+        </div></div>
+        <div id="note-csp-info" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+          <ul id="ul-csp-notes">
+            <li id="li-csp-alb">
+              <p id="p-csp-alb">CDN<span class="help-letter-space"></span>支持通过自定义响应头配置 Content-Security-Policy（CSP）和 Permissions-Policy 安全响应头。ALB（应用型负载均衡）本身不支持直接添加这两个安全响应头，如需配置，建议通过<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>或<span class="help-letter-space"></span>WAF<span class="help-letter-space"></span>等产品实现。</p>
+            </li>
+            <li id="li-csp-no-quotes">
+              <p id="p-csp-no-quotes">CSP<span class="help-letter-space"></span>响应头值不要包含外层双引号，这是常见的配置报错原因。正确格式示例：<code data-tag="code" id="code-csp-example" class="code">default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:</code></p>
+            </li>
+            <li id="li-csp-f12">
+              <p id="p-csp-f12">浏览器<span class="help-letter-space"></span>F12<span class="help-letter-space"></span>开发者工具中的<span class="help-letter-space"></span>CSP<span class="help-letter-space"></span>语法提示属于浏览器自身的限制，与实际请求无关，不影响响应头的实际生效，请通过实际请求验证。</p>
+            </li>
+          </ul>
+        </div></div>
+      </section>
+      <section id="5ded398429t8k" class="section">
+        <h2 id="ff7c9b6bbbdxm"><b>常见问题</b></h2>
+        <ul id="30b29c60aenvc">
+          <li id="dc652368b2fv3">
+            <p id="ed063309485p8"><a href="https://help.aliyun.com/zh/cdn/user-guide/cache-related-faq#baec2b5193okp" id="74cf5e4c87f2k" title="" class="xref">为什么已经配置了响应头<span class="help-letter-space"></span>Access-Control-Allow-Origin，但是访问资源仍提示跨域问题，response header<span class="help-letter-space"></span>中没有配置的响应头？</a></p>
+          </li>
+          <li id="e344274a47vk9">
+            <p id="c2479b3ec9ok4"><a href="https://help.aliyun.com/zh/cdn/user-guide/cache-related-faq#389228aa9b042" id="4b04cbaf08rjs" title="" class="xref">出站响应头和入站响应头有什么区别？</a></p>
+          </li>
+          <li id="faq-header-not-working">
+            <p id="p-faq-header-not-working"><b>配置自定义响应头后未生效，如何排查？</b></p>
+            <ul id="ul-faq-header-not-working">
+              <li id="li-faq-dns">
+                <p id="p-faq-dns"><b>DNS<span class="help-letter-space"></span>解析问题</b>：确认域名<span class="help-letter-space"></span>DNS<span class="help-letter-space"></span>解析仅保留了<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>的<span class="help-letter-space"></span>CNAME<span class="help-letter-space"></span>记录，删除了<span class="help-letter-space"></span>OSS<span class="help-letter-space"></span>等源站的直接解析记录，确保流量经过<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点。如果流量直接到达源站，CDN<span class="help-letter-space"></span>配置的响应头不会生效。</p>
+              </li>
+              <li id="li-faq-origin">
+                <p id="p-faq-origin"><b>源站未返回该响应头</b>：CDN<span class="help-letter-space"></span>默认透传源站响应头，若源站未返回该<span class="help-letter-space"></span>Header<span class="help-letter-space"></span>则<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>也不会返回。请确保源站配置正确并返回该响应头；或在<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>控制台「修改出站响应头」中强制添加该响应头，CDN<span class="help-letter-space"></span>会在出站时自动添加。</p>
+              </li>
+              <li id="li-faq-content-type">
+                <p id="p-faq-content-type"><b>Content-Type<span class="help-letter-space"></span>等响应头未生效</b>：CDN<span class="help-letter-space"></span>配置自定义出站响应头仅在请求经过<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>时生效。若源站（如<span class="help-letter-space"></span>OSS、OBS）在上传文件时未指定正确的<span class="help-letter-space"></span>Content-Type，可能导致回源获取的元数据与预期不符。建议检查源站上传文件时的<span class="help-letter-space"></span>Content-Type<span class="help-letter-space"></span>设置，并提供具体<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>进行测试验证。</p>
+              </li>
+            </ul>
+          </li>
+          <li id="faq-inbound-outbound">
+            <p id="p-faq-inbound-outbound"><b>修改入站响应头配置后未生效，是什么原因？</b></p>
+            <ul id="ul-faq-inbound-outbound">
+              <li id="li-faq-inbound">
+                <p id="p-faq-inbound"><b>入站响应头</b>：仅作用于源站返回给<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点之间的通信，不影响最终用户收到的响应。</p>
+              </li>
+              <li id="li-faq-outbound">
+                <p id="p-faq-outbound"><b>出站响应头</b>：影响<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>返回给最终用户的响应。</p>
+              </li>
+              <li id="li-faq-inbound-advice">
+                <p id="p-faq-inbound-advice">如果配置的是「修改入站响应头」（如修改<span class="help-letter-space"></span>Set-Cookie<span class="help-letter-space"></span>的<span class="help-letter-space"></span>domain<span class="help-letter-space"></span>字段），该配置只会影响源站到<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点之间的通信，终端用户不会感知到变化。如需影响终端用户收到的响应，请配置「修改出站响应头」。如仍无效，建议直接在源站修改响应头。</p>
+              </li>
+            </ul>
+          </li>
+          <li id="faq-configuring-status">
+            <p id="p-faq-configuring-status"><b>出站响应头配置生效时间及状态一直显示「配置中」，如何处理？</b></p>
+            <ul id="ul-faq-configuring-status">
+              <li id="li-faq-config-time">
+                <p id="p-faq-config-time">配置一般在<span class="help-letter-space"></span>5<span class="help-letter-space"></span>分钟内生效。若长时间显示「配置中」或未生效，请检查：</p>
+                <ol id="ol-faq-config-steps">
+                  <li id="li-faq-config-step1">
+                    <p id="p-faq-config-step1">配置格式是否正确（如响应头值是否符合规范，是否为单行字符串）。</p>
+                  </li>
+                  <li id="li-faq-config-step2">
+                    <p id="p-faq-config-step2">是否已单击<b id="uicontrol-faq-ok" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>完成保存。</p>
+                  </li>
+                  <li id="li-faq-config-step3">
+                    <p id="p-faq-config-step3">尝试刷新页面或稍后再次查看状态。</p>
+                  </li>
+                </ol>
+              </li>
+            </ul>
+          </li>
+          <li id="faq-batch-domains">
+            <p id="p-faq-batch-domains"><b>是否支持将出站响应头配置批量添加到多个域名？</b></p>
+            <ul id="ul-faq-batch-domains">
+              <li id="li-faq-batch-answer">
+                <p id="p-faq-batch-answer">支持。可以使用<span class="help-letter-space"></span>CDN API<span class="help-letter-space"></span>接口 <code data-tag="code" id="code-batch-api" class="code">BatchSetCdnDomainConfig</code> 进行批量域名配置，通过该接口的功能参数设置响应头添加规则。</p>
+              </li>
+            </ul>
+          </li>
+          <li id="faq-js-custom-header">
+            <p id="p-faq-js-custom-header"><b>前端<span class="help-letter-space"></span>JavaScript<span class="help-letter-space"></span>代码中拿不到后端返回的自定义响应头（如<span class="help-letter-space"></span>filename），如何处理？</b></p>
+            <ol id="ol-faq-js-steps">
+              <li id="li-faq-js-step1">
+                <p id="p-faq-js-step1">清除<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>缓存，确保未缓存旧响应头。</p>
+              </li>
+              <li id="li-faq-js-step2">
+                <p id="p-faq-js-step2">确认源站实际返回的响应头中包含该字段。</p>
+              </li>
+              <li id="li-faq-js-step3">
+                <p id="p-faq-js-step3">在<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>控制台「修改出站响应头」中，显式添加 <code data-tag="code" id="code-expose-example" class="code">Access-Control-Expose-Headers: &lt;header-name&gt;</code> 配置，以覆盖源站的<span class="help-letter-space"></span>CORS<span class="help-letter-space"></span>设置，确保前端<span class="help-letter-space"></span>JavaScript<span class="help-letter-space"></span>能获取该字段。例如，需要获取 <code data-tag="code" id="code-filename-example" class="code">filename</code> 响应头时，添加 <code data-tag="code" id="code-expose-filename" class="code">Access-Control-Expose-Headers: filename</code>。</p>
+              </li>
+              <li id="li-faq-js-step4">
+                <p id="p-faq-js-step4">使用浏览器无痕模式重新请求，确认问题是否解决。</p>
+              </li>
+            </ol>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/cdn/user-guide/other-cache-configurations/" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：其他缓存配置</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/cdn/user-guide/serve-stale-content" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：响应过期缓存<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

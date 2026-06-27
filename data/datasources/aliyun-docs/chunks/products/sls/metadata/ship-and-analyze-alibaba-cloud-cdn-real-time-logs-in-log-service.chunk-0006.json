@@ -1,0 +1,14 @@
+{
+  "id": "sls:ship-and-analyze-alibaba-cloud-cdn-real-time-logs-in-log-service:6",
+  "document_id": "sls:ship-and-analyze-alibaba-cloud-cdn-real-time-logs-in-log-service",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "实时日志功能介绍-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/ship-and-analyze-alibaba-cloud-cdn-real-time-logs-in-log-service",
+  "chunk_index": 6,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/ship-and-analyze-alibaba-cloud-cdn-real-time-logs-in-log-service.chunk-0006.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/ship-and-analyze-alibaba-cloud-cdn-real-time-logs-in-log-service.md",
+  "heading_path": "投递CDN实时日志到SLS来分析用户访问数据 > 适用场景 > 预制的日志分析报表",
+  "char_count": 444
+}

@@ -1,0 +1,17 @@
+{
+  "id": "vpc:address-planning",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "地址规划-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/address-planning",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/address-planning.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/address-planning.md",
+  "word_count": 1767,
+  "text_units": 5768,
+  "local_links": 0,
+  "external_links": 105,
+  "has_tables": true,
+  "table_count": 7,
+  "quality": "accepted"
+}

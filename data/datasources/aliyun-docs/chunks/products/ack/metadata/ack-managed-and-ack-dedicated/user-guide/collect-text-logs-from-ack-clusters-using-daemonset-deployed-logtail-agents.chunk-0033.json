@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/user-guide/collect-text-logs-from-ack-clusters-using-daemonset-deployed-logtail-agents:33",
+  "document_id": "ack:ack-managed-and-ack-dedicated/user-guide/collect-text-logs-from-ack-clusters-using-daemonset-deployed-logtail-agents",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "deployment",
+  "title": "采集ACK集群容器日志（DaemonSet方式部署日志采集）-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/collect-text-logs-from-ack-clusters-using-daemonset-deployed-logtail-agents",
+  "chunk_index": 33,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/collect-text-logs-from-ack-clusters-using-daemonset-deployed-logtail-agents.chunk-0033.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/collect-text-logs-from-ack-clusters-using-daemonset-deployed-logtail-agents.md",
+  "heading_path": "标准输出配置 apiVersion: log.alibabacloud.com/v1alpha1 kind: AliyunLogConfig metadata: # 设置资源名，在当前Kubernetes集群内唯一。 name: simple-stdout-example spec: # 设置目标project名称（可不填写，默认为k8s-log-<your_cluster_id>） # project: k8s-log-test # 设置Logstore名称。如果您所指定的Logstore不存在，日志服务会自动创建。 logstore: k8s-stdout # 设置日志采集配置。 logtailConfig: # 设置采集的数据源类型。采集标准输出时，需设置为plugin。 inputType: plugin # 设置Logtail采集配置的名称，必须与资源名(metadata.name)相同。 configName: simple-stdout-example inputDetail: plugin: inputs: - type: service_docker_stdout detail: # 指定采集stdout和stderr。 Stdout: true Stderr: true # 指定待采集容器所在 Pod 所属的命名空间，支持正则匹配。 K8sNamespaceRegex: \"^(default)$\" # 指定待采集容器的名称，支持正则匹配。 K8sContainerRegex: \"^(app.*)$\" # 配置多行切分配置 # 配置行首正则表达式 BeginLineRegex: \\d+-\\d+-\\d+.*",
+  "char_count": 1200
+}

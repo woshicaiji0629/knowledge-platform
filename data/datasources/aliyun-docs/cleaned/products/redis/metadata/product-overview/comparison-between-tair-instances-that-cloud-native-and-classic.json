@@ -1,0 +1,17 @@
+{
+  "id": "redis:product-overview/comparison-between-tair-instances-that-cloud-native-and-classic",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "selection",
+  "title": "云原生与经典实例差异与选型-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/comparison-between-tair-instances-that-cloud-native-and-classic",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/product-overview/comparison-between-tair-instances-that-cloud-native-and-classic.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/comparison-between-tair-instances-that-cloud-native-and-classic.md",
+  "word_count": 1543,
+  "text_units": 3097,
+  "local_links": 81,
+  "external_links": 77,
+  "has_tables": true,
+  "table_count": 23,
+  "quality": "accepted"
+}

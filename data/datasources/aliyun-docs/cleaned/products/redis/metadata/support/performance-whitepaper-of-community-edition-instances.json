@@ -1,0 +1,17 @@
+{
+  "id": "redis:support/performance-whitepaper-of-community-edition-instances",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "performance",
+  "title": "云数据库Tair（兼容 Redis）的性能白皮书-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/support/performance-whitepaper-of-community-edition-instances",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/support/performance-whitepaper-of-community-edition-instances.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/support/performance-whitepaper-of-community-edition-instances.md",
+  "word_count": 1451,
+  "text_units": 3106,
+  "local_links": 5,
+  "external_links": 64,
+  "has_tables": true,
+  "table_count": 14,
+  "quality": "accepted"
+}

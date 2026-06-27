@@ -1,0 +1,14 @@
+{
+  "id": "cdn:support/cname-faq:4",
+  "document_id": "cdn:support/cname-faq",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "troubleshoot",
+  "title": "配置CNAME常见问题-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/support/cname-faq",
+  "chunk_index": 4,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/cdn/documents/support/cname-faq.chunk-0004.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/support/cname-faq.md",
+  "heading_path": "配置CNAME常见问题 > CDN 域名配置完成后，控制台状态仍显示\"待配置\"或\"验证不通过\"怎么办？",
+  "char_count": 373
+}

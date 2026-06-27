@@ -1,0 +1,17 @@
+{
+  "id": "vpc:vpc-peer-to-peer-connection",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "deployment",
+  "title": "VPC对等连接-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/vpc-peer-to-peer-connection",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/vpc-peer-to-peer-connection.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/vpc-peer-to-peer-connection.md",
+  "word_count": 2522,
+  "text_units": 7525,
+  "local_links": 5,
+  "external_links": 123,
+  "has_tables": true,
+  "table_count": 21,
+  "quality": "accepted"
+}

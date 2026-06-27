@@ -1,0 +1,17 @@
+{
+  "id": "cdn:product-overview/rules-for-applying-resource-plans",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "资源包抵扣时间、抵扣顺序和其他抵扣规则-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/product-overview/rules-for-applying-resource-plans",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/product-overview/rules-for-applying-resource-plans.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/product-overview/rules-for-applying-resource-plans.md",
+  "word_count": 653,
+  "text_units": 2594,
+  "local_links": 0,
+  "external_links": 62,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

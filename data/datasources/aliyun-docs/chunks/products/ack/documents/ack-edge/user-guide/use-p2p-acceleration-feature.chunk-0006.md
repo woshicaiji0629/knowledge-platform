@@ -1,0 +1,3 @@
+### 打开Metrics
+安装P2P时，打开Metrics配置。
+p2p: v2: # Component for P2P v2 image: registry-vpc.__ACK_REGION_ID__.aliyuncs.com/acs/dadi-agent imageTag: v0.1.2-72276d4-aliyun # Concurrency limit number of layers downloading by each node proxy proxyConcurrencyLimit: 128 # The server port to communicate with P2P nodes p2pPort: 65002 cache: # Disk cache capacity in bytes, default 4GB capacity: 4294967296 # Set to 1 if you are using high-performance disks on your ECS, e.g. ESSD PL2/PL3 aioEnable: 0 exporter: # Set to true if you want to collect component metrics enable: false port: 65003 # limit for downstream throughput throttleLimitMB: 512

@@ -1,0 +1,17 @@
+{
+  "id": "ecs:set-renewal-reminder",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "在消息中心设置续费提醒及消息接收人-云服务器 ECS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ecs/set-renewal-reminder",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/set-renewal-reminder.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/set-renewal-reminder.md",
+  "word_count": 500,
+  "text_units": 1136,
+  "local_links": 0,
+  "external_links": 64,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

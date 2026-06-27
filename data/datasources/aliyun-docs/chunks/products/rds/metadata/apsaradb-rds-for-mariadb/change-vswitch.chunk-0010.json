@@ -1,0 +1,14 @@
+{
+  "id": "rds:apsaradb-rds-for-mariadb/change-vswitch:10",
+  "document_id": "rds:apsaradb-rds-for-mariadb/change-vswitch",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "切换RDS实例的虚拟交换机-云数据库 RDS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mariadb/change-vswitch",
+  "chunk_index": 10,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/rds/documents/apsaradb-rds-for-mariadb/change-vswitch.chunk-0010.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mariadb/change-vswitch.md",
+  "heading_path": "切换交换机 > 操作步骤 > 友情链接",
+  "char_count": 935
+}

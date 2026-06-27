@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-argo-workflow-cluster/use-cases/use-workflow-clusters-to-build-a-ci-pipeline-for-go-projects:12",
+  "document_id": "ack:ack-argo-workflow-cluster/use-cases/use-workflow-clusters-to-build-a-ci-pipeline-for-go-projects",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "基于工作流集群构建Golang项目的CI Pipeline-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/use-cases/use-workflow-clusters-to-build-a-ci-pipeline-for-go-projects",
+  "chunk_index": 12,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-argo-workflow-cluster/use-cases/use-workflow-clusters-to-build-a-ci-pipeline-for-go-projects.chunk-0012.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-argo-workflow-cluster/use-cases/use-workflow-clusters-to-build-a-ci-pipeline-for-go-projects.md",
+  "heading_path": "基于工作流集群构建Golang项目的CI Pipeline > 步骤二：在工作流集群中挂载NAS存储卷",
+  "char_count": 872
+}

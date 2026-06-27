@@ -1,0 +1,17 @@
+{
+  "id": "oss:release-note",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "features",
+  "title": "发布记录-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/release-note",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/oss/documents/release-note.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/release-note.md",
+  "word_count": 466,
+  "text_units": 759,
+  "local_links": 0,
+  "external_links": 65,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

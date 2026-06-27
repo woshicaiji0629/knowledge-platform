@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-postgresql/configure-an-ip-address-whitelist-for-an-apsaradb-rds-for-postgresql-instance",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "设置RDS PostgreSQL的白名单-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/configure-an-ip-address-whitelist-for-an-apsaradb-rds-for-postgresql-instance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-postgresql/configure-an-ip-address-whitelist-for-an-apsaradb-rds-for-postgresql-instance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-postgresql/configure-an-ip-address-whitelist-for-an-apsaradb-rds-for-postgresql-instance.md",
+  "word_count": 1064,
+  "text_units": 3104,
+  "local_links": 6,
+  "external_links": 75,
+  "has_tables": true,
+  "table_count": 3,
+  "quality": "accepted"
+}

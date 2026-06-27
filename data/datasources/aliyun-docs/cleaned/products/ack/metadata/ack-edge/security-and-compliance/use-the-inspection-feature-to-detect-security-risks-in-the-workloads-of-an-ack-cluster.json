@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-edge/security-and-compliance/use-the-inspection-feature-to-detect-security-risks-in-the-workloads-of-an-ack-cluster",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "performance",
+  "title": "使用配置巡检检查工作负载的安全配置风险-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/security-and-compliance/use-the-inspection-feature-to-detect-security-risks-in-the-workloads-of-an-ack-cluster",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-edge/security-and-compliance/use-the-inspection-feature-to-detect-security-risks-in-the-workloads-of-an-ack-cluster.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/security-and-compliance/use-the-inspection-feature-to-detect-security-risks-in-the-workloads-of-an-ack-cluster.md",
+  "word_count": 1323,
+  "text_units": 4186,
+  "local_links": 12,
+  "external_links": 63,
+  "has_tables": true,
+  "table_count": 9,
+  "quality": "accepted"
+}

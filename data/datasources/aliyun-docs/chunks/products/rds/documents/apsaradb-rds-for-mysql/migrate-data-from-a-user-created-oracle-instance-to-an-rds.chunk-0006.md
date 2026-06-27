@@ -1,0 +1,2 @@
+ide/modify-the-parameters-of-a-dts-instance#section-ys2-2c2-wzo) 中的参数。 |
+| 特殊情况 | 当目标库为 RDS MySQL 时 RDS MySQL 实例对表名的英文大小写不敏感，如果使用大写英文建表，RDS MySQL 会先把表名转为小写再执行建表操作。 如果源 Oracle 数据库中存在表名相同仅大小写不同的表，可能会导致迁移对象重名并在结构迁移中提示“对象已经存在”。如果出现这种情况，请在配置迁移对象的时候，使用 DTS 提供的对象名映射功能对重名的对象进行重命名，将表名转为大写，详情请参见 [库表列映射](https://help.aliyun.com/zh/dts/user-guide/object-name-mapping#concept-610481) 。 DTS 会自动在 RDS MySQL 中创建数据库，如果待迁移的数据库名称不符合 RDS MySQL 的定义规范，您需要在配置迁移任务之前在 RDS MySQL 中创建数据库。相关操作，请参见 [管理数据库](create-a-database-for-an-apsaradb-rds-for-mysql-instance.md) 。 |

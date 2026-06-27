@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-edge/user-guide/overview-of-cell-based-management-at-the-edge",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "selection",
+  "title": "云边协同场景下节点的统一管理运维-节点池-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/user-guide/overview-of-cell-based-management-at-the-edge",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-edge/user-guide/overview-of-cell-based-management-at-the-edge.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/user-guide/overview-of-cell-based-management-at-the-edge.md",
+  "word_count": 601,
+  "text_units": 1568,
+  "local_links": 2,
+  "external_links": 68,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

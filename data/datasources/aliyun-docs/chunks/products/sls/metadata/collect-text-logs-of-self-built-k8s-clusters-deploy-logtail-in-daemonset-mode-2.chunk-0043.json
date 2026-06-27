@@ -1,0 +1,14 @@
+{
+  "id": "sls:collect-text-logs-of-self-built-k8s-clusters-deploy-logtail-in-daemonset-mode-2:43",
+  "document_id": "sls:collect-text-logs-of-self-built-k8s-clusters-deploy-logtail-in-daemonset-mode-2",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "deployment",
+  "title": "通过AliyunPipelineConfig CRD在Kubernetes集群中采集容器标准输出和文件日志-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/collect-text-logs-of-self-built-k8s-clusters-deploy-logtail-in-daemonset-mode-2",
+  "chunk_index": 43,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/collect-text-logs-of-self-built-k8s-clusters-deploy-logtail-in-daemonset-mode-2.chunk-0043.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/collect-text-logs-of-self-built-k8s-clusters-deploy-logtail-in-daemonset-mode-2.md",
+  "heading_path": "检查Pod状态 kubectl get po -n kube-system | grep loongcollector-ds > 常见问题 > 如何将ACK集群日志传输到另一个阿里云账号的Project？",
+  "char_count": 1102
+}

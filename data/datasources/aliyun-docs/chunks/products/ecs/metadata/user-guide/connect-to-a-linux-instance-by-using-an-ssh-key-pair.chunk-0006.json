@@ -1,0 +1,14 @@
+{
+  "id": "ecs:user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair:6",
+  "document_id": "ecs:user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "deployment",
+  "title": "使用OpenSSH/Xshell远程连接Linux实例-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair",
+  "chunk_index": 6,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ecs/documents/user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair.chunk-0006.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair.md",
+  "heading_path": "chmod 400: 为私钥文件设置仅所有者可读的权限，这是SSH客户端的安全要求 chmod 400 /path/to/private_key.pem ssh -i /path/to/private_key.pem <实例登录名>@<实例公网IP地址>示例：ssh -i /path/to/private_key.pem root@47.98.xxx.xxx。其中/path/to/private_key.pem为私钥文件路径。",
+  "char_count": 836
+}

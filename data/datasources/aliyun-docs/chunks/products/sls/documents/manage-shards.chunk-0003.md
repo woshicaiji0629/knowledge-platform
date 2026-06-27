@@ -1,0 +1,3 @@
+### Shard状态
+Shard状态包括readwrite（读写）和readonly（只读）。
+创建Shard时，所有Shard状态均为readwrite状态。执行分裂或合并操作后，Shard状态变更为readonly，并生成新的readwrite状态的Shard。Shard状态不影响其数据读取的性能。readwrite状态的Shard可保证数据写入性能，readonly状态的Shard不提供数据写入服务。

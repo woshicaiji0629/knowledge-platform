@@ -1,0 +1,5 @@
+### RAM用户创建VPC对等连接时提示缺少CDT权限？
+RAM用户已授予AliyunVPCFullAccess权限，但创建VPC对等连接时报错提示缺少cdt:GetCdtServiceStatus权限。这是因为VPC对等连接依赖云数据传输CDT服务，创建对等连接时需要调用CDT相关接口，仅有VPC权限不够。
+需要为RAM用户额外授予以下任一权限：
+AliyunCDTFullAccess：CDT服务的完全访问权限。
+AliyunCDTReadOnlyAccess：CDT服务的只读权限，适用于仅需创建对等连接而无需管理CDT资源的场景。

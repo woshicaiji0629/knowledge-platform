@@ -1,0 +1,5 @@
+## 升级模型说明
+AdvancedRollingUpdate升级模型
+该升级模型解决云边网络断链时，由于节点状态NotReady而导致的DaemonSet升级阻塞问题。在升级过程中，它会忽略NotReady状态的节点，优先完成状态为Ready的节点上的Pod升级。同时，当节点状态从NotReady转变为Ready时，它会自动完成该节点上DaemonSet Pod的升级。
+OTA升级模型
+该升级模型允许直接在边缘节点上通过调用REST API来检查Pod是否可以更新，以及触发Pod的升级操作。

@@ -1,0 +1,5 @@
+# 导入相关包。 from hera.workflows import DAG, Workflow, script from hera.shared import global_config import urllib3 urllib3.disable_warnings() # 配置访问地址和Token。 global_config.host = "https://{{argo_server_IP}}:2746" global_config.token = "abcdefgxxxxxx" # 填入之前获取的Token。 global_config.verify_ssl = "" # 装饰器函数script是Hera实现近乎原生的Python函数编排的关键功能。 # 它允许您在Hera上下文管理器（例如Workflow或Steps上下文）下调用该函数。 # 该函数在任何Hera上下文之外仍将正常运行，这意味着您可以在给定函数上编写单元测试。 # 该示例是打印输入的信息。 @script(image="mirrors-ssl.aliyuncs.com/python:3.10") def echo(message: str): print(message) # 构建workflow，Workflow是Argo中的主要资源，也是Hera的关键类，负责保存模板、设置入口点和运行模板。 with Workflow( generate_name="dag-diamond-", entrypoint="diamond", namespace="default", ) as w: with DAG(name="diamond"): A = echo(name="A", arguments={"message": "A"}) # 构建Template。 B = echo(name="B", arguments={"message": "B"}) C = echo(name="C", arguments={"message": "C"}) D = echo(name="D", arguments={"message": "D"}) A >> [B, C] >> D # 构建依赖关系，B、C任务依赖A，D依赖B和C。 # 创建Workflow。 w.create()
+提交工作流。
+python simpleDAG.py
+工作流运行后，您可以在工作流控制台（Argo）查看任务DAG流程与运行结果。
+示例工作流dag-diamond-g9v45呈钻石形 DAG 拓扑：顶层节点A完成后并行执行B和C，最终汇聚至节点D，所有节点均显示为执行成功状态。

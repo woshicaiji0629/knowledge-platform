@@ -1,0 +1,14 @@
+{
+  "id": "vpc:access-control-1:7",
+  "document_id": "vpc:access-control-1",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "VPC访问控制功能介绍与使用-专有网络VPC-阿里云",
+  "source_url": "https://help.aliyun.com/zh/vpc/access-control-1",
+  "chunk_index": 7,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/access-control-1.chunk-0007.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/access-control-1.md",
+  "heading_path": "使用专有网络VPC访问控制功能 > 使用安全组功能 > 安全组使用指导",
+  "char_count": 331
+}

@@ -1,0 +1,2 @@
+# 基于EventBridge的事件驱动CI Pipeline
+基于事件总线EventBridge和分布式工作流Argo Workflows，可以构建高效、快速、低成本的事件驱动自动化CI Pipeline，大幅简化和加速应用交付过程。本文介绍如何构建基于事件驱动的自动化CI Pipeline流程。

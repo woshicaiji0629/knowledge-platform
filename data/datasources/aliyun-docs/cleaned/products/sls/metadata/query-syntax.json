@@ -1,0 +1,17 @@
+{
+  "id": "sls:query-syntax",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "查询语法介绍和相关示例-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/query-syntax",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/query-syntax.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/query-syntax.md",
+  "word_count": 3264,
+  "text_units": 7586,
+  "local_links": 0,
+  "external_links": 155,
+  "has_tables": true,
+  "table_count": 25,
+  "quality": "accepted"
+}

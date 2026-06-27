@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    将实例从经典网络切换为专有网络VPC-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/redis/user-guide/change-the-network-type-from-classic-network-to-vpc">
+  <meta name="keywords" content="切换Tair实例为VPC,配置VPC网络切换,Tair网络切换指南,VPC切换操作步骤,SwitchNetwork API参考">
+  <meta name="description" content="云数据库 Tair（兼容 Redis）支持将实例从经典网络切换为专有网络，实现客户端与实例间通过同一专有网络互访，获得更高的安全性和更低的网络延迟。">
+  <meta name="last-modified" content="2026-06-02T17:47:05+08:00">
+  <meta name="date" content="2016-09-01T05:35:46+08:00">
+  <meta property="og:title" content="切换为专有网络VPC">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/redis/user-guide/change-the-network-type-from-classic-network-to-vpc">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="云数据库 Tair（兼容 Redis）支持将实例从经典网络切换为专有网络，实现客户端与实例间通过同一专有网络互访，获得更高的安全性和更低的网络延迟。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/redis/user-guide/change-the-network-type-from-classic-network-to-vpc",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "43880",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/redis/user-guide/change-the-network-type-from-classic-network-to-vpc","nodeId":null,"data":{"lastModifiedTime":1780393625000,"keywords":"切换Tair实例为VPC,配置VPC网络切换,Tair网络切换指南,VPC切换操作步骤,SwitchNetwork API参考","docTitle":"切换为专有网络VPC","language":"zh","seoTitle":"将实例从经典网络切换为专有网络VPC-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心","title":"切换为专有网络VPC","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"concept-mtb-nz5-tdb\">\n    \n    \n    <p id=\"shortdesc-mrj-a2c-ntl\" data-tag=\"shortdesc\" class=\"shortdesc\"><span id=\"1ac7d53d0563t\" outputclass=\"productName\" data-tag=\"ph\" data-ref-searchable=\"yes\" data-reuse-tag=\"productName\" data-type=\"productName\" data-product-code=\"kvstore\" docid=\"3761080\" data-source=\"reuse_library\" is-conref=\"true\" class=\"ph productName\">云数据库 Tair（兼容 Redis）</span>支持将实例从经典网络切换为专有网络，实现客户端与实例间通过同一专有网络互访，获得更高的安全性和更低的网络延迟。</p>\n    <div data-tag=\"taskbody\" id=\"conbody-zr7-p0a-pf0\" class=\"taskbody\">\n      <section data-tag=\"prereq\" id=\"prereq-bb7-nud-928\" data-type=\"prereq\" class=\"section prereq\">\n        <h2 id=\"d41e14\">前提条件</h2>\n        <p id=\"58542cefa1x3h\">实例的网络类型为经典网络。</p>\n        <div data-tag=\"note\" id=\"note-14y-i57-m4a\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n          <p id=\"63df1951d57ni\">您可以在实例的<b id=\"uicontrol-tnp-a6k-qm3\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">基本信息</b>页面查看到网络类型。</p>\n        </div></div>\n      </section>\n      <section data-tag=\"section\" id=\"section-g2p-2bg-vdb\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-f2k-n1c-vqs\" class=\"title\">影响</h2>\n        <ul data-tag=\"ul\" id=\"ul-cgq-mjg-fqb\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-wza-7gf-9m8\" class=\"li\">\n            <p id=\"5bab4a8e149vj\">实例切换为专有网络后，无法再切换为经典网络。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-hpd-qzs-u0e\" class=\"li\">\n            <p id=\"ac30cb28aap4q\">实例会出现秒级的连接闪断，请在业务低峰期执行该操作并确保应用具备重连机制。</p>\n          </li>\n        </ul>\n      </section>\n      <section data-tag=\"section\" id=\"section-zy0-355-3pm\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-blc-fc0-rw9\" class=\"title\">实例的网络类型</h2>\n        <table id=\"table-ut9-2rs-7p6\" tablewidth=\"709\" tablecolswidth=\"136 573\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.38*\" style=\"width:19.18%\"></colgroup>\n          <colgroup colwidth=\"1.62*\" style=\"width:80.82%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-ty4-ajz-ee3\">\n              <td id=\"concept-mtb-nz5-tdb-entry-2xl-i2u-pf1\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"1267277a3dv1k\"><b>网络类型</b></p>\n              </td>\n              <td id=\"concept-mtb-nz5-tdb-entry-c75-19v-h5r\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"0f4d7d1461kkq\"><b>说明</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-dnq-ij9-2is\">\n              <td id=\"entry-stw-1t8-dup\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"9acb21d2b84zf\"><a href=\"https://help.aliyun.com/zh/vpc/what-is-vpc#concept-kbk-cpz-ndb\" id=\"xref-dws-grp-k7w\" title=\"\" class=\"xref\">专有网络</a>（推荐）</p>\n              </td>\n              <td id=\"entry-940-4v3-09c\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"3774d58a675o3\">专有网络<span class=\"help-letter-space\"></span>VPC（Virtual Private Cloud）是您专有的云上私有网络。不同的专有网络之间二层逻辑隔离，拥有较高的安全性和性能。客户端部署在<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ecs/user-guide/what-is-ecs#EcsWelcome\" id=\"xref-fad-cqq-hgh\" title=\"\" class=\"xref\">ECS<span class=\"help-letter-space\"></span>实例</a>上时，通过专有网络连接至<span data-tag=\"ph\" id=\"53cdfcf204wuu\" docid=\"2259849\" is-conref=\"true\" class=\"ph\"><span class=\"help-letter-space\"></span><span id=\"0c73b34206yxz\" outputclass=\"productName\" data-tag=\"ph\" data-ref-searchable=\"yes\" data-reuse-tag=\"productSimpleName\" data-type=\"productSimpleName\" data-product-code=\"kvstore\" docid=\"3761080\" data-source=\"reuse_library\" is-conref=\"true\" class=\"ph productName\">Tair</span>（以及<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"8461652cc487i\" docid=\"2259849\" is-conref=\"true\" class=\"ph\">Redis<span class=\"help-letter-space\"></span>开源版</span>）</span>实例，可获得更高的安全性和更低的网络延迟。</p>\n              </td>\n            </tr>\n            <tr id=\"row-o1q-xo7-3ej\">\n              <td id=\"entry-mts-vmg-e53\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"c622517fd3t81\">经典网络</p>\n              </td>\n              <td id=\"entry-1dm-v0o-hov\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"d433d45309tun\">经典网络中的云服务在网络上不进行隔离，只能依靠云服务自身的安全组或白名单策略来阻挡非法访问。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <div data-tag=\"note\" id=\"note-18j-nf4-7bk\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n          <p id=\"c5539ccf05kbu\">客户端为专有网络，实例为经典网络时，客户端无法连接至实例。将实例切换至与客户端<b>相同的专有网络</b>后，可快速实现相互通信。</p>\n        </div></div>\n      </section>\n      <section data-tag=\"section\" id=\"section-gfs-hbg-vdb\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-dno-t0h-ohc\" class=\"title\">操作步骤</h2>\n        <ol data-tag=\"steps\" id=\"steps-ffi-w22-lz7\" class=\"steps\">\n          <li data-tag=\"step\" id=\"step-ues-aie-1e6\" is-conref=\"true\" class=\"step\"><p id=\"8d8a12fee75hl\"><span data-tag=\"cmd\" id=\"cmd-i2e-9qu-brs\" class=\"cmd\">访问<span props=\"china intl\"><a href=\"https://kvstore.console.aliyun.com/Redis/instance/cn-hangzhou\" id=\"xref-zao-gl9-fqp\" class=\"\" target=\"_blank\">实例列表</a></span>，在上方选择地域，然后单击目标实例<span class=\"help-letter-space\"></span>ID。</span></p></li>\n          <li data-tag=\"step\" id=\"step-t91-d8a-zxr\" class=\"step\">\n            <p id=\"4f10f46d91yqg\"><span data-tag=\"cmd\" id=\"cmd-zu7-gev-wwr\" class=\"cmd\">在<b id=\"uicontrol-0et-2wv-r30\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">连接信息</b>区域框的右侧，单击<b id=\"uicontrol-j3t-dzq-ur2\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">切换为专有网络</b>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-gux-xkg-nn5\" class=\"step\">\n            <p id=\"a61362bf87po2\"><span data-tag=\"cmd\" id=\"cmd-xdp-ekq-wwy\" class=\"cmd\">在右侧弹出的面板中完成设置。</span></p>\n            <div data-tag=\"info\" id=\"info-7f7-ldd-zol\" class=\"info\">\n              <table id=\"table-ymv-qv2-v7j\" tablewidth=\"709\" tablecolswidth=\"177 532\" autofit=\"false\" class=\"table\">\n                <colgroup colwidth=\"0.5*\" style=\"width:24.96%\"></colgroup>\n                <colgroup colwidth=\"1.5*\" style=\"width:75.04%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"row-bd3-ii7-gnt\">\n                    <td id=\"concept-mtb-nz5-tdb-entry-akg-j6v-uhj\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"cd0c8efd63wkm\"><b>配置</b></p>\n                    </td>\n                    <td id=\"concept-mtb-nz5-tdb-entry-jub-mft-w3e\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"36373df7b4z45\"><b>说明</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-ybs-im4-myy\">\n                    <td id=\"entry-5ac-dwf-21b\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"3028e013aa4il\"><b data-tag=\"uicontrol\" id=\"uicontrol-n2s-mie-n0t\" class=\"uicontrol\">专有网络</b></p>\n                    </td>\n                    <td id=\"entry-a1m-rdj-vop\" rowspan=\"2\" colspan=\"1\">\n                      <p id=\"5b2d8c5b5fyx5\">选择目标专有网络和交换机。</p>\n                      <div data-tag=\"note\" id=\"note-fh6-zds-z33\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                        <p id=\"8c49d61deajw0\">如果下拉框中没有可选的专有网络或交换机，说明实例所在的地域和可用区没有可用的专有网络或交换机。具体操作请参见<a href=\"https://help.aliyun.com/zh/vpc/user-guide/create-and-manage-a-vpc#task-1012575\" id=\"a86d0a5a4cbpt\" title=\"\" class=\"xref\">创建和管理专有网络</a>和<a href=\"https://help.aliyun.com/zh/vpc/user-guide/create-and-manage-vswitch#task-1012575\" id=\"62907b9097fw0\" title=\"\" class=\"xref\">创建和管理交换机</a>。</p>\n                        <p id=\"7968a0722a6hu\">例如实例部署在华东<span class=\"help-letter-space\"></span>1（杭州）可用区<span class=\"help-letter-space\"></span>E，在选择专有网络后，如果没有可选的交换机则表示该专有网络在可用区<span class=\"help-letter-space\"></span>E<span class=\"help-letter-space\"></span>还未创建交换机（可能在其他可用区已创建）。请您先在华东<span class=\"help-letter-space\"></span>1（杭州）可用区<span class=\"help-letter-space\"></span>E<span class=\"help-letter-space\"></span>创建交换机后重试。</p>\n                      </div></div>\n                    </td>\n                  </tr>\n                  <tr id=\"row-gpo-eig-uo8\">\n                    <td id=\"entry-62p-ce1-say\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"e6f17957e4k0n\"><b id=\"uicontrol-nbf-hsy-ehn\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">虚拟交换机：</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-eoc-vyv-ejl\">\n                    <td id=\"entry-u2z-y59-3to\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"860566fd94eru\"><b data-tag=\"uicontrol\" id=\"uicontrol-byr-vm5-ce2\" class=\"uicontrol\">保留经典网络地址</b></p>\n                    </td>\n                    <td id=\"entry-4ut-lvz-jtg\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"33054d955c8g0\">根据业务需求选择是否保留经典网络地址：</p>\n                      <ul data-tag=\"ul\" id=\"ul-3c6-pgr-cm9\" class=\"ul\">\n                        <li data-tag=\"li\" id=\"li-3kn-odb-uwr\" class=\"li\">\n                          <p id=\"3fcf132deae00\"><b data-tag=\"uicontrol\" id=\"uicontrol-15t-cup-rh8\" class=\"uicontrol\">保留</b>：实例将同时拥有经典网络地址和专有网络地址，且经典网络地址不会变更。客户端可以通过这两种连接地址连接至实例，您需要在经典网络地址失效前，将客户端的数据库连接地址更换为专有网络地址。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-iz4-ofx-avf\" class=\"li\">\n                          <p id=\"a8a6b8512du2n\"><b data-tag=\"uicontrol\" id=\"uicontrol-yt2-jw9-wue\" class=\"uicontrol\">不保留</b>：实例的<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>网络地址将沿用原经典网络地址，您无需在客户端中修改连接地址串。但客户端将仅能通过<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>网络连接实例，无法继续通过经典网络连接实例。</p>\n                        </li>\n                      </ul>\n                    </td>\n                  </tr>\n                  <tr id=\"row-42f-83u-mdr\">\n                    <td id=\"entry-w1z-36u-6rk\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6ecd2eb328m7g\"><b data-tag=\"uicontrol\" id=\"uicontrol-ff9-41z-sbj\" class=\"uicontrol\">保留天数</b></p>\n                    </td>\n                    <td id=\"entry-g5w-0fs-83u\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"974d60056fnma\">设置经典网络地址的保留天数。完成切换后，您也可以重新修改保留天数，具体操作，请参见<a href=\"https://help.aliyun.com/zh/redis/user-guide/modify-the-expiration-date-of-a-classic-network-endpoint#concept-k1m-jcg-vdb\" id=\"xref-2w5-p14-1g1\" title=\"\" class=\"xref\">修改原经典内网地址使用期限</a>。</p>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>\n          </li>\n          <li data-tag=\"step\" id=\"step-ps5-4fi-p10\" class=\"step\">\n            <p id=\"5a76c9ba6e2y0\"><span data-tag=\"cmd\" id=\"cmd-63f-6m1-1k0\" class=\"cmd\">单击<b data-tag=\"uicontrol\" id=\"uicontrol-ug9-hx2-b13\" class=\"uicontrol\">确定</b>。</span></p>\n          </li>\n        </ol>\n      </section>\n      <section id=\"5cc350309a7tn\" class=\"section\">\n        <h2 id=\"9df6d92043q0j\">常见问题</h2>\n        <ul id=\"c847ee1c51j66\">\n          <li id=\"399e095a735zo\">\n            <p id=\"5e2480d530opk\">Q：切换专有网络时，无法选择交换机，是什么原因？</p>\n            <p id=\"d5ca7157823b4\">A：如果下拉框中没有可选的专有网络或交换机，说明实例所在的地域和可用区没有可用的专有网络或交换机。具体操作请参见<a href=\"https://help.aliyun.com/zh/vpc/user-guide/create-and-manage-a-vpc#task-1012575\" id=\"497d71d6f0k65\" title=\"\" class=\"xref\">创建和管理专有网络</a>和<a href=\"https://help.aliyun.com/zh/vpc/user-guide/create-and-manage-vswitch#task-1012575\" id=\"62390ad731jwn\" title=\"\" class=\"xref\">创建和管理交换机</a>。</p>\n            <p id=\"43b78936a4vcg\" docid=\"3140\" is-conref=\"true\">例如实例部署在华东<span class=\"help-letter-space\"></span>1（杭州）可用区<span class=\"help-letter-space\"></span>E，在选择专有网络后，如果没有可选的交换机则表示该专有网络在可用区<span class=\"help-letter-space\"></span>E<span class=\"help-letter-space\"></span>还未创建交换机（可能在其他可用区已创建）。请您先在华东<span class=\"help-letter-space\"></span>1（杭州）可用区<span class=\"help-letter-space\"></span>E<span class=\"help-letter-space\"></span>创建交换机后重试。</p>\n          </li>\n          <li id=\"a74b656a86m9r\">\n            <p id=\"732f3a67740l5\">Q：ECS<span class=\"help-letter-space\"></span>实例与<span id=\"7d10004b53hpo\" outputclass=\"productName\" data-tag=\"ph\" data-ref-searchable=\"yes\" data-reuse-tag=\"productName\" data-type=\"productName\" data-product-code=\"kvstore\" docid=\"3761080\" data-source=\"reuse_library\" is-conref=\"true\" class=\"ph productName\">云数据库 Tair（兼容 Redis）</span>在同一专有网络中，但位于不同的交换机（或不同可用区）时，能否通过专有网络连接<span id=\"5cf7a46aa6l58\" outputclass=\"productName\" data-tag=\"ph\" data-ref-searchable=\"yes\" data-reuse-tag=\"productName\" data-type=\"productName\" data-product-code=\"kvstore\" docid=\"3761080\" data-source=\"reuse_library\" is-conref=\"true\" class=\"ph productName\">云数据库 Tair（兼容 Redis）</span>实例？</p>\n            <p id=\"109f1d5f7fdub\">A：当<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例与<span id=\"484a488251yfp\" outputclass=\"productName\" data-tag=\"ph\" data-ref-searchable=\"yes\" data-reuse-tag=\"productName\" data-type=\"productName\" data-product-code=\"kvstore\" docid=\"3761080\" data-source=\"reuse_library\" is-conref=\"true\" class=\"ph productName\">云数据库 Tair（兼容 Redis）</span>实例处于<b>同一地域</b>的<b>同一专有网络</b>内，即使它们位于不同交换机或可用区中，网络连通性也不会受到影响。请确保将<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例的内网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址添加到<span id=\"ae78150e292hn\" outputclass=\"productName\" data-tag=\"ph\" data-ref-searchable=\"yes\" data-reuse-tag=\"productName\" data-type=\"productName\" data-product-code=\"kvstore\" docid=\"3761080\" data-source=\"reuse_library\" is-conref=\"true\" class=\"ph productName\">云数据库 Tair（兼容 Redis）</span>实例的<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/redis/user-guide/configure-whitelists\" id=\"fcf2be27e5z6z\" title=\"\" class=\"xref\">IP<span class=\"help-letter-space\"></span>白名单</a>中。</p>\n          </li>\n        </ul>\n      </section>\n      <section data-tag=\"section\" id=\"section-xd3-tiq-gp1\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-m5n-kme-6u9\" class=\"title\">相关<span class=\"help-letter-space\"></span>API</h2>\n        <table id=\"table-bh8-ukr-uf8\" tablewidth=\"709\" tablecolswidth=\"235 474\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.66*\" style=\"width:33.15%\"></colgroup>\n          <colgroup colwidth=\"1.34*\" style=\"width:66.85%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-x9b-gyd-v00\">\n              <td id=\"concept-mtb-nz5-tdb-entry-uzu-p0x-54u\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"ff8a409bf79cp\"><b>API<span class=\"help-letter-space\"></span>接口</b></p>\n              </td>\n              <td id=\"concept-mtb-nz5-tdb-entry-7f6-z1g-rhf\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"be7073bd0a3z1\"><b>说明</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-lyz-hum-pcg\">\n              <td id=\"entry-x46-m2w-1ca\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"09a8d96543fi1\"><a href=\"https://help.aliyun.com/zh/redis/developer-reference/api-r-kvstore-2015-01-01-switchnetwork-redis\" id=\"df90a17126xsn\" title=\"\" class=\"xref\">SwitchNetwork</a></p>\n              </td>\n              <td id=\"entry-0cd-jhi-w1t\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"1cf26d738413v\">切换实例的专有网络<span class=\"help-letter-space\"></span>VPC。如果实例为经典网络，则会将其切换为专有网络。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </section>\n      <section role=\"navigation\" id=\"related-links-jmf-xfr-pra\" data-tag=\"related-links\" data-type=\"related-links\" class=\"related-links section\">\n        <h2 id=\"d41e161\">相关文档</h2>\n        <div lang=\"zh-CN\" data-tag=\"linklist\" id=\"3c1d1e5a70da7\" class=\"linklist\">\n          <ul id=\"66fd34917dkd5\">\n            <li id=\"f94b550b68293\">\n              <p id=\"3a97a9a793ziv\"><a href=\"https://help.aliyun.com/zh/redis/support/how-do-i-troubleshoot-connection-issues-in-apsaradb-for-redis#concept-gm5-rgv-fgb\" id=\"link-k1r-39r-mws\" title=\"\" class=\"xref\">连接问题排查流程</a></p>\n            </li>\n            <li id=\"2e7afd414a2mn\">\n              <p id=\"45a2a5e4ccdbb\"><a href=\"https://help.aliyun.com/zh/redis/user-guide/change-the-vpc-or-vswitch-of-an-instance#task-2038839\" id=\"link-hr9-eyw-wmq\" title=\"\" class=\"xref\">修改专有网络<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>或交换机</a></p>\n            </li>\n          </ul>\n        </div>\n      </section>\n</div>\n  </main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/redis/user-guide/change-the-network-type-from-classic-network-to-vpc","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云数据库 Tair（兼容 Redis®）","id":26340,"title":"云数据库 Tair（兼容 Redis®）","url":"/zh/redis/"},"alias":"/redis/user-guide/change-the-network-type-from-classic-network-to-vpc","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":7,"developerUrl":"https://developer.aliyun.com/group/hbasespark/","nodeType":1,"version":42,"url":"/zh/redis/user-guide/change-the-network-type-from-classic-network-to-vpc","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":43880,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"切换为专有网络VPC","id":43880,"title":"切换为专有网络VPC","url":"/zh/redis/user-guide/change-the-network-type-from-classic-network-to-vpc"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"管理网络连接","id":181151,"title":"管理网络连接","url":"/zh/redis/user-guide/network-connection-management/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"管理实例","id":43872,"title":"管理实例","url":"/zh/redis/user-guide/manage-instances/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"操作指南","id":43867,"title":"操作指南","url":"/zh/redis/user-guide/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云数据库 Tair（兼容 Redis®）","id":26340,"title":"云数据库 Tair（兼容 Redis®）","url":"/zh/redis/"},"productUrl":"https://www.aliyun.com/product/tair","nodeId":43880,"desc":"云数据库 Tair（兼容 Redis）支持将实例从经典网络切换为专有网络，实现客户端与实例间通过同一专有网络互访，获得更高的安全性和更低的网络延迟。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云数据库 Tair（兼容 Redis®）","id":26340,"title":"云数据库 Tair（兼容 Redis®）","url":"/zh/redis/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"操作指南","id":43867,"title":"操作指南","url":"/zh/redis/user-guide/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"管理实例","id":43872,"title":"管理实例","url":"/zh/redis/user-guide/manage-instances/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"管理网络连接","id":181151,"title":"管理网络连接","url":"/zh/redis/user-guide/network-connection-management/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"切换为专有网络VPC","id":43880,"title":"切换为专有网络VPC","url":"/zh/redis/user-guide/change-the-network-type-from-classic-network-to-vpc"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=213e038317825378469162514e9a1f&asid=AQAAAAB3Xj9qNnWTWwAAAADPW+K4T+4yZQ==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2393269" class="Menu--level1--UN3zYr3">
+<a href="/zh/redis/product-overview/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品概述</span>
+</a>
+</li>
+ <li id="26355" class="Menu--level1--UN3zYr3">
+<a href="/zh/redis/getting-started/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">快速入门</span>
+</a>
+</li>
+ <li id="3026967" class="Menu--level1--UN3zYr3">
+<a href="/zh/redis/tair-ai-ability/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">Tair AI能力</span>
+</a>
+</li>
+ <li id="43867" class="Menu--level1--UN3zYr3">
+<a href="/zh/redis/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">操作指南</span>
+</a>
+</li>
+ <li id="26365" class="Menu--level1--UN3zYr3">
+<a href="/zh/redis/use-cases/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">实践教程</span>
+</a>
+</li>
+ <li id="2586217" class="Menu--level1--UN3zYr3">
+<a href="/zh/redis/security-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="60828" class="Menu--level1--UN3zYr3">
+<a href="/zh/redis/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="56934" class="Menu--level1--UN3zYr3">
+<a href="/zh/redis/support/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">服务支持</span>
+</a>
+</li>
+ <li id="54904" class="Menu--level1--UN3zYr3">
+<a href="/zh/redis/videos/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">视频专区</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>切换为专有网络VPC</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/tair" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="concept-mtb-nz5-tdb">
+    
+    
+    <p id="shortdesc-mrj-a2c-ntl" data-tag="shortdesc" class="shortdesc"><span id="1ac7d53d0563t" outputclass="productName" data-tag="ph" data-ref-searchable="yes" data-reuse-tag="productName" data-type="productName" data-product-code="kvstore" docid="3761080" data-source="reuse_library" is-conref="true" class="ph productName">云数据库 Tair（兼容 Redis）</span>支持将实例从经典网络切换为专有网络，实现客户端与实例间通过同一专有网络互访，获得更高的安全性和更低的网络延迟。</p>
+    <div data-tag="taskbody" id="conbody-zr7-p0a-pf0" class="taskbody">
+      <section data-tag="prereq" id="prereq-bb7-nud-928" data-type="prereq" class="section prereq">
+        <h2 id="d41e14">前提条件</h2>
+        <p id="58542cefa1x3h">实例的网络类型为经典网络。</p>
+        <div data-tag="note" id="note-14y-i57-m4a" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+          <p id="63df1951d57ni">您可以在实例的<b id="uicontrol-tnp-a6k-qm3" data-tag="uicontrol" data-isbold="true" class="uicontrol">基本信息</b>页面查看到网络类型。</p>
+        </div></div>
+      </section>
+      <section data-tag="section" id="section-g2p-2bg-vdb" data-type="section" class="section">
+        <h2 data-tag="title" id="title-f2k-n1c-vqs" class="title">影响</h2>
+        <ul data-tag="ul" id="ul-cgq-mjg-fqb" class="ul">
+          <li data-tag="li" id="li-wza-7gf-9m8" class="li">
+            <p id="5bab4a8e149vj">实例切换为专有网络后，无法再切换为经典网络。</p>
+          </li>
+          <li data-tag="li" id="li-hpd-qzs-u0e" class="li">
+            <p id="ac30cb28aap4q">实例会出现秒级的连接闪断，请在业务低峰期执行该操作并确保应用具备重连机制。</p>
+          </li>
+        </ul>
+      </section>
+      <section data-tag="section" id="section-zy0-355-3pm" data-type="section" class="section">
+        <h2 data-tag="title" id="title-blc-fc0-rw9" class="title">实例的网络类型</h2>
+        <table id="table-ut9-2rs-7p6" tablewidth="709" tablecolswidth="136 573" autofit="false" class="table">
+          <colgroup colwidth="0.38*" style="width:19.18%"></colgroup>
+          <colgroup colwidth="1.62*" style="width:80.82%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-ty4-ajz-ee3">
+              <td id="concept-mtb-nz5-tdb-entry-2xl-i2u-pf1" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="1267277a3dv1k"><b>网络类型</b></p>
+              </td>
+              <td id="concept-mtb-nz5-tdb-entry-c75-19v-h5r" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="0f4d7d1461kkq"><b>说明</b></p>
+              </td>
+            </tr>
+            <tr id="row-dnq-ij9-2is">
+              <td id="entry-stw-1t8-dup" rowspan="1" colspan="1">
+                <p id="9acb21d2b84zf"><a href="https://help.aliyun.com/zh/vpc/what-is-vpc#concept-kbk-cpz-ndb" id="xref-dws-grp-k7w" title="" class="xref">专有网络</a>（推荐）</p>
+              </td>
+              <td id="entry-940-4v3-09c" rowspan="1" colspan="1">
+                <p id="3774d58a675o3">专有网络<span class="help-letter-space"></span>VPC（Virtual Private Cloud）是您专有的云上私有网络。不同的专有网络之间二层逻辑隔离，拥有较高的安全性和性能。客户端部署在<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ecs/user-guide/what-is-ecs#EcsWelcome" id="xref-fad-cqq-hgh" title="" class="xref">ECS<span class="help-letter-space"></span>实例</a>上时，通过专有网络连接至<span data-tag="ph" id="53cdfcf204wuu" docid="2259849" is-conref="true" class="ph"><span class="help-letter-space"></span><span id="0c73b34206yxz" outputclass="productName" data-tag="ph" data-ref-searchable="yes" data-reuse-tag="productSimpleName" data-type="productSimpleName" data-product-code="kvstore" docid="3761080" data-source="reuse_library" is-conref="true" class="ph productName">Tair</span>（以及<span class="help-letter-space"></span><span data-tag="ph" id="8461652cc487i" docid="2259849" is-conref="true" class="ph">Redis<span class="help-letter-space"></span>开源版</span>）</span>实例，可获得更高的安全性和更低的网络延迟。</p>
+              </td>
+            </tr>
+            <tr id="row-o1q-xo7-3ej">
+              <td id="entry-mts-vmg-e53" rowspan="1" colspan="1">
+                <p id="c622517fd3t81">经典网络</p>
+              </td>
+              <td id="entry-1dm-v0o-hov" rowspan="1" colspan="1">
+                <p id="d433d45309tun">经典网络中的云服务在网络上不进行隔离，只能依靠云服务自身的安全组或白名单策略来阻挡非法访问。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div data-tag="note" id="note-18j-nf4-7bk" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+          <p id="c5539ccf05kbu">客户端为专有网络，实例为经典网络时，客户端无法连接至实例。将实例切换至与客户端<b>相同的专有网络</b>后，可快速实现相互通信。</p>
+        </div></div>
+      </section>
+      <section data-tag="section" id="section-gfs-hbg-vdb" data-type="section" class="section">
+        <h2 data-tag="title" id="title-dno-t0h-ohc" class="title">操作步骤</h2>
+        <ol data-tag="steps" id="steps-ffi-w22-lz7" class="steps">
+          <li data-tag="step" id="step-ues-aie-1e6" is-conref="true" class="step"><p id="8d8a12fee75hl"><span data-tag="cmd" id="cmd-i2e-9qu-brs" class="cmd">访问<span props="china intl"><a href="https://kvstore.console.aliyun.com/Redis/instance/cn-hangzhou" id="xref-zao-gl9-fqp" class="" target="_blank">实例列表</a></span>，在上方选择地域，然后单击目标实例<span class="help-letter-space"></span>ID。</span></p></li>
+          <li data-tag="step" id="step-t91-d8a-zxr" class="step">
+            <p id="4f10f46d91yqg"><span data-tag="cmd" id="cmd-zu7-gev-wwr" class="cmd">在<b id="uicontrol-0et-2wv-r30" data-tag="uicontrol" data-isbold="true" class="uicontrol">连接信息</b>区域框的右侧，单击<b id="uicontrol-j3t-dzq-ur2" data-tag="uicontrol" data-isbold="true" class="uicontrol">切换为专有网络</b>。</span></p>
+          </li>
+          <li data-tag="step" id="step-gux-xkg-nn5" class="step">
+            <p id="a61362bf87po2"><span data-tag="cmd" id="cmd-xdp-ekq-wwy" class="cmd">在右侧弹出的面板中完成设置。</span></p>
+            <div data-tag="info" id="info-7f7-ldd-zol" class="info">
+              <table id="table-ymv-qv2-v7j" tablewidth="709" tablecolswidth="177 532" autofit="false" class="table">
+                <colgroup colwidth="0.5*" style="width:24.96%"></colgroup>
+                <colgroup colwidth="1.5*" style="width:75.04%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="row-bd3-ii7-gnt">
+                    <td id="concept-mtb-nz5-tdb-entry-akg-j6v-uhj" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="cd0c8efd63wkm"><b>配置</b></p>
+                    </td>
+                    <td id="concept-mtb-nz5-tdb-entry-jub-mft-w3e" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="36373df7b4z45"><b>说明</b></p>
+                    </td>
+                  </tr>
+                  <tr id="row-ybs-im4-myy">
+                    <td id="entry-5ac-dwf-21b" rowspan="1" colspan="1">
+                      <p id="3028e013aa4il"><b data-tag="uicontrol" id="uicontrol-n2s-mie-n0t" class="uicontrol">专有网络</b></p>
+                    </td>
+                    <td id="entry-a1m-rdj-vop" rowspan="2" colspan="1">
+                      <p id="5b2d8c5b5fyx5">选择目标专有网络和交换机。</p>
+                      <div data-tag="note" id="note-fh6-zds-z33" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                        <p id="8c49d61deajw0">如果下拉框中没有可选的专有网络或交换机，说明实例所在的地域和可用区没有可用的专有网络或交换机。具体操作请参见<a href="https://help.aliyun.com/zh/vpc/user-guide/create-and-manage-a-vpc#task-1012575" id="a86d0a5a4cbpt" title="" class="xref">创建和管理专有网络</a>和<a href="https://help.aliyun.com/zh/vpc/user-guide/create-and-manage-vswitch#task-1012575" id="62907b9097fw0" title="" class="xref">创建和管理交换机</a>。</p>
+                        <p id="7968a0722a6hu">例如实例部署在华东<span class="help-letter-space"></span>1（杭州）可用区<span class="help-letter-space"></span>E，在选择专有网络后，如果没有可选的交换机则表示该专有网络在可用区<span class="help-letter-space"></span>E<span class="help-letter-space"></span>还未创建交换机（可能在其他可用区已创建）。请您先在华东<span class="help-letter-space"></span>1（杭州）可用区<span class="help-letter-space"></span>E<span class="help-letter-space"></span>创建交换机后重试。</p>
+                      </div></div>
+                    </td>
+                  </tr>
+                  <tr id="row-gpo-eig-uo8">
+                    <td id="entry-62p-ce1-say" rowspan="1" colspan="1">
+                      <p id="e6f17957e4k0n"><b id="uicontrol-nbf-hsy-ehn" data-tag="uicontrol" data-isbold="true" class="uicontrol">虚拟交换机：</b></p>
+                    </td>
+                  </tr>
+                  <tr id="row-eoc-vyv-ejl">
+                    <td id="entry-u2z-y59-3to" rowspan="1" colspan="1">
+                      <p id="860566fd94eru"><b data-tag="uicontrol" id="uicontrol-byr-vm5-ce2" class="uicontrol">保留经典网络地址</b></p>
+                    </td>
+                    <td id="entry-4ut-lvz-jtg" rowspan="1" colspan="1">
+                      <p id="33054d955c8g0">根据业务需求选择是否保留经典网络地址：</p>
+                      <ul data-tag="ul" id="ul-3c6-pgr-cm9" class="ul">
+                        <li data-tag="li" id="li-3kn-odb-uwr" class="li">
+                          <p id="3fcf132deae00"><b data-tag="uicontrol" id="uicontrol-15t-cup-rh8" class="uicontrol">保留</b>：实例将同时拥有经典网络地址和专有网络地址，且经典网络地址不会变更。客户端可以通过这两种连接地址连接至实例，您需要在经典网络地址失效前，将客户端的数据库连接地址更换为专有网络地址。</p>
+                        </li>
+                        <li data-tag="li" id="li-iz4-ofx-avf" class="li">
+                          <p id="a8a6b8512du2n"><b data-tag="uicontrol" id="uicontrol-yt2-jw9-wue" class="uicontrol">不保留</b>：实例的<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>网络地址将沿用原经典网络地址，您无需在客户端中修改连接地址串。但客户端将仅能通过<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>网络连接实例，无法继续通过经典网络连接实例。</p>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr id="row-42f-83u-mdr">
+                    <td id="entry-w1z-36u-6rk" rowspan="1" colspan="1">
+                      <p id="6ecd2eb328m7g"><b data-tag="uicontrol" id="uicontrol-ff9-41z-sbj" class="uicontrol">保留天数</b></p>
+                    </td>
+                    <td id="entry-g5w-0fs-83u" rowspan="1" colspan="1">
+                      <p id="974d60056fnma">设置经典网络地址的保留天数。完成切换后，您也可以重新修改保留天数，具体操作，请参见<a href="https://help.aliyun.com/zh/redis/user-guide/modify-the-expiration-date-of-a-classic-network-endpoint#concept-k1m-jcg-vdb" id="xref-2w5-p14-1g1" title="" class="xref">修改原经典内网地址使用期限</a>。</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li data-tag="step" id="step-ps5-4fi-p10" class="step">
+            <p id="5a76c9ba6e2y0"><span data-tag="cmd" id="cmd-63f-6m1-1k0" class="cmd">单击<b data-tag="uicontrol" id="uicontrol-ug9-hx2-b13" class="uicontrol">确定</b>。</span></p>
+          </li>
+        </ol>
+      </section>
+      <section id="5cc350309a7tn" class="section">
+        <h2 id="9df6d92043q0j">常见问题</h2>
+        <ul id="c847ee1c51j66">
+          <li id="399e095a735zo">
+            <p id="5e2480d530opk">Q：切换专有网络时，无法选择交换机，是什么原因？</p>
+            <p id="d5ca7157823b4">A：如果下拉框中没有可选的专有网络或交换机，说明实例所在的地域和可用区没有可用的专有网络或交换机。具体操作请参见<a href="https://help.aliyun.com/zh/vpc/user-guide/create-and-manage-a-vpc#task-1012575" id="497d71d6f0k65" title="" class="xref">创建和管理专有网络</a>和<a href="https://help.aliyun.com/zh/vpc/user-guide/create-and-manage-vswitch#task-1012575" id="62390ad731jwn" title="" class="xref">创建和管理交换机</a>。</p>
+            <p id="43b78936a4vcg" docid="3140" is-conref="true">例如实例部署在华东<span class="help-letter-space"></span>1（杭州）可用区<span class="help-letter-space"></span>E，在选择专有网络后，如果没有可选的交换机则表示该专有网络在可用区<span class="help-letter-space"></span>E<span class="help-letter-space"></span>还未创建交换机（可能在其他可用区已创建）。请您先在华东<span class="help-letter-space"></span>1（杭州）可用区<span class="help-letter-space"></span>E<span class="help-letter-space"></span>创建交换机后重试。</p>
+          </li>
+          <li id="a74b656a86m9r">
+            <p id="732f3a67740l5">Q：ECS<span class="help-letter-space"></span>实例与<span id="7d10004b53hpo" outputclass="productName" data-tag="ph" data-ref-searchable="yes" data-reuse-tag="productName" data-type="productName" data-product-code="kvstore" docid="3761080" data-source="reuse_library" is-conref="true" class="ph productName">云数据库 Tair（兼容 Redis）</span>在同一专有网络中，但位于不同的交换机（或不同可用区）时，能否通过专有网络连接<span id="5cf7a46aa6l58" outputclass="productName" data-tag="ph" data-ref-searchable="yes" data-reuse-tag="productName" data-type="productName" data-product-code="kvstore" docid="3761080" data-source="reuse_library" is-conref="true" class="ph productName">云数据库 Tair（兼容 Redis）</span>实例？</p>
+            <p id="109f1d5f7fdub">A：当<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例与<span id="484a488251yfp" outputclass="productName" data-tag="ph" data-ref-searchable="yes" data-reuse-tag="productName" data-type="productName" data-product-code="kvstore" docid="3761080" data-source="reuse_library" is-conref="true" class="ph productName">云数据库 Tair（兼容 Redis）</span>实例处于<b>同一地域</b>的<b>同一专有网络</b>内，即使它们位于不同交换机或可用区中，网络连通性也不会受到影响。请确保将<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例的内网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址添加到<span id="ae78150e292hn" outputclass="productName" data-tag="ph" data-ref-searchable="yes" data-reuse-tag="productName" data-type="productName" data-product-code="kvstore" docid="3761080" data-source="reuse_library" is-conref="true" class="ph productName">云数据库 Tair（兼容 Redis）</span>实例的<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/redis/user-guide/configure-whitelists" id="fcf2be27e5z6z" title="" class="xref">IP<span class="help-letter-space"></span>白名单</a>中。</p>
+          </li>
+        </ul>
+      </section>
+      <section data-tag="section" id="section-xd3-tiq-gp1" data-type="section" class="section">
+        <h2 data-tag="title" id="title-m5n-kme-6u9" class="title">相关<span class="help-letter-space"></span>API</h2>
+        <table id="table-bh8-ukr-uf8" tablewidth="709" tablecolswidth="235 474" autofit="false" class="table">
+          <colgroup colwidth="0.66*" style="width:33.15%"></colgroup>
+          <colgroup colwidth="1.34*" style="width:66.85%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-x9b-gyd-v00">
+              <td id="concept-mtb-nz5-tdb-entry-uzu-p0x-54u" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="ff8a409bf79cp"><b>API<span class="help-letter-space"></span>接口</b></p>
+              </td>
+              <td id="concept-mtb-nz5-tdb-entry-7f6-z1g-rhf" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="be7073bd0a3z1"><b>说明</b></p>
+              </td>
+            </tr>
+            <tr id="row-lyz-hum-pcg">
+              <td id="entry-x46-m2w-1ca" rowspan="1" colspan="1">
+                <p id="09a8d96543fi1"><a href="https://help.aliyun.com/zh/redis/developer-reference/api-r-kvstore-2015-01-01-switchnetwork-redis" id="df90a17126xsn" title="" class="xref">SwitchNetwork</a></p>
+              </td>
+              <td id="entry-0cd-jhi-w1t" rowspan="1" colspan="1">
+                <p id="1cf26d738413v">切换实例的专有网络<span class="help-letter-space"></span>VPC。如果实例为经典网络，则会将其切换为专有网络。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section role="navigation" id="related-links-jmf-xfr-pra" data-tag="related-links" data-type="related-links" class="related-links section">
+        <h2 id="d41e161">相关文档</h2>
+        <div lang="zh-CN" data-tag="linklist" id="3c1d1e5a70da7" class="linklist">
+          <ul id="66fd34917dkd5">
+            <li id="f94b550b68293">
+              <p id="3a97a9a793ziv"><a href="https://help.aliyun.com/zh/redis/support/how-do-i-troubleshoot-connection-issues-in-apsaradb-for-redis#concept-gm5-rgv-fgb" id="link-k1r-39r-mws" title="" class="xref">连接问题排查流程</a></p>
+            </li>
+            <li id="2e7afd414a2mn">
+              <p id="45a2a5e4ccdbb"><a href="https://help.aliyun.com/zh/redis/user-guide/change-the-vpc-or-vswitch-of-an-instance#task-2038839" id="link-hr9-eyw-wmq" title="" class="xref">修改专有网络<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>或交换机</a></p>
+            </li>
+          </ul>
+        </div>
+      </section>
+</div>
+  </main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/redis/user-guide/change-the-vpc-or-vswitch-of-an-instance" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：修改专有网络VPC或交换机</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/redis/user-guide/change-the-endpoint-or-port-number-of-an-instance" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：修改连接地址或端口<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

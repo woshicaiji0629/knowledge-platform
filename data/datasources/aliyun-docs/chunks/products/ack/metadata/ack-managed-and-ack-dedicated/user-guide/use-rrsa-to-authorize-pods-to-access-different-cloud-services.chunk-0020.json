@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services:20",
+  "document_id": "ack:ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "通过RRSA配置ServiceAccount的RAM权限实现Pod权限隔离-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services",
+  "chunk_index": 20,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.chunk-0020.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md",
+  "heading_path": "通过RRSA配置ServiceAccount的RAM权限实现Pod权限隔离 > 阿里云官方SDK使用RRSA OIDC Token的参考代码 > SDK参考代码",
+  "char_count": 1200
+}

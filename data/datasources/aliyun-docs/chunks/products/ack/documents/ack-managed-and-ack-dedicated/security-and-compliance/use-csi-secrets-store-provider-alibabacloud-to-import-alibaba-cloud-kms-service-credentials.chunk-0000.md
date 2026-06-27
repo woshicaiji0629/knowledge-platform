@@ -1,0 +1,2 @@
+# 使用csi-secrets-store-provider-alibabacloud导入阿里云KMS服务凭据
+csi-secrets-store-provider-alibabacloud支持以Kubernetes Secret实例的形式向集群导入或同步KMS凭据信息，确保集群内的应用能够安全地访问敏感信息；还支持通过CSI Inline的形式将凭据密钥作为文件系统直接挂载到应用程序中，适用于通过文件系统接口（例如读取文件）来获取敏感信息的应用。通过该组件，可实现密钥数据的自动更新，从而降低凭据密文在Secrets实例中暴露的可能，同时解决工作负载和阿里云凭据管家交互的兼容性问题。

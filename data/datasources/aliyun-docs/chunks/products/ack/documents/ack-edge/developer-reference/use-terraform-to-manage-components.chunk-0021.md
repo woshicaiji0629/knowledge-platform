@@ -1,0 +1,3 @@
+## 配置监控组件
+ACK提供的监控组件包括ECS节点上安装的云监控插件和Prometheus监控服务。在Terraform中安装ECS节点上安装的云监控插件是通过参数install_cloud_monitor来控制的。
+展开查看详细信息

@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-mariadb/connect-to-an-apsaradb-rds-for-mariadb-instance",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "deployment",
+  "title": "如何快速上手连接MariaDB实例功能-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mariadb/connect-to-an-apsaradb-rds-for-mariadb-instance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-mariadb/connect-to-an-apsaradb-rds-for-mariadb-instance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mariadb/connect-to-an-apsaradb-rds-for-mariadb-instance.md",
+  "word_count": 976,
+  "text_units": 1989,
+  "local_links": 9,
+  "external_links": 72,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

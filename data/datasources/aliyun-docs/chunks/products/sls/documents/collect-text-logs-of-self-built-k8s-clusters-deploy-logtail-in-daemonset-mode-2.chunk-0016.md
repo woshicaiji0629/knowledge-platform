@@ -1,0 +1,3 @@
+lushers: # 如无多目标发送需求，填写一个 flusher 即可 - Type: flusher_sls # 指定使用 SLS 输出插件 Logstore: easy-row-logstore1 - Type: flusher_sls # 指定使用 SLS 输出插件 Logstore: easy-row-logstore2 |
+| --- | --- |
+| flushers 输出插件 通过 flusher_sls 插件，将采集到的日志发送至指定 Project 下的 LogStore。最多配置 5 个输出插件。 Type String （必选） 插件类型，固定为 flusher_sls 。 LogStore String （必选） 目标 LogStore 名称，决定日志的实际存储位置。 说明 指定 LogStore 必须存在或已在 [spec.LogStores](kubernetes-cr-parameter-description.md) 中声明。 配置多个输出目标后，该采集配置将不再显示在当前 LogStore 的采集配置列表中。如需查看、修改或删除多目标分发配置，请参考 [如何管理多目标分发配置？](collect-text-logs-of-self-built-k8s-clusters-deploy-logtail-in-daemonset-mode-2.md) 。 |  |

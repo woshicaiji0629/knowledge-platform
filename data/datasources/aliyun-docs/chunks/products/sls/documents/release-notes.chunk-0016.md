@@ -1,0 +1,3 @@
+dashboard-to-dingtalk-account-without-secret.md) |
+| 可观测资源额度 OCU | 可观测资源额度 OCU（Observability Capacity Unit）是阿里云云原生可观测推出的新版计费单位，可根据每小时资源使用情况自动统计 OCU 用量。 可以抵扣传输加速/规则消费/数据加工（新版）功能的费用。 | [全部地域](sls-supported-regions1.md) | [按使用功能计费模式计费项](billable-items.md) [按写入数据量计费模式计费项](billing-items-in-the-pay-per-data-write-mode.md) [全球加速采集/规则消费/新版数据加工功能商业化通知](https://www.aliyun.com/noticelist/articleid/1073523191.html) |
+| 跨 LogStore 查询日志（StoreView） | 在实际业务场景中，日志由不同的应用程序、服务、云产品生成，存储在不同地域的 Project 或同一地域的不同 LogStore 中。日志服务提供 StoreView 功能，支持跨地域、跨 Store 联合查询能力。 | [全部地域](sls-supported-regions1.md) | [数据视图（StoreView）概述](dataset-storeview-overview.md) |

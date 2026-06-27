@@ -1,0 +1,6 @@
+| 功能名称 | 变更类型 | 功能概述 | 相关链接 |
+| --- | --- | --- | --- |
+| IP 地址管理（IPAM） | 更新 | 当您创建 IPAM 后，系统为您默认创建 IPAM 资源发现并与创建的 IPAM 进行关联，您可通过资源发现管理 VPC 和交换机地址资源。 | [IP](ip-address-management-ipam.md) [地址管理（IPAM）](ip-address-management-ipam.md) [创建和管理](create-and-manage-ipam.md) [IPAM](create-and-manage-ipam.md) |
+| 更新 | 您可以监控 IP 地址利用率等相关指标，进行 IP 地址容量管理，针对高利用率的资源及时扩容，保障网络的稳定性与安全性。 | [IP](ip-address-management-ipam.md) [地址管理（IPAM）](ip-address-management-ipam.md) [创建和管理](create-and-manage-ipam.md) [IPAM](create-and-manage-ipam.md) [创建和管理](create-and-manage-address-pools.md) [IPAM](create-and-manage-address-pools.md) [地址池](create-and-manage-address-pools.md) |  |
+| 更新 | IPAM 地址池的资源所有者可以将地址池共享给其他阿里云账号（资源使用者），资源使用者可以在创建 VPC 时选择从共享的地址池分配。 | [共享](use-resource-management-to-share-ipam-address-pools.md) [IPAM](use-resource-management-to-share-ipam-address-pools.md) [地址池实现多账号下地址统一规划管理](use-resource-management-to-share-ipam-address-pools.md) |  |
+| 路由 | 更新 | VPC 支持静态路由发布至专线网关 ECR。您可以将 VPC 系统路由表配置的自定义路由条目发布至 ECR，实现动态路由传播。在不存在路由冲突的情况下，ECR 关联的本地 IDC 均可学习到该路由。 | [路由表](vpc-route-table.md) [使用静态路由发布至](use-static-route-publishing-to-enable-local-idc-access-to-the-public-network.md) [ECR](use-static-route-publish

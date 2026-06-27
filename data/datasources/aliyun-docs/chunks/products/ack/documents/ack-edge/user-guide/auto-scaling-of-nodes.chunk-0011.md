@@ -1,0 +1,3 @@
+补偿成功：ACK 对旧节点执行排水并从集群中移除。 补偿失败：ACK 不会对旧节点执行排水，到期实例仍然会在 5 分钟后被回收释放。当库存恢复或满足价格条件时，ACK 将自动购买实例以保证期望节点数，详情请参见 [抢占式实例节点池最佳实践](../../ack-managed-and-ack-dedicated/user-guide/best-practices-for-preemptible-instance-based-node-pools.md) 。 抢占式实例的主动释放可能导致业务异常，为提高补偿成功率，建议同时开启 使用按量实例补充抢占式容量 。 云资源及计费说明： [ECS](../../../../ecs/documents/instance-types.md) [实例](../../../../ecs/documents/instance-types.md) |
+| 伸缩模式 | 需开启节点池 自动伸缩 且 扩缩容模式 为 自动 。 标准模式 ：通过创建、释放 ECS 实例的方式进行伸缩。 极速模式 ：通过创建、停机、再启动 ECS 实例的方式进行伸缩，以便在需要再次伸缩时，直接重新启动处于停机状态的实例，提高伸缩速度。 ECS 实例停机时不收取计算资源费用，只收取存储费用（包含本地存储能力的实例规格族除外，例如大数据型、本地 SSD 型等）。关于 ECS 实例停机模式的计费详情及相关注意事项，请参见 [节省停机模式](../../../../ecs/documents/user-guide/economical-mode.md) 。 |
+| 污点 （Taints） | 添加污点后，集群将不会将 Pod 调度到该节点上。 |

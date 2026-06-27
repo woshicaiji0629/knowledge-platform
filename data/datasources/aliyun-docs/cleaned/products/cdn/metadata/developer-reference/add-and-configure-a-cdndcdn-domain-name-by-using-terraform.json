@@ -1,0 +1,17 @@
+{
+  "id": "cdn:developer-reference/add-and-configure-a-cdndcdn-domain-name-by-using-terraform",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "通过Terraform添加并配置CDN域名的操作步骤及前提条件-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/developer-reference/add-and-configure-a-cdndcdn-domain-name-by-using-terraform",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/developer-reference/add-and-configure-a-cdndcdn-domain-name-by-using-terraform.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/developer-reference/add-and-configure-a-cdndcdn-domain-name-by-using-terraform.md",
+  "word_count": 1239,
+  "text_units": 2480,
+  "local_links": 11,
+  "external_links": 79,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

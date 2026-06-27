@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/user-guide/auto-scaling-overview:6",
+  "document_id": "ack:ack-managed-and-ack-dedicated/user-guide/auto-scaling-overview",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "根据负载需求自动调整集群计算资源-弹性伸缩-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/auto-scaling-overview",
+  "chunk_index": 6,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/auto-scaling-overview.chunk-0006.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/auto-scaling-overview.md",
+  "heading_path": "弹性伸缩概述 > 工作负载伸缩和计算资源伸缩 > 工作负载伸缩方案",
+  "char_count": 380
+}

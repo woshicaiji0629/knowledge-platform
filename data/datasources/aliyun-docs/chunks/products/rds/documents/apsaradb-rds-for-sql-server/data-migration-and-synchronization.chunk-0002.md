@@ -1,0 +1,6 @@
+## 场景二：自建SQL Server迁移到RDS SQL Server
+[全量备份数据上云](migrate-the-full-backup-data-of-a-self-managed-sql-server-instance-to-an-apsaradb-rds-for-sql-server-instance.md)（数据库级别的迁移上云方案）
+[增量备份数据上云](migrate-the-incremental-backup-data-of-a-self-managed-sql-server-instance-to-an-apsaradb-rds-for-sql-server-instance.md)（数据库级别的迁移上云方案）
+[SQL Server](migrate-data-from-a-self-managed-sql-server-instance-to-an-apsaradb-rds-for-sql-server-instance.md)[实例级别迁移上云](migrate-data-from-a-self-managed-sql-server-instance-to-an-apsaradb-rds-for-sql-server-instance.md)（实例级别的迁移上云方案）
+[自建](migrate-data-from-a-self-managed-sql-server-database-to-an-apsaradb-rds-for-sql-server-instance.md)[SQL Server](migrate-data-from-a-self-managed-sql-server-database-to-an-apsaradb-rds-for-sql-server-instance.md)[迁移至](migrate-data-from-a-self-managed-sql-server-database-to-an-apsaradb-rds-for-sql-server-instance.md)[RDS SQL Server](migrate-data-from-a-self-managed-sql-server-database-to-an-apsaradb-rds-for-sql-server-instance.md)（采用JDBC逻辑协议获取SQL并写入到目标端）
+[自建](migrate-data-from-a-self-managed-sql-server-database-to-an-apsaradb-rds-for-sql-server-instance-by-using-a-physical-gateway.md)[SQL Server](migrate-data-from-a-self-managed-sq

@@ -1,0 +1,14 @@
+{
+  "id": "redis:product-overview/disaster-recovery:5",
+  "document_id": "redis:product-overview/disaster-recovery",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "Tair容灾架构介绍以及如何选择容灾方案-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/disaster-recovery",
+  "chunk_index": 5,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/product-overview/disaster-recovery.chunk-0005.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/disaster-recovery.md",
+  "heading_path": "灾备方案介绍 > 如何应对故障",
+  "char_count": 199
+}

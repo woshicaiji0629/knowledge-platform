@@ -1,0 +1,480 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    如何提高CDN缓存命中率-CDN(CDN)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/cdn/use-cases/increase-the-cache-hit-ratios-of-alibaba-cloud-cdn">
+  <meta name="keywords" content="CDN缓存命中率">
+  <meta name="description" content="CDN缓存命中率低会导致源站压力大，静态资源访问效率低。您可以根据导致CDN缓存命中率低的具体原因，选择对应的优化策略来提高CDN的缓存命中率。">
+  <meta name="last-modified" content="2026-05-29T16:45:31+08:00">
+  <meta name="date" content="2019-06-25T05:34:45+08:00">
+  <meta property="og:title" content="提高CDN缓存命中率">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/cdn/use-cases/increase-the-cache-hit-ratios-of-alibaba-cloud-cdn">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="CDN缓存命中率低会导致源站压力大，静态资源访问效率低。您可以根据导致CDN缓存命中率低的具体原因，选择对应的优化策略来提高CDN的缓存命中率。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/cdn/use-cases/increase-the-cache-hit-ratios-of-alibaba-cloud-cdn",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "123330",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/cdn/use-cases/increase-the-cache-hit-ratios-of-alibaba-cloud-cdn","nodeId":null,"data":{"lastModifiedTime":1780044331000,"keywords":"CDN缓存命中率","docTitle":"提高CDN缓存命中率","language":"zh","seoTitle":"如何提高CDN缓存命中率-CDN(CDN)-阿里云帮助中心","title":"提高CDN缓存命中率","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"concept-845410\">\n    \n    \n    <p id=\"shortdesc-yg5-0ln-p3n\" data-tag=\"shortdesc\" class=\"shortdesc\">CDN<span class=\"help-letter-space\"></span>缓存命中率低会导致源站压力大，静态资源访问效率低。您可以根据导致<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>缓存命中率低的具体原因，选择对应的优化策略来提高<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>的缓存命中率。</p>\n    <div data-tag=\"conbody\" id=\"conbody-3pv-fed-xx2\" class=\"conbody\">\n      <section data-tag=\"section\" id=\"section-bp6-a4v-p6v\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-ejq-xmp-1mn\" class=\"title\">背景信息</h2>\n        <p data-tag=\"p\" id=\"p-cgb-zje-b58\" class=\"p\">CDN<span class=\"help-letter-space\"></span>通过将静态资源缓存在<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点上实现资源访问加速。当客户端访问某资源时，如果<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点上已经缓存了该资源，用户请求会命中<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点上的缓存，直接从缓存中获取资源返回给用户，可避免通过较长的链路回源，提高资源的响应速度和降低源站的带宽压力。如果<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>缓存命中率低，会影响用户体验和增加源站的带宽压力。</p>\n        <div data-tag=\"p\" id=\"p-6d7-8z3-x28\" class=\"p\">\n          <p id=\"d2fd193e73avj\">CDN<span class=\"help-letter-space\"></span>缓存字节命中率：</p>\n          <ul id=\"cb5fa2c2d9r0y\">\n            <li id=\"1f9ed0eca27vm\">\n              <p id=\"6c1b029d8exr6\">字节命中率=（L1<span class=\"help-letter-space\"></span>的边缘节点响应流量-回源的边缘节点响应流量）/L1<span class=\"help-letter-space\"></span>的边缘节点响应流量</p>\n              <div data-tag=\"note\" id=\"note-gfx-92d-x70\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                <p id=\"7a303244617sw\">字节命中率越低，回源流量越大，源站的流出流量越大，源站的带宽资源以及其他的负载越大，因此回源流量代表了源站服务器接收到的负载压力，在业务使用中主要关心字节命中率。</p>\n              </div></div>\n            </li>\n          </ul>\n          <ul class=\"ul\" data-tag=\"ul\" id=\"ul-fqa-uoy-yi0\">\n            <li class=\"li\" data-tag=\"li\" id=\"li-qeg-dvb-70j\" data-spm-anchor-id=\"a2c4g.11186623.0.i1.ec856e1dFlvGak\">\n              <p id=\"58220f67bcite\">请求命中率=CDN<span class=\"help-letter-space\"></span>缓存命中的请求数÷CDN<span class=\"help-letter-space\"></span>所有的请求数</p>\n              <div type=\"important\" id=\"e0e98560b0io0\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                <p id=\"bd8b616839zxo\">range<span class=\"help-letter-space\"></span>分片回源情况下，命中率指标建议参考字节命中率。</p>\n              </div></div>\n            </li>\n          </ul>\n        </div>\n      </section>\n      <section data-tag=\"section\" id=\"section-o96-ep0-dzz\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-fhk-8iv-mwx\" class=\"title\">查看<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>缓存命中率</h2>\n        <div id=\"7080a26f7asll\" outputclass=\"collapse expanded\" class=\"collapse expanded\">\n          <h3 id=\"6149e120adkeh\" data-tag=\"expandable-title\" class=\"expandable-title\"><b>方式一：通过控制台查看</b></h3>\n          <div id=\"30fd4aab23to2\" data-tag=\"expandable-content\" class=\"expandable-content\">\n            <section id=\"d66f6de8314yl\" class=\"section\">\n              <p id=\"4fc01dea13dmr\">CDN<span class=\"help-letter-space\"></span>控制台提供的缓存命中率监控为字节命中率，详细信息如下：</p>\n              <ul data-tag=\"ul\" id=\"ul-y7s-40l-6fr\" class=\"ul\">\n                <li data-tag=\"li\" id=\"li-wet-cxh-c29\" class=\"li\">\n                  <p id=\"d19724d472gx4\">通过资源监控功能查询</p>\n                  <div data-tag=\"p\" id=\"p-b1j-fr7-g24\" class=\"p\">\n                    <p id=\"e5637362dcxfn\">可查询数据的时间范围较大，适合查看较长周期（例如<span class=\"help-letter-space\"></span>30<span class=\"help-letter-space\"></span>天）内的命中率情况。时间粒度为<span class=\"help-letter-space\"></span>5<span class=\"help-letter-space\"></span>分钟的情况下，数据延迟<span class=\"help-letter-space\"></span>15<span class=\"help-letter-space\"></span>分钟左右。详细信息，请参见<a href=\"https://help.aliyun.com/zh/cdn/user-guide/resource-monitoring#task-261642\" id=\"e8218b1fb0aj3\" title=\"\" class=\"xref\">资源监控</a>。<img data-tag=\"image\" id=\"image-rk5-mbv-le2\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3287780271/p278844.png\" alt=\"命中率\" placement=\"break\" class=\"image break\"></p>\n                  </div>\n                </li>\n                <li data-tag=\"li\" id=\"li-ax5-mmz-xrb\" class=\"li\">\n                  <p id=\"aca1faa64etve\">通过实时监控功能查询</p>\n                  <div data-tag=\"p\" id=\"p-e69-ode-sda\" class=\"p\">\n                    <p id=\"687c0f9576zdg\">可查询数据的时间范围较小，适合查看较短周期（例如<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>小时）内的实时命中率情况。时间粒度为<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>分钟的情况下，数据延迟<span class=\"help-letter-space\"></span>3<span class=\"help-letter-space\"></span>分钟左右。详细信息，请参见<a href=\"https://help.aliyun.com/zh/cdn/user-guide/real-time-monitoring#task-2036744\" id=\"570fcf5399wf0\" title=\"\" class=\"xref\">实时监控</a>。<img data-tag=\"image\" id=\"image-3n0-4er-mmm\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3287780271/p63526.png\" alt=\"质量监控\" placement=\"break\" class=\"image break\"></p>\n                  </div>\n                </li>\n              </ul>\n            </section>\n          </div>\n        </div>\n        <div id=\"9e8c71d22ek1q\" outputclass=\"collapse expanded\" class=\"collapse expanded\">\n          <h3 id=\"099fa7c189tih\" data-tag=\"expandable-title\" class=\"expandable-title\"><b>方式二：调用<span class=\"help-letter-space\"></span>API<span class=\"help-letter-space\"></span>查看</b></h3>\n          <div id=\"ea20922865gfh\" data-tag=\"expandable-content\" class=\"expandable-content\">\n            <section id=\"8dcee61f45g7y\" class=\"section\">\n              <ul data-tag=\"ul\" id=\"168ddddb9fztx\" class=\"ul\">\n                <li data-tag=\"li\" id=\"0b31cb5c92gkm\" class=\"li\">\n                  <p id=\"baf74f69899un\">资源监控功能对应的<span class=\"help-letter-space\"></span>API</p>\n                  <table id=\"7083d2f6702d9\" tablewidth=\"100\" tablecolswidth=\"33.29 66.71000000000001\" autofit=\"true\" class=\"table\">\n                    <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n                    <colgroup colwidth=\"1.33*\" style=\"width:66.71%\"></colgroup>\n                    <tbody class=\"tbody\">\n                      <tr id=\"89d0d3addaqu9\">\n                        <td id=\"051f33005ebu9\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                          <p id=\"671ac7c5ebf7w\"><b>API</b></p>\n                        </td>\n                        <td id=\"03398f8afdfr8\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                          <p id=\"14be131da102h\"><b>描述</b></p>\n                        </td>\n                      </tr>\n                      <tr id=\"b8f80c59b9eff\">\n                        <td id=\"cf15c70f93r04\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"34061308e8ume\"><a href=\"https://help.aliyun.com/zh/cdn/api-describedomainhitratedata#doc-api-Cdn-DescribeDomainHitRateData\" id=\"e48ea1c5603q1\" title=\"\" class=\"xref\">DescribeDomainHitRateData</a></p>\n                        </td>\n                        <td id=\"011aed334a1ba\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"2a8552dbe4frj\">获取加速域名的字节命中率数据，支持获取最近<span class=\"help-letter-space\"></span>90<span class=\"help-letter-space\"></span>天的数据。</p>\n                        </td>\n                      </tr>\n                      <tr id=\"c3fb9428e7h4a\">\n                        <td id=\"5eb2142216qh6\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"8c462beb12c7n\"><a href=\"https://help.aliyun.com/zh/cdn/api-describedomainreqhitratedata#doc-api-Cdn-DescribeDomainReqHitRateData\" id=\"6771f99a7246t\" title=\"\" class=\"xref\">DescribeDomainReqHitRateData</a></p>\n                        </td>\n                        <td id=\"45e35f932dymw\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"414ed169f9l1d\">获取加速域名的请求命中率数据，支持获取最近<span class=\"help-letter-space\"></span>90<span class=\"help-letter-space\"></span>天的数据。</p>\n                        </td>\n                      </tr>\n                    </tbody>\n                  </table>\n                </li>\n                <li data-tag=\"li\" id=\"f5466d22659h1\" class=\"li\">\n                  <p id=\"058b9a38a3sel\">实时监控功能对应的<span class=\"help-letter-space\"></span>API</p>\n                  <table id=\"0a40f6a20fr93\" tablewidth=\"100\" tablecolswidth=\"33.29 66.71000000000001\" autofit=\"true\" class=\"table\">\n                    <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n                    <colgroup colwidth=\"1.33*\" style=\"width:66.71%\"></colgroup>\n                    <tbody class=\"tbody\">\n                      <tr id=\"855586aa4c7m9\">\n                        <td id=\"18a10b0b4c88p\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                          <p id=\"35b6ba9596nwm\"><b>API</b></p>\n                        </td>\n                        <td id=\"91b91b6967ch3\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                          <p id=\"42291aa896u3d\"><b>描述</b></p>\n                        </td>\n                      </tr>\n                      <tr id=\"a73ddf48f88zk\">\n                        <td id=\"b53bdffd50o19\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"004e8500afwzw\"><a href=\"https://help.aliyun.com/zh/cdn/api-describedomainrealtimebytehitratedata#doc-api-Cdn-DescribeDomainRealTimeByteHitRateData\" id=\"e30faa8664svu\" title=\"\" class=\"xref\">DescribeDomainRealTimeByteHitRateData</a></p>\n                        </td>\n                        <td id=\"b4f49d2500mmj\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"f15f004aa85pz\">获取加速域名<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>分钟粒度的字节命中率数据，支持查询<span class=\"help-letter-space\"></span>7<span class=\"help-letter-space\"></span>天内的数据。</p>\n                        </td>\n                      </tr>\n                      <tr id=\"e981046a78nqf\">\n                        <td id=\"9841bba2abxd9\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"a0491aa810i98\"><a href=\"https://help.aliyun.com/zh/cdn/api-describedomainrealtimereqhitratedata#doc-api-Cdn-DescribeDomainRealTimeReqHitRateData\" id=\"7b7ec1ba41rfx\" title=\"\" class=\"xref\">DescribeDomainRealTimeReqHitRateData</a></p>\n                        </td>\n                        <td id=\"15552d54fcq86\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"9b4d95f5409gr\">获取加速域名<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>分钟粒度的请求命中率数据，支持查询<span class=\"help-letter-space\"></span>7<span class=\"help-letter-space\"></span>天内的数据。</p>\n                        </td>\n                      </tr>\n                    </tbody>\n                  </table>\n                </li>\n              </ul>\n            </section>\n          </div>\n        </div>\n      </section>\n      <section data-tag=\"section\" id=\"section-nc4-hok-6xt\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-855-9vh-wor\" class=\"title\">提高<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>缓存命中率</h2>\n        <div data-tag=\"p\" id=\"p-svl-7sd-4t2\" class=\"p\">\n          <p id=\"4ef55de447308\">下表列出了影响<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>缓存命中率的因素和提高<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>缓存命中率的方法。</p>\n          <table id=\"table-7aw-a1d-qkt\" tablewidth=\"100\" tablecolswidth=\"28.02 51.92 20.060000000000002\" autofit=\"true\" class=\"table\">\n            <colgroup colwidth=\"0.85*\" style=\"width:28.02%\"></colgroup>\n            <colgroup colwidth=\"1.57*\" style=\"width:51.92%\"></colgroup>\n            <colgroup colwidth=\"0.61*\" style=\"width:20.06%\"></colgroup>\n            <tbody class=\"tbody\">\n              <tr id=\"row-tno-dr8-25z\">\n                <td id=\"concept-845410-entry-lwu-hts-c6k\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"f13bb27187tnd\"><b>策略</b></p>\n                </td>\n                <td id=\"concept-845410-entry-q5f-jxi-qwf\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"4e9f89a03e6sa\"><b>影响因素与应用场景</b></p>\n                </td>\n                <td id=\"concept-845410-entry-yet-3wj-h7u\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"a44fd460b187o\"><b>配置方法</b></p>\n                </td>\n              </tr>\n              <tr id=\"row-x54-8qi-gb0\">\n                <td id=\"entry-lip-kcw-p7o\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"93d0729a7366c\">业务高峰前预热热门资源</p>\n                </td>\n                <td id=\"entry-62a-o4w-3bx\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"c7138e44b8h9n\">影响因素：运营大型活动或新版本安装包发布前，没有提前将资源预热到<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点，大量资源需要从源站获取，导致<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>缓存命中率低。</p>\n                  <p id=\"210c41eb0et93\">应用场景：</p>\n                  <ul class=\"ul\" data-tag=\"ul\" id=\"ul-tfa-fw3-r86\">\n                    <li class=\"li\" data-tag=\"li\" id=\"li-swo-blm-qc7\">\n                      <p id=\"24ee93b40fzul\">运营活动</p>\n                      <p id=\"3e6bd0a3734gj\">运营一个大型活动时，提前将活动页涉及到的静态资源预热至<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点，活动开始后用户访问的所有静态资源均已缓存至<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>加速节点，由加速节点直接响应。</p>\n                    </li>\n                    <li class=\"li\" data-tag=\"li\" id=\"li-edj-j6n-4ay\">\n                      <p id=\"656afb4bc1n6t\">安装包发布</p>\n                      <p id=\"7452cf1d63wj6\">新版本安装包或升级包发布前，提前将资源预热至<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>加速节点，产品正式上线后，海量用户的下载请求将直接由<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>加速节点响应，提升下载速度，大幅度降低源站压力，提升用户体验。</p>\n                    </li>\n                  </ul>\n                </td>\n                <td id=\"entry-w4w-93d-6xs\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"84beb1e3e73g0\"><a href=\"https://help.aliyun.com/zh/cdn/user-guide/refresh-and-prefetch-resources#section-81a-rm1-sis\" id=\"xref-1xh-a92-2sr\" title=\"\" class=\"xref\">刷新和预热资源</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-sth-4qh-pcs\">\n                <td id=\"entry-8d8-wbr-nlw\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"77d60ae8c4d4j\">合理配置缓存过期时间：</p>\n                  <ul data-tag=\"ul\" id=\"ul-7uh-q0v-z2u\" class=\"ul\">\n                    <li data-tag=\"li\" id=\"li-bsm-eq3-nwa\" class=\"li\">\n                      <p id=\"73bf5d8d21kgs\">不常更新的静态文件（例如，图片类型、应用下载类型等），建议设置<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>个月以上。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-17a-uiy-xuh\" class=\"li\">\n                      <p id=\"6af956ed12ekh\">频繁更新的静态文件（例如，JS、CSS<span class=\"help-letter-space\"></span>等），根据实际业务情况设置。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-70p-cb3-ldu\" class=\"li\">\n                      <p id=\"a577fd71d7pc1\">动态文件（例如，PHP、JSP、ASP<span class=\"help-letter-space\"></span>等），建议设置为<span class=\"help-letter-space\"></span>0s，即不缓存。</p>\n                    </li>\n                  </ul>\n                </td>\n                <td id=\"entry-edc-jei-174\" rowspan=\"1\" colspan=\"1\">\n                  <div data-tag=\"p\" id=\"p-vfa-wdf-cli\" class=\"p\">\n                    <p id=\"8c02edd187x9k\">影响因素：</p>\n                    <ul data-tag=\"ul\" id=\"ul-07b-foc-4xc\" class=\"ul\">\n                      <li data-tag=\"li\" id=\"li-d6h-hwk-wd7\" class=\"li\">\n                        <p id=\"b98cef047aqhv\">CDN<span class=\"help-letter-space\"></span>上未配置缓存策略，所有用户请求都需要回源站。</p>\n                      </li>\n                      <li data-tag=\"li\" id=\"li-7vc-he7-6kg\" class=\"li\">\n                        <p id=\"89ff79f14043r\">CDN<span class=\"help-letter-space\"></span>上配置的缓存过期时间过短，缓存资源频繁过期，导致缓存命中率低。</p>\n                      </li>\n                    </ul>\n                  </div>\n                  <p data-tag=\"p\" id=\"p-e27-we1-uzx\" class=\"p\">应用场景：用户在源站发布了静态资源，CDN<span class=\"help-letter-space\"></span>节点没有将资源缓存下来，或者<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点上缓存的资源很快就失效了。</p>\n                </td>\n                <td id=\"entry-qkw-qsh-4ix\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"b41ad3ccdczkm\"><a href=\"https://help.aliyun.com/zh/cdn/user-guide/configure-the-cdn-cache-expiration-time#task-261642\" id=\"xref-wni-ant-zbf\" title=\"\" class=\"xref\">配置<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>缓存过期时间</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-655-s4d-n9q\">\n                <td id=\"entry-kx9-roj-ixz\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"c404a9543btdj\">去除<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>中问号后的参数缓存</p>\n                </td>\n                <td id=\"entry-k9t-owf-bo5\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"defbc238fenew\">影响因素：当<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>请求中带有<span data-tag=\"varname\" id=\"varname-ju3-9qz-906\" class=\"varname\"><i>queryString</i></span>或其他可变参数时，访问同一个资源的不同<span class=\"help-letter-space\"></span>URL（URL<span class=\"help-letter-space\"></span>携带的参数不同）会重新回源，导致<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>缓存命中率低。</p>\n                  <p data-tag=\"p\" id=\"p-6jl-s30-rx8\" class=\"p\">应用场景：希望通过不同的<span class=\"help-letter-space\"></span>URL（URL<span class=\"help-letter-space\"></span>携带的参数不同），可以访问到同一个资源。</p>\n                </td>\n                <td id=\"entry-g09-atn-j6t\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"4ecb211d7dks5\"><a href=\"https://help.aliyun.com/zh/cdn/user-guide/ignore-parameters#task-187634\" id=\"xref-rci-8ab-gg8\" title=\"\" class=\"xref\">忽略参数</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-pr2-w28-drt\">\n                <td id=\"entry-rbw-xgv-5mg\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"d0c9f450f9znd\">大文件设置分片回源策略</p>\n                </td>\n                <td id=\"entry-qn0-kuo-el5\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"59a0f721a2xk1\">影响因素：用户下载安装包可能下载一半就停止下载，或者观看视频只看了一部分就停止观看，即用户只需要访问资源文件指定范围内的部分内容，但是<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点会向源站请求整个文件，从而使得<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点从源站下载的内容大于响应给用户的内容，导致缓存命中率低。</p>\n                  <p data-tag=\"p\" id=\"p-4q8-l3a-ore\" class=\"p\">应用场景：用户下载应用安装包或者观看视频资源。</p>\n                </td>\n                <td id=\"entry-gcv-li0-bm4\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"7c13144656o52\"><a href=\"https://help.aliyun.com/zh/cdn/user-guide/object-chunking#task-187634\" id=\"xref-xjo-cbi-fy7\" title=\"\" class=\"xref\">配置<span class=\"help-letter-space\"></span>Range<span class=\"help-letter-space\"></span>回源</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-handle-origin-no-cache\">\n                <td id=\"entry-handle-origin-no-cache\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"p-handle-origin-no-cache-strategy\">处理源站不缓存标头</p>\n                </td>\n                <td id=\"entry-handle-origin-no-cache-factor\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"p-handle-origin-no-cache-factor\">影响因素：源站返回了不缓存的响应头（如 Cache-Control: max-age=0、Cache-Control: no-cache、Cache-Control: private 等），CDN 会遵循源站指示不对该资源进行缓存，导致所有请求都回源到源站，缓存命中率降低。典型场景：源站为静态文件（图片、JS、CSS 等）配置了 Cache-Control: max-age=0 或 Cache-Control: no-cache 响应头，导致 CDN 节点无法缓存这些静态资源。</p>\n                </td>\n                <td id=\"entry-handle-origin-no-cache-method\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"p-handle-origin-no-cache-method1\">方法一（推荐）：修改源站服务器配置，去掉静态资源响应头中的 Cache-Control: max-age=0 或 Cache-Control: no-cache 等不缓存标头，为静态资源配置合理的缓存时长（如 Cache-Control: max-age=2592000）。</p>\n                  <p id=\"p-handle-origin-no-cache-method2\">方法二：在<!-- @conref key=\"cdn_routes_layout_menu_domain\" project=\"cdn-next\" -->**域名管理**<!-- @/conref -->页面，单击目标加速域名，进入<!-- @conref key=\"cdn_modules_domain_detail_menu_cache\" project=\"cdn-next\" -->**缓存配置**<!-- @/conref -->页签，在<!-- @conref key=\"cdn_modules_domain_detail_cache_expired_time\" project=\"cdn-next\" -->**缓存过期时间**<!-- @/conref -->中<!-- @conref key=\"cdn_modules_domain_detail_cache_index_add\" project=\"cdn-next\" -->**添加**<!-- @/conref -->缓存规则，开启<!-- @conref key=\"cdn_modules_domain_detail_cache_swift_no_cache_low\" project=\"cdn-next\" -->**忽略源站不缓存标头**<!-- @/conref -->选项。开启后，CDN 将忽略源站返回的不缓存标头，按照 CDN 自身配置的缓存策略进行缓存。</p>\n                  <div type=\"note\" id=\"note-handle-origin-no-cache\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                    <p id=\"p-handle-origin-no-cache-note\">「忽略源站不缓存标头」功能开启后，CDN 将会忽略源站响应的不缓存标头（例如 Cache-Control: no-cache 等），按照您在 CDN 控制台配置的缓存过期时间规则进行缓存。该选项在缓存过期时间配置弹窗中与「优选遵循源站缓存策略」「客户端跟随<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>缓存策略」「强制内容重新验证」等选项并列。过期时间最多可设置为 3 年。</p>\n                  </div></div>\n                  <div type=\"note\" id=\"note-handle-origin-range\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                    <p id=\"p-handle-origin-range\">为进一步提升缓存命中率，建议在<!-- @conref key=\"cdn_modules_domain_detail_menu_back_src\" project=\"cdn-next\" -->**回源配置**<!-- @/conref -->中将 Range 回源设置为「跟随客户端 Range 请求」，避免全量回源影响命中率。</p>\n                  </div></div>\n                </td>\n              </tr>\n              <tr id=\"row-25z-m23-s5k\">\n                <td id=\"entry-mnj-8b3-88x\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"a33aba572bi8w\">其他命中率优化策略</p>\n                </td>\n                <td id=\"entry-xjh-dsw-5l3\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"e0836356950bw\">除了以上几种常用的命中率优化措施以外，阿里云<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>还有其他的优化措施，这些措施可以根据不同的业务场景来配置，例如：中心<span class=\"help-letter-space\"></span>302<span class=\"help-letter-space\"></span>调度、边缘<span class=\"help-letter-space\"></span>302<span class=\"help-letter-space\"></span>调度、合并回源、共享缓存等。其中，**共享缓存**功能允许同账号下的多个加速域名共用 CDN 节点上的缓存资源。当您有多个域名需要同名的 JS/CSS 文件且各源站内容完全一致时，可通过共享缓存功能让这些域名共用同一份缓存，从而提升缓存命中率。新增网站时，只需确保其资源路径与现有加速域名的资源结构对齐，无需重复配置 CDN 缓存规则，即可实现多源站文件的统一加速和缓存共享。</p>\n                </td>\n                <td id=\"entry-b9v-2xv-0uz\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"6ff925d6aes6b\">中心<span class=\"help-letter-space\"></span>302<span class=\"help-letter-space\"></span>调度、边缘<span class=\"help-letter-space\"></span>302<span class=\"help-letter-space\"></span>调度、合并回源由阿里云售后工程师在后台配置。**共享缓存**：在<!-- @conref key=\"cdn_routes_layout_menu_domain\" project=\"cdn-next\" -->**域名管理**<!-- @/conref -->页面，单击目标加速域名，进入<!-- @conref key=\"cdn_modules_domain_detail_menu_cache\" project=\"cdn-next\" -->**缓存配置**<!-- @/conref -->页签，切换到<!-- @conref key=\"cdn_modules_domain_detail_shared_cache\" project=\"cdn-next\" -->**共享缓存**<!-- @/conref -->子页签，单击<!-- @conref key=\"cdn_modules_domain_detail_shared_cache_modify_config\" project=\"cdn-next\" -->**修改配置**<!-- @/conref -->，从当前账号下已在线的加速域名列表中选择要共享缓存的目标域名（支持搜索过滤），确认后即可生效。选择后，当前加速域名与所选加速域名共享缓存，同时合并到所选加速域名回源。如需删除配置，单击<!-- @conref key=\"cdn_modules_domain_detail_shared_cache_delete_config\" project=\"cdn-next\" -->**删除配置**<!-- @/conref -->并确认即可。</p>\n                  <div type=\"note\" id=\"note-shared-cache\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                    <p id=\"p-shared-cache-note\">共享缓存配置中，可从当前账号下已在线的加速域名中单选一个目标域名（自动排除当前域名本身）。配置生效后，当前域名将使用所选域名的缓存资源，并合并到所选域名的回源路径中。</p>\n                  </div></div>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </section>\n      <section data-tag=\"section\" id=\"section-0t4-iib-7po\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-o0n-cwx-a22\" class=\"title\">查看缓存命中状态日志</h2>\n        <p data-tag=\"p\" id=\"p-fe9-61p-kec\" class=\"p\">在<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>的请求日志中，记录了所有<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>请求的缓存命中状态。详细日志格式，请参见<a href=\"https://help.aliyun.com/zh/cdn/user-guide/offline-logs-quick-start#task-187634\" id=\"xref-hbe-e29-4lw\" title=\"\" class=\"xref\">快速入门</a>。</p>\n        <div data-tag=\"p\" id=\"p-r6f-k0r-plh\" class=\"p\">\n          <p id=\"0f28ed5e75vob\">缓存命中状态字段说明：</p>\n          <ul data-tag=\"ul\" id=\"ul-2qd-z9v-lsa\" class=\"ul\">\n            <li data-tag=\"li\" id=\"li-5z2-88b-rz2\" class=\"li\">\n              <p id=\"81719891ca3dl\">HIT：表示命中缓存。</p>\n            </li>\n            <li data-tag=\"li\" id=\"li-jnv-4o0-yhu\" class=\"li\">\n              <p id=\"f371e110b47vu\">MISS：表示未命中缓存。</p>\n            </li>\n          </ul>\n          <div data-tag=\"note\" id=\"note-zjo-8e5-48l\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n            <p id=\"63b341b734r0n\">命中状态仅表示<span class=\"help-letter-space\"></span>CDN L1<span class=\"help-letter-space\"></span>节点的命中状态。例如，CDN L1<span class=\"help-letter-space\"></span>节点未命中缓存，L2<span class=\"help-letter-space\"></span>节点命中缓存，日志中仍显示<span class=\"help-letter-space\"></span>MISS。</p>\n          </div></div>\n          <p id=\"9a75f707fd9lb\">日志示例：</p><pre data-tag=\"codeblock\" id=\"codeblock-uge-h8i-9wm\" outputclass=\"language-java\" code-type=\"xCode\" class=\"pre codeblock language-java\"><code>26/Jun/2019:10:38:19 +0800] 192.168.53.146 - 1542 \"-\" \"GET http://example.aliyundoc.com/index.html\" 200 191 2830 MISS \"Mozilla/5.0 (compatible; AhrefsBot/5.0; +http://example.com/robot/)\" \"text/html\"</code></pre>\n        </div>\n        <p data-tag=\"p\" id=\"p-kup-j38-19n\" class=\"p\">您也可以调用<a href=\"https://help.aliyun.com/zh/cdn/developer-reference/api-cdn-2018-05-10-describecdndomainlogs\" id=\"e108f622920sz\" title=\"\" class=\"xref\">查询离线日志下载地址</a>接口，获取加速域名的日志信息。</p>\n      </section>\n    </div>\n  </main>\n\n\n\n\n</div>","path":"https://help.aliyun.com/zh/cdn/use-cases/increase-the-cache-hit-ratios-of-alibaba-cloud-cdn","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"CDN","id":27099,"title":"CDN","url":"/zh/cdn/"},"alias":"/cdn/use-cases/increase-the-cache-hit-ratios-of-alibaba-cloud-cdn","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":6,"developerUrl":"https://developer.aliyun.com/group/videocloud/","nodeType":1,"version":20,"url":"/zh/cdn/use-cases/increase-the-cache-hit-ratios-of-alibaba-cloud-cdn","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":123330,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"提高CDN缓存命中率","id":123330,"title":"提高CDN缓存命中率","url":"/zh/cdn/use-cases/increase-the-cache-hit-ratios-of-alibaba-cloud-cdn"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"最佳实践","id":68199,"title":"最佳实践","url":"/zh/cdn/use-cases/best-practices/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"实践教程","id":2399344,"title":"实践教程","url":"/zh/cdn/use-cases/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"CDN","id":27099,"title":"CDN","url":"/zh/cdn/"},"productUrl":"https://www.aliyun.com/product/cdn","nodeId":123330,"desc":"CDN缓存命中率低会导致源站压力大，静态资源访问效率低。您可以根据导致CDN缓存命中率低的具体原因，选择对应的优化策略来提高CDN的缓存命中率。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"CDN","id":27099,"title":"CDN","url":"/zh/cdn/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"实践教程","id":2399344,"title":"实践教程","url":"/zh/cdn/use-cases/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"最佳实践","id":68199,"title":"最佳实践","url":"/zh/cdn/use-cases/best-practices/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"提高CDN缓存命中率","id":123330,"title":"提高CDN缓存命中率","url":"/zh/cdn/use-cases/increase-the-cache-hit-ratios-of-alibaba-cloud-cdn"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=2150428217825417714575278e4be2&asid=AQAAAADLbT9qoHKKSwAAAACqdo418DLkmg==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2399341" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/product-overview/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品概述</span>
+</a>
+</li>
+ <li id="27111" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/getting-started/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">快速入门</span>
+</a>
+</li>
+ <li id="2399342" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">操作指南</span>
+</a>
+</li>
+ <li id="2399344" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/use-cases/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">实践教程</span>
+</a>
+</li>
+ <li id="2743872" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/security-and-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="2399346" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2399343" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/support/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">服务支持</span>
+</a>
+</li>
+ <li id="40215" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/videos/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">视频专区</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>提高CDN缓存命中率</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/cdn" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="concept-845410">
+    
+    
+    <p id="shortdesc-yg5-0ln-p3n" data-tag="shortdesc" class="shortdesc">CDN<span class="help-letter-space"></span>缓存命中率低会导致源站压力大，静态资源访问效率低。您可以根据导致<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>缓存命中率低的具体原因，选择对应的优化策略来提高<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>的缓存命中率。</p>
+    <div data-tag="conbody" id="conbody-3pv-fed-xx2" class="conbody">
+      <section data-tag="section" id="section-bp6-a4v-p6v" data-type="section" class="section">
+        <h2 data-tag="title" id="title-ejq-xmp-1mn" class="title">背景信息</h2>
+        <p data-tag="p" id="p-cgb-zje-b58" class="p">CDN<span class="help-letter-space"></span>通过将静态资源缓存在<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点上实现资源访问加速。当客户端访问某资源时，如果<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点上已经缓存了该资源，用户请求会命中<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点上的缓存，直接从缓存中获取资源返回给用户，可避免通过较长的链路回源，提高资源的响应速度和降低源站的带宽压力。如果<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>缓存命中率低，会影响用户体验和增加源站的带宽压力。</p>
+        <div data-tag="p" id="p-6d7-8z3-x28" class="p">
+          <p id="d2fd193e73avj">CDN<span class="help-letter-space"></span>缓存字节命中率：</p>
+          <ul id="cb5fa2c2d9r0y">
+            <li id="1f9ed0eca27vm">
+              <p id="6c1b029d8exr6">字节命中率=（L1<span class="help-letter-space"></span>的边缘节点响应流量-回源的边缘节点响应流量）/L1<span class="help-letter-space"></span>的边缘节点响应流量</p>
+              <div data-tag="note" id="note-gfx-92d-x70" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                <p id="7a303244617sw">字节命中率越低，回源流量越大，源站的流出流量越大，源站的带宽资源以及其他的负载越大，因此回源流量代表了源站服务器接收到的负载压力，在业务使用中主要关心字节命中率。</p>
+              </div></div>
+            </li>
+          </ul>
+          <ul class="ul" data-tag="ul" id="ul-fqa-uoy-yi0">
+            <li class="li" data-tag="li" id="li-qeg-dvb-70j" data-spm-anchor-id="a2c4g.11186623.0.i1.ec856e1dFlvGak">
+              <p id="58220f67bcite">请求命中率=CDN<span class="help-letter-space"></span>缓存命中的请求数÷CDN<span class="help-letter-space"></span>所有的请求数</p>
+              <div type="important" id="e0e98560b0io0" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                <p id="bd8b616839zxo">range<span class="help-letter-space"></span>分片回源情况下，命中率指标建议参考字节命中率。</p>
+              </div></div>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section data-tag="section" id="section-o96-ep0-dzz" data-type="section" class="section">
+        <h2 data-tag="title" id="title-fhk-8iv-mwx" class="title">查看<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>缓存命中率</h2>
+        <div id="7080a26f7asll" outputclass="collapse expanded" class="collapse expanded">
+          <h3 id="6149e120adkeh" data-tag="expandable-title" class="expandable-title"><b>方式一：通过控制台查看</b></h3>
+          <div id="30fd4aab23to2" data-tag="expandable-content" class="expandable-content">
+            <section id="d66f6de8314yl" class="section">
+              <p id="4fc01dea13dmr">CDN<span class="help-letter-space"></span>控制台提供的缓存命中率监控为字节命中率，详细信息如下：</p>
+              <ul data-tag="ul" id="ul-y7s-40l-6fr" class="ul">
+                <li data-tag="li" id="li-wet-cxh-c29" class="li">
+                  <p id="d19724d472gx4">通过资源监控功能查询</p>
+                  <div data-tag="p" id="p-b1j-fr7-g24" class="p">
+                    <p id="e5637362dcxfn">可查询数据的时间范围较大，适合查看较长周期（例如<span class="help-letter-space"></span>30<span class="help-letter-space"></span>天）内的命中率情况。时间粒度为<span class="help-letter-space"></span>5<span class="help-letter-space"></span>分钟的情况下，数据延迟<span class="help-letter-space"></span>15<span class="help-letter-space"></span>分钟左右。详细信息，请参见<a href="https://help.aliyun.com/zh/cdn/user-guide/resource-monitoring#task-261642" id="e8218b1fb0aj3" title="" class="xref">资源监控</a>。<img data-tag="image" id="image-rk5-mbv-le2" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3287780271/p278844.png" alt="命中率" placement="break" class="image break"></p>
+                  </div>
+                </li>
+                <li data-tag="li" id="li-ax5-mmz-xrb" class="li">
+                  <p id="aca1faa64etve">通过实时监控功能查询</p>
+                  <div data-tag="p" id="p-e69-ode-sda" class="p">
+                    <p id="687c0f9576zdg">可查询数据的时间范围较小，适合查看较短周期（例如<span class="help-letter-space"></span>1<span class="help-letter-space"></span>小时）内的实时命中率情况。时间粒度为<span class="help-letter-space"></span>1<span class="help-letter-space"></span>分钟的情况下，数据延迟<span class="help-letter-space"></span>3<span class="help-letter-space"></span>分钟左右。详细信息，请参见<a href="https://help.aliyun.com/zh/cdn/user-guide/real-time-monitoring#task-2036744" id="570fcf5399wf0" title="" class="xref">实时监控</a>。<img data-tag="image" id="image-3n0-4er-mmm" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3287780271/p63526.png" alt="质量监控" placement="break" class="image break"></p>
+                  </div>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </div>
+        <div id="9e8c71d22ek1q" outputclass="collapse expanded" class="collapse expanded">
+          <h3 id="099fa7c189tih" data-tag="expandable-title" class="expandable-title"><b>方式二：调用<span class="help-letter-space"></span>API<span class="help-letter-space"></span>查看</b></h3>
+          <div id="ea20922865gfh" data-tag="expandable-content" class="expandable-content">
+            <section id="8dcee61f45g7y" class="section">
+              <ul data-tag="ul" id="168ddddb9fztx" class="ul">
+                <li data-tag="li" id="0b31cb5c92gkm" class="li">
+                  <p id="baf74f69899un">资源监控功能对应的<span class="help-letter-space"></span>API</p>
+                  <table id="7083d2f6702d9" tablewidth="100" tablecolswidth="33.29 66.71000000000001" autofit="true" class="table">
+                    <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+                    <colgroup colwidth="1.33*" style="width:66.71%"></colgroup>
+                    <tbody class="tbody">
+                      <tr id="89d0d3addaqu9">
+                        <td id="051f33005ebu9" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                          <p id="671ac7c5ebf7w"><b>API</b></p>
+                        </td>
+                        <td id="03398f8afdfr8" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                          <p id="14be131da102h"><b>描述</b></p>
+                        </td>
+                      </tr>
+                      <tr id="b8f80c59b9eff">
+                        <td id="cf15c70f93r04" rowspan="1" colspan="1">
+                          <p id="34061308e8ume"><a href="https://help.aliyun.com/zh/cdn/api-describedomainhitratedata#doc-api-Cdn-DescribeDomainHitRateData" id="e48ea1c5603q1" title="" class="xref">DescribeDomainHitRateData</a></p>
+                        </td>
+                        <td id="011aed334a1ba" rowspan="1" colspan="1">
+                          <p id="2a8552dbe4frj">获取加速域名的字节命中率数据，支持获取最近<span class="help-letter-space"></span>90<span class="help-letter-space"></span>天的数据。</p>
+                        </td>
+                      </tr>
+                      <tr id="c3fb9428e7h4a">
+                        <td id="5eb2142216qh6" rowspan="1" colspan="1">
+                          <p id="8c462beb12c7n"><a href="https://help.aliyun.com/zh/cdn/api-describedomainreqhitratedata#doc-api-Cdn-DescribeDomainReqHitRateData" id="6771f99a7246t" title="" class="xref">DescribeDomainReqHitRateData</a></p>
+                        </td>
+                        <td id="45e35f932dymw" rowspan="1" colspan="1">
+                          <p id="414ed169f9l1d">获取加速域名的请求命中率数据，支持获取最近<span class="help-letter-space"></span>90<span class="help-letter-space"></span>天的数据。</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+                <li data-tag="li" id="f5466d22659h1" class="li">
+                  <p id="058b9a38a3sel">实时监控功能对应的<span class="help-letter-space"></span>API</p>
+                  <table id="0a40f6a20fr93" tablewidth="100" tablecolswidth="33.29 66.71000000000001" autofit="true" class="table">
+                    <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+                    <colgroup colwidth="1.33*" style="width:66.71%"></colgroup>
+                    <tbody class="tbody">
+                      <tr id="855586aa4c7m9">
+                        <td id="18a10b0b4c88p" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                          <p id="35b6ba9596nwm"><b>API</b></p>
+                        </td>
+                        <td id="91b91b6967ch3" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                          <p id="42291aa896u3d"><b>描述</b></p>
+                        </td>
+                      </tr>
+                      <tr id="a73ddf48f88zk">
+                        <td id="b53bdffd50o19" rowspan="1" colspan="1">
+                          <p id="004e8500afwzw"><a href="https://help.aliyun.com/zh/cdn/api-describedomainrealtimebytehitratedata#doc-api-Cdn-DescribeDomainRealTimeByteHitRateData" id="e30faa8664svu" title="" class="xref">DescribeDomainRealTimeByteHitRateData</a></p>
+                        </td>
+                        <td id="b4f49d2500mmj" rowspan="1" colspan="1">
+                          <p id="f15f004aa85pz">获取加速域名<span class="help-letter-space"></span>1<span class="help-letter-space"></span>分钟粒度的字节命中率数据，支持查询<span class="help-letter-space"></span>7<span class="help-letter-space"></span>天内的数据。</p>
+                        </td>
+                      </tr>
+                      <tr id="e981046a78nqf">
+                        <td id="9841bba2abxd9" rowspan="1" colspan="1">
+                          <p id="a0491aa810i98"><a href="https://help.aliyun.com/zh/cdn/api-describedomainrealtimereqhitratedata#doc-api-Cdn-DescribeDomainRealTimeReqHitRateData" id="7b7ec1ba41rfx" title="" class="xref">DescribeDomainRealTimeReqHitRateData</a></p>
+                        </td>
+                        <td id="15552d54fcq86" rowspan="1" colspan="1">
+                          <p id="9b4d95f5409gr">获取加速域名<span class="help-letter-space"></span>1<span class="help-letter-space"></span>分钟粒度的请求命中率数据，支持查询<span class="help-letter-space"></span>7<span class="help-letter-space"></span>天内的数据。</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </li>
+              </ul>
+            </section>
+          </div>
+        </div>
+      </section>
+      <section data-tag="section" id="section-nc4-hok-6xt" data-type="section" class="section">
+        <h2 data-tag="title" id="title-855-9vh-wor" class="title">提高<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>缓存命中率</h2>
+        <div data-tag="p" id="p-svl-7sd-4t2" class="p">
+          <p id="4ef55de447308">下表列出了影响<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>缓存命中率的因素和提高<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>缓存命中率的方法。</p>
+          <table id="table-7aw-a1d-qkt" tablewidth="100" tablecolswidth="28.02 51.92 20.060000000000002" autofit="true" class="table">
+            <colgroup colwidth="0.85*" style="width:28.02%"></colgroup>
+            <colgroup colwidth="1.57*" style="width:51.92%"></colgroup>
+            <colgroup colwidth="0.61*" style="width:20.06%"></colgroup>
+            <tbody class="tbody">
+              <tr id="row-tno-dr8-25z">
+                <td id="concept-845410-entry-lwu-hts-c6k" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="f13bb27187tnd"><b>策略</b></p>
+                </td>
+                <td id="concept-845410-entry-q5f-jxi-qwf" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="4e9f89a03e6sa"><b>影响因素与应用场景</b></p>
+                </td>
+                <td id="concept-845410-entry-yet-3wj-h7u" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="a44fd460b187o"><b>配置方法</b></p>
+                </td>
+              </tr>
+              <tr id="row-x54-8qi-gb0">
+                <td id="entry-lip-kcw-p7o" rowspan="1" colspan="1">
+                  <p id="93d0729a7366c">业务高峰前预热热门资源</p>
+                </td>
+                <td id="entry-62a-o4w-3bx" rowspan="1" colspan="1">
+                  <p id="c7138e44b8h9n">影响因素：运营大型活动或新版本安装包发布前，没有提前将资源预热到<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点，大量资源需要从源站获取，导致<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>缓存命中率低。</p>
+                  <p id="210c41eb0et93">应用场景：</p>
+                  <ul class="ul" data-tag="ul" id="ul-tfa-fw3-r86">
+                    <li class="li" data-tag="li" id="li-swo-blm-qc7">
+                      <p id="24ee93b40fzul">运营活动</p>
+                      <p id="3e6bd0a3734gj">运营一个大型活动时，提前将活动页涉及到的静态资源预热至<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点，活动开始后用户访问的所有静态资源均已缓存至<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>加速节点，由加速节点直接响应。</p>
+                    </li>
+                    <li class="li" data-tag="li" id="li-edj-j6n-4ay">
+                      <p id="656afb4bc1n6t">安装包发布</p>
+                      <p id="7452cf1d63wj6">新版本安装包或升级包发布前，提前将资源预热至<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>加速节点，产品正式上线后，海量用户的下载请求将直接由<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>加速节点响应，提升下载速度，大幅度降低源站压力，提升用户体验。</p>
+                    </li>
+                  </ul>
+                </td>
+                <td id="entry-w4w-93d-6xs" rowspan="1" colspan="1">
+                  <p id="84beb1e3e73g0"><a href="https://help.aliyun.com/zh/cdn/user-guide/refresh-and-prefetch-resources#section-81a-rm1-sis" id="xref-1xh-a92-2sr" title="" class="xref">刷新和预热资源</a></p>
+                </td>
+              </tr>
+              <tr id="row-sth-4qh-pcs">
+                <td id="entry-8d8-wbr-nlw" rowspan="1" colspan="1">
+                  <p id="77d60ae8c4d4j">合理配置缓存过期时间：</p>
+                  <ul data-tag="ul" id="ul-7uh-q0v-z2u" class="ul">
+                    <li data-tag="li" id="li-bsm-eq3-nwa" class="li">
+                      <p id="73bf5d8d21kgs">不常更新的静态文件（例如，图片类型、应用下载类型等），建议设置<span class="help-letter-space"></span>1<span class="help-letter-space"></span>个月以上。</p>
+                    </li>
+                    <li data-tag="li" id="li-17a-uiy-xuh" class="li">
+                      <p id="6af956ed12ekh">频繁更新的静态文件（例如，JS、CSS<span class="help-letter-space"></span>等），根据实际业务情况设置。</p>
+                    </li>
+                    <li data-tag="li" id="li-70p-cb3-ldu" class="li">
+                      <p id="a577fd71d7pc1">动态文件（例如，PHP、JSP、ASP<span class="help-letter-space"></span>等），建议设置为<span class="help-letter-space"></span>0s，即不缓存。</p>
+                    </li>
+                  </ul>
+                </td>
+                <td id="entry-edc-jei-174" rowspan="1" colspan="1">
+                  <div data-tag="p" id="p-vfa-wdf-cli" class="p">
+                    <p id="8c02edd187x9k">影响因素：</p>
+                    <ul data-tag="ul" id="ul-07b-foc-4xc" class="ul">
+                      <li data-tag="li" id="li-d6h-hwk-wd7" class="li">
+                        <p id="b98cef047aqhv">CDN<span class="help-letter-space"></span>上未配置缓存策略，所有用户请求都需要回源站。</p>
+                      </li>
+                      <li data-tag="li" id="li-7vc-he7-6kg" class="li">
+                        <p id="89ff79f14043r">CDN<span class="help-letter-space"></span>上配置的缓存过期时间过短，缓存资源频繁过期，导致缓存命中率低。</p>
+                      </li>
+                    </ul>
+                  </div>
+                  <p data-tag="p" id="p-e27-we1-uzx" class="p">应用场景：用户在源站发布了静态资源，CDN<span class="help-letter-space"></span>节点没有将资源缓存下来，或者<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点上缓存的资源很快就失效了。</p>
+                </td>
+                <td id="entry-qkw-qsh-4ix" rowspan="1" colspan="1">
+                  <p id="b41ad3ccdczkm"><a href="https://help.aliyun.com/zh/cdn/user-guide/configure-the-cdn-cache-expiration-time#task-261642" id="xref-wni-ant-zbf" title="" class="xref">配置<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>缓存过期时间</a></p>
+                </td>
+              </tr>
+              <tr id="row-655-s4d-n9q">
+                <td id="entry-kx9-roj-ixz" rowspan="1" colspan="1">
+                  <p id="c404a9543btdj">去除<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>中问号后的参数缓存</p>
+                </td>
+                <td id="entry-k9t-owf-bo5" rowspan="1" colspan="1">
+                  <p id="defbc238fenew">影响因素：当<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>请求中带有<span data-tag="varname" id="varname-ju3-9qz-906" class="varname"><i>queryString</i></span>或其他可变参数时，访问同一个资源的不同<span class="help-letter-space"></span>URL（URL<span class="help-letter-space"></span>携带的参数不同）会重新回源，导致<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>缓存命中率低。</p>
+                  <p data-tag="p" id="p-6jl-s30-rx8" class="p">应用场景：希望通过不同的<span class="help-letter-space"></span>URL（URL<span class="help-letter-space"></span>携带的参数不同），可以访问到同一个资源。</p>
+                </td>
+                <td id="entry-g09-atn-j6t" rowspan="1" colspan="1">
+                  <p id="4ecb211d7dks5"><a href="https://help.aliyun.com/zh/cdn/user-guide/ignore-parameters#task-187634" id="xref-rci-8ab-gg8" title="" class="xref">忽略参数</a></p>
+                </td>
+              </tr>
+              <tr id="row-pr2-w28-drt">
+                <td id="entry-rbw-xgv-5mg" rowspan="1" colspan="1">
+                  <p id="d0c9f450f9znd">大文件设置分片回源策略</p>
+                </td>
+                <td id="entry-qn0-kuo-el5" rowspan="1" colspan="1">
+                  <p id="59a0f721a2xk1">影响因素：用户下载安装包可能下载一半就停止下载，或者观看视频只看了一部分就停止观看，即用户只需要访问资源文件指定范围内的部分内容，但是<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点会向源站请求整个文件，从而使得<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点从源站下载的内容大于响应给用户的内容，导致缓存命中率低。</p>
+                  <p data-tag="p" id="p-4q8-l3a-ore" class="p">应用场景：用户下载应用安装包或者观看视频资源。</p>
+                </td>
+                <td id="entry-gcv-li0-bm4" rowspan="1" colspan="1">
+                  <p id="7c13144656o52"><a href="https://help.aliyun.com/zh/cdn/user-guide/object-chunking#task-187634" id="xref-xjo-cbi-fy7" title="" class="xref">配置<span class="help-letter-space"></span>Range<span class="help-letter-space"></span>回源</a></p>
+                </td>
+              </tr>
+              <tr id="row-handle-origin-no-cache">
+                <td id="entry-handle-origin-no-cache" rowspan="1" colspan="1">
+                  <p id="p-handle-origin-no-cache-strategy">处理源站不缓存标头</p>
+                </td>
+                <td id="entry-handle-origin-no-cache-factor" rowspan="1" colspan="1">
+                  <p id="p-handle-origin-no-cache-factor">影响因素：源站返回了不缓存的响应头（如 Cache-Control: max-age=0、Cache-Control: no-cache、Cache-Control: private 等），CDN 会遵循源站指示不对该资源进行缓存，导致所有请求都回源到源站，缓存命中率降低。典型场景：源站为静态文件（图片、JS、CSS 等）配置了 Cache-Control: max-age=0 或 Cache-Control: no-cache 响应头，导致 CDN 节点无法缓存这些静态资源。</p>
+                </td>
+                <td id="entry-handle-origin-no-cache-method" rowspan="1" colspan="1">
+                  <p id="p-handle-origin-no-cache-method1">方法一（推荐）：修改源站服务器配置，去掉静态资源响应头中的 Cache-Control: max-age=0 或 Cache-Control: no-cache 等不缓存标头，为静态资源配置合理的缓存时长（如 Cache-Control: max-age=2592000）。</p>
+                  <p id="p-handle-origin-no-cache-method2">方法二：在<!-- @conref key="cdn_routes_layout_menu_domain" project="cdn-next" -->**域名管理**<!-- @/conref -->页面，单击目标加速域名，进入<!-- @conref key="cdn_modules_domain_detail_menu_cache" project="cdn-next" -->**缓存配置**<!-- @/conref -->页签，在<!-- @conref key="cdn_modules_domain_detail_cache_expired_time" project="cdn-next" -->**缓存过期时间**<!-- @/conref -->中<!-- @conref key="cdn_modules_domain_detail_cache_index_add" project="cdn-next" -->**添加**<!-- @/conref -->缓存规则，开启<!-- @conref key="cdn_modules_domain_detail_cache_swift_no_cache_low" project="cdn-next" -->**忽略源站不缓存标头**<!-- @/conref -->选项。开启后，CDN 将忽略源站返回的不缓存标头，按照 CDN 自身配置的缓存策略进行缓存。</p>
+                  <div type="note" id="note-handle-origin-no-cache" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                    <p id="p-handle-origin-no-cache-note">「忽略源站不缓存标头」功能开启后，CDN 将会忽略源站响应的不缓存标头（例如 Cache-Control: no-cache 等），按照您在 CDN 控制台配置的缓存过期时间规则进行缓存。该选项在缓存过期时间配置弹窗中与「优选遵循源站缓存策略」「客户端跟随<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>缓存策略」「强制内容重新验证」等选项并列。过期时间最多可设置为 3 年。</p>
+                  </div></div>
+                  <div type="note" id="note-handle-origin-range" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                    <p id="p-handle-origin-range">为进一步提升缓存命中率，建议在<!-- @conref key="cdn_modules_domain_detail_menu_back_src" project="cdn-next" -->**回源配置**<!-- @/conref -->中将 Range 回源设置为「跟随客户端 Range 请求」，避免全量回源影响命中率。</p>
+                  </div></div>
+                </td>
+              </tr>
+              <tr id="row-25z-m23-s5k">
+                <td id="entry-mnj-8b3-88x" rowspan="1" colspan="1">
+                  <p id="a33aba572bi8w">其他命中率优化策略</p>
+                </td>
+                <td id="entry-xjh-dsw-5l3" rowspan="1" colspan="1">
+                  <p id="e0836356950bw">除了以上几种常用的命中率优化措施以外，阿里云<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>还有其他的优化措施，这些措施可以根据不同的业务场景来配置，例如：中心<span class="help-letter-space"></span>302<span class="help-letter-space"></span>调度、边缘<span class="help-letter-space"></span>302<span class="help-letter-space"></span>调度、合并回源、共享缓存等。其中，**共享缓存**功能允许同账号下的多个加速域名共用 CDN 节点上的缓存资源。当您有多个域名需要同名的 JS/CSS 文件且各源站内容完全一致时，可通过共享缓存功能让这些域名共用同一份缓存，从而提升缓存命中率。新增网站时，只需确保其资源路径与现有加速域名的资源结构对齐，无需重复配置 CDN 缓存规则，即可实现多源站文件的统一加速和缓存共享。</p>
+                </td>
+                <td id="entry-b9v-2xv-0uz" rowspan="1" colspan="1">
+                  <p id="6ff925d6aes6b">中心<span class="help-letter-space"></span>302<span class="help-letter-space"></span>调度、边缘<span class="help-letter-space"></span>302<span class="help-letter-space"></span>调度、合并回源由阿里云售后工程师在后台配置。**共享缓存**：在<!-- @conref key="cdn_routes_layout_menu_domain" project="cdn-next" -->**域名管理**<!-- @/conref -->页面，单击目标加速域名，进入<!-- @conref key="cdn_modules_domain_detail_menu_cache" project="cdn-next" -->**缓存配置**<!-- @/conref -->页签，切换到<!-- @conref key="cdn_modules_domain_detail_shared_cache" project="cdn-next" -->**共享缓存**<!-- @/conref -->子页签，单击<!-- @conref key="cdn_modules_domain_detail_shared_cache_modify_config" project="cdn-next" -->**修改配置**<!-- @/conref -->，从当前账号下已在线的加速域名列表中选择要共享缓存的目标域名（支持搜索过滤），确认后即可生效。选择后，当前加速域名与所选加速域名共享缓存，同时合并到所选加速域名回源。如需删除配置，单击<!-- @conref key="cdn_modules_domain_detail_shared_cache_delete_config" project="cdn-next" -->**删除配置**<!-- @/conref -->并确认即可。</p>
+                  <div type="note" id="note-shared-cache" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                    <p id="p-shared-cache-note">共享缓存配置中，可从当前账号下已在线的加速域名中单选一个目标域名（自动排除当前域名本身）。配置生效后，当前域名将使用所选域名的缓存资源，并合并到所选域名的回源路径中。</p>
+                  </div></div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section data-tag="section" id="section-0t4-iib-7po" data-type="section" class="section">
+        <h2 data-tag="title" id="title-o0n-cwx-a22" class="title">查看缓存命中状态日志</h2>
+        <p data-tag="p" id="p-fe9-61p-kec" class="p">在<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>的请求日志中，记录了所有<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>请求的缓存命中状态。详细日志格式，请参见<a href="https://help.aliyun.com/zh/cdn/user-guide/offline-logs-quick-start#task-187634" id="xref-hbe-e29-4lw" title="" class="xref">快速入门</a>。</p>
+        <div data-tag="p" id="p-r6f-k0r-plh" class="p">
+          <p id="0f28ed5e75vob">缓存命中状态字段说明：</p>
+          <ul data-tag="ul" id="ul-2qd-z9v-lsa" class="ul">
+            <li data-tag="li" id="li-5z2-88b-rz2" class="li">
+              <p id="81719891ca3dl">HIT：表示命中缓存。</p>
+            </li>
+            <li data-tag="li" id="li-jnv-4o0-yhu" class="li">
+              <p id="f371e110b47vu">MISS：表示未命中缓存。</p>
+            </li>
+          </ul>
+          <div data-tag="note" id="note-zjo-8e5-48l" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+            <p id="63b341b734r0n">命中状态仅表示<span class="help-letter-space"></span>CDN L1<span class="help-letter-space"></span>节点的命中状态。例如，CDN L1<span class="help-letter-space"></span>节点未命中缓存，L2<span class="help-letter-space"></span>节点命中缓存，日志中仍显示<span class="help-letter-space"></span>MISS。</p>
+          </div></div>
+          <p id="9a75f707fd9lb">日志示例：</p><pre data-tag="codeblock" id="codeblock-uge-h8i-9wm" outputclass="language-java" code-type="xCode" class="pre codeblock language-java"><code>26/Jun/2019:10:38:19 +0800] 192.168.53.146 - 1542 "-" "GET http://example.aliyundoc.com/index.html" 200 191 2830 MISS "Mozilla/5.0 (compatible; AhrefsBot/5.0; +http://example.com/robot/)" "text/html"</code></pre>
+        </div>
+        <p data-tag="p" id="p-kup-j38-19n" class="p">您也可以调用<a href="https://help.aliyun.com/zh/cdn/developer-reference/api-cdn-2018-05-10-describecdndomainlogs" id="e108f622920sz" title="" class="xref">查询离线日志下载地址</a>接口，获取加速域名的日志信息。</p>
+      </section>
+    </div>
+  </main>
+
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/cdn/use-cases/accelerate-content-delivery-for-infographic-and-video-websites" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：CDN加速门户网站</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/cdn/use-cases/ship-and-analyze-alibaba-cloud-cdn-real-time-logs-in-log-service" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：投递CDN实时日志到SLS来分析用户访问数据<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

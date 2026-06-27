@@ -1,0 +1,2 @@
+# 管理Shard
+日志服务使用Shard控制LogStore、EventStore、MetricStore的读写数据的能力，数据必定保存在某一个Shard中。通过分裂、合并操作控制活跃的Shard数量来调整日志服务提供的最大读写能力。分裂Shard可以自动触发，但合并Shard必须手动执行。

@@ -1,0 +1,25 @@
+## 计费问题
+VPC如何计费？
+VPC收费功能：
+[对等连接](vpc-peer-to-peer-connection.md)
+[流日志](vpc-flow-logs.md)
+[流量镜像](traffic-mirroring-overview.md)
+VPC公测功能，当前公测期间免费使用：
+IP地址管理（IPAM）
+高可用虚拟IP（HaVip）
+免费功能：
+VPC与交换机、附加网段、预留网段
+DNS主机名、DHCP选项集
+路由表、前缀列表
+共享VPC
+ClassicLink、网关终端节点
+IPv4网关、网络ACL
+如果您在VPC中创建了云产品资源，您需要为使用的云产品资源付费。详情可参考对应资源的计费文档。
+VPC对等连接是否收费？
+同地域：在同一地域内，无论是同账号还是跨账号，创建和使用VPC对等连接都是完全免费的。
+跨地域：跨地域使用VPC对等连接，统一由[云数据传输](https://help.aliyun.com/zh/cdt/product-overview/what-is-cdt)[CDT](https://help.aliyun.com/zh/cdt/product-overview/what-is-cdt)按出向流量收取流量传输费。
+如何停止VPC对等连接的计费以节省成本？
+同地域对等连接本身免费，删除与否不影响费用。
+对于跨地域对等连接，您需要删除对等连接实例，方可停止相关流量费用。
+该文章对您有帮助吗？
+反馈

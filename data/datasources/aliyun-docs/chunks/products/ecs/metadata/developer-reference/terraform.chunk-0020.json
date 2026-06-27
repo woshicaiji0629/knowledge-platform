@@ -1,0 +1,14 @@
+{
+  "id": "ecs:developer-reference/terraform:20",
+  "document_id": "ecs:developer-reference/terraform",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "deployment",
+  "title": "使用Terraform部署ECS-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/developer-reference/terraform",
+  "chunk_index": 20,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ecs/documents/developer-reference/terraform.chunk-0020.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/developer-reference/terraform.md",
+  "heading_path": "Access Key Id $ export ALICLOUD_ACCESS_KEY=\"<你的 Access Key ID>\" # Access Key Secret $ export ALICLOUD_SECRET_KEY=\"<你的 Access Key Secret>\" # 如果是 STS 的访问凭证，此处需要配置 security_token $ export ALICLOUD_SECURITY_TOKEN=\"<你的访问 Token>\" > 支持的资源列表",
+  "char_count": 1200
+}

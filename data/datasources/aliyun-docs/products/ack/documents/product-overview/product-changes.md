@@ -1,0 +1,185 @@
+# 产品变更-容器服务 Kubernetes 版 ACK-阿里云
+
+Source: https://help.aliyun.com/zh/ack/product-overview/product-changes
+
+[大模型](https://www.aliyun.com/product/tongyi)[产品](https://www.aliyun.com/product/list)[解决方案](https://www.aliyun.com/solution/tech-solution/)[权益](https://www.aliyun.com/benefit)[定价](https://www.aliyun.com/price)[云市场](https://market.aliyun.com/)[伙伴](https://partner.aliyun.com/management/v2)[服务](https://www.aliyun.com/service)[了解阿里云](https://www.aliyun.com/about)
+
+查看 "" 全部搜索结果
+
+[AI 助理](https://www.aliyun.com/ai-assistant?displayMode=side)
+
+[文档](https://help.aliyun.com/)[备案](https://beian.aliyun.com/)[控制台](https://home.console.aliyun.com/home/dashboard/ProductAndService)
+
+[首页](https://help.aliyun.com/)[容器服务 Kubernetes 版 ACK](products/ack/documents/index.md)[产品概述](products/ack/documents/product-overview.md)[动态与公告](products/ack/documents/product-overview/announcements-and-updates.md)产品变更
+
+# 产品变更
+
+更新时间: 2023-04-23 18:18:01
+
+- [【产品公告】关于新建Alibaba Cloud Linux 4节点将默认开启日志轮转的公告](products/ack/documents/product-overview/product-announcement-announcement-on-default-log-rotation-for-new-alinux-4-node.md)
+
+- [【产品公告】关于 Kubernetes 1.35 版本升级前置检查新增 cgroup 版本兼容性检测的公告](products/ack/documents/product-overview/product-announcement-on-introducing-cgroup-version-detection-for-kubernetes-1-35-upgrade.md)
+
+- [【产品变更】关于GPU自动隔离功能变更的公告](products/ack/documents/product-overview/product-change-update-to-the-gpu-automatic-isolation-feature.md)
+
+- [【产品公告】关于停止维护Nginx Ingress Controller组件的公告](products/ack/documents/product-overview/product-announcement-announcement-on-end-of-maintenance-for-nginx-ingress-controller.md)
+
+- [【产品变更】关于Terway独占ENI模式内部通信IP变更的公告](products/ack/documents/product-overview/product-change-announcement-on-ip-change-of-terway-exclusive-eni-mode-internal-communication.md)
+
+- [【产品公告】关于容器服务停止提供 Ingress、Argo等测试域名的公告](products/ack/documents/product-overview/discontinuation-of-ingress-and-argo-testing-domains-in-ack.md)
+
+- [【产品公告】关于使用Terway时部分Linux节点偶发CPU利用率异常升高问题的公告](products/ack/documents/product-overview/product-announcement-announcement-on-the-problem-of-intermittent-high-cpu-usage-on-linux-nodes-with-terway.md)
+
+- [【产品变更】关于停止支持部分低版本ACK专有集群升级的公告](products/ack/documents/product-overview/end-of-support-for-upgrades-on-specific-older-versions-of-ack-dedicated-clusters.md)
+
+- [【产品变更】关于托管节点池安全漏洞修复和自动升级的变更公告](products/ack/documents/product-overview/announcement-on-security-vulnerabilithy-fixes-and-automatic-upgrades-for-managed-node-pools.md)
+
+- [【产品变更】关于新建Service与Nginx Ingress Controller默认负载均衡类型与计费方式变更的公告](products/ack/documents/product-overview/product-change-announcement-on-new-service-and-nginx-ingress-controller.md)
+
+- [【产品变更】关于ACK集群管理相关的OpenAPI出入参变化及OpenAPI下线的公告](products/ack/documents/product-overview/announcement-on-ack-openapi-parameter-changes-and-deprecation.md)
+
+- [【产品公告】关于 Ubuntu 节点 systemd 升级后容器网络异常的公告](products/ack/documents/product-overview/announcement-on-container-network-anomaly-after-ubuntu-node-systemd-upgrade.md)
+
+- [【产品公告】关于中国电信号码手机用户无法接收部分告警短信的公告](products/ack/documents/product-overview/announcement-on-china-telecom-mobile-subscribers-unable-to-receive-specific-sms-alerts.md)
+
+- [【产品公告】关于ACK托管集群自1.33版本起默认安装ack-ram-authenticator组件的公告](products/ack/documents/product-overview/announcement-on-default-installation-of-ack-ram-authenticator-for-ack-managed-clusters-v1-33-and-later.md)
+
+- [【产品公告】关于停止维护CoreDNS v1.6.7及以下版本的公告](products/ack/documents/product-overview/product-announcement-announcement-on-end-of-maintenance-for-coredns-v1-6-7-and-earlier-versions.md)
+
+- [【产品变更】关于默认关闭ACK集群内新建ECS实例源/目的IP检查的公告](products/ack/documents/product-overview/announcement-on-default-disabling-of-source-destination-ip-verification-for-new-ecs-instances-in-clusters.md)
+
+- [【产品公告】关于停止维护ACK NodeLocal DNSCache v1.4.0及以下版本的公告](products/ack/documents/product-overview/product-announcement-end-of-support-notice-for-ack-nodelocal-dnscache-1-4-0-and-earlier-versions.md)
+
+- [【产品变更】关于ACK Serverless集群对新用户关闭新建入口的公告](products/ack/documents/product-overview/product-change-announcement-on-deprecation-of-cluster-creation-interface-for-ack-serverless-clusters.md)
+
+- [【产品变更】关于ACK控制台调整为按地域维度管理集群的通知](products/ack/documents/product-overview/product-change-announcement-of-adjusting-the-ack-console-to-manage-clusters-by-region-dimension.md)
+
+- [【产品变更】关于云原生AI套件AI控制台转为白名单开放的公告](products/ack/documents/product-overview/announcement-of-ai-console-in-the-cloud-native-ai-suite-is-available-to-whitelisted-users.md)
+
+- [【产品变更】关于ACK托管集群节点访问控制面（API Server）的链路切换公告](products/ack/documents/product-overview/announcement-of-link-switching-for-node-access-to-the-control-plane-in-ack-managed-clusters.md)
+
+- [【产品变更】关于ACK OpenAPI服务升级的公告](products/ack/documents/product-overview/announcement-on-ack-openapi-underlying-architecture-upgrade.md)
+
+- [【产品公告】关于取消新增集群API Server负载均衡CLB包年包月付费的公告](products/ack/documents/product-overview/product-announcement-announcement-on-adding-cluster-api-server-load-balancing-clb-to-stop-supporting-annual-and-monthly-payment-types.md)
+
+- [【产品公告】关于集群创建接口CreateCluster参数行为变更的公告](products/ack/documents/product-overview/product-announcement-announcement-on-change-of-createcluster-parameter-behavior-of-cluster-creation-interface.md)
+
+- [【产品变更】关于新增创建ACK托管集群时CSI相关服务角色授权检查的公告](products/ack/documents/product-overview/product-change-announcement-on-adding-csi-related-service-role-authorization-check-when-creating-ack-managed-cluster.md)
+
+- [【产品公告】关于停止维护Nginx Ingress Controller v1.2及以下版本的公告](products/ack/documents/product-overview/product-announcement-announcement-on-stopping-maintenance-of-nginx-ingress-controller-v1-2-and-below.md)
+
+- [【产品变更】CSI ossfs版本升级与挂载流程优化](products/ack/documents/product-overview/announcement-on-csi-oss-driver-upgrade.md)
+
+- [【产品公告】关于停止新建ACK专有集群的公告](products/ack/documents/product-overview/product-announcement-announcement-on-stopping-new-ack-dedicated-cluster.md)
+
+- [【产品公告】关于ACK集群无法拉取海外源镜像的公告](products/ack/documents/product-overview/announcement-on-ack-cluster-unable-to-pull-overseas-source-mirror.md)
+
+- [【产品变更】关于ACK专有集群API Server的ClientCA证书更新运维公告](products/ack/documents/product-overview/product-change-announcement-on-operation-and-maintenance-of-clientca-certificate-update-for-ack-proprietary-cluster-api-server.md)
+
+- [【产品变更】关于ACK Serverless集群架构自动升级公告](products/ack/documents/product-overview/product-change-announcement-on-automatic-upgrade-of-container-service-serverless-cluster-architecture.md)
+
+- [【产品变更】关于CheckServiceRole鉴权失败公告](products/ack/documents/product-overview/product-change-announcement-on-checkservicerole-authentication-failure.md)
+
+- [【产品变更】关于新增集群停止提供Ingress测试域名的公告](products/ack/documents/product-overview/product-change-announcement-on-the-offline-of-alicontainer-com-test-domain-name-service.md)
+
+- [【产品变更】基于CIS的加固功能下线公告](products/ack/documents/product-overview/cis-reinforcement-downline-announcement.md)
+
+- [【产品变更】容器服务发行版 ACK Distro停止维护公告](products/ack/documents/product-overview/ack-distro-eol.md)
+
+- [【产品变更】停止维护Alibaba Cloud Linux 2、CentOS 7的公告](products/ack/documents/product-overview/announcement-on-stopping-maintenance-of-alibaba-cloud-linux-2-and-centos-7.md)
+
+- [【产品变更】ACK集群API Server内部证书有效时长变更公告](products/ack/documents/product-overview/validity-period-change-for-api-server-internal-certificates.md)
+
+- [【产品变更】ACK新建集群API Server的CLB实例默认计费方式切换为按使用量计费](products/ack/documents/product-overview/billing-method-change-for-the-clb-instance-of-the-api-server-in-new-ack-clusters.md)
+
+- [【产品变更】应用中心功能迁移至分布式云容器平台ACK One GitOps公告](products/ack/documents/product-overview/application-center-function-migration-to-distributed-cloud-container-platform-ack-one-gitops-announcement.md)
+
+- [【产品变更】升级1.22版本后ServiceAccount Token过期解决方案](products/ack/documents/product-overview/solution-to-serviceaccount-token-expiration-after-upgrading-122-version.md)
+
+- [【产品变更】迁移低版本ACK集群监控端口至鉴权端口](products/ack/documents/product-overview/product-updates-replace-the-monitoring-port-with-authentication-port-in-ack-clusters-of-earlier-versions.md)
+
+- [【产品变更】容器智能运维RAM角色收敛公告](products/ack/documents/product-overview/product-change-container-intelligent-operation-and-maintenance-ram-role-convergence-announcement.md)
+
+- [【产品变更】托管版集群Worker RAM角色权限收敛公告](products/ack/documents/product-overview/product-changes-permissions-of-the-worker-ram-role-of-ack-managed-clusters-are-revoked.md)
+
+- [【产品变更】云原生AI套件计量模式和定价方案升级公告](products/ack/documents/product-overview/product-changes-cloud-native-ai-suite-metering-method-and-pricing-solution-updates.md)
+
+- [【产品变更】ASM关于ACK Addon部署的Istio支持变更公告](products/ack/documents/product-overview/product-changes-ack-add-on-istio-discontinued-by-asm.md)
+
+- [【产品变更】关于ACK Pro集群落盘加密鉴权加固公告](products/ack/documents/product-overview/product-changes-permissions-required-for-using-secret-encryption-in-ack-pro-clusters.md)
+
+- [【产品变更】关于变更aliyun-acr-credential-helper组件依赖权限的公告](products/ack/documents/product-overview/product-changes-revoke-the-permissions-on-which-aliyun-acr-credential-helper-relies.md)
+
+- [【产品公告】关于ACK Serverless集群的SLB Ingress下线的公告](products/ack/documents/product-overview/notice-slb-ingresses-for-ask-clusters-are-phased-out.md)
+
+- [【产品变更】从Docker Hub拉取镜像速度变慢的公告](products/ack/documents/product-overview/product-changes-resolve-the-issue-that-image-pulling-from-docker-hub-is-time-consuming.md)
+
+- [【产品变更】ACK云原生AI套件商用收费与优惠活动公告](products/ack/documents/product-overview/product-updates-cloud-native-ai-suite-going-commercial-and-promotional-events.md)
+
+- [【产品变更】ACK集群和ACK Serverless集群删除时默认清理ECI资源的公告](products/ack/documents/product-overview/product-changes-ack-automatically-releases-elastic-container-instances-when-you-delete-ack-or-ask-clusters.md)
+
+- [【产品变更】ACK集群升级时对预置RBAC角色模板的同步更新公告](products/ack/documents/product-overview/product-changes-ack-updates-templates-of-predefined-rbac-roles-during-cluster-updates.md)
+
+- [【产品变更】专有版集群节点RAM角色权限收敛公告](products/ack/documents/product-overview/product-changes-reduce-the-permissions-of-the-ram-roles-assigned-to-nodes-in-ack-dedicated-cluster.md)
+
+- [【产品变更】关于DescribeKubernetesVersionMetadata鉴权失败公告](products/ack/documents/product-overview/product-changes-errors-occur-when-you-call-the-describekubernetesversionmetadata-operation.md)
+
+- [【产品变更】容器服务OpenAPI鉴权优化公告](products/ack/documents/product-overview/ack-api-enhances-user-authentication.md)
+
+- [【产品变更】ACK Pro版集群商用通知](products/ack/documents/product-overview/alibaba-cloud-charges-for-professional-kubernetes-clusters.md)
+
+- [【产品变更】容器服务控制台导航栏调整公告](products/ack/documents/product-overview/optimize-the-navigation-pane-in-the-ack-console.md)
+
+- [【产品变更】ACK关于K8s Dashboard功能下线公告](products/ack/documents/product-overview/ack-ends-support-for-kubernetes-dashboard.md)
+
+- [【产品变更】容器服务停止对Swarm集群的技术支持](products/ack/documents/product-overview/ack-ends-support-for-swarm.md)
+
+- [【产品变更】容器服务升级安全策略的公告](products/ack/documents/product-overview/update-the-security-policies-for-cluster-authorizations.md)
+
+- [【产品变更】ASK底层ECI容器实例商用收费的公告](products/ack/documents/product-overview/product-changes-alibaba-cloud-charges-fees-for-elastic-container-instances-used-by-ask-clusters.md)
+
+- [【产品变更】托管集群节点RAM角色收敛公告](products/ack/documents/product-overview/ack-reduces-the-permissions-of-worker-ram-roles-in-managed-kubernetes-clusters.md)
+
+[上一篇: 动态与公告](products/ack/documents/product-overview/announcements-and-updates.md)[下一篇: 【产品公告】关于新建Alibaba Cloud Linux 4节点将默认开启日志轮转的公告](products/ack/documents/product-overview/product-announcement-announcement-on-default-log-rotation-for-new-alinux-4-node.md)
+
+[阿里云首页](https://www.aliyun.com/)[容器服务Kubernetes版](https://www.aliyun.com/product/kubernetes)[相关技术圈](https://developer.aliyun.com/group/kubernetes/)
+
+### 为什么选择阿里云
+
+[什么是云计算](https://www.aliyun.com/about/what-is-cloud-computing)[全球基础设施](https://infrastructure.aliyun.com/)[技术领先](https://www.aliyun.com/why-us/leading-technology)[稳定可靠](https://www.aliyun.com/why-us/reliability)[安全合规](https://www.aliyun.com/why-us/security-compliance)[分析师报告](https://www.aliyun.com/analyst-reports)
+
+### 大模型
+
+[千问大模型](https://www.aliyun.com/product/tongyi)[大模型服务](https://bailian.console.aliyun.com/?tab=model#/model-market)[AI应用构建](https://bailian.console.aliyun.com/app-center?tab=app#/app-center)
+
+### 产品和定价
+
+[全部产品](https://www.aliyun.com/product/list)[免费试用](https://free.aliyun.com/)[产品动态](https://www.aliyun.com/product/news/)[产品定价](https://www.aliyun.com/price/detail)[配置报价器](https://www.aliyun.com/price/cpq/list)[云上成本管理](https://www.aliyun.com/price/cost-management)
+
+### 技术内容
+
+[技术解决方案](https://www.aliyun.com/solution/tech-solution)[帮助文档](https://help.aliyun.com/)[开发者社区](https://developer.aliyun.com/)[天池大赛](https://tianchi.aliyun.com/)[阿里云认证](https://edu.aliyun.com/)
+
+### 权益
+
+[免费试用](https://free.aliyun.com/)[解决方案免费试用](https://www.aliyun.com/solution/free)[高校计划](https://university.aliyun.com/)[5亿算力补贴](https://www.aliyun.com/benefit/form/index)[推荐返现计划](https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&pageCode=yunparterIndex)
+
+### 服务
+
+[基础服务](https://www.aliyun.com/service)[企业增值服务](https://www.aliyun.com/service/supportplans)[迁云服务](https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn)[官网公告](https://www.aliyun.com/notice/)[健康看板](https://status.aliyun.com/)[信任中心](https://security.aliyun.com/trust-center)
+
+### 关注阿里云
+
+关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务
+
+联系我们：4008013260
+
+[法律声明](https://help.aliyun.com/product/67275.html)[Cookies 政策](https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html)[廉正举报](https://aliyun.jubao.alibaba.com/)[安全举报](https://report.aliyun.com/)[联系我们](https://www.aliyun.com/contact)[加入我们](https://careers.aliyun.com/)
+
+### 友情链接
+
+[阿里巴巴集团](https://www.alibabagroup.com/cn/global/home)[淘宝网](https://www.taobao.com/)[天猫](https://www.tmall.com/)[全球速卖通](https://www.aliexpress.com/)[阿里巴巴国际交易市场](https://www.alibaba.com/)[1688](https://www.1688.com/)[阿里妈妈](https://www.alimama.com/index.htm)[飞猪](https://www.fliggy.com/)[阿里云计算](https://www.aliyun.com/)[万网](https://wanwang.aliyun.com/)[高德](https://mobile.amap.com/)[UC](https://www.uc.cn/)[友盟](https://www.umeng.com/)[优酷](https://www.youku.com/)[钉钉](https://www.dingtalk.com/)[支付宝](https://www.alipay.com/)[达摩院](https://damo.alibaba.com/)[淘宝海外](https://world.taobao.com/)[阿里云盘](https://www.aliyundrive.com/)[淘宝闪购](https://www.ele.me/)
+
+© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证：[浙B2-20080101](http://beian.miit.gov.cn/)域名注册服务机构许可：[浙D3-20210002](https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 )
+
+[浙公网安备 33010602009975号](http://www.beian.gov.cn/portal/registerSystemInfo)[浙B2-20080101-4](https://beian.miit.gov.cn/)

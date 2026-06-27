@@ -1,0 +1,17 @@
+{
+  "id": "vpc:manage-vpc-quotas",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "提升VPC配额-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/manage-vpc-quotas",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/manage-vpc-quotas.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/manage-vpc-quotas.md",
+  "word_count": 842,
+  "text_units": 2871,
+  "local_links": 0,
+  "external_links": 80,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

@@ -1,0 +1,2 @@
+# 使用Terway网络插件
+Terway是阿里云开源的基于专有网络VPC的容器网络接口CNI（Container Network Interface）插件，支持基于Kubernetes标准的网络策略来定义容器间的访问策略。

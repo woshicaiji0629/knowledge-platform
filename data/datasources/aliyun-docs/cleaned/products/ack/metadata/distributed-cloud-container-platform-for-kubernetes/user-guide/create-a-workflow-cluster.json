@@ -1,0 +1,17 @@
+{
+  "id": "ack:distributed-cloud-container-platform-for-kubernetes/user-guide/create-a-workflow-cluster",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "创建工作流集群用于管理多个工作流任务-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/create-a-workflow-cluster",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/distributed-cloud-container-platform-for-kubernetes/user-guide/create-a-workflow-cluster.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/distributed-cloud-container-platform-for-kubernetes/user-guide/create-a-workflow-cluster.md",
+  "word_count": 976,
+  "text_units": 2162,
+  "local_links": 12,
+  "external_links": 74,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

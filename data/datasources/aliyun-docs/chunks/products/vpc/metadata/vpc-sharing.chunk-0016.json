@@ -1,0 +1,14 @@
+{
+  "id": "vpc:vpc-sharing:16",
+  "document_id": "vpc:vpc-sharing",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "共享VPC-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/vpc-sharing",
+  "chunk_index": 16,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/vpc-sharing.chunk-0016.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/vpc-sharing.md",
+  "heading_path": "共享VPC > 更多信息 > 配额",
+  "char_count": 465
+}

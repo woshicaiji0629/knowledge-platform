@@ -1,0 +1,17 @@
+{
+  "id": "sls:data-collection-best-practices",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "数据采集最佳实践-日志服务-阿里云",
+  "source_url": "https://help.aliyun.com/zh/sls/data-collection-best-practices",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/data-collection-best-practices.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/data-collection-best-practices.md",
+  "word_count": 533,
+  "text_units": 878,
+  "local_links": 0,
+  "external_links": 73,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

@@ -1,0 +1,8 @@
+## 如何使用应用集管理边缘应用
+应用版本升级：通过修改spec.workload.workloadTemplate中的字段触发升级流程，控制器把新的模板更新到各个节点池下的Workload中以触发节点池控制器升级Pod。
+应用在某地域灰度更新：通过修改spec.workload.workloadTweak[*].containerImages配置，触发相应节点池下应用Pod的镜像更新。
+应用在某地域扩缩容：通过修改spec.workload.workloadTweak[*].replicas配置，触发相应节点池下应用Pod的扩缩容操作。
+应用需要部署到一个新的地域：新创建一个匹配spec.nodepoolSelector标签的节点池，YurtAppSet会感知到节点池资源的变化，自动为该节点池创建一个Workload。之后将该地域的节点加入该节点池即可。
+应用需要在某个地域下线：删除对应地域的节点池，YurtAppSet会自动删除该地域对应的Workload。
+该文章对您有帮助吗？
+反馈

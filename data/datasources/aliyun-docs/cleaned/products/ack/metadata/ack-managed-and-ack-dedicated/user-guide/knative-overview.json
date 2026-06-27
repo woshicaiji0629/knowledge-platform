@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/user-guide/knative-overview",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "Serverless编排标准Knative的功能介绍和ACK Knative的使用流程-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/knative-overview/",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/knative-overview.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/knative-overview.md",
+  "word_count": 2211,
+  "text_units": 5713,
+  "local_links": 6,
+  "external_links": 208,
+  "has_tables": true,
+  "table_count": 7,
+  "quality": "accepted"
+}

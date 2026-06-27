@@ -1,0 +1,30 @@
+## 操作步骤
+进入实例的数据迁移及同步页面。
+访问[RDS](https://rdsnext.console.aliyun.com/rdsList/basic)[实例列表](https://rdsnext.console.aliyun.com/rdsList/basic)。
+在上方选择地域，然后单击目标实例ID。
+进入实例页面后，单击左侧导航栏数据迁移及同步。
+选择数据迁移页签，然后单击创建迁移任务并进行以下步骤。
+配置源库及目标库
+说明
+选择当前RDS MySQL实例作为源端或目标端时，实例地区及RDS实例ID会自动配置且不支持手动修改。
+配置源端信息。
+输入数据库账号和数据库密码。
+选择连接方式。
+配置目标端信息。
+选择需要迁移的数据库类型及接入方式。
+选择目标端实例地区及RDS实例ID。
+选择连接方式。
+单击测试连接以进行下一步。
+对象配置
+说明
+此步骤与DTS旧版控制台一致，DTS新版控制台在此步骤进行了配置流程优化。详情请参见[DTS](https://help.aliyun.com/zh/dts/product-overview/dts-console-fully-upgraded)[新版控制台升级](https://help.aliyun.com/zh/dts/product-overview/dts-console-fully-upgraded)。
+选择迁移类型：库表结构迁移、全量迁移、增量迁移。
+选择目标已存在表的处理模式：预检查并报错拦截、忽略报错并继续执行。
+配置目标库对象名称大小写策略，您可以配置目标实例中迁移对象的库名、表名和列名的英文大小写策略。
+说明
+默认情况下选择DTS默认策略，您也可以选择与源库、目标库默认策略保持一致。更多信息，请参见[目标库对象名称大小写策略](https://help.aliyun.com/zh/dts/user-guide/specify-the-capitalization-of-object-names-in-the-destination-instance-2#concept-2045083)。
+在源库对象框中单击待迁移的对象，然后单击将其移动到已选择对象框。
+针对单个或多个（点击右上角批量编辑）迁移对象在目标实例中的名称进行更改。
+单击高级配置（选填）下拉框，进行高级参数配置。
+选择数据校验配置的数据校验方式，可选择的校验方式与[选择迁移类型](data-migration-through-the-rds-mysql-console.md)步骤中的选项相对应。
+高级配置及后续步骤与DTS控制台保持一致，根据迁移源端和目标端的区别，请参见下表进行后续配置。

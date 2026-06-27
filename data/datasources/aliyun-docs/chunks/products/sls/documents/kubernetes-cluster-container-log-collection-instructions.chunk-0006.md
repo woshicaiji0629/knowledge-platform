@@ -1,0 +1,1 @@
+od 中伴随业务容器注入一个 LoongCollector Sidecar容器，部署运维较复杂。当需要Serverless 容器日志采集、单节点 Pod 数据量远超Daemonset采集上限、K8s + 安全容器运行时的日志采集时，使用[采集](collect-k8s-cluster-logs-through-sidecar.md)[Kubernetes Pod](collect-k8s-cluster-logs-through-sidecar.md)[文本日志（Sidecar](collect-k8s-cluster-logs-through-sidecar.md)[模式）](collect-k8s-cluster-logs-through-sidecar.md)。

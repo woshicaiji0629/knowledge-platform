@@ -1,0 +1,2 @@
+ments-row-filtering-and-column-pruning-based-on-spl.md) [Flink SQL](flink-sql-implements-weakly-structured-analysis-based-on-spl.md) [基于](flink-sql-implements-weakly-structured-analysis-based-on-spl.md) [SPL](flink-sql-implements-weakly-structured-analysis-based-on-spl.md) [实现弱结构化分析](flink-sql-implements-weakly-structured-analysis-based-on-spl.md) |
+| 流式计算 | Kafka | 如有需求请提 [工单](https://selfservice.console.aliyun.com/ticket/category/sls/today) 申请。 |

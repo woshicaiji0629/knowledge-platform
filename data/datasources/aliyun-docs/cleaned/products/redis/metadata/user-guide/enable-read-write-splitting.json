@@ -1,0 +1,17 @@
+{
+  "id": "redis:user-guide/enable-read-write-splitting",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "开启读写分离与管理只读节点-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/enable-read-write-splitting",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/user-guide/enable-read-write-splitting.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/enable-read-write-splitting.md",
+  "word_count": 584,
+  "text_units": 1476,
+  "local_links": 2,
+  "external_links": 63,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

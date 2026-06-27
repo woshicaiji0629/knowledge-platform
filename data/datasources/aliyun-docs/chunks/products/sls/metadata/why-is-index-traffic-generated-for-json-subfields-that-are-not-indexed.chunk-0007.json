@@ -1,0 +1,14 @@
+{
+  "id": "sls:why-is-index-traffic-generated-for-json-subfields-that-are-not-indexed:7",
+  "document_id": "sls:why-is-index-traffic-generated-for-json-subfields-that-are-not-indexed",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "JSON子字段未创建索引仍产生索引流量的原因-日志服务-阿里云-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/why-is-index-traffic-generated-for-json-subfields-that-are-not-indexed",
+  "chunk_index": 7,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/why-is-index-traffic-generated-for-json-subfields-that-are-not-indexed.chunk-0007.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/why-is-index-traffic-generated-for-json-subfields-that-are-not-indexed.md",
+  "heading_path": "为什么未创建索引的JSON子字段会产生索引流量？ > 示例 > 服务",
+  "char_count": 303
+}

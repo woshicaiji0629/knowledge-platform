@@ -1,0 +1,1 @@
+}, } // 执行设置存储空间清单的请求 putResult, err := client.PutBucketInventory(context.TODO(), putRequest) if err != nil { log.Fatalf("failed to put bucket inventory %v", err) } // 打印设置存储空间清单的结果 log.Printf("put bucket inventory result:%#v\n", putResult) }

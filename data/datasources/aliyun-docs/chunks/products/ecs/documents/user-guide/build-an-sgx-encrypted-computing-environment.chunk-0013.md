@@ -1,0 +1,4 @@
+/attestation-services.html)。
+阿里云SGX远程证明服务采用区域化部署，您可以访问vSGX实例所在地域的阿里云SGX远程证明服务来获得最佳的稳定性。安装阿里云TEE SDK后会自动生成远程证明服务的默认配置文件/etc/sgx_default_qcnl.conf，您需要修改该配置文件以适配vSGX实例所在地域的阿里云SGX远程证明服务，方法如下：
+说明
+目前阿里云SGX远程证明服务仅支持如下地域和可用区。

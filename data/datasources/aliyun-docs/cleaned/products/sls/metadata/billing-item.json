@@ -1,0 +1,17 @@
+{
+  "id": "sls:billing-item",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "pricing",
+  "title": "计费项-日志服务-阿里云",
+  "source_url": "https://help.aliyun.com/zh/sls/billing-item",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/billing-item.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/billing-item.md",
+  "word_count": 476,
+  "text_units": 787,
+  "local_links": 0,
+  "external_links": 66,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

@@ -1,0 +1,6 @@
+defaultrole" "assume_role_policy_document" = <<-EOT { "Statement": [{ "Action": "sts:AssumeRole", "Effect": "Allow", "Principal": {"Service": ["cr.aliyuncs.com"]}}], "Version": "1"} "id" = "3502335964487******" "name" = "AliyunServiceRoleForServiceMesh" "update_date" = "2022-09-27T10:26:50Z" }, ]) }
+在main.tf配置文件中替换如下授权模板。
+说明
+此授权模板基于[服务角色](../../ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-assign-default-roles-to-ack-when-you-use-ack-for-the-first-time.md)进行授权，并通过变量来指定各角色的名称、策略等属性。如需调整角色授权，可以参见[可选角色](activate-ack-edge-for-the-first-time-and-authorize-the-default-role.md)、[步骤二：授权角色](activate-ack-edge-for-the-first-time-and-authorize-the-default-role.md)查询到的角色，在模板的default = [ ]中，您可以根据需要新增新角色或删除已有角色，以确保授权不会重复或遗漏。
+展开查看所有角色详细信息
+provider "alicloud" { } // 创建角色。 resource "alicloud_ram_role" "role" { for_each = { for r in var.roles : r.name => r } name = each.value.name document = each.value.policy_document description = each.value.description force = true } // 角色关联系统权限。 resource "alicloud_ram_role_policy_attachment" "attach" { for_each = { for r in var.roles : r.name => r } policy_name = each.value.policy_name policy_type = "System" role_name = each.value.name depends

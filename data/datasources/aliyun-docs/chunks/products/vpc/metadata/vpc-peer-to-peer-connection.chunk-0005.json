@@ -1,0 +1,14 @@
+{
+  "id": "vpc:vpc-peer-to-peer-connection:5",
+  "document_id": "vpc:vpc-peer-to-peer-connection",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "deployment",
+  "title": "VPC对等连接-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/vpc-peer-to-peer-connection",
+  "chunk_index": 5,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/vpc-peer-to-peer-connection.chunk-0005.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/vpc-peer-to-peer-connection.md",
+  "heading_path": "VPC对等连接 > 配置对等连接",
+  "char_count": 1200
+}

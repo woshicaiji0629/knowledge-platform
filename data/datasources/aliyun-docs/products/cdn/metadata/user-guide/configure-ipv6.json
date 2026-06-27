@@ -1,0 +1,12 @@
+{
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "url": "https://help.aliyun.com/zh/cdn/user-guide/configure-ipv6",
+  "title": "开启IPv6开关,IPv6的客户端请求将支持以IPv6协议访问CDN,CDN也将携带IPv6的客户端IP信息访问您的源站-CDN(CDN)-阿里云帮助中心",
+  "fetched_at": "2026-06-27T09:36:13.797295+00:00",
+  "status_code": "200",
+  "content_type": "text/html;charset=UTF-8",
+  "raw_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/raw/user-guide/configure-ipv6.html",
+  "document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/user-guide/configure-ipv6.md"
+}

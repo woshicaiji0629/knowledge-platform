@@ -1,0 +1,3 @@
+支持在SLS控制台修改。
+若采集配置通过CRD - AliyunPipelineConfig方式创建，并曾经在SLS控制台修改，所有改动均会在修改后30分钟内被还原，请检查当前采集配置是否符合预期。
+若采集配置通过CRD - AliyunLogConfig方式创建，并曾经在SLS控制台修改，这些修改可能在Pod重建或组件更新等情况下被原始采集配置覆盖丢失，请尽快检查当前采集配置是否符合预期并更新CR，建议升级至AliyunPipelineConfig。

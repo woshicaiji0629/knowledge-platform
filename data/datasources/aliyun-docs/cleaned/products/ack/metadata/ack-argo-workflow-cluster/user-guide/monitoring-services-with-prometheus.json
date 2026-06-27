@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-argo-workflow-cluster/user-guide/monitoring-services-with-prometheus",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "使用Prometheus监控Argo工作流集群-容器服务Kubernetes版ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/user-guide/monitoring-services-with-prometheus",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-argo-workflow-cluster/user-guide/monitoring-services-with-prometheus.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-argo-workflow-cluster/user-guide/monitoring-services-with-prometheus.md",
+  "word_count": 592,
+  "text_units": 1141,
+  "local_links": 2,
+  "external_links": 73,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

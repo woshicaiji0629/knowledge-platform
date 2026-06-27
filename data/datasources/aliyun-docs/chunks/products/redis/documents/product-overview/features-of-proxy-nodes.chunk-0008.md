@@ -1,0 +1,2 @@
+8 2) 1) (integer) 0 2) "*2\r\n$3\r\nGET\r\n$16\r\nkey:000000000001\r\n" 3) (integer) 668 3) 1) (integer) 0 2) "*2\r\n$3\r\nGET\r\n$16\r\nkey:000000000003\r\n" 3) (integer) 668 4) 1) (integer) 0 2) "*2\r\n$3\r\nGET\r\n$16\r\nkey:000000000002\r\n" 3) (integer) 667
+返回示例说明：每个请求命令的信息由三行信息组成，分别为数据库名、请求命令的完整内容（格式遵照[Redis](https://valkey.io/topics/protocol/)[协议规范](https://valkey.io/topics/protocol/)）、剩余生存时间（单位为毫秒）。

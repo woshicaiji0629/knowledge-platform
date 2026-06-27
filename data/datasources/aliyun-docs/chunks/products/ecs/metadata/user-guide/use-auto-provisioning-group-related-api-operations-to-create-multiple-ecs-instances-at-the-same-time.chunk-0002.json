@@ -1,0 +1,14 @@
+{
+  "id": "ecs:user-guide/use-auto-provisioning-group-related-api-operations-to-create-multiple-ecs-instances-at-the-same-time:2",
+  "document_id": "ecs:user-guide/use-auto-provisioning-group-related-api-operations-to-create-multiple-ecs-instances-at-the-same-time",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "selection",
+  "title": "使用CreateAutoProvisioningGroup API在按量付费场景下批量创建ECS实例-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/use-auto-provisioning-group-related-api-operations-to-create-multiple-ecs-instances-at-the-same-time",
+  "chunk_index": 2,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ecs/documents/user-guide/use-auto-provisioning-group-related-api-operations-to-create-multiple-ecs-instances-at-the-same-time.chunk-0002.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/use-auto-provisioning-group-related-api-operations-to-create-multiple-ecs-instances-at-the-same-time.md",
+  "heading_path": "使用弹性供应组API批量创建ECS实例 > 背景信息",
+  "char_count": 174
+}

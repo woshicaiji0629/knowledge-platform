@@ -1,0 +1,2 @@
+# 什么是阿里云容器服务Kubernetes版
+阿里云容器服务 Kubernetes 版 ACK（Container Service for Kubernetes）是全球首批通过Kubernetes一致性认证的服务平台，提供高性能的容器应用管理服务，支持企业级Kubernetes容器化应用的生命周期管理，让您轻松高效地在云端运行Kubernetes容器化应用。本文介绍什么是容器服务 Kubernetes 版以及其下不同的集群类型。

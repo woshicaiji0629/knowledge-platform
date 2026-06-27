@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/purchase-a-resource-reservation",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "购买资源预定-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/purchase-a-resource-reservation",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/purchase-a-resource-reservation.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/purchase-a-resource-reservation.md",
+  "word_count": 1009,
+  "text_units": 3695,
+  "local_links": 4,
+  "external_links": 71,
+  "has_tables": true,
+  "table_count": 15,
+  "quality": "accepted"
+}

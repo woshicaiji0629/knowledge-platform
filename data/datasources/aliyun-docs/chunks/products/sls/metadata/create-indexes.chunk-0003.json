@@ -1,0 +1,14 @@
+{
+  "id": "sls:create-indexes:3",
+  "document_id": "sls:create-indexes",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "配置索引实现日志的查询和分析-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/create-indexes",
+  "chunk_index": 3,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/create-indexes.chunk-0003.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/create-indexes.md",
+  "heading_path": "创建索引 > 创建索引",
+  "char_count": 462
+}

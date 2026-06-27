@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/attach-an-instance-ram-role-to-an-ecs-instance",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "给ECS实例授予RAM角色-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/attach-an-instance-ram-role-to-an-ecs-instance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/attach-an-instance-ram-role-to-an-ecs-instance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/attach-an-instance-ram-role-to-an-ecs-instance.md",
+  "word_count": 2679,
+  "text_units": 5811,
+  "local_links": 23,
+  "external_links": 90,
+  "has_tables": true,
+  "table_count": 5,
+  "quality": "accepted"
+}

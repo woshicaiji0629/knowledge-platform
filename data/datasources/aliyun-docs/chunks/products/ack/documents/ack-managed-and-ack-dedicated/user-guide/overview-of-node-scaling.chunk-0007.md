@@ -1,0 +1,3 @@
+资源。 节点即时弹性 支持无侵入式地将资源供给策略、节点生命周期管理与您的自定义行为进行联动，提供更多二次开发的可能性。 |  |
+| 调度策略 | 除支持 节点自动伸缩 所有的调度特性之外， 节点即时弹性 还支持以下特性： [Topology](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/) ：常用于满足跨可用区维度的高可用需求。 [Pod Disruption Budgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#/pod-disruption-budgets) ：可限制在同一时间可被主动驱逐的多副本应用中 Pod 的数量，以保障变更期间的稳定性。 |  |
+| 节点即时弹性 支持根据 Pod 选择最优 [装箱策略（Bin Packing）](https://kubernetes.io/docs/concepts/scheduling-eviction/resource-bin-packing/) 和 [预绑定（PreBind）](https://kubernetes.io/docs/concepts/scheduling-eviction/scheduling-framework/#pre-bind) 策略（自定义特性），将调度碎片率优化 30%。 |  |  |

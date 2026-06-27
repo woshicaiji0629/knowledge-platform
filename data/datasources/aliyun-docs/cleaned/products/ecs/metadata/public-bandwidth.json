@@ -1,0 +1,17 @@
+{
+  "id": "ecs:public-bandwidth",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "pricing",
+  "title": "ECS公网带宽计费-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/public-bandwidth",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/public-bandwidth.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/public-bandwidth.md",
+  "word_count": 1091,
+  "text_units": 4067,
+  "local_links": 4,
+  "external_links": 91,
+  "has_tables": true,
+  "table_count": 15,
+  "quality": "accepted"
+}

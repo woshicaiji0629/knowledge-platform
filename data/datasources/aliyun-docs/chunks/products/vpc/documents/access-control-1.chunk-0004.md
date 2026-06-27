@@ -1,0 +1,2 @@
+### 网络ACL使用实例
+您可以通过网络ACL功能限制不同交换机下ECS实例或者限制本地数据中心与云上的互通。具体操作，请参见[限制不同交换机下的](manage-intercommunication-among-ecs-instances-connected-to-different-vswitches.md)[ECS](manage-intercommunication-among-ecs-instances-connected-to-different-vswitches.md)[间的互通](manage-intercommunication-among-ecs-instances-connected-to-different-vswitches.md)和[限制本地数据中心与云上的互通](manage-communication-between-a-data-center-and-a-vpc.md)。

@@ -1,0 +1,10 @@
+payment-types.md)
+- [【产品公告】关于集群创建接口CreateCluster参数行为变更的公告](product-announcement-announcement-on-change-of-createcluster-parameter-behavior-of-cluster-creation-interface.md)
+- [【产品变更】关于新增创建ACK托管集群时CSI相关服务角色授权检查的公告](product-change-announcement-on-adding-csi-related-service-role-authorization-check-when-creating-ack-managed-cluster.md)
+- [【产品公告】关于停止维护Nginx Ingress Controller v1.2及以下版本的公告](product-announcement-announcement-on-stopping-maintenance-of-nginx-ingress-controller-v1-2-and-below.md)
+- [【产品变更】CSI ossfs版本升级与挂载流程优化](announcement-on-csi-oss-driver-upgrade.md)
+- [【产品公告】关于停止新建ACK专有集群的公告](product-announcement-announcement-on-stopping-new-ack-dedicated-cluster.md)
+- [【产品公告】关于ACK集群无法拉取海外源镜像的公告](announcement-on-ack-cluster-unable-to-pull-overseas-source-mirror.md)
+- [【产品变更】关于ACK专有集群API Server的ClientCA证书更新运维公告](product-change-announcement-on-operation-and-maintenance-of-clientca-certificate-update-for-ack-proprietary-cluster-api-server.md)
+- [【产品变更】关于ACK Serverless集群架构自动升级公告](product-change-announcement-on-automatic-upgrade-of-container-service-serverless-cluster-architecture.md)
+- [【产品变更】关于CheckServiceRole鉴权失败公告](product-change-announcement-on-checkservicerole-authentication-failure.md

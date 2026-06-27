@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/developer-reference/activate-ack-edge-for-the-first-time-and-authorize-the-default-role:16",
+  "document_id": "ack:ack-edge/developer-reference/activate-ack-edge-for-the-first-time-and-authorize-the-default-role",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "deployment",
+  "title": "使用Terraform首次开通ACK Edge并授权默认角色-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/activate-ack-edge-for-the-first-time-and-authorize-the-default-role",
+  "chunk_index": 16,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/developer-reference/activate-ack-edge-for-the-first-time-and-authorize-the-default-role.chunk-0016.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/activate-ack-edge-for-the-first-time-and-authorize-the-default-role.md",
+  "heading_path": "alicloud_ram_role.role[\"AliyunCSManagedEdgeRole\"]: resource \"alicloud_ram_role\" \"role\" { arn = \"acs:ram::10051XXXXXX30:role/aliyuncsmanagededgerole\" description = \"集群的管控组件使用该角色访问您在智能接入网关、VPC和云企业网CEN服务中的资源。\" ...... } # alicloud_ram_role_policy_attachment.attach[\"AliyunCSManagedEdgeRole\"]: resource \"alicloud_ram_role_policy_attachment\" \"attach\" { id = \"role:AliyunCSManagedEdgeRolePolicy:System:AliyunCSManagedEdgeRole\" policy_name = \"AliyunCSManagedEdgeRolePolicy\" policy_type = \"System\" role_name = \"AliyunCSManagedEdgeRole\" ..... } > 服务角色 > [AliyunCSServerlessKubernetesRole](../../../../ram/documents/developer-reference/aliyuncsserverlesskubernetesrolepolicy.md)",
+  "char_count": 508
+}

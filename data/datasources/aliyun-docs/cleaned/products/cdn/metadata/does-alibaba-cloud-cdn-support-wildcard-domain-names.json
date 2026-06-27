@@ -1,0 +1,17 @@
+{
+  "id": "cdn:does-alibaba-cloud-cdn-support-wildcard-domain-names",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "阿里巴巴云CDN支持泛域名加速-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/does-alibaba-cloud-cdn-support-wildcard-domain-names",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/does-alibaba-cloud-cdn-support-wildcard-domain-names.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/does-alibaba-cloud-cdn-support-wildcard-domain-names.md",
+  "word_count": 637,
+  "text_units": 1710,
+  "local_links": 0,
+  "external_links": 66,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

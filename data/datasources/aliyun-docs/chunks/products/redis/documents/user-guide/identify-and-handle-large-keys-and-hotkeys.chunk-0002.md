@@ -1,0 +1,6 @@
+| 方法 | 优缺点 | 说明 |
+| --- | --- | --- |
+| 通过 redis-cli 的 bigkeys 、 memkeys 和 hotkeys 参数 | 优点：方便、快速、安全。 缺点：分析结果不可定制化，准确性与时效性差；需要遍历实例当前所有 Key，可能影响实例性能。 | redis-cli 的 bigkeys 、 memkeys 与 hotkeys 参数能获取 Key 的整体统计信息与每个数据类型中 Top1 的大 Key 或热 Key。 区别如下： bigkeys ：统计大 Key 信息，集合或列表类型返回元素个数。 memkeys ：统计大 Key 信息，返回所有数据类型所占内存大小。 hotkeys ：统计热 Key 信息。 支持的数据类型：STRING、LIST、HASH、SET、ZSET、STREAM。 以 bigkeys 为例，命令示例为 redis-cli -h r-***************.redis.rds.aliyuncs.com -a <password> --bigkeys 。 |
+| 通过内置命令对目标 Key 进行分析 | 优点：对线上服务影响小。 缺点：返回的 Key 序列化长度并不等同于它在内存空间中的真实长度，因此不够准确，仅可作为参考。 | 对不同数据类型的目标 Key，分别通过如下风险较低的命令进行分析，来判断目标 Key 是否符合大 Key 判定标准。 STRING 类型： STRLEN 命令，返回对应 Key 的 value 的字节数。 LIST 类型： LLEN 命令，返回对应 Key 的列表长度。 HASH 类型： HLEN 命令，返回对应 Key 的成员数量。 SET 类型： SCARD 命令，返回对应 Key 的成员数量。 ZSET 类型： ZCARD 命令，返回对应 Key 的成员数量。 STREAM 类型： XLEN 命令，返回对应 Key 的成员数量。 说明 DEBUG OBJECT 与 MEMORY USAGE 命令在执行时需占用较多资源，且时间复杂度为 O(N)，有阻塞实例的风险，不建议使用。 |
+| 通过业务层定位热 Key | 优点：可准确并及时地定位热 Key。 缺点：业务代码复杂度的增加，同时可能会降低一些性能。 | 通过在业务层增加相应的代码对实例的访问进行记录并异步汇总分析。 |
+| 通过 redis-rdb-tools 工具以定制化方式找出大 Key | 优点：支持定制化分析，对线上服务无影响。 缺点：时效性差，RDB 文件较大时耗时较长。 | [Redis-rdb-tools](https://github.com/sripathikrishnan/redis-rdb-tools) 是通过 Python 编写的开源工具，支持定制化分析 RDB 快照文

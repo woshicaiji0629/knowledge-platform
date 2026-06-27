@@ -1,0 +1,17 @@
+{
+  "id": "sls:billing-examples",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "pricing",
+  "title": "不同计费方式的费用计算案例-日志服务-阿里云",
+  "source_url": "https://help.aliyun.com/zh/sls/billing-examples",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/billing-examples.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/billing-examples.md",
+  "word_count": 1142,
+  "text_units": 2648,
+  "local_links": 0,
+  "external_links": 64,
+  "has_tables": true,
+  "table_count": 35,
+  "quality": "accepted"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "cdn:user-guide/configure-back-to-origin-routing-over-ipv6",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "通过配置IPv6回源实现CDN节点以IPv6协议访问源站-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/user-guide/configure-back-to-origin-routing-over-ipv6",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/user-guide/configure-back-to-origin-routing-over-ipv6.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/user-guide/configure-back-to-origin-routing-over-ipv6.md",
+  "word_count": 575,
+  "text_units": 1293,
+  "local_links": 0,
+  "external_links": 63,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

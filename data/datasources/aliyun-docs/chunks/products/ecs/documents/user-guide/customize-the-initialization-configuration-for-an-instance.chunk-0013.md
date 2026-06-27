@@ -1,0 +1,2 @@
+## Windows实例
+Windows实例是通过Vminit工具的Plugin_Main_CloudinitUserData插件来运行自定义数据脚本，该插件仅支持在实例首次启动时运行，该插件支持Bat和PowerShell两种脚本。

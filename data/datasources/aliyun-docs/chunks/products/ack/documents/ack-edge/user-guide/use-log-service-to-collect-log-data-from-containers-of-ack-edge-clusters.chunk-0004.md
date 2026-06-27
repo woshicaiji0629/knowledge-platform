@@ -1,0 +1,10 @@
+talina.*.log来采集Tomcat的文本日志。
+说明
+指定为stdout时，表示采集容器的标准输出和标准错误输出。
+每一项采集配置都会被自动创建为对应Logstore的一个采集配置，默认采用极简模式（按行）进行采集。如果需要使用多行模式及更丰富的采集方式，请参见[通过](../../../../sls/documents/use-the-log-service-console-to-collect-container-text-logs-in-daemonset-mode.md)[DaemonSet-控制台方式采集容器文本日志](../../../../sls/documents/use-the-log-service-console-to-collect-container-text-logs-in-daemonset-mode.md)、[通过](../../../../sls/documents/collect-container-stdout-and-stderr-in-daemonset-mode.md)[DaemonSet-控制台方式采集容器标准输出](../../../../sls/documents/collect-container-stdout-and-stderr-in-daemonset-mode.md)。
+配置前请确保集群已部署日志插件。例如，日志库分别填写为access和catalina。
+设置自定义Tag。
+单击自定义Tag，每一个自定义Tag都是一个键值对，会拼接到所采集到的日志中，可以使用它来为容器的日志数据进行标记，例如版本号。
+例如，将Tag名称设置为release，Tag值设置为1.0.0。
+当完成所有配置后，可单击右上角下一步进入后续流程。
+后续操作，可参见[创建无状态工作负载](../../ack-managed-and-ack-dedicated/user-guide/create-a-stateless-application-by-using-a-deployment.md)[Deployment](../../ack-managed-and-ack-dedicated/user-guide/create-a-stateless-application-by-using-a-deployment.md)。

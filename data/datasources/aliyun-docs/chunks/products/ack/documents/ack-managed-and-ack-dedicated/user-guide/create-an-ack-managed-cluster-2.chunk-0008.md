@@ -1,0 +1,6 @@
+### API
+调试入口
+[CreateCluster](https://next.api.aliyun.com/api/CS/2015-12-15/CreateCluster)[调试入口](https://next.api.aliyun.com/api/CS/2015-12-15/CreateCluster)
+请求示例
+创建一个ACK托管集群Pro版的请求示例如下，完整的参数说明请参见[CreateCluster - 创建集群](../developer-reference/api-cs-2015-12-15-createcluster.md)。
+POST /clusters <公共请求头> { "name": "ACK托管集群", "cluster_type": "ManagedKubernetes", //和profile、cluster_spec配合使用，指定集群的类型为ACK托管集群Pro版。#required "profile": "Default", "cluster_spec": "ack.pro.small", "kubernetes_version": "1.32.1-aliyun.1", //创建的集群版本，建议选择最新版本。 "region_id": "cn-hongkong", //集群所属地域为香港地域。#required "snat_entry": true, // 为专有网络配置SNAT规则，以开启集群公网访问。 "endpoint_public_access": false, //集群不开启API server公网访问。 "deletion_protection": true, //开启集群删除保护。 "proxy_mode": "ipvs", //选择高性能的kube-proxy代理模式IPVS。 "tags": [], "timezone": "Asia/Shanghai", "addons": [ //安装的集群组件。 { "name": "terway-controlplane", "config": "{\"ENITrunking\":\"true\"}" }, { "name": "terway-eniip", //集群的网络类型为Terway方式。集群创建后不可修改。 "config": "{\"IPVlan\":\"false\",\"NetworkPolicy\":\"false\",\"ENITrunking\":\"true\"}" }, { "name": "csi-plugin" }, { "name": "managed-csiprovisioner" }, { "name": "storage-operator", "config": "{\"CnfsOssEnable\":\"false\",

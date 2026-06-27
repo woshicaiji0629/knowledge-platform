@@ -1,0 +1,6 @@
+tps://quotas.console.aliyun.com/white-list-products/csk/quotas) 申请 支持 Kubernetes 原生的 NetworkPolicy ，以实现 Pod 间的“防火墙”，自定义精细的访问控制规则，以提升集群安全性。 Trunk ENI 支持 允许为 Pod 配置独立的 IP、vSwitch 和安全组，适用于需要固定 IP 或需要对特定 Pod 进行独立网络策略管理的特殊业务场景，请参见 [为](configure-a-static-ip-address-a-separate-vswitch-and-a-separate-security-group-for-each-pod.md) [Pod](configure-a-static-ip-address-a-separate-vswitch-and-a-separate-security-group-for-each-pod.md) [配置固定](configure-a-static-ip-address-a-separate-vswitch-and-a-separate-security-group-for-each-pod.md) [IP](configure-a-static-ip-address-a-separate-vswitch-and-a-separate-security-group-for-each-pod.md) [及独立虚拟交换机、安全组](configure-a-static-ip-address-a-separate-vswitch-and-a-separate-security-group-for-each-pod.md) 。 |
+| 容器网段 | 仅 Flannel 需要配置 为 Pod 分配 IP 地址的地址池。此网段不能与 VPC 及 VPC 内已有 ACK 集群使用的网段重叠，且不能与 服务网段 重叠。 |
+| 节点 Pod 数量 | 仅 Flannel 需要配置 定义单个节点上可容纳的最大 Pod 数量。 |
+| Pod 交换机 | 仅在选择使用 Terway 时需要配置。 为 Pod 分配 IP 的虚拟交换机。每个 Pod 虚拟交换机分别对应一个 Worker 节点的虚拟交换机，Pod 虚拟交换机和 Worker 节点的虚拟交换机的可用区需保持一致。 重要 Pod 虚拟交换机的网段掩码建议不超过 19，最大不超过 25，否则集群网络可分配的 Pod IP 地址非常有限，会影响集群的正常使用。 |
+| 服务网段 | 即 Service CIDR，为集群内部 Service 分配 IP 地址的地址池。此网段不能与 VPC 及 VPC 内已有集群使用的网段重复，且不能与 容器网段 重复。 |
+| IPv6 服务网段

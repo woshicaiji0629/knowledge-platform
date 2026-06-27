@@ -1,0 +1,14 @@
+{
+  "id": "redis:developer-reference/tairsearch:60",
+  "document_id": "redis:developer-reference/tairsearch",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "全文搜索数据结构聚合查询-TairSearch-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/developer-reference/tairsearch",
+  "chunk_index": 60,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/developer-reference/tairsearch.chunk-0060.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/tairsearch.md",
+  "heading_path": "查询product_group为中国的文档，设置返回的分数为1.2，同时设置仅返回product_name、price、stock字段。 TFT.SEARCH idx:product '{\"query\":{\"constant_score\":{\"filter\":{\"term\":{\"product_group\":\"中国\"}},\"boost\":1.2}},\"_source\":{\"includes\":[\"product_name\",\"price\",\"stock\"]}}' # 预期输出： {\"hits\":{\"hits\":[{\"_id\":\"fruits_1\",\"_index\":\"idx:product\",\"_score\":1.2,\"_source\":{\"product_name\":\"apple\",\"price\":19.5,\"stock\":1000}},{\"_id\":\"fruits_3\",\"_index\":\"idx:product\",\"_score\":1.2,\"_source\":{\"product_name\":\"orange\",\"price\":30.2,\"stock\":3000}}],\"max_score\":1.2,\"total\":{\"relation\":\"eq\",\"value\":2}}} > 为什么选择阿里云 > 友情链接",
+  "char_count": 935
+}

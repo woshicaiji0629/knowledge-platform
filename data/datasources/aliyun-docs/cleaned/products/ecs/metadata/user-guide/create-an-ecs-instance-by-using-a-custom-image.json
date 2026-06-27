@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/create-an-ecs-instance-by-using-a-custom-image",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "使用自定义镜像或共享的自定义镜像创建ECS实例-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/create-an-ecs-instance-by-using-a-custom-image",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/create-an-ecs-instance-by-using-a-custom-image.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/create-an-ecs-instance-by-using-a-custom-image.md",
+  "word_count": 808,
+  "text_units": 1901,
+  "local_links": 12,
+  "external_links": 78,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

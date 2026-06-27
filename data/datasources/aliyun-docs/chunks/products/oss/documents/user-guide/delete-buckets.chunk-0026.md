@@ -1,0 +1,2 @@
+### iOS
+OSSDeleteBucketRequest * delete = [OSSDeleteBucketRequest new]; // 填写存储空间名称，例如examplebucket。 delete.bucketName = @"examplebucket"; OSSTask * deleteTask = [client deleteBucket:delete]; [deleteTask continueWithBlock:^id(OSSTask *task) { if (!task.error) { NSLog(@"delete bucket success!"); } else { NSLog(@"delete bucket failed, error: %@", task.error); } return nil; }]; // 实现同步阻塞等待任务完成。 // [getdeleteTask waitUntilFinished];

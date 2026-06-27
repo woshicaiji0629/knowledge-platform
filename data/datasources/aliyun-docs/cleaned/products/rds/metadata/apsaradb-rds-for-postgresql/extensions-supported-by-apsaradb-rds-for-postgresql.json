@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-postgresql/extensions-supported-by-apsaradb-rds-for-postgresql",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "RDS PostgreSQL支持的插件-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/extensions-supported-by-apsaradb-rds-for-postgresql",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-postgresql/extensions-supported-by-apsaradb-rds-for-postgresql.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-postgresql/extensions-supported-by-apsaradb-rds-for-postgresql.md",
+  "word_count": 6890,
+  "text_units": 11077,
+  "local_links": 0,
+  "external_links": 313,
+  "has_tables": true,
+  "table_count": 19,
+  "quality": "accepted"
+}

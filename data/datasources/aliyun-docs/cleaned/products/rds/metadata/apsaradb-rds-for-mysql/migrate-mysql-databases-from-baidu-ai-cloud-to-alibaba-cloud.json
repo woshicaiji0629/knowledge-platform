@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/migrate-mysql-databases-from-baidu-ai-cloud-to-alibaba-cloud",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "百度云MySQL数据库迁移到阿里云的步骤-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/migrate-mysql-databases-from-baidu-ai-cloud-to-alibaba-cloud",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-mysql/migrate-mysql-databases-from-baidu-ai-cloud-to-alibaba-cloud.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/migrate-mysql-databases-from-baidu-ai-cloud-to-alibaba-cloud.md",
+  "word_count": 1968,
+  "text_units": 6422,
+  "local_links": 0,
+  "external_links": 108,
+  "has_tables": true,
+  "table_count": 14,
+  "quality": "accepted"
+}

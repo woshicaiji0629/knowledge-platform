@@ -1,0 +1,14 @@
+{
+  "id": "cdn:support/cname-faq:3",
+  "document_id": "cdn:support/cname-faq",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "troubleshoot",
+  "title": "配置CNAME常见问题-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/support/cname-faq",
+  "chunk_index": 3,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/cdn/documents/support/cname-faq.chunk-0003.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/support/cname-faq.md",
+  "heading_path": "配置CNAME常见问题 > 查询到了A记录，但没有CNAME记录，或配置 CNAME 时提示与 A 记录冲突怎么办？",
+  "char_count": 329
+}

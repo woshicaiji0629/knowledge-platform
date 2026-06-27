@@ -1,0 +1,186 @@
+# 为ECS实例开通公网-云服务器 ECS(ECS)-阿里云帮助中心
+
+Source: https://help.aliyun.com/zh/ecs/user-guide/best-practices-for-configuring-public-bandwidth
+
+[大模型](https://www.aliyun.com/product/tongyi)[产品](https://www.aliyun.com/product/list)[解决方案](https://www.aliyun.com/solution/tech-solution/)[权益](https://www.aliyun.com/benefit)[定价](https://www.aliyun.com/price)[云市场](https://market.aliyun.com/)[伙伴](https://partner.aliyun.com/management/v2)[服务](https://www.aliyun.com/service)[了解阿里云](https://www.aliyun.com/about)
+
+查看 "" 全部搜索结果
+
+[AI 助理](https://www.aliyun.com/ai-assistant?displayMode=side)
+
+[文档](https://help.aliyun.com/)[备案](https://beian.aliyun.com/)[控制台](https://home.console.aliyun.com/home/dashboard/ProductAndService)
+
+[官方文档](https://help.aliyun.com/zh)
+
+- [用户指南](products/ecs/documents/user-guide.md)
+
+- [开发参考](products/ecs/documents/developer-reference.md)
+
+- [产品计费](products/ecs/documents/billing-2.md)
+
+- [常见问题](products/ecs/documents/faqs.md)
+
+- [动态与公告](products/ecs/documents/announcements-and-updates.md)
+
+[首页](https://help.aliyun.com/zh)
+
+# 开通公网
+
+更新时间：
+
+复制 MD 格式
+
+[产品详情](https://www.aliyun.com/product/ecs)
+
+[我的收藏](https://help.aliyun.com/my_favorites.html)
+
+本文汇总了多种为ECS实例开通公网的方案，以帮助您根据业务需求为ECS实例赋予公网通信能力。
+
+## 使用IPv4访问公网
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+| 实现方式 | 适用场景 | 特点 | 相关文档 |
+| --- | --- | --- | --- |
+| 使用固定公网 IP | 适用于需要长期保持固定公网访问地址的场景。如对外提供持续服务的服务器。 | 可在创建实例时或为已有实例直接分配固定公网 IP。 该 IP 地址专属于实例，并将在实例释放时一并回收。 该功能提供简便的操作流程和低使用门槛。 | 创建实例时分配 ECS 控制台： [自定义购买实例](products/ecs/documents/user-guide/create-an-instance-by-using-the-wizard.md) 调用 API 接口： [RunInstances](products/ecs/documents/developer-reference/api-ecs-2014-05-26-runinstances.md) 为已有实例分配 ECS 控制台： [修改固定公网带宽](products/ecs/documents/user-guide/modify-the-bandwidth-configurations.md) 调用 API 接口： [调整](products/ecs/documents/developer-reference/api-ecs-2014-05-26-modifyinstancenetworkspec.md) [ECS](products/ecs/documents/developer-reference/api-ecs-2014-05-26-modifyinstancenetworkspec.md) [实例带宽或分配公网](products/ecs/documents/developer-reference/api-ecs-2014-05-26-modifyinstancenetworkspec.md) [IP](products/ecs/documents/developer-reference/api-ecs-2014-05-26-modifyinstancenetworkspec.md) |
+| 绑定弹性公网 IP（EIP） | 适用于满足具有 临时 / 动态 变化或特定场景下的公网访问需求。 需要频繁更换后端服务器或重新部署服务，如临时测试环境、开发环境或演示环境等。 快速故障转移：实例发生故障时可以迅速解绑并绑定 EIP 至备用实例，实现流量的快速转移，以最小化服务中断时间。 服务从单台扩展到了多台实例，需要保持对外提供服务的 IP 地址不变。 单台 ECS 实例同时部署多个需要使用独立公网 IP 对外提供服务的业务。 | 弹性公网 IP 是可以独立购买和持有的公网 IP 地址资源。 可在不同实例间动态 解绑 / 绑定 。 与其他方案相比，提供了更高的操作灵活性和管理便利性。 | [弹性公网](products/ecs/documents/user-guide/associate-or-disassociate-an-eip.md) [IP](products/ecs/documents/user-guide/associate-or-disassociate-an-eip.md) |
+| 绑定任播弹性公网 IP | 适用于除中国内地以外区域的公网可用性提升。 流量经过运营商普通线路、阿里云全球传输网络。 | 全球多地域使用相同 IP，用户流量就近接入阿里云网络，降低访问延迟，以提升用户访问体验。 提供全球范围内唯一的公网 IP 地址。此 IP 地址可在整个接入区域内发布，不受地域限制。 | [什么是](https://help.aliyun.com/zh/anycast-eip/product-overview/what-is-anycast-eip) [Anycast EIP](https://help.aliyun.com/zh/anycast-eip/product-overview/what-is-anycast-eip) |
+| 通过 NAT 网关进行网络地址转换 | 适用于多台服务器的公网访问、共享公网带宽，或特定场景下的访问需求。 需要在保持 ECS 实例不直接面向公网的同时，仍需让这些实例能够访问外部网络。 只需要发起对外部网络的请求，而不需要从外部网络接收请求的服务（即只需出站连接），如后端服务、数据库等。 在 IP 地址资源有限的情况下，让多个 ECS 实例共享一个公网 IP 地址进行访问互联网。 需要所有来自私有子网内的 ECS 实例共享同一出口到公网。 | 提供了一个集中的、可控的公网访问点，即统一公网流量出口。 节省公网 IP 资源，无需为每台服务器分配公网 IP。 简化网络架构，允许集中管理出站访问策略，而无需在每台 ECS 实例上单独设置。 实例不会直接暴露在公网上，大大提高安全性。 | [使用公网](products/nat-gateway/documents/getting-started/use-the-snat-feature-of-an-internet-nat-gateway-to-access-the-internet.md) [NAT](products/nat-gateway/documents/getting-started/use-the-snat-feature-of-an-internet-nat-gateway-to-access-the-internet.md) [网关](products/nat-gateway/documents/getting-started/use-the-snat-feature-of-an-internet-nat-gateway-to-access-the-internet.md) [SNAT](products/nat-gateway/documents/getting-started/use-the-snat-feature-of-an-internet-nat-gateway-to-access-the-internet.md) [功能访问互联网](products/nat-gateway/documents/getting-started/use-the-snat-feature-of-an-internet-nat-gateway-to-access-the-internet.md) [通过公网](products/nat-gateway/documents/enable-ecs-instances-to-receive-requests-from-the-internet-through-dnat.md) [NAT](products/nat-gateway/documents/enable-ecs-instances-to-receive-requests-from-the-internet-through-dnat.md) [网关](products/nat-gateway/documents/enable-ecs-instances-to-receive-requests-from-the-internet-through-dnat.md) [DNAT](products/nat-gateway/documents/enable-ecs-instances-to-receive-requests-from-the-internet-through-dnat.md) [功能实现](products/nat-gateway/documents/enable-ecs-instances-to-receive-requests-from-the-internet-through-dnat.md) [ECS](products/nat-gateway/documents/enable-ecs-instances-to-receive-requests-from-the-internet-through-dnat.md) [对外提供服务](products/nat-gateway/documents/enable-ecs-instances-to-receive-requests-from-the-internet-through-dnat.md) |
+| 通过负载均衡 SLB 分发公网流量 | 适用于超大规模互联网应用，如春节红包、双十一秒杀抢购、大规模在线物联网应用等高并发场景。 为企业级应用提供持续稳定的服务，实现高可用、自动故障转移和跨可用区负载均衡等。 流量较大的 Web 应用，自动应对流量高峰。 | 可在多可用区挂载多台后端服务器，通过将流量（ IPv4 、 IPv6 ）分发到不同的后端服务来扩展应用系统的服务吞吐能力，消除系统中的单点故障，提升应用系统的可用性。更多信息，请参见 [负载均衡](products/slb/documents/product-overview/slb-overview.md) [SLB](products/slb/documents/product-overview/slb-overview.md) [产品家族介绍](products/slb/documents/product-overview/slb-overview.md) 。 | [快速入门](products/slb/documents/getting-started.md) |
+
+
+## 使用IPv6访问公网
+
+- 
+
+- 
+
+- 
+
+- 
+
+| 实现方式 | 适用场景 | 特点 | 相关文档 |
+| --- | --- | --- | --- |
+| 分配已开通公网带宽的 IPv6 地址 | 适用于已支持 IPv6 的应用或服务。 业务需要与 IPv6 终端互访。 未来面向大规模设备连接的 IoT 及云服务。 | 与传统 IPv4 方案相比，IPv6 提供了更充足的地址空间和更先进的网络特性。支持直接访问的 IPv6 互联网。 | [IPv6](products/ecs/documents/user-guide/step-1-create-a-vpc-that-supports-ipv6-addressing-step-1-create-a-vpc-that-supports-ipv6-addressing.md) [通信](products/ecs/documents/user-guide/step-1-create-a-vpc-that-supports-ipv6-addressing-step-1-create-a-vpc-that-supports-ipv6-addressing.md) |
+| 通过负载均衡 SLB 分发公网流量 | 适用于超大规模互联网应用，如春节红包、双十一秒杀抢购、大规模在线物联网应用等高并发场景。 为企业级应用提供持续稳定的服务，实现高可用、自动故障转移和跨可用区负载均衡等。 流量较大的 Web 应用，自动应对流量高峰。 | 可在多可用区挂载多台后端服务器，通过将流量（ IPv4 、 IPv6 ）分发到不同的后端服务来扩展应用系统的服务吞吐能力，消除系统中的单点故障，提升应用系统的可用性。更多信息，请参见 [负载均衡](products/slb/documents/product-overview/slb-overview.md) [SLB](products/slb/documents/product-overview/slb-overview.md) [产品家族介绍](products/slb/documents/product-overview/slb-overview.md) 。 | [快速入门](products/slb/documents/getting-started.md) |
+
+
+## 相关文档
+
+- 
+
+针对固定公网IP和弹性公网IP（EIP）公网资源，您可以灵活调整带宽配置或计费方式。具体操作，请参见[修改带宽配置](products/ecs/documents/user-guide/modify-bandwidth-configurations.md)。
+
+- 
+
+关于本文涉及的阿里云产品的计费详情，请参见[公网带宽计费](products/ecs/documents/public-bandwidth.md)、[弹性公网](products/eip/documents/billing-overview.md)[IP](products/eip/documents/billing-overview.md)[计费概述](products/eip/documents/billing-overview.md)、[任播弹性公网](https://help.aliyun.com/zh/anycast-eip/product-overview/billing-1)[IP](https://help.aliyun.com/zh/anycast-eip/product-overview/billing-1)[计费说明](https://help.aliyun.com/zh/anycast-eip/product-overview/billing-1)、[NAT](products/nat-gateway/documents/product-overview/billing-overview.md)[网关计费概述](products/nat-gateway/documents/product-overview/billing-overview.md)、[IPv6](https://help.aliyun.com/zh/ipv6-gateway/product-overview/ipv6-gateway-billing/)[网关计费说明](https://help.aliyun.com/zh/ipv6-gateway/product-overview/ipv6-gateway-billing/)和[负载均衡产品计费](products/slb/documents/product-overview/billing-for-load-balancing-products.md)。
+
+- 
+
+如果您需要在同一台ECS实例上托管多个应用，每个应用对外均呈现一个独立的公网IP地址，您可以将多个EIP通过辅助弹性网卡绑定到ECS实例，实现单个ECS实例同时绑定多个EIP。具体操作，请参见[普通模式实现](products/eip/documents/associate-multiple-eips-with-a-secondary-eni-in-nat-mode.md)[ECS](products/eip/documents/associate-multiple-eips-with-a-secondary-eni-in-nat-mode.md)[绑定多](products/eip/documents/associate-multiple-eips-with-a-secondary-eni-in-nat-mode.md)[EIP](products/eip/documents/associate-multiple-eips-with-a-secondary-eni-in-nat-mode.md)。
+
+[上一篇：网络带宽](products/ecs/documents/user-guide/network-bandwidth.md)[下一篇：IP地址与私网域名解析](products/ecs/documents/user-guide/ip-addresses-and-private-domain-resolution.md)
+
+该文章对您有帮助吗？
+
+反馈
+
+### 为什么选择阿里云
+
+[什么是云计算](https://www.aliyun.com/about/what-is-cloud-computing)[全球基础设施](https://infrastructure.aliyun.com/)[技术领先](https://www.aliyun.com/why-us/leading-technology)[稳定可靠](https://www.aliyun.com/why-us/reliability)[安全合规](https://www.aliyun.com/why-us/security-compliance)[分析师报告](https://www.aliyun.com/analyst-reports)
+
+### 大模型
+
+[千问大模型](https://www.aliyun.com/product/tongyi)[大模型服务](https://bailian.console.aliyun.com/?tab=model#/model-market)[AI应用构建](https://bailian.console.aliyun.com/app-center?tab=app#/app-center)
+
+### 产品和定价
+
+[全部产品](https://www.aliyun.com/product/list)[免费试用](https://free.aliyun.com/)[产品动态](https://www.aliyun.com/product/news/)[产品定价](https://www.aliyun.com/price/detail)[配置报价器](https://www.aliyun.com/price/cpq/list)[云上成本管理](https://www.aliyun.com/price/cost-management)
+
+### 技术内容
+
+[技术解决方案](https://www.aliyun.com/solution/tech-solution)[帮助文档](https://help.aliyun.com/)[开发者社区](https://developer.aliyun.com/)[天池大赛](https://tianchi.aliyun.com/)[阿里云认证](https://edu.aliyun.com/)
+
+### 权益
+
+[免费试用](https://free.aliyun.com/)[解决方案免费试用](https://www.aliyun.com/solution/free)[高校计划](https://university.aliyun.com/)[5亿算力补贴](https://www.aliyun.com/benefit/form/index)[推荐返现计划](https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&pageCode=yunparterIndex)
+
+### 服务
+
+[基础服务](https://www.aliyun.com/service)[企业增值服务](https://www.aliyun.com/service/supportplans)[迁云服务](https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn)[官网公告](https://www.aliyun.com/notice/)[健康看板](https://status.aliyun.com/)[信任中心](https://security.aliyun.com/trust-center)
+
+### 关注阿里云
+
+关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务
+
+联系我们：4008013260
+
+[法律声明](https://help.aliyun.com/product/67275.html)[Cookies 政策](https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html)[廉正举报](https://aliyun.jubao.alibaba.com/)[安全举报](https://report.aliyun.com/)[联系我们](https://www.aliyun.com/contact)[加入我们](https://careers.aliyun.com/)
+
+### 友情链接
+
+[阿里巴巴集团](https://www.alibabagroup.com/cn/global/home)[淘宝网](https://www.taobao.com/)[天猫](https://www.tmall.com/)[全球速卖通](https://www.aliexpress.com/)[阿里巴巴国际交易市场](https://www.alibaba.com/)[1688](https://www.1688.com/)[阿里妈妈](https://www.alimama.com/index.htm)[飞猪](https://www.fliggy.com/)[阿里云计算](https://www.aliyun.com/)[万网](https://wanwang.aliyun.com/)[高德](https://mobile.amap.com/)[UC](https://www.uc.cn/)[友盟](https://www.umeng.com/)[优酷](https://www.youku.com/)[钉钉](https://www.dingtalk.com/)[支付宝](https://www.alipay.com/)[达摩院](https://damo.alibaba.com/)[淘宝海外](https://world.taobao.com/)[阿里云盘](https://www.aliyundrive.com/)[淘宝闪购](https://www.ele.me/)
+
+© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证：[浙B2-20080101](http://beian.miit.gov.cn/)域名注册服务机构许可：[浙D3-20210002](https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 )
+
+[浙公网安备 33010602009975号](http://www.beian.gov.cn/portal/registerSystemInfo)[浙B2-20080101-4](https://beian.miit.gov.cn/)

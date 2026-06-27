@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/user-guide/load-resources-of-a-container-image-on-demand:7",
+  "document_id": "ack:ack-edge/user-guide/load-resources-of-a-container-image-on-demand",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "加速容器运行启动-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/user-guide/load-resources-of-a-container-image-on-demand",
+  "chunk_index": 7,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/user-guide/load-resources-of-a-container-image-on-demand.chunk-0007.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/user-guide/load-resources-of-a-container-image-on-demand.md",
+  "heading_path": "按需加载容器镜像 > ACK托管版与专有集群 > 为已有节点池开启",
+  "char_count": 463
+}

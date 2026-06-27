@@ -1,0 +1,2 @@
+## 设置Logtail启动参数
+为防止Logtail消耗过多服务器资源，影响其他服务运行，日志服务对Logtail采集性能做了限制。当您需要提升Logtail采集性能时，可修改Logtail启动参数。

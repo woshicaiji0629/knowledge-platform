@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/user-guide/upgrade-ack-edge-cluster:5",
+  "document_id": "ack:ack-edge/user-guide/upgrade-ack-edge-cluster",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "ACK Edge集群升级方法与操作步骤-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/user-guide/upgrade-ack-edge-cluster",
+  "chunk_index": 5,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/user-guide/upgrade-ack-edge-cluster.chunk-0005.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/user-guide/upgrade-ack-edge-cluster.md",
+  "heading_path": "升级ACK Edge集群 > 操作步骤 > 步骤二：升级云端节点池",
+  "char_count": 125
+}

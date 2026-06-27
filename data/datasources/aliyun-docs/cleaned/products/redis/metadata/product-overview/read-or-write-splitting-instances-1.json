@@ -1,0 +1,17 @@
+{
+  "id": "redis:product-overview/read-or-write-splitting-instances-1",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "selection",
+  "title": "读写分离实例的架构图,使用场景-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/read-or-write-splitting-instances-1",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/product-overview/read-or-write-splitting-instances-1.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/read-or-write-splitting-instances-1.md",
+  "word_count": 904,
+  "text_units": 4014,
+  "local_links": 5,
+  "external_links": 63,
+  "has_tables": true,
+  "table_count": 7,
+  "quality": "accepted"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/general-purpose-instance-families",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "performance",
+  "title": "阿里云ECS通用型实例规格（g系列）-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/general-purpose-instance-families",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/general-purpose-instance-families.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/general-purpose-instance-families.md",
+  "word_count": 8363,
+  "text_units": 16895,
+  "local_links": 16,
+  "external_links": 410,
+  "has_tables": true,
+  "table_count": 231,
+  "quality": "accepted"
+}

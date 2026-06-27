@@ -1,0 +1,14 @@
+{
+  "id": "redis:product-overview/serverless-kv:1",
+  "document_id": "redis:product-overview/serverless-kv",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "Tair Serverless KV-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/serverless-kv",
+  "chunk_index": 1,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/product-overview/serverless-kv.chunk-0001.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/serverless-kv.md",
+  "heading_path": "Tair Serverless KV > 为什么选择阿里云",
+  "char_count": 328
+}

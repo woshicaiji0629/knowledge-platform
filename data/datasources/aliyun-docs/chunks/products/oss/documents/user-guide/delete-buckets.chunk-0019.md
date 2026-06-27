@@ -1,0 +1,1 @@
+构造请求以删除指定的Bucket request = oss.DeleteBucketRequest(bucket=args.bucket) try: # 发送请求并获取响应结果 result = client.delete_bucket(request) # 打印响应结果的状态码和请求ID print(f'status code: {result.status_code},' f' request id: {result.request_id}') except oss.exceptions.OssError as e: # 捕获并打印可能发生的异常 print(f"Failed to delete bucket: {e}") if __name__ == "__main__": main() # 脚本入口，当文件被直接运行时调用main函数

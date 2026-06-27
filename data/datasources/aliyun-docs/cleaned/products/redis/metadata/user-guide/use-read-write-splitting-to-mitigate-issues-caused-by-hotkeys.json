@@ -1,0 +1,17 @@
+{
+  "id": "redis:user-guide/use-read-write-splitting-to-mitigate-issues-caused-by-hotkeys",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "使用读写分离分担热点Key的大量读请求-云数据库Tair-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/use-read-write-splitting-to-mitigate-issues-caused-by-hotkeys",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/user-guide/use-read-write-splitting-to-mitigate-issues-caused-by-hotkeys.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/use-read-write-splitting-to-mitigate-issues-caused-by-hotkeys.md",
+  "word_count": 826,
+  "text_units": 1949,
+  "local_links": 5,
+  "external_links": 63,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/security-and-compliance/faq-about-container-security:4",
+  "document_id": "ack:ack-managed-and-ack-dedicated/security-and-compliance/faq-about-container-security",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "troubleshoot",
+  "title": "容器安全常见问题-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/faq-about-container-security",
+  "chunk_index": 4,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-managed-and-ack-dedicated/security-and-compliance/faq-about-container-security.chunk-0004.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/security-and-compliance/faq-about-container-security.md",
+  "heading_path": "容器安全FAQ > 集群审计功能是否可以取消或者在创建集群后再部署？",
+  "char_count": 157
+}

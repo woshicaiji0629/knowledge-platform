@@ -1,0 +1,6 @@
+l 1.0.31 及以上版本或 Windows Logtail 1.0.31.0 及以上版本支持该参数。 | "enable_env_ref_in_config": false |
+| docker_config_update_interval | int | 容器路径更新的最小时间间隔。 与 max_docker_config_update_times 配合使用，任意一个参数达到阈值则不再更新容器路径。 如果是 Linux Logtail 1.0.32 及以上版本或 Windows Logtail 1.0.32.0 及以上版本，默认值：3，单位：秒。 如果是 Linux Logtail 1.0.32 之前版本或 Windows Logtail 1.0.32.0 之前版本，默认值：10，单位：秒。 | "docker_config_update_interval": 3 |
+| max_docker_config_update_times | int | 3 分钟内更新容器路径最大次数。默认情况下，3 分钟内容器路径更新次数超过 3 次则不再更新容器路径。 如果是 Linux Logtail 1.0.32 及以上版本或 Windows Logtail 1.0.32.0 及以上版本，默认值：10。 如果是 Linux Logtail 1.0.32 之前版本或 Windows Logtail 1.0.32.0 之前版本，默认值：3。 | "max_docker_config_update_times": 10 |
+| DOCKER_HOST | String | 与 Docker 通信的 Socket 地址，需通过环境变量进行配置。 默认值：空，表示使用默认地址 unix:///var/run/docker.sock。 | DOCKER_HOST=unix:///var/run/docker.sock |
+| CONTAINERD_SOCK_PATH | String | 与 Containerd 通信的 Socket 地址，需通过环境变量进行配置。 默认值：空，表示使用默认地址 unix:///run/containerd/containerd.sock。如果是 K3s 集群，可按照示例修改。 | CONTAINERD_SOCK_PATH=/run/k3s/containerd/containerd.sock |
+| logreader_max_rotate_queue_size | Int | 轮转队列最大长度。默认值：20。当日志采集发生阻塞或延时时，待采集的文件会持有文件句柄在队列中等待。 当采集延时时，如果需要控制磁盘最大用量，可考虑减小该值。 警告 当延时的文件数超过该值时，Logtail 将直接跳过新文件的采集。 | "logreader_max_

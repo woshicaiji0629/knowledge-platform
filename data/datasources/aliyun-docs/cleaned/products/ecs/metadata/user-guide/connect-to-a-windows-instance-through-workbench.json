@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/connect-to-a-windows-instance-through-workbench",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "deployment",
+  "title": "使用Workbench登录Windows实例-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-windows-instance-through-workbench",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/connect-to-a-windows-instance-through-workbench.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/connect-to-a-windows-instance-through-workbench.md",
+  "word_count": 643,
+  "text_units": 1624,
+  "local_links": 3,
+  "external_links": 67,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

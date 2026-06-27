@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/step-3-migrate-a-user-created-database-to-an-rds-mysql-instance",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "入门第三步：自建数据库迁移上云-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/step-3-migrate-a-user-created-database-to-an-rds-mysql-instance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-mysql/step-3-migrate-a-user-created-database-to-an-rds-mysql-instance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/step-3-migrate-a-user-created-database-to-an-rds-mysql-instance.md",
+  "word_count": 1475,
+  "text_units": 3499,
+  "local_links": 2,
+  "external_links": 114,
+  "has_tables": true,
+  "table_count": 3,
+  "quality": "accepted"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "vpc:connect-vpc-to-local-idc-office-terminal-other-cloud:15",
+  "document_id": "vpc:connect-vpc-to-local-idc-office-terminal-other-cloud",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "deployment",
+  "title": "VPC与外部网络互通解决方案-专有网络VPC-阿里云",
+  "source_url": "https://help.aliyun.com/zh/vpc/connect-vpc-to-local-idc-office-terminal-other-cloud",
+  "chunk_index": 15,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/connect-vpc-to-local-idc-office-terminal-other-cloud.chunk-0015.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/connect-vpc-to-local-idc-office-terminal-other-cloud.md",
+  "heading_path": "VPC连接本地数据中心/其他云 > 办公终端连接VPC > 服务",
+  "char_count": 303
+}

@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/migrate-mysql-databases-from-huawei-cloud-to-alibaba-cloud",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "华为云MySQL数据库迁移到阿里云的步骤-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/migrate-mysql-databases-from-huawei-cloud-to-alibaba-cloud",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-mysql/migrate-mysql-databases-from-huawei-cloud-to-alibaba-cloud.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/migrate-mysql-databases-from-huawei-cloud-to-alibaba-cloud.md",
+  "word_count": 921,
+  "text_units": 2353,
+  "local_links": 0,
+  "external_links": 82,
+  "has_tables": true,
+  "table_count": 6,
+  "quality": "accepted"
+}

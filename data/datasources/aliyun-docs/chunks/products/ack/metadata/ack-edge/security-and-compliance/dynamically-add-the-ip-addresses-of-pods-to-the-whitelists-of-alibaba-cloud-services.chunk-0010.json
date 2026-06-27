@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/security-and-compliance/dynamically-add-the-ip-addresses-of-pods-to-the-whitelists-of-alibaba-cloud-services:10",
+  "document_id": "ack:ack-edge/security-and-compliance/dynamically-add-the-ip-addresses-of-pods-to-the-whitelists-of-alibaba-cloud-services",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "为Pod动态添加IP到RDS白名单-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/security-and-compliance/dynamically-add-the-ip-addresses-of-pods-to-the-whitelists-of-alibaba-cloud-services",
+  "chunk_index": 10,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/security-and-compliance/dynamically-add-the-ip-addresses-of-pods-to-the-whitelists-of-alibaba-cloud-services.chunk-0010.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/security-and-compliance/dynamically-add-the-ip-addresses-of-pods-to-the-whitelists-of-alibaba-cloud-services.md",
+  "heading_path": "为Pod动态配置阿里云产品白名单 > 卸载ack-kubernetes-webhook-injector > 为什么选择阿里云",
+  "char_count": 328
+}

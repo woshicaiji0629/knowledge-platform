@@ -1,0 +1,14 @@
+{
+  "id": "vpc:manage-vpc-quotas:6",
+  "document_id": "vpc:manage-vpc-quotas",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "提升VPC配额-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/manage-vpc-quotas",
+  "chunk_index": 6,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/manage-vpc-quotas.chunk-0006.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/manage-vpc-quotas.md",
+  "heading_path": "管理VPC配额 > 加入配额模板 > 为什么选择阿里云",
+  "char_count": 328
+}

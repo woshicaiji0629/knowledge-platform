@@ -1,0 +1,17 @@
+{
+  "id": "sls:notification-methods",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "使用各告警通知渠道的注意事项、前提条件、配置参数-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/notification-methods",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/notification-methods.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/notification-methods.md",
+  "word_count": 1537,
+  "text_units": 5337,
+  "local_links": 0,
+  "external_links": 115,
+  "has_tables": true,
+  "table_count": 28,
+  "quality": "accepted"
+}

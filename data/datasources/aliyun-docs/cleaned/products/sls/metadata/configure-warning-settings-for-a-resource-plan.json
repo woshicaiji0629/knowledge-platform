@@ -1,0 +1,17 @@
+{
+  "id": "sls:configure-warning-settings-for-a-resource-plan",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "如何设置日志服务资源包额度预警-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/configure-warning-settings-for-a-resource-plan",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/configure-warning-settings-for-a-resource-plan.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/configure-warning-settings-for-a-resource-plan.md",
+  "word_count": 499,
+  "text_units": 1086,
+  "local_links": 0,
+  "external_links": 63,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

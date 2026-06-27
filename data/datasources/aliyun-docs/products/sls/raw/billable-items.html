@@ -1,0 +1,924 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    日志服务费用的组成及付费方式-日志服务(SLS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/sls/billable-items">
+  <meta name="keywords" content="了解日志服务计费项,理解OCU计费单位,日志服务计费说明,按使用功能计费模式">
+  <meta name="description" content="日志服务的所有计费项都是单独计费的，例如您存储日志会产生日志存储费用，您采集日志会产生写流量费用等。本文介绍日志服务按使用功能计费模式的计费项组成及付费方式。">
+  <meta name="last-modified" content="2026-06-09T16:08:28+08:00">
+  <meta name="date" content="2019-02-18T02:51:29+08:00">
+  <meta property="og:title" content="按使用功能计费模式计费项">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/sls/billable-items">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="日志服务的所有计费项都是单独计费的，例如您存储日志会产生日志存储费用，您采集日志会产生写流量费用等。本文介绍日志服务按使用功能计费模式的计费项组成及付费方式。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/sls/billable-items",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "107745",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/sls/billable-items","nodeId":null,"data":{"lastModifiedTime":1780992508000,"keywords":"了解日志服务计费项,理解OCU计费单位,日志服务计费说明,按使用功能计费模式","docTitle":"按使用功能计费模式计费项","language":"zh","seoTitle":"日志服务费用的组成及付费方式-日志服务(SLS)-阿里云帮助中心","title":"按使用功能计费模式计费项","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"concept-xzl-hjg-vgb\">\n    \n    \n    <p id=\"shortdesc-4hk-238-2nu\" data-tag=\"shortdesc\" class=\"shortdesc\">日志服务的所有计费项都是单独计费的，例如您存储日志会产生日志存储费用，您采集日志会产生写流量费用等。本文介绍日志服务按使用功能计费模式的计费项组成及付费方式。</p>\n    <div data-tag=\"conbody\" id=\"conbody-923-l5s-db9\" class=\"conbody\">\n      <section id=\"id-273dd2218bitl\" class=\"section\">\n        <h2 id=\"id-182dcd9904gb1\"><b>注意事项</b></h2>\n        <ul data-tag=\"ul\" id=\"id-3718972582t24\" class=\"ul\">\n          <li data-tag=\"li\" id=\"id-7d46bc3e46r93\" class=\"li\">\n            <p id=\"id-5600c4b753b1n\">日志服务按使用功能计费模式支持采集日志和时序数据，时序数据的存储空间、构建索引单独定价，与日志定价不同。加工费用、投递费用、读写流量费用、请求次数费用等与日志定价相同。</p>\n          </li>\n          <li data-tag=\"li\" id=\"d8c46e42d926f\" class=\"li\">\n            <p id=\"a1110c2ecbo8q\">您可以在<span data-tag=\"ph\" id=\"aa1ff60cd1uuz\" props=\"china intl\" data-cond-props=\"china intl\" class=\"ph\"><a href=\"https://sls.console.aliyun.com\" id=\"xref-70l-kct-wkz\" class=\"\" target=\"_blank\">日志服务控制台</a></span>查看前一天的写入流量、读取流量、读写次数、加工流量、投递流量、存储量等信息。</p>\n            <p data-tag=\"p\" id=\"id-83b54af86bb9p\" class=\"p\">日志服务每天更新一次该数据，不是实时更新。</p>\n          </li>\n          <li data-tag=\"li\" id=\"id-37c40666b1d91\" class=\"li\">\n            <p id=\"id-8a11da7a41l7k\">日志服务在采集日志时，会自动压缩日志数据量，压缩率为<span class=\"help-letter-space\"></span>10%~20%。</p>\n          </li>\n        </ul>\n      </section>\n      <section id=\"e21cbfc5b016s\" class=\"section\">\n        <h2 id=\"id-7e41b8f70aihh\">什么是<span class=\"help-letter-space\"></span>OCU？</h2>\n        <p id=\"id-2d827ebb4ba2a\">可观测资源额度<span class=\"help-letter-space\"></span>OCU（Observability Capacity Unit）是阿里云云原生可观测推出的新版计费单位，可根据每小时资源使用情况自动统计<span class=\"help-letter-space\"></span>OCU<span class=\"help-letter-space\"></span>用量<span data-tag=\"ph\" id=\"id-62130d89fe98k\" props=\"china\" data-cond-props=\"china\" class=\"ph\">，中国站公共云<span class=\"help-letter-space\"></span>OCU<span class=\"help-letter-space\"></span>的定价为<span class=\"help-letter-space\"></span>0.15<span class=\"help-letter-space\"></span>元/个</span>。</p>\n        <p uuid=\"lxmnb478kjtrsrmpfi\" id=\"adabce0352z57\">日志服务计算型功能收费计划逐步通过<span class=\"help-letter-space\"></span>OCU<span class=\"help-letter-space\"></span>进行计量，以用户实际消耗的计算资源作为计量的度量维度。在 CPU 场景下一个<span class=\"help-letter-space\"></span>OCU<span class=\"help-letter-space\"></span>的性能约等于<span class=\"help-letter-space\"></span>0.5 Core CPU、2 GB<span class=\"help-letter-space\"></span>内存、3000 IOPS，在计算<span class=\"help-letter-space\"></span>OCU<span class=\"help-letter-space\"></span>的总数时，会按照消耗的<span class=\"help-letter-space\"></span>CPU<span class=\"help-letter-space\"></span>核心数、内存大小和<span class=\"help-letter-space\"></span>IOPS<span class=\"help-letter-space\"></span>三个维度分别计算三个<span class=\"help-letter-space\"></span>OCU<span class=\"help-letter-space\"></span>数量，然后取三个<span class=\"help-letter-space\"></span>OCU<span class=\"help-letter-space\"></span>数量的最大值作为<span class=\"help-letter-space\"></span>OCU<span class=\"help-letter-space\"></span>的最终值，用于计费。</p>\n        <p uuid=\"mec92kly4pqa3sl8l2l\" id=\"eac1f3a4dei0p\">在 GPU 场景下一个<span class=\"help-letter-space\"></span>OCU<span class=\"help-letter-space\"></span>的性能约等于 1/60 A10<span class=\"help-letter-space\"></span>卡的算力，将按照消耗的 GPU 算力计算 OCU 的最终值。</p>\n        <p uuid=\"lxsql0r437mzryw4xnd\" id=\"id-79d77c9cf61g6\"><span data-tag=\"ph\" id=\"ed7ad9f4f56tk\" class=\"ph\">假设您的计算作业消耗了<span class=\"help-letter-space\"></span>1 Core CPU，2GB<span class=\"help-letter-space\"></span>内存，3000 IOPS，则这个作业消耗<span class=\"help-letter-space\"></span>2<span class=\"help-letter-space\"></span>个<span class=\"help-letter-space\"></span>OCU。在一个计量周期（1<span class=\"help-letter-space\"></span>小时）内，计算平均消耗的<span class=\"help-letter-space\"></span>OCU<span class=\"help-letter-space\"></span>可参考：数据写入处理器处理<span class=\"help-letter-space\"></span>1GB<span class=\"help-letter-space\"></span>数据，大约消耗<span class=\"help-letter-space\"></span>1/3<span class=\"help-letter-space\"></span>个<span class=\"help-letter-space\"></span>OCU。数据加工（新版）处理<span class=\"help-letter-space\"></span>1GB<span class=\"help-letter-space\"></span>数据，大约消耗<span class=\"help-letter-space\"></span>1/3<span class=\"help-letter-space\"></span>个<span class=\"help-letter-space\"></span>OCU。规则消费处理<span class=\"help-letter-space\"></span>1GB<span class=\"help-letter-space\"></span>数据，约消耗<span class=\"help-letter-space\"></span>0.3<span class=\"help-letter-space\"></span>个<span class=\"help-letter-space\"></span>OCU。</span></p>\n        <p uuid=\"mec95qoi9kuzr1cgb0h\" id=\"id-9574c552cf1wv\"><span data-tag=\"ph\" id=\"id-4b899b008bke8\" props=\"china\" data-cond-props=\"china\" class=\"ph\">假设您使用 SLS 的向量索引功能向量化一批数据，消耗了<span class=\"help-letter-space\"></span>1/60 A10<span class=\"help-letter-space\"></span>卡的算力，则在一个计量周期（1<span class=\"help-letter-space\"></span>小时）内计量产生了 1 OCU 的用量。</span></p>\n      </section>\n      <section data-tag=\"section\" id=\"section-js9-o1w-m7r\" data-type=\"section\" props=\"china\" data-cond-props=\"china\" class=\"section\">\n        <h2 id=\"a12c81c3d0gdl\">按使用功能计费模式的<b>计费项</b></h2>\n        <p data-tag=\"p\" id=\"p-8vj-dzq-001\" class=\"p\">日志服务按使用功能计费模式计费项如下所示，详细价格说明请参见<span props=\"china\"><a href=\"https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.11.66cd2aab6wAn6p#/sls/detail\" id=\"xref-ywi-xc4-vw8\" class=\"\" target=\"_blank\">产品定价</a></span>。</p>\n        <table id=\"table-pde-tyk-fry\" tablewidth=\"100\" tablecolswidth=\"16.67 33.33 33.33 16.67\" autofit=\"true\" class=\"table\">\n          <colgroup colwidth=\"0.67*\" style=\"width:16.67%\"></colgroup>\n          <colgroup colwidth=\"1.33*\" style=\"width:33.33%\"></colgroup>\n          <colgroup colwidth=\"1.33*\" style=\"width:33.33%\"></colgroup>\n          <colgroup colwidth=\"0.67*\" style=\"width:16.67%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-dnl-y9b-tsk\">\n              <td id=\"concept-xzl-hjg-vgb-entry-aos-kdu-we7\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"f072f4312c7p6\"><b>计费项</b></p>\n              </td>\n              <td id=\"concept-xzl-hjg-vgb-entry-1de-i60-jmz\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"f072f4322cxg7\"><b>计费说明</b></p>\n              </td>\n              <td id=\"concept-xzl-hjg-vgb-entry-fp1-lyb-r1b\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"f072f4332c0pd\"><b>付费方式</b></p>\n              </td>\n              <td id=\"concept-xzl-hjg-vgb-entry-zig-6yo-glk\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"f072f4342cl86\"><b>免费额度</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-j4t-65y-7e9\">\n              <td id=\"entry-z8p-gsc-i3v\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f072f4352c49h\">存储空间-日志热存储</p>\n              </td>\n              <td id=\"id-937221d4e1jzu\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n                <p uuid=\"mbpxqeh8n5x7hrzzmis\" id=\"e89694d22c23j\">包括日志（压缩后）的存储量和日志（未压缩）被建立索引（包括全文索引、字段索引和扫描索引）所产生的存储量。</p>\n                <p uuid=\"mbpxqeh8nt0zwnm6sl\" id=\"a1b6551286iug\">例如：原始日志量为<span class=\"help-letter-space\"></span>1 GB，上传到日志服务并配置其中两个字段的索引。上传时的压缩率为<span class=\"help-letter-space\"></span>20%，两个目标字段的索引数据量为<span class=\"help-letter-space\"></span>0.5 GB，则日志存储空间为<span class=\"help-letter-space\"></span>0.2 GB+0.5 GB=0.7 GB。</p>\n              </td>\n              <td id=\"entry-49l-uyd-gag\" rowspan=\"1\" colspan=\"1\">\n                <ul data-tag=\"ul\" id=\"ul-q4n-qzc-m8g\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-7ok-mne-00w\" class=\"li\">\n                    <p id=\"f072f4372cx5w\">按量付费：存储空间-日志热存储费用=日累计存储量（GB）×每<span class=\"help-letter-space\"></span>GB<span class=\"help-letter-space\"></span>单价</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-ktw-qd5-228\" class=\"li\">\n                    <p id=\"f0731b402cm6t\">资源包：</p>\n                    <ul data-tag=\"ul\" id=\"ul-ka7-ws3-y2f\" props=\"china\" data-cond-props=\"china\" class=\"ul\">\n                      <li data-tag=\"li\" id=\"li-y3v-azz-rma\" class=\"li\">\n                        <p id=\"f0731b412c44f\">新版资源包（预付计划<span class=\"help-letter-space\"></span>2.0）：换算成资源额度（CU）进行抵扣。</p>\n                      </li>\n                      <li data-tag=\"li\" id=\"li-7or-jl8-rqo\" class=\"li\">\n                        <p id=\"f0731b422cz5u\">旧版资源包（存储包）：按存储包实际容量抵扣。</p>\n                      </li>\n                    </ul>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-jbf-2yo-urj\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f0731b432cxfy\">500 MB/月</p>\n                <div data-tag=\"note\" id=\"note-r92-pf1-2ks\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                  <p id=\"f0731b442c9rt\">仅非资源包抵扣时，提供免费额度。</p>\n                </div></div>\n              </td>\n            </tr>\n            <tr id=\"row-276-i26-bdo\">\n              <td id=\"entry-y96-7d5-1du\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f0731b452ci2q\">存储空间-日志低频存储</p>\n              </td>\n              <td id=\"entry-bam-0b5-6yf\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f0731b462ceqx\">开启智能分层存储功能后，当日志的存储时间超过您所配置的<b id=\"uicontrol-zab-p96-8pl\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">热存储层数据保存时间</b>后，日志将转为低频存储（原冷存储），按照低频存储的存储空间计费。低频存储的存储空间包括日志（压缩后）的存储量和日志（未压缩）建立索引所产生的存储量。</p>\n                <p data-tag=\"p\" id=\"p-enu-nr8-8xf\" class=\"p\">例如：原始日志量为<span class=\"help-letter-space\"></span>1 GB，上传到日志服务并配置其中两个字段的索引。上传时的压缩率为<span class=\"help-letter-space\"></span>20%，两个目标字段的索引数据量为<span class=\"help-letter-space\"></span>0.5 GB，则低频存储的存储空间为<span class=\"help-letter-space\"></span>0.2 GB+0.5 GB=0.7 GB。</p>\n              </td>\n              <td id=\"entry-i4y-o21-tij\" rowspan=\"1\" colspan=\"1\">\n                <ul data-tag=\"ul\" id=\"ul-o3q-frr-5yp\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-5fi-emd-k4g\" class=\"li\">\n                    <p id=\"f0731b472cbp2\">按量付费：存储空间-日志低频存储费用=日累计存储量（GB）×每<span class=\"help-letter-space\"></span>GB<span class=\"help-letter-space\"></span>单价</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-0x1-0dj-bro\" class=\"li\">\n                    <p id=\"f07342502c3yf\">资源包：<span data-tag=\"ph\" id=\"ph-cc7-s99-yaj\" props=\"china\" data-cond-props=\"china\" class=\"ph\">新版资源包（预付计划<span class=\"help-letter-space\"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-3dp-rw0-dxt\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07342512ctm8\">无</p>\n              </td>\n            </tr>\n            <tr id=\"row-w9h-66g-yt3\">\n              <td id=\"entry-691-nqu-bmw\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07342522czld\">存储空间-日志归档存储</p>\n              </td>\n              <td id=\"entry-9wl-uc0-7x1\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07342532cp16\">开启智能分层存储功能后，当日志的存储时间超过您所配置的<b id=\"uicontrol-8eo-7aq-mdq\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">热存储层数据保存时间</b>或<b data-tag=\"uicontrol\" id=\"uicontrol-eiv-ujp-i9f\" class=\"uicontrol\">低频存储层数据保存时间</b>后，日志将转为归档存储，按照归档存储的存储空间计费。归档存储的存储空间包括日志（压缩后）的存储量和日志（未压缩）被建立索引所产生的存储量。</p>\n                <p data-tag=\"p\" id=\"p-uvq-iet-fy7\" class=\"p\">例如：原始日志量为<span class=\"help-letter-space\"></span>1 GB，上传到日志服务并配置其中两个字段的索引。上传时的压缩率为<span class=\"help-letter-space\"></span>20%，两个目标字段的索引数据量为<span class=\"help-letter-space\"></span>0.5 GB，则归档存储的存储空间为<span class=\"help-letter-space\"></span>0.2 GB+0.5 GB=0.7 GB。</p>\n              </td>\n              <td id=\"entry-wjp-kj4-r1m\" rowspan=\"1\" colspan=\"1\">\n                <ul data-tag=\"ul\" id=\"ul-6pp-tk7-ujg\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-1vm-du1-iez\" class=\"li\">\n                    <p id=\"f07342542c9um\">按量付费：存储空间-日志归档存储费用=日累计存储量（GB）×每<span class=\"help-letter-space\"></span>GB<span class=\"help-letter-space\"></span>单价</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-0hm-e2e-cq3\" class=\"li\">\n                    <p id=\"f07342552cueg\">资源包：<span data-tag=\"ph\" id=\"ph-euj-2i9-9vk\" props=\"china\" data-cond-props=\"china\" class=\"ph\">新版资源包（预付计划<span class=\"help-letter-space\"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-xe1-b1g-nh0\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07342562c1s4\">无</p>\n              </td>\n            </tr>\n            <tr id=\"row-343-ewu-nwd\">\n              <td id=\"entry-vbj-uhg-cgr\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07342572c9xf\">存储空间-时序存储</p>\n              </td>\n              <td id=\"entry-vax-bj2-w9c\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07369602cvmb\">包括时序数据（压缩后）的存储量和时序数据（未压缩）被建立索引所产生的存储量。</p>\n                <p data-tag=\"p\" id=\"p-bh0-o3r-rdc\" class=\"p\">例如：您原始时序数据量为<span class=\"help-letter-space\"></span>1 GB，上传到日志服务后，日志服务自动为您构建索引，索引数据量为<span class=\"help-letter-space\"></span>1 GB。上传时的压缩率为<span class=\"help-letter-space\"></span>20%，则日志存储空间为<span class=\"help-letter-space\"></span>0.2 GB+1 GB=1.2 GB。</p>\n              </td>\n              <td id=\"entry-idf-ewg-iar\" rowspan=\"1\" colspan=\"1\">\n                <ul data-tag=\"ul\" id=\"ul-3s7-0gb-ess\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-hk3-m6r-w3o\" class=\"li\">\n                    <p id=\"f07369612cbi2\">按量付费：存储空间-时序存储费用=日累计存储量（GB）×每<span class=\"help-letter-space\"></span>GB<span class=\"help-letter-space\"></span>单价</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-pk4-33z-r2u\" class=\"li\">\n                    <p id=\"f07369622ctyp\">资源包：<span data-tag=\"ph\" id=\"ph-np4-0ma-5rm\" props=\"china\" data-cond-props=\"china\" class=\"ph\">新版资源包（预付计划<span class=\"help-letter-space\"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-7j1-p8r-84m\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07369632ckp7\">无</p>\n              </td>\n            </tr>\n            <tr id=\"row-8mg-909-i4f\">\n              <td id=\"entry-033-iyn-q8t\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07369642cx67\">读写流量</p>\n              </td>\n              <td id=\"entry-3ko-az5-jcx\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07369652c9cg\">读写流量包括写流量和读流量，详细说明如下：</p>\n                <ul data-tag=\"ul\" id=\"ul-cay-r6v-5bg\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-lxk-ayx-sxb\" class=\"li\">\n                    <p id=\"f07369662czjz\">写流量：数据（压缩后）被上传到日志服务时，按照传输的数据量计算写流量费用。</p>\n                    <p data-tag=\"p\" id=\"p-qsx-3yt-qdc\" class=\"p\">例如原始数据量为<span class=\"help-letter-space\"></span>10 GB，则上传到日志服务会产生<span class=\"help-letter-space\"></span>2 GB（压缩率<span class=\"help-letter-space\"></span>20%）的写流量。</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-7hj-ebq-2vc\" class=\"li\">\n                    <p id=\"f07369672c4ds\">读流量：投递数据（压缩后）到<span class=\"help-letter-space\"></span>AnalyticDB MySQL<span class=\"help-letter-space\"></span>或消费数据（压缩后）时，按照传输的数据量计算读流量费用。</p>\n                    <p data-tag=\"p\" id=\"p-x1q-1t9-x0h\" class=\"p\">例如原始数据量为<span class=\"help-letter-space\"></span>10 GB，您将原始数据上传到日志服务将产生<span class=\"help-letter-space\"></span>2 GB（压缩率<span class=\"help-letter-space\"></span>20%）的写流量，然后通过日志服务将数据投递到<span class=\"help-letter-space\"></span>AnalyticDB MySQL<span class=\"help-letter-space\"></span>将产生<span class=\"help-letter-space\"></span>2 GB（压缩率<span class=\"help-letter-space\"></span>20%）的读流量。</p>\n                  </li>\n                </ul>\n                <div data-tag=\"note\" id=\"note-fdv-i73-e1i\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                  <p id=\"f07390702covs\">日志服务控制台上的消费预览功能会产生微量的读流量。</p>\n                </div></div>\n              </td>\n              <td id=\"entry-0dr-mc0-q9c\" rowspan=\"1\" colspan=\"1\">\n                <ul data-tag=\"ul\" id=\"ul-hu2-f0r-2ow\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-gg1-tzz-bnf\" class=\"li\">\n                    <p id=\"f07390712czcx\">按量付费：读写流量费用=（日累计写流量+日累计读流量）（GB）×每<span class=\"help-letter-space\"></span>GB<span class=\"help-letter-space\"></span>单价</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-631-gw4-y2w\" class=\"li\">\n                    <p id=\"f07390722ck3r\">资源包：</p>\n                    <ul data-tag=\"ul\" id=\"ul-c8o-haq-opd\" props=\"china\" data-cond-props=\"china\" class=\"ul\">\n                      <li data-tag=\"li\" id=\"li-isk-4ds-ccz\" class=\"li\">\n                        <p id=\"f07390732czpj\">新版资源包（预付计划<span class=\"help-letter-space\"></span>2.0）：换算成资源额度（CU）进行抵扣。</p>\n                      </li>\n                      <li data-tag=\"li\" id=\"li-fh9-hu7-ho0\" class=\"li\">\n                        <p id=\"f07390742ck8h\">旧版资源包（读写流量包）：按读写流量包实际容量抵扣。</p>\n                      </li>\n                    </ul>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-39i-ukj-gxc\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07390752cm02\">500 MB/月</p>\n                <div data-tag=\"note\" id=\"note-xg3-cj0-l9b\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                  <p id=\"f07390762czkx\">仅非资源包抵扣时，提供免费额度。</p>\n                </div></div>\n              </td>\n            </tr>\n            <tr id=\"row-mbi-ru5-g2w\">\n              <td id=\"entry-69j-e0y-vta\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07390772cwrq\">索引流量-日志索引</p>\n              </td>\n              <td id=\"entry-yhp-ddb-fs9\" rowspan=\"1\" colspan=\"1\">\n                <p data-tag=\"p\" id=\"p-5nm-nfh-pss\" class=\"p\">按照日志（未压缩）被构建或重建索引所产生的索引数据量计算索引流量。索引是针对字段构建的，索引流量的大小与索引字段及字段值的长度有关。</p>\n                <ul data-tag=\"ul\" id=\"ul-5ha-hcv-oe9\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-vn7-45c-b3g\" class=\"li\">\n                    <p id=\"f073b7802cs2t\">例如原始日志量为<span class=\"help-letter-space\"></span>1 GB，写入到日志服务并开启全文索引，则索引流量为<span class=\"help-letter-space\"></span>1 GB。</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-17i-q2f-fbk\" class=\"li\">\n                    <p id=\"f073b7812c65o\">例如原始日志量为<span class=\"help-letter-space\"></span>1 GB，写入到日志服务并开启其中两个字段的索引，这两个字段的数据量为<span class=\"help-letter-space\"></span>0.5 GB，则索引流量为 0.5 GB。</p>\n                  </li>\n                </ul>\n                <div data-tag=\"note\" id=\"note-iz2-mkc-rib\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                  <ul data-tag=\"ul\" id=\"ul-65o-h26-f9e\" class=\"ul\">\n                    <li data-tag=\"li\" id=\"li-8en-f8a-hca\" class=\"li\">\n                      <p id=\"id-0a9b6fa480t5x\">日志索引用于加速查询分析，如果需要查询分析日志，必须<a href=\"https://help.aliyun.com/zh/sls/create-indexes\" id=\"id-36dd4c2b8apdq\" title=\"\" class=\"xref\">创建索引</a>。对于其他场景例如使用<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>迁移、传输数据，无需创建日志索引。</p>\n                    </li>\n                    <li id=\"id-6f38d321bdkjn\">\n                      <p id=\"cf6899c27b3r9\">该计费项适用于<span class=\"help-letter-space\"></span>Standard LogStore。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-uvx-cej-in2\" class=\"li\">\n                      <p id=\"f073b7832cvej\">索引默认为关闭状态，开启索引后会产生索引流量和占用存储空间。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-c42-89w-vpe\" class=\"li\">\n                      <p id=\"f073b7842clk6\">在写入数据时一次性收取索引流量费用。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-wpr-hr7-3wb\" class=\"li\">\n                      <p id=\"f073b7852c4se\">对同时构建了全文索引和字段索引的字段，只计算一次索引流量费用。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-oon-v5g-11u\" class=\"li\">\n                      <p id=\"f073b7862cqcm\">日志服务自动为__time__、__source__等保留字段构建索引，会产生微量的索引流量。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/reserved-fields#concept-adr-ktr-gfb\" id=\"xref-x07-ps9-xbd\" title=\"\" class=\"xref\">保留字段</a>。</p>\n                    </li>\n                  </ul>\n                </div></div>\n              </td>\n              <td id=\"entry-3p9-uoq-q3m\" rowspan=\"1\" colspan=\"1\">\n                <ul data-tag=\"ul\" id=\"ul-uox-uv6-khl\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-d3i-oi6-xke\" class=\"li\">\n                    <p id=\"f07405a02ceu6\">按量付费：索引流量-日志索引费用=日累计索引流量（GB）×每<span class=\"help-letter-space\"></span>GB<span class=\"help-letter-space\"></span>单价</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-xpq-czi-v7g\" class=\"li\">\n                    <p id=\"f07405a12ccg8\">资源包：</p>\n                    <ul data-tag=\"ul\" id=\"ul-0q8-x57-hjf\" props=\"china\" data-cond-props=\"china\" class=\"ul\">\n                      <li data-tag=\"li\" id=\"li-kbl-g8k-rwo\" class=\"li\">\n                        <p id=\"f07405a22c8y7\">新版资源包（预付计划<span class=\"help-letter-space\"></span>2.0）：换算成资源额度（CU）进行抵扣。</p>\n                      </li>\n                      <li data-tag=\"li\" id=\"li-cu6-52w-t6b\" class=\"li\">\n                        <p id=\"f07405a32c43t\">旧版资源包（索引流量包）：按索引流量包实际容量抵扣。</p>\n                      </li>\n                    </ul>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-n8p-y0x-80h\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07405a42c2na\">500 MB/月</p>\n                <div data-tag=\"note\" id=\"note-p90-ll8-p87\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                  <p id=\"f07405a52caue\">仅非资源包抵扣时，提供免费额度。</p>\n                </div></div>\n              </td>\n            </tr>\n            <tr id=\"row-pr4-0mp-h3z\">\n              <td id=\"entry-q6l-gpx-8il\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07405a62cn3z\">索引流量-日志索引-查询型</p>\n              </td>\n              <td id=\"entry-8j1-na4-vto\" rowspan=\"1\" colspan=\"1\">\n                <p data-tag=\"p\" id=\"p-2fr-gxn-gek\" class=\"p\">按照日志（未压缩）被构建或重建索引所产生的索引数据量计算索引流量。索引是针对字段构建的，索引流量的大小与索引字段及字段值的长度有关。</p>\n                <ul data-tag=\"ul\" id=\"ul-669-tpf-bno\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-a1u-blb-yua\" class=\"li\">\n                    <p id=\"f07405a72cuvl\">例如原始日志量为<span class=\"help-letter-space\"></span>1 GB，写入到日志服务并开启全文索引，则索引流量为<span class=\"help-letter-space\"></span>1 GB。</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-5sl-vbo-dm0\" class=\"li\">\n                    <p id=\"f07405a82cahd\">例如原始日志量为<span class=\"help-letter-space\"></span>1 GB，写入到日志服务并开启其中两个字段的索引，这两个字段的数据量为<span class=\"help-letter-space\"></span>0.5 GB，则索引流量为 0.5 GB。</p>\n                  </li>\n                </ul>\n                <div data-tag=\"note\" id=\"note-ax0-o8f-dsf\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                  <ul data-tag=\"ul\" id=\"ul-mda-zpj-g1m\" class=\"ul\">\n                    <li data-tag=\"li\" id=\"li-6tk-log-ejt\" class=\"li\">\n                      <p id=\"id-22274f16f966w\">日志索引用于加速查询分析，如果需要查询分析日志，必须<a href=\"https://help.aliyun.com/zh/sls/create-indexes\" id=\"aebaad93d4o64\" title=\"\" class=\"xref\">创建索引</a>。对于其他场景例如使用<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>迁移、传输数据，无需创建日志索引。</p>\n                    </li>\n                    <li id=\"id-32ce8b8d76qbb\">\n                      <p id=\"id-3012880809zjy\">该计费项适用于<span class=\"help-letter-space\"></span>Query LogStore。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-wyh-wrh-dt6\" class=\"li\">\n                      <p id=\"f0742cb02cled\">索引默认为关闭状态，开启索引后会产生索引流量和占用存储空间。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-n1u-otc-81r\" class=\"li\">\n                      <p id=\"f0742cb12cp5h\">在写入数据时一次性收取索引流量费用。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-g7b-xa0-rji\" class=\"li\">\n                      <p id=\"f0742cb22c196\">对同时构建了全文索引和字段索引的字段，只计算一次索引流量费用。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-suf-go7-2el\" class=\"li\">\n                      <p id=\"f0742cb32c3hk\">日志服务自动为__time__、__source__等保留字段构建索引，会产生微量的索引流量。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/reserved-fields#concept-adr-ktr-gfb\" id=\"xref-nj0-56w-83z\" title=\"\" class=\"xref\">保留字段</a>。</p>\n                    </li>\n                  </ul>\n                </div></div>\n              </td>\n              <td id=\"entry-30g-lxe-2xp\" rowspan=\"1\" colspan=\"1\">\n                <ul data-tag=\"ul\" id=\"ul-qwd-rhf-syz\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-70k-2p8-76d\" class=\"li\">\n                    <p id=\"f07453c02c0x2\">按量付费：索引流量-日志索引费用=日累计索引流量（GB）×每<span class=\"help-letter-space\"></span>GB<span class=\"help-letter-space\"></span>单价</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-00t-us7-b6u\" class=\"li\">\n                    <p id=\"f07453c12cxl9\">资源包：预付计划资源包，换算成资源额度（CU）进行抵扣。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-oin-n88-ybd\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07453c22csnt\">无</p>\n              </td>\n            </tr>\n            <tr id=\"id-667db807662zf\">\n              <td id=\"id-78d6d5a822ong\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n                <p uuid=\"mbpxikvwbqo56cv15m\" id=\"id-1560e415231p3\">索引流量-扫描索引</p>\n              </td>\n              <td id=\"id-982700d809wph\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n                <p uuid=\"mbpxikvw4jdvar78iih\" id=\"id-3efb552972d4q\">按照日志（未压缩）被构建或重建扫描索引所产生的索引数据量计算索引流量。索引流量的大小与日志字段及字段值的长度有关。</p>\n                <p uuid=\"mbpxmxsn6umoq2iwzx\" id=\"id-1ab9717abdmw5\">当某个字段同时开启全文索引/字段索引和扫描索引时，仅产生全文索引/字段索引对应的索引流量，不产生扫描索引流量。</p>\n                <p uuid=\"mbpxvpvwmkxqywemfy\" id=\"id-7f98025b5d7wq\">创建扫描索引将产生 20%原始日志量的索引存储数据。</p>\n                <ul id=\"dad86725a3hej\">\n                  <li id=\"id-9a4b7ee4320ly\">\n                    <p id=\"id-49de05c552piy\">例如原始日志量为<span class=\"help-letter-space\"></span>1 GB，写入到日志服务并开启全文索引，则扫描索引为<span class=\"help-letter-space\"></span>1 GB。</p>\n                  </li>\n                  <li id=\"a804b191c212t\">\n                    <p id=\"id-9ce43f89d448o\">例如原始日志量为<span class=\"help-letter-space\"></span>1 GB，开启 2 个字段的字段索引并开启扫描索引，这两个字段的数据量为<span class=\"help-letter-space\"></span>0.5 GB，则对应产生 0.5 GB 字段索引流量和 0.5GB 的扫描索引流量。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"f302d02bf0pi6\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n                <ul id=\"id-7f691d98c19gc\">\n                  <li id=\"cf8c9b84aeo42\">\n                    <p id=\"eb8063fadbi3j\">按量付费：索引流量-扫描索引==日累计扫描索引流量（GB）×每<span class=\"help-letter-space\"></span>GB<span class=\"help-letter-space\"></span>单价</p>\n                  </li>\n                  <li id=\"id-3012a8a09673o\">\n                    <p id=\"bbc808488b18z\">资源包：</p>\n                    <ul id=\"e727818df7qxk\">\n                      <li id=\"bab87506b1odk\">\n                        <p id=\"id-06bf8f21dbb37\">暂未支持</p>\n                      </li>\n                    </ul>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"aa76c213d99zz\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n                <p uuid=\"mbpxikvwbv16ujkvu9f\" id=\"id-75a5f0e88563p\">无</p>\n              </td>\n            </tr>\n            <tr id=\"row-y16-atn-jk8\">\n              <td id=\"entry-ml7-xv9-32w\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07453c32ccf6\">索引流量-时序索引</p>\n              </td>\n              <td id=\"entry-cly-iw2-o3v\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07453c42c9rd\">按照时序数据（未压缩）被构建索引所产生的索引数据量计算索引流量。索引是针对字段构建的，索引流量的大小与索引字段及字段值的长度有关。</p>\n                <p data-tag=\"p\" id=\"p-tj3-4d1-8zb\" class=\"p\">您在上传时序数据时，日志服务自动为您构建索引。</p>\n                <p data-tag=\"p\" id=\"p-a2l-tow-6fl\" class=\"p\">例如原始时序数据量为<span class=\"help-letter-space\"></span>1 GB，写入到日志服务后，索引流量为<span class=\"help-letter-space\"></span>1 GB。</p>\n              </td>\n              <td id=\"entry-b63-x4z-bq0\" rowspan=\"1\" colspan=\"1\">\n                <ul data-tag=\"ul\" id=\"ul-gid-b3t-2iq\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-tbw-18f-sul\" class=\"li\">\n                    <p id=\"f0747ad02cgju\">按量付费：索引流量-时序索引费用=日累计索引流量（GB）×每<span class=\"help-letter-space\"></span>GB<span class=\"help-letter-space\"></span>单价</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-eyg-bg9-6im\" class=\"li\">\n                    <p id=\"f0747ad12c0wu\">资源包：<span data-tag=\"ph\" id=\"ph-w7s-n4s-ohs\" props=\"china\" data-cond-props=\"china\" class=\"ph\">新版资源包（预付计划<span class=\"help-letter-space\"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-vai-b4y-epw\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f0747ad22ck0y\">无</p>\n              </td>\n            </tr>\n            <tr id=\"row-peq-skp-3ub\">\n              <td id=\"entry-kii-9av-cc7\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f0747ad32c15n\">外网读取流量</p>\n              </td>\n              <td id=\"entry-4qg-0r1-5vc\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"id-4792eac041850\">从日志服务公网域名所在接口拉取数据时，会产生外网读取流量（按照压缩后的数据量计算）。</p>\n              </td>\n              <td id=\"entry-x7l-plf-k33\" rowspan=\"1\" colspan=\"1\">\n                <ul data-tag=\"ul\" id=\"ul-qrd-038-9bl\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-7wm-mif-dsw\" class=\"li\">\n                    <p id=\"f0747ad62cfup\">按量付费：外网读取流量费用=日累计外网读取流量×每<span class=\"help-letter-space\"></span>GB<span class=\"help-letter-space\"></span>单价</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-4x8-6nn-5gz\" class=\"li\">\n                    <p id=\"f0747ad72chhr\">资源包：<span data-tag=\"ph\" id=\"ph-71m-11u-ymb\" props=\"china\" data-cond-props=\"china\" class=\"ph\">新版资源包（预付计划<span class=\"help-letter-space\"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-yyz-zpo-3ap\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f074a1e02caix\">无</p>\n              </td>\n            </tr>\n            <tr id=\"row-pfb-u9t-ve3\">\n              <td id=\"entry-ac6-61m-vsx\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f074a1e12c785\">扫描流量</p>\n              </td>\n              <td id=\"entry-del-x6j-9yj\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f074a1e22clrk\">按照扫描的数据量（未压缩）计算扫描流量。</p>\n              </td>\n              <td id=\"entry-bbn-ftl-ga3\" rowspan=\"1\" colspan=\"1\">\n                <ul data-tag=\"ul\" id=\"ul-995-q18-ege\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-hms-q3u-9vp\" class=\"li\">\n                    <p id=\"f074a1e32c1a4\">按量付费：扫描流量=日累计扫描流量×每<span class=\"help-letter-space\"></span>GB<span class=\"help-letter-space\"></span>单价</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-02h-lal-6w3\" class=\"li\">\n                    <p id=\"f074a1e42cr54\">资源包：<span data-tag=\"ph\" id=\"ph-y46-z4u-o6k\" props=\"china\" data-cond-props=\"china\" class=\"ph\">新版资源包（预付计划<span class=\"help-letter-space\"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-vf2-i46-6ax\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f074a1e52cm8l\">无</p>\n              </td>\n            </tr>\n            <tr id=\"row-cpl-cai-z65\">\n              <td id=\"entry-nf9-8e3-onl\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f074a1e62cru6\">数据加工</p>\n              </td>\n              <td id=\"entry-zwk-src-1cz\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f074a1e72cnue\">按照数据加工的数据量（未压缩）计算。</p>\n                <p data-tag=\"p\" id=\"p-lw3-wfj-8wd\" class=\"p\">跨地域加工数据时，会产生外网读取流量（按照压缩后的数据量计算）。</p>\n              </td>\n              <td id=\"entry-7oc-irm-w6d\" rowspan=\"1\" colspan=\"1\">\n                <ul data-tag=\"ul\" id=\"ul-q8i-oet-dih\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-znd-kc7-nc9\" class=\"li\">\n                    <p id=\"f074a1e82cimx\">按量付费：数据加工费用=日累计加工数据量（GB）×每<span class=\"help-letter-space\"></span>GB<span class=\"help-letter-space\"></span>单价</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-vl8-r31-yaj\" class=\"li\">\n                    <p id=\"f074a1e92cp2w\">资源包：<span data-tag=\"ph\" id=\"ph-ij4-95f-e0s\" props=\"china\" data-cond-props=\"china\" class=\"ph\">新版资源包（预付计划<span class=\"help-letter-space\"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-58j-d1q-r9j\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f074c8f02cr9f\">无</p>\n              </td>\n            </tr>\n            <tr id=\"row-j85-2dz-b9f\">\n              <td id=\"entry-r7j-zro-yit\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f074c8f12c6yf\">数据投递</p>\n              </td>\n              <td id=\"entry-05g-e4v-ard\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f074c8f22cqh4\">按照数据投递的数据量（未压缩）计算。投递对象为<span class=\"help-letter-space\"></span>OSS、MaxCompute、AnalyticDB MySQL。</p>\n                <div data-tag=\"note\" id=\"note-c2l-58b-hjj\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                  <p id=\"f074c8f32cbq6\">投递数据到<span class=\"help-letter-space\"></span>AnalyticDB MySQL<span class=\"help-letter-space\"></span>时，还需调用接口读取数据及消耗网络资源，即会产生读写次数费用和读流量费用。</p>\n                </div></div>\n              </td>\n              <td id=\"entry-0f7-tdc-0a8\" rowspan=\"1\" colspan=\"1\">\n                <ul data-tag=\"ul\" id=\"ul-zsn-85u-p20\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-3rl-1py-i45\" class=\"li\">\n                    <p id=\"f074c8f42cg63\">按量付费：数据投递费用=日累计投递数据量（GB）×每<span class=\"help-letter-space\"></span>GB<span class=\"help-letter-space\"></span>单价</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-zsc-t7m-sp0\" class=\"li\">\n                    <p id=\"f074c8f52cve8\">资源包：<span data-tag=\"ph\" id=\"ph-s4d-yk4-azo\" props=\"china\" data-cond-props=\"china\" class=\"ph\">新版资源包（预付计划<span class=\"help-letter-space\"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-woe-bwc-dgs\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f074c8f62coe5\">无</p>\n              </td>\n            </tr>\n            <tr id=\"row-ydw-22f-m9s\">\n              <td id=\"entry-4t6-sfs-oei\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f074c8f72cwfs\">读写次数</p>\n              </td>\n              <td id=\"entry-z8p-s5r-mrl\" rowspan=\"1\" colspan=\"1\">\n                <ul data-tag=\"ul\" id=\"ul-slf-c3w-st8\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-q4z-04e-1s5\" class=\"li\">\n                    <p id=\"f074c8f82cxgi\">上传数据到日志服务时，按照写入次数计算。写入次数由您的数据生成速度决定，日志服务后台会尽量减少写入次数。</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-dov-i9f-1k9\" class=\"li\">\n                    <p id=\"f074c8f92c7eq\">加工、投递（AnalyticDB MySQL）或消费数据时，会批量读取数据，按照读取次数计费。</p>\n                  </li>\n                </ul>\n                <div data-tag=\"note\" id=\"note-934-7eq-c2r\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                  <p id=\"f074c8fa2cr00\">无论成功或失败均会统计读写次数。</p>\n                </div></div>\n              </td>\n              <td id=\"entry-p8o-i11-371\" rowspan=\"1\" colspan=\"1\">\n                <ul data-tag=\"ul\" id=\"ul-vi4-snt-tri\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-vey-3c8-ztg\" class=\"li\">\n                    <p id=\"f074f0002cd5z\">按量付费：读写次数费用=日累计读写次数×每次单价</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-wff-445-zm8\" class=\"li\">\n                    <p id=\"f074f0012cmja\">资源包：<span data-tag=\"ph\" id=\"ph-3pn-lkv-8o0\" props=\"china\" data-cond-props=\"china\" class=\"ph\">新版资源包（预付计划<span class=\"help-letter-space\"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-8yi-7s8-pqk\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f074f0022ciwe\">100<span class=\"help-letter-space\"></span>万次/月</p>\n                <div data-tag=\"note\" id=\"note-y1o-klk-hdt\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                  <p id=\"f074f0032ccpz\">仅非资源包抵扣时，提供免费额度。</p>\n                </div></div>\n              </td>\n            </tr>\n            <tr id=\"row-l6b-oax-q0i\">\n              <td id=\"entry-320-o2n-jpm\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f074f0042cft4\">语音通知</p>\n              </td>\n              <td id=\"entry-x5s-c8h-c30\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f074f0052ctiz\">告警语音通知费用，按通知次数收费。</p>\n                <div data-tag=\"note\" id=\"note-10e-mee-1k8\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                  <ul data-tag=\"ul\" id=\"ul-s18-w13-33b\" class=\"ul\">\n                    <li data-tag=\"li\" id=\"li-x8f-iuc-u8u\" class=\"li\">\n                      <p id=\"f074f0062c3jj\">告警语音未拨通时，不会重复拨打，将以短信方式发送一次通知。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-8u9-qgi-kg9\" class=\"li\">\n                      <p id=\"f074f0072cqku\">无论告警语音是否拨通，都按一次计费。未拨通的提示短信，不会额外产生短信费用。</p>\n                    </li>\n                  </ul>\n                </div></div>\n              </td>\n              <td id=\"entry-wt1-5mm-cjk\" rowspan=\"1\" colspan=\"1\">\n                <ul data-tag=\"ul\" id=\"ul-t2w-qoq-82z\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-7q0-bs4-fqs\" class=\"li\">\n                    <p id=\"f074f0082c6qi\">按量付费：语音通知费用=日累计通知次数×每次单价</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-96r-87a-3c7\" class=\"li\">\n                    <p id=\"f074f0092cgx3\">资源包：<span data-tag=\"ph\" id=\"ph-czm-8uj-c7j\" props=\"china\" data-cond-props=\"china\" class=\"ph\">新版资源包（预付计划<span class=\"help-letter-space\"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-q87-kq0-qfx\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07517102ctxy\">无</p>\n              </td>\n            </tr>\n            <tr id=\"row-0ie-n3g-f91\">\n              <td id=\"entry-sig-9pb-tps\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07517112cn39\">短信通知</p>\n              </td>\n              <td id=\"entry-3c0-gi7-btt\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07517122c7ov\">告警短信通知费用，按通知次数收费。</p>\n                <div data-tag=\"note\" id=\"note-60e-izc-tp8\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                  <p id=\"f07517132csa2\">某些运营商可能将内容过长（例如超过<span class=\"help-letter-space\"></span>70<span class=\"help-letter-space\"></span>字符）的短信拆分成<span class=\"help-letter-space\"></span>2<span class=\"help-letter-space\"></span>条发送，所以当您编辑的短信内容过长时，您可能收到<span class=\"help-letter-space\"></span>2<span class=\"help-letter-space\"></span>条短信，但日志服务只按照<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>条短信收费。</p>\n                </div></div>\n              </td>\n              <td id=\"entry-soq-8pb-3mr\" rowspan=\"1\" colspan=\"1\">\n                <ul data-tag=\"ul\" id=\"ul-mcf-k5n-rqm\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-568-iey-0ba\" class=\"li\">\n                    <p id=\"f07517142cum4\">按量付费：短信通知费用=日累计通知次数×每次单价</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-1b4-1v5-ba1\" class=\"li\">\n                    <p id=\"f07517152c89s\">资源包：<span data-tag=\"ph\" id=\"ph-ly3-2n9-xht\" props=\"china\" data-cond-props=\"china\" class=\"ph\">新版资源包（预付计划<span class=\"help-letter-space\"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-lvo-0i5-exo\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07517162c75m\">无</p>\n              </td>\n            </tr>\n            <tr id=\"row-fzf-6dy-bcj\">\n              <td id=\"entry-q0v-5bv-wi3\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07517172chl7\">活跃<span class=\"help-letter-space\"></span>Shard<span class=\"help-letter-space\"></span>租用</p>\n              </td>\n              <td id=\"entry-u76-tej-zlo\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07517182ch6p\">按照当前状态为读写的<span class=\"help-letter-space\"></span>Shard<span class=\"help-letter-space\"></span>的个数计算，已被合并或分裂的<span class=\"help-letter-space\"></span>Shard<span class=\"help-letter-space\"></span>不会产生费用。</p>\n                <p data-tag=\"p\" id=\"p-1ly-1y8-un1\" class=\"p\">例如将当前<span class=\"help-letter-space\"></span>3<span class=\"help-letter-space\"></span>个读写的<span class=\"help-letter-space\"></span>Shard<span class=\"help-letter-space\"></span>进行合并，合并后只有<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>个<span class=\"help-letter-space\"></span>Shard<span class=\"help-letter-space\"></span>的状态为读写，则当天仍按照<span class=\"help-letter-space\"></span>3<span class=\"help-letter-space\"></span>个<span class=\"help-letter-space\"></span>Shard<span class=\"help-letter-space\"></span>计费，第二天按照<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>个<span class=\"help-letter-space\"></span>Shard<span class=\"help-letter-space\"></span>计费。</p>\n                <div data-tag=\"note\" id=\"note-i0h-zxb-t5a\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                  <ul data-tag=\"ul\" id=\"ul-2fv-b1k-c3h\" class=\"ul\">\n                    <li data-tag=\"li\" id=\"li-ul3-e48-57m\" class=\"li\">\n                      <p id=\"f07517192cw71\">创建<span class=\"help-letter-space\"></span>LogStore<span class=\"help-letter-space\"></span>时，日志服务默认为您配置<span class=\"help-letter-space\"></span>2<span class=\"help-letter-space\"></span>个<span class=\"help-letter-space\"></span>Shard。关于<span class=\"help-letter-space\"></span>Shard<span class=\"help-letter-space\"></span>的常见问题，请参见<a href=\"https://help.aliyun.com/zh/sls/why-am-i-charged-for-active-shards#concept-2035824\" id=\"xref-gex-n0k-r32\" title=\"\" class=\"xref\">为什么会产生活跃<span class=\"help-letter-space\"></span>Shard<span class=\"help-letter-space\"></span>租用费用</a>。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-1no-c79-rsr\" class=\"li\">\n                      <p id=\"f0753e202cw88\">由于历史原因，LogStore<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>Metricstore<span class=\"help-letter-space\"></span>的活跃<span class=\"help-letter-space\"></span>Shard<span class=\"help-letter-space\"></span>租用计费项在账单呈现为两个不同字段<span data-tag=\"parmname\" id=\"parmname-sts-je8-dt2\" class=\"parmname\">活跃<span class=\"help-letter-space\"></span>shard<span class=\"help-letter-space\"></span>租用</span>和<span data-tag=\"parmname\" id=\"parmname-jae-lks-10n\" class=\"parmname\">分区租用</span>。这两个计费项用量累加为<span class=\"help-letter-space\"></span>Shard<span class=\"help-letter-space\"></span>用量的总和，无重复计量。该情况已在修复中。</p>\n                    </li>\n                  </ul>\n                </div></div>\n              </td>\n              <td id=\"entry-14q-9nv-qzs\" rowspan=\"1\" colspan=\"1\">\n                <ul data-tag=\"ul\" id=\"ul-rnb-om7-m0x\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-g9h-q3e-eze\" class=\"li\">\n                    <p id=\"f0753e212ct93\">按量付费：活跃<span class=\"help-letter-space\"></span>Shard<span class=\"help-letter-space\"></span>租用费用=读写状态的<span class=\"help-letter-space\"></span>Shard<span class=\"help-letter-space\"></span>个数×每个单价</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-sxb-8lg-e6j\" class=\"li\">\n                    <p id=\"f0753e222cggt\">资源包：<span data-tag=\"ph\" id=\"ph-961-4ff-r0k\" props=\"china\" data-cond-props=\"china\" class=\"ph\">新版资源包（预付计划<span class=\"help-letter-space\"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-hxh-ndz-063\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f0753e232ckgw\">31<span class=\"help-letter-space\"></span>个*天/月</p>\n                <div data-tag=\"note\" id=\"note-zvj-flv-4es\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                  <p id=\"f0753e242co16\">仅非资源包抵扣时，提供免费额度。</p>\n                </div></div>\n              </td>\n            </tr>\n            <tr id=\"row-0mu-1f1-6vf\">\n              <td id=\"entry-6uq-pjk-siy\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f0753e252cjy8\">SQL<span class=\"help-letter-space\"></span>独享版</p>\n              </td>\n              <td id=\"entry-j3j-j31-g0e\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f0753e262c9nj\">按照<span class=\"help-letter-space\"></span>SQL<span class=\"help-letter-space\"></span>分析时实际使用的<span class=\"help-letter-space\"></span>CPU<span class=\"help-letter-space\"></span>时间计算。单位为核×小时，即<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>核计算资源独享使用<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>小时的费用。更多信息，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/sls/billing-examples#table-ozp-u8q-43m\" id=\"xref-edi-rib-iul\" title=\"\" class=\"xref\">SQL<span class=\"help-letter-space\"></span>独享版计费案例</a>。</p>\n              </td>\n              <td id=\"entry-jfw-ie7-x9m\" rowspan=\"1\" colspan=\"1\">\n                <ul data-tag=\"ul\" id=\"ul-nyv-nym-age\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-fwj-gur-lzq\" class=\"li\">\n                    <p id=\"f07565302cz86\">按量付费：SQL<span class=\"help-letter-space\"></span>独享版费用=CPU<span class=\"help-letter-space\"></span>时间（小时）×每小时单价</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-8rk-tnd-ozn\" class=\"li\">\n                    <p id=\"f07565312ctx9\">资源包：<span data-tag=\"ph\" id=\"ph-yj2-oed-fix\" props=\"china\" data-cond-props=\"china\" class=\"ph\">新版资源包（预付计划<span class=\"help-letter-space\"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-cdt-zo4-ual\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f07565322c8wh\">无</p>\n              </td>\n            </tr>\n            <tr id=\"e0a72727a4pmw\">\n              <td id=\"id-6a864117d7zc1\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"left\" uuid=\"lxmnrxj4fab2ahz8snr\" id=\"id-84b6e9592bv0j\" style=\"text-align:left\">规则消费</p>\n              </td>\n              <td id=\"id-50bb9ea68c9qk\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"left\" uuid=\"lxmnrxj5dscdcna7eao\" id=\"id-6045a9ce54bk2\" style=\"text-align:left\">按照用户使用规则消费处理数据消耗的资源量进行计费，计费单位为<span class=\"help-letter-space\"></span>OCU。</p>\n                <p jc=\"left\" uuid=\"m0z3q29ughumwst93\" id=\"afaa0a20346tm\" style=\"text-align:left\"><span data-tag=\"ph\" id=\"b473d5ba53rze\" class=\"ph\">在一个计量周期（1<span class=\"help-letter-space\"></span>小时）内，规则消费处理<span class=\"help-letter-space\"></span>1 GB<span class=\"help-letter-space\"></span>数据，约消耗<span class=\"help-letter-space\"></span>0.3<span class=\"help-letter-space\"></span>个<span class=\"help-letter-space\"></span>OCU。</span></p>\n              </td>\n              <td id=\"b50daa220f27s\" rowspan=\"1\" colspan=\"1\">\n                <ul id=\"id-5ef4948670zs7\">\n                  <li id=\"id-98a283849d6k7\">\n                    <p id=\"id-0a403eb67agvk\">按量付费：规则消费费用=规则消费消耗资源对应<span class=\"help-letter-space\"></span>OCU<span class=\"help-letter-space\"></span>数×OCU<span class=\"help-letter-space\"></span>单价</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"id-453a6ce8dfcve\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"bf1c293619s95\">无</p>\n              </td>\n            </tr>\n            <tr id=\"dec68e5f09ezf\">\n              <td id=\"b53b2db815b21\" rowspan=\"1\" colspan=\"1\">\n                <p uuid=\"lxmns8igwpsxpotqna9\" id=\"id-1b0debdb0fyih\">数据加工（新版）</p>\n              </td>\n              <td id=\"ccc4c4218cv4n\" rowspan=\"1\" colspan=\"1\">\n                <p uuid=\"lxmns8ig14v0ur7hi5w\" id=\"id-5028193f5bjml\">按照用户使用数据加工（新版）处理数据消耗的资源量进行计费，计费单位为<span class=\"help-letter-space\"></span>OCU。</p>\n                <p uuid=\"m0z43623zagmxldlqnd\" id=\"dba21879ebrnp\"><span data-tag=\"ph\" id=\"bde7b54465pob\" class=\"ph\">在一个计量周期（1<span class=\"help-letter-space\"></span>小时）内，数据加工（新版）处理<span class=\"help-letter-space\"></span>1 GB<span class=\"help-letter-space\"></span>数据，大约消耗<span class=\"help-letter-space\"></span>1/3<span class=\"help-letter-space\"></span>个<span class=\"help-letter-space\"></span>OCU。</span></p>\n              </td>\n              <td id=\"b612638e0avym\" rowspan=\"1\" colspan=\"1\">\n                <ul id=\"id-93eb9674a1g4u\">\n                  <li id=\"id-45511b39cbaci\">\n                    <p id=\"id-54375501c7htf\">按量付费：数据加工（新版）费用=数据加工（新版）消耗资源对应<span class=\"help-letter-space\"></span>OCU<span class=\"help-letter-space\"></span>数×OCU<span class=\"help-letter-space\"></span>单价</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"f6ba83b77bghe\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"id-2a85ffadcdy6c\">无</p>\n              </td>\n            </tr>\n            <tr id=\"b74dbae2e0igl\">\n              <td id=\"id-7fd2d3fb3e65g\" rowspan=\"1\" colspan=\"1\">\n                <p uuid=\"lxmns7p5eywgr0ts2hp\" id=\"id-9588295b16phn\">传输加速</p>\n              </td>\n              <td id=\"eb689e49eewqs\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"fe688f13c97i3\">按照用户使用传输加速，通过传输加速域名产生的上下行流量进行计费。</p>\n                <p uuid=\"lxmowjwghx0uo54xyqc\" id=\"e62d84c8b9orr\">传输加速按照实际传输的数据量进行统计，如数据上传场景经过数据压缩，流量统计为压缩后的流量。</p>\n                <p id=\"id-55fc83caa1r1w\">更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/manage-a-project/\" id=\"id-295691dd21yk7\" title=\"\" class=\"xref\">管理<span class=\"help-letter-space\"></span>Project</a>。</p>\n              </td>\n              <td id=\"id-06eb248744kbk\" rowspan=\"1\" colspan=\"1\">\n                <ul id=\"c5051477fc0c4\">\n                  <li id=\"id-08536878e51n6\">\n                    <p id=\"db97a73da1ntv\">按量付费：传输加速费用 = 传输加速产生的上下行流量 × 每<span class=\"help-letter-space\"></span>GB<span class=\"help-letter-space\"></span>单价</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"id-1cda0e01a1bjo\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"c94908fc9583z\">无</p>\n              </td>\n            </tr>\n            <tr id=\"a8d1e3322bp3m\">\n              <td id=\"id-8c7c7d7abfq33\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"left\" uuid=\"m0aemzqilyxf4en6cb\" id=\"id-0b8c5e24225ul\" style=\"text-align:left\">写入处理器</p>\n              </td>\n              <td id=\"id-87d75c25cdkwn\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"left\" uuid=\"m0aemzqive6ujrhh4qq\" id=\"id-3de6fe58dbuai\" style=\"text-align:left\">在日志数据写入<span class=\"help-letter-space\"></span>LogStore<span class=\"help-letter-space\"></span>前对数据进行处理，例如数据过滤、字段提取、字段扩展、数据脱敏，可以使用写入处理器。写入处理器按照数据处理消耗的资源量进行计费，计费单位为<span class=\"help-letter-space\"></span>OCU。</p>\n                <p jc=\"left\" uuid=\"m0z3vo2j8jm9g2y7e8c\" id=\"id-2b717cd258kdl\" style=\"text-align:left\"><span data-tag=\"ph\" id=\"id-4ee51d2c9ddun\" class=\"ph\">在一个计量周期（1<span class=\"help-letter-space\"></span>小时）内，数据写入处理器处理<span class=\"help-letter-space\"></span>1GB<span class=\"help-letter-space\"></span>数据，大约消耗<span class=\"help-letter-space\"></span>1/3<span class=\"help-letter-space\"></span>个<span class=\"help-letter-space\"></span>OCU。</span></p>\n              </td>\n              <td id=\"b7b7b10b1ajmu\" rowspan=\"1\" colspan=\"1\">\n                <ul id=\"id-61c6cab2dbba4\">\n                  <li id=\"id-58735986f5o90\">\n                    <p id=\"id-70ca1333d9hti\">按量付费：写入处理器费用=写入处理器消耗资源对应<span class=\"help-letter-space\"></span>OCU<span class=\"help-letter-space\"></span>数×OCU<span class=\"help-letter-space\"></span>单价。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"ab752bd189f2e\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"id-86d60d9874i6p\">无</p>\n              </td>\n            </tr>\n            <tr id=\"cbab3e2771jkt\" props=\"china\" data-cond-props=\"china\">\n              <td id=\"id-28cbc943c7xgg\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n                <p uuid=\"me9og5cfcebfic7t1fu\" id=\"id-71afb3a7355xi\">AI 计算</p>\n              </td>\n              <td id=\"id-67c66a95fcozj\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n                <p uuid=\"me9og5cg0w92tfekmfl\" id=\"e95b9699ec8l2\">按照用户使用向量索引调用 embedding 模型向量化数据以及调用语义富化 LLM 函数进行数据语义富化消耗的资源量进行计费，计费单位为<span class=\"help-letter-space\"></span>OCU。</p>\n                <p uuid=\"me9og5cg024oufz96ixy\" id=\"id-8389755b91ade\">在一个计量周期（1<span class=\"help-letter-space\"></span>小时）内，</p>\n                <p uuid=\"me9onbvotyw2lxhu04\" id=\"dfca1ed848rf9\">调用`sls-multilang-v3`模型进行向量化百万 token 大约消耗 3.3 个 OCU。</p>\n                <p uuid=\"me9ophcc5whhy1v90ol\" id=\"id-478bf2baf9rmx\">调用'qwen-turbo'模型进行语义富化输入百万 token 大约消耗 3 个 OCU，输出百万 token 大约消耗 6 个 OCU。</p>\n              </td>\n              <td id=\"id-0729cc33de3ks\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n                <ul id=\"id-7df2983610nc8\">\n                  <li id=\"fd057e2a0cbcx\">\n                    <p id=\"id-76c3e8acdd9yz\">按量付费：AI 计算=各 AI 计算功能模块消耗的计算资源对应<span class=\"help-letter-space\"></span>OCU<span class=\"help-letter-space\"></span>数×OCU<span class=\"help-letter-space\"></span>单价。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"id-082422f600pd4\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n                <p uuid=\"me9og5cgc1vt0rvopxl\" id=\"id-9f8b29f44b8am\">无</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </section>\n      \n      <p id=\"a50c1782376yz\"></p>\n    </div>\n  </main>\n\n\n\n\n</div>","path":"https://help.aliyun.com/zh/sls/billable-items","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"alias":"/sls/billable-items","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":7,"developerUrl":"https://developer.aliyun.com/group/sls/","nodeType":1,"version":55,"url":"/zh/sls/billable-items","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":107745,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"按使用功能计费模式计费项","id":107745,"title":"按使用功能计费模式计费项","url":"/zh/sls/billable-items"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"计费项","id":2365854,"title":"计费项","url":"/zh/sls/billing-item/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"产品计费","id":31694,"title":"产品计费","url":"/zh/sls/billing/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"开始使用","id":2929180,"title":"开始使用","url":"/zh/sls/start-using-sls/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"productUrl":"https://www.aliyun.com/product/sls","nodeId":107745,"desc":"日志服务的所有计费项都是单独计费的，例如您存储日志会产生日志存储费用，您采集日志会产生写流量费用等。本文介绍日志服务按使用功能计费模式的计费项组成及付费方式。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"开始使用","id":2929180,"title":"开始使用","url":"/zh/sls/start-using-sls/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"产品计费","id":31694,"title":"产品计费","url":"/zh/sls/billing/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"计费项","id":2365854,"title":"计费项","url":"/zh/sls/billing-item/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"按使用功能计费模式计费项","id":107745,"title":"按使用功能计费模式计费项","url":"/zh/sls/billable-items"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=215041fc17825419488351164e9238&asid=AQAAAAB9bj9qV8vfZwAAAABgNM7nE1SGUg==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2929180" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/start-using-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开始使用</span>
+</a>
+</li>
+ <li id="128096" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/resource-management/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">资源管理</span>
+</a>
+</li>
+ <li id="128134" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-collection-1/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据采集</span>
+</a>
+</li>
+ <li id="2842370" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-processing-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据处理</span>
+</a>
+</li>
+ <li id="270795" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-storage/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据存储</span>
+</a>
+</li>
+ <li id="128135" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/index-and-query/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">查询与分析</span>
+</a>
+</li>
+ <li id="2928734" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-monitoring/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据监控</span>
+</a>
+</li>
+ <li id="2928732" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-log-output-and-integration/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据输出与集成</span>
+</a>
+</li>
+ <li id="2928739" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-technical-solutions/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">技术解决方案</span>
+</a>
+</li>
+ <li id="154068" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2528763" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/security-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="169976" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/faq-15">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>按使用功能计费模式计费项</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/sls" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="concept-xzl-hjg-vgb">
+    
+    
+    <p id="shortdesc-4hk-238-2nu" data-tag="shortdesc" class="shortdesc">日志服务的所有计费项都是单独计费的，例如您存储日志会产生日志存储费用，您采集日志会产生写流量费用等。本文介绍日志服务按使用功能计费模式的计费项组成及付费方式。</p>
+    <div data-tag="conbody" id="conbody-923-l5s-db9" class="conbody">
+      <section id="id-273dd2218bitl" class="section">
+        <h2 id="id-182dcd9904gb1"><b>注意事项</b></h2>
+        <ul data-tag="ul" id="id-3718972582t24" class="ul">
+          <li data-tag="li" id="id-7d46bc3e46r93" class="li">
+            <p id="id-5600c4b753b1n">日志服务按使用功能计费模式支持采集日志和时序数据，时序数据的存储空间、构建索引单独定价，与日志定价不同。加工费用、投递费用、读写流量费用、请求次数费用等与日志定价相同。</p>
+          </li>
+          <li data-tag="li" id="d8c46e42d926f" class="li">
+            <p id="a1110c2ecbo8q">您可以在<span data-tag="ph" id="aa1ff60cd1uuz" props="china intl" data-cond-props="china intl" class="ph"><a href="https://sls.console.aliyun.com" id="xref-70l-kct-wkz" class="" target="_blank">日志服务控制台</a></span>查看前一天的写入流量、读取流量、读写次数、加工流量、投递流量、存储量等信息。</p>
+            <p data-tag="p" id="id-83b54af86bb9p" class="p">日志服务每天更新一次该数据，不是实时更新。</p>
+          </li>
+          <li data-tag="li" id="id-37c40666b1d91" class="li">
+            <p id="id-8a11da7a41l7k">日志服务在采集日志时，会自动压缩日志数据量，压缩率为<span class="help-letter-space"></span>10%~20%。</p>
+          </li>
+        </ul>
+      </section>
+      <section id="e21cbfc5b016s" class="section">
+        <h2 id="id-7e41b8f70aihh">什么是<span class="help-letter-space"></span>OCU？</h2>
+        <p id="id-2d827ebb4ba2a">可观测资源额度<span class="help-letter-space"></span>OCU（Observability Capacity Unit）是阿里云云原生可观测推出的新版计费单位，可根据每小时资源使用情况自动统计<span class="help-letter-space"></span>OCU<span class="help-letter-space"></span>用量<span data-tag="ph" id="id-62130d89fe98k" props="china" data-cond-props="china" class="ph">，中国站公共云<span class="help-letter-space"></span>OCU<span class="help-letter-space"></span>的定价为<span class="help-letter-space"></span>0.15<span class="help-letter-space"></span>元/个</span>。</p>
+        <p uuid="lxmnb478kjtrsrmpfi" id="adabce0352z57">日志服务计算型功能收费计划逐步通过<span class="help-letter-space"></span>OCU<span class="help-letter-space"></span>进行计量，以用户实际消耗的计算资源作为计量的度量维度。在 CPU 场景下一个<span class="help-letter-space"></span>OCU<span class="help-letter-space"></span>的性能约等于<span class="help-letter-space"></span>0.5 Core CPU、2 GB<span class="help-letter-space"></span>内存、3000 IOPS，在计算<span class="help-letter-space"></span>OCU<span class="help-letter-space"></span>的总数时，会按照消耗的<span class="help-letter-space"></span>CPU<span class="help-letter-space"></span>核心数、内存大小和<span class="help-letter-space"></span>IOPS<span class="help-letter-space"></span>三个维度分别计算三个<span class="help-letter-space"></span>OCU<span class="help-letter-space"></span>数量，然后取三个<span class="help-letter-space"></span>OCU<span class="help-letter-space"></span>数量的最大值作为<span class="help-letter-space"></span>OCU<span class="help-letter-space"></span>的最终值，用于计费。</p>
+        <p uuid="mec92kly4pqa3sl8l2l" id="eac1f3a4dei0p">在 GPU 场景下一个<span class="help-letter-space"></span>OCU<span class="help-letter-space"></span>的性能约等于 1/60 A10<span class="help-letter-space"></span>卡的算力，将按照消耗的 GPU 算力计算 OCU 的最终值。</p>
+        <p uuid="lxsql0r437mzryw4xnd" id="id-79d77c9cf61g6"><span data-tag="ph" id="ed7ad9f4f56tk" class="ph">假设您的计算作业消耗了<span class="help-letter-space"></span>1 Core CPU，2GB<span class="help-letter-space"></span>内存，3000 IOPS，则这个作业消耗<span class="help-letter-space"></span>2<span class="help-letter-space"></span>个<span class="help-letter-space"></span>OCU。在一个计量周期（1<span class="help-letter-space"></span>小时）内，计算平均消耗的<span class="help-letter-space"></span>OCU<span class="help-letter-space"></span>可参考：数据写入处理器处理<span class="help-letter-space"></span>1GB<span class="help-letter-space"></span>数据，大约消耗<span class="help-letter-space"></span>1/3<span class="help-letter-space"></span>个<span class="help-letter-space"></span>OCU。数据加工（新版）处理<span class="help-letter-space"></span>1GB<span class="help-letter-space"></span>数据，大约消耗<span class="help-letter-space"></span>1/3<span class="help-letter-space"></span>个<span class="help-letter-space"></span>OCU。规则消费处理<span class="help-letter-space"></span>1GB<span class="help-letter-space"></span>数据，约消耗<span class="help-letter-space"></span>0.3<span class="help-letter-space"></span>个<span class="help-letter-space"></span>OCU。</span></p>
+        <p uuid="mec95qoi9kuzr1cgb0h" id="id-9574c552cf1wv"><span data-tag="ph" id="id-4b899b008bke8" props="china" data-cond-props="china" class="ph">假设您使用 SLS 的向量索引功能向量化一批数据，消耗了<span class="help-letter-space"></span>1/60 A10<span class="help-letter-space"></span>卡的算力，则在一个计量周期（1<span class="help-letter-space"></span>小时）内计量产生了 1 OCU 的用量。</span></p>
+      </section>
+      <section data-tag="section" id="section-js9-o1w-m7r" data-type="section" props="china" data-cond-props="china" class="section">
+        <h2 id="a12c81c3d0gdl">按使用功能计费模式的<b>计费项</b></h2>
+        <p data-tag="p" id="p-8vj-dzq-001" class="p">日志服务按使用功能计费模式计费项如下所示，详细价格说明请参见<span props="china"><a href="https://www.aliyun.com/price/product?spm=a2c4g.11186623.2.11.66cd2aab6wAn6p#/sls/detail" id="xref-ywi-xc4-vw8" class="" target="_blank">产品定价</a></span>。</p>
+        <table id="table-pde-tyk-fry" tablewidth="100" tablecolswidth="16.67 33.33 33.33 16.67" autofit="true" class="table">
+          <colgroup colwidth="0.67*" style="width:16.67%"></colgroup>
+          <colgroup colwidth="1.33*" style="width:33.33%"></colgroup>
+          <colgroup colwidth="1.33*" style="width:33.33%"></colgroup>
+          <colgroup colwidth="0.67*" style="width:16.67%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-dnl-y9b-tsk">
+              <td id="concept-xzl-hjg-vgb-entry-aos-kdu-we7" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="f072f4312c7p6"><b>计费项</b></p>
+              </td>
+              <td id="concept-xzl-hjg-vgb-entry-1de-i60-jmz" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="f072f4322cxg7"><b>计费说明</b></p>
+              </td>
+              <td id="concept-xzl-hjg-vgb-entry-fp1-lyb-r1b" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="f072f4332c0pd"><b>付费方式</b></p>
+              </td>
+              <td id="concept-xzl-hjg-vgb-entry-zig-6yo-glk" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="f072f4342cl86"><b>免费额度</b></p>
+              </td>
+            </tr>
+            <tr id="row-j4t-65y-7e9">
+              <td id="entry-z8p-gsc-i3v" rowspan="1" colspan="1">
+                <p id="f072f4352c49h">存储空间-日志热存储</p>
+              </td>
+              <td id="id-937221d4e1jzu" rowspan="1" style="vertical-align:top" colspan="1">
+                <p uuid="mbpxqeh8n5x7hrzzmis" id="e89694d22c23j">包括日志（压缩后）的存储量和日志（未压缩）被建立索引（包括全文索引、字段索引和扫描索引）所产生的存储量。</p>
+                <p uuid="mbpxqeh8nt0zwnm6sl" id="a1b6551286iug">例如：原始日志量为<span class="help-letter-space"></span>1 GB，上传到日志服务并配置其中两个字段的索引。上传时的压缩率为<span class="help-letter-space"></span>20%，两个目标字段的索引数据量为<span class="help-letter-space"></span>0.5 GB，则日志存储空间为<span class="help-letter-space"></span>0.2 GB+0.5 GB=0.7 GB。</p>
+              </td>
+              <td id="entry-49l-uyd-gag" rowspan="1" colspan="1">
+                <ul data-tag="ul" id="ul-q4n-qzc-m8g" class="ul">
+                  <li data-tag="li" id="li-7ok-mne-00w" class="li">
+                    <p id="f072f4372cx5w">按量付费：存储空间-日志热存储费用=日累计存储量（GB）×每<span class="help-letter-space"></span>GB<span class="help-letter-space"></span>单价</p>
+                  </li>
+                  <li data-tag="li" id="li-ktw-qd5-228" class="li">
+                    <p id="f0731b402cm6t">资源包：</p>
+                    <ul data-tag="ul" id="ul-ka7-ws3-y2f" props="china" data-cond-props="china" class="ul">
+                      <li data-tag="li" id="li-y3v-azz-rma" class="li">
+                        <p id="f0731b412c44f">新版资源包（预付计划<span class="help-letter-space"></span>2.0）：换算成资源额度（CU）进行抵扣。</p>
+                      </li>
+                      <li data-tag="li" id="li-7or-jl8-rqo" class="li">
+                        <p id="f0731b422cz5u">旧版资源包（存储包）：按存储包实际容量抵扣。</p>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-jbf-2yo-urj" rowspan="1" colspan="1">
+                <p id="f0731b432cxfy">500 MB/月</p>
+                <div data-tag="note" id="note-r92-pf1-2ks" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                  <p id="f0731b442c9rt">仅非资源包抵扣时，提供免费额度。</p>
+                </div></div>
+              </td>
+            </tr>
+            <tr id="row-276-i26-bdo">
+              <td id="entry-y96-7d5-1du" rowspan="1" colspan="1">
+                <p id="f0731b452ci2q">存储空间-日志低频存储</p>
+              </td>
+              <td id="entry-bam-0b5-6yf" rowspan="1" colspan="1">
+                <p id="f0731b462ceqx">开启智能分层存储功能后，当日志的存储时间超过您所配置的<b id="uicontrol-zab-p96-8pl" data-tag="uicontrol" data-isbold="true" class="uicontrol">热存储层数据保存时间</b>后，日志将转为低频存储（原冷存储），按照低频存储的存储空间计费。低频存储的存储空间包括日志（压缩后）的存储量和日志（未压缩）建立索引所产生的存储量。</p>
+                <p data-tag="p" id="p-enu-nr8-8xf" class="p">例如：原始日志量为<span class="help-letter-space"></span>1 GB，上传到日志服务并配置其中两个字段的索引。上传时的压缩率为<span class="help-letter-space"></span>20%，两个目标字段的索引数据量为<span class="help-letter-space"></span>0.5 GB，则低频存储的存储空间为<span class="help-letter-space"></span>0.2 GB+0.5 GB=0.7 GB。</p>
+              </td>
+              <td id="entry-i4y-o21-tij" rowspan="1" colspan="1">
+                <ul data-tag="ul" id="ul-o3q-frr-5yp" class="ul">
+                  <li data-tag="li" id="li-5fi-emd-k4g" class="li">
+                    <p id="f0731b472cbp2">按量付费：存储空间-日志低频存储费用=日累计存储量（GB）×每<span class="help-letter-space"></span>GB<span class="help-letter-space"></span>单价</p>
+                  </li>
+                  <li data-tag="li" id="li-0x1-0dj-bro" class="li">
+                    <p id="f07342502c3yf">资源包：<span data-tag="ph" id="ph-cc7-s99-yaj" props="china" data-cond-props="china" class="ph">新版资源包（预付计划<span class="help-letter-space"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-3dp-rw0-dxt" rowspan="1" colspan="1">
+                <p id="f07342512ctm8">无</p>
+              </td>
+            </tr>
+            <tr id="row-w9h-66g-yt3">
+              <td id="entry-691-nqu-bmw" rowspan="1" colspan="1">
+                <p id="f07342522czld">存储空间-日志归档存储</p>
+              </td>
+              <td id="entry-9wl-uc0-7x1" rowspan="1" colspan="1">
+                <p id="f07342532cp16">开启智能分层存储功能后，当日志的存储时间超过您所配置的<b id="uicontrol-8eo-7aq-mdq" data-tag="uicontrol" data-isbold="true" class="uicontrol">热存储层数据保存时间</b>或<b data-tag="uicontrol" id="uicontrol-eiv-ujp-i9f" class="uicontrol">低频存储层数据保存时间</b>后，日志将转为归档存储，按照归档存储的存储空间计费。归档存储的存储空间包括日志（压缩后）的存储量和日志（未压缩）被建立索引所产生的存储量。</p>
+                <p data-tag="p" id="p-uvq-iet-fy7" class="p">例如：原始日志量为<span class="help-letter-space"></span>1 GB，上传到日志服务并配置其中两个字段的索引。上传时的压缩率为<span class="help-letter-space"></span>20%，两个目标字段的索引数据量为<span class="help-letter-space"></span>0.5 GB，则归档存储的存储空间为<span class="help-letter-space"></span>0.2 GB+0.5 GB=0.7 GB。</p>
+              </td>
+              <td id="entry-wjp-kj4-r1m" rowspan="1" colspan="1">
+                <ul data-tag="ul" id="ul-6pp-tk7-ujg" class="ul">
+                  <li data-tag="li" id="li-1vm-du1-iez" class="li">
+                    <p id="f07342542c9um">按量付费：存储空间-日志归档存储费用=日累计存储量（GB）×每<span class="help-letter-space"></span>GB<span class="help-letter-space"></span>单价</p>
+                  </li>
+                  <li data-tag="li" id="li-0hm-e2e-cq3" class="li">
+                    <p id="f07342552cueg">资源包：<span data-tag="ph" id="ph-euj-2i9-9vk" props="china" data-cond-props="china" class="ph">新版资源包（预付计划<span class="help-letter-space"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-xe1-b1g-nh0" rowspan="1" colspan="1">
+                <p id="f07342562c1s4">无</p>
+              </td>
+            </tr>
+            <tr id="row-343-ewu-nwd">
+              <td id="entry-vbj-uhg-cgr" rowspan="1" colspan="1">
+                <p id="f07342572c9xf">存储空间-时序存储</p>
+              </td>
+              <td id="entry-vax-bj2-w9c" rowspan="1" colspan="1">
+                <p id="f07369602cvmb">包括时序数据（压缩后）的存储量和时序数据（未压缩）被建立索引所产生的存储量。</p>
+                <p data-tag="p" id="p-bh0-o3r-rdc" class="p">例如：您原始时序数据量为<span class="help-letter-space"></span>1 GB，上传到日志服务后，日志服务自动为您构建索引，索引数据量为<span class="help-letter-space"></span>1 GB。上传时的压缩率为<span class="help-letter-space"></span>20%，则日志存储空间为<span class="help-letter-space"></span>0.2 GB+1 GB=1.2 GB。</p>
+              </td>
+              <td id="entry-idf-ewg-iar" rowspan="1" colspan="1">
+                <ul data-tag="ul" id="ul-3s7-0gb-ess" class="ul">
+                  <li data-tag="li" id="li-hk3-m6r-w3o" class="li">
+                    <p id="f07369612cbi2">按量付费：存储空间-时序存储费用=日累计存储量（GB）×每<span class="help-letter-space"></span>GB<span class="help-letter-space"></span>单价</p>
+                  </li>
+                  <li data-tag="li" id="li-pk4-33z-r2u" class="li">
+                    <p id="f07369622ctyp">资源包：<span data-tag="ph" id="ph-np4-0ma-5rm" props="china" data-cond-props="china" class="ph">新版资源包（预付计划<span class="help-letter-space"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-7j1-p8r-84m" rowspan="1" colspan="1">
+                <p id="f07369632ckp7">无</p>
+              </td>
+            </tr>
+            <tr id="row-8mg-909-i4f">
+              <td id="entry-033-iyn-q8t" rowspan="1" colspan="1">
+                <p id="f07369642cx67">读写流量</p>
+              </td>
+              <td id="entry-3ko-az5-jcx" rowspan="1" colspan="1">
+                <p id="f07369652c9cg">读写流量包括写流量和读流量，详细说明如下：</p>
+                <ul data-tag="ul" id="ul-cay-r6v-5bg" class="ul">
+                  <li data-tag="li" id="li-lxk-ayx-sxb" class="li">
+                    <p id="f07369662czjz">写流量：数据（压缩后）被上传到日志服务时，按照传输的数据量计算写流量费用。</p>
+                    <p data-tag="p" id="p-qsx-3yt-qdc" class="p">例如原始数据量为<span class="help-letter-space"></span>10 GB，则上传到日志服务会产生<span class="help-letter-space"></span>2 GB（压缩率<span class="help-letter-space"></span>20%）的写流量。</p>
+                  </li>
+                  <li data-tag="li" id="li-7hj-ebq-2vc" class="li">
+                    <p id="f07369672c4ds">读流量：投递数据（压缩后）到<span class="help-letter-space"></span>AnalyticDB MySQL<span class="help-letter-space"></span>或消费数据（压缩后）时，按照传输的数据量计算读流量费用。</p>
+                    <p data-tag="p" id="p-x1q-1t9-x0h" class="p">例如原始数据量为<span class="help-letter-space"></span>10 GB，您将原始数据上传到日志服务将产生<span class="help-letter-space"></span>2 GB（压缩率<span class="help-letter-space"></span>20%）的写流量，然后通过日志服务将数据投递到<span class="help-letter-space"></span>AnalyticDB MySQL<span class="help-letter-space"></span>将产生<span class="help-letter-space"></span>2 GB（压缩率<span class="help-letter-space"></span>20%）的读流量。</p>
+                  </li>
+                </ul>
+                <div data-tag="note" id="note-fdv-i73-e1i" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                  <p id="f07390702covs">日志服务控制台上的消费预览功能会产生微量的读流量。</p>
+                </div></div>
+              </td>
+              <td id="entry-0dr-mc0-q9c" rowspan="1" colspan="1">
+                <ul data-tag="ul" id="ul-hu2-f0r-2ow" class="ul">
+                  <li data-tag="li" id="li-gg1-tzz-bnf" class="li">
+                    <p id="f07390712czcx">按量付费：读写流量费用=（日累计写流量+日累计读流量）（GB）×每<span class="help-letter-space"></span>GB<span class="help-letter-space"></span>单价</p>
+                  </li>
+                  <li data-tag="li" id="li-631-gw4-y2w" class="li">
+                    <p id="f07390722ck3r">资源包：</p>
+                    <ul data-tag="ul" id="ul-c8o-haq-opd" props="china" data-cond-props="china" class="ul">
+                      <li data-tag="li" id="li-isk-4ds-ccz" class="li">
+                        <p id="f07390732czpj">新版资源包（预付计划<span class="help-letter-space"></span>2.0）：换算成资源额度（CU）进行抵扣。</p>
+                      </li>
+                      <li data-tag="li" id="li-fh9-hu7-ho0" class="li">
+                        <p id="f07390742ck8h">旧版资源包（读写流量包）：按读写流量包实际容量抵扣。</p>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-39i-ukj-gxc" rowspan="1" colspan="1">
+                <p id="f07390752cm02">500 MB/月</p>
+                <div data-tag="note" id="note-xg3-cj0-l9b" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                  <p id="f07390762czkx">仅非资源包抵扣时，提供免费额度。</p>
+                </div></div>
+              </td>
+            </tr>
+            <tr id="row-mbi-ru5-g2w">
+              <td id="entry-69j-e0y-vta" rowspan="1" colspan="1">
+                <p id="f07390772cwrq">索引流量-日志索引</p>
+              </td>
+              <td id="entry-yhp-ddb-fs9" rowspan="1" colspan="1">
+                <p data-tag="p" id="p-5nm-nfh-pss" class="p">按照日志（未压缩）被构建或重建索引所产生的索引数据量计算索引流量。索引是针对字段构建的，索引流量的大小与索引字段及字段值的长度有关。</p>
+                <ul data-tag="ul" id="ul-5ha-hcv-oe9" class="ul">
+                  <li data-tag="li" id="li-vn7-45c-b3g" class="li">
+                    <p id="f073b7802cs2t">例如原始日志量为<span class="help-letter-space"></span>1 GB，写入到日志服务并开启全文索引，则索引流量为<span class="help-letter-space"></span>1 GB。</p>
+                  </li>
+                  <li data-tag="li" id="li-17i-q2f-fbk" class="li">
+                    <p id="f073b7812c65o">例如原始日志量为<span class="help-letter-space"></span>1 GB，写入到日志服务并开启其中两个字段的索引，这两个字段的数据量为<span class="help-letter-space"></span>0.5 GB，则索引流量为 0.5 GB。</p>
+                  </li>
+                </ul>
+                <div data-tag="note" id="note-iz2-mkc-rib" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                  <ul data-tag="ul" id="ul-65o-h26-f9e" class="ul">
+                    <li data-tag="li" id="li-8en-f8a-hca" class="li">
+                      <p id="id-0a9b6fa480t5x">日志索引用于加速查询分析，如果需要查询分析日志，必须<a href="https://help.aliyun.com/zh/sls/create-indexes" id="id-36dd4c2b8apdq" title="" class="xref">创建索引</a>。对于其他场景例如使用<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>迁移、传输数据，无需创建日志索引。</p>
+                    </li>
+                    <li id="id-6f38d321bdkjn">
+                      <p id="cf6899c27b3r9">该计费项适用于<span class="help-letter-space"></span>Standard LogStore。</p>
+                    </li>
+                    <li data-tag="li" id="li-uvx-cej-in2" class="li">
+                      <p id="f073b7832cvej">索引默认为关闭状态，开启索引后会产生索引流量和占用存储空间。</p>
+                    </li>
+                    <li data-tag="li" id="li-c42-89w-vpe" class="li">
+                      <p id="f073b7842clk6">在写入数据时一次性收取索引流量费用。</p>
+                    </li>
+                    <li data-tag="li" id="li-wpr-hr7-3wb" class="li">
+                      <p id="f073b7852c4se">对同时构建了全文索引和字段索引的字段，只计算一次索引流量费用。</p>
+                    </li>
+                    <li data-tag="li" id="li-oon-v5g-11u" class="li">
+                      <p id="f073b7862cqcm">日志服务自动为__time__、__source__等保留字段构建索引，会产生微量的索引流量。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/reserved-fields#concept-adr-ktr-gfb" id="xref-x07-ps9-xbd" title="" class="xref">保留字段</a>。</p>
+                    </li>
+                  </ul>
+                </div></div>
+              </td>
+              <td id="entry-3p9-uoq-q3m" rowspan="1" colspan="1">
+                <ul data-tag="ul" id="ul-uox-uv6-khl" class="ul">
+                  <li data-tag="li" id="li-d3i-oi6-xke" class="li">
+                    <p id="f07405a02ceu6">按量付费：索引流量-日志索引费用=日累计索引流量（GB）×每<span class="help-letter-space"></span>GB<span class="help-letter-space"></span>单价</p>
+                  </li>
+                  <li data-tag="li" id="li-xpq-czi-v7g" class="li">
+                    <p id="f07405a12ccg8">资源包：</p>
+                    <ul data-tag="ul" id="ul-0q8-x57-hjf" props="china" data-cond-props="china" class="ul">
+                      <li data-tag="li" id="li-kbl-g8k-rwo" class="li">
+                        <p id="f07405a22c8y7">新版资源包（预付计划<span class="help-letter-space"></span>2.0）：换算成资源额度（CU）进行抵扣。</p>
+                      </li>
+                      <li data-tag="li" id="li-cu6-52w-t6b" class="li">
+                        <p id="f07405a32c43t">旧版资源包（索引流量包）：按索引流量包实际容量抵扣。</p>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-n8p-y0x-80h" rowspan="1" colspan="1">
+                <p id="f07405a42c2na">500 MB/月</p>
+                <div data-tag="note" id="note-p90-ll8-p87" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                  <p id="f07405a52caue">仅非资源包抵扣时，提供免费额度。</p>
+                </div></div>
+              </td>
+            </tr>
+            <tr id="row-pr4-0mp-h3z">
+              <td id="entry-q6l-gpx-8il" rowspan="1" colspan="1">
+                <p id="f07405a62cn3z">索引流量-日志索引-查询型</p>
+              </td>
+              <td id="entry-8j1-na4-vto" rowspan="1" colspan="1">
+                <p data-tag="p" id="p-2fr-gxn-gek" class="p">按照日志（未压缩）被构建或重建索引所产生的索引数据量计算索引流量。索引是针对字段构建的，索引流量的大小与索引字段及字段值的长度有关。</p>
+                <ul data-tag="ul" id="ul-669-tpf-bno" class="ul">
+                  <li data-tag="li" id="li-a1u-blb-yua" class="li">
+                    <p id="f07405a72cuvl">例如原始日志量为<span class="help-letter-space"></span>1 GB，写入到日志服务并开启全文索引，则索引流量为<span class="help-letter-space"></span>1 GB。</p>
+                  </li>
+                  <li data-tag="li" id="li-5sl-vbo-dm0" class="li">
+                    <p id="f07405a82cahd">例如原始日志量为<span class="help-letter-space"></span>1 GB，写入到日志服务并开启其中两个字段的索引，这两个字段的数据量为<span class="help-letter-space"></span>0.5 GB，则索引流量为 0.5 GB。</p>
+                  </li>
+                </ul>
+                <div data-tag="note" id="note-ax0-o8f-dsf" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                  <ul data-tag="ul" id="ul-mda-zpj-g1m" class="ul">
+                    <li data-tag="li" id="li-6tk-log-ejt" class="li">
+                      <p id="id-22274f16f966w">日志索引用于加速查询分析，如果需要查询分析日志，必须<a href="https://help.aliyun.com/zh/sls/create-indexes" id="aebaad93d4o64" title="" class="xref">创建索引</a>。对于其他场景例如使用<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>迁移、传输数据，无需创建日志索引。</p>
+                    </li>
+                    <li id="id-32ce8b8d76qbb">
+                      <p id="id-3012880809zjy">该计费项适用于<span class="help-letter-space"></span>Query LogStore。</p>
+                    </li>
+                    <li data-tag="li" id="li-wyh-wrh-dt6" class="li">
+                      <p id="f0742cb02cled">索引默认为关闭状态，开启索引后会产生索引流量和占用存储空间。</p>
+                    </li>
+                    <li data-tag="li" id="li-n1u-otc-81r" class="li">
+                      <p id="f0742cb12cp5h">在写入数据时一次性收取索引流量费用。</p>
+                    </li>
+                    <li data-tag="li" id="li-g7b-xa0-rji" class="li">
+                      <p id="f0742cb22c196">对同时构建了全文索引和字段索引的字段，只计算一次索引流量费用。</p>
+                    </li>
+                    <li data-tag="li" id="li-suf-go7-2el" class="li">
+                      <p id="f0742cb32c3hk">日志服务自动为__time__、__source__等保留字段构建索引，会产生微量的索引流量。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/reserved-fields#concept-adr-ktr-gfb" id="xref-nj0-56w-83z" title="" class="xref">保留字段</a>。</p>
+                    </li>
+                  </ul>
+                </div></div>
+              </td>
+              <td id="entry-30g-lxe-2xp" rowspan="1" colspan="1">
+                <ul data-tag="ul" id="ul-qwd-rhf-syz" class="ul">
+                  <li data-tag="li" id="li-70k-2p8-76d" class="li">
+                    <p id="f07453c02c0x2">按量付费：索引流量-日志索引费用=日累计索引流量（GB）×每<span class="help-letter-space"></span>GB<span class="help-letter-space"></span>单价</p>
+                  </li>
+                  <li data-tag="li" id="li-00t-us7-b6u" class="li">
+                    <p id="f07453c12cxl9">资源包：预付计划资源包，换算成资源额度（CU）进行抵扣。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-oin-n88-ybd" rowspan="1" colspan="1">
+                <p id="f07453c22csnt">无</p>
+              </td>
+            </tr>
+            <tr id="id-667db807662zf">
+              <td id="id-78d6d5a822ong" rowspan="1" style="vertical-align:top" colspan="1">
+                <p uuid="mbpxikvwbqo56cv15m" id="id-1560e415231p3">索引流量-扫描索引</p>
+              </td>
+              <td id="id-982700d809wph" rowspan="1" style="vertical-align:top" colspan="1">
+                <p uuid="mbpxikvw4jdvar78iih" id="id-3efb552972d4q">按照日志（未压缩）被构建或重建扫描索引所产生的索引数据量计算索引流量。索引流量的大小与日志字段及字段值的长度有关。</p>
+                <p uuid="mbpxmxsn6umoq2iwzx" id="id-1ab9717abdmw5">当某个字段同时开启全文索引/字段索引和扫描索引时，仅产生全文索引/字段索引对应的索引流量，不产生扫描索引流量。</p>
+                <p uuid="mbpxvpvwmkxqywemfy" id="id-7f98025b5d7wq">创建扫描索引将产生 20%原始日志量的索引存储数据。</p>
+                <ul id="dad86725a3hej">
+                  <li id="id-9a4b7ee4320ly">
+                    <p id="id-49de05c552piy">例如原始日志量为<span class="help-letter-space"></span>1 GB，写入到日志服务并开启全文索引，则扫描索引为<span class="help-letter-space"></span>1 GB。</p>
+                  </li>
+                  <li id="a804b191c212t">
+                    <p id="id-9ce43f89d448o">例如原始日志量为<span class="help-letter-space"></span>1 GB，开启 2 个字段的字段索引并开启扫描索引，这两个字段的数据量为<span class="help-letter-space"></span>0.5 GB，则对应产生 0.5 GB 字段索引流量和 0.5GB 的扫描索引流量。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="f302d02bf0pi6" rowspan="1" style="vertical-align:top" colspan="1">
+                <ul id="id-7f691d98c19gc">
+                  <li id="cf8c9b84aeo42">
+                    <p id="eb8063fadbi3j">按量付费：索引流量-扫描索引==日累计扫描索引流量（GB）×每<span class="help-letter-space"></span>GB<span class="help-letter-space"></span>单价</p>
+                  </li>
+                  <li id="id-3012a8a09673o">
+                    <p id="bbc808488b18z">资源包：</p>
+                    <ul id="e727818df7qxk">
+                      <li id="bab87506b1odk">
+                        <p id="id-06bf8f21dbb37">暂未支持</p>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </td>
+              <td id="aa76c213d99zz" rowspan="1" style="vertical-align:top" colspan="1">
+                <p uuid="mbpxikvwbv16ujkvu9f" id="id-75a5f0e88563p">无</p>
+              </td>
+            </tr>
+            <tr id="row-y16-atn-jk8">
+              <td id="entry-ml7-xv9-32w" rowspan="1" colspan="1">
+                <p id="f07453c32ccf6">索引流量-时序索引</p>
+              </td>
+              <td id="entry-cly-iw2-o3v" rowspan="1" colspan="1">
+                <p id="f07453c42c9rd">按照时序数据（未压缩）被构建索引所产生的索引数据量计算索引流量。索引是针对字段构建的，索引流量的大小与索引字段及字段值的长度有关。</p>
+                <p data-tag="p" id="p-tj3-4d1-8zb" class="p">您在上传时序数据时，日志服务自动为您构建索引。</p>
+                <p data-tag="p" id="p-a2l-tow-6fl" class="p">例如原始时序数据量为<span class="help-letter-space"></span>1 GB，写入到日志服务后，索引流量为<span class="help-letter-space"></span>1 GB。</p>
+              </td>
+              <td id="entry-b63-x4z-bq0" rowspan="1" colspan="1">
+                <ul data-tag="ul" id="ul-gid-b3t-2iq" class="ul">
+                  <li data-tag="li" id="li-tbw-18f-sul" class="li">
+                    <p id="f0747ad02cgju">按量付费：索引流量-时序索引费用=日累计索引流量（GB）×每<span class="help-letter-space"></span>GB<span class="help-letter-space"></span>单价</p>
+                  </li>
+                  <li data-tag="li" id="li-eyg-bg9-6im" class="li">
+                    <p id="f0747ad12c0wu">资源包：<span data-tag="ph" id="ph-w7s-n4s-ohs" props="china" data-cond-props="china" class="ph">新版资源包（预付计划<span class="help-letter-space"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-vai-b4y-epw" rowspan="1" colspan="1">
+                <p id="f0747ad22ck0y">无</p>
+              </td>
+            </tr>
+            <tr id="row-peq-skp-3ub">
+              <td id="entry-kii-9av-cc7" rowspan="1" colspan="1">
+                <p id="f0747ad32c15n">外网读取流量</p>
+              </td>
+              <td id="entry-4qg-0r1-5vc" rowspan="1" colspan="1">
+                <p id="id-4792eac041850">从日志服务公网域名所在接口拉取数据时，会产生外网读取流量（按照压缩后的数据量计算）。</p>
+              </td>
+              <td id="entry-x7l-plf-k33" rowspan="1" colspan="1">
+                <ul data-tag="ul" id="ul-qrd-038-9bl" class="ul">
+                  <li data-tag="li" id="li-7wm-mif-dsw" class="li">
+                    <p id="f0747ad62cfup">按量付费：外网读取流量费用=日累计外网读取流量×每<span class="help-letter-space"></span>GB<span class="help-letter-space"></span>单价</p>
+                  </li>
+                  <li data-tag="li" id="li-4x8-6nn-5gz" class="li">
+                    <p id="f0747ad72chhr">资源包：<span data-tag="ph" id="ph-71m-11u-ymb" props="china" data-cond-props="china" class="ph">新版资源包（预付计划<span class="help-letter-space"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-yyz-zpo-3ap" rowspan="1" colspan="1">
+                <p id="f074a1e02caix">无</p>
+              </td>
+            </tr>
+            <tr id="row-pfb-u9t-ve3">
+              <td id="entry-ac6-61m-vsx" rowspan="1" colspan="1">
+                <p id="f074a1e12c785">扫描流量</p>
+              </td>
+              <td id="entry-del-x6j-9yj" rowspan="1" colspan="1">
+                <p id="f074a1e22clrk">按照扫描的数据量（未压缩）计算扫描流量。</p>
+              </td>
+              <td id="entry-bbn-ftl-ga3" rowspan="1" colspan="1">
+                <ul data-tag="ul" id="ul-995-q18-ege" class="ul">
+                  <li data-tag="li" id="li-hms-q3u-9vp" class="li">
+                    <p id="f074a1e32c1a4">按量付费：扫描流量=日累计扫描流量×每<span class="help-letter-space"></span>GB<span class="help-letter-space"></span>单价</p>
+                  </li>
+                  <li data-tag="li" id="li-02h-lal-6w3" class="li">
+                    <p id="f074a1e42cr54">资源包：<span data-tag="ph" id="ph-y46-z4u-o6k" props="china" data-cond-props="china" class="ph">新版资源包（预付计划<span class="help-letter-space"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-vf2-i46-6ax" rowspan="1" colspan="1">
+                <p id="f074a1e52cm8l">无</p>
+              </td>
+            </tr>
+            <tr id="row-cpl-cai-z65">
+              <td id="entry-nf9-8e3-onl" rowspan="1" colspan="1">
+                <p id="f074a1e62cru6">数据加工</p>
+              </td>
+              <td id="entry-zwk-src-1cz" rowspan="1" colspan="1">
+                <p id="f074a1e72cnue">按照数据加工的数据量（未压缩）计算。</p>
+                <p data-tag="p" id="p-lw3-wfj-8wd" class="p">跨地域加工数据时，会产生外网读取流量（按照压缩后的数据量计算）。</p>
+              </td>
+              <td id="entry-7oc-irm-w6d" rowspan="1" colspan="1">
+                <ul data-tag="ul" id="ul-q8i-oet-dih" class="ul">
+                  <li data-tag="li" id="li-znd-kc7-nc9" class="li">
+                    <p id="f074a1e82cimx">按量付费：数据加工费用=日累计加工数据量（GB）×每<span class="help-letter-space"></span>GB<span class="help-letter-space"></span>单价</p>
+                  </li>
+                  <li data-tag="li" id="li-vl8-r31-yaj" class="li">
+                    <p id="f074a1e92cp2w">资源包：<span data-tag="ph" id="ph-ij4-95f-e0s" props="china" data-cond-props="china" class="ph">新版资源包（预付计划<span class="help-letter-space"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-58j-d1q-r9j" rowspan="1" colspan="1">
+                <p id="f074c8f02cr9f">无</p>
+              </td>
+            </tr>
+            <tr id="row-j85-2dz-b9f">
+              <td id="entry-r7j-zro-yit" rowspan="1" colspan="1">
+                <p id="f074c8f12c6yf">数据投递</p>
+              </td>
+              <td id="entry-05g-e4v-ard" rowspan="1" colspan="1">
+                <p id="f074c8f22cqh4">按照数据投递的数据量（未压缩）计算。投递对象为<span class="help-letter-space"></span>OSS、MaxCompute、AnalyticDB MySQL。</p>
+                <div data-tag="note" id="note-c2l-58b-hjj" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                  <p id="f074c8f32cbq6">投递数据到<span class="help-letter-space"></span>AnalyticDB MySQL<span class="help-letter-space"></span>时，还需调用接口读取数据及消耗网络资源，即会产生读写次数费用和读流量费用。</p>
+                </div></div>
+              </td>
+              <td id="entry-0f7-tdc-0a8" rowspan="1" colspan="1">
+                <ul data-tag="ul" id="ul-zsn-85u-p20" class="ul">
+                  <li data-tag="li" id="li-3rl-1py-i45" class="li">
+                    <p id="f074c8f42cg63">按量付费：数据投递费用=日累计投递数据量（GB）×每<span class="help-letter-space"></span>GB<span class="help-letter-space"></span>单价</p>
+                  </li>
+                  <li data-tag="li" id="li-zsc-t7m-sp0" class="li">
+                    <p id="f074c8f52cve8">资源包：<span data-tag="ph" id="ph-s4d-yk4-azo" props="china" data-cond-props="china" class="ph">新版资源包（预付计划<span class="help-letter-space"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-woe-bwc-dgs" rowspan="1" colspan="1">
+                <p id="f074c8f62coe5">无</p>
+              </td>
+            </tr>
+            <tr id="row-ydw-22f-m9s">
+              <td id="entry-4t6-sfs-oei" rowspan="1" colspan="1">
+                <p id="f074c8f72cwfs">读写次数</p>
+              </td>
+              <td id="entry-z8p-s5r-mrl" rowspan="1" colspan="1">
+                <ul data-tag="ul" id="ul-slf-c3w-st8" class="ul">
+                  <li data-tag="li" id="li-q4z-04e-1s5" class="li">
+                    <p id="f074c8f82cxgi">上传数据到日志服务时，按照写入次数计算。写入次数由您的数据生成速度决定，日志服务后台会尽量减少写入次数。</p>
+                  </li>
+                  <li data-tag="li" id="li-dov-i9f-1k9" class="li">
+                    <p id="f074c8f92c7eq">加工、投递（AnalyticDB MySQL）或消费数据时，会批量读取数据，按照读取次数计费。</p>
+                  </li>
+                </ul>
+                <div data-tag="note" id="note-934-7eq-c2r" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                  <p id="f074c8fa2cr00">无论成功或失败均会统计读写次数。</p>
+                </div></div>
+              </td>
+              <td id="entry-p8o-i11-371" rowspan="1" colspan="1">
+                <ul data-tag="ul" id="ul-vi4-snt-tri" class="ul">
+                  <li data-tag="li" id="li-vey-3c8-ztg" class="li">
+                    <p id="f074f0002cd5z">按量付费：读写次数费用=日累计读写次数×每次单价</p>
+                  </li>
+                  <li data-tag="li" id="li-wff-445-zm8" class="li">
+                    <p id="f074f0012cmja">资源包：<span data-tag="ph" id="ph-3pn-lkv-8o0" props="china" data-cond-props="china" class="ph">新版资源包（预付计划<span class="help-letter-space"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-8yi-7s8-pqk" rowspan="1" colspan="1">
+                <p id="f074f0022ciwe">100<span class="help-letter-space"></span>万次/月</p>
+                <div data-tag="note" id="note-y1o-klk-hdt" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                  <p id="f074f0032ccpz">仅非资源包抵扣时，提供免费额度。</p>
+                </div></div>
+              </td>
+            </tr>
+            <tr id="row-l6b-oax-q0i">
+              <td id="entry-320-o2n-jpm" rowspan="1" colspan="1">
+                <p id="f074f0042cft4">语音通知</p>
+              </td>
+              <td id="entry-x5s-c8h-c30" rowspan="1" colspan="1">
+                <p id="f074f0052ctiz">告警语音通知费用，按通知次数收费。</p>
+                <div data-tag="note" id="note-10e-mee-1k8" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                  <ul data-tag="ul" id="ul-s18-w13-33b" class="ul">
+                    <li data-tag="li" id="li-x8f-iuc-u8u" class="li">
+                      <p id="f074f0062c3jj">告警语音未拨通时，不会重复拨打，将以短信方式发送一次通知。</p>
+                    </li>
+                    <li data-tag="li" id="li-8u9-qgi-kg9" class="li">
+                      <p id="f074f0072cqku">无论告警语音是否拨通，都按一次计费。未拨通的提示短信，不会额外产生短信费用。</p>
+                    </li>
+                  </ul>
+                </div></div>
+              </td>
+              <td id="entry-wt1-5mm-cjk" rowspan="1" colspan="1">
+                <ul data-tag="ul" id="ul-t2w-qoq-82z" class="ul">
+                  <li data-tag="li" id="li-7q0-bs4-fqs" class="li">
+                    <p id="f074f0082c6qi">按量付费：语音通知费用=日累计通知次数×每次单价</p>
+                  </li>
+                  <li data-tag="li" id="li-96r-87a-3c7" class="li">
+                    <p id="f074f0092cgx3">资源包：<span data-tag="ph" id="ph-czm-8uj-c7j" props="china" data-cond-props="china" class="ph">新版资源包（预付计划<span class="help-letter-space"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-q87-kq0-qfx" rowspan="1" colspan="1">
+                <p id="f07517102ctxy">无</p>
+              </td>
+            </tr>
+            <tr id="row-0ie-n3g-f91">
+              <td id="entry-sig-9pb-tps" rowspan="1" colspan="1">
+                <p id="f07517112cn39">短信通知</p>
+              </td>
+              <td id="entry-3c0-gi7-btt" rowspan="1" colspan="1">
+                <p id="f07517122c7ov">告警短信通知费用，按通知次数收费。</p>
+                <div data-tag="note" id="note-60e-izc-tp8" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                  <p id="f07517132csa2">某些运营商可能将内容过长（例如超过<span class="help-letter-space"></span>70<span class="help-letter-space"></span>字符）的短信拆分成<span class="help-letter-space"></span>2<span class="help-letter-space"></span>条发送，所以当您编辑的短信内容过长时，您可能收到<span class="help-letter-space"></span>2<span class="help-letter-space"></span>条短信，但日志服务只按照<span class="help-letter-space"></span>1<span class="help-letter-space"></span>条短信收费。</p>
+                </div></div>
+              </td>
+              <td id="entry-soq-8pb-3mr" rowspan="1" colspan="1">
+                <ul data-tag="ul" id="ul-mcf-k5n-rqm" class="ul">
+                  <li data-tag="li" id="li-568-iey-0ba" class="li">
+                    <p id="f07517142cum4">按量付费：短信通知费用=日累计通知次数×每次单价</p>
+                  </li>
+                  <li data-tag="li" id="li-1b4-1v5-ba1" class="li">
+                    <p id="f07517152c89s">资源包：<span data-tag="ph" id="ph-ly3-2n9-xht" props="china" data-cond-props="china" class="ph">新版资源包（预付计划<span class="help-letter-space"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-lvo-0i5-exo" rowspan="1" colspan="1">
+                <p id="f07517162c75m">无</p>
+              </td>
+            </tr>
+            <tr id="row-fzf-6dy-bcj">
+              <td id="entry-q0v-5bv-wi3" rowspan="1" colspan="1">
+                <p id="f07517172chl7">活跃<span class="help-letter-space"></span>Shard<span class="help-letter-space"></span>租用</p>
+              </td>
+              <td id="entry-u76-tej-zlo" rowspan="1" colspan="1">
+                <p id="f07517182ch6p">按照当前状态为读写的<span class="help-letter-space"></span>Shard<span class="help-letter-space"></span>的个数计算，已被合并或分裂的<span class="help-letter-space"></span>Shard<span class="help-letter-space"></span>不会产生费用。</p>
+                <p data-tag="p" id="p-1ly-1y8-un1" class="p">例如将当前<span class="help-letter-space"></span>3<span class="help-letter-space"></span>个读写的<span class="help-letter-space"></span>Shard<span class="help-letter-space"></span>进行合并，合并后只有<span class="help-letter-space"></span>1<span class="help-letter-space"></span>个<span class="help-letter-space"></span>Shard<span class="help-letter-space"></span>的状态为读写，则当天仍按照<span class="help-letter-space"></span>3<span class="help-letter-space"></span>个<span class="help-letter-space"></span>Shard<span class="help-letter-space"></span>计费，第二天按照<span class="help-letter-space"></span>1<span class="help-letter-space"></span>个<span class="help-letter-space"></span>Shard<span class="help-letter-space"></span>计费。</p>
+                <div data-tag="note" id="note-i0h-zxb-t5a" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                  <ul data-tag="ul" id="ul-2fv-b1k-c3h" class="ul">
+                    <li data-tag="li" id="li-ul3-e48-57m" class="li">
+                      <p id="f07517192cw71">创建<span class="help-letter-space"></span>LogStore<span class="help-letter-space"></span>时，日志服务默认为您配置<span class="help-letter-space"></span>2<span class="help-letter-space"></span>个<span class="help-letter-space"></span>Shard。关于<span class="help-letter-space"></span>Shard<span class="help-letter-space"></span>的常见问题，请参见<a href="https://help.aliyun.com/zh/sls/why-am-i-charged-for-active-shards#concept-2035824" id="xref-gex-n0k-r32" title="" class="xref">为什么会产生活跃<span class="help-letter-space"></span>Shard<span class="help-letter-space"></span>租用费用</a>。</p>
+                    </li>
+                    <li data-tag="li" id="li-1no-c79-rsr" class="li">
+                      <p id="f0753e202cw88">由于历史原因，LogStore<span class="help-letter-space"></span>和<span class="help-letter-space"></span>Metricstore<span class="help-letter-space"></span>的活跃<span class="help-letter-space"></span>Shard<span class="help-letter-space"></span>租用计费项在账单呈现为两个不同字段<span data-tag="parmname" id="parmname-sts-je8-dt2" class="parmname">活跃<span class="help-letter-space"></span>shard<span class="help-letter-space"></span>租用</span>和<span data-tag="parmname" id="parmname-jae-lks-10n" class="parmname">分区租用</span>。这两个计费项用量累加为<span class="help-letter-space"></span>Shard<span class="help-letter-space"></span>用量的总和，无重复计量。该情况已在修复中。</p>
+                    </li>
+                  </ul>
+                </div></div>
+              </td>
+              <td id="entry-14q-9nv-qzs" rowspan="1" colspan="1">
+                <ul data-tag="ul" id="ul-rnb-om7-m0x" class="ul">
+                  <li data-tag="li" id="li-g9h-q3e-eze" class="li">
+                    <p id="f0753e212ct93">按量付费：活跃<span class="help-letter-space"></span>Shard<span class="help-letter-space"></span>租用费用=读写状态的<span class="help-letter-space"></span>Shard<span class="help-letter-space"></span>个数×每个单价</p>
+                  </li>
+                  <li data-tag="li" id="li-sxb-8lg-e6j" class="li">
+                    <p id="f0753e222cggt">资源包：<span data-tag="ph" id="ph-961-4ff-r0k" props="china" data-cond-props="china" class="ph">新版资源包（预付计划<span class="help-letter-space"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-hxh-ndz-063" rowspan="1" colspan="1">
+                <p id="f0753e232ckgw">31<span class="help-letter-space"></span>个*天/月</p>
+                <div data-tag="note" id="note-zvj-flv-4es" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                  <p id="f0753e242co16">仅非资源包抵扣时，提供免费额度。</p>
+                </div></div>
+              </td>
+            </tr>
+            <tr id="row-0mu-1f1-6vf">
+              <td id="entry-6uq-pjk-siy" rowspan="1" colspan="1">
+                <p id="f0753e252cjy8">SQL<span class="help-letter-space"></span>独享版</p>
+              </td>
+              <td id="entry-j3j-j31-g0e" rowspan="1" colspan="1">
+                <p id="f0753e262c9nj">按照<span class="help-letter-space"></span>SQL<span class="help-letter-space"></span>分析时实际使用的<span class="help-letter-space"></span>CPU<span class="help-letter-space"></span>时间计算。单位为核×小时，即<span class="help-letter-space"></span>1<span class="help-letter-space"></span>核计算资源独享使用<span class="help-letter-space"></span>1<span class="help-letter-space"></span>小时的费用。更多信息，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/sls/billing-examples#table-ozp-u8q-43m" id="xref-edi-rib-iul" title="" class="xref">SQL<span class="help-letter-space"></span>独享版计费案例</a>。</p>
+              </td>
+              <td id="entry-jfw-ie7-x9m" rowspan="1" colspan="1">
+                <ul data-tag="ul" id="ul-nyv-nym-age" class="ul">
+                  <li data-tag="li" id="li-fwj-gur-lzq" class="li">
+                    <p id="f07565302cz86">按量付费：SQL<span class="help-letter-space"></span>独享版费用=CPU<span class="help-letter-space"></span>时间（小时）×每小时单价</p>
+                  </li>
+                  <li data-tag="li" id="li-8rk-tnd-ozn" class="li">
+                    <p id="f07565312ctx9">资源包：<span data-tag="ph" id="ph-yj2-oed-fix" props="china" data-cond-props="china" class="ph">新版资源包（预付计划<span class="help-letter-space"></span>2.0）</span>，换算成资源额度（CU）进行抵扣。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-cdt-zo4-ual" rowspan="1" colspan="1">
+                <p id="f07565322c8wh">无</p>
+              </td>
+            </tr>
+            <tr id="e0a72727a4pmw">
+              <td id="id-6a864117d7zc1" rowspan="1" colspan="1">
+                <p jc="left" uuid="lxmnrxj4fab2ahz8snr" id="id-84b6e9592bv0j" style="text-align:left">规则消费</p>
+              </td>
+              <td id="id-50bb9ea68c9qk" rowspan="1" colspan="1">
+                <p jc="left" uuid="lxmnrxj5dscdcna7eao" id="id-6045a9ce54bk2" style="text-align:left">按照用户使用规则消费处理数据消耗的资源量进行计费，计费单位为<span class="help-letter-space"></span>OCU。</p>
+                <p jc="left" uuid="m0z3q29ughumwst93" id="afaa0a20346tm" style="text-align:left"><span data-tag="ph" id="b473d5ba53rze" class="ph">在一个计量周期（1<span class="help-letter-space"></span>小时）内，规则消费处理<span class="help-letter-space"></span>1 GB<span class="help-letter-space"></span>数据，约消耗<span class="help-letter-space"></span>0.3<span class="help-letter-space"></span>个<span class="help-letter-space"></span>OCU。</span></p>
+              </td>
+              <td id="b50daa220f27s" rowspan="1" colspan="1">
+                <ul id="id-5ef4948670zs7">
+                  <li id="id-98a283849d6k7">
+                    <p id="id-0a403eb67agvk">按量付费：规则消费费用=规则消费消耗资源对应<span class="help-letter-space"></span>OCU<span class="help-letter-space"></span>数×OCU<span class="help-letter-space"></span>单价</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="id-453a6ce8dfcve" rowspan="1" colspan="1">
+                <p id="bf1c293619s95">无</p>
+              </td>
+            </tr>
+            <tr id="dec68e5f09ezf">
+              <td id="b53b2db815b21" rowspan="1" colspan="1">
+                <p uuid="lxmns8igwpsxpotqna9" id="id-1b0debdb0fyih">数据加工（新版）</p>
+              </td>
+              <td id="ccc4c4218cv4n" rowspan="1" colspan="1">
+                <p uuid="lxmns8ig14v0ur7hi5w" id="id-5028193f5bjml">按照用户使用数据加工（新版）处理数据消耗的资源量进行计费，计费单位为<span class="help-letter-space"></span>OCU。</p>
+                <p uuid="m0z43623zagmxldlqnd" id="dba21879ebrnp"><span data-tag="ph" id="bde7b54465pob" class="ph">在一个计量周期（1<span class="help-letter-space"></span>小时）内，数据加工（新版）处理<span class="help-letter-space"></span>1 GB<span class="help-letter-space"></span>数据，大约消耗<span class="help-letter-space"></span>1/3<span class="help-letter-space"></span>个<span class="help-letter-space"></span>OCU。</span></p>
+              </td>
+              <td id="b612638e0avym" rowspan="1" colspan="1">
+                <ul id="id-93eb9674a1g4u">
+                  <li id="id-45511b39cbaci">
+                    <p id="id-54375501c7htf">按量付费：数据加工（新版）费用=数据加工（新版）消耗资源对应<span class="help-letter-space"></span>OCU<span class="help-letter-space"></span>数×OCU<span class="help-letter-space"></span>单价</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="f6ba83b77bghe" rowspan="1" colspan="1">
+                <p id="id-2a85ffadcdy6c">无</p>
+              </td>
+            </tr>
+            <tr id="b74dbae2e0igl">
+              <td id="id-7fd2d3fb3e65g" rowspan="1" colspan="1">
+                <p uuid="lxmns7p5eywgr0ts2hp" id="id-9588295b16phn">传输加速</p>
+              </td>
+              <td id="eb689e49eewqs" rowspan="1" colspan="1">
+                <p id="fe688f13c97i3">按照用户使用传输加速，通过传输加速域名产生的上下行流量进行计费。</p>
+                <p uuid="lxmowjwghx0uo54xyqc" id="e62d84c8b9orr">传输加速按照实际传输的数据量进行统计，如数据上传场景经过数据压缩，流量统计为压缩后的流量。</p>
+                <p id="id-55fc83caa1r1w">更多信息，请参见<a href="https://help.aliyun.com/zh/sls/manage-a-project/" id="id-295691dd21yk7" title="" class="xref">管理<span class="help-letter-space"></span>Project</a>。</p>
+              </td>
+              <td id="id-06eb248744kbk" rowspan="1" colspan="1">
+                <ul id="c5051477fc0c4">
+                  <li id="id-08536878e51n6">
+                    <p id="db97a73da1ntv">按量付费：传输加速费用 = 传输加速产生的上下行流量 × 每<span class="help-letter-space"></span>GB<span class="help-letter-space"></span>单价</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="id-1cda0e01a1bjo" rowspan="1" colspan="1">
+                <p id="c94908fc9583z">无</p>
+              </td>
+            </tr>
+            <tr id="a8d1e3322bp3m">
+              <td id="id-8c7c7d7abfq33" rowspan="1" colspan="1">
+                <p jc="left" uuid="m0aemzqilyxf4en6cb" id="id-0b8c5e24225ul" style="text-align:left">写入处理器</p>
+              </td>
+              <td id="id-87d75c25cdkwn" rowspan="1" colspan="1">
+                <p jc="left" uuid="m0aemzqive6ujrhh4qq" id="id-3de6fe58dbuai" style="text-align:left">在日志数据写入<span class="help-letter-space"></span>LogStore<span class="help-letter-space"></span>前对数据进行处理，例如数据过滤、字段提取、字段扩展、数据脱敏，可以使用写入处理器。写入处理器按照数据处理消耗的资源量进行计费，计费单位为<span class="help-letter-space"></span>OCU。</p>
+                <p jc="left" uuid="m0z3vo2j8jm9g2y7e8c" id="id-2b717cd258kdl" style="text-align:left"><span data-tag="ph" id="id-4ee51d2c9ddun" class="ph">在一个计量周期（1<span class="help-letter-space"></span>小时）内，数据写入处理器处理<span class="help-letter-space"></span>1GB<span class="help-letter-space"></span>数据，大约消耗<span class="help-letter-space"></span>1/3<span class="help-letter-space"></span>个<span class="help-letter-space"></span>OCU。</span></p>
+              </td>
+              <td id="b7b7b10b1ajmu" rowspan="1" colspan="1">
+                <ul id="id-61c6cab2dbba4">
+                  <li id="id-58735986f5o90">
+                    <p id="id-70ca1333d9hti">按量付费：写入处理器费用=写入处理器消耗资源对应<span class="help-letter-space"></span>OCU<span class="help-letter-space"></span>数×OCU<span class="help-letter-space"></span>单价。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="ab752bd189f2e" rowspan="1" colspan="1">
+                <p id="id-86d60d9874i6p">无</p>
+              </td>
+            </tr>
+            <tr id="cbab3e2771jkt" props="china" data-cond-props="china">
+              <td id="id-28cbc943c7xgg" rowspan="1" style="vertical-align:top" colspan="1">
+                <p uuid="me9og5cfcebfic7t1fu" id="id-71afb3a7355xi">AI 计算</p>
+              </td>
+              <td id="id-67c66a95fcozj" rowspan="1" style="vertical-align:top" colspan="1">
+                <p uuid="me9og5cg0w92tfekmfl" id="e95b9699ec8l2">按照用户使用向量索引调用 embedding 模型向量化数据以及调用语义富化 LLM 函数进行数据语义富化消耗的资源量进行计费，计费单位为<span class="help-letter-space"></span>OCU。</p>
+                <p uuid="me9og5cg024oufz96ixy" id="id-8389755b91ade">在一个计量周期（1<span class="help-letter-space"></span>小时）内，</p>
+                <p uuid="me9onbvotyw2lxhu04" id="dfca1ed848rf9">调用`sls-multilang-v3`模型进行向量化百万 token 大约消耗 3.3 个 OCU。</p>
+                <p uuid="me9ophcc5whhy1v90ol" id="id-478bf2baf9rmx">调用'qwen-turbo'模型进行语义富化输入百万 token 大约消耗 3 个 OCU，输出百万 token 大约消耗 6 个 OCU。</p>
+              </td>
+              <td id="id-0729cc33de3ks" rowspan="1" style="vertical-align:top" colspan="1">
+                <ul id="id-7df2983610nc8">
+                  <li id="fd057e2a0cbcx">
+                    <p id="id-76c3e8acdd9yz">按量付费：AI 计算=各 AI 计算功能模块消耗的计算资源对应<span class="help-letter-space"></span>OCU<span class="help-letter-space"></span>数×OCU<span class="help-letter-space"></span>单价。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="id-082422f600pd4" rowspan="1" style="vertical-align:top" colspan="1">
+                <p uuid="me9og5cgc1vt0rvopxl" id="id-9f8b29f44b8am">无</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      
+      <p id="a50c1782376yz"></p>
+    </div>
+  </main>
+
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/sls/billing-item/" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：计费项</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/sls/billing-items-in-the-pay-per-data-write-mode" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：按写入数据量计费模式计费项<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

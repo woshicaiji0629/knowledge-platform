@@ -1,0 +1,3 @@
+协议重写为 HTTPS 协议）。 Redirect 、 enhance_redirect 采用 302 跳转方式实现 URL 重写，支持重写为其他域名，也支持重写为其他协议： 302 Location 地址除了可以设置为当前的加速域名，还支持设置为其他域名，可以实现这样的效果：原始 URL 使用的域名是 example.com ，重写后的 URL 使用新的域名 aliyundoc.com 。 302 Location 地址支持使用其他协议，可以实现这样的效果：原始 URL 使用 HTTP 协议，重写后的 URL 使用 HTTPS 协议。 |
+| 规则条件 | 规则条件能够对用户请求中携带的各种参数信息进行识别，以此来决定某个配置是否对该请求生效。 重要 引用规则条件时，按所关联规则条件的优先级匹配，而非按功能自身的配置顺序匹配。 不使用 ：不使用规则条件。 若需新增或编辑规则条件，请在 [规则引擎](rules-engine.md) 中进行管理。 |
+| Nginx Var | 默认为不勾选，勾选后可以在目标 URL 中使用 Nginx 内置变量。配置示例如下： 待重写的 Path： ^/test.jpg$ 目标 Path： /test.${arg_type} 开启 Nginx 变量计算以后实现的效果是会把${nginx_var}值计算出来，${arg_type}表示原始 URL 中参数 type 的值。 说明 该参数需 [提交工单](https://selfservice.console.aliyun.com/ticket/createIndex.htm) 申请后台配置。 |

@@ -1,0 +1,14 @@
+{
+  "id": "redis:user-guide/view-slow-logs:8",
+  "document_id": "redis:user-guide/view-slow-logs",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "performance",
+  "title": "通过查询慢日志分析性能瓶颈与慢查询-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/view-slow-logs",
+  "chunk_index": 8,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/user-guide/view-slow-logs.chunk-0008.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/view-slow-logs.md",
+  "heading_path": "查询慢日志 > 相关文档 > 大模型",
+  "char_count": 197
+}

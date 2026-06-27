@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/user-guide/monitor-kube-apiserver:15",
+  "document_id": "ack:ack-managed-and-ack-dedicated/user-guide/monitor-kube-apiserver",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "kube-apiserver组件监控指标及大盘使用说明-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/monitor-kube-apiserver",
+  "chunk_index": 15,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/monitor-kube-apiserver.chunk-0015.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/monitor-kube-apiserver.md",
+  "heading_path": "kube-apiserver组件监控指标及大盘使用说明 > QPS和时延",
+  "char_count": 342
+}

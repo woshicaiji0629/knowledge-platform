@@ -1,0 +1,17 @@
+{
+  "id": "sls:copilot-automatic-generation-of-ai-assisted-sql-statements",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "Copilot生成解释优化SQL指南-日志服务-阿里云",
+  "source_url": "https://help.aliyun.com/zh/sls/copilot-automatic-generation-of-ai-assisted-sql-statements",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/copilot-automatic-generation-of-ai-assisted-sql-statements.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/copilot-automatic-generation-of-ai-assisted-sql-statements.md",
+  "word_count": 567,
+  "text_units": 1713,
+  "local_links": 0,
+  "external_links": 63,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

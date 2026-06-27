@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/best-practices-for-configuring-public-bandwidth",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "deployment",
+  "title": "为ECS实例开通公网-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/best-practices-for-configuring-public-bandwidth",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/best-practices-for-configuring-public-bandwidth.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/best-practices-for-configuring-public-bandwidth.md",
+  "word_count": 1249,
+  "text_units": 2876,
+  "local_links": 36,
+  "external_links": 75,
+  "has_tables": true,
+  "table_count": 8,
+  "quality": "accepted"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "cdn:support/cname-faq:13",
+  "document_id": "cdn:support/cname-faq",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "troubleshoot",
+  "title": "配置CNAME常见问题-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/support/cname-faq",
+  "chunk_index": 13,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/cdn/documents/support/cname-faq.chunk-0013.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/support/cname-faq.md",
+  "heading_path": "配置CNAME常见问题 > 泛域名 CNAME 解析对子域名的影响？ > 服务",
+  "char_count": 303
+}

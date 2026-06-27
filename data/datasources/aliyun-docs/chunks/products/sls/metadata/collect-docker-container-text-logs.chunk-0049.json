@@ -1,0 +1,14 @@
+{
+  "id": "sls:collect-docker-container-text-logs:49",
+  "document_id": "sls:collect-docker-container-text-logs",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "采集Docker容器日志（标准输出/文件）-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/collect-docker-container-text-logs",
+  "chunk_index": 49,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/collect-docker-container-text-logs.chunk-0049.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/collect-docker-container-text-logs.md",
+  "heading_path": "停止loongcollector docker exec a287de895e40 /etc/init.d/ilogtaild stop # 启动loongcollector docker exec a287de895e40 /etc/init.d/ilogtaild start > 更多信息 > 输入配置参数介绍",
+  "char_count": 1200
+}

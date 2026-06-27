@@ -1,0 +1,14 @@
+{
+  "id": "vpc:vpc-connection-to-cloud-service:20",
+  "document_id": "vpc:vpc-connection-to-cloud-service",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "deployment",
+  "title": "VPC私网访问云服务-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/vpc-connection-to-cloud-service",
+  "chunk_index": 20,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/vpc-connection-to-cloud-service.chunk-0020.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/vpc-connection-to-cloud-service.md",
+  "heading_path": "VPC私网访问云服务 > 更多信息 > 产品和定价",
+  "char_count": 272
+}

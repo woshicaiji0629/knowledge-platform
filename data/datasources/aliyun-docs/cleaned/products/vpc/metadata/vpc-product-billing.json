@@ -1,0 +1,17 @@
+{
+  "id": "vpc:vpc-product-billing",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "pricing",
+  "title": "产品计费-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/vpc-product-billing",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/vpc-product-billing.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/vpc-product-billing.md",
+  "word_count": 1201,
+  "text_units": 3131,
+  "local_links": 1,
+  "external_links": 69,
+  "has_tables": true,
+  "table_count": 18,
+  "quality": "accepted"
+}

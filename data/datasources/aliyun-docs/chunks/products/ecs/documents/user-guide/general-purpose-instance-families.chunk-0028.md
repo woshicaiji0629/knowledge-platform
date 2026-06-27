@@ -1,0 +1,8 @@
+a-cpu-instance.md)。
+支持巨型帧（Jumbo frames）。更多信息，请参见[巨型帧（Jumbo Frames）](jumbo-frame.md)。
+小规格实例网络带宽具备突发能力。
+实例网络性能与实例规格对应，规格越高网络性能越强。
+安全：支持可信计算（vTPM）特性。更多详情，请参见[可信计算能力概述](overview-of-trusted-computing-capabilities.md)。
+性能加速：
+选择性能加速及应用后，在您购买的实例里会自动部署选择的应用，并使用KeenTune针对该应用的业务特点进行全栈的专家知识性能调优。更多信息，请参见[应用性能加速](booster-extensions.md)。
+g8y包括的实例规格及指标数据如下表所示：

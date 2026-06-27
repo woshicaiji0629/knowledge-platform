@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-argo-workflow-cluster/user-guide/manage-argo-workflows",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "管理Argo工作流-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/user-guide/manage-argo-workflows",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-argo-workflow-cluster/user-guide/manage-argo-workflows.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-argo-workflow-cluster/user-guide/manage-argo-workflows.md",
+  "word_count": 527,
+  "text_units": 865,
+  "local_links": 0,
+  "external_links": 71,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

@@ -1,0 +1,2 @@
+# 清除KubeConfig
+容器服务 Kubernetes 版会为不同阿里云账号、RAM用户或角色签发带有其身份信息的KubeConfig凭证用于连接集群。KubeConfig管理功能支持从集群维度或用户维度获取所有已下发的KubeConfig状态，供您对有安全风险的KubeConfig进行清理和解除授权。

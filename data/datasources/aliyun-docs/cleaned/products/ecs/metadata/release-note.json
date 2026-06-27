@@ -1,0 +1,17 @@
+{
+  "id": "ecs:release-note",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "发布记录-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/release-note",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/release-note.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/release-note.md",
+  "word_count": 473,
+  "text_units": 772,
+  "local_links": 0,
+  "external_links": 66,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

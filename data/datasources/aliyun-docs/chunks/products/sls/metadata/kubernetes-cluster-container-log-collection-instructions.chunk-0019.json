@@ -1,0 +1,14 @@
+{
+  "id": "sls:kubernetes-cluster-container-log-collection-instructions:19",
+  "document_id": "sls:kubernetes-cluster-container-log-collection-instructions",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "Kubernetes集群容器日志采集须知-日志服务-阿里云-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/kubernetes-cluster-container-log-collection-instructions",
+  "chunk_index": 19,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/kubernetes-cluster-container-log-collection-instructions.chunk-0019.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/kubernetes-cluster-container-log-collection-instructions.md",
+  "heading_path": "Kubernetes集群容器日志采集须知 > 最佳实践 > 精细化采集/多租户隔离",
+  "char_count": 107
+}

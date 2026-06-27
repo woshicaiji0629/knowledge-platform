@@ -1,0 +1,14 @@
+说明
+阿里云账号对账号中的资源具有完全管理权限。您也可以创建一个RAM用户，授予AdministratorAccess权限，充当账号管理员。该管理员可以对账号下所有云资源进行管控操作，请参见[创建](../../../../ram/documents/create-admin-user.md)[RAM](../../../../ram/documents/create-admin-user.md)[用户作为账号管理员](../../../../ram/documents/create-admin-user.md)。
+使用RAM管理员登录[RAM](https://ram.console.aliyun.com/)[控制台](https://ram.console.aliyun.com/)。
+在左侧导航栏，选择身份管理>用户。
+在用户页面，单击目标RAM用户操作列的添加权限。
+您也可以选中多个RAM用户，单击用户列表下方的添加权限，为RAM用户批量授权。
+在新增授权面板，为RAM用户添加权限。
+选择资源范围。
+账号级别：权限在当前阿里云账号内生效。
+资源组级别：权限在指定的资源组内生效。
+重要
+指定资源组授权生效的前提是该云服务及资源类型已支持资源组，详情请参见[支持资源组的云服务](https://help.aliyun.com/zh/resource-management/resource-group/product-overview/services-that-work-with-resource-group#concept-flc-p3m-4fb)。资源组授权示例，请参见[使用资源组限制](../../../../ram/documents/use-cases/use-a-resource-group-to-manage-an-ecs-instance.md)[RAM](../../../../ram/documents/use-cases/use-a-resource-group-to-manage-an-ecs-instance.md)[用户管理指定的](../../../../ram/documents/use-cases/use-a-resource-group-to-manage-an-ecs-instance.md)[ECS](../../../../ram/documents/use-cases/use-a-resource-group-to-manage-an-ecs-instance.md)[实例](../../../../ram/documents/use-cases/use-a-resource-group-to-manage-an-ecs-instance.md)。
+选择授权主体。
+授权主体即需要添加权限的RAM用户。系统会自动选

@@ -1,0 +1,17 @@
+{
+  "id": "sls:use-cloudlens-for-sls-to-monitor-project-resource-quotas",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "如何使用CloudLens for SLS监控Project资源配额-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/use-cloudlens-for-sls-to-monitor-project-resource-quotas",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/use-cloudlens-for-sls-to-monitor-project-resource-quotas.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/use-cloudlens-for-sls-to-monitor-project-resource-quotas.md",
+  "word_count": 3451,
+  "text_units": 8405,
+  "local_links": 3,
+  "external_links": 108,
+  "has_tables": true,
+  "table_count": 36,
+  "quality": "accepted"
+}

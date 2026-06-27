@@ -1,0 +1,17 @@
+{
+  "id": "sls:install-run-upgrade-and-uninstall-logtail",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "deployment",
+  "title": "日志服务安装、运行、升级、卸载Logtail-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/install-run-upgrade-and-uninstall-logtail",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/install-run-upgrade-and-uninstall-logtail.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/install-run-upgrade-and-uninstall-logtail.md",
+  "word_count": 3933,
+  "text_units": 9384,
+  "local_links": 7,
+  "external_links": 122,
+  "has_tables": true,
+  "table_count": 21,
+  "quality": "accepted"
+}

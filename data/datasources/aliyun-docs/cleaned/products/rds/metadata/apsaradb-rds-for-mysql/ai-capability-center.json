@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/ai-capability-center",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "AI能力中心-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/ai-capability-center",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-mysql/ai-capability-center.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/ai-capability-center.md",
+  "word_count": 468,
+  "text_units": 749,
+  "local_links": 0,
+  "external_links": 64,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

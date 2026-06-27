@@ -1,0 +1,2 @@
+tional-queries.md)[进行组合条件查询](../use-cases/using-bool-in-tairsearch-for-combined-conditional-queries.md)
+[在](../use-cases/using-msearch-to-implement-index-shard-search-in-tairsearch.md)[TairSearch](../use-cases/using-msearch-to-implement-index-shard-search-in-tairsearch.md)[中使用](../use-cases/using-msearch-to-implement-index-shard-search-in-tairsearch.md)[Msearch](../use-cases/using-msearch-to-implement-index-shard-search-in-tairsearch.md)[实现索引分片搜索](../use-cases/using-msearch-to-implement-index-shard-search-in-tairsearch.md)

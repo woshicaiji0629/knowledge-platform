@@ -1,0 +1,17 @@
+{
+  "id": "cdn:product-overview/alibaba-cloud-cdn-synthetic-monitoring-data",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "分析CDN拨测数据了解加速效果与命中率的关系-CDN-阿里云",
+  "source_url": "https://help.aliyun.com/zh/cdn/product-overview/alibaba-cloud-cdn-synthetic-monitoring-data",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/product-overview/alibaba-cloud-cdn-synthetic-monitoring-data.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/product-overview/alibaba-cloud-cdn-synthetic-monitoring-data.md",
+  "word_count": 575,
+  "text_units": 1211,
+  "local_links": 0,
+  "external_links": 61,
+  "has_tables": true,
+  "table_count": 5,
+  "quality": "accepted"
+}

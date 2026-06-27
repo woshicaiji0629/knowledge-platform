@@ -1,0 +1,6 @@
+| 类别 | 说明 |
+| --- | --- |
+| 语法 | TVS.KNNSEARCH index_name topN vector [filter_string] [param_key param_value] |
+| 时间复杂度 | HNSW 算法：O(log(N)) FLAT 算法：O(N) N 为该向量索引中 Key 的数量。 |
+| 命令描述 | 在指定向量索引中，对指定的向量（VECTOR）进行近邻查询，最多可返回 topN 条。 |
+| 选项 | index_name ：向量索引名称。 topN ：查询返回的数量，取值范围为[1,10000]。 vector ：执行近邻查询的向量值。若您仅希望执行全文检索（索引为混合索引），可在该字段传入 "" 。 filter_string ：过滤条件。 支持 +-*/<>!=()&&|| 等操作符，暂不支持比较字符串之间的大小。如需输入字符串，请输入转义字符（\），例如 "create_time > 1663637425 && location == \"Hangzhou\"" 。 操作符两侧必须用空格隔开，例如 "creation_time > 1735" 。 不支持 flag == true 类型的比较，即不支持 true、false 布尔类型，可以替换为 flag == \"true\" ，当成字符串传递即可。 param_key 和 param_value ：查询的运行参数，取值如下。 ef_search ：查询索引的时候，动态列表的长度，默认为 100，取值范围为[1,1000]，该值越大则查询精度越高，同时性能开销越大。该参数为 HNSW 算法的特定参数。 sparse_ef_search ：在创建混合索引时，如果稀疏向量使用了 HNSW 索引，则请使用 sparse_ef_search 参数为稀疏向量 HNSW 索引的 ef_search 参数。 MAX_DIST ：最大距离限制，Float 类型，若某 Key 与待查询向量的距离大于该值，则会过滤，不会返回。 TEXT ：执行查询的文本（混合检索），可传入文本类型或向量类型，若不传入该字段或在该字段传入 "" ，表示不进行全文检索，仅执行向量检索。 hybrid_ratio ：本次查询时向量检索的权重，默认为 TVS.CREATEINDEX 设置的 hybrid_ratio 值，取值范围为[0,1]，Float 类型，全量检索的权重为 1-hybrid_ratio 。 默认情况下，系统使用先执行 KNN 向量检索、再执行标量检索的后置过滤（PostFilter）策略。 vector_filter_count ：向量检索过滤的最大数量，默认为 10000。 在 PostFilter 策略中，当向量检索结果过滤超过 vector_filte

@@ -1,0 +1,14 @@
+{
+  "id": "redis:developer-reference/tairsearch:52",
+  "document_id": "redis:developer-reference/tairsearch",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "全文搜索数据结构聚合查询-TairSearch-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/developer-reference/tairsearch",
+  "chunk_index": 52,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/developer-reference/tairsearch.chunk-0052.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/tairsearch.md",
+  "heading_path": "统计Jay购买股票的数量与整体行情（各指标值）。 TFT.SEARCH today_shares '{\"size\":0,\"query\":{\"term\":{\"purchase_type\":1}}, \"aggs\":{\"Jay_BuyIn_Filter\": {\"filter\": {\"term\":{\"investor\": \"Jay\"}},\"aggs\":{\"Jay_BuyIn_Quatation\":{\"extended_stats\":{\"field\":\"purchase_price\"}}}}}}' # 预期输出： {\"hits\":{\"hits\":[],\"max_score\":null,\"total\":{\"relation\":\"eq\",\"value\":3}},\"aggregations\":{\"Jay_BuyIn_Filter\":{\"doc_count\":2,\"Jay_BuyIn_Quatation\":{\"count\":2,\"sum\":212.2,\"max\":111.1,\"min\":101.1,\"avg\":106.1,\"sum_of_squares\":10221.21,\"variance\":25.0,\"std_deviation\":5.0}}}} > TFT.Search查询示例",
+  "char_count": 835
+}

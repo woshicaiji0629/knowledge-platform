@@ -1,0 +1,6 @@
+## 安全说明
+默认情况下，直接从文件系统读取密钥和阿里云KMS凭据管家之间的直接交互可能存在兼容性问题，csi-secrets-store-provider-alibabacloud可以用于解决此类兼容性问题，同时支持将密钥同步创建为集群中的Kubernetes原生Secrets实例，以供环境变量挂载使用。使用前请评估如下的安全风险。
+当密钥在文件系统中可以被访问时，如果应用中存在某些有缺陷的软件，该软件的漏洞可能会造成目录遍历的风险，导致敏感信息泄露。
+一些Debug端点或Logs权限的误配置可能导致密钥泄露，所以通过环境变量挂载引用的方式消费密钥是一个不安全且不推荐的做法。
+当开启Secret实例同步特性时，需要基于权限最小化原则严格控制访问权限。
+鉴于上述原因，如果应用中并不需要密文的持久化存储，推荐[通过](../user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[RRSA](../user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[配置](../user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[ServiceAccount](../user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[的](../user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[RAM](../user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[权限实现](../user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[Pod](../user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[权限隔离](../user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)为应用配置Pod维度的最小化权限，并通过[GetSecretValue](../../../../kms/documents/key

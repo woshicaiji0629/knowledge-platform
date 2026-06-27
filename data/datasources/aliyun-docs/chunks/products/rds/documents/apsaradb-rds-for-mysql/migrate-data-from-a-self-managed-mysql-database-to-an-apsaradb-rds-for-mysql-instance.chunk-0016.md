@@ -1,0 +1,2 @@
+curity-settings-of-on-premises-databases) [服务器](https://help.aliyun.com/zh/dts/user-guide/add-the-cidr-blocks-of-dts-servers-to-the-security-settings-of-on-premises-databases) [IP](https://help.aliyun.com/zh/dts/user-guide/add-the-cidr-blocks-of-dts-servers-to-the-security-settings-of-on-premises-databases) [地址白名单](https://help.aliyun.com/zh/dts/user-guide/add-the-cidr-blocks-of-dts-servers-to-the-security-settings-of-on-premises-databases) 。 需额外完成对应接入方式的 [配置工作](https://help.aliyun.com/zh/dts/user-guide/preparations/) 。 |
+| ECS 自建数据库 | ECS 自建数据库 | 系统自动添加 DTS 服务 IP 地址段。 |

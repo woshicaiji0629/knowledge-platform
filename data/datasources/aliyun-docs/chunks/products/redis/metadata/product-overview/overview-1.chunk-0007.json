@@ -1,0 +1,14 @@
+{
+  "id": "redis:product-overview/overview-1:7",
+  "document_id": "redis:product-overview/overview-1",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "云上托管分布式内存数据库-Tair（企业版）-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/overview-1",
+  "chunk_index": 7,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/product-overview/overview-1.chunk-0007.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/overview-1.md",
+  "heading_path": "Tair（企业版） > 阿里云Tair的诞生与发展",
+  "char_count": 210
+}

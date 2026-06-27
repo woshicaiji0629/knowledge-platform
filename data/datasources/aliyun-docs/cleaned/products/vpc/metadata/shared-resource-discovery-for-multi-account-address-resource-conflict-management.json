@@ -1,0 +1,17 @@
+{
+  "id": "vpc:shared-resource-discovery-for-multi-account-address-resource-conflict-management",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "地址资源管理-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/shared-resource-discovery-for-multi-account-address-resource-conflict-management",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/shared-resource-discovery-for-multi-account-address-resource-conflict-management.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/shared-resource-discovery-for-multi-account-address-resource-conflict-management.md",
+  "word_count": 2125,
+  "text_units": 7045,
+  "local_links": 1,
+  "external_links": 133,
+  "has_tables": true,
+  "table_count": 7,
+  "quality": "accepted"
+}

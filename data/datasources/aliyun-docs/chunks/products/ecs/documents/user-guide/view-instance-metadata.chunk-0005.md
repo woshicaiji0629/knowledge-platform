@@ -1,0 +1,3 @@
+## CLI
+在通过[RunInstances](../developer-reference/api-ecs-2014-05-26-runinstances.md)或[CreateInstance](../developer-reference/api-ecs-2014-05-26-createinstance.md)创建实例时，可通过配置HttpEndpoint=enabled和HttpTokens=required设置实例的元数据访问模式为仅加固模式。命令示例如下：
+执行该命令后，会创建一台仅加固模式的Linux实例。aliyun ecs RunInstances \ --region cn-hangzhou \ --RegionId 'cn-hangzhou' \ --ImageId 'aliyun_3_x64_20G_alibase_20250629.vhd' \ --InstanceType 'ecs.g7.large' \ --VSwitchId 'vsw-bp1******trg' \ --SecurityGroupId 'sg-bp1******dgl' \ --SystemDisk.Size 40 \ --SystemDisk.Category cloud_essd \ --HttpEndpoint enabled \ --HttpTokens required

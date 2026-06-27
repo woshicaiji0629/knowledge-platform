@@ -1,0 +1,2 @@
+# ConfigId使用说明
+调用BatchSetCdnDomainConfig、SetCdnDomainStagingConfig为域名配置功能时会生成ConfigId（功能配置ID，具有唯一性），通过指定ConfigId可更新或删除域名配置项。本文为您介绍ConfigId的生成、查询和使用方法。

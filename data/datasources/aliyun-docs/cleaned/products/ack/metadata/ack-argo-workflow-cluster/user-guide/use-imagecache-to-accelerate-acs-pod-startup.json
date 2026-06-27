@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-argo-workflow-cluster/user-guide/use-imagecache-to-accelerate-acs-pod-startup",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "使用镜像缓存加速ACS Pod启动-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/user-guide/use-imagecache-to-accelerate-acs-pod-startup",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-argo-workflow-cluster/user-guide/use-imagecache-to-accelerate-acs-pod-startup.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-argo-workflow-cluster/user-guide/use-imagecache-to-accelerate-acs-pod-startup.md",
+  "word_count": 969,
+  "text_units": 2773,
+  "local_links": 1,
+  "external_links": 71,
+  "has_tables": true,
+  "table_count": 9,
+  "quality": "accepted"
+}

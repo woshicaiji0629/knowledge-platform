@@ -1,0 +1,2 @@
+## 1.19及之后版本集群
+apiVersion: networking.k8s.io/v1 kind: Ingress metadata: name: cafe-ingress spec: ingressClassName: alb rules: - host: demo.domain.ingress.top http: paths: # 配置Context Path - path: /tea pathType: ImplementationSpecific backend: service: name: tea-svc port: number: 80 # 配置Context Path - path: /coffee pathType: ImplementationSpecific backend: service: name: coffee-svc port: number: 80

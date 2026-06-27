@@ -1,0 +1,6 @@
+| 连接场景 | 网络类型 | IP 白名单设置 |
+| --- | --- | --- |
+| ECS 实例和 RDS 实例连接 | 处于相同 [专有网络](../../../vpc/documents/what-is-vpc.md) [VPC](../../../vpc/documents/what-is-vpc.md) 内（推荐） | 添加 ECS 实例私有 IP 地址。 |
+| 处于不同专有网络 VPC 内 | 不同专有网络的实例无法内网互通，您可以参考如下方案： 切换 RDS 专有网络，选择和 ECS 实例相同的 VPC。 说明 ECS 实例和 RDS 实例需要处于相同地域才能切换到相同 VPC。如果地域不同，为业务稳定，建议您通过 DTS 将 RDS 实例迁移至 ECS 实例所属地域。详情请参见 [RDS PostgreSQL](migrate-data-between-apsaradb-rds-for-postgresql-instances.md) [实例间数据迁移](migrate-data-between-apsaradb-rds-for-postgresql-instances.md) 。 在 IP 白名单中添加 ECS 实例私有 IP 地址。 |  |
+| ACK 集群的容器和 RDS 实例连接 | 处于相同专有网络 VPC 内（推荐） | 当 ACK 集群的 [容器网络插件](../../../ack/documents/ack-managed-and-ack-dedicated/user-guide/comparison-between-terway-and-flannel.md) 为 Flannel 时，添加应用程序所在的节点 IP。 当 ACK 集群的容器网络插件为 Terway 时，添加应用程序所在的 Pod IP。 您可以在目标 ACK 集群的 [容器组](../../../ack/documents/ack-managed-and-ack-dedicated/user-guide/manage-pods.md) 页面，查 Pod IP 和节点 IP。 |
+| 处于不同专有网络 VPC 内 | 不同专有网络的实例无法内网互通，您可以参考如下方案： 切换 RDS 专有网络，选择和 ACK 集群相同的 VPC。 说明 ACK 集群和 RDS 实例需要处于相同地域才能切换到相同 VPC。如果地域不同，为业务稳定，建议您通过 DTS 将 RDS 实例迁移至 ACK 集群所属地域。详情请参见 [RDS PostgreSQL](migrate-data-between-apsaradb-rds-for-postgresql-instances.md) [实例间数据迁移](migrate-data-between-apsaradb-rd

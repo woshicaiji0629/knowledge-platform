@@ -1,0 +1,17 @@
+{
+  "id": "oss:user-guide/bucket-inventory",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "features",
+  "title": "通过存储空间清单获取Bucket内的Object信息-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/user-guide/bucket-inventory",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/oss/documents/user-guide/bucket-inventory.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/user-guide/bucket-inventory.md",
+  "word_count": 4347,
+  "text_units": 12799,
+  "local_links": 23,
+  "external_links": 81,
+  "has_tables": true,
+  "table_count": 21,
+  "quality": "accepted"
+}

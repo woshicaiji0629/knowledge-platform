@@ -1,0 +1,1 @@
+AccessKeySecret") // 往SLS时序库发送时序数据 resp, err := http.DefaultClient.Do(rwR) if err != nil { panic(err) } d, err := ioutil.ReadAll(resp.Body) if err != nil { panic(err) } fmt.Println(string(d)) time.Sleep(time.Second) } }

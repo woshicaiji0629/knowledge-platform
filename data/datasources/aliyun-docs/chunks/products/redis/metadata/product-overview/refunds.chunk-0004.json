@@ -1,0 +1,14 @@
+{
+  "id": "redis:product-overview/refunds:4",
+  "document_id": "redis:product-overview/refunds",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "实例退款说明与退订规则-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/refunds",
+  "chunk_index": 4,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/product-overview/refunds.chunk-0004.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/refunds.md",
+  "heading_path": "退款说明 > 退款流向 > 为什么选择阿里云",
+  "char_count": 328
+}

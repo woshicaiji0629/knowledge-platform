@@ -1,0 +1,9 @@
+展开查看工作负载伸缩（包括HPA、CronHPA等）的FAQ索引
+[HPA](faq-about-workload-auto-scaling.md)[的监控数据](faq-about-workload-auto-scaling.md)[current](faq-about-workload-auto-scaling.md)[字段为何显示为](faq-about-workload-auto-scaling.md)[unknown？](faq-about-workload-auto-scaling.md)
+[HPA](faq-about-workload-auto-scaling.md)[扩缩容失败，指标获取异常怎么办？](faq-about-workload-auto-scaling.md)
+[为何](faq-about-workload-auto-scaling.md)[HPA](faq-about-workload-auto-scaling.md)[在滚动时扩容出了多余的](faq-about-workload-auto-scaling.md)[Pod？](faq-about-workload-auto-scaling.md)
+[HPA](faq-about-workload-auto-scaling.md)[到达阈值为何不进行扩缩容？](faq-about-workload-auto-scaling.md)
+[HPA](faq-about-workload-auto-scaling.md)[采集周期如何配置？](faq-about-workload-auto-scaling.md)
+[CronHPA](faq-about-workload-auto-scaling.md)[是否兼容](faq-about-workload-auto-scaling.md)[HPA？如何兼容](faq-about-workload-auto-scaling.md)[HPA？](faq-about-workload-auto-scaling.md)
+[如何解决](faq-about-workload-auto-scaling.md)[HPA](faq-about-workload-auto-scaling.md)[启动时](faq-about-workload-auto-scaling.md)[CPU](faq-about-workload-auto-scaling.md)[或内存飙高造成扩容出多余](faq-about-workload-auto-scaling.md)[Pod](faq-about-workload-auto-scaling.md)[的多弹现象？](faq-about-workload-auto-scaling.md)
+[为什么](faq-about-wo

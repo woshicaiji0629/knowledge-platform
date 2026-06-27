@@ -1,0 +1,14 @@
+{
+  "id": "vpc:traffic-mirroring-overview:13",
+  "document_id": "vpc:traffic-mirroring-overview",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "流量镜像-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/traffic-mirroring-overview",
+  "chunk_index": 13,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/traffic-mirroring-overview.chunk-0013.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/traffic-mirroring-overview.md",
+  "heading_path": "流量镜像 > 流量镜像配置示例 > 将非VPC内部流量镜像到跨VPC的镜像目的",
+  "char_count": 243
+}

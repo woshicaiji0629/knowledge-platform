@@ -1,0 +1,18 @@
+# 搭建环境
+更新时间: 2020-02-13 11:46:03
+- [通过OOS扩展程序在ECS实例上安装AI编码助手](install-an-ai-coding-assistant-on-ecs-instances-using-the-oos-extension.md)
+- [部署LNMP环境](deploy-lnmp.md)
+- [部署LAMP环境](build-a-lamp-environment.md)
+- [部署Java环境](deploy-a-java-environment.md)
+- [部署Java Web环境](configure-java-web.md)
+- [部署Python环境](deploy-a-python-environment.md)
+- [部署Node.js环境](deploy-a-node-js-environment.md)
+- [安装并使用Docker和Docker Compose](install-and-use-docker.md)
+- [部署宝塔面板](installation-of-pagoda-panel.md)
+- [部署AMH面板](using-amh-site.md)
+- [搭建Hadoop环境](build-a-hadoop-environment.md)
+- [使用Hermes Agent与Claude Code构建AI开发团队](use-hermes-agent-and-claude-code-to-build-an-ai-development-team.md)
+- [部署OpenClaw](deploy-openclaw-on-ecs.md)
+- [通过OOS扩展程序安装Hermes Agent](install-hermes-agent-on-ecs-instances-using-the-oos-extension.md)
+- [通过OOS扩展程序安装QwenPaw](install-qwenpaw-on-ecs-instances-using-the-oos-extension.md)
+[阿里云首页](https://www.aliyun.com/)[云服务器 ECS](https://www.aliyun.com/product/ecs)[相关技术圈](https://developer.aliyun.com/group/ecs/)

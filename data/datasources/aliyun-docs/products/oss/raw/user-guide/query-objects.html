@@ -1,0 +1,933 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    查询文件-对象存储(OSS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/oss/user-guide/query-objects">
+  <meta name="keywords" content="SelectObject,SQL">
+  <meta name="description" content="您可以使用SelectObject对目标文件执行SQL语句，返回执行结果。">
+  <meta name="last-modified" content="2026-05-06T20:31:48+08:00">
+  <meta name="date" content="2019-01-24T09:41:47+08:00">
+  <meta property="og:title" content="查询文件">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/oss/user-guide/query-objects">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="您可以使用SelectObject对目标文件执行SQL语句，返回执行结果。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/oss/user-guide/query-objects",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "106082",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/oss/user-guide/query-objects","nodeId":null,"data":{"lastModifiedTime":1778070708000,"keywords":"SelectObject,SQL","docTitle":"查询文件","language":"zh","seoTitle":"查询文件-对象存储(OSS)-阿里云帮助中心","title":"查询文件","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"concept-ghk-xz2-4gb\">\n    \n    \n    <p id=\"shortdesc-uy1-h2d-ljk\" data-tag=\"shortdesc\" class=\"shortdesc\">您可以使用<span class=\"help-letter-space\"></span>SelectObject<span class=\"help-letter-space\"></span>对目标文件执行<span class=\"help-letter-space\"></span>SQL<span class=\"help-letter-space\"></span>语句，返回执行结果。</p>\n    <div data-tag=\"taskbody\" id=\"conbody-ui9-csk-oi1\" class=\"taskbody\">\n      <section data-tag=\"section\" id=\"section-yoq-b3a-kme\" props=\"china\" data-type=\"section\" data-cond-props=\"china\" class=\"section\">\n        <div data-tag=\"note\" id=\"note-x88-qsj-oah\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n          <p id=\"b8ea2dc530n09\">无地域属性的存储空间不支持使用<span class=\"help-letter-space\"></span>SelectObject。</p>\n        </div></div>\n      </section>\n      <section data-tag=\"section\" id=\"section-jwy-bbx-b2b\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-7mj-kc3-3wm\" class=\"title\">背景信息</h2>\n        <p data-tag=\"p\" id=\"p-hte-ro9-pu2\" class=\"p\">目前<span class=\"help-letter-space\"></span>Hadoop 3.0<span class=\"help-letter-space\"></span>已经支持<span class=\"help-letter-space\"></span>OSS<span class=\"help-letter-space\"></span>在<span class=\"help-letter-space\"></span>EMR<span class=\"help-letter-space\"></span>上运行<span class=\"help-letter-space\"></span>Spark、Hive、Presto<span class=\"help-letter-space\"></span>等服务，同时阿里云<span class=\"help-letter-space\"></span>MaxCompute<span class=\"help-letter-space\"></span>以及<span class=\"help-letter-space\"></span>Data Lake Analytics<span class=\"help-letter-space\"></span>均支持从<span class=\"help-letter-space\"></span>OSS<span class=\"help-letter-space\"></span>直接处理数据。</p>\n        <p data-tag=\"p\" id=\"p-dl2-sut-8un\" class=\"p\">OSS<span class=\"help-letter-space\"></span>提供的<span class=\"help-letter-space\"></span><span data-tag=\"apiname\" id=\"apiname-4li-ikc-v6t\" class=\"apiname\">GetObject</span><span class=\"help-letter-space\"></span>接口决定了大数据平台只能把<span class=\"help-letter-space\"></span>OSS<span class=\"help-letter-space\"></span>数据全部下载到本地然后进行分析过滤，在很多查询场景下浪费了大量带宽和客户端资源。</p>\n        <p data-tag=\"p\" id=\"p-lah-0hq-s16\" class=\"p\"><span data-tag=\"apiname\" id=\"apiname-59c-gtm-lni\" class=\"apiname\">SelectObject</span><span class=\"help-letter-space\"></span>接口通过将条件和<span class=\"help-letter-space\"></span>Projection<span class=\"help-letter-space\"></span>下推到<span class=\"help-letter-space\"></span>OSS<span class=\"help-letter-space\"></span>层，只返回有用数据，减少带宽和处理量，节省<span class=\"help-letter-space\"></span>CPU<span class=\"help-letter-space\"></span>和内存资源，使基于<span class=\"help-letter-space\"></span>OSS<span class=\"help-letter-space\"></span>的数据分析更具吸引力。</p>\n      </section>\n      <section data-tag=\"section\" id=\"section-nyt-fiv-abl\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-7wx-s41-7r7\" class=\"title\">费用说明</h2>\n        <p data-tag=\"p\" id=\"p-qmj-m6r-bra\" class=\"p\">调用<span class=\"help-letter-space\"></span><span data-tag=\"apiname\" id=\"apiname-f0r-b80-ly1\" class=\"apiname\">SelectObject</span><span class=\"help-letter-space\"></span>接口查询数据时，按扫描的原文件实际大小计费。更多信息，请参见<a href=\"https://help.aliyun.com/zh/oss/data-processing-fees#concept-2558464\" id=\"xref-sp9-oqq-sn6\" title=\"\" class=\"xref\">数据处理费用</a>。</p>\n      </section>\n      <section data-tag=\"section\" id=\"section-b9j-hmg-8xz\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-2jw-w5c-v2i\" class=\"title\">支持的文件类型</h2>\n        <p data-tag=\"p\" id=\"p-7jl-pw6-vtq\" class=\"p\">以下内容是对<span class=\"help-letter-space\"></span><span data-tag=\"apiname\" id=\"apiname-768-1x8-jt3\" class=\"apiname\">SelectObject</span><span class=\"help-letter-space\"></span>支持的文件类型、支持的<span class=\"help-letter-space\"></span>SQL<span class=\"help-letter-space\"></span>语法等的详细介绍。</p>\n        <ul id=\"ul-0zu-4xk-y31\" data-tag=\"ul\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-4hd-mm8-6c4\" class=\"li\">\n            <p id=\"b8ea54d030vqs\">RFC 4180<span class=\"help-letter-space\"></span>标准的<span class=\"help-letter-space\"></span>CSV（包括<span class=\"help-letter-space\"></span>TSV<span class=\"help-letter-space\"></span>等类<span class=\"help-letter-space\"></span>CSV<span class=\"help-letter-space\"></span>文件，行列分隔符和<span class=\"help-letter-space\"></span>Quote<span class=\"help-letter-space\"></span>字符可自定义）。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-0e5-b2w-la4\" class=\"li\">\n            <p id=\"b8ea54d130ro5\">JSON<span class=\"help-letter-space\"></span>文件（UTF-8<span class=\"help-letter-space\"></span>编码），支持<span class=\"help-letter-space\"></span>DOCUMENT<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>LINES<span class=\"help-letter-space\"></span>两种格式：。 </p>\n            <ul data-tag=\"ul\" id=\"ul-2t7-xe3-cyi\" class=\"ul\">\n              <li data-tag=\"li\" id=\"li-e30-em7-jcj\" class=\"li\">\n                <p id=\"b8ea54d2307lq\">DOCUMENT<span class=\"help-letter-space\"></span>是指整个文件是单一的<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象。</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-qgc-lrk-3qt\" class=\"li\">\n                <p id=\"b8ea54d330hju\">LINES<span class=\"help-letter-space\"></span>表示整个文件由多行<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象组成，每一行是一个<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象（但整个文件本身并不是一个合法的<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>对象），行间以换行符分隔（支持\\\\n，\\\\r\\\\n<span class=\"help-letter-space\"></span>等，无需用户指定）。</p>\n              </li>\n            </ul>\n          </li>\n          <li data-tag=\"li\" id=\"li-cpk-mrm-ao0\" class=\"li\">\n            <p id=\"b8ea54d4302qb\">标准存储和低频访问存储类型的文件。归档、冷归档和深度冷归档存储类型文件需先执行解冻操作。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-32h-zmk-xcv\" class=\"li\">\n            <p id=\"b8ea54d530x3u\">OSS<span class=\"help-letter-space\"></span>完全托管加密和<span class=\"help-letter-space\"></span>KMS<span class=\"help-letter-space\"></span>托管主密钥加密的文件。</p>\n          </li>\n        </ul>\n      </section>\n      <section data-tag=\"section\" id=\"section-0x6-2ip-cwg\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-nlq-p7d-cdf\" class=\"title\">支持的<span class=\"help-letter-space\"></span>SQL<span class=\"help-letter-space\"></span>语法</h2>\n        <ul data-tag=\"ul\" id=\"ul-iju-ah2-o9b\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-dm9-a4x-p46\" class=\"li\">\n            <p id=\"b8ea54d6301i4\">SQL<span class=\"help-letter-space\"></span>语句： Select From Where</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-t4l-24d-3wc\" class=\"li\">\n            <p id=\"b8ea54d73035s\">数据类型：string、int（64bit）、double（64bit）, decimal（128bit） 、timestamp、bool</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-2gn-2ul-cpp\" class=\"li\">\n            <p id=\"b8ea54d8307lx\">操作： 逻辑条件（AND,OR,NOT)， 算术表达式（+-*/%)， 比较操作（&gt;,=, &lt;, &gt;=, &lt;=, !=），String 操作 (LIKE, || ) </p>\n            <div data-tag=\"note\" id=\"note-175-fyq-8rt\" type=\"notice\" class=\"note note-notice\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note notice\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n              <p id=\"b8ea7be030irm\">LIKE<span class=\"help-letter-space\"></span>模糊匹配时对字母大小写敏感。</p>\n            </div></div>\n          </li>\n        </ul>\n      </section>\n      <section data-tag=\"section\" id=\"section-bwj-cvt-cun\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-zvi-l5r-plx\" class=\"title\">支持的数据类型</h2>\n        <p data-tag=\"p\" id=\"p-uel-eej-1eg\" class=\"p\">OSS<span class=\"help-letter-space\"></span>中的<span class=\"help-letter-space\"></span>CSV<span class=\"help-letter-space\"></span>数据默认是<span class=\"help-letter-space\"></span>String<span class=\"help-letter-space\"></span>类型，您可以使用<span class=\"help-letter-space\"></span>CAST<span class=\"help-letter-space\"></span>函数进行数据转换。</p>\n        <p data-tag=\"p\" id=\"p-lov-mm5-acq\" class=\"p\">通过<span class=\"help-letter-space\"></span>SQL<span class=\"help-letter-space\"></span>查询语句将_1<span class=\"help-letter-space\"></span>和_2<span class=\"help-letter-space\"></span>转换为<span class=\"help-letter-space\"></span>int<span class=\"help-letter-space\"></span>的示例：<span data-tag=\"ph\" id=\"codeph-7u1-sdf-j58\" class=\"ph\"><code data-tag=\"code\" class=\"code\">Select * from OSSOBject where cast (_1 as int) &gt; cast(_2 as int)</code></span></p>\n        <p data-tag=\"p\" id=\"p-7q4-wyd-pms\" class=\"p\"><span data-tag=\"apiname\" id=\"apiname-qnw-pth-yox\" class=\"apiname\">SelectObject</span><span class=\"help-letter-space\"></span>支持在<span class=\"help-letter-space\"></span>Where<span class=\"help-letter-space\"></span>条件中隐式转换，例如下面语句中的第一列和第二列将被转换成<span class=\"help-letter-space\"></span>int：</p>\n        <p data-tag=\"p\" id=\"p-47g-xgl-cj0\" class=\"p\"><span data-tag=\"ph\" id=\"codeph-9sb-odd-4an\" class=\"ph\"><code data-tag=\"code\" class=\"code\">Select _1 from ossobject where _1 + _2 &gt; 100</code></span></p>\n        <p data-tag=\"p\" id=\"p-s4r-lg5-mm7\" class=\"p\">对于<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>文件，若<span class=\"help-letter-space\"></span>SQL<span class=\"help-letter-space\"></span>中未指定<span class=\"help-letter-space\"></span>cast<span class=\"help-letter-space\"></span>函数，其类型根据<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>数据的实际类型而定，标准<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>内建的数据类型包括<span class=\"help-letter-space\"></span>null、bool、int64、double、string<span class=\"help-letter-space\"></span>等类型。</p>\n      </section>\n      <section data-tag=\"section\" id=\"section-c4k-hrs-ngb\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-qf0-tqe-wc3\" class=\"title\">常见的<span class=\"help-letter-space\"></span>SQL<span class=\"help-letter-space\"></span>用例</h2>\n        <p data-tag=\"p\" id=\"p-myb-htj-03w\" class=\"p\">常见的<span class=\"help-letter-space\"></span>SQL<span class=\"help-letter-space\"></span>用例包括<span class=\"help-letter-space\"></span>CSV<span class=\"help-letter-space\"></span>及<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>两种。</p>\n        <ul data-tag=\"ul\" id=\"ul-gx5-dsj-ngb\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-was-0f7-g3e\" class=\"li\">\n            <p id=\"b8ea7be130goi\">CSV </p>\n            <table id=\"table-kh4-4z2-2fb\" tablewidth=\"710\" tablecolswidth=\"355 355\" autofit=\"false\" class=\"table\">\n              <colgroup colwidth=\"1*\" style=\"width:50.00%\"></colgroup>\n              <colgroup colwidth=\"1*\" style=\"width:50.00%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-7mk-imd-mmq\">\n                  <td id=\"concept-ghk-xz2-4gb-entry-sm5-xt5-ebp\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"b8ea7be230p3v\"><b>应用场景</b></p>\n                  </td>\n                  <td id=\"concept-ghk-xz2-4gb-entry-zt3-dij-k1d\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"b8ea7be330bij\"><b>SQL<span class=\"help-letter-space\"></span>语句</b></p>\n                  </td>\n                </tr>\n                <tr id=\"row-htz-e9g-83d\">\n                  <td id=\"entry-vfh-9sz-r7y\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8ea7be430ncz\">返回前<span class=\"help-letter-space\"></span>10<span class=\"help-letter-space\"></span>行数据</p>\n                  </td>\n                  <td id=\"entry-irs-8o7-yz0\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8ea7be530sro\">select * from ossobject limit 10</p>\n                  </td>\n                </tr>\n                <tr id=\"row-ffu-icv-pb4\">\n                  <td id=\"entry-9u5-0ab-f9y\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8ea7be630q94\">返回第<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>列和第<span class=\"help-letter-space\"></span>3<span class=\"help-letter-space\"></span>列的整数，并且第<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>列大于第<span class=\"help-letter-space\"></span>3<span class=\"help-letter-space\"></span>列</p>\n                  </td>\n                  <td id=\"entry-3s5-0hs-xe8\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8ea7be7308ao\">select _1, _3 from ossobject where cast(_1 as int) &gt; cast(_3 as int)</p>\n                  </td>\n                </tr>\n                <tr id=\"row-t5i-mvn-3gu\">\n                  <td id=\"entry-hgq-s32-hvb\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8ea7be830hyn\">返回第<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>列以'陈'开头的记录的个数（注：此处<span class=\"help-letter-space\"></span>like<span class=\"help-letter-space\"></span>后的中文需要用<span class=\"help-letter-space\"></span>UTF-8<span class=\"help-letter-space\"></span>编码）</p>\n                  </td>\n                  <td id=\"entry-by8-kgv-my2\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8ea7be930lnr\"> select count(*) from ossobject where _1 like '陈%'</p>\n                  </td>\n                </tr>\n                <tr id=\"row-bem-ydo-uen\">\n                  <td id=\"entry-xlk-mxr-ldt\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaa2f030uaq\">返回所有第<span class=\"help-letter-space\"></span>2<span class=\"help-letter-space\"></span>列时间大于<span class=\"help-letter-space\"></span>2018-08-09 11:30:25<span class=\"help-letter-space\"></span>且第<span class=\"help-letter-space\"></span>3<span class=\"help-letter-space\"></span>列大于<span class=\"help-letter-space\"></span>200<span class=\"help-letter-space\"></span>的记录</p>\n                  </td>\n                  <td id=\"entry-5d9-dxv-3rk\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaa2f13067t\">select * from ossobject where _2 &gt; cast('2018-08-09 11:30:25' as timestamp) and _3 &gt; 200</p>\n                  </td>\n                </tr>\n                <tr id=\"row-5x3-dzt-tqg\">\n                  <td id=\"entry-dpf-e1e-wgf\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaa2f230t8z\">返回第<span class=\"help-letter-space\"></span>2<span class=\"help-letter-space\"></span>列浮点数的平均值，总和，最大值，最小值</p>\n                  </td>\n                  <td id=\"entry-fl8-fge-cgh\" rowspan=\"1\" colspan=\"1\">\n                    <p data-tag=\"p\" id=\"p-eqa-3fu-t2s\" class=\"p\">select AVG(cast(_6 as double)), SUM(cast(_6 as double)), MAX(cast(_6 as double)), MIN(cast(_6 as double)) from ossobject</p>\n                  </td>\n                </tr>\n                <tr id=\"row-fkq-7cw-n43\">\n                  <td id=\"entry-93e-ylp-iwr\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaa2f330blf\">返回第<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>列和第<span class=\"help-letter-space\"></span>3<span class=\"help-letter-space\"></span>列连接的字符串中以'Tom'为开头以’Anderson‘结尾的所有记录</p>\n                  </td>\n                  <td id=\"entry-anr-g5d-au9\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaa2f430iw2\">select * from ossobject where (_1 || _3) like 'Tom%Anderson'</p>\n                  </td>\n                </tr>\n                <tr id=\"row-q0x-7g6-w0e\">\n                  <td id=\"entry-127-70h-9ks\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaa2f5307k8\">返回第<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>列能被<span class=\"help-letter-space\"></span>3<span class=\"help-letter-space\"></span>整除的所有记录</p>\n                  </td>\n                  <td id=\"entry-glr-whv-4oq\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaa2f63059t\">select * from ossobject where (_1 % 3) = 0</p>\n                  </td>\n                </tr>\n                <tr id=\"row-66i-95m-pc5\">\n                  <td id=\"entry-3hn-vaq-nga\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaa2f7305o4\">返回第<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>列大小在<span class=\"help-letter-space\"></span>1995<span class=\"help-letter-space\"></span>到<span class=\"help-letter-space\"></span>2012<span class=\"help-letter-space\"></span>之间的所有记录</p>\n                  </td>\n                  <td id=\"entry-n7c-mbr-pka\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaa2f8307vy\">select * from ossobject where _1 between 1995 and 2012</p>\n                  </td>\n                </tr>\n                <tr id=\"row-t6d-pci-z9d\">\n                  <td id=\"entry-z8v-oue-txk\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaa2f930so3\">返回第<span class=\"help-letter-space\"></span>5<span class=\"help-letter-space\"></span>列值为<span class=\"help-letter-space\"></span>N,M,G,L<span class=\"help-letter-space\"></span>的所有记录</p>\n                  </td>\n                  <td id=\"entry-7ld-vdh-srs\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaa2fa30ctx\">select * from ossobject where _5 in ('N', 'M', 'G', 'L')</p>\n                  </td>\n                </tr>\n                <tr id=\"row-vjs-i5m-i9o\">\n                  <td id=\"entry-fkz-p4v-6ny\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaa2fb30qr3\">返回第<span class=\"help-letter-space\"></span>2<span class=\"help-letter-space\"></span>列乘以第<span class=\"help-letter-space\"></span>3<span class=\"help-letter-space\"></span>列比第<span class=\"help-letter-space\"></span>5<span class=\"help-letter-space\"></span>列大<span class=\"help-letter-space\"></span>100<span class=\"help-letter-space\"></span>以上的所有记录</p>\n                  </td>\n                  <td id=\"entry-54k-uey-yh3\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaa2fc30vui\">select * from ossobject where _2 * _3 &gt; _5 + 100</p>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </li>\n          <li data-tag=\"li\" id=\"li-i4c-46m-yu5\" class=\"li\">\n            <p id=\"b8eaa2fd30fvn\">JSON </p>\n            <p data-tag=\"p\" id=\"p-6hs-8xy-xio\" class=\"p\">假设<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>文件如下：</p><pre data-tag=\"codeblock\" id=\"codeblock-e50-8k7-zum\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>{\n  \"contacts\":[\n{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"isAlive\": true,\n  \"age\": 27,\n  \"address\": {\n    \"streetAddress\": \"21 2nd Street\",\n    \"city\": \"New York\",\n    \"state\": \"NY\",\n    \"postalCode\": \"10021-3100\"\n  },\n  \"phoneNumbers\": [\n    {\n      \"type\": \"home\",\n      \"number\": \"212 555-1234\"\n    },\n    {\n      \"type\": \"office\",\n      \"number\": \"646 555-4567\"\n    },\n    {\n      \"type\": \"mobile\",\n      \"number\": \"123 456-7890\"\n    }\n  ],\n  \"children\": [],\n  \"spouse\": null\n}，…… #此处省略其他类似的节点\n]}</code></pre>\n            <p data-tag=\"p\" id=\"p-2sn-ib7-3m4\" class=\"p\">SQL<span class=\"help-letter-space\"></span>用例如下：</p>\n            <table id=\"table-ik5-lsj-ngb\" tablewidth=\"710\" tablecolswidth=\"284 426\" autofit=\"false\" class=\"table\">\n              <colgroup colwidth=\"0.8*\" style=\"width:40.00%\"></colgroup>\n              <colgroup colwidth=\"1.2*\" style=\"width:60.00%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-43f-31z-cma\">\n                  <td id=\"concept-ghk-xz2-4gb-entry-d4s-93o-j63\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"b8eaca0030s05\"><b>应用场景</b></p>\n                  </td>\n                  <td id=\"concept-ghk-xz2-4gb-entry-2x1-q00-izk\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"b8eaca01307rm\"><b>SQL<span class=\"help-letter-space\"></span>语句</b></p>\n                  </td>\n                </tr>\n                <tr id=\"row-p1d-500-vwi\">\n                  <td id=\"entry-gcb-mgj-vre\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaca0230kdr\">返回所有<span class=\"help-letter-space\"></span>age<span class=\"help-letter-space\"></span>是<span class=\"help-letter-space\"></span>27<span class=\"help-letter-space\"></span>的记录</p>\n                  </td>\n                  <td id=\"entry-a5k-mbk-mx2\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaca03309q0\">select * from ossobject.contacts[*] s where s.age = 27</p>\n                  </td>\n                </tr>\n                <tr id=\"row-s2o-lb5-1k7\">\n                  <td id=\"entry-mqm-gd9-d19\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaca0430udy\">返回所有的家庭电话</p>\n                  </td>\n                  <td id=\"entry-odx-87f-jpc\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaca0530caq\">select s.number from ossobject.contacts[*].phoneNumbers[*] s where s.type = \"home\"</p>\n                  </td>\n                </tr>\n                <tr id=\"row-sne-4l0-ccz\">\n                  <td id=\"entry-syl-u2t-cwo\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaca0630wdi\">返回所有单身的记录</p>\n                  </td>\n                  <td id=\"entry-rf5-320-1pl\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaca0730p5m\">select * from ossobject s where s.spouse is null</p>\n                  </td>\n                </tr>\n                <tr id=\"row-7vc-avh-lqu\">\n                  <td id=\"entry-fj4-cxr-ird\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaca08309cm\">返回所有没有孩子的记录</p>\n                  </td>\n                  <td id=\"entry-evt-fjh-ual\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8eaca0930gkq\">select * from ossobject s where s.children[0] is null </p>\n                    <div data-tag=\"note\" id=\"note-d8g-eqj-lns\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                      <p id=\"b8eaca0a306sg\">目前没有专用的空数组的表示方法，用以上语句代替。</p>\n                    </div></div>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </li>\n        </ul>\n      </section>\n      <section data-tag=\"section\" id=\"section-vk1-hky-b2b\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-aqw-2hc-w5r\" class=\"title\">使用场景</h2>\n        <p data-tag=\"p\" id=\"p-cky-vb1-u2e\" class=\"p\">SelectObject<span class=\"help-letter-space\"></span>通常用于大文件分片查询、JSON<span class=\"help-letter-space\"></span>文件查询、日志文件分析等场景。</p>\n        <ul data-tag=\"ul\" id=\"ul-zct-bjj-ngb\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-kfl-pdv-v7u\" class=\"li\">\n            <p id=\"b8eaf11030spi\">大文件分片查询 </p>\n            <p data-tag=\"p\" id=\"p-zjw-iw0-sh8\" class=\"p\">和<span class=\"help-letter-space\"></span><span data-tag=\"apiname\" id=\"apiname-a6r-3dm-ndp\" class=\"apiname\">GetObject</span><span class=\"help-letter-space\"></span>提供的基于<span class=\"help-letter-space\"></span>Byte<span class=\"help-letter-space\"></span>的分片下载类似，<span data-tag=\"apiname\" id=\"apiname-cno-hgu-m6n\" class=\"apiname\">SelectObject</span><span class=\"help-letter-space\"></span>也提供了分片查询的机制，包括以下两种分片方式：</p>\n            <ul data-tag=\"ul\" id=\"ul-bw2-6jd-1za\" class=\"ul\">\n              <li data-tag=\"li\" id=\"li-uug-92x-dm0\" class=\"li\">\n                <p id=\"b8eaf11130jjh\">按行分片：常用的分片方式，然而对于稀疏数据来说，按行分片可能会导致分片时负载不均衡。</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-iy4-4vi-mps\" class=\"li\">\n                <p id=\"b8eaf112303an\">按<span class=\"help-letter-space\"></span>Split<span class=\"help-letter-space\"></span>分片：Split<span class=\"help-letter-space\"></span>是<span class=\"help-letter-space\"></span>OSS<span class=\"help-letter-space\"></span>用于分片的一个概念，一个<span class=\"help-letter-space\"></span>Split<span class=\"help-letter-space\"></span>包含多行数据，每个<span class=\"help-letter-space\"></span>Split<span class=\"help-letter-space\"></span>的数据大小大致相等。</p>\n              </li>\n            </ul>\n            <div data-tag=\"note\" id=\"note-81u-ufw-dul\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n              <p id=\"b8eaf11330pgk\">按<span class=\"help-letter-space\"></span>Split<span class=\"help-letter-space\"></span>分片比按行分片更加高效。</p>\n            </div></div>\n            <p data-tag=\"p\" id=\"p-w5r-2b7-iuc\" class=\"p\">如果确定<span class=\"help-letter-space\"></span>CSV<span class=\"help-letter-space\"></span>文件列中不包含换行符，则基于<span class=\"help-letter-space\"></span>Bytes<span class=\"help-letter-space\"></span>的分片由于不需要创建<span class=\"help-letter-space\"></span>Meta，其使用更为简便。如果列中包含换行符或者是<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>文件时，则使用以下步骤：</p>\n            <ol data-tag=\"ol\" id=\"ol-wz3-htc-mq1\" class=\"ol\">\n              <li data-tag=\"li\" id=\"li-saz-m7m-71r\" class=\"li\">\n                <p id=\"b8eaf11430jzn\">调用<span class=\"help-letter-space\"></span>CreateSelectObjectMeta API<span class=\"help-letter-space\"></span>获得该文件的总的<span class=\"help-letter-space\"></span>Split<span class=\"help-letter-space\"></span>数。如果该文件需要用<span class=\"help-letter-space\"></span>SelectObject，则建议在查询前异步调用该接口，以节省扫描时间。</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-ara-dd3-16s\" class=\"li\">\n                <p id=\"b8eaf11530ry7\">根据客户端资源情况选择合适的并发度<span class=\"help-letter-space\"></span>n，用总的<span class=\"help-letter-space\"></span>Split<span class=\"help-letter-space\"></span>数除以并发度<span class=\"help-letter-space\"></span>n<span class=\"help-letter-space\"></span>得到每个分片查询应该包含的<span class=\"help-letter-space\"></span>Split<span class=\"help-letter-space\"></span>个数。</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-xgx-8of-1ej\" class=\"li\">\n                <p id=\"b8eaf11630546\">在请求<span class=\"help-letter-space\"></span>Body<span class=\"help-letter-space\"></span>中用诸如<span class=\"help-letter-space\"></span>split-range=1-20<span class=\"help-letter-space\"></span>的形式进行分片查询。</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-lyj-as9-017\" class=\"li\">\n                <p id=\"b8eaf11730bi5\">合并结果。</p>\n              </li>\n            </ol>\n          </li>\n          <li data-tag=\"li\" id=\"li-6dq-ayu-kjb\" class=\"li\">\n            <p id=\"b8eaf118308ik\">JSON<span class=\"help-letter-space\"></span>文件查询</p>\n            <p data-tag=\"p\" id=\"p-cyk-t6g-l3c\" class=\"p\">查询<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>文件时，在<span class=\"help-letter-space\"></span>SQL<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>From<span class=\"help-letter-space\"></span>语句中尽可能缩小<span class=\"help-letter-space\"></span>From<span class=\"help-letter-space\"></span>后的<span class=\"help-letter-space\"></span>JSON Path<span class=\"help-letter-space\"></span>范围。</p>\n            <p data-tag=\"p\" id=\"p-o5o-sbs-ly1\" class=\"p\">如下是<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>文件示例：</p><pre data-tag=\"codeblock\" id=\"codeblock-8nd-bki-pgu\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>{\n  \"contacts\":[\n{\n  \"firstName\": \"John\",\n  \"lastName\": \"Smith\",\n  \"address\": {\n    \"streetAddress\": \"21 2nd Street\",\n    \"city\": \"New York\",\n    \"state\": \"NY\",\n    \"postalCode\": \"10021-3100\"\n  },\n  \"phoneNumbers\": [\n    {\n      \"type\": \"home\",\n      \"number\": \"212 555-1234\"\n    },\n    {\n      \"type\": \"office\",\n      \"number\": \"646 555-4567\"\n    },\n    {\n      \"type\": \"mobile\",\n      \"number\": \"123 456-7890\"\n    }\n  ]\n}\n]}</code></pre>\n            <p data-tag=\"p\" id=\"p-bv0-zho-1fs\" class=\"p\">如果要查找所有<span class=\"help-letter-space\"></span>postalCode<span class=\"help-letter-space\"></span>为<span class=\"help-letter-space\"></span>10021<span class=\"help-letter-space\"></span>开头的<span class=\"help-letter-space\"></span>streetAddress，SQL<span class=\"help-letter-space\"></span>可以写为<span data-tag=\"ph\" id=\"codeph-enk-vil-1jr\" class=\"ph\"><code data-tag=\"code\" class=\"code\"> select s.address.streetAddress from ossobject.contacts[*] s where s.address.postalCode like '10021%'</code></span>或者<span data-tag=\"ph\" id=\"codeph-1pa-a8w-kat\" class=\"ph\"><code data-tag=\"code\" class=\"code\">select s.streetAddress from ossobject.contacts[*].address s where s.postalCode like '10021%'</code></span></p>\n            <p data-tag=\"p\" id=\"p-grt-reb-k17\" class=\"p\">由于<span data-tag=\"ph\" id=\"codeph-1td-mnj-5j7\" class=\"ph\"><code data-tag=\"code\" class=\"code\">select s.streetAddress from ossobject.contacts[*].address s where s.postalCode like '10021%'</code></span>的<span class=\"help-letter-space\"></span>JSON Path<span class=\"help-letter-space\"></span>更加精确，因此性能更优。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-q1h-ll5-pw6\" class=\"li\">\n            <p id=\"b8eaf11930c9d\">在<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>文件中处理高精度浮点数 </p>\n            <p data-tag=\"p\" id=\"p-89a-orn-q8h\" class=\"p\">在<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>文件中需要进行高精度浮点数的数值计算时，建议设置<span class=\"help-letter-space\"></span>ParseJsonNumberAsString<span class=\"help-letter-space\"></span>选项为<span class=\"help-letter-space\"></span>true, 同时将该值<span class=\"help-letter-space\"></span>cast<span class=\"help-letter-space\"></span>成<span class=\"help-letter-space\"></span>Decimal。比如一个属性<span class=\"help-letter-space\"></span>a<span class=\"help-letter-space\"></span>值为<span class=\"help-letter-space\"></span>123456789.123456789，用<span data-tag=\"ph\" id=\"codeph-voo-n6e-0v9\" class=\"ph\"><code data-tag=\"code\" class=\"code\">select s.a from ossobject s where cast(s.a as decimal) &gt; 123456789.12345</code></span>就可以保持原始数据的精度不丢失。</p>\n          </li>\n        </ul>\n      </section>\n      <section id=\"203148beb1e98\" class=\"section\">\n        <h2 id=\"83357a527e7yc\"><b>操作方式</b></h2>\n        <div data-tag=\"section\" id=\"section-f9e-i6e-mid\" outputclass=\"collapse\" data-type=\"section\" class=\"section collapse\">\n          <h3 id=\"0010986030t88\" data-tag=\"expandable-title\" class=\"expandable-title\"><b>使用<span class=\"help-letter-space\"></span>OSS<span class=\"help-letter-space\"></span>控制台</b></h3>\n          <div id=\"0cbc41fa6e0u7\" data-tag=\"expandable-content\" class=\"expandable-content\">\n            <div data-tag=\"note\" id=\"note-8t7-cwy-dn0\" type=\"notice\" class=\"note note-notice\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note notice\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n              <p id=\"8deb34cc13zjt\">通过控制台仅支持从<span class=\"help-letter-space\"></span>128 MB<span class=\"help-letter-space\"></span>以下的文件中提取<span class=\"help-letter-space\"></span>40 MB<span class=\"help-letter-space\"></span>以下的数据记录。</p>\n            </div></div>\n            <ol data-tag=\"steps\" id=\"steps-l9w-8bz-os1\" class=\"steps\">\n              <li data-tag=\"step\" id=\"4c4142dc7dp7s\" is-conref=\"true\" class=\"step\"><p id=\"cb592be0e5665\"><span data-tag=\"cmd\" id=\"cmd-rse-rnw-ios\" class=\"cmd\">登录<span props=\"china intl\"><span class=\"help-letter-space\"></span><a href=\"https://oss.console.aliyun.com/\" id=\"xref-4qu-r1e-rc2\" class=\"\" target=\"_blank\">OSS<span class=\"help-letter-space\"></span>管理控制台</a></span>。</span></p></li>\n              <li data-tag=\"step\" id=\"a446189082s1c\" is-conref=\"true\" class=\"step\"><p id=\"cb597a00e5yer\"><span data-tag=\"cmd\" id=\"cmd-vq9-47x-e73\" class=\"cmd\">单击<span class=\"help-letter-space\"></span><b id=\"bucket.list\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">Bucket 列表</b>，然后单击目标<span class=\"help-letter-space\"></span>Bucket<span class=\"help-letter-space\"></span>名称。</span></p></li>\n              <li data-tag=\"step\" id=\"75fe41d3bcga2\" is-conref=\"true\" class=\"step\"><p id=\"cb59a110e52cf\"><span data-tag=\"cmd\" id=\"cmd-rgk-apc-zie\" class=\"cmd\">在左侧导航栏，选择<b id=\"file.manage\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">文件管理</b>&gt;<b id=\"bucket.object.file-list\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">文件列表</b>。</span></p></li>\n              <li data-tag=\"step\" id=\"step-gtp-wcy-s1k\" class=\"step\">\n                <p id=\"72ab4b82e055c\"><span data-tag=\"cmd\" id=\"cmd-1ey-u0s-4z2\" class=\"cmd\">在目标文件右侧的操作栏下，选择<span data-tag=\"menucascade\" id=\"menucascade-zth-z80-i8g\" class=\"menucascade\"><b data-tag=\"uicontrol\" id=\"uicontrol-skz-jvg-n1q\" class=\"uicontrol\"><img data-tag=\"image\" id=\"image-7b1-iko-1yt\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0119586661/p508856.jpg\" alt=\"more \" placement=\"inline\" class=\"image inline\"></b> &gt; <b id=\"uicontrol-mtq-xng-ty1\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">选取内容</b></span>。</span></p>\n              </li>\n              <li data-tag=\"step\" id=\"step-ghx-rhm-x12\" class=\"step\">\n                <p id=\"377bcc4a8f21r\"><span data-tag=\"cmd\" id=\"cmd-d3g-ukn-rix\" class=\"cmd\">在<b id=\"wintitle-jet-2qi-0v3\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">选取内容</b>面板，按以下说明设置各项参数。</span></p>\n                <div data-tag=\"info\" id=\"info-p8n-xsd-s8m\" class=\"info\">\n                  <table id=\"table-lbq-f48-tek\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n                    <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n                    <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n                    <tbody class=\"tbody\">\n                      <tr id=\"row-mv7-2as-8j9\">\n                        <td id=\"concept-ghk-xz2-4gb-entry-jfx-ptx-6bj\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                          <p id=\"c9e1a6f821uey\"><b>参数</b></p>\n                        </td>\n                        <td id=\"concept-ghk-xz2-4gb-entry-e81-4o8-brv\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                          <p id=\"e96932eac4eqd\"><b>说明</b></p>\n                        </td>\n                      </tr>\n                      <tr id=\"row-ykq-oy1-pp0\">\n                        <td id=\"entry-cql-43u-xgb\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"5f64a1d627pbv\"><span data-tag=\"parmname\" id=\"parmname-6uu-hq7-ec4\" class=\"parmname\">文件类型</span></p>\n                        </td>\n                        <td id=\"entry-qlh-zjf-0cu\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"e8283caa3cshd\">仅支持<span class=\"help-letter-space\"></span>CSV<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>两种文件类型。</p>\n                        </td>\n                      </tr>\n                      <tr id=\"row-8aw-mkc-rdr\">\n                        <td id=\"entry-h2t-url-gun\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"cb9c743ed8fqp\"><span data-tag=\"parmname\" id=\"parmname-f9o-5l8-cgy\" class=\"parmname\">分隔符</span></p>\n                        </td>\n                        <td id=\"entry-y9s-zdu-s6a\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"4373fbd473gg7\">仅适用于<span class=\"help-letter-space\"></span>CSV<span class=\"help-letter-space\"></span>文件。请选择半角逗号（,）或自定义分隔符。</p>\n                        </td>\n                      </tr>\n                      <tr id=\"row-z4f-ycm-fep\">\n                        <td id=\"entry-7ty-wxd-hvo\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"16d25394217nb\"><span data-tag=\"parmname\" id=\"parmname-j09-bum-kqj\" class=\"parmname\">标题行</span></p>\n                        </td>\n                        <td id=\"entry-u76-ji0-kge\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"ceda9d0822ijb\">仅适用于<span class=\"help-letter-space\"></span>CSV<span class=\"help-letter-space\"></span>文件。请选择文件第一行是否包含列标题。</p>\n                        </td>\n                      </tr>\n                      <tr id=\"row-0dv-1so-8rk\">\n                        <td id=\"entry-0ea-hqk-sgu\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"8535ff8b348qd\"><span data-tag=\"parmname\" id=\"parmname-z8a-p27-d4t\" class=\"parmname\">JSON<span class=\"help-letter-space\"></span>格式符</span></p>\n                        </td>\n                        <td id=\"entry-3sy-uwb-jdg\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"0e09f1f8aaff1\">仅适用于<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>文件。请选择您的<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>文件对应的格式。</p>\n                        </td>\n                      </tr>\n                      <tr id=\"row-7cz-ds5-6cb\">\n                        <td id=\"entry-5e1-7cx-6ak\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"1c2af0a572krb\"><span data-tag=\"parmname\" id=\"parmname-gqt-0b0-l0u\" class=\"parmname\">压缩格式</span></p>\n                        </td>\n                        <td id=\"entry-e17-tzb-xqw\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"fc5c8bf2b8oj5\">选择您当前的文件是否为压缩文件。目前压缩文件仅支持<span class=\"help-letter-space\"></span>GZIP<span class=\"help-letter-space\"></span>文件。</p>\n                        </td>\n                      </tr>\n                    </tbody>\n                  </table>\n                </div>\n              </li>\n              <li data-tag=\"step\" id=\"step-k01-i5p-v18\" class=\"step\">\n                <p id=\"e545efa10f6xl\"><span data-tag=\"cmd\" id=\"cmd-ybf-27h-mjj\" class=\"cmd\">单击<b id=\"uicontrol-xtz-hqy-ary\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">显示文件预览</b>。</span></p>\n                <div data-tag=\"info\" id=\"info-0lc-1y2-ec8\" class=\"info\">\n                  <div data-tag=\"note\" id=\"note-wxc-s1s-w90\" type=\"notice\" class=\"note note-notice\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note notice\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                    <p id=\"155864c966zyy\">预览标准存储类型文件时，会产生<span class=\"help-letter-space\"></span>Select<span class=\"help-letter-space\"></span>扫描费用。预览低频访问、归档存储、冷归档存储或者深度冷归档存储类型文件时，会产生<span class=\"help-letter-space\"></span>Select<span class=\"help-letter-space\"></span>扫描费用和数据取回费用。更多信息，请参见<a href=\"https://help.aliyun.com/zh/oss/data-processing-fees#concept-2558464\" id=\"a582fd3bcf398\" title=\"\" class=\"xref\">数据处理费用</a>。</p>\n                  </div></div>\n                </div>\n              </li>\n              <li data-tag=\"step\" id=\"step-ej7-kyw-0rc\" class=\"step\">\n                <p id=\"d06fd872b9fnu\"><span data-tag=\"cmd\" id=\"cmd-czj-zfg-ofi\" class=\"cmd\">单击<b id=\"uicontrol-ljl-o9c-6pl\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">下一步</b>，输入<span class=\"help-letter-space\"></span>SQL<span class=\"help-letter-space\"></span>语句并执行。</span></p>\n                <div data-tag=\"info\" id=\"info-thm-tmp-dr2\" class=\"info\">\n                  <p id=\"971cea6154t6n\">假设名为<span class=\"help-letter-space\"></span><span data-tag=\"filepath\" id=\"filepath-m08-chh-9bg\" class=\"filepath\">People</span><span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>CSV<span class=\"help-letter-space\"></span>文件有<span class=\"help-letter-space\"></span>3<span class=\"help-letter-space\"></span>列数据，分别是<span data-tag=\"parmname\" id=\"parmname-ncd-q21-ecp\" class=\"parmname\">姓名</span>、<span data-tag=\"parmname\" id=\"parmname-2tm-ur7-cdy\" class=\"parmname\">公司</span>和<span data-tag=\"parmname\" id=\"parmname-ckr-r9a-2f6\" class=\"parmname\">年龄</span>。 </p>\n                  <ul data-tag=\"ul\" id=\"ul-tsq-6oe-4yc\" class=\"ul\">\n                    <li data-tag=\"li\" id=\"li-zzr-tos-kod\" class=\"li\">\n                      <p id=\"fa8baac7436qa\">如果想查找年龄大于<span class=\"help-letter-space\"></span>50<span class=\"help-letter-space\"></span>岁，并且名字以<span class=\"help-letter-space\"></span>Lora<span class=\"help-letter-space\"></span>开头的人（其中_1,_2,_3<span class=\"help-letter-space\"></span>是列索引，代表第一列、第二列、第三列），可以执行以下<span class=\"help-letter-space\"></span>SQL<span class=\"help-letter-space\"></span>语句： </p><pre data-tag=\"codeblock\" id=\"codeblock-qd5-rgi-fya\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>select * from ossobject where _1 like 'Lora*' and _3 &gt; 50</code></pre>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-juw-qmc-ikk\" class=\"li\">\n                      <p id=\"bcc21603a0753\">如果想统计这个文件有多少行，最大年龄与最小年龄是多少，可以执行以下<span class=\"help-letter-space\"></span>SQL<span class=\"help-letter-space\"></span>语句： </p><pre data-tag=\"codeblock\" id=\"codeblock-tu2-00i-5fv\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>select count(*), max(cast(_3 as int)), min(cast(_3 as int)) from ossobject</code></pre>\n                    </li>\n                  </ul>\n                </div>\n              </li>\n              <li data-tag=\"step\" id=\"step-0r1-8dv-fep\" class=\"step\">\n                <p id=\"c36a206736ted\"><span data-tag=\"cmd\" id=\"cmd-3h1-kny-74a\" class=\"cmd\">查看执行结果。</span></p>\n                <div data-tag=\"info\" id=\"info-rxq-t1h-wu5\" class=\"info\">\n                  <p id=\"b088f66793h13\">您还可以单击<b id=\"uicontrol-k8u-xnt-s2v\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">下载</b>，将所选取的内容下载到本地。</p>\n                </div>\n              </li>\n            </ol>\n          </div>\n        </div>\n        <div data-tag=\"section\" id=\"section-v0e-yl1-9jn\" outputclass=\"collapse\" data-type=\"section\" class=\"section collapse\">\n          <h3 id=\"f75d451030jl1\" data-tag=\"expandable-title\" class=\"expandable-title\"><b>使用阿里云<span class=\"help-letter-space\"></span>SDK</b></h3>\n          <div id=\"84bb2622c639e\" data-tag=\"expandable-content\" class=\"expandable-content\">\n            <p id=\"2c6bb433cdzwt\">当前仅支持通过<span class=\"help-letter-space\"></span>Java SDK<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>Python SDK<span class=\"help-letter-space\"></span>查询文件。</p>\n            <div outputclass=\"tabbed-codeblock\" data-tag=\"fig\" id=\"fig-5s7-hmq-js5\" class=\"tabbed-codeblock-box\"><div class=\"tab-box\"></div><input type=\"radio\" name=\"check-fig-5s7-hmq-js5\" id=\"fig-5s7-hmq-js5-java-tab\" checked=\"\"><label for=\"fig-5s7-hmq-js5-java-tab\">Java</label><div class=\"codeblock-item\"><pre data-tag=\"codeblock\" id=\"1fca720079u3r\" outputclass=\"language-java\" code-type=\"xCode\" is-conref=\"true\" class=\"pre codeblock language-java\"><code>import com.aliyun.oss.ClientBuilderConfiguration;\nimport com.aliyun.oss.common.comm.SignVersion;\nimport com.aliyun.oss.model.*;\nimport com.aliyun.oss.OSS;\nimport com.aliyun.oss.common.auth.*;\nimport com.aliyun.oss.OSSClientBuilder;\nimport java.io.BufferedReader;\nimport java.io.ByteArrayInputStream;\nimport java.io.InputStreamReader;\n\n/**\n * Examples of create select object metadata and select object.\n *\n */\npublic class SelectObjectSample {\n    // yourEndpoint填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。\n    private static String endpoint = \"https://oss-cn-hangzhou.aliyuncs.com\";\n    // 填写Bucket名称，例如examplebucket。\n    private static String bucketName = \"examplebucket\";\n\n    public static void main(String[] args) throws Exception {\n      \n      \t// 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。\n        EnvironmentVariableCredentialsProvider credentialsProvider = CredentialsProviderFactory.newEnvironmentVariableCredentialsProvider();\n        // 填写Bucket所在地域。以华东1（杭州）为例，Region填写为cn-hangzhou。\n        String region = \"cn-hangzhou\";\n\n        // 创建OSSClient实例。\n        // 当OSSClient实例不再使用时，调用shutdown方法以释放资源。\n        ClientBuilderConfiguration clientBuilderConfiguration = new ClientBuilderConfiguration();\n        clientBuilderConfiguration.setSignatureVersion(SignVersion.V4);        \n        OSS ossClient = OSSClientBuilder.create()\n        .endpoint(endpoint)\n        .credentialsProvider(credentialsProvider)\n        .clientConfiguration(clientBuilderConfiguration)\n        .region(region)               \n        .build();\n        // 填写Object完整路径后，根据SELECT语句查询文件中的数据。Object完整路径中不能包含Bucket名称。\n        // 填写CSV格式的Object完整路径。\n        selectCsvSample(\"test.csv\", ossClient);\n        // 填写JSON格式的Object完整路径。\n        selectJsonSample(\"test.json\", ossClient);\n        ossClient.shutdown();\n    }\n\n    private static void selectCsvSample(String key, OSS ossClient) throws Exception {\n        // 填写上传的内容。\n        String content = \"name,school,company,age\\r\\n\" +\n                \"Lora Francis,School A,Staples Inc,27\\r\\n\" +\n                \"Eleanor Little,School B,\\\"Conectiv, Inc\\\",43\\r\\n\" +\n                \"Rosie Hughes,School C,Western Gas Resources Inc,44\\r\\n\" +\n                \"Lawrence Ross,School D,MetLife Inc.,24\";\n\n        ossClient.putObject(bucketName, key, new ByteArrayInputStream(content.getBytes()));\n\n        SelectObjectMetadata selectObjectMetadata = ossClient.createSelectObjectMetadata(\n                new CreateSelectObjectMetadataRequest(bucketName, key)\n                        .withInputSerialization(\n                                new InputSerialization().withCsvInputFormat(\n                                        // 填写内容中不同记录之间的分隔符，例如\\r\\n。\n                                        new CSVFormat().withHeaderInfo(CSVFormat.Header.Use).withRecordDelimiter(\"\\r\\n\"))));\n        System.out.println(selectObjectMetadata.getCsvObjectMetadata().getTotalLines());\n        System.out.println(selectObjectMetadata.getCsvObjectMetadata().getSplits());\n\n        SelectObjectRequest selectObjectRequest =\n                new SelectObjectRequest(bucketName, key)\n                        .withInputSerialization(\n                                new InputSerialization().withCsvInputFormat(\n                                        new CSVFormat().withHeaderInfo(CSVFormat.Header.Use).withRecordDelimiter(\"\\r\\n\")))\n                        .withOutputSerialization(new OutputSerialization().withCsvOutputFormat(new CSVFormat()));\n        // 使用SELECT语句查询第4列，值大于40的所有记录。\n        selectObjectRequest.setExpression(\"select * from ossobject where _4 &gt; 40\");\n        OSSObject ossObject = ossClient.selectObject(selectObjectRequest);\n\n        // 读取内容。\n        BufferedReader reader = new BufferedReader(new InputStreamReader(ossObject.getObjectContent()));\n        while (true) {\n            String line = reader.readLine();\n            if (line == null) {\n                break;\n            }\n            System.out.println(line);\n        }\n        reader.close();\n\n        ossClient.deleteObject(bucketName, key);\n    }\n\n    private static void selectJsonSample(String key, OSS ossClient) throws Exception {\n        // 填写上传的内容。\n        final String content = \"{\\n\" +\n                \"\\t\\\"name\\\": \\\"Lora Francis\\\",\\n\" +\n                \"\\t\\\"age\\\": 27,\\n\" +\n                \"\\t\\\"company\\\": \\\"Staples Inc\\\"\\n\" +\n                \"}\\n\" +\n                \"{\\n\" +\n                \"\\t\\\"name\\\": \\\"Eleanor Little\\\",\\n\" +\n                \"\\t\\\"age\\\": 43,\\n\" +\n                \"\\t\\\"company\\\": \\\"Conectiv, Inc\\\"\\n\" +\n                \"}\\n\" +\n                \"{\\n\" +\n                \"\\t\\\"name\\\": \\\"Rosie Hughes\\\",\\n\" +\n                \"\\t\\\"age\\\": 44,\\n\" +\n                \"\\t\\\"company\\\": \\\"Western Gas Resources Inc\\\"\\n\" +\n                \"}\\n\" +\n                \"{\\n\" +\n                \"\\t\\\"name\\\": \\\"Lawrence Ross\\\",\\n\" +\n                \"\\t\\\"age\\\": 24,\\n\" +\n                \"\\t\\\"company\\\": \\\"MetLife Inc.\\\"\\n\" +\n                \"}\";\n\n        ossClient.putObject(bucketName, key, new ByteArrayInputStream(content.getBytes()));\n\n        SelectObjectRequest selectObjectRequest =\n                new SelectObjectRequest(bucketName, key)\n                        .withInputSerialization(new InputSerialization()\n                                .withCompressionType(CompressionType.NONE)\n                                .withJsonInputFormat(new JsonFormat().withJsonType(JsonType.LINES)))\n                        .withOutputSerialization(new OutputSerialization()\n                                .withCrcEnabled(true)\n                                .withJsonOutputFormat(new JsonFormat()))\n                        .withExpression(\"select * from ossobject as s where s.age &gt; 40\"); // 使用SELECT语句查询文件中的数据。\n\n        OSSObject ossObject = ossClient.selectObject(selectObjectRequest);\n\n        // 读取内容。\n        BufferedReader reader = new BufferedReader(new InputStreamReader(ossObject.getObjectContent()));\n        while (true) {\n            String line = reader.readLine();\n            if (line == null) {\n                break;\n            }\n            System.out.println(line);\n        }\n        reader.close();\n\n        ossClient.deleteObject(bucketName, key);\n    }\n}</code></pre></div><input type=\"radio\" name=\"check-fig-5s7-hmq-js5\" id=\"fig-5s7-hmq-js5-python-tab\"><label for=\"fig-5s7-hmq-js5-python-tab\">Python</label><div class=\"codeblock-item\"><pre data-tag=\"codeblock\" id=\"fe20e4f74bzo5\" outputclass=\"language-python\" code-type=\"xCode\" is-conref=\"true\" class=\"pre codeblock language-python\"><code>import oss2\nfrom oss2.credentials import EnvironmentVariableCredentialsProvider\n\ndef select_call_back(consumed_bytes, total_bytes = None):\n    print('Consumed Bytes:' + str(consumed_bytes) + '\\n')\n\n# 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。\nauth = oss2.ProviderAuthV4(EnvironmentVariableCredentialsProvider())\n\n# 填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。\nendpoint = \"https://oss-cn-hangzhou.aliyuncs.com\"\n\n# 填写Endpoint对应的Region信息，例如cn-hangzhou。注意，v4签名下，必须填写该参数\nregion = \"cn-hangzhou\"\n\n# yourBucketName填写存储空间名称。\nbucket = oss2.Bucket(auth, endpoint, \"yourBucketName\", region=region)\n\nkey ='python_select.csv'\ncontent ='Tom Hanks,USA,45\\r\\n'*1024\nfilename ='python_select.csv'\n\n# 上传CSV文件。\nbucket.put_object(key, content)\n# Select API的参数。\ncsv_meta_params = {'RecordDelimiter': '\\r\\n'}\nselect_csv_params = {'CsvHeaderInfo': 'None',\n                    'RecordDelimiter': '\\r\\n',\n                    'LineRange': (500, 1000)}\n\ncsv_header = bucket.create_select_object_meta(key, csv_meta_params)\nprint(csv_header.rows)\nprint(csv_header.splits)\nresult = bucket.select_object(key, \"select * from ossobject where _3 &gt; 44\", select_call_back, select_csv_params)\nselect_content = result.read()\nprint(select_content)\n\nresult = bucket.select_object_to_file(key, filename,\n      \"select * from ossobject where _3 &gt; 44\", select_call_back, select_csv_params)\nbucket.delete_object(key)\n\n###JSON DOCUMENT\nkey =  'python_select.json'\ncontent =  \"{\\\"contacts\\\":[{\\\"key1\\\":1,\\\"key2\\\":\\\"hello world1\\\"},{\\\"key1\\\":2,\\\"key2\\\":\\\"hello world2\\\"}]}\"\nfilename =  'python_select.json'\n# 上传JSON DOCUMENT。\nbucket.put_object(key, content)\nselect_json_params = {'Json_Type': 'DOCUMENT'}\nresult = bucket.select_object(key, \"select s.key2 from ossobject.contacts[*] s where s.key1 = 1\", None, select_json_params)\nselect_content = result.read()\nprint(select_content)\n\nresult = bucket.select_object_to_file(key, filename,\n      \"select s.key2 from ossobject.contacts[*] s where s.key1 = 1\", None, select_json_params)\nbucket.delete_object(key)\n\n###JSON LINES\nkey =  'python_select_lines.json'\ncontent =  \"{\\\"key1\\\":1,\\\"key2\\\":\\\"hello world1\\\"}\\n{\\\"key1\\\":2,\\\"key2\\\":\\\"hello world2\\\"}\"\nfilename =  'python_select.json'\n# 上传JSON LINE。\nbucket.put_object(key, content)\nselect_json_params = {'Json_Type': 'LINES'}\njson_header = bucket.create_select_object_meta(key,select_json_params)\nprint(json_header.rows)\nprint(json_header.splits)\n\nresult = bucket.select_object(key, \"select s.key2 from ossobject s where s.key1 = 1\", None, select_json_params)\nselect_content =  result.read()\nprint(select_content)\nresult = bucket.select_object_to_file(key, filename,\n           \"select s.key2 from ossobject s where s.key1 = 1\", None, select_json_params)\nbucket.delete_object(key)</code></pre></div><input type=\"radio\" name=\"check-fig-5s7-hmq-js5\" id=\"fig-5s7-hmq-js5--tab\"><label for=\"fig-5s7-hmq-js5--tab\"></label><div class=\"codeblock-item\"><pre code-type=\"xCode\" id=\"1614bf3194n9e\" data-tag=\"codeblock\" outputclass=\"\" syntax=\"go\" theme=\"default\" docid=\"4793783\" is-conref=\"true\" class=\"pre codeblock\"><code>package main\n\nimport (\n\t\"context\"\n\t\"flag\"\n\t\"io\"\n\t\"log\"\n\n\t\"github.com/aliyun/alibabacloud-oss-go-sdk-v2/oss\"\n\t\"github.com/aliyun/alibabacloud-oss-go-sdk-v2/oss/credentials\"\n)\n\n// 定义全局变量\nvar (\n\tregion     string // 存储区域\n\tbucketName string // 存储空间名称\n\tobjectName string // 对象名称\n)\n\n// init函数用于初始化命令行参数\nfunc init() {\n\tflag.StringVar(&amp;region, \"region\", \"\", \"The region in which the bucket is located.\")\n\tflag.StringVar(&amp;bucketName, \"bucket\", \"\", \"The name of the bucket.\")\n\tflag.StringVar(&amp;objectName, \"object\", \"\", \"The name of the object.\")\n}\n\nfunc main() {\n\t// 解析命令行参数\n\tflag.Parse()\n\n\t// 检查bucket名称是否为空\n\tif len(bucketName) == 0 {\n\t\tflag.PrintDefaults()\n\t\tlog.Fatalf(\"invalid parameters, bucket name required\")\n\t}\n\n\t// 检查region是否为空\n\tif len(region) == 0 {\n\t\tflag.PrintDefaults()\n\t\tlog.Fatalf(\"invalid parameters, region required\")\n\t}\n\n\t// 检查object名称是否为空\n\tif len(objectName) == 0 {\n\t\tflag.PrintDefaults()\n\t\tlog.Fatalf(\"invalid parameters, object name required\")\n\t}\n\n\t// 加载默认配置并设置凭证提供者和区域\n\tcfg := oss.LoadDefaultConfig().\n\t\tWithCredentialsProvider(credentials.NewEnvironmentVariableCredentialsProvider()).\n\t\tWithRegion(region)\n\n\t// 创建OSS客户端\n\tclient := oss.NewClient(cfg)\n\n\t// 创建选择对象的请求\n\trequest := &amp;oss.SelectObjectRequest{\n\t\tBucket: oss.Ptr(bucketName), // 存储空间名称\n\t\tKey:    oss.Ptr(objectName), // 对象名称\n\t\tSelectRequest: &amp;oss.SelectRequest{\n\t\t\tExpression: oss.Ptr(\"select * from ossobject limit 10\"), // 定义SQL查询表达式，查询对象中的前10行数据\n\t\t\tInputSerializationSelect: oss.InputSerializationSelect{\n\t\t\t\tCsvBodyInput: &amp;oss.CSVSelectInput{\n\t\t\t\t\tFileHeaderInfo: oss.Ptr(\"Use\"),\n\t\t\t\t},\n\t\t\t},\n\t\t\tOutputSerializationSelect: oss.OutputSerializationSelect{\n\t\t\t\tOutputHeader: oss.Ptr(true),\n\t\t\t},\n\t\t},\n\t}\n\n\t// 执行选择对象的请求\n\tresult, err := client.SelectObject(context.TODO(), request)\n\tif err != nil {\n\t\tlog.Fatalf(\"failed to select object %v\", err)\n\t}\n\n\tcontent, err := io.ReadAll(result.Body)\n\tif err != nil {\n\t\tlog.Fatalf(\"failed to read object %v\", err)\n\t}\n\n\t// 打印选择对象的结果\n\tlog.Printf(\"select object result:%#v\\n\", string(content))\n}\n</code></pre></div></div>\n          </div>\n        </div>\n        <div data-tag=\"section\" id=\"section-hdk-nsx-nbv\" outputclass=\"collapse\" data-type=\"section\" class=\"section collapse\">\n          <h3 data-tag=\"expandable-title\" id=\"title-nf5-c9b-a44\" class=\"expandable-title\"><b>使用命令行工具<span class=\"help-letter-space\"></span>ossutil</b></h3>\n          <div id=\"f5ce9da67bk8s\" data-tag=\"expandable-content\" class=\"expandable-content\">\n            <p id=\"297c45d029a23\">您可以使用命令行工具<span class=\"help-letter-space\"></span>ossutil<span class=\"help-letter-space\"></span>来查询文件，ossutil<span class=\"help-letter-space\"></span>的安装请参见<a href=\"https://help.aliyun.com/zh/oss/install-ossutil2#DAS\" id=\"2c4f2218e2be5\" title=\"\" class=\"xref\">安装<span class=\"help-letter-space\"></span>ossutil</a>。</p>\n            <p id=\"5b61b6cf7ao29\">以下命令用于为存储空间<code data-tag=\"code\" code-type=\"xCode\" class=\"code\">examplebucket</code>中的<span class=\"help-letter-space\"></span>exampleobject<span class=\"help-letter-space\"></span>执行<span class=\"help-letter-space\"></span>SQL<span class=\"help-letter-space\"></span>语句，请求语法 CSV。</p><pre code-type=\"xCode\" id=\"8f975f6710dzp\" data-tag=\"codeblock\" outputclass=\"language-bash\" class=\"pre codeblock language-bash\"><code>ossutil api select-object --bucket examplebucket --key exampleobject --select-request \"{\\\"Expression\\\":\\\"c2VsZWN0IFllYXIsU3RhdGVBYmJyLCBDaXR5TmFtZSwgU2hvcnRfUXVlc3Rpb25fVGV4dCBmcm9tIG9zc29iamVjdA==\\\",\\\"InputSerialization\\\":{\\\"CSV\\\":{\\\"FileHeaderInfo\\\":\\\"Use\\\",\\\"Range\\\":\\\"line-range=0-100\\\"}},\\\"OutputSerialization\\\":{\\\"JSON\\\":{\\\"RecordDelimiter\\\":\\\",\\\"}}}\"</code></pre>\n            <p id=\"d7dc143a44zta\">关于该命令的更多信息，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/oss/developer-reference/select-object\" id=\"ebec4c39ffad2\" title=\"\" class=\"xref\">select-object</a>。</p>\n          </div>\n        </div>\n      </section>\n      <section id=\"bd215a77a9869\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"a40a161a6e6lh\" class=\"title\">相关<span class=\"help-letter-space\"></span>API</h2>\n        <p id=\"78618166869oc\">以上操作方式底层基于<span class=\"help-letter-space\"></span>API<span class=\"help-letter-space\"></span>实现，如果您的程序自定义要求较高，您可以直接发起<span class=\"help-letter-space\"></span>REST API<span class=\"help-letter-space\"></span>请求。直接发起<span class=\"help-letter-space\"></span>REST API<span class=\"help-letter-space\"></span>请求需要手动编写代码计算签名。更多信息，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/oss/developer-reference/selectobject#reference-lz1-r1x-b2b\" id=\"3bfdec6c0ap79\" title=\"\" class=\"xref\">SelectObject</a>。</p>\n      </section>\n      <p id=\"f801e98030vnv\"></p>\n    </div>\n  </main>\n\n\n\n\n</div>","path":"https://help.aliyun.com/zh/oss/user-guide/query-objects","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"对象存储","id":31815,"title":"对象存储","url":"/zh/oss/"},"alias":"/oss/user-guide/query-objects","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":6,"developerUrl":"https://developer.aliyun.com/storage/oss/","nodeType":1,"version":36,"url":"/zh/oss/user-guide/query-objects","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":106082,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"查询文件","id":106082,"title":"查询文件","url":"/zh/oss/user-guide/query-objects"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"元数据与数据发现","id":2977371,"title":"元数据与数据发现","url":"/zh/oss/user-guide/metadata-management-and-data-discovery/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"对象存储","id":31815,"title":"对象存储","url":"/zh/oss/"},"productUrl":"https://www.aliyun.com/product/oss","nodeId":106082,"desc":"您可以使用SelectObject对目标文件执行SQL语句，返回执行结果。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"对象存储","id":31815,"title":"对象存储","url":"/zh/oss/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"元数据与数据发现","id":2977371,"title":"元数据与数据发现","url":"/zh/oss/user-guide/metadata-management-and-data-discovery/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"查询文件","id":106082,"title":"查询文件","url":"/zh/oss/user-guide/query-objects"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=213e084e17825380890686985e6e1b&asid=AQAAAABpXz9qYZeOHgAAAAA6ECB9YWH4SQ==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="31823" class="Menu--level1--UN3zYr3">
+<a href="/zh/oss/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">用户指南</span>
+</a>
+</li>
+ <li id="2391490" class="Menu--level1--UN3zYr3">
+<a href="/zh/oss/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="48259" class="Menu--level1--UN3zYr3">
+<a href="/zh/oss/billing/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品计费</span>
+</a>
+</li>
+ <li id="2982296" class="Menu--level1--UN3zYr3">
+<a href="/zh/oss/oss-faq/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+ <li id="384052" class="Menu--level1--UN3zYr3">
+<a href="/zh/oss/announcements-and-updates/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">动态与公告</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>查询文件</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/oss" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="concept-ghk-xz2-4gb">
+    
+    
+    <p id="shortdesc-uy1-h2d-ljk" data-tag="shortdesc" class="shortdesc">您可以使用<span class="help-letter-space"></span>SelectObject<span class="help-letter-space"></span>对目标文件执行<span class="help-letter-space"></span>SQL<span class="help-letter-space"></span>语句，返回执行结果。</p>
+    <div data-tag="taskbody" id="conbody-ui9-csk-oi1" class="taskbody">
+      <section data-tag="section" id="section-yoq-b3a-kme" props="china" data-type="section" data-cond-props="china" class="section">
+        <div data-tag="note" id="note-x88-qsj-oah" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+          <p id="b8ea2dc530n09">无地域属性的存储空间不支持使用<span class="help-letter-space"></span>SelectObject。</p>
+        </div></div>
+      </section>
+      <section data-tag="section" id="section-jwy-bbx-b2b" data-type="section" class="section">
+        <h2 data-tag="title" id="title-7mj-kc3-3wm" class="title">背景信息</h2>
+        <p data-tag="p" id="p-hte-ro9-pu2" class="p">目前<span class="help-letter-space"></span>Hadoop 3.0<span class="help-letter-space"></span>已经支持<span class="help-letter-space"></span>OSS<span class="help-letter-space"></span>在<span class="help-letter-space"></span>EMR<span class="help-letter-space"></span>上运行<span class="help-letter-space"></span>Spark、Hive、Presto<span class="help-letter-space"></span>等服务，同时阿里云<span class="help-letter-space"></span>MaxCompute<span class="help-letter-space"></span>以及<span class="help-letter-space"></span>Data Lake Analytics<span class="help-letter-space"></span>均支持从<span class="help-letter-space"></span>OSS<span class="help-letter-space"></span>直接处理数据。</p>
+        <p data-tag="p" id="p-dl2-sut-8un" class="p">OSS<span class="help-letter-space"></span>提供的<span class="help-letter-space"></span><span data-tag="apiname" id="apiname-4li-ikc-v6t" class="apiname">GetObject</span><span class="help-letter-space"></span>接口决定了大数据平台只能把<span class="help-letter-space"></span>OSS<span class="help-letter-space"></span>数据全部下载到本地然后进行分析过滤，在很多查询场景下浪费了大量带宽和客户端资源。</p>
+        <p data-tag="p" id="p-lah-0hq-s16" class="p"><span data-tag="apiname" id="apiname-59c-gtm-lni" class="apiname">SelectObject</span><span class="help-letter-space"></span>接口通过将条件和<span class="help-letter-space"></span>Projection<span class="help-letter-space"></span>下推到<span class="help-letter-space"></span>OSS<span class="help-letter-space"></span>层，只返回有用数据，减少带宽和处理量，节省<span class="help-letter-space"></span>CPU<span class="help-letter-space"></span>和内存资源，使基于<span class="help-letter-space"></span>OSS<span class="help-letter-space"></span>的数据分析更具吸引力。</p>
+      </section>
+      <section data-tag="section" id="section-nyt-fiv-abl" data-type="section" class="section">
+        <h2 data-tag="title" id="title-7wx-s41-7r7" class="title">费用说明</h2>
+        <p data-tag="p" id="p-qmj-m6r-bra" class="p">调用<span class="help-letter-space"></span><span data-tag="apiname" id="apiname-f0r-b80-ly1" class="apiname">SelectObject</span><span class="help-letter-space"></span>接口查询数据时，按扫描的原文件实际大小计费。更多信息，请参见<a href="https://help.aliyun.com/zh/oss/data-processing-fees#concept-2558464" id="xref-sp9-oqq-sn6" title="" class="xref">数据处理费用</a>。</p>
+      </section>
+      <section data-tag="section" id="section-b9j-hmg-8xz" data-type="section" class="section">
+        <h2 data-tag="title" id="title-2jw-w5c-v2i" class="title">支持的文件类型</h2>
+        <p data-tag="p" id="p-7jl-pw6-vtq" class="p">以下内容是对<span class="help-letter-space"></span><span data-tag="apiname" id="apiname-768-1x8-jt3" class="apiname">SelectObject</span><span class="help-letter-space"></span>支持的文件类型、支持的<span class="help-letter-space"></span>SQL<span class="help-letter-space"></span>语法等的详细介绍。</p>
+        <ul id="ul-0zu-4xk-y31" data-tag="ul" class="ul">
+          <li data-tag="li" id="li-4hd-mm8-6c4" class="li">
+            <p id="b8ea54d030vqs">RFC 4180<span class="help-letter-space"></span>标准的<span class="help-letter-space"></span>CSV（包括<span class="help-letter-space"></span>TSV<span class="help-letter-space"></span>等类<span class="help-letter-space"></span>CSV<span class="help-letter-space"></span>文件，行列分隔符和<span class="help-letter-space"></span>Quote<span class="help-letter-space"></span>字符可自定义）。</p>
+          </li>
+          <li data-tag="li" id="li-0e5-b2w-la4" class="li">
+            <p id="b8ea54d130ro5">JSON<span class="help-letter-space"></span>文件（UTF-8<span class="help-letter-space"></span>编码），支持<span class="help-letter-space"></span>DOCUMENT<span class="help-letter-space"></span>和<span class="help-letter-space"></span>LINES<span class="help-letter-space"></span>两种格式：。 </p>
+            <ul data-tag="ul" id="ul-2t7-xe3-cyi" class="ul">
+              <li data-tag="li" id="li-e30-em7-jcj" class="li">
+                <p id="b8ea54d2307lq">DOCUMENT<span class="help-letter-space"></span>是指整个文件是单一的<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象。</p>
+              </li>
+              <li data-tag="li" id="li-qgc-lrk-3qt" class="li">
+                <p id="b8ea54d330hju">LINES<span class="help-letter-space"></span>表示整个文件由多行<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象组成，每一行是一个<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象（但整个文件本身并不是一个合法的<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>对象），行间以换行符分隔（支持\\n，\\r\\n<span class="help-letter-space"></span>等，无需用户指定）。</p>
+              </li>
+            </ul>
+          </li>
+          <li data-tag="li" id="li-cpk-mrm-ao0" class="li">
+            <p id="b8ea54d4302qb">标准存储和低频访问存储类型的文件。归档、冷归档和深度冷归档存储类型文件需先执行解冻操作。</p>
+          </li>
+          <li data-tag="li" id="li-32h-zmk-xcv" class="li">
+            <p id="b8ea54d530x3u">OSS<span class="help-letter-space"></span>完全托管加密和<span class="help-letter-space"></span>KMS<span class="help-letter-space"></span>托管主密钥加密的文件。</p>
+          </li>
+        </ul>
+      </section>
+      <section data-tag="section" id="section-0x6-2ip-cwg" data-type="section" class="section">
+        <h2 data-tag="title" id="title-nlq-p7d-cdf" class="title">支持的<span class="help-letter-space"></span>SQL<span class="help-letter-space"></span>语法</h2>
+        <ul data-tag="ul" id="ul-iju-ah2-o9b" class="ul">
+          <li data-tag="li" id="li-dm9-a4x-p46" class="li">
+            <p id="b8ea54d6301i4">SQL<span class="help-letter-space"></span>语句： Select From Where</p>
+          </li>
+          <li data-tag="li" id="li-t4l-24d-3wc" class="li">
+            <p id="b8ea54d73035s">数据类型：string、int（64bit）、double（64bit）, decimal（128bit） 、timestamp、bool</p>
+          </li>
+          <li data-tag="li" id="li-2gn-2ul-cpp" class="li">
+            <p id="b8ea54d8307lx">操作： 逻辑条件（AND,OR,NOT)， 算术表达式（+-*/%)， 比较操作（&gt;,=, &lt;, &gt;=, &lt;=, !=），String 操作 (LIKE, || ) </p>
+            <div data-tag="note" id="note-175-fyq-8rt" type="notice" class="note note-notice"><div class="note-icon-wrapper"><i class="icon-note note notice"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+              <p id="b8ea7be030irm">LIKE<span class="help-letter-space"></span>模糊匹配时对字母大小写敏感。</p>
+            </div></div>
+          </li>
+        </ul>
+      </section>
+      <section data-tag="section" id="section-bwj-cvt-cun" data-type="section" class="section">
+        <h2 data-tag="title" id="title-zvi-l5r-plx" class="title">支持的数据类型</h2>
+        <p data-tag="p" id="p-uel-eej-1eg" class="p">OSS<span class="help-letter-space"></span>中的<span class="help-letter-space"></span>CSV<span class="help-letter-space"></span>数据默认是<span class="help-letter-space"></span>String<span class="help-letter-space"></span>类型，您可以使用<span class="help-letter-space"></span>CAST<span class="help-letter-space"></span>函数进行数据转换。</p>
+        <p data-tag="p" id="p-lov-mm5-acq" class="p">通过<span class="help-letter-space"></span>SQL<span class="help-letter-space"></span>查询语句将_1<span class="help-letter-space"></span>和_2<span class="help-letter-space"></span>转换为<span class="help-letter-space"></span>int<span class="help-letter-space"></span>的示例：<span data-tag="ph" id="codeph-7u1-sdf-j58" class="ph"><code data-tag="code" class="code">Select * from OSSOBject where cast (_1 as int) &gt; cast(_2 as int)</code></span></p>
+        <p data-tag="p" id="p-7q4-wyd-pms" class="p"><span data-tag="apiname" id="apiname-qnw-pth-yox" class="apiname">SelectObject</span><span class="help-letter-space"></span>支持在<span class="help-letter-space"></span>Where<span class="help-letter-space"></span>条件中隐式转换，例如下面语句中的第一列和第二列将被转换成<span class="help-letter-space"></span>int：</p>
+        <p data-tag="p" id="p-47g-xgl-cj0" class="p"><span data-tag="ph" id="codeph-9sb-odd-4an" class="ph"><code data-tag="code" class="code">Select _1 from ossobject where _1 + _2 &gt; 100</code></span></p>
+        <p data-tag="p" id="p-s4r-lg5-mm7" class="p">对于<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>文件，若<span class="help-letter-space"></span>SQL<span class="help-letter-space"></span>中未指定<span class="help-letter-space"></span>cast<span class="help-letter-space"></span>函数，其类型根据<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>数据的实际类型而定，标准<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>内建的数据类型包括<span class="help-letter-space"></span>null、bool、int64、double、string<span class="help-letter-space"></span>等类型。</p>
+      </section>
+      <section data-tag="section" id="section-c4k-hrs-ngb" data-type="section" class="section">
+        <h2 data-tag="title" id="title-qf0-tqe-wc3" class="title">常见的<span class="help-letter-space"></span>SQL<span class="help-letter-space"></span>用例</h2>
+        <p data-tag="p" id="p-myb-htj-03w" class="p">常见的<span class="help-letter-space"></span>SQL<span class="help-letter-space"></span>用例包括<span class="help-letter-space"></span>CSV<span class="help-letter-space"></span>及<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>两种。</p>
+        <ul data-tag="ul" id="ul-gx5-dsj-ngb" class="ul">
+          <li data-tag="li" id="li-was-0f7-g3e" class="li">
+            <p id="b8ea7be130goi">CSV </p>
+            <table id="table-kh4-4z2-2fb" tablewidth="710" tablecolswidth="355 355" autofit="false" class="table">
+              <colgroup colwidth="1*" style="width:50.00%"></colgroup>
+              <colgroup colwidth="1*" style="width:50.00%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-7mk-imd-mmq">
+                  <td id="concept-ghk-xz2-4gb-entry-sm5-xt5-ebp" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="b8ea7be230p3v"><b>应用场景</b></p>
+                  </td>
+                  <td id="concept-ghk-xz2-4gb-entry-zt3-dij-k1d" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="b8ea7be330bij"><b>SQL<span class="help-letter-space"></span>语句</b></p>
+                  </td>
+                </tr>
+                <tr id="row-htz-e9g-83d">
+                  <td id="entry-vfh-9sz-r7y" rowspan="1" colspan="1">
+                    <p id="b8ea7be430ncz">返回前<span class="help-letter-space"></span>10<span class="help-letter-space"></span>行数据</p>
+                  </td>
+                  <td id="entry-irs-8o7-yz0" rowspan="1" colspan="1">
+                    <p id="b8ea7be530sro">select * from ossobject limit 10</p>
+                  </td>
+                </tr>
+                <tr id="row-ffu-icv-pb4">
+                  <td id="entry-9u5-0ab-f9y" rowspan="1" colspan="1">
+                    <p id="b8ea7be630q94">返回第<span class="help-letter-space"></span>1<span class="help-letter-space"></span>列和第<span class="help-letter-space"></span>3<span class="help-letter-space"></span>列的整数，并且第<span class="help-letter-space"></span>1<span class="help-letter-space"></span>列大于第<span class="help-letter-space"></span>3<span class="help-letter-space"></span>列</p>
+                  </td>
+                  <td id="entry-3s5-0hs-xe8" rowspan="1" colspan="1">
+                    <p id="b8ea7be7308ao">select _1, _3 from ossobject where cast(_1 as int) &gt; cast(_3 as int)</p>
+                  </td>
+                </tr>
+                <tr id="row-t5i-mvn-3gu">
+                  <td id="entry-hgq-s32-hvb" rowspan="1" colspan="1">
+                    <p id="b8ea7be830hyn">返回第<span class="help-letter-space"></span>1<span class="help-letter-space"></span>列以'陈'开头的记录的个数（注：此处<span class="help-letter-space"></span>like<span class="help-letter-space"></span>后的中文需要用<span class="help-letter-space"></span>UTF-8<span class="help-letter-space"></span>编码）</p>
+                  </td>
+                  <td id="entry-by8-kgv-my2" rowspan="1" colspan="1">
+                    <p id="b8ea7be930lnr"> select count(*) from ossobject where _1 like '陈%'</p>
+                  </td>
+                </tr>
+                <tr id="row-bem-ydo-uen">
+                  <td id="entry-xlk-mxr-ldt" rowspan="1" colspan="1">
+                    <p id="b8eaa2f030uaq">返回所有第<span class="help-letter-space"></span>2<span class="help-letter-space"></span>列时间大于<span class="help-letter-space"></span>2018-08-09 11:30:25<span class="help-letter-space"></span>且第<span class="help-letter-space"></span>3<span class="help-letter-space"></span>列大于<span class="help-letter-space"></span>200<span class="help-letter-space"></span>的记录</p>
+                  </td>
+                  <td id="entry-5d9-dxv-3rk" rowspan="1" colspan="1">
+                    <p id="b8eaa2f13067t">select * from ossobject where _2 &gt; cast('2018-08-09 11:30:25' as timestamp) and _3 &gt; 200</p>
+                  </td>
+                </tr>
+                <tr id="row-5x3-dzt-tqg">
+                  <td id="entry-dpf-e1e-wgf" rowspan="1" colspan="1">
+                    <p id="b8eaa2f230t8z">返回第<span class="help-letter-space"></span>2<span class="help-letter-space"></span>列浮点数的平均值，总和，最大值，最小值</p>
+                  </td>
+                  <td id="entry-fl8-fge-cgh" rowspan="1" colspan="1">
+                    <p data-tag="p" id="p-eqa-3fu-t2s" class="p">select AVG(cast(_6 as double)), SUM(cast(_6 as double)), MAX(cast(_6 as double)), MIN(cast(_6 as double)) from ossobject</p>
+                  </td>
+                </tr>
+                <tr id="row-fkq-7cw-n43">
+                  <td id="entry-93e-ylp-iwr" rowspan="1" colspan="1">
+                    <p id="b8eaa2f330blf">返回第<span class="help-letter-space"></span>1<span class="help-letter-space"></span>列和第<span class="help-letter-space"></span>3<span class="help-letter-space"></span>列连接的字符串中以'Tom'为开头以’Anderson‘结尾的所有记录</p>
+                  </td>
+                  <td id="entry-anr-g5d-au9" rowspan="1" colspan="1">
+                    <p id="b8eaa2f430iw2">select * from ossobject where (_1 || _3) like 'Tom%Anderson'</p>
+                  </td>
+                </tr>
+                <tr id="row-q0x-7g6-w0e">
+                  <td id="entry-127-70h-9ks" rowspan="1" colspan="1">
+                    <p id="b8eaa2f5307k8">返回第<span class="help-letter-space"></span>1<span class="help-letter-space"></span>列能被<span class="help-letter-space"></span>3<span class="help-letter-space"></span>整除的所有记录</p>
+                  </td>
+                  <td id="entry-glr-whv-4oq" rowspan="1" colspan="1">
+                    <p id="b8eaa2f63059t">select * from ossobject where (_1 % 3) = 0</p>
+                  </td>
+                </tr>
+                <tr id="row-66i-95m-pc5">
+                  <td id="entry-3hn-vaq-nga" rowspan="1" colspan="1">
+                    <p id="b8eaa2f7305o4">返回第<span class="help-letter-space"></span>1<span class="help-letter-space"></span>列大小在<span class="help-letter-space"></span>1995<span class="help-letter-space"></span>到<span class="help-letter-space"></span>2012<span class="help-letter-space"></span>之间的所有记录</p>
+                  </td>
+                  <td id="entry-n7c-mbr-pka" rowspan="1" colspan="1">
+                    <p id="b8eaa2f8307vy">select * from ossobject where _1 between 1995 and 2012</p>
+                  </td>
+                </tr>
+                <tr id="row-t6d-pci-z9d">
+                  <td id="entry-z8v-oue-txk" rowspan="1" colspan="1">
+                    <p id="b8eaa2f930so3">返回第<span class="help-letter-space"></span>5<span class="help-letter-space"></span>列值为<span class="help-letter-space"></span>N,M,G,L<span class="help-letter-space"></span>的所有记录</p>
+                  </td>
+                  <td id="entry-7ld-vdh-srs" rowspan="1" colspan="1">
+                    <p id="b8eaa2fa30ctx">select * from ossobject where _5 in ('N', 'M', 'G', 'L')</p>
+                  </td>
+                </tr>
+                <tr id="row-vjs-i5m-i9o">
+                  <td id="entry-fkz-p4v-6ny" rowspan="1" colspan="1">
+                    <p id="b8eaa2fb30qr3">返回第<span class="help-letter-space"></span>2<span class="help-letter-space"></span>列乘以第<span class="help-letter-space"></span>3<span class="help-letter-space"></span>列比第<span class="help-letter-space"></span>5<span class="help-letter-space"></span>列大<span class="help-letter-space"></span>100<span class="help-letter-space"></span>以上的所有记录</p>
+                  </td>
+                  <td id="entry-54k-uey-yh3" rowspan="1" colspan="1">
+                    <p id="b8eaa2fc30vui">select * from ossobject where _2 * _3 &gt; _5 + 100</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li data-tag="li" id="li-i4c-46m-yu5" class="li">
+            <p id="b8eaa2fd30fvn">JSON </p>
+            <p data-tag="p" id="p-6hs-8xy-xio" class="p">假设<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>文件如下：</p><pre data-tag="codeblock" id="codeblock-e50-8k7-zum" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>{
+  "contacts":[
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "isAlive": true,
+  "age": 27,
+  "address": {
+    "streetAddress": "21 2nd Street",
+    "city": "New York",
+    "state": "NY",
+    "postalCode": "10021-3100"
+  },
+  "phoneNumbers": [
+    {
+      "type": "home",
+      "number": "212 555-1234"
+    },
+    {
+      "type": "office",
+      "number": "646 555-4567"
+    },
+    {
+      "type": "mobile",
+      "number": "123 456-7890"
+    }
+  ],
+  "children": [],
+  "spouse": null
+}，…… #此处省略其他类似的节点
+]}</code></pre>
+            <p data-tag="p" id="p-2sn-ib7-3m4" class="p">SQL<span class="help-letter-space"></span>用例如下：</p>
+            <table id="table-ik5-lsj-ngb" tablewidth="710" tablecolswidth="284 426" autofit="false" class="table">
+              <colgroup colwidth="0.8*" style="width:40.00%"></colgroup>
+              <colgroup colwidth="1.2*" style="width:60.00%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-43f-31z-cma">
+                  <td id="concept-ghk-xz2-4gb-entry-d4s-93o-j63" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="b8eaca0030s05"><b>应用场景</b></p>
+                  </td>
+                  <td id="concept-ghk-xz2-4gb-entry-2x1-q00-izk" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="b8eaca01307rm"><b>SQL<span class="help-letter-space"></span>语句</b></p>
+                  </td>
+                </tr>
+                <tr id="row-p1d-500-vwi">
+                  <td id="entry-gcb-mgj-vre" rowspan="1" colspan="1">
+                    <p id="b8eaca0230kdr">返回所有<span class="help-letter-space"></span>age<span class="help-letter-space"></span>是<span class="help-letter-space"></span>27<span class="help-letter-space"></span>的记录</p>
+                  </td>
+                  <td id="entry-a5k-mbk-mx2" rowspan="1" colspan="1">
+                    <p id="b8eaca03309q0">select * from ossobject.contacts[*] s where s.age = 27</p>
+                  </td>
+                </tr>
+                <tr id="row-s2o-lb5-1k7">
+                  <td id="entry-mqm-gd9-d19" rowspan="1" colspan="1">
+                    <p id="b8eaca0430udy">返回所有的家庭电话</p>
+                  </td>
+                  <td id="entry-odx-87f-jpc" rowspan="1" colspan="1">
+                    <p id="b8eaca0530caq">select s.number from ossobject.contacts[*].phoneNumbers[*] s where s.type = "home"</p>
+                  </td>
+                </tr>
+                <tr id="row-sne-4l0-ccz">
+                  <td id="entry-syl-u2t-cwo" rowspan="1" colspan="1">
+                    <p id="b8eaca0630wdi">返回所有单身的记录</p>
+                  </td>
+                  <td id="entry-rf5-320-1pl" rowspan="1" colspan="1">
+                    <p id="b8eaca0730p5m">select * from ossobject s where s.spouse is null</p>
+                  </td>
+                </tr>
+                <tr id="row-7vc-avh-lqu">
+                  <td id="entry-fj4-cxr-ird" rowspan="1" colspan="1">
+                    <p id="b8eaca08309cm">返回所有没有孩子的记录</p>
+                  </td>
+                  <td id="entry-evt-fjh-ual" rowspan="1" colspan="1">
+                    <p id="b8eaca0930gkq">select * from ossobject s where s.children[0] is null </p>
+                    <div data-tag="note" id="note-d8g-eqj-lns" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                      <p id="b8eaca0a306sg">目前没有专用的空数组的表示方法，用以上语句代替。</p>
+                    </div></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ul>
+      </section>
+      <section data-tag="section" id="section-vk1-hky-b2b" data-type="section" class="section">
+        <h2 data-tag="title" id="title-aqw-2hc-w5r" class="title">使用场景</h2>
+        <p data-tag="p" id="p-cky-vb1-u2e" class="p">SelectObject<span class="help-letter-space"></span>通常用于大文件分片查询、JSON<span class="help-letter-space"></span>文件查询、日志文件分析等场景。</p>
+        <ul data-tag="ul" id="ul-zct-bjj-ngb" class="ul">
+          <li data-tag="li" id="li-kfl-pdv-v7u" class="li">
+            <p id="b8eaf11030spi">大文件分片查询 </p>
+            <p data-tag="p" id="p-zjw-iw0-sh8" class="p">和<span class="help-letter-space"></span><span data-tag="apiname" id="apiname-a6r-3dm-ndp" class="apiname">GetObject</span><span class="help-letter-space"></span>提供的基于<span class="help-letter-space"></span>Byte<span class="help-letter-space"></span>的分片下载类似，<span data-tag="apiname" id="apiname-cno-hgu-m6n" class="apiname">SelectObject</span><span class="help-letter-space"></span>也提供了分片查询的机制，包括以下两种分片方式：</p>
+            <ul data-tag="ul" id="ul-bw2-6jd-1za" class="ul">
+              <li data-tag="li" id="li-uug-92x-dm0" class="li">
+                <p id="b8eaf11130jjh">按行分片：常用的分片方式，然而对于稀疏数据来说，按行分片可能会导致分片时负载不均衡。</p>
+              </li>
+              <li data-tag="li" id="li-iy4-4vi-mps" class="li">
+                <p id="b8eaf112303an">按<span class="help-letter-space"></span>Split<span class="help-letter-space"></span>分片：Split<span class="help-letter-space"></span>是<span class="help-letter-space"></span>OSS<span class="help-letter-space"></span>用于分片的一个概念，一个<span class="help-letter-space"></span>Split<span class="help-letter-space"></span>包含多行数据，每个<span class="help-letter-space"></span>Split<span class="help-letter-space"></span>的数据大小大致相等。</p>
+              </li>
+            </ul>
+            <div data-tag="note" id="note-81u-ufw-dul" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+              <p id="b8eaf11330pgk">按<span class="help-letter-space"></span>Split<span class="help-letter-space"></span>分片比按行分片更加高效。</p>
+            </div></div>
+            <p data-tag="p" id="p-w5r-2b7-iuc" class="p">如果确定<span class="help-letter-space"></span>CSV<span class="help-letter-space"></span>文件列中不包含换行符，则基于<span class="help-letter-space"></span>Bytes<span class="help-letter-space"></span>的分片由于不需要创建<span class="help-letter-space"></span>Meta，其使用更为简便。如果列中包含换行符或者是<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>文件时，则使用以下步骤：</p>
+            <ol data-tag="ol" id="ol-wz3-htc-mq1" class="ol">
+              <li data-tag="li" id="li-saz-m7m-71r" class="li">
+                <p id="b8eaf11430jzn">调用<span class="help-letter-space"></span>CreateSelectObjectMeta API<span class="help-letter-space"></span>获得该文件的总的<span class="help-letter-space"></span>Split<span class="help-letter-space"></span>数。如果该文件需要用<span class="help-letter-space"></span>SelectObject，则建议在查询前异步调用该接口，以节省扫描时间。</p>
+              </li>
+              <li data-tag="li" id="li-ara-dd3-16s" class="li">
+                <p id="b8eaf11530ry7">根据客户端资源情况选择合适的并发度<span class="help-letter-space"></span>n，用总的<span class="help-letter-space"></span>Split<span class="help-letter-space"></span>数除以并发度<span class="help-letter-space"></span>n<span class="help-letter-space"></span>得到每个分片查询应该包含的<span class="help-letter-space"></span>Split<span class="help-letter-space"></span>个数。</p>
+              </li>
+              <li data-tag="li" id="li-xgx-8of-1ej" class="li">
+                <p id="b8eaf11630546">在请求<span class="help-letter-space"></span>Body<span class="help-letter-space"></span>中用诸如<span class="help-letter-space"></span>split-range=1-20<span class="help-letter-space"></span>的形式进行分片查询。</p>
+              </li>
+              <li data-tag="li" id="li-lyj-as9-017" class="li">
+                <p id="b8eaf11730bi5">合并结果。</p>
+              </li>
+            </ol>
+          </li>
+          <li data-tag="li" id="li-6dq-ayu-kjb" class="li">
+            <p id="b8eaf118308ik">JSON<span class="help-letter-space"></span>文件查询</p>
+            <p data-tag="p" id="p-cyk-t6g-l3c" class="p">查询<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>文件时，在<span class="help-letter-space"></span>SQL<span class="help-letter-space"></span>的<span class="help-letter-space"></span>From<span class="help-letter-space"></span>语句中尽可能缩小<span class="help-letter-space"></span>From<span class="help-letter-space"></span>后的<span class="help-letter-space"></span>JSON Path<span class="help-letter-space"></span>范围。</p>
+            <p data-tag="p" id="p-o5o-sbs-ly1" class="p">如下是<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>文件示例：</p><pre data-tag="codeblock" id="codeblock-8nd-bki-pgu" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>{
+  "contacts":[
+{
+  "firstName": "John",
+  "lastName": "Smith",
+  "address": {
+    "streetAddress": "21 2nd Street",
+    "city": "New York",
+    "state": "NY",
+    "postalCode": "10021-3100"
+  },
+  "phoneNumbers": [
+    {
+      "type": "home",
+      "number": "212 555-1234"
+    },
+    {
+      "type": "office",
+      "number": "646 555-4567"
+    },
+    {
+      "type": "mobile",
+      "number": "123 456-7890"
+    }
+  ]
+}
+]}</code></pre>
+            <p data-tag="p" id="p-bv0-zho-1fs" class="p">如果要查找所有<span class="help-letter-space"></span>postalCode<span class="help-letter-space"></span>为<span class="help-letter-space"></span>10021<span class="help-letter-space"></span>开头的<span class="help-letter-space"></span>streetAddress，SQL<span class="help-letter-space"></span>可以写为<span data-tag="ph" id="codeph-enk-vil-1jr" class="ph"><code data-tag="code" class="code"> select s.address.streetAddress from ossobject.contacts[*] s where s.address.postalCode like '10021%'</code></span>或者<span data-tag="ph" id="codeph-1pa-a8w-kat" class="ph"><code data-tag="code" class="code">select s.streetAddress from ossobject.contacts[*].address s where s.postalCode like '10021%'</code></span></p>
+            <p data-tag="p" id="p-grt-reb-k17" class="p">由于<span data-tag="ph" id="codeph-1td-mnj-5j7" class="ph"><code data-tag="code" class="code">select s.streetAddress from ossobject.contacts[*].address s where s.postalCode like '10021%'</code></span>的<span class="help-letter-space"></span>JSON Path<span class="help-letter-space"></span>更加精确，因此性能更优。</p>
+          </li>
+          <li data-tag="li" id="li-q1h-ll5-pw6" class="li">
+            <p id="b8eaf11930c9d">在<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>文件中处理高精度浮点数 </p>
+            <p data-tag="p" id="p-89a-orn-q8h" class="p">在<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>文件中需要进行高精度浮点数的数值计算时，建议设置<span class="help-letter-space"></span>ParseJsonNumberAsString<span class="help-letter-space"></span>选项为<span class="help-letter-space"></span>true, 同时将该值<span class="help-letter-space"></span>cast<span class="help-letter-space"></span>成<span class="help-letter-space"></span>Decimal。比如一个属性<span class="help-letter-space"></span>a<span class="help-letter-space"></span>值为<span class="help-letter-space"></span>123456789.123456789，用<span data-tag="ph" id="codeph-voo-n6e-0v9" class="ph"><code data-tag="code" class="code">select s.a from ossobject s where cast(s.a as decimal) &gt; 123456789.12345</code></span>就可以保持原始数据的精度不丢失。</p>
+          </li>
+        </ul>
+      </section>
+      <section id="203148beb1e98" class="section">
+        <h2 id="83357a527e7yc"><b>操作方式</b></h2>
+        <div data-tag="section" id="section-f9e-i6e-mid" outputclass="collapse" data-type="section" class="section collapse">
+          <h3 id="0010986030t88" data-tag="expandable-title" class="expandable-title"><b>使用<span class="help-letter-space"></span>OSS<span class="help-letter-space"></span>控制台</b></h3>
+          <div id="0cbc41fa6e0u7" data-tag="expandable-content" class="expandable-content">
+            <div data-tag="note" id="note-8t7-cwy-dn0" type="notice" class="note note-notice"><div class="note-icon-wrapper"><i class="icon-note note notice"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+              <p id="8deb34cc13zjt">通过控制台仅支持从<span class="help-letter-space"></span>128 MB<span class="help-letter-space"></span>以下的文件中提取<span class="help-letter-space"></span>40 MB<span class="help-letter-space"></span>以下的数据记录。</p>
+            </div></div>
+            <ol data-tag="steps" id="steps-l9w-8bz-os1" class="steps">
+              <li data-tag="step" id="4c4142dc7dp7s" is-conref="true" class="step"><p id="cb592be0e5665"><span data-tag="cmd" id="cmd-rse-rnw-ios" class="cmd">登录<span props="china intl"><span class="help-letter-space"></span><a href="https://oss.console.aliyun.com/" id="xref-4qu-r1e-rc2" class="" target="_blank">OSS<span class="help-letter-space"></span>管理控制台</a></span>。</span></p></li>
+              <li data-tag="step" id="a446189082s1c" is-conref="true" class="step"><p id="cb597a00e5yer"><span data-tag="cmd" id="cmd-vq9-47x-e73" class="cmd">单击<span class="help-letter-space"></span><b id="bucket.list" data-tag="uicontrol" data-isbold="true" class="uicontrol">Bucket 列表</b>，然后单击目标<span class="help-letter-space"></span>Bucket<span class="help-letter-space"></span>名称。</span></p></li>
+              <li data-tag="step" id="75fe41d3bcga2" is-conref="true" class="step"><p id="cb59a110e52cf"><span data-tag="cmd" id="cmd-rgk-apc-zie" class="cmd">在左侧导航栏，选择<b id="file.manage" data-tag="uicontrol" data-isbold="true" class="uicontrol">文件管理</b>&gt;<b id="bucket.object.file-list" data-tag="uicontrol" data-isbold="true" class="uicontrol">文件列表</b>。</span></p></li>
+              <li data-tag="step" id="step-gtp-wcy-s1k" class="step">
+                <p id="72ab4b82e055c"><span data-tag="cmd" id="cmd-1ey-u0s-4z2" class="cmd">在目标文件右侧的操作栏下，选择<span data-tag="menucascade" id="menucascade-zth-z80-i8g" class="menucascade"><b data-tag="uicontrol" id="uicontrol-skz-jvg-n1q" class="uicontrol"><img data-tag="image" id="image-7b1-iko-1yt" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0119586661/p508856.jpg" alt="more " placement="inline" class="image inline"></b> &gt; <b id="uicontrol-mtq-xng-ty1" data-tag="uicontrol" data-isbold="true" class="uicontrol">选取内容</b></span>。</span></p>
+              </li>
+              <li data-tag="step" id="step-ghx-rhm-x12" class="step">
+                <p id="377bcc4a8f21r"><span data-tag="cmd" id="cmd-d3g-ukn-rix" class="cmd">在<b id="wintitle-jet-2qi-0v3" data-tag="uicontrol" data-isbold="true" class="uicontrol">选取内容</b>面板，按以下说明设置各项参数。</span></p>
+                <div data-tag="info" id="info-p8n-xsd-s8m" class="info">
+                  <table id="table-lbq-f48-tek" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+                    <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+                    <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+                    <tbody class="tbody">
+                      <tr id="row-mv7-2as-8j9">
+                        <td id="concept-ghk-xz2-4gb-entry-jfx-ptx-6bj" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                          <p id="c9e1a6f821uey"><b>参数</b></p>
+                        </td>
+                        <td id="concept-ghk-xz2-4gb-entry-e81-4o8-brv" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                          <p id="e96932eac4eqd"><b>说明</b></p>
+                        </td>
+                      </tr>
+                      <tr id="row-ykq-oy1-pp0">
+                        <td id="entry-cql-43u-xgb" rowspan="1" colspan="1">
+                          <p id="5f64a1d627pbv"><span data-tag="parmname" id="parmname-6uu-hq7-ec4" class="parmname">文件类型</span></p>
+                        </td>
+                        <td id="entry-qlh-zjf-0cu" rowspan="1" colspan="1">
+                          <p id="e8283caa3cshd">仅支持<span class="help-letter-space"></span>CSV<span class="help-letter-space"></span>和<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>两种文件类型。</p>
+                        </td>
+                      </tr>
+                      <tr id="row-8aw-mkc-rdr">
+                        <td id="entry-h2t-url-gun" rowspan="1" colspan="1">
+                          <p id="cb9c743ed8fqp"><span data-tag="parmname" id="parmname-f9o-5l8-cgy" class="parmname">分隔符</span></p>
+                        </td>
+                        <td id="entry-y9s-zdu-s6a" rowspan="1" colspan="1">
+                          <p id="4373fbd473gg7">仅适用于<span class="help-letter-space"></span>CSV<span class="help-letter-space"></span>文件。请选择半角逗号（,）或自定义分隔符。</p>
+                        </td>
+                      </tr>
+                      <tr id="row-z4f-ycm-fep">
+                        <td id="entry-7ty-wxd-hvo" rowspan="1" colspan="1">
+                          <p id="16d25394217nb"><span data-tag="parmname" id="parmname-j09-bum-kqj" class="parmname">标题行</span></p>
+                        </td>
+                        <td id="entry-u76-ji0-kge" rowspan="1" colspan="1">
+                          <p id="ceda9d0822ijb">仅适用于<span class="help-letter-space"></span>CSV<span class="help-letter-space"></span>文件。请选择文件第一行是否包含列标题。</p>
+                        </td>
+                      </tr>
+                      <tr id="row-0dv-1so-8rk">
+                        <td id="entry-0ea-hqk-sgu" rowspan="1" colspan="1">
+                          <p id="8535ff8b348qd"><span data-tag="parmname" id="parmname-z8a-p27-d4t" class="parmname">JSON<span class="help-letter-space"></span>格式符</span></p>
+                        </td>
+                        <td id="entry-3sy-uwb-jdg" rowspan="1" colspan="1">
+                          <p id="0e09f1f8aaff1">仅适用于<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>文件。请选择您的<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>文件对应的格式。</p>
+                        </td>
+                      </tr>
+                      <tr id="row-7cz-ds5-6cb">
+                        <td id="entry-5e1-7cx-6ak" rowspan="1" colspan="1">
+                          <p id="1c2af0a572krb"><span data-tag="parmname" id="parmname-gqt-0b0-l0u" class="parmname">压缩格式</span></p>
+                        </td>
+                        <td id="entry-e17-tzb-xqw" rowspan="1" colspan="1">
+                          <p id="fc5c8bf2b8oj5">选择您当前的文件是否为压缩文件。目前压缩文件仅支持<span class="help-letter-space"></span>GZIP<span class="help-letter-space"></span>文件。</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </li>
+              <li data-tag="step" id="step-k01-i5p-v18" class="step">
+                <p id="e545efa10f6xl"><span data-tag="cmd" id="cmd-ybf-27h-mjj" class="cmd">单击<b id="uicontrol-xtz-hqy-ary" data-tag="uicontrol" data-isbold="true" class="uicontrol">显示文件预览</b>。</span></p>
+                <div data-tag="info" id="info-0lc-1y2-ec8" class="info">
+                  <div data-tag="note" id="note-wxc-s1s-w90" type="notice" class="note note-notice"><div class="note-icon-wrapper"><i class="icon-note note notice"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                    <p id="155864c966zyy">预览标准存储类型文件时，会产生<span class="help-letter-space"></span>Select<span class="help-letter-space"></span>扫描费用。预览低频访问、归档存储、冷归档存储或者深度冷归档存储类型文件时，会产生<span class="help-letter-space"></span>Select<span class="help-letter-space"></span>扫描费用和数据取回费用。更多信息，请参见<a href="https://help.aliyun.com/zh/oss/data-processing-fees#concept-2558464" id="a582fd3bcf398" title="" class="xref">数据处理费用</a>。</p>
+                  </div></div>
+                </div>
+              </li>
+              <li data-tag="step" id="step-ej7-kyw-0rc" class="step">
+                <p id="d06fd872b9fnu"><span data-tag="cmd" id="cmd-czj-zfg-ofi" class="cmd">单击<b id="uicontrol-ljl-o9c-6pl" data-tag="uicontrol" data-isbold="true" class="uicontrol">下一步</b>，输入<span class="help-letter-space"></span>SQL<span class="help-letter-space"></span>语句并执行。</span></p>
+                <div data-tag="info" id="info-thm-tmp-dr2" class="info">
+                  <p id="971cea6154t6n">假设名为<span class="help-letter-space"></span><span data-tag="filepath" id="filepath-m08-chh-9bg" class="filepath">People</span><span class="help-letter-space"></span>的<span class="help-letter-space"></span>CSV<span class="help-letter-space"></span>文件有<span class="help-letter-space"></span>3<span class="help-letter-space"></span>列数据，分别是<span data-tag="parmname" id="parmname-ncd-q21-ecp" class="parmname">姓名</span>、<span data-tag="parmname" id="parmname-2tm-ur7-cdy" class="parmname">公司</span>和<span data-tag="parmname" id="parmname-ckr-r9a-2f6" class="parmname">年龄</span>。 </p>
+                  <ul data-tag="ul" id="ul-tsq-6oe-4yc" class="ul">
+                    <li data-tag="li" id="li-zzr-tos-kod" class="li">
+                      <p id="fa8baac7436qa">如果想查找年龄大于<span class="help-letter-space"></span>50<span class="help-letter-space"></span>岁，并且名字以<span class="help-letter-space"></span>Lora<span class="help-letter-space"></span>开头的人（其中_1,_2,_3<span class="help-letter-space"></span>是列索引，代表第一列、第二列、第三列），可以执行以下<span class="help-letter-space"></span>SQL<span class="help-letter-space"></span>语句： </p><pre data-tag="codeblock" id="codeblock-qd5-rgi-fya" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>select * from ossobject where _1 like 'Lora*' and _3 &gt; 50</code></pre>
+                    </li>
+                    <li data-tag="li" id="li-juw-qmc-ikk" class="li">
+                      <p id="bcc21603a0753">如果想统计这个文件有多少行，最大年龄与最小年龄是多少，可以执行以下<span class="help-letter-space"></span>SQL<span class="help-letter-space"></span>语句： </p><pre data-tag="codeblock" id="codeblock-tu2-00i-5fv" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>select count(*), max(cast(_3 as int)), min(cast(_3 as int)) from ossobject</code></pre>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+              <li data-tag="step" id="step-0r1-8dv-fep" class="step">
+                <p id="c36a206736ted"><span data-tag="cmd" id="cmd-3h1-kny-74a" class="cmd">查看执行结果。</span></p>
+                <div data-tag="info" id="info-rxq-t1h-wu5" class="info">
+                  <p id="b088f66793h13">您还可以单击<b id="uicontrol-k8u-xnt-s2v" data-tag="uicontrol" data-isbold="true" class="uicontrol">下载</b>，将所选取的内容下载到本地。</p>
+                </div>
+              </li>
+            </ol>
+          </div>
+        </div>
+        <div data-tag="section" id="section-v0e-yl1-9jn" outputclass="collapse" data-type="section" class="section collapse">
+          <h3 id="f75d451030jl1" data-tag="expandable-title" class="expandable-title"><b>使用阿里云<span class="help-letter-space"></span>SDK</b></h3>
+          <div id="84bb2622c639e" data-tag="expandable-content" class="expandable-content">
+            <p id="2c6bb433cdzwt">当前仅支持通过<span class="help-letter-space"></span>Java SDK<span class="help-letter-space"></span>和<span class="help-letter-space"></span>Python SDK<span class="help-letter-space"></span>查询文件。</p>
+            <div outputclass="tabbed-codeblock" data-tag="fig" id="fig-5s7-hmq-js5" class="tabbed-codeblock-box"><div class="tab-box"></div><input type="radio" name="check-fig-5s7-hmq-js5" id="fig-5s7-hmq-js5-java-tab" checked=""><label for="fig-5s7-hmq-js5-java-tab">Java</label><div class="codeblock-item"><pre data-tag="codeblock" id="1fca720079u3r" outputclass="language-java" code-type="xCode" is-conref="true" class="pre codeblock language-java"><code>import com.aliyun.oss.ClientBuilderConfiguration;
+import com.aliyun.oss.common.comm.SignVersion;
+import com.aliyun.oss.model.*;
+import com.aliyun.oss.OSS;
+import com.aliyun.oss.common.auth.*;
+import com.aliyun.oss.OSSClientBuilder;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.InputStreamReader;
+
+/**
+ * Examples of create select object metadata and select object.
+ *
+ */
+public class SelectObjectSample {
+    // yourEndpoint填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。
+    private static String endpoint = "https://oss-cn-hangzhou.aliyuncs.com";
+    // 填写Bucket名称，例如examplebucket。
+    private static String bucketName = "examplebucket";
+
+    public static void main(String[] args) throws Exception {
+      
+      	// 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
+        EnvironmentVariableCredentialsProvider credentialsProvider = CredentialsProviderFactory.newEnvironmentVariableCredentialsProvider();
+        // 填写Bucket所在地域。以华东1（杭州）为例，Region填写为cn-hangzhou。
+        String region = "cn-hangzhou";
+
+        // 创建OSSClient实例。
+        // 当OSSClient实例不再使用时，调用shutdown方法以释放资源。
+        ClientBuilderConfiguration clientBuilderConfiguration = new ClientBuilderConfiguration();
+        clientBuilderConfiguration.setSignatureVersion(SignVersion.V4);        
+        OSS ossClient = OSSClientBuilder.create()
+        .endpoint(endpoint)
+        .credentialsProvider(credentialsProvider)
+        .clientConfiguration(clientBuilderConfiguration)
+        .region(region)               
+        .build();
+        // 填写Object完整路径后，根据SELECT语句查询文件中的数据。Object完整路径中不能包含Bucket名称。
+        // 填写CSV格式的Object完整路径。
+        selectCsvSample("test.csv", ossClient);
+        // 填写JSON格式的Object完整路径。
+        selectJsonSample("test.json", ossClient);
+        ossClient.shutdown();
+    }
+
+    private static void selectCsvSample(String key, OSS ossClient) throws Exception {
+        // 填写上传的内容。
+        String content = "name,school,company,age\r\n" +
+                "Lora Francis,School A,Staples Inc,27\r\n" +
+                "Eleanor Little,School B,\"Conectiv, Inc\",43\r\n" +
+                "Rosie Hughes,School C,Western Gas Resources Inc,44\r\n" +
+                "Lawrence Ross,School D,MetLife Inc.,24";
+
+        ossClient.putObject(bucketName, key, new ByteArrayInputStream(content.getBytes()));
+
+        SelectObjectMetadata selectObjectMetadata = ossClient.createSelectObjectMetadata(
+                new CreateSelectObjectMetadataRequest(bucketName, key)
+                        .withInputSerialization(
+                                new InputSerialization().withCsvInputFormat(
+                                        // 填写内容中不同记录之间的分隔符，例如\r\n。
+                                        new CSVFormat().withHeaderInfo(CSVFormat.Header.Use).withRecordDelimiter("\r\n"))));
+        System.out.println(selectObjectMetadata.getCsvObjectMetadata().getTotalLines());
+        System.out.println(selectObjectMetadata.getCsvObjectMetadata().getSplits());
+
+        SelectObjectRequest selectObjectRequest =
+                new SelectObjectRequest(bucketName, key)
+                        .withInputSerialization(
+                                new InputSerialization().withCsvInputFormat(
+                                        new CSVFormat().withHeaderInfo(CSVFormat.Header.Use).withRecordDelimiter("\r\n")))
+                        .withOutputSerialization(new OutputSerialization().withCsvOutputFormat(new CSVFormat()));
+        // 使用SELECT语句查询第4列，值大于40的所有记录。
+        selectObjectRequest.setExpression("select * from ossobject where _4 &gt; 40");
+        OSSObject ossObject = ossClient.selectObject(selectObjectRequest);
+
+        // 读取内容。
+        BufferedReader reader = new BufferedReader(new InputStreamReader(ossObject.getObjectContent()));
+        while (true) {
+            String line = reader.readLine();
+            if (line == null) {
+                break;
+            }
+            System.out.println(line);
+        }
+        reader.close();
+
+        ossClient.deleteObject(bucketName, key);
+    }
+
+    private static void selectJsonSample(String key, OSS ossClient) throws Exception {
+        // 填写上传的内容。
+        final String content = "{\n" +
+                "\t\"name\": \"Lora Francis\",\n" +
+                "\t\"age\": 27,\n" +
+                "\t\"company\": \"Staples Inc\"\n" +
+                "}\n" +
+                "{\n" +
+                "\t\"name\": \"Eleanor Little\",\n" +
+                "\t\"age\": 43,\n" +
+                "\t\"company\": \"Conectiv, Inc\"\n" +
+                "}\n" +
+                "{\n" +
+                "\t\"name\": \"Rosie Hughes\",\n" +
+                "\t\"age\": 44,\n" +
+                "\t\"company\": \"Western Gas Resources Inc\"\n" +
+                "}\n" +
+                "{\n" +
+                "\t\"name\": \"Lawrence Ross\",\n" +
+                "\t\"age\": 24,\n" +
+                "\t\"company\": \"MetLife Inc.\"\n" +
+                "}";
+
+        ossClient.putObject(bucketName, key, new ByteArrayInputStream(content.getBytes()));
+
+        SelectObjectRequest selectObjectRequest =
+                new SelectObjectRequest(bucketName, key)
+                        .withInputSerialization(new InputSerialization()
+                                .withCompressionType(CompressionType.NONE)
+                                .withJsonInputFormat(new JsonFormat().withJsonType(JsonType.LINES)))
+                        .withOutputSerialization(new OutputSerialization()
+                                .withCrcEnabled(true)
+                                .withJsonOutputFormat(new JsonFormat()))
+                        .withExpression("select * from ossobject as s where s.age &gt; 40"); // 使用SELECT语句查询文件中的数据。
+
+        OSSObject ossObject = ossClient.selectObject(selectObjectRequest);
+
+        // 读取内容。
+        BufferedReader reader = new BufferedReader(new InputStreamReader(ossObject.getObjectContent()));
+        while (true) {
+            String line = reader.readLine();
+            if (line == null) {
+                break;
+            }
+            System.out.println(line);
+        }
+        reader.close();
+
+        ossClient.deleteObject(bucketName, key);
+    }
+}</code></pre></div><input type="radio" name="check-fig-5s7-hmq-js5" id="fig-5s7-hmq-js5-python-tab"><label for="fig-5s7-hmq-js5-python-tab">Python</label><div class="codeblock-item"><pre data-tag="codeblock" id="fe20e4f74bzo5" outputclass="language-python" code-type="xCode" is-conref="true" class="pre codeblock language-python"><code>import oss2
+from oss2.credentials import EnvironmentVariableCredentialsProvider
+
+def select_call_back(consumed_bytes, total_bytes = None):
+    print('Consumed Bytes:' + str(consumed_bytes) + '\n')
+
+# 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。
+auth = oss2.ProviderAuthV4(EnvironmentVariableCredentialsProvider())
+
+# 填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。
+endpoint = "https://oss-cn-hangzhou.aliyuncs.com"
+
+# 填写Endpoint对应的Region信息，例如cn-hangzhou。注意，v4签名下，必须填写该参数
+region = "cn-hangzhou"
+
+# yourBucketName填写存储空间名称。
+bucket = oss2.Bucket(auth, endpoint, "yourBucketName", region=region)
+
+key ='python_select.csv'
+content ='Tom Hanks,USA,45\r\n'*1024
+filename ='python_select.csv'
+
+# 上传CSV文件。
+bucket.put_object(key, content)
+# Select API的参数。
+csv_meta_params = {'RecordDelimiter': '\r\n'}
+select_csv_params = {'CsvHeaderInfo': 'None',
+                    'RecordDelimiter': '\r\n',
+                    'LineRange': (500, 1000)}
+
+csv_header = bucket.create_select_object_meta(key, csv_meta_params)
+print(csv_header.rows)
+print(csv_header.splits)
+result = bucket.select_object(key, "select * from ossobject where _3 &gt; 44", select_call_back, select_csv_params)
+select_content = result.read()
+print(select_content)
+
+result = bucket.select_object_to_file(key, filename,
+      "select * from ossobject where _3 &gt; 44", select_call_back, select_csv_params)
+bucket.delete_object(key)
+
+###JSON DOCUMENT
+key =  'python_select.json'
+content =  "{\"contacts\":[{\"key1\":1,\"key2\":\"hello world1\"},{\"key1\":2,\"key2\":\"hello world2\"}]}"
+filename =  'python_select.json'
+# 上传JSON DOCUMENT。
+bucket.put_object(key, content)
+select_json_params = {'Json_Type': 'DOCUMENT'}
+result = bucket.select_object(key, "select s.key2 from ossobject.contacts[*] s where s.key1 = 1", None, select_json_params)
+select_content = result.read()
+print(select_content)
+
+result = bucket.select_object_to_file(key, filename,
+      "select s.key2 from ossobject.contacts[*] s where s.key1 = 1", None, select_json_params)
+bucket.delete_object(key)
+
+###JSON LINES
+key =  'python_select_lines.json'
+content =  "{\"key1\":1,\"key2\":\"hello world1\"}\n{\"key1\":2,\"key2\":\"hello world2\"}"
+filename =  'python_select.json'
+# 上传JSON LINE。
+bucket.put_object(key, content)
+select_json_params = {'Json_Type': 'LINES'}
+json_header = bucket.create_select_object_meta(key,select_json_params)
+print(json_header.rows)
+print(json_header.splits)
+
+result = bucket.select_object(key, "select s.key2 from ossobject s where s.key1 = 1", None, select_json_params)
+select_content =  result.read()
+print(select_content)
+result = bucket.select_object_to_file(key, filename,
+           "select s.key2 from ossobject s where s.key1 = 1", None, select_json_params)
+bucket.delete_object(key)</code></pre></div><input type="radio" name="check-fig-5s7-hmq-js5" id="fig-5s7-hmq-js5--tab"><label for="fig-5s7-hmq-js5--tab"></label><div class="codeblock-item"><pre code-type="xCode" id="1614bf3194n9e" data-tag="codeblock" outputclass="" syntax="go" theme="default" docid="4793783" is-conref="true" class="pre codeblock"><code>package main
+
+import (
+	"context"
+	"flag"
+	"io"
+	"log"
+
+	"github.com/aliyun/alibabacloud-oss-go-sdk-v2/oss"
+	"github.com/aliyun/alibabacloud-oss-go-sdk-v2/oss/credentials"
+)
+
+// 定义全局变量
+var (
+	region     string // 存储区域
+	bucketName string // 存储空间名称
+	objectName string // 对象名称
+)
+
+// init函数用于初始化命令行参数
+func init() {
+	flag.StringVar(&amp;region, "region", "", "The region in which the bucket is located.")
+	flag.StringVar(&amp;bucketName, "bucket", "", "The name of the bucket.")
+	flag.StringVar(&amp;objectName, "object", "", "The name of the object.")
+}
+
+func main() {
+	// 解析命令行参数
+	flag.Parse()
+
+	// 检查bucket名称是否为空
+	if len(bucketName) == 0 {
+		flag.PrintDefaults()
+		log.Fatalf("invalid parameters, bucket name required")
+	}
+
+	// 检查region是否为空
+	if len(region) == 0 {
+		flag.PrintDefaults()
+		log.Fatalf("invalid parameters, region required")
+	}
+
+	// 检查object名称是否为空
+	if len(objectName) == 0 {
+		flag.PrintDefaults()
+		log.Fatalf("invalid parameters, object name required")
+	}
+
+	// 加载默认配置并设置凭证提供者和区域
+	cfg := oss.LoadDefaultConfig().
+		WithCredentialsProvider(credentials.NewEnvironmentVariableCredentialsProvider()).
+		WithRegion(region)
+
+	// 创建OSS客户端
+	client := oss.NewClient(cfg)
+
+	// 创建选择对象的请求
+	request := &amp;oss.SelectObjectRequest{
+		Bucket: oss.Ptr(bucketName), // 存储空间名称
+		Key:    oss.Ptr(objectName), // 对象名称
+		SelectRequest: &amp;oss.SelectRequest{
+			Expression: oss.Ptr("select * from ossobject limit 10"), // 定义SQL查询表达式，查询对象中的前10行数据
+			InputSerializationSelect: oss.InputSerializationSelect{
+				CsvBodyInput: &amp;oss.CSVSelectInput{
+					FileHeaderInfo: oss.Ptr("Use"),
+				},
+			},
+			OutputSerializationSelect: oss.OutputSerializationSelect{
+				OutputHeader: oss.Ptr(true),
+			},
+		},
+	}
+
+	// 执行选择对象的请求
+	result, err := client.SelectObject(context.TODO(), request)
+	if err != nil {
+		log.Fatalf("failed to select object %v", err)
+	}
+
+	content, err := io.ReadAll(result.Body)
+	if err != nil {
+		log.Fatalf("failed to read object %v", err)
+	}
+
+	// 打印选择对象的结果
+	log.Printf("select object result:%#v\n", string(content))
+}
+</code></pre></div></div>
+          </div>
+        </div>
+        <div data-tag="section" id="section-hdk-nsx-nbv" outputclass="collapse" data-type="section" class="section collapse">
+          <h3 data-tag="expandable-title" id="title-nf5-c9b-a44" class="expandable-title"><b>使用命令行工具<span class="help-letter-space"></span>ossutil</b></h3>
+          <div id="f5ce9da67bk8s" data-tag="expandable-content" class="expandable-content">
+            <p id="297c45d029a23">您可以使用命令行工具<span class="help-letter-space"></span>ossutil<span class="help-letter-space"></span>来查询文件，ossutil<span class="help-letter-space"></span>的安装请参见<a href="https://help.aliyun.com/zh/oss/install-ossutil2#DAS" id="2c4f2218e2be5" title="" class="xref">安装<span class="help-letter-space"></span>ossutil</a>。</p>
+            <p id="5b61b6cf7ao29">以下命令用于为存储空间<code data-tag="code" code-type="xCode" class="code">examplebucket</code>中的<span class="help-letter-space"></span>exampleobject<span class="help-letter-space"></span>执行<span class="help-letter-space"></span>SQL<span class="help-letter-space"></span>语句，请求语法 CSV。</p><pre code-type="xCode" id="8f975f6710dzp" data-tag="codeblock" outputclass="language-bash" class="pre codeblock language-bash"><code>ossutil api select-object --bucket examplebucket --key exampleobject --select-request "{\"Expression\":\"c2VsZWN0IFllYXIsU3RhdGVBYmJyLCBDaXR5TmFtZSwgU2hvcnRfUXVlc3Rpb25fVGV4dCBmcm9tIG9zc29iamVjdA==\",\"InputSerialization\":{\"CSV\":{\"FileHeaderInfo\":\"Use\",\"Range\":\"line-range=0-100\"}},\"OutputSerialization\":{\"JSON\":{\"RecordDelimiter\":\",\"}}}"</code></pre>
+            <p id="d7dc143a44zta">关于该命令的更多信息，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/oss/developer-reference/select-object" id="ebec4c39ffad2" title="" class="xref">select-object</a>。</p>
+          </div>
+        </div>
+      </section>
+      <section id="bd215a77a9869" class="section">
+        <h2 data-tag="title" id="a40a161a6e6lh" class="title">相关<span class="help-letter-space"></span>API</h2>
+        <p id="78618166869oc">以上操作方式底层基于<span class="help-letter-space"></span>API<span class="help-letter-space"></span>实现，如果您的程序自定义要求较高，您可以直接发起<span class="help-letter-space"></span>REST API<span class="help-letter-space"></span>请求。直接发起<span class="help-letter-space"></span>REST API<span class="help-letter-space"></span>请求需要手动编写代码计算签名。更多信息，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/oss/developer-reference/selectobject#reference-lz1-r1x-b2b" id="3bfdec6c0ap79" title="" class="xref">SelectObject</a>。</p>
+      </section>
+      <p id="f801e98030vnv"></p>
+    </div>
+  </main>
+
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/oss/user-guide/bucket-inventory" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：存储空间清单</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/oss/user-guide/data-transformation/" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：数据处理<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

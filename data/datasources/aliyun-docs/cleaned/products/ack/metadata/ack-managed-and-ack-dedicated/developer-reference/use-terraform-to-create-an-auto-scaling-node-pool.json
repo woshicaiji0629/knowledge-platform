@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-auto-scaling-node-pool",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "使用Terraform创建具备自动伸缩功能的节点池-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-auto-scaling-node-pool",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-auto-scaling-node-pool.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/use-terraform-to-create-an-auto-scaling-node-pool.md",
+  "word_count": 2181,
+  "text_units": 4691,
+  "local_links": 6,
+  "external_links": 95,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

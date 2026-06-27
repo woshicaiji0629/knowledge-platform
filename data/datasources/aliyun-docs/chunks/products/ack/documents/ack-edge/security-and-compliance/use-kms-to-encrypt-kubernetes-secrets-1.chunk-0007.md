@@ -1,0 +1,2 @@
+### 开启Secret落盘加密后，通过kubectl命令获取到的Secret是加密后的密文吗？
+不是。Secret落盘加密功能所加密的是etcd中存储的原始数据，即开启Secret落盘加密后，etcd中存储的Secret数据将是加密后的密文数据。但客户端通过API Server提供的Secret API获取到的Secret数据仍旧是原始的明文数据。

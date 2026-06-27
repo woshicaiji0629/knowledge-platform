@@ -1,0 +1,17 @@
+{
+  "id": "sls:time-series-chart",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "日志服务如何设置时序图-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/time-series-chart",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/time-series-chart.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/time-series-chart.md",
+  "word_count": 872,
+  "text_units": 2967,
+  "local_links": 0,
+  "external_links": 68,
+  "has_tables": true,
+  "table_count": 22,
+  "quality": "accepted"
+}

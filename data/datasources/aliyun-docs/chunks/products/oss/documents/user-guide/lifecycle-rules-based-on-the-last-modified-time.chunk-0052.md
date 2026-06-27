@@ -1,0 +1,5 @@
+### 如何删除其中一条或多条生命周期规则？
+调用DeleteBucketLifecycle时会一键删除Bucket配置的所有生命周期规则。假设您的Bucket配置了两条生命周期规则，分别为Rule1和Rule2，您仅希望删除Rule1，您需要执行以下操作。
+调用GetBucketLifecycle接口获取当前Bucket配置的所有生命周期规则，即Rule1和Rule2。
+删除Rule1。
+调用PutBucketLifecycle接口更新生命周期规则为Rule2。

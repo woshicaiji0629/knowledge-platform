@@ -1,0 +1,2 @@
+### 命令行操作
+您也可以通过日志服务命令行工具CLI一次性分裂Shard到指定数量。更多信息，请参见[使用](https://aliyun-log-cli.readthedocs.io/en/latest/tutorials/tutorial_split_shard.html)[CLI](https://aliyun-log-cli.readthedocs.io/en/latest/tutorials/tutorial_split_shard.html)[配置](https://aliyun-log-cli.readthedocs.io/en/latest/tutorials/tutorial_split_shard.html)[Shard](https://aliyun-log-cli.readthedocs.io/en/latest/tutorials/tutorial_split_shard.html)。

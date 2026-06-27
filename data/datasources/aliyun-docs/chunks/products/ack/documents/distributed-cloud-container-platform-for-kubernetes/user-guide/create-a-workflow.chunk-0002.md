@@ -1,0 +1,2 @@
+### 工作流ServiceAccount
+工作流可指定ServiceAccount用于运行中访问其他Kubernetes资源，您可以创建自己的ServiceAccount，工作流集群会为ServiceAccount自动绑定权限，若权限不足，请加入钉钉群（钉钉群号：35688562），联系产品技术专家进行咨询。

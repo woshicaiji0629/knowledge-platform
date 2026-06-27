@@ -1,0 +1,2 @@
+# 时序数据对接Grafana
+日志服务MetricStore提供了兼容Prometheus的查询接口，您可以直接通过Prometheus数据源方式对接到Grafana进行可视化演示。本文介绍配置Prometheus监控数据为Grafana数据源的操作步骤。

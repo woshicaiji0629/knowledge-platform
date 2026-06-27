@@ -1,0 +1,14 @@
+{
+  "id": "redis:user-guide/configure-whitelists:14",
+  "document_id": "redis:user-guide/configure-whitelists",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "selection",
+  "title": "不同场景IP白名单配置方法-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/configure-whitelists",
+  "chunk_index": 14,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/user-guide/configure-whitelists.chunk-0014.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/configure-whitelists.md",
+  "heading_path": "设置IP白名单 > 常见问题 > 本地设备的公网IP地址每次都会变化，每次都需要重新添加IP地址，有什么解决方案？",
+  "char_count": 231
+}

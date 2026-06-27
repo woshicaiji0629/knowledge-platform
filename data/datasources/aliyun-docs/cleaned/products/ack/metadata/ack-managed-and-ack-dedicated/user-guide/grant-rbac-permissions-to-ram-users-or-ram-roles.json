@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/user-guide/grant-rbac-permissions-to-ram-users-or-ram-roles",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "使用RBAC为集群内资源操作授权-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/grant-rbac-permissions-to-ram-users-or-ram-roles",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/grant-rbac-permissions-to-ram-users-or-ram-roles.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/grant-rbac-permissions-to-ram-users-or-ram-roles.md",
+  "word_count": 972,
+  "text_units": 3333,
+  "local_links": 0,
+  "external_links": 90,
+  "has_tables": true,
+  "table_count": 5,
+  "quality": "accepted"
+}

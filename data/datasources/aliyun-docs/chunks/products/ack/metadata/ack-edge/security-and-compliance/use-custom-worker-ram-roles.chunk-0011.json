@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/security-and-compliance/use-custom-worker-ram-roles:11",
+  "document_id": "ack:ack-edge/security-and-compliance/use-custom-worker-ram-roles",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "为节点池指定自定义Worker RAM角色实现精细化权限控制-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/security-and-compliance/use-custom-worker-ram-roles",
+  "chunk_index": 11,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/security-and-compliance/use-custom-worker-ram-roles.chunk-0011.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/security-and-compliance/use-custom-worker-ram-roles.md",
+  "heading_path": "使用自定义Worker RAM角色实现节点池精细化权限控制 > 相关操作 > 为什么选择阿里云",
+  "char_count": 328
+}

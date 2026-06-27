@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/the-storage-engine-was-switched-from-tokudb-to-innodb",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "如何将TokuDB引擎转换为InnoDB引擎-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/the-storage-engine-was-switched-from-tokudb-to-innodb",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-mysql/the-storage-engine-was-switched-from-tokudb-to-innodb.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/the-storage-engine-was-switched-from-tokudb-to-innodb.md",
+  "word_count": 1236,
+  "text_units": 2939,
+  "local_links": 3,
+  "external_links": 86,
+  "has_tables": true,
+  "table_count": 5,
+  "quality": "accepted"
+}

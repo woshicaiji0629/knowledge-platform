@@ -1,0 +1,1188 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    如何通过Logtail采集主机监控数据-日志服务(SLS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/sls/collect-metric-data-from-hosts">
+  <meta name="keywords" content="采集主机监控数据,查询主机监控指标,主机监控采集方法,主机监控指标说明">
+  <meta name="description" content="日志服务Logtail支持采集主机CPU、内存、负载、磁盘、网络等监控数据。本文介绍通过Logtail采集主机监控数据的操作步骤。">
+  <meta name="last-modified" content="2026-06-11T14:00:14+08:00">
+  <meta name="date" content="2020-06-23T04:11:34+08:00">
+  <meta property="og:title" content="采集主机监控数据">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/sls/collect-metric-data-from-hosts">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="日志服务Logtail支持采集主机CPU、内存、负载、磁盘、网络等监控数据。本文介绍通过Logtail采集主机监控数据的操作步骤。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/sls/collect-metric-data-from-hosts",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "171717",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/sls/collect-metric-data-from-hosts","nodeId":null,"data":{"lastModifiedTime":1781157614000,"keywords":"采集主机监控数据,查询主机监控指标,主机监控采集方法,主机监控指标说明","docTitle":"采集主机监控数据","language":"zh","seoTitle":"如何通过Logtail采集主机监控数据-日志服务(SLS)-阿里云帮助中心","title":"采集主机监控数据","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"task-2538936\">\n    \n    \n    <p id=\"shortdesc-wv6-1r1-8sd\" data-tag=\"shortdesc\" class=\"shortdesc\">日志服务<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>支持采集主机<span class=\"help-letter-space\"></span>CPU、内存、负载、磁盘、网络等监控数据。本文介绍通过<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>采集主机监控数据的操作步骤。</p>\n    <div data-tag=\"taskbody\" id=\"taskbody-gs8-op3-xw4\" class=\"taskbody\">\n      <section data-tag=\"prereq\" id=\"prereq-y1k-1xj-ine\" data-type=\"prereq\" class=\"section prereq\">\n        <h2 id=\"d41e14\">前提条件</h2>\n        <p id=\"6f5023216fkd1\"><span data-tag=\"ph\" id=\"ph-69j-gqf-49d\" class=\"ph\">已创建<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>MetricStore。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/manage-a-project/#section-ahq-ggx-ndb\" id=\"xref-xjq-6i6-1dm\" title=\"\" class=\"xref\">管理<span class=\"help-letter-space\"></span>Project</a><span class=\"help-letter-space\"></span>和<a href=\"https://help.aliyun.com/zh/sls/manage-a-metricstore#section-8ju-apk-egg\" id=\"xref-91w-3t1-3ez\" title=\"\" class=\"xref\">创建<span class=\"help-letter-space\"></span>MetricStore</a>。</span></p>\n      </section>\n      <section data-tag=\"section\" id=\"section-wvq-8lz-t3l\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-372-v2o-7fh\" class=\"title\">使用限制</h2>\n        <ul data-tag=\"ul\" id=\"ul-5wi-udp-gtb\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-g4h-us0-xzy\" class=\"li\">\n            <p id=\"6f504a306flxz\">不支持<span class=\"help-letter-space\"></span>Windows<span class=\"help-letter-space\"></span>版本。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-9g3-w18-gx3\" class=\"li\">\n            <p id=\"6f504a316f0bq\">不支持采集<span class=\"help-letter-space\"></span>GPU、硬件状态等监控数据。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-fta-73n-0m1\" class=\"li\">\n            <p id=\"6f504a326fh1a\">只有<span class=\"help-letter-space\"></span>Linux Logtail 0.16.40<span class=\"help-letter-space\"></span>及以上版本的<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>支持采集主机监控数据。如果您已在服务器上安装旧版本的<span class=\"help-letter-space\"></span>Logtail，需先升级。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/install-logtail-on-a-linux-server#section-jcz-xmv-vdb\" id=\"xref-z6b-89q-z0p\" title=\"\" class=\"xref\">安装<span class=\"help-letter-space\"></span>Logtail（Linux<span class=\"help-letter-space\"></span>系统）</a>。</p>\n          </li>\n        </ul>\n      </section>\n      <section data-tag=\"section\" id=\"section-xun-4bp-9pc\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-8fv-7iv-f51\" class=\"title\">数据采集配置</h2>\n        <ol id=\"steps-flh-5iz-duu\" data-tag=\"steps\" class=\"steps\">\n          <li id=\"7f84dbd5d5giq\">\n            <p id=\"a376d6f0b6688\"><span data-tag=\"ph\" id=\"e12027536blmp\" class=\"ph\">登录<span data-tag=\"ph\" id=\"e81ab37ed9eeo\" props=\"china intl\" data-cond-props=\"china intl\" class=\"ph\"><a href=\"https://sls.console.aliyun.com\" id=\"aa5a7cff14as4\" class=\"\" target=\"_blank\">日志服务控制台</a></span>。</span></p>\n          </li>\n          <li id=\"482d0fe24b4v9\">\n            <p id=\"d4768e103d7fo\">单击控制台右侧的<b id=\"264b18845fk5c\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">快速接入数据</b>卡片。</p>\n          </li>\n          <li id=\"1a89214bcfsk2\">\n            <p id=\"4811a4faf96fg\">在<b id=\"31af39d894ebm\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">接入数据</b>页面，查找<b id=\"018d5ec15eoso\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">主机监控</b>并单击。</p>\n          </li>\n          <li data-tag=\"step\" id=\"step-d47-slp-n9i\" class=\"step\">\n            <p id=\"6f5071416fbd3\">选择目标<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>和时序库<span class=\"help-letter-space\"></span>MetricStore，单击<b id=\"uicontrol-1ae-3i6-x9h\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">下一步</b>。在 <b>选择日志空间</b> 步骤中，选择已有的 <b>项目<span class=\"help-letter-space\"></span>Project</b> 和 <b>时序库<span class=\"help-letter-space\"></span>MetricStore</b>，或单击右侧 <b>立即创建</b> 新建，然后单击 <b>下一步</b>。</p>\n          </li>\n          <li data-tag=\"step\" id=\"step-4sh-zez-5m3\" class=\"step\">\n            <p id=\"6f5071426focq\">在<b id=\"60f3c54476vdz\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建机器组</b>页签中。</p>\n            <div id=\"info-beh-ihl-g9o\" data-tag=\"info\" class=\"info\">\n              <ul id=\"ul-y5l-g49-5la\" data-tag=\"ul\" class=\"ul\">\n                <li id=\"li-503-p44-2wj\">\n                  <p id=\"253250b5924o5\" tagname=\"p\">如果已有可用的机器组，请单击<b id=\"8acf5fc1a0aej\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">使用现有机器组</b>。选择<b>主机场景</b>和<span class=\"help-letter-space\"></span><b>ECS</b><span class=\"help-letter-space\"></span>安装环境，从<b>源机器组</b>列表中选择目标机器组，单击 <b>&gt;</b> 将其移至<b>应用机器组</b>列表，然后单击<b>下一步</b>。</p>\n                </li>\n                <li data-tag=\"li\" id=\"li-51j-892-c4c\" class=\"li\">\n                  <p id=\"6f5098516fwfm\">如果您还没有可用的机器组，请执行以下操作（以<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>为例）。 </p>\n                  <ol data-tag=\"ol\" type=\"a\" id=\"ol-flh-1mo-o5i\" class=\"ol\">\n                    <li data-tag=\"li\" id=\"li-8vj-ghx-m0m\" class=\"li\">\n                      <p id=\"6f50e6706funq\">在<span class=\"help-letter-space\"></span><b id=\"wintitle-bfn-b6r-s4j\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">ECS<span class=\"help-letter-space\"></span>机器</b>页签中，通过<b data-tag=\"uicontrol\" id=\"ce5fbbefc1ugl\" class=\"uicontrol\">手动选择实例</b>方式选择目标<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例，单击<b id=\"uicontrol-brc-ce3-hj2\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建</b>。</p>\n                      <div data-tag=\"p\" id=\"p-q7w-9uf-wrb\" class=\"p\">\n                        <p id=\"6f510d806fi39\">具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/install-logtail-on-ecs-instances#task-2561331\" id=\"xref-naj-trw-1xy\" title=\"\" class=\"xref\">安装<span class=\"help-letter-space\"></span>Logtail（ECS<span class=\"help-letter-space\"></span>实例）</a>。</p>\n                        <div data-tag=\"note\" id=\"note-jjo-4y0-6my\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                          <p id=\"6f510d816f5ky\">如果您的服务器是与日志服务属于不同账号的<span class=\"help-letter-space\"></span>ECS、其他云厂商的服务器和自建<span class=\"help-letter-space\"></span>IDC<span class=\"help-letter-space\"></span>时，您需要手动安装<span class=\"help-letter-space\"></span>Logtail。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/install-logtail-on-a-linux-server#concept-u5y-3lv-vdb\" id=\"xref-kio-ee9-lr4\" title=\"\" class=\"xref\">安装<span class=\"help-letter-space\"></span>Logtail（Linux<span class=\"help-letter-space\"></span>系统）</a>。手动安装<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>后，您必须在该服务器上手动配置用户标识。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/configure-a-user-identifier#task-arl-ynt-qy\" id=\"xref-z1s-tqz-xvr\" title=\"\" class=\"xref\">配置用户标识</a>。</p>\n                        </div></div>\n                      </div>\n                    </li>\n                    <li id=\"li-52z-xtm-iug\">\n                      <p id=\"6c0079ba2cnlf\">安装完成后，单击<b id=\"c649cf6fde422\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确认安装完毕</b>。</p>\n                    </li>\n                    <li id=\"li-j62-tmi-0bo\">\n                      <p id=\"ab902d1610sgs\">在<b id=\"wintitle-ij1-uqd-98u\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建机器组</b>页面，输入<b id=\"uicontrol-0as-xks-2o6\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">名称</b>，单击<b id=\"uicontrol-out-a5o-e7r\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">下一步</b>。</p>\n                      <p id=\"f2cce900fczri\">日志服务支持创建<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址机器组和用户自定义标识机器组，具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/manage-machine-groups#cd2f956f8d4oz\" id=\"9302045c6b0h6\" title=\"\" class=\"xref\">创建机器组</a>。</p>\n                    </li>\n                  </ol>\n                </li>\n              </ul>\n            </div>\n          </li>\n          <li id=\"step-3bg-fm2-l63\" data-tag=\"step\" class=\"step\">\n            <p id=\"6f515ba16fyrv\">在<b id=\"wintitle-qig-jyi-usb\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">数据源设置</b>页签中，设置<b id=\"uicontrol-0x8-lgn-p1u\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">配置名称</b>和<b id=\"uicontrol-5ex-91d-5oq\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">插件配置</b>，然后单击<b id=\"uicontrol-drd-6ro-1ir\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">下一步</b>。</p>\n            <div id=\"info-6j4-8vk-fz7\" data-tag=\"info\" class=\"info\">\n              <div data-tag=\"p\" id=\"p-hct-xn2-h5k\" class=\"p\">\n                <div data-tag=\"note\" id=\"note-43e-gyt-995\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                  <p id=\"6f51a9c06fkqg\">inputs<span class=\"help-letter-space\"></span>为数据源配置，必选项。一个<span class=\"help-letter-space\"></span>inputs<span class=\"help-letter-space\"></span>中只允许配置一个类型的数据源。</p>\n                </div></div>\n              </div><pre data-tag=\"codeblock\" id=\"codeblock-skq-umz-yab\" outputclass=\"language-json\" code-type=\"xCode\" class=\"pre codeblock language-json\"><code>{\n    \"inputs\": [\n        {\n            \"detail\": {\n                \"IntervalMs\": 30000\n            },\n            \"type\": \"metric_system_v2\"\n        }\n    ]\n}</code></pre>\n              <table id=\"table-5x4-76i-8v1\" tablewidth=\"710\" tablecolswidth=\"142 142 142 284\" autofit=\"false\" class=\"table\">\n                <colgroup colwidth=\"0.8*\" style=\"width:20.00%\"></colgroup>\n                <colgroup colwidth=\"0.8*\" style=\"width:20.00%\"></colgroup>\n                <colgroup colwidth=\"0.8*\" style=\"width:20.00%\"></colgroup>\n                <colgroup colwidth=\"1.6*\" style=\"width:40.00%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"row-s8z-hmm-ijp\">\n                    <td id=\"task-2538936-entry-i7u-qx2-5ah\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f51a9c16foja\"><b>参数</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-rtq-w04-sph\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f51d0d06ftpp\"><b>类型</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-8dw-noh-rl7\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f51d0d16fx7u\"><b>是否必选</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-5ia-qoy-izu\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f51d0d26f210\"><b>参数说明</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-u06-c6r-jsr\">\n                    <td id=\"entry-vkj-xz2-tm8\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f51f7e06fwev\">type</p>\n                    </td>\n                    <td id=\"entry-9so-ua2-usw\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f51f7e16fv6h\">string</p>\n                    </td>\n                    <td id=\"entry-cr6-t71-p68\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f51f7e26ff3e\">是</p>\n                    </td>\n                    <td id=\"entry-xre-ncl-2vl\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f51f7e36flbp\">数据源类型，固定为<span class=\"help-letter-space\"></span>metric_system_v2。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-byt-kd3-sof\">\n                    <td id=\"entry-w9y-6uo-kqp\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f521ef06fptg\">IntervalMs</p>\n                    </td>\n                    <td id=\"entry-jru-8zg-xmc\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f521ef16f0tk\">int</p>\n                    </td>\n                    <td id=\"entry-nth-zdr-s9q\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f521ef26foh2\">是</p>\n                    </td>\n                    <td id=\"entry-hir-hnh-9zv\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f521ef36f838\">每次请求的间隔，单位：ms。不能低于<span class=\"help-letter-space\"></span>5000，建议设置为<span class=\"help-letter-space\"></span>30000。</p>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>\n            <p id=\"855ba9126agfz\"></p>\n          </li>\n          <li id=\"0bb5ce68b3i85\">\n            <p id=\"52a557db0db6i\">单击<b>查询日志</b>，进入时序库。</p>\n          </li>\n        </ol>\n      </section>\n      <section id=\"4d4c8c3387iyp\" class=\"section\">\n        <h2 id=\"6b8fd82810972\"><b>数据监控</b></h2>\n        <ol id=\"1e81b4446abzk\">\n          <li id=\"e5f9b241f0udh\">\n            <p id=\"e98043bc0c2yz\">在目标时序库首页单击<b id=\"7b0b3e2069r00\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">指标统计</b>，打开<b id=\"8284bc07f3671\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">指标统计</b>大盘。</p>\n          </li>\n          <li id=\"40cad13342s4t\">\n            <p id=\"1079e3edc0dzf\">在<b id=\"8284bc07f3671\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">指标统计</b>查看所有已采集到的数据指标，也可以按时间周期或者指标参数进行数据过滤。</p>\n            <p id=\"9bf4f70106enn\"><img id=\"054f10ff94sct\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5780345271/p844149.png\" alt=\"image\" placement=\"break\" class=\"image break\"></p>\n          </li>\n          <li id=\"80db51704fcw3\">\n            <p id=\"a79ffff891t1l\">在时序库首页，单击<span class=\"help-letter-space\"></span><b data-tag=\"uicontrol\" id=\"aa03931580cdw\" class=\"uicontrol\">Metrics 探索（指标数：48）</b>，可探索、查看和过滤所有可用的指标名称及其元数据。如需查看<span class=\"help-letter-space\"></span>CPU 和内存数据，可以使用<code data-tag=\"code\" code-type=\"xCode\" class=\"code\">cpu_count{}</code>和<code data-tag=\"code\" code-type=\"xCode\" class=\"code\">mem_cache{}</code>语句查询。更多查询与分析操作，请参见<a href=\"https://help.aliyun.com/zh/sls/query-and-analyze-metric-data#task-2539642\" id=\"7123778b0075g\" title=\"\" class=\"xref\">查询和分析时序数据</a>。<img id=\"55af0b40e8slf\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5780345271/p844158.png\" alt=\"image\" placement=\"break\" class=\"image break\"></p>\n          </li>\n          <li id=\"09b1ca046bdtj\">\n            <p id=\"bd3053428fkbd\">当您采集的数据中包含多台机器时，可使用<code data-tag=\"code\" class=\"code\">hostname</code>或<code data-tag=\"code\" class=\"code\">ip</code>进行筛选。为保证筛选数据的准确性，进行筛选前，请先清除历史查询数据。选择指标（如 <code data-tag=\"code\" class=\"code\">cpu_count</code>）后，页面展示该指标的标签列表（如 <b>hostname</b>、<b>ip</b>）及其唯一值数量和示例值。单击标签操作列的<b>筛选</b>，选择运算符并输入筛选值（如 ip = 172.26.150.228），然后单击<b>+ 添加到查询框</b>将筛选条件应用到查询语句中。</p>\n          </li>\n        </ol>\n      </section>\n      <section data-tag=\"section\" id=\"section-ofp-exd-8yb\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-88w-p4b-2m9\" class=\"title\">指标说明</h2>\n        <div data-tag=\"p\" id=\"p-9ry-eok-djk\" class=\"p\">\n          <p id=\"6f521ef46fl4s\">主机<span class=\"help-letter-space\"></span>CPU、内存、负载、磁盘、网络等指标说明如下：</p>\n          <ul data-tag=\"ul\" id=\"ul-byy-6nu-dmg\" class=\"ul\">\n            <li data-tag=\"li\" id=\"li-oz3-jgm-w72\" class=\"li\">\n              <p id=\"6f5246006f6qp\">CPU<span class=\"help-letter-space\"></span>相关指标</p>\n              <table id=\"table-q9s-hum-g7j\" tablewidth=\"708\" tablecolswidth=\"208 208 146 146\" autofit=\"false\" class=\"table\">\n                <colgroup colwidth=\"1.18*\" style=\"width:29.38%\"></colgroup>\n                <colgroup colwidth=\"1.18*\" style=\"width:29.38%\"></colgroup>\n                <colgroup colwidth=\"0.82*\" style=\"width:20.62%\"></colgroup>\n                <colgroup colwidth=\"0.82*\" style=\"width:20.62%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"row-yrm-8y4-rd4\">\n                    <td id=\"task-2538936-entry-4wl-hm3-gdv\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f5246016fxur\"><b>指标名</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-rpi-7pc-zso\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f5246026fbbs\"><b>说明</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-og7-4n2-z4r\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f5246036fzex\"><b>单位</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-5wg-u2u-txz\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f5246046f3jb\"><b>示例</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-oj9-pfn-nk5\">\n                    <td id=\"entry-x6s-h9z-uvw\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5246056frkv\">cpu_count</p>\n                    </td>\n                    <td id=\"entry-sp2-o3n-yqh\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f526d106fl70\">CPU<span class=\"help-letter-space\"></span>核数</p>\n                    </td>\n                    <td id=\"entry-lu8-jyr-87p\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f526d116f1dv\">个</p>\n                    </td>\n                    <td id=\"entry-9x6-qil-11x\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f526d126ftrx\">2.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-d47-v15-g7x\">\n                    <td id=\"entry-niw-7d5-iip\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f526d136fhw0\">cpu_util</p>\n                    </td>\n                    <td id=\"entry-tz3-9o7-lgd\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f526d146fg3p\">CPU<span class=\"help-letter-space\"></span>使用率，计算方式为排除<span class=\"help-letter-space\"></span>idle、wait、steal<span class=\"help-letter-space\"></span>后的占比</p>\n                    </td>\n                    <td id=\"entry-9r0-93j-g2j\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f526d156fovl\">百分号（%）</p>\n                    </td>\n                    <td id=\"entry-d5w-3pg-bwj\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f526d166fwm8\">7.68</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-tlk-c1b-xff\">\n                    <td id=\"entry-jqh-kkz-3ro\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5294206f25u\">cpu_guest_util</p>\n                    </td>\n                    <td id=\"entry-1zq-axk-8x7\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5294216f099\">客户时间（guest time）占比</p>\n                    </td>\n                    <td id=\"entry-n3i-8ve-npi\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5294226fiqa\">百分号（%）</p>\n                    </td>\n                    <td id=\"entry-pzh-gux-iy8\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5294236fsax\">0.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-h6m-51c-c2v\">\n                    <td id=\"entry-e81-1iq-7ns\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5294246fxni\">cpu_guestnice_util</p>\n                    </td>\n                    <td id=\"entry-hlo-3sp-jco\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5294256fwu0\">Nice<span class=\"help-letter-space\"></span>进程客户时间（nice guest time）占比</p>\n                    </td>\n                    <td id=\"entry-hs9-80z-25u\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f52bb306flan\">百分号（%）</p>\n                    </td>\n                    <td id=\"entry-qkj-3ou-hlp\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f52bb316fjhh\">0.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-dgu-l02-esu\">\n                    <td id=\"entry-04j-ek9-11r\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f52bb326fasf\">cpu_irq_util</p>\n                    </td>\n                    <td id=\"entry-79v-bmi-2o8\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f52bb336f70r\">硬中断处理时间（Hard Irq time）占比</p>\n                    </td>\n                    <td id=\"entry-jx1-r9h-wyb\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f52bb346fjz2\">百分号（%）</p>\n                    </td>\n                    <td id=\"entry-mb9-fhr-9ux\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f52bb356f5tj\">0.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-s4c-xme-2bj\">\n                    <td id=\"entry-330-74r-4dj\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f52e2406f1z5\">cpu_nice_util</p>\n                    </td>\n                    <td id=\"entry-yw1-s2g-ilq\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f52e2416fnb4\">Nice<span class=\"help-letter-space\"></span>时间（Nice time）占比</p>\n                    </td>\n                    <td id=\"entry-awb-2vj-tay\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f52e2426fm9r\">百分号（%）</p>\n                    </td>\n                    <td id=\"entry-tw7-gri-mlq\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f52e2436f4xv\">0.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-5me-rwz-rbg\">\n                    <td id=\"entry-zyh-bee-trn\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f52e2446fkdy\">cpu_softirq_util</p>\n                    </td>\n                    <td id=\"entry-8lu-91t-w6r\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f52e2456f8gg\">软中断处理时间（Soft Irq time）占比</p>\n                    </td>\n                    <td id=\"entry-iav-ynv-re6\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f52e2466fnpa\">百分号（%）</p>\n                    </td>\n                    <td id=\"entry-uvh-kso-r4t\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5309506fnsd\">0.06</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-mf3-0qc-st2\">\n                    <td id=\"entry-fkj-t66-hdl\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5309516fura\">cpu_steal_util</p>\n                    </td>\n                    <td id=\"entry-jhg-hph-eft\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5309526fmcj\">等待宿主机<span class=\"help-letter-space\"></span>CPU<span class=\"help-letter-space\"></span>时间（Steal time）占比</p>\n                    </td>\n                    <td id=\"entry-sxr-tld-grq\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5309536fxx1\">百分号（%）</p>\n                    </td>\n                    <td id=\"entry-p2t-48r-wbr\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5309546ftyl\">0.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-3dn-59z-0x7\">\n                    <td id=\"entry-7xv-zs9-zxt\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5309556ffnn\">cpu_sys_util</p>\n                    </td>\n                    <td id=\"entry-e83-ry6-iai\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5309566fzbw\">内核态（System time）占比</p>\n                    </td>\n                    <td id=\"entry-a39-dnt-fbh\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5330606fm4f\">百分号（%）</p>\n                    </td>\n                    <td id=\"entry-kds-715-vhf\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5330616ftco\">2.77</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-9yt-4mc-jsg\">\n                    <td id=\"entry-jsc-9sy-bbq\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5330626fiyp\">cpu_user_util</p>\n                    </td>\n                    <td id=\"entry-xj1-9bc-ie9\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5330636fvtz\">用户态（User time）占比</p>\n                    </td>\n                    <td id=\"entry-mc6-h9w-c0x\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5330646fqr9\">百分号（%）</p>\n                    </td>\n                    <td id=\"entry-liv-v1z-g5p\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5330656fwum\">4.84</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-fgd-3cz-bjk\">\n                    <td id=\"entry-r4q-7hz-rhz\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5357706fecm\">cpu_wait_util</p>\n                    </td>\n                    <td id=\"entry-x07-ntj-e61\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5357716f0mj\">等待<span class=\"help-letter-space\"></span>IO（Waiting time）占比</p>\n                    </td>\n                    <td id=\"entry-4ux-k4o-7on\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5357726f459\">百分号（%）</p>\n                    </td>\n                    <td id=\"entry-lp0-5bb-pz1\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5357736fr37\">0.11</p>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </li>\n            <li data-tag=\"li\" id=\"li-4jc-n9k-alg\" class=\"li\">\n              <p id=\"6f5357746f3ju\">内存相关指标</p>\n              <table id=\"table-uy4-te6-r17\" tablewidth=\"708\" tablecolswidth=\"208 208 146 146\" autofit=\"false\" class=\"table\">\n                <colgroup colwidth=\"1.18*\" style=\"width:29.38%\"></colgroup>\n                <colgroup colwidth=\"1.18*\" style=\"width:29.38%\"></colgroup>\n                <colgroup colwidth=\"0.82*\" style=\"width:20.62%\"></colgroup>\n                <colgroup colwidth=\"0.82*\" style=\"width:20.62%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"row-ome-en8-s4g\">\n                    <td id=\"task-2538936-entry-b12-iz9-u6k\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f5357756fofa\"><b>指标名</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-775-5ge-qfq\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f5357766fcb5\"><b>说明</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-xj9-nn0-d39\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f537e806fvc4\"><b>单位</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-vkc-suc-cnl\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f537e816f9aa\"><b>示例</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-zrm-mx3-8du\">\n                    <td id=\"entry-flk-aa9-ujh\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f537e826f2e8\">mem_util</p>\n                    </td>\n                    <td id=\"entry-91r-uql-n6w\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f537e836fz4p\">内存使用率</p>\n                    </td>\n                    <td id=\"entry-zw0-79u-o6f\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f537e846fpja\">百分号（%）</p>\n                    </td>\n                    <td id=\"entry-veq-vn9-kt4\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f537e856fv5e\">51.03</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-92d-kni-tgo\">\n                    <td id=\"entry-v8j-5hi-wu6\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f53a5906fxbw\">mem_cache</p>\n                    </td>\n                    <td id=\"entry-wou-byh-cvw\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f53a5916fomq\">已申请但未使用的内存</p>\n                    </td>\n                    <td id=\"entry-zau-1we-0el\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f53a5926fdcj\">byte</p>\n                    </td>\n                    <td id=\"entry-f4d-kyf-2dr\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f53a5936fh6o\">3566386668.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-hyj-89i-xcs\">\n                    <td id=\"entry-e8i-dlh-29d\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f53cca06f95g\">mem_free</p>\n                    </td>\n                    <td id=\"entry-97v-d83-wdo\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f53cca16f339\">未使用的内存</p>\n                    </td>\n                    <td id=\"entry-eer-qv2-hbb\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f53cca26fl5i\">byte</p>\n                    </td>\n                    <td id=\"entry-g2u-7o5-6v4\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f53f3b06foix\">177350084.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-2ek-4lw-mv9\">\n                    <td id=\"entry-21q-wek-cp0\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f53f3b16f5xn\">mem_available</p>\n                    </td>\n                    <td id=\"entry-ho0-n22-c6o\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f541ac06f6xm\">可用内存</p>\n                    </td>\n                    <td id=\"entry-g80-9ur-9tq\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f541ac16fj5h\">byte</p>\n                    </td>\n                    <td id=\"entry-e03-9r5-bup\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f541ac26fmb2\">3699885553.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-b8f-amf-d9w\">\n                    <td id=\"entry-46t-394-erl\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f541ac36f102\">mem_used</p>\n                    </td>\n                    <td id=\"entry-hqc-6qt-ogo\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5441d06fw8c\">已使用内存</p>\n                    </td>\n                    <td id=\"entry-9ss-id8-36p\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5441d16f6kb\">byte</p>\n                    </td>\n                    <td id=\"entry-t84-1uu-h4b\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5441d26fchj\">4041510463.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-oi1-x1g-9x9\">\n                    <td id=\"entry-i6z-x84-8c9\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5441d36fg9a\">mem_swap_util</p>\n                    </td>\n                    <td id=\"entry-igw-wmd-o5s\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5441d46fu1c\">swap<span class=\"help-letter-space\"></span>内存使用率</p>\n                    </td>\n                    <td id=\"entry-31z-xrz-2wh\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5468e06f419\">百分号（%）</p>\n                    </td>\n                    <td id=\"entry-s1e-axq-hz4\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5468e16fi8d\">0.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-jv8-zge-ojc\">\n                    <td id=\"entry-yvh-ubh-du7\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5468e26ff14\">mem_total</p>\n                    </td>\n                    <td id=\"entry-j60-vwa-u3q\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5468e36fwlh\">内存总量</p>\n                    </td>\n                    <td id=\"entry-fzp-1sq-jcc\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5468e46fttb\">byte</p>\n                    </td>\n                    <td id=\"entry-oj0-s31-8ro\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5468e56f64i\">7919128576.0</p>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </li>\n            <li data-tag=\"li\" id=\"li-hza-ap6-7pq\" class=\"li\">\n              <p id=\"6f548ff06flb3\">磁盘相关指标</p>\n              <table id=\"table-v8n-0gc-j47\" tablewidth=\"708\" tablecolswidth=\"208 208 146 146\" autofit=\"false\" class=\"table\">\n                <colgroup colwidth=\"1.18*\" style=\"width:29.38%\"></colgroup>\n                <colgroup colwidth=\"1.18*\" style=\"width:29.38%\"></colgroup>\n                <colgroup colwidth=\"0.82*\" style=\"width:20.62%\"></colgroup>\n                <colgroup colwidth=\"0.82*\" style=\"width:20.62%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"row-lkq-rki-1g8\">\n                    <td id=\"task-2538936-entry-61z-x3e-ter\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f548ff16f9s0\"><b>指标名</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-hr9-ua4-jdj\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f548ff26fw21\"><b>说明</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-lxd-pwu-tra\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f548ff36fp0u\"><b>单位</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-gd4-jg2-hu1\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f548ff46f9mn\"><b>示例</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-2gk-njp-h60\">\n                    <td id=\"entry-ern-xh3-p1g\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f548ff56fmec\">disk_rbps</p>\n                    </td>\n                    <td id=\"entry-xo0-yvp-08c\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f548ff66fmds\">硬盘每秒读取流量</p>\n                    </td>\n                    <td id=\"entry-7rz-i0i-zkc\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f548ff76f730\">byte/s</p>\n                    </td>\n                    <td id=\"entry-nkb-45k-fyo\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f54b7006fteh\">8376.81</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-ydc-vnv-nu9\">\n                    <td id=\"entry-tu0-xrq-2xn\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f54b7016fde1\">disk_wbps</p>\n                    </td>\n                    <td id=\"entry-p1k-a8i-054\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f54b7026fn58\">硬盘每秒写入流量</p>\n                    </td>\n                    <td id=\"entry-stb-9w5-uhd\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f54b7036f2wl\">byte/s</p>\n                    </td>\n                    <td id=\"entry-ojf-01h-a5k\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f54b7046fm4x\">247633.58</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-l3e-icf-cw7\">\n                    <td id=\"entry-5f2-1sy-t6m\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f54b7056fvqs\">disk_riops</p>\n                    </td>\n                    <td id=\"entry-u15-adm-j5g\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f54b7066fvp7\">硬盘每秒读取次数</p>\n                    </td>\n                    <td id=\"entry-dso-b1n-cov\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f54b7076f47v\">次/s</p>\n                    </td>\n                    <td id=\"entry-kvf-y99-nmt\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f54b7086ffd2\">0.22</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-2yx-jo3-s5o\">\n                    <td id=\"entry-qs3-6ri-4pq\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f54de106f5ht\">disk_wiops</p>\n                    </td>\n                    <td id=\"entry-6az-x14-4w3\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f54de116fti0\">硬盘每秒写入次数</p>\n                    </td>\n                    <td id=\"entry-rmy-6sd-1fo\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f54de126fuag\">次/s</p>\n                    </td>\n                    <td id=\"entry-efh-3af-ct2\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f54de136fai6\">43.39</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-yv6-nay-qvo\">\n                    <td id=\"entry-on0-h5q-c8g\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f54de146f3v8\">disk_rlatency</p>\n                    </td>\n                    <td id=\"entry-lg4-bzn-3hz\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f54de156fnev\">平均读延迟</p>\n                    </td>\n                    <td id=\"entry-in1-ziv-xc7\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f54de166fnw5\">ms</p>\n                    </td>\n                    <td id=\"entry-r95-lxy-jq7\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f54de176fzn8\">2.83</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-8du-egx-xwa\">\n                    <td id=\"entry-ahi-jes-5r4\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f54de186fx2h\">disk_wlatency</p>\n                    </td>\n                    <td id=\"entry-1lh-02p-y78\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f54de196fgvm\">平均写延迟</p>\n                    </td>\n                    <td id=\"entry-b3g-17j-u5k\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5505206fl5x\">ms</p>\n                    </td>\n                    <td id=\"entry-v5q-2dn-2gj\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5505216fwzj\">2.15</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-fi2-foq-2mo\">\n                    <td id=\"entry-iuj-fha-puj\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5505226f2gw\">disk_util</p>\n                    </td>\n                    <td id=\"entry-9bp-wci-755\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5505236f2lu\">IO<span class=\"help-letter-space\"></span>使用率</p>\n                    </td>\n                    <td id=\"entry-zlc-ziv-fhx\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5505246frew\">百分号（%）</p>\n                    </td>\n                    <td id=\"entry-ess-vf8-efw\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5505256frl7\">0.27</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-lnv-8rk-5ws\">\n                    <td id=\"entry-cfc-08q-hgl\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5505266fl0a\">disk_space_usage</p>\n                    </td>\n                    <td id=\"entry-zrp-l1n-pgf\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5505276ftt8\">磁盘使用百分比</p>\n                    </td>\n                    <td id=\"entry-1fo-658-i19\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5505286fzws\">百分号（%）</p>\n                    </td>\n                    <td id=\"entry-pll-61o-vsc\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5505296fza8\">9.12</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-c2l-610-hb7\">\n                    <td id=\"entry-v11-qh8-loq\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f552c306f65b\">disk_inode_usage</p>\n                    </td>\n                    <td id=\"entry-5i5-jvz-6h9\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f552c316f4xf\">inode<span class=\"help-letter-space\"></span>使用率</p>\n                    </td>\n                    <td id=\"entry-lav-2em-hnx\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f552c326fn5d\">百分号（%）</p>\n                    </td>\n                    <td id=\"entry-vp0-nqk-2s3\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f552c336f0be\">1.18</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-c5f-as3-522\">\n                    <td id=\"entry-25y-xvs-jm7\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f552c346f0tp\">disk_space_used</p>\n                    </td>\n                    <td id=\"entry-vpx-kvr-drn\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f552c356f7p0\">磁盘已使用容量</p>\n                    </td>\n                    <td id=\"entry-rwz-djd-fqr\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f552c366fylv\">byte</p>\n                    </td>\n                    <td id=\"entry-wdl-wxv-o47\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f552c376fpl7\">11068512238.59</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-6u4-pej-ikv\">\n                    <td id=\"entry-7eq-qny-9js\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f552c386f70l\">disk_space_total</p>\n                    </td>\n                    <td id=\"entry-aje-w2z-cs7\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5553406fswv\">磁盘总量</p>\n                    </td>\n                    <td id=\"entry-v2a-5d7-8ai\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5553416fdiq\">byte</p>\n                    </td>\n                    <td id=\"entry-54i-h68-02t\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5553426fhia\">126692061184.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-57v-ymp-x1e\">\n                    <td id=\"entry-3l1-ig5-61y\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5553436fjdu\">disk_inode_total</p>\n                    </td>\n                    <td id=\"entry-j0l-56m-b1x\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5553446fy1l\">inode<span class=\"help-letter-space\"></span>总量</p>\n                    </td>\n                    <td id=\"entry-vtj-bhb-ogg\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5553456fpuz\">个</p>\n                    </td>\n                    <td id=\"entry-fnq-ls1-5xs\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5553466f2k5\">7864320.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-blf-hy8-onh\">\n                    <td id=\"entry-3nz-fv1-47l\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5553476fjgf\">disk_inode_used</p>\n                    </td>\n                    <td id=\"entry-pvo-tvi-2dh\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5553486f2v7\">inode<span class=\"help-letter-space\"></span>已使用容量</p>\n                    </td>\n                    <td id=\"entry-35u-8s7-d6o\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5553496fkcp\">个</p>\n                    </td>\n                    <td id=\"entry-pp8-2xr-yy0\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f557a506fu1h\">93054.78</p>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </li>\n            <li data-tag=\"li\" id=\"li-khj-808-wry\" class=\"li\">\n              <p id=\"6f557a516fhyp\">NET<span class=\"help-letter-space\"></span>相关指标</p>\n              <table id=\"table-e54-m20-6lt\" tablewidth=\"708\" tablecolswidth=\"208 208 146 146\" autofit=\"false\" class=\"table\">\n                <colgroup colwidth=\"1.18*\" style=\"width:29.38%\"></colgroup>\n                <colgroup colwidth=\"1.18*\" style=\"width:29.38%\"></colgroup>\n                <colgroup colwidth=\"0.82*\" style=\"width:20.62%\"></colgroup>\n                <colgroup colwidth=\"0.82*\" style=\"width:20.62%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"row-i3r-w83-2be\">\n                    <td id=\"task-2538936-entry-32g-lz2-tfv\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f557a526fvys\"><b>指标名</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-fwk-sxq-hxb\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f557a536fnlt\"><b>说明</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-kj6-t05-nfc\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f557a546fs9a\"><b>单位</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-qgk-8jp-fj1\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f557a556fuof\"><b>示例</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-hmv-2eg-ugk\">\n                    <td id=\"entry-ure-y2w-0nj\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f557a566fjk8\">net_drop_util</p>\n                    </td>\n                    <td id=\"entry-lw0-ul4-no6\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f557a576fnxd\">丢弃的数据包占总数据包的比值</p>\n                    </td>\n                    <td id=\"entry-j0w-uem-jw1\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f557a586fbqa\">百分号（%）</p>\n                    </td>\n                    <td id=\"entry-2os-bd4-3tx\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f557a596fmt3\">0.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-6pe-mad-0ua\">\n                    <td id=\"entry-za7-vtv-8rc\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55a1606f3t6\">net_err_util</p>\n                    </td>\n                    <td id=\"entry-8le-l12-80c\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55a1616f940\">报错数据包占总数据包的比值</p>\n                    </td>\n                    <td id=\"entry-uim-cis-4w0\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55a1626f8xr\">百分号（%）</p>\n                    </td>\n                    <td id=\"entry-k1j-2sc-8ic\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55a1636fhnj\">0.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-u2f-doq-79h\">\n                    <td id=\"entry-rkh-7j8-1rp\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55a1646fzzh\">net_in</p>\n                    </td>\n                    <td id=\"entry-hcr-l7p-5ry\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55a1656fsqi\">网络接收速率</p>\n                    </td>\n                    <td id=\"entry-0zo-j78-nse\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55a1666f83q\">byte/s</p>\n                    </td>\n                    <td id=\"entry-k4o-ggc-6me\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55a1676fzez\">8440.91</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-gga-vgm-qlx\">\n                    <td id=\"entry-v0e-5vk-r62\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55a1686f2fz\">net_in_pkt</p>\n                    </td>\n                    <td id=\"entry-jeo-pam-i8e\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55c8706f9sb\">每秒接收的数据包</p>\n                    </td>\n                    <td id=\"entry-o8j-lri-f6c\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55c8716f3da\">个/s</p>\n                    </td>\n                    <td id=\"entry-hir-oku-gs8\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55c8726f5s1\">40.83</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-s23-6sj-xuv\">\n                    <td id=\"entry-rno-5uy-z2h\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55c8736fhkl\">net_out</p>\n                    </td>\n                    <td id=\"entry-bnw-29c-ekf\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55c8746fmuf\">网络发送速率</p>\n                    </td>\n                    <td id=\"entry-27o-7nj-hjl\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55c8756f8zf\">byte/s</p>\n                    </td>\n                    <td id=\"entry-4c0-nai-wbp\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55c8766f6lv\">12446.53</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-qrm-94w-gc7\">\n                    <td id=\"entry-zpw-9m1-nsc\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55c8776feh3\">net_out_pkt</p>\n                    </td>\n                    <td id=\"entry-2sw-1u0-uv8\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55c8786fe1q\">每秒发送的数据包</p>\n                    </td>\n                    <td id=\"entry-uov-2g5-jfj\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55c8796fmf1\">个/s</p>\n                    </td>\n                    <td id=\"entry-iih-778-35v\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55ef806fvvn\">39.95</p>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </li>\n            <li data-tag=\"li\" id=\"li-gn9-ulo-5ty\" class=\"li\">\n              <p id=\"6f55ef816f366\">TCP<span class=\"help-letter-space\"></span>相关指标</p>\n              <table id=\"table-657-1w1-j41\" tablewidth=\"708\" tablecolswidth=\"208 208 146 146\" autofit=\"false\" class=\"table\">\n                <colgroup colwidth=\"1.18*\" style=\"width:29.38%\"></colgroup>\n                <colgroup colwidth=\"1.18*\" style=\"width:29.38%\"></colgroup>\n                <colgroup colwidth=\"0.82*\" style=\"width:20.62%\"></colgroup>\n                <colgroup colwidth=\"0.82*\" style=\"width:20.62%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"row-sf3-46i-b80\">\n                    <td id=\"task-2538936-entry-l9f-6ec-gfi\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f55ef826fb2x\"><b>指标名</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-574-jaq-vfu\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f55ef836fz6i\"><b>说明</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-445-am6-y32\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f55ef846fd9n\"><b>单位</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-yn6-zsp-zim\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f55ef856fkpi\"><b>示例</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-qvg-1sa-3w9\">\n                    <td id=\"entry-s44-y09-xhz\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55ef866f1nr\">protocol_tcp_established</p>\n                    </td>\n                    <td id=\"entry-l67-3c3-zqn\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55ef876fdt3\">已建立连接数</p>\n                    </td>\n                    <td id=\"entry-t04-7ye-o7r\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55ef886f0ai\">个</p>\n                    </td>\n                    <td id=\"entry-yir-7dh-tvu\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55ef896fk29\">205.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-08z-eu0-dpr\">\n                    <td id=\"entry-7af-5k2-3f2\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f55ef8a6fqu9\">protocol_tcp_insegs</p>\n                    </td>\n                    <td id=\"entry-2a1-f60-d8z\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5616906f9x7\">接收的所有报文数</p>\n                    </td>\n                    <td id=\"entry-ofh-3fn-3h0\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5616916fdts\">个</p>\n                    </td>\n                    <td id=\"entry-exa-dmd-nbg\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5616926fgz3\">4654.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-5gu-o1f-0fg\">\n                    <td id=\"entry-a77-rfi-jrv\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5616936fjgl\">protocol_tcp_outsegs</p>\n                    </td>\n                    <td id=\"entry-io9-r78-ngn\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5616946fvnx\">发送的报文数</p>\n                    </td>\n                    <td id=\"entry-1ud-zny-rhn\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5664b06fdyv\">个</p>\n                    </td>\n                    <td id=\"entry-fwn-zgf-cgg\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f568bc06fmex\">4870.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-qbz-a57-gsk\">\n                    <td id=\"entry-1sx-n0i-z6w\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f568bc16f9ak\">protocol_tcp_retran_segs</p>\n                    </td>\n                    <td id=\"entry-l6x-x84-8k6\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f568bc26fy7e\">重传报文数</p>\n                    </td>\n                    <td id=\"entry-43o-79d-tbx\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f568bc36fd36\">个</p>\n                    </td>\n                    <td id=\"entry-gwb-dhx-j64\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f568bc46frcz\">0.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-tku-e9j-pnl\">\n                    <td id=\"entry-gij-710-7f9\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f568bc56fcio\">protocol_tcp_retran_util</p>\n                    </td>\n                    <td id=\"entry-jhs-k1l-kyd\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f568bc66fg1z\">重传报文占总发送报文数量的比值</p>\n                    </td>\n                    <td id=\"entry-pur-10y-790\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f568bc76fj14\">百分号（%）</p>\n                    </td>\n                    <td id=\"entry-lf4-hv6-lix\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f56b2d06f9gn\">0.0</p>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </li>\n            <li data-tag=\"li\" id=\"li-5oh-so3-i6u\" class=\"li\">\n              <p id=\"6f56b2d16f0q6\">system<span class=\"help-letter-space\"></span>相关指标</p>\n              <table id=\"table-xk0-f3c-wek\" tablewidth=\"708\" tablecolswidth=\"208 208 146 146\" autofit=\"false\" class=\"table\">\n                <colgroup colwidth=\"1.18*\" style=\"width:29.38%\"></colgroup>\n                <colgroup colwidth=\"1.18*\" style=\"width:29.38%\"></colgroup>\n                <colgroup colwidth=\"0.82*\" style=\"width:20.62%\"></colgroup>\n                <colgroup colwidth=\"0.82*\" style=\"width:20.62%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"row-kbu-4yg-qt5\">\n                    <td id=\"task-2538936-entry-i7f-cij-ttw\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f56b2d26f0jr\"><b>指标名</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-rjp-63r-tg1\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f56b2d36fg8p\"><b>说明</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-imf-sgj-11j\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f56b2d46fozr\"><b>单位</b></p>\n                    </td>\n                    <td id=\"task-2538936-entry-rvg-qi5-dnt\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"6f56b2d56fcex\"><b>示例</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-yqc-cd3-zjn\">\n                    <td id=\"entry-3pt-l5h-t2t\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f56b2d66fsm6\">system_boot_time</p>\n                    </td>\n                    <td id=\"entry-ft6-o2k-jm2\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f56b2d76fvg9\">系统启动时间</p>\n                    </td>\n                    <td id=\"entry-dkf-daq-kxh\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f56b2d86fti5\">s</p>\n                    </td>\n                    <td id=\"entry-te0-7yc-3n7\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f56b2d96f65l\">1578461935.0</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-rzr-ac7-d17\">\n                    <td id=\"entry-rgs-q4h-wsy\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f56d9e06fiej\">system_load1</p>\n                    </td>\n                    <td id=\"entry-tzl-l5k-tmf\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f56d9e16fjen\">系统平均负载，1<span class=\"help-letter-space\"></span>分钟平均值</p>\n                    </td>\n                    <td id=\"entry-bsa-j8h-ej2\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f56d9e26fxe7\">不涉及</p>\n                    </td>\n                    <td id=\"entry-tap-etq-kta\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f56d9e36fsmf\">0.58</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-ij6-fru-l8v\">\n                    <td id=\"entry-tl7-p95-92c\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f56d9e46fdx8\">system_load5</p>\n                    </td>\n                    <td id=\"entry-jgh-hkb-vm4\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f56d9e56fklp\">系统平均负载，5<span class=\"help-letter-space\"></span>分钟平均值</p>\n                    </td>\n                    <td id=\"entry-s0l-npb-78l\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f56d9e66fhu5\">不涉及</p>\n                    </td>\n                    <td id=\"entry-71a-q20-z0l\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f56d9e76frmf\">0.68</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-rv6-yas-hbg\">\n                    <td id=\"entry-g6w-87t-0c1\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f56d9e86f457\">system_load15</p>\n                    </td>\n                    <td id=\"entry-xpw-lzm-wpt\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f56d9e96fq53\">系统平均负载，15<span class=\"help-letter-space\"></span>分钟平均值</p>\n                    </td>\n                    <td id=\"entry-qss-ocl-ui0\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5700f06fbes\">不涉及</p>\n                    </td>\n                    <td id=\"entry-yik-mrd-8nj\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6f5700f16f3v9\">0.60</p>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </li>\n          </ul>\n        </div>\n      </section>\n      <section data-tag=\"postreq\" id=\"postreq-r2t-pas-coi\" data-type=\"postreq\" class=\"postreq section\">\n        <h2 id=\"d41e690\">后续步骤</h2>\n        <p id=\"dceb801a2fkru\">关于日志服务可视化，请参见<a href=\"https://help.aliyun.com/zh/sls/time-series-chart#title-vtj-jd3-7f8\" id=\"3f84730febun9\" title=\"\" class=\"xref\">时序图</a>，<a href=\"https://help.aliyun.com/zh/sls/send-time-series-data-from-log-service-to-grafana#title-eee-mck-ai6\" id=\"e2ac9fcc9esoq\" title=\"\" class=\"xref\">时序数据对接<span class=\"help-letter-space\"></span>Grafana</a>。</p>\n      </section>\n    </div>\n  </main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/sls/collect-metric-data-from-hosts","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"alias":"/sls/collect-metric-data-from-hosts","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":6,"developerUrl":"https://developer.aliyun.com/group/sls/","nodeType":1,"version":24,"url":"/zh/sls/collect-metric-data-from-hosts","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":171717,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"采集主机监控数据","id":171717,"title":"采集主机监控数据","url":"/zh/sls/collect-metric-data-from-hosts"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"指标数据采集（Metric）","id":174967,"title":"指标数据采集（Metric）","url":"/zh/sls/data-collection/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据采集","id":128134,"title":"数据采集","url":"/zh/sls/data-collection-1/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"productUrl":"https://www.aliyun.com/product/sls","nodeId":171717,"desc":"日志服务Logtail支持采集主机CPU、内存、负载、磁盘、网络等监控数据。本文介绍通过Logtail采集主机监控数据的操作步骤。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据采集","id":128134,"title":"数据采集","url":"/zh/sls/data-collection-1/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"指标数据采集（Metric）","id":174967,"title":"指标数据采集（Metric）","url":"/zh/sls/data-collection/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"采集主机监控数据","id":171717,"title":"采集主机监控数据","url":"/zh/sls/collect-metric-data-from-hosts"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=2150426217825484963708919e3f72&asid=AQAAAAAQiD9qWktsAAAAAAAkJVDxLz75+w==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2929180" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/start-using-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开始使用</span>
+</a>
+</li>
+ <li id="128096" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/resource-management/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">资源管理</span>
+</a>
+</li>
+ <li id="128134" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-collection-1/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据采集</span>
+</a>
+</li>
+ <li id="2842370" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-processing-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据处理</span>
+</a>
+</li>
+ <li id="270795" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-storage/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据存储</span>
+</a>
+</li>
+ <li id="128135" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/index-and-query/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">查询与分析</span>
+</a>
+</li>
+ <li id="2928734" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-monitoring/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据监控</span>
+</a>
+</li>
+ <li id="2928732" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-log-output-and-integration/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据输出与集成</span>
+</a>
+</li>
+ <li id="2928739" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-technical-solutions/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">技术解决方案</span>
+</a>
+</li>
+ <li id="154068" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2528763" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/security-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="169976" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/faq-15">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>采集主机监控数据</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/sls" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="task-2538936">
+    
+    
+    <p id="shortdesc-wv6-1r1-8sd" data-tag="shortdesc" class="shortdesc">日志服务<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>支持采集主机<span class="help-letter-space"></span>CPU、内存、负载、磁盘、网络等监控数据。本文介绍通过<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>采集主机监控数据的操作步骤。</p>
+    <div data-tag="taskbody" id="taskbody-gs8-op3-xw4" class="taskbody">
+      <section data-tag="prereq" id="prereq-y1k-1xj-ine" data-type="prereq" class="section prereq">
+        <h2 id="d41e14">前提条件</h2>
+        <p id="6f5023216fkd1"><span data-tag="ph" id="ph-69j-gqf-49d" class="ph">已创建<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>和<span class="help-letter-space"></span>MetricStore。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/manage-a-project/#section-ahq-ggx-ndb" id="xref-xjq-6i6-1dm" title="" class="xref">管理<span class="help-letter-space"></span>Project</a><span class="help-letter-space"></span>和<a href="https://help.aliyun.com/zh/sls/manage-a-metricstore#section-8ju-apk-egg" id="xref-91w-3t1-3ez" title="" class="xref">创建<span class="help-letter-space"></span>MetricStore</a>。</span></p>
+      </section>
+      <section data-tag="section" id="section-wvq-8lz-t3l" data-type="section" class="section">
+        <h2 data-tag="title" id="title-372-v2o-7fh" class="title">使用限制</h2>
+        <ul data-tag="ul" id="ul-5wi-udp-gtb" class="ul">
+          <li data-tag="li" id="li-g4h-us0-xzy" class="li">
+            <p id="6f504a306flxz">不支持<span class="help-letter-space"></span>Windows<span class="help-letter-space"></span>版本。</p>
+          </li>
+          <li data-tag="li" id="li-9g3-w18-gx3" class="li">
+            <p id="6f504a316f0bq">不支持采集<span class="help-letter-space"></span>GPU、硬件状态等监控数据。</p>
+          </li>
+          <li data-tag="li" id="li-fta-73n-0m1" class="li">
+            <p id="6f504a326fh1a">只有<span class="help-letter-space"></span>Linux Logtail 0.16.40<span class="help-letter-space"></span>及以上版本的<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>支持采集主机监控数据。如果您已在服务器上安装旧版本的<span class="help-letter-space"></span>Logtail，需先升级。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/install-logtail-on-a-linux-server#section-jcz-xmv-vdb" id="xref-z6b-89q-z0p" title="" class="xref">安装<span class="help-letter-space"></span>Logtail（Linux<span class="help-letter-space"></span>系统）</a>。</p>
+          </li>
+        </ul>
+      </section>
+      <section data-tag="section" id="section-xun-4bp-9pc" data-type="section" class="section">
+        <h2 data-tag="title" id="title-8fv-7iv-f51" class="title">数据采集配置</h2>
+        <ol id="steps-flh-5iz-duu" data-tag="steps" class="steps">
+          <li id="7f84dbd5d5giq">
+            <p id="a376d6f0b6688"><span data-tag="ph" id="e12027536blmp" class="ph">登录<span data-tag="ph" id="e81ab37ed9eeo" props="china intl" data-cond-props="china intl" class="ph"><a href="https://sls.console.aliyun.com" id="aa5a7cff14as4" class="" target="_blank">日志服务控制台</a></span>。</span></p>
+          </li>
+          <li id="482d0fe24b4v9">
+            <p id="d4768e103d7fo">单击控制台右侧的<b id="264b18845fk5c" data-tag="uicontrol" data-isbold="true" class="uicontrol">快速接入数据</b>卡片。</p>
+          </li>
+          <li id="1a89214bcfsk2">
+            <p id="4811a4faf96fg">在<b id="31af39d894ebm" data-tag="uicontrol" data-isbold="true" class="uicontrol">接入数据</b>页面，查找<b id="018d5ec15eoso" data-tag="uicontrol" data-isbold="true" class="uicontrol">主机监控</b>并单击。</p>
+          </li>
+          <li data-tag="step" id="step-d47-slp-n9i" class="step">
+            <p id="6f5071416fbd3">选择目标<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>和时序库<span class="help-letter-space"></span>MetricStore，单击<b id="uicontrol-1ae-3i6-x9h" data-tag="uicontrol" data-isbold="true" class="uicontrol">下一步</b>。在 <b>选择日志空间</b> 步骤中，选择已有的 <b>项目<span class="help-letter-space"></span>Project</b> 和 <b>时序库<span class="help-letter-space"></span>MetricStore</b>，或单击右侧 <b>立即创建</b> 新建，然后单击 <b>下一步</b>。</p>
+          </li>
+          <li data-tag="step" id="step-4sh-zez-5m3" class="step">
+            <p id="6f5071426focq">在<b id="60f3c54476vdz" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建机器组</b>页签中。</p>
+            <div id="info-beh-ihl-g9o" data-tag="info" class="info">
+              <ul id="ul-y5l-g49-5la" data-tag="ul" class="ul">
+                <li id="li-503-p44-2wj">
+                  <p id="253250b5924o5" tagname="p">如果已有可用的机器组，请单击<b id="8acf5fc1a0aej" data-tag="uicontrol" data-isbold="true" class="uicontrol">使用现有机器组</b>。选择<b>主机场景</b>和<span class="help-letter-space"></span><b>ECS</b><span class="help-letter-space"></span>安装环境，从<b>源机器组</b>列表中选择目标机器组，单击 <b>&gt;</b> 将其移至<b>应用机器组</b>列表，然后单击<b>下一步</b>。</p>
+                </li>
+                <li data-tag="li" id="li-51j-892-c4c" class="li">
+                  <p id="6f5098516fwfm">如果您还没有可用的机器组，请执行以下操作（以<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>为例）。 </p>
+                  <ol data-tag="ol" type="a" id="ol-flh-1mo-o5i" class="ol">
+                    <li data-tag="li" id="li-8vj-ghx-m0m" class="li">
+                      <p id="6f50e6706funq">在<span class="help-letter-space"></span><b id="wintitle-bfn-b6r-s4j" data-tag="uicontrol" data-isbold="true" class="uicontrol">ECS<span class="help-letter-space"></span>机器</b>页签中，通过<b data-tag="uicontrol" id="ce5fbbefc1ugl" class="uicontrol">手动选择实例</b>方式选择目标<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例，单击<b id="uicontrol-brc-ce3-hj2" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建</b>。</p>
+                      <div data-tag="p" id="p-q7w-9uf-wrb" class="p">
+                        <p id="6f510d806fi39">具体操作，请参见<a href="https://help.aliyun.com/zh/sls/install-logtail-on-ecs-instances#task-2561331" id="xref-naj-trw-1xy" title="" class="xref">安装<span class="help-letter-space"></span>Logtail（ECS<span class="help-letter-space"></span>实例）</a>。</p>
+                        <div data-tag="note" id="note-jjo-4y0-6my" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                          <p id="6f510d816f5ky">如果您的服务器是与日志服务属于不同账号的<span class="help-letter-space"></span>ECS、其他云厂商的服务器和自建<span class="help-letter-space"></span>IDC<span class="help-letter-space"></span>时，您需要手动安装<span class="help-letter-space"></span>Logtail。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/install-logtail-on-a-linux-server#concept-u5y-3lv-vdb" id="xref-kio-ee9-lr4" title="" class="xref">安装<span class="help-letter-space"></span>Logtail（Linux<span class="help-letter-space"></span>系统）</a>。手动安装<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>后，您必须在该服务器上手动配置用户标识。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/configure-a-user-identifier#task-arl-ynt-qy" id="xref-z1s-tqz-xvr" title="" class="xref">配置用户标识</a>。</p>
+                        </div></div>
+                      </div>
+                    </li>
+                    <li id="li-52z-xtm-iug">
+                      <p id="6c0079ba2cnlf">安装完成后，单击<b id="c649cf6fde422" data-tag="uicontrol" data-isbold="true" class="uicontrol">确认安装完毕</b>。</p>
+                    </li>
+                    <li id="li-j62-tmi-0bo">
+                      <p id="ab902d1610sgs">在<b id="wintitle-ij1-uqd-98u" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建机器组</b>页面，输入<b id="uicontrol-0as-xks-2o6" data-tag="uicontrol" data-isbold="true" class="uicontrol">名称</b>，单击<b id="uicontrol-out-a5o-e7r" data-tag="uicontrol" data-isbold="true" class="uicontrol">下一步</b>。</p>
+                      <p id="f2cce900fczri">日志服务支持创建<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址机器组和用户自定义标识机器组，具体操作，请参见<a href="https://help.aliyun.com/zh/sls/manage-machine-groups#cd2f956f8d4oz" id="9302045c6b0h6" title="" class="xref">创建机器组</a>。</p>
+                    </li>
+                  </ol>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li id="step-3bg-fm2-l63" data-tag="step" class="step">
+            <p id="6f515ba16fyrv">在<b id="wintitle-qig-jyi-usb" data-tag="uicontrol" data-isbold="true" class="uicontrol">数据源设置</b>页签中，设置<b id="uicontrol-0x8-lgn-p1u" data-tag="uicontrol" data-isbold="true" class="uicontrol">配置名称</b>和<b id="uicontrol-5ex-91d-5oq" data-tag="uicontrol" data-isbold="true" class="uicontrol">插件配置</b>，然后单击<b id="uicontrol-drd-6ro-1ir" data-tag="uicontrol" data-isbold="true" class="uicontrol">下一步</b>。</p>
+            <div id="info-6j4-8vk-fz7" data-tag="info" class="info">
+              <div data-tag="p" id="p-hct-xn2-h5k" class="p">
+                <div data-tag="note" id="note-43e-gyt-995" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                  <p id="6f51a9c06fkqg">inputs<span class="help-letter-space"></span>为数据源配置，必选项。一个<span class="help-letter-space"></span>inputs<span class="help-letter-space"></span>中只允许配置一个类型的数据源。</p>
+                </div></div>
+              </div><pre data-tag="codeblock" id="codeblock-skq-umz-yab" outputclass="language-json" code-type="xCode" class="pre codeblock language-json"><code>{
+    "inputs": [
+        {
+            "detail": {
+                "IntervalMs": 30000
+            },
+            "type": "metric_system_v2"
+        }
+    ]
+}</code></pre>
+              <table id="table-5x4-76i-8v1" tablewidth="710" tablecolswidth="142 142 142 284" autofit="false" class="table">
+                <colgroup colwidth="0.8*" style="width:20.00%"></colgroup>
+                <colgroup colwidth="0.8*" style="width:20.00%"></colgroup>
+                <colgroup colwidth="0.8*" style="width:20.00%"></colgroup>
+                <colgroup colwidth="1.6*" style="width:40.00%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="row-s8z-hmm-ijp">
+                    <td id="task-2538936-entry-i7u-qx2-5ah" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f51a9c16foja"><b>参数</b></p>
+                    </td>
+                    <td id="task-2538936-entry-rtq-w04-sph" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f51d0d06ftpp"><b>类型</b></p>
+                    </td>
+                    <td id="task-2538936-entry-8dw-noh-rl7" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f51d0d16fx7u"><b>是否必选</b></p>
+                    </td>
+                    <td id="task-2538936-entry-5ia-qoy-izu" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f51d0d26f210"><b>参数说明</b></p>
+                    </td>
+                  </tr>
+                  <tr id="row-u06-c6r-jsr">
+                    <td id="entry-vkj-xz2-tm8" rowspan="1" colspan="1">
+                      <p id="6f51f7e06fwev">type</p>
+                    </td>
+                    <td id="entry-9so-ua2-usw" rowspan="1" colspan="1">
+                      <p id="6f51f7e16fv6h">string</p>
+                    </td>
+                    <td id="entry-cr6-t71-p68" rowspan="1" colspan="1">
+                      <p id="6f51f7e26ff3e">是</p>
+                    </td>
+                    <td id="entry-xre-ncl-2vl" rowspan="1" colspan="1">
+                      <p id="6f51f7e36flbp">数据源类型，固定为<span class="help-letter-space"></span>metric_system_v2。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-byt-kd3-sof">
+                    <td id="entry-w9y-6uo-kqp" rowspan="1" colspan="1">
+                      <p id="6f521ef06fptg">IntervalMs</p>
+                    </td>
+                    <td id="entry-jru-8zg-xmc" rowspan="1" colspan="1">
+                      <p id="6f521ef16f0tk">int</p>
+                    </td>
+                    <td id="entry-nth-zdr-s9q" rowspan="1" colspan="1">
+                      <p id="6f521ef26foh2">是</p>
+                    </td>
+                    <td id="entry-hir-hnh-9zv" rowspan="1" colspan="1">
+                      <p id="6f521ef36f838">每次请求的间隔，单位：ms。不能低于<span class="help-letter-space"></span>5000，建议设置为<span class="help-letter-space"></span>30000。</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p id="855ba9126agfz"></p>
+          </li>
+          <li id="0bb5ce68b3i85">
+            <p id="52a557db0db6i">单击<b>查询日志</b>，进入时序库。</p>
+          </li>
+        </ol>
+      </section>
+      <section id="4d4c8c3387iyp" class="section">
+        <h2 id="6b8fd82810972"><b>数据监控</b></h2>
+        <ol id="1e81b4446abzk">
+          <li id="e5f9b241f0udh">
+            <p id="e98043bc0c2yz">在目标时序库首页单击<b id="7b0b3e2069r00" data-tag="uicontrol" data-isbold="true" class="uicontrol">指标统计</b>，打开<b id="8284bc07f3671" data-tag="uicontrol" data-isbold="true" class="uicontrol">指标统计</b>大盘。</p>
+          </li>
+          <li id="40cad13342s4t">
+            <p id="1079e3edc0dzf">在<b id="8284bc07f3671" data-tag="uicontrol" data-isbold="true" class="uicontrol">指标统计</b>查看所有已采集到的数据指标，也可以按时间周期或者指标参数进行数据过滤。</p>
+            <p id="9bf4f70106enn"><img id="054f10ff94sct" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5780345271/p844149.png" alt="image" placement="break" class="image break"></p>
+          </li>
+          <li id="80db51704fcw3">
+            <p id="a79ffff891t1l">在时序库首页，单击<span class="help-letter-space"></span><b data-tag="uicontrol" id="aa03931580cdw" class="uicontrol">Metrics 探索（指标数：48）</b>，可探索、查看和过滤所有可用的指标名称及其元数据。如需查看<span class="help-letter-space"></span>CPU 和内存数据，可以使用<code data-tag="code" code-type="xCode" class="code">cpu_count{}</code>和<code data-tag="code" code-type="xCode" class="code">mem_cache{}</code>语句查询。更多查询与分析操作，请参见<a href="https://help.aliyun.com/zh/sls/query-and-analyze-metric-data#task-2539642" id="7123778b0075g" title="" class="xref">查询和分析时序数据</a>。<img id="55af0b40e8slf" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5780345271/p844158.png" alt="image" placement="break" class="image break"></p>
+          </li>
+          <li id="09b1ca046bdtj">
+            <p id="bd3053428fkbd">当您采集的数据中包含多台机器时，可使用<code data-tag="code" class="code">hostname</code>或<code data-tag="code" class="code">ip</code>进行筛选。为保证筛选数据的准确性，进行筛选前，请先清除历史查询数据。选择指标（如 <code data-tag="code" class="code">cpu_count</code>）后，页面展示该指标的标签列表（如 <b>hostname</b>、<b>ip</b>）及其唯一值数量和示例值。单击标签操作列的<b>筛选</b>，选择运算符并输入筛选值（如 ip = 172.26.150.228），然后单击<b>+ 添加到查询框</b>将筛选条件应用到查询语句中。</p>
+          </li>
+        </ol>
+      </section>
+      <section data-tag="section" id="section-ofp-exd-8yb" data-type="section" class="section">
+        <h2 data-tag="title" id="title-88w-p4b-2m9" class="title">指标说明</h2>
+        <div data-tag="p" id="p-9ry-eok-djk" class="p">
+          <p id="6f521ef46fl4s">主机<span class="help-letter-space"></span>CPU、内存、负载、磁盘、网络等指标说明如下：</p>
+          <ul data-tag="ul" id="ul-byy-6nu-dmg" class="ul">
+            <li data-tag="li" id="li-oz3-jgm-w72" class="li">
+              <p id="6f5246006f6qp">CPU<span class="help-letter-space"></span>相关指标</p>
+              <table id="table-q9s-hum-g7j" tablewidth="708" tablecolswidth="208 208 146 146" autofit="false" class="table">
+                <colgroup colwidth="1.18*" style="width:29.38%"></colgroup>
+                <colgroup colwidth="1.18*" style="width:29.38%"></colgroup>
+                <colgroup colwidth="0.82*" style="width:20.62%"></colgroup>
+                <colgroup colwidth="0.82*" style="width:20.62%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="row-yrm-8y4-rd4">
+                    <td id="task-2538936-entry-4wl-hm3-gdv" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f5246016fxur"><b>指标名</b></p>
+                    </td>
+                    <td id="task-2538936-entry-rpi-7pc-zso" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f5246026fbbs"><b>说明</b></p>
+                    </td>
+                    <td id="task-2538936-entry-og7-4n2-z4r" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f5246036fzex"><b>单位</b></p>
+                    </td>
+                    <td id="task-2538936-entry-5wg-u2u-txz" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f5246046f3jb"><b>示例</b></p>
+                    </td>
+                  </tr>
+                  <tr id="row-oj9-pfn-nk5">
+                    <td id="entry-x6s-h9z-uvw" rowspan="1" colspan="1">
+                      <p id="6f5246056frkv">cpu_count</p>
+                    </td>
+                    <td id="entry-sp2-o3n-yqh" rowspan="1" colspan="1">
+                      <p id="6f526d106fl70">CPU<span class="help-letter-space"></span>核数</p>
+                    </td>
+                    <td id="entry-lu8-jyr-87p" rowspan="1" colspan="1">
+                      <p id="6f526d116f1dv">个</p>
+                    </td>
+                    <td id="entry-9x6-qil-11x" rowspan="1" colspan="1">
+                      <p id="6f526d126ftrx">2.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-d47-v15-g7x">
+                    <td id="entry-niw-7d5-iip" rowspan="1" colspan="1">
+                      <p id="6f526d136fhw0">cpu_util</p>
+                    </td>
+                    <td id="entry-tz3-9o7-lgd" rowspan="1" colspan="1">
+                      <p id="6f526d146fg3p">CPU<span class="help-letter-space"></span>使用率，计算方式为排除<span class="help-letter-space"></span>idle、wait、steal<span class="help-letter-space"></span>后的占比</p>
+                    </td>
+                    <td id="entry-9r0-93j-g2j" rowspan="1" colspan="1">
+                      <p id="6f526d156fovl">百分号（%）</p>
+                    </td>
+                    <td id="entry-d5w-3pg-bwj" rowspan="1" colspan="1">
+                      <p id="6f526d166fwm8">7.68</p>
+                    </td>
+                  </tr>
+                  <tr id="row-tlk-c1b-xff">
+                    <td id="entry-jqh-kkz-3ro" rowspan="1" colspan="1">
+                      <p id="6f5294206f25u">cpu_guest_util</p>
+                    </td>
+                    <td id="entry-1zq-axk-8x7" rowspan="1" colspan="1">
+                      <p id="6f5294216f099">客户时间（guest time）占比</p>
+                    </td>
+                    <td id="entry-n3i-8ve-npi" rowspan="1" colspan="1">
+                      <p id="6f5294226fiqa">百分号（%）</p>
+                    </td>
+                    <td id="entry-pzh-gux-iy8" rowspan="1" colspan="1">
+                      <p id="6f5294236fsax">0.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-h6m-51c-c2v">
+                    <td id="entry-e81-1iq-7ns" rowspan="1" colspan="1">
+                      <p id="6f5294246fxni">cpu_guestnice_util</p>
+                    </td>
+                    <td id="entry-hlo-3sp-jco" rowspan="1" colspan="1">
+                      <p id="6f5294256fwu0">Nice<span class="help-letter-space"></span>进程客户时间（nice guest time）占比</p>
+                    </td>
+                    <td id="entry-hs9-80z-25u" rowspan="1" colspan="1">
+                      <p id="6f52bb306flan">百分号（%）</p>
+                    </td>
+                    <td id="entry-qkj-3ou-hlp" rowspan="1" colspan="1">
+                      <p id="6f52bb316fjhh">0.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-dgu-l02-esu">
+                    <td id="entry-04j-ek9-11r" rowspan="1" colspan="1">
+                      <p id="6f52bb326fasf">cpu_irq_util</p>
+                    </td>
+                    <td id="entry-79v-bmi-2o8" rowspan="1" colspan="1">
+                      <p id="6f52bb336f70r">硬中断处理时间（Hard Irq time）占比</p>
+                    </td>
+                    <td id="entry-jx1-r9h-wyb" rowspan="1" colspan="1">
+                      <p id="6f52bb346fjz2">百分号（%）</p>
+                    </td>
+                    <td id="entry-mb9-fhr-9ux" rowspan="1" colspan="1">
+                      <p id="6f52bb356f5tj">0.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-s4c-xme-2bj">
+                    <td id="entry-330-74r-4dj" rowspan="1" colspan="1">
+                      <p id="6f52e2406f1z5">cpu_nice_util</p>
+                    </td>
+                    <td id="entry-yw1-s2g-ilq" rowspan="1" colspan="1">
+                      <p id="6f52e2416fnb4">Nice<span class="help-letter-space"></span>时间（Nice time）占比</p>
+                    </td>
+                    <td id="entry-awb-2vj-tay" rowspan="1" colspan="1">
+                      <p id="6f52e2426fm9r">百分号（%）</p>
+                    </td>
+                    <td id="entry-tw7-gri-mlq" rowspan="1" colspan="1">
+                      <p id="6f52e2436f4xv">0.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-5me-rwz-rbg">
+                    <td id="entry-zyh-bee-trn" rowspan="1" colspan="1">
+                      <p id="6f52e2446fkdy">cpu_softirq_util</p>
+                    </td>
+                    <td id="entry-8lu-91t-w6r" rowspan="1" colspan="1">
+                      <p id="6f52e2456f8gg">软中断处理时间（Soft Irq time）占比</p>
+                    </td>
+                    <td id="entry-iav-ynv-re6" rowspan="1" colspan="1">
+                      <p id="6f52e2466fnpa">百分号（%）</p>
+                    </td>
+                    <td id="entry-uvh-kso-r4t" rowspan="1" colspan="1">
+                      <p id="6f5309506fnsd">0.06</p>
+                    </td>
+                  </tr>
+                  <tr id="row-mf3-0qc-st2">
+                    <td id="entry-fkj-t66-hdl" rowspan="1" colspan="1">
+                      <p id="6f5309516fura">cpu_steal_util</p>
+                    </td>
+                    <td id="entry-jhg-hph-eft" rowspan="1" colspan="1">
+                      <p id="6f5309526fmcj">等待宿主机<span class="help-letter-space"></span>CPU<span class="help-letter-space"></span>时间（Steal time）占比</p>
+                    </td>
+                    <td id="entry-sxr-tld-grq" rowspan="1" colspan="1">
+                      <p id="6f5309536fxx1">百分号（%）</p>
+                    </td>
+                    <td id="entry-p2t-48r-wbr" rowspan="1" colspan="1">
+                      <p id="6f5309546ftyl">0.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-3dn-59z-0x7">
+                    <td id="entry-7xv-zs9-zxt" rowspan="1" colspan="1">
+                      <p id="6f5309556ffnn">cpu_sys_util</p>
+                    </td>
+                    <td id="entry-e83-ry6-iai" rowspan="1" colspan="1">
+                      <p id="6f5309566fzbw">内核态（System time）占比</p>
+                    </td>
+                    <td id="entry-a39-dnt-fbh" rowspan="1" colspan="1">
+                      <p id="6f5330606fm4f">百分号（%）</p>
+                    </td>
+                    <td id="entry-kds-715-vhf" rowspan="1" colspan="1">
+                      <p id="6f5330616ftco">2.77</p>
+                    </td>
+                  </tr>
+                  <tr id="row-9yt-4mc-jsg">
+                    <td id="entry-jsc-9sy-bbq" rowspan="1" colspan="1">
+                      <p id="6f5330626fiyp">cpu_user_util</p>
+                    </td>
+                    <td id="entry-xj1-9bc-ie9" rowspan="1" colspan="1">
+                      <p id="6f5330636fvtz">用户态（User time）占比</p>
+                    </td>
+                    <td id="entry-mc6-h9w-c0x" rowspan="1" colspan="1">
+                      <p id="6f5330646fqr9">百分号（%）</p>
+                    </td>
+                    <td id="entry-liv-v1z-g5p" rowspan="1" colspan="1">
+                      <p id="6f5330656fwum">4.84</p>
+                    </td>
+                  </tr>
+                  <tr id="row-fgd-3cz-bjk">
+                    <td id="entry-r4q-7hz-rhz" rowspan="1" colspan="1">
+                      <p id="6f5357706fecm">cpu_wait_util</p>
+                    </td>
+                    <td id="entry-x07-ntj-e61" rowspan="1" colspan="1">
+                      <p id="6f5357716f0mj">等待<span class="help-letter-space"></span>IO（Waiting time）占比</p>
+                    </td>
+                    <td id="entry-4ux-k4o-7on" rowspan="1" colspan="1">
+                      <p id="6f5357726f459">百分号（%）</p>
+                    </td>
+                    <td id="entry-lp0-5bb-pz1" rowspan="1" colspan="1">
+                      <p id="6f5357736fr37">0.11</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li data-tag="li" id="li-4jc-n9k-alg" class="li">
+              <p id="6f5357746f3ju">内存相关指标</p>
+              <table id="table-uy4-te6-r17" tablewidth="708" tablecolswidth="208 208 146 146" autofit="false" class="table">
+                <colgroup colwidth="1.18*" style="width:29.38%"></colgroup>
+                <colgroup colwidth="1.18*" style="width:29.38%"></colgroup>
+                <colgroup colwidth="0.82*" style="width:20.62%"></colgroup>
+                <colgroup colwidth="0.82*" style="width:20.62%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="row-ome-en8-s4g">
+                    <td id="task-2538936-entry-b12-iz9-u6k" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f5357756fofa"><b>指标名</b></p>
+                    </td>
+                    <td id="task-2538936-entry-775-5ge-qfq" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f5357766fcb5"><b>说明</b></p>
+                    </td>
+                    <td id="task-2538936-entry-xj9-nn0-d39" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f537e806fvc4"><b>单位</b></p>
+                    </td>
+                    <td id="task-2538936-entry-vkc-suc-cnl" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f537e816f9aa"><b>示例</b></p>
+                    </td>
+                  </tr>
+                  <tr id="row-zrm-mx3-8du">
+                    <td id="entry-flk-aa9-ujh" rowspan="1" colspan="1">
+                      <p id="6f537e826f2e8">mem_util</p>
+                    </td>
+                    <td id="entry-91r-uql-n6w" rowspan="1" colspan="1">
+                      <p id="6f537e836fz4p">内存使用率</p>
+                    </td>
+                    <td id="entry-zw0-79u-o6f" rowspan="1" colspan="1">
+                      <p id="6f537e846fpja">百分号（%）</p>
+                    </td>
+                    <td id="entry-veq-vn9-kt4" rowspan="1" colspan="1">
+                      <p id="6f537e856fv5e">51.03</p>
+                    </td>
+                  </tr>
+                  <tr id="row-92d-kni-tgo">
+                    <td id="entry-v8j-5hi-wu6" rowspan="1" colspan="1">
+                      <p id="6f53a5906fxbw">mem_cache</p>
+                    </td>
+                    <td id="entry-wou-byh-cvw" rowspan="1" colspan="1">
+                      <p id="6f53a5916fomq">已申请但未使用的内存</p>
+                    </td>
+                    <td id="entry-zau-1we-0el" rowspan="1" colspan="1">
+                      <p id="6f53a5926fdcj">byte</p>
+                    </td>
+                    <td id="entry-f4d-kyf-2dr" rowspan="1" colspan="1">
+                      <p id="6f53a5936fh6o">3566386668.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-hyj-89i-xcs">
+                    <td id="entry-e8i-dlh-29d" rowspan="1" colspan="1">
+                      <p id="6f53cca06f95g">mem_free</p>
+                    </td>
+                    <td id="entry-97v-d83-wdo" rowspan="1" colspan="1">
+                      <p id="6f53cca16f339">未使用的内存</p>
+                    </td>
+                    <td id="entry-eer-qv2-hbb" rowspan="1" colspan="1">
+                      <p id="6f53cca26fl5i">byte</p>
+                    </td>
+                    <td id="entry-g2u-7o5-6v4" rowspan="1" colspan="1">
+                      <p id="6f53f3b06foix">177350084.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-2ek-4lw-mv9">
+                    <td id="entry-21q-wek-cp0" rowspan="1" colspan="1">
+                      <p id="6f53f3b16f5xn">mem_available</p>
+                    </td>
+                    <td id="entry-ho0-n22-c6o" rowspan="1" colspan="1">
+                      <p id="6f541ac06f6xm">可用内存</p>
+                    </td>
+                    <td id="entry-g80-9ur-9tq" rowspan="1" colspan="1">
+                      <p id="6f541ac16fj5h">byte</p>
+                    </td>
+                    <td id="entry-e03-9r5-bup" rowspan="1" colspan="1">
+                      <p id="6f541ac26fmb2">3699885553.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-b8f-amf-d9w">
+                    <td id="entry-46t-394-erl" rowspan="1" colspan="1">
+                      <p id="6f541ac36f102">mem_used</p>
+                    </td>
+                    <td id="entry-hqc-6qt-ogo" rowspan="1" colspan="1">
+                      <p id="6f5441d06fw8c">已使用内存</p>
+                    </td>
+                    <td id="entry-9ss-id8-36p" rowspan="1" colspan="1">
+                      <p id="6f5441d16f6kb">byte</p>
+                    </td>
+                    <td id="entry-t84-1uu-h4b" rowspan="1" colspan="1">
+                      <p id="6f5441d26fchj">4041510463.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-oi1-x1g-9x9">
+                    <td id="entry-i6z-x84-8c9" rowspan="1" colspan="1">
+                      <p id="6f5441d36fg9a">mem_swap_util</p>
+                    </td>
+                    <td id="entry-igw-wmd-o5s" rowspan="1" colspan="1">
+                      <p id="6f5441d46fu1c">swap<span class="help-letter-space"></span>内存使用率</p>
+                    </td>
+                    <td id="entry-31z-xrz-2wh" rowspan="1" colspan="1">
+                      <p id="6f5468e06f419">百分号（%）</p>
+                    </td>
+                    <td id="entry-s1e-axq-hz4" rowspan="1" colspan="1">
+                      <p id="6f5468e16fi8d">0.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-jv8-zge-ojc">
+                    <td id="entry-yvh-ubh-du7" rowspan="1" colspan="1">
+                      <p id="6f5468e26ff14">mem_total</p>
+                    </td>
+                    <td id="entry-j60-vwa-u3q" rowspan="1" colspan="1">
+                      <p id="6f5468e36fwlh">内存总量</p>
+                    </td>
+                    <td id="entry-fzp-1sq-jcc" rowspan="1" colspan="1">
+                      <p id="6f5468e46fttb">byte</p>
+                    </td>
+                    <td id="entry-oj0-s31-8ro" rowspan="1" colspan="1">
+                      <p id="6f5468e56f64i">7919128576.0</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li data-tag="li" id="li-hza-ap6-7pq" class="li">
+              <p id="6f548ff06flb3">磁盘相关指标</p>
+              <table id="table-v8n-0gc-j47" tablewidth="708" tablecolswidth="208 208 146 146" autofit="false" class="table">
+                <colgroup colwidth="1.18*" style="width:29.38%"></colgroup>
+                <colgroup colwidth="1.18*" style="width:29.38%"></colgroup>
+                <colgroup colwidth="0.82*" style="width:20.62%"></colgroup>
+                <colgroup colwidth="0.82*" style="width:20.62%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="row-lkq-rki-1g8">
+                    <td id="task-2538936-entry-61z-x3e-ter" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f548ff16f9s0"><b>指标名</b></p>
+                    </td>
+                    <td id="task-2538936-entry-hr9-ua4-jdj" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f548ff26fw21"><b>说明</b></p>
+                    </td>
+                    <td id="task-2538936-entry-lxd-pwu-tra" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f548ff36fp0u"><b>单位</b></p>
+                    </td>
+                    <td id="task-2538936-entry-gd4-jg2-hu1" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f548ff46f9mn"><b>示例</b></p>
+                    </td>
+                  </tr>
+                  <tr id="row-2gk-njp-h60">
+                    <td id="entry-ern-xh3-p1g" rowspan="1" colspan="1">
+                      <p id="6f548ff56fmec">disk_rbps</p>
+                    </td>
+                    <td id="entry-xo0-yvp-08c" rowspan="1" colspan="1">
+                      <p id="6f548ff66fmds">硬盘每秒读取流量</p>
+                    </td>
+                    <td id="entry-7rz-i0i-zkc" rowspan="1" colspan="1">
+                      <p id="6f548ff76f730">byte/s</p>
+                    </td>
+                    <td id="entry-nkb-45k-fyo" rowspan="1" colspan="1">
+                      <p id="6f54b7006fteh">8376.81</p>
+                    </td>
+                  </tr>
+                  <tr id="row-ydc-vnv-nu9">
+                    <td id="entry-tu0-xrq-2xn" rowspan="1" colspan="1">
+                      <p id="6f54b7016fde1">disk_wbps</p>
+                    </td>
+                    <td id="entry-p1k-a8i-054" rowspan="1" colspan="1">
+                      <p id="6f54b7026fn58">硬盘每秒写入流量</p>
+                    </td>
+                    <td id="entry-stb-9w5-uhd" rowspan="1" colspan="1">
+                      <p id="6f54b7036f2wl">byte/s</p>
+                    </td>
+                    <td id="entry-ojf-01h-a5k" rowspan="1" colspan="1">
+                      <p id="6f54b7046fm4x">247633.58</p>
+                    </td>
+                  </tr>
+                  <tr id="row-l3e-icf-cw7">
+                    <td id="entry-5f2-1sy-t6m" rowspan="1" colspan="1">
+                      <p id="6f54b7056fvqs">disk_riops</p>
+                    </td>
+                    <td id="entry-u15-adm-j5g" rowspan="1" colspan="1">
+                      <p id="6f54b7066fvp7">硬盘每秒读取次数</p>
+                    </td>
+                    <td id="entry-dso-b1n-cov" rowspan="1" colspan="1">
+                      <p id="6f54b7076f47v">次/s</p>
+                    </td>
+                    <td id="entry-kvf-y99-nmt" rowspan="1" colspan="1">
+                      <p id="6f54b7086ffd2">0.22</p>
+                    </td>
+                  </tr>
+                  <tr id="row-2yx-jo3-s5o">
+                    <td id="entry-qs3-6ri-4pq" rowspan="1" colspan="1">
+                      <p id="6f54de106f5ht">disk_wiops</p>
+                    </td>
+                    <td id="entry-6az-x14-4w3" rowspan="1" colspan="1">
+                      <p id="6f54de116fti0">硬盘每秒写入次数</p>
+                    </td>
+                    <td id="entry-rmy-6sd-1fo" rowspan="1" colspan="1">
+                      <p id="6f54de126fuag">次/s</p>
+                    </td>
+                    <td id="entry-efh-3af-ct2" rowspan="1" colspan="1">
+                      <p id="6f54de136fai6">43.39</p>
+                    </td>
+                  </tr>
+                  <tr id="row-yv6-nay-qvo">
+                    <td id="entry-on0-h5q-c8g" rowspan="1" colspan="1">
+                      <p id="6f54de146f3v8">disk_rlatency</p>
+                    </td>
+                    <td id="entry-lg4-bzn-3hz" rowspan="1" colspan="1">
+                      <p id="6f54de156fnev">平均读延迟</p>
+                    </td>
+                    <td id="entry-in1-ziv-xc7" rowspan="1" colspan="1">
+                      <p id="6f54de166fnw5">ms</p>
+                    </td>
+                    <td id="entry-r95-lxy-jq7" rowspan="1" colspan="1">
+                      <p id="6f54de176fzn8">2.83</p>
+                    </td>
+                  </tr>
+                  <tr id="row-8du-egx-xwa">
+                    <td id="entry-ahi-jes-5r4" rowspan="1" colspan="1">
+                      <p id="6f54de186fx2h">disk_wlatency</p>
+                    </td>
+                    <td id="entry-1lh-02p-y78" rowspan="1" colspan="1">
+                      <p id="6f54de196fgvm">平均写延迟</p>
+                    </td>
+                    <td id="entry-b3g-17j-u5k" rowspan="1" colspan="1">
+                      <p id="6f5505206fl5x">ms</p>
+                    </td>
+                    <td id="entry-v5q-2dn-2gj" rowspan="1" colspan="1">
+                      <p id="6f5505216fwzj">2.15</p>
+                    </td>
+                  </tr>
+                  <tr id="row-fi2-foq-2mo">
+                    <td id="entry-iuj-fha-puj" rowspan="1" colspan="1">
+                      <p id="6f5505226f2gw">disk_util</p>
+                    </td>
+                    <td id="entry-9bp-wci-755" rowspan="1" colspan="1">
+                      <p id="6f5505236f2lu">IO<span class="help-letter-space"></span>使用率</p>
+                    </td>
+                    <td id="entry-zlc-ziv-fhx" rowspan="1" colspan="1">
+                      <p id="6f5505246frew">百分号（%）</p>
+                    </td>
+                    <td id="entry-ess-vf8-efw" rowspan="1" colspan="1">
+                      <p id="6f5505256frl7">0.27</p>
+                    </td>
+                  </tr>
+                  <tr id="row-lnv-8rk-5ws">
+                    <td id="entry-cfc-08q-hgl" rowspan="1" colspan="1">
+                      <p id="6f5505266fl0a">disk_space_usage</p>
+                    </td>
+                    <td id="entry-zrp-l1n-pgf" rowspan="1" colspan="1">
+                      <p id="6f5505276ftt8">磁盘使用百分比</p>
+                    </td>
+                    <td id="entry-1fo-658-i19" rowspan="1" colspan="1">
+                      <p id="6f5505286fzws">百分号（%）</p>
+                    </td>
+                    <td id="entry-pll-61o-vsc" rowspan="1" colspan="1">
+                      <p id="6f5505296fza8">9.12</p>
+                    </td>
+                  </tr>
+                  <tr id="row-c2l-610-hb7">
+                    <td id="entry-v11-qh8-loq" rowspan="1" colspan="1">
+                      <p id="6f552c306f65b">disk_inode_usage</p>
+                    </td>
+                    <td id="entry-5i5-jvz-6h9" rowspan="1" colspan="1">
+                      <p id="6f552c316f4xf">inode<span class="help-letter-space"></span>使用率</p>
+                    </td>
+                    <td id="entry-lav-2em-hnx" rowspan="1" colspan="1">
+                      <p id="6f552c326fn5d">百分号（%）</p>
+                    </td>
+                    <td id="entry-vp0-nqk-2s3" rowspan="1" colspan="1">
+                      <p id="6f552c336f0be">1.18</p>
+                    </td>
+                  </tr>
+                  <tr id="row-c5f-as3-522">
+                    <td id="entry-25y-xvs-jm7" rowspan="1" colspan="1">
+                      <p id="6f552c346f0tp">disk_space_used</p>
+                    </td>
+                    <td id="entry-vpx-kvr-drn" rowspan="1" colspan="1">
+                      <p id="6f552c356f7p0">磁盘已使用容量</p>
+                    </td>
+                    <td id="entry-rwz-djd-fqr" rowspan="1" colspan="1">
+                      <p id="6f552c366fylv">byte</p>
+                    </td>
+                    <td id="entry-wdl-wxv-o47" rowspan="1" colspan="1">
+                      <p id="6f552c376fpl7">11068512238.59</p>
+                    </td>
+                  </tr>
+                  <tr id="row-6u4-pej-ikv">
+                    <td id="entry-7eq-qny-9js" rowspan="1" colspan="1">
+                      <p id="6f552c386f70l">disk_space_total</p>
+                    </td>
+                    <td id="entry-aje-w2z-cs7" rowspan="1" colspan="1">
+                      <p id="6f5553406fswv">磁盘总量</p>
+                    </td>
+                    <td id="entry-v2a-5d7-8ai" rowspan="1" colspan="1">
+                      <p id="6f5553416fdiq">byte</p>
+                    </td>
+                    <td id="entry-54i-h68-02t" rowspan="1" colspan="1">
+                      <p id="6f5553426fhia">126692061184.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-57v-ymp-x1e">
+                    <td id="entry-3l1-ig5-61y" rowspan="1" colspan="1">
+                      <p id="6f5553436fjdu">disk_inode_total</p>
+                    </td>
+                    <td id="entry-j0l-56m-b1x" rowspan="1" colspan="1">
+                      <p id="6f5553446fy1l">inode<span class="help-letter-space"></span>总量</p>
+                    </td>
+                    <td id="entry-vtj-bhb-ogg" rowspan="1" colspan="1">
+                      <p id="6f5553456fpuz">个</p>
+                    </td>
+                    <td id="entry-fnq-ls1-5xs" rowspan="1" colspan="1">
+                      <p id="6f5553466f2k5">7864320.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-blf-hy8-onh">
+                    <td id="entry-3nz-fv1-47l" rowspan="1" colspan="1">
+                      <p id="6f5553476fjgf">disk_inode_used</p>
+                    </td>
+                    <td id="entry-pvo-tvi-2dh" rowspan="1" colspan="1">
+                      <p id="6f5553486f2v7">inode<span class="help-letter-space"></span>已使用容量</p>
+                    </td>
+                    <td id="entry-35u-8s7-d6o" rowspan="1" colspan="1">
+                      <p id="6f5553496fkcp">个</p>
+                    </td>
+                    <td id="entry-pp8-2xr-yy0" rowspan="1" colspan="1">
+                      <p id="6f557a506fu1h">93054.78</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li data-tag="li" id="li-khj-808-wry" class="li">
+              <p id="6f557a516fhyp">NET<span class="help-letter-space"></span>相关指标</p>
+              <table id="table-e54-m20-6lt" tablewidth="708" tablecolswidth="208 208 146 146" autofit="false" class="table">
+                <colgroup colwidth="1.18*" style="width:29.38%"></colgroup>
+                <colgroup colwidth="1.18*" style="width:29.38%"></colgroup>
+                <colgroup colwidth="0.82*" style="width:20.62%"></colgroup>
+                <colgroup colwidth="0.82*" style="width:20.62%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="row-i3r-w83-2be">
+                    <td id="task-2538936-entry-32g-lz2-tfv" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f557a526fvys"><b>指标名</b></p>
+                    </td>
+                    <td id="task-2538936-entry-fwk-sxq-hxb" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f557a536fnlt"><b>说明</b></p>
+                    </td>
+                    <td id="task-2538936-entry-kj6-t05-nfc" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f557a546fs9a"><b>单位</b></p>
+                    </td>
+                    <td id="task-2538936-entry-qgk-8jp-fj1" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f557a556fuof"><b>示例</b></p>
+                    </td>
+                  </tr>
+                  <tr id="row-hmv-2eg-ugk">
+                    <td id="entry-ure-y2w-0nj" rowspan="1" colspan="1">
+                      <p id="6f557a566fjk8">net_drop_util</p>
+                    </td>
+                    <td id="entry-lw0-ul4-no6" rowspan="1" colspan="1">
+                      <p id="6f557a576fnxd">丢弃的数据包占总数据包的比值</p>
+                    </td>
+                    <td id="entry-j0w-uem-jw1" rowspan="1" colspan="1">
+                      <p id="6f557a586fbqa">百分号（%）</p>
+                    </td>
+                    <td id="entry-2os-bd4-3tx" rowspan="1" colspan="1">
+                      <p id="6f557a596fmt3">0.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-6pe-mad-0ua">
+                    <td id="entry-za7-vtv-8rc" rowspan="1" colspan="1">
+                      <p id="6f55a1606f3t6">net_err_util</p>
+                    </td>
+                    <td id="entry-8le-l12-80c" rowspan="1" colspan="1">
+                      <p id="6f55a1616f940">报错数据包占总数据包的比值</p>
+                    </td>
+                    <td id="entry-uim-cis-4w0" rowspan="1" colspan="1">
+                      <p id="6f55a1626f8xr">百分号（%）</p>
+                    </td>
+                    <td id="entry-k1j-2sc-8ic" rowspan="1" colspan="1">
+                      <p id="6f55a1636fhnj">0.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-u2f-doq-79h">
+                    <td id="entry-rkh-7j8-1rp" rowspan="1" colspan="1">
+                      <p id="6f55a1646fzzh">net_in</p>
+                    </td>
+                    <td id="entry-hcr-l7p-5ry" rowspan="1" colspan="1">
+                      <p id="6f55a1656fsqi">网络接收速率</p>
+                    </td>
+                    <td id="entry-0zo-j78-nse" rowspan="1" colspan="1">
+                      <p id="6f55a1666f83q">byte/s</p>
+                    </td>
+                    <td id="entry-k4o-ggc-6me" rowspan="1" colspan="1">
+                      <p id="6f55a1676fzez">8440.91</p>
+                    </td>
+                  </tr>
+                  <tr id="row-gga-vgm-qlx">
+                    <td id="entry-v0e-5vk-r62" rowspan="1" colspan="1">
+                      <p id="6f55a1686f2fz">net_in_pkt</p>
+                    </td>
+                    <td id="entry-jeo-pam-i8e" rowspan="1" colspan="1">
+                      <p id="6f55c8706f9sb">每秒接收的数据包</p>
+                    </td>
+                    <td id="entry-o8j-lri-f6c" rowspan="1" colspan="1">
+                      <p id="6f55c8716f3da">个/s</p>
+                    </td>
+                    <td id="entry-hir-oku-gs8" rowspan="1" colspan="1">
+                      <p id="6f55c8726f5s1">40.83</p>
+                    </td>
+                  </tr>
+                  <tr id="row-s23-6sj-xuv">
+                    <td id="entry-rno-5uy-z2h" rowspan="1" colspan="1">
+                      <p id="6f55c8736fhkl">net_out</p>
+                    </td>
+                    <td id="entry-bnw-29c-ekf" rowspan="1" colspan="1">
+                      <p id="6f55c8746fmuf">网络发送速率</p>
+                    </td>
+                    <td id="entry-27o-7nj-hjl" rowspan="1" colspan="1">
+                      <p id="6f55c8756f8zf">byte/s</p>
+                    </td>
+                    <td id="entry-4c0-nai-wbp" rowspan="1" colspan="1">
+                      <p id="6f55c8766f6lv">12446.53</p>
+                    </td>
+                  </tr>
+                  <tr id="row-qrm-94w-gc7">
+                    <td id="entry-zpw-9m1-nsc" rowspan="1" colspan="1">
+                      <p id="6f55c8776feh3">net_out_pkt</p>
+                    </td>
+                    <td id="entry-2sw-1u0-uv8" rowspan="1" colspan="1">
+                      <p id="6f55c8786fe1q">每秒发送的数据包</p>
+                    </td>
+                    <td id="entry-uov-2g5-jfj" rowspan="1" colspan="1">
+                      <p id="6f55c8796fmf1">个/s</p>
+                    </td>
+                    <td id="entry-iih-778-35v" rowspan="1" colspan="1">
+                      <p id="6f55ef806fvvn">39.95</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li data-tag="li" id="li-gn9-ulo-5ty" class="li">
+              <p id="6f55ef816f366">TCP<span class="help-letter-space"></span>相关指标</p>
+              <table id="table-657-1w1-j41" tablewidth="708" tablecolswidth="208 208 146 146" autofit="false" class="table">
+                <colgroup colwidth="1.18*" style="width:29.38%"></colgroup>
+                <colgroup colwidth="1.18*" style="width:29.38%"></colgroup>
+                <colgroup colwidth="0.82*" style="width:20.62%"></colgroup>
+                <colgroup colwidth="0.82*" style="width:20.62%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="row-sf3-46i-b80">
+                    <td id="task-2538936-entry-l9f-6ec-gfi" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f55ef826fb2x"><b>指标名</b></p>
+                    </td>
+                    <td id="task-2538936-entry-574-jaq-vfu" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f55ef836fz6i"><b>说明</b></p>
+                    </td>
+                    <td id="task-2538936-entry-445-am6-y32" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f55ef846fd9n"><b>单位</b></p>
+                    </td>
+                    <td id="task-2538936-entry-yn6-zsp-zim" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f55ef856fkpi"><b>示例</b></p>
+                    </td>
+                  </tr>
+                  <tr id="row-qvg-1sa-3w9">
+                    <td id="entry-s44-y09-xhz" rowspan="1" colspan="1">
+                      <p id="6f55ef866f1nr">protocol_tcp_established</p>
+                    </td>
+                    <td id="entry-l67-3c3-zqn" rowspan="1" colspan="1">
+                      <p id="6f55ef876fdt3">已建立连接数</p>
+                    </td>
+                    <td id="entry-t04-7ye-o7r" rowspan="1" colspan="1">
+                      <p id="6f55ef886f0ai">个</p>
+                    </td>
+                    <td id="entry-yir-7dh-tvu" rowspan="1" colspan="1">
+                      <p id="6f55ef896fk29">205.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-08z-eu0-dpr">
+                    <td id="entry-7af-5k2-3f2" rowspan="1" colspan="1">
+                      <p id="6f55ef8a6fqu9">protocol_tcp_insegs</p>
+                    </td>
+                    <td id="entry-2a1-f60-d8z" rowspan="1" colspan="1">
+                      <p id="6f5616906f9x7">接收的所有报文数</p>
+                    </td>
+                    <td id="entry-ofh-3fn-3h0" rowspan="1" colspan="1">
+                      <p id="6f5616916fdts">个</p>
+                    </td>
+                    <td id="entry-exa-dmd-nbg" rowspan="1" colspan="1">
+                      <p id="6f5616926fgz3">4654.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-5gu-o1f-0fg">
+                    <td id="entry-a77-rfi-jrv" rowspan="1" colspan="1">
+                      <p id="6f5616936fjgl">protocol_tcp_outsegs</p>
+                    </td>
+                    <td id="entry-io9-r78-ngn" rowspan="1" colspan="1">
+                      <p id="6f5616946fvnx">发送的报文数</p>
+                    </td>
+                    <td id="entry-1ud-zny-rhn" rowspan="1" colspan="1">
+                      <p id="6f5664b06fdyv">个</p>
+                    </td>
+                    <td id="entry-fwn-zgf-cgg" rowspan="1" colspan="1">
+                      <p id="6f568bc06fmex">4870.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-qbz-a57-gsk">
+                    <td id="entry-1sx-n0i-z6w" rowspan="1" colspan="1">
+                      <p id="6f568bc16f9ak">protocol_tcp_retran_segs</p>
+                    </td>
+                    <td id="entry-l6x-x84-8k6" rowspan="1" colspan="1">
+                      <p id="6f568bc26fy7e">重传报文数</p>
+                    </td>
+                    <td id="entry-43o-79d-tbx" rowspan="1" colspan="1">
+                      <p id="6f568bc36fd36">个</p>
+                    </td>
+                    <td id="entry-gwb-dhx-j64" rowspan="1" colspan="1">
+                      <p id="6f568bc46frcz">0.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-tku-e9j-pnl">
+                    <td id="entry-gij-710-7f9" rowspan="1" colspan="1">
+                      <p id="6f568bc56fcio">protocol_tcp_retran_util</p>
+                    </td>
+                    <td id="entry-jhs-k1l-kyd" rowspan="1" colspan="1">
+                      <p id="6f568bc66fg1z">重传报文占总发送报文数量的比值</p>
+                    </td>
+                    <td id="entry-pur-10y-790" rowspan="1" colspan="1">
+                      <p id="6f568bc76fj14">百分号（%）</p>
+                    </td>
+                    <td id="entry-lf4-hv6-lix" rowspan="1" colspan="1">
+                      <p id="6f56b2d06f9gn">0.0</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+            <li data-tag="li" id="li-5oh-so3-i6u" class="li">
+              <p id="6f56b2d16f0q6">system<span class="help-letter-space"></span>相关指标</p>
+              <table id="table-xk0-f3c-wek" tablewidth="708" tablecolswidth="208 208 146 146" autofit="false" class="table">
+                <colgroup colwidth="1.18*" style="width:29.38%"></colgroup>
+                <colgroup colwidth="1.18*" style="width:29.38%"></colgroup>
+                <colgroup colwidth="0.82*" style="width:20.62%"></colgroup>
+                <colgroup colwidth="0.82*" style="width:20.62%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="row-kbu-4yg-qt5">
+                    <td id="task-2538936-entry-i7f-cij-ttw" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f56b2d26f0jr"><b>指标名</b></p>
+                    </td>
+                    <td id="task-2538936-entry-rjp-63r-tg1" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f56b2d36fg8p"><b>说明</b></p>
+                    </td>
+                    <td id="task-2538936-entry-imf-sgj-11j" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f56b2d46fozr"><b>单位</b></p>
+                    </td>
+                    <td id="task-2538936-entry-rvg-qi5-dnt" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="6f56b2d56fcex"><b>示例</b></p>
+                    </td>
+                  </tr>
+                  <tr id="row-yqc-cd3-zjn">
+                    <td id="entry-3pt-l5h-t2t" rowspan="1" colspan="1">
+                      <p id="6f56b2d66fsm6">system_boot_time</p>
+                    </td>
+                    <td id="entry-ft6-o2k-jm2" rowspan="1" colspan="1">
+                      <p id="6f56b2d76fvg9">系统启动时间</p>
+                    </td>
+                    <td id="entry-dkf-daq-kxh" rowspan="1" colspan="1">
+                      <p id="6f56b2d86fti5">s</p>
+                    </td>
+                    <td id="entry-te0-7yc-3n7" rowspan="1" colspan="1">
+                      <p id="6f56b2d96f65l">1578461935.0</p>
+                    </td>
+                  </tr>
+                  <tr id="row-rzr-ac7-d17">
+                    <td id="entry-rgs-q4h-wsy" rowspan="1" colspan="1">
+                      <p id="6f56d9e06fiej">system_load1</p>
+                    </td>
+                    <td id="entry-tzl-l5k-tmf" rowspan="1" colspan="1">
+                      <p id="6f56d9e16fjen">系统平均负载，1<span class="help-letter-space"></span>分钟平均值</p>
+                    </td>
+                    <td id="entry-bsa-j8h-ej2" rowspan="1" colspan="1">
+                      <p id="6f56d9e26fxe7">不涉及</p>
+                    </td>
+                    <td id="entry-tap-etq-kta" rowspan="1" colspan="1">
+                      <p id="6f56d9e36fsmf">0.58</p>
+                    </td>
+                  </tr>
+                  <tr id="row-ij6-fru-l8v">
+                    <td id="entry-tl7-p95-92c" rowspan="1" colspan="1">
+                      <p id="6f56d9e46fdx8">system_load5</p>
+                    </td>
+                    <td id="entry-jgh-hkb-vm4" rowspan="1" colspan="1">
+                      <p id="6f56d9e56fklp">系统平均负载，5<span class="help-letter-space"></span>分钟平均值</p>
+                    </td>
+                    <td id="entry-s0l-npb-78l" rowspan="1" colspan="1">
+                      <p id="6f56d9e66fhu5">不涉及</p>
+                    </td>
+                    <td id="entry-71a-q20-z0l" rowspan="1" colspan="1">
+                      <p id="6f56d9e76frmf">0.68</p>
+                    </td>
+                  </tr>
+                  <tr id="row-rv6-yas-hbg">
+                    <td id="entry-g6w-87t-0c1" rowspan="1" colspan="1">
+                      <p id="6f56d9e86f457">system_load15</p>
+                    </td>
+                    <td id="entry-xpw-lzm-wpt" rowspan="1" colspan="1">
+                      <p id="6f56d9e96fq53">系统平均负载，15<span class="help-letter-space"></span>分钟平均值</p>
+                    </td>
+                    <td id="entry-qss-ocl-ui0" rowspan="1" colspan="1">
+                      <p id="6f5700f06fbes">不涉及</p>
+                    </td>
+                    <td id="entry-yik-mrd-8nj" rowspan="1" colspan="1">
+                      <p id="6f5700f16f3v9">0.60</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section data-tag="postreq" id="postreq-r2t-pas-coi" data-type="postreq" class="postreq section">
+        <h2 id="d41e690">后续步骤</h2>
+        <p id="dceb801a2fkru">关于日志服务可视化，请参见<a href="https://help.aliyun.com/zh/sls/time-series-chart#title-vtj-jd3-7f8" id="3f84730febun9" title="" class="xref">时序图</a>，<a href="https://help.aliyun.com/zh/sls/send-time-series-data-from-log-service-to-grafana#title-eee-mck-ai6" id="e2ac9fcc9esoq" title="" class="xref">时序数据对接<span class="help-letter-space"></span>Grafana</a>。</p>
+      </section>
+    </div>
+  </main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/sls/data-collection/" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：指标数据采集（Metric）</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/sls/collect-metric-data-from-open-falcon" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：采集Open-Falcon数据<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

@@ -1,0 +1,1 @@
+自2026年01月31日起，托管节点池 kubelet 和容器运行时的自动升级配置入口将下线，可配置[自动升级集群](automatically-upgrade-an-ack-cluster.md)来完成节点池的自动升级。详情请参见[【产品变更】关于托管节点池安全漏洞修复和自动升级的变更公告](../../product-overview/announcement-on-security-vulnerabilithy-fixes-and-automatic-upgrades-for-managed-node-pools.md)。

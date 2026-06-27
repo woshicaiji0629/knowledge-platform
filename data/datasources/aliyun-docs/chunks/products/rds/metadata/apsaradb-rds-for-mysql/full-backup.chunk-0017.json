@@ -1,0 +1,14 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/full-backup:17",
+  "document_id": "rds:apsaradb-rds-for-mysql/full-backup",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "数据库备份的自动配置与手动执行-云数据库 RDS-阿里云-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/full-backup",
+  "chunk_index": 17,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/rds/documents/apsaradb-rds-for-mysql/full-backup.chunk-0017.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/full-backup.md",
+  "heading_path": "全量备份 > 其他引擎 > 产品和定价",
+  "char_count": 272
+}

@@ -1,0 +1,14 @@
+{
+  "id": "vpc:vpc-prefix-lists:25",
+  "document_id": "vpc:vpc-prefix-lists",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "前缀列表-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/vpc-prefix-lists",
+  "chunk_index": 25,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/vpc-prefix-lists.chunk-0025.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/vpc-prefix-lists.md",
+  "heading_path": "指定地域 provider \"alicloud\" { region = \"cn-hangzhou\" } # 指定共享单元名称 resource \"alicloud_resource_manager_resource_share\" \"example_unit\" { resource_share_name = \"example_unit_name\" } # 指定共享前缀列表 resource \"alicloud_resource_manager_shared_resource\" \"example_vsw\" { resource_share_id = alicloud_resource_manager_resource_share.example_unit.id resource_id = \"pl-bp18t4lsc3e4yd6xxxxx\" # 要共享的前缀列表ID resource_type = \"PrefixList\" # 资源类型为前缀列表 } # 指定共享前缀列表的使用者 resource \"alicloud_resource_manager_shared_target\" \"example_target\" { resource_share_id = alicloud_resource_manager_resource_share.example_unit.id target_id = \"101xxxxxxxxxxxxxxx\" # 前缀列表使用者的UID } > 更多信息 > 服务",
+  "char_count": 303
+}

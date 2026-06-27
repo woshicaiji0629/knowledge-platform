@@ -1,0 +1,17 @@
+{
+  "id": "oss:user-guide/enable-pay-by-requester-1",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "features",
+  "title": "请求者付费-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/user-guide/enable-pay-by-requester-1",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/oss/documents/user-guide/enable-pay-by-requester-1.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/user-guide/enable-pay-by-requester-1.md",
+  "word_count": 2118,
+  "text_units": 4261,
+  "local_links": 11,
+  "external_links": 69,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "ecs:snapshots-1",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "pricing",
+  "title": "ECS快照计费规则、计费示例及欠费影响-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/snapshots-1",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/snapshots-1.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/snapshots-1.md",
+  "word_count": 1547,
+  "text_units": 4521,
+  "local_links": 2,
+  "external_links": 113,
+  "has_tables": true,
+  "table_count": 3,
+  "quality": "accepted"
+}

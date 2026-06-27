@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/user-guide/work-with-the-cluster-inspection-feature",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "performance",
+  "title": "执行集群巡检以发现集群潜在风险并获取解决方案-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/work-with-the-cluster-inspection-feature",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/work-with-the-cluster-inspection-feature.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/work-with-the-cluster-inspection-feature.md",
+  "word_count": 559,
+  "text_units": 1486,
+  "local_links": 0,
+  "external_links": 66,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

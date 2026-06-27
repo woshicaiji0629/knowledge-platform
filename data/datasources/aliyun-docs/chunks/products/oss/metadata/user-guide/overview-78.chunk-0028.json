@@ -1,0 +1,14 @@
+{
+  "id": "oss:user-guide/overview-78:28",
+  "document_id": "oss:user-guide/overview-78",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "features",
+  "title": "对象恢复至任意时刻历史版本-版本控制-对象存储-阿里云",
+  "source_url": "https://help.aliyun.com/zh/oss/user-guide/overview-78",
+  "chunk_index": 28,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/oss/documents/user-guide/overview-78.chunk-0028.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/user-guide/overview-78.md",
+  "heading_path": "-*- coding: utf-8 -*- import oss2 from oss2.credentials import EnvironmentVariableCredentialsProvider from oss2.models import BucketVersioningConfig # 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。 auth = oss2.ProviderAuth(EnvironmentVariableCredentialsProvider()) # 填写Bucket所在地域对应的Endpoint。以华东1（杭州）为例，Endpoint填写为https://oss-cn-hangzhou.aliyuncs.com。 # yourBucketName填写存储空间名称。 bucket = oss2.Bucket(auth, 'https://oss-cn-hangzhou.aliyuncs.com', 'yourBucketName') # 创建bucket版本控制配置。 config = BucketVersioningConfig() # 暂停版本控制。 config.status = oss2.BUCKET_VERSIONING_SUSPEND result = bucket.put_bucket_versioning(config) # 查看http返回码。 print('http response code:', result.status) > 后续参考 > 产品和定价",
+  "char_count": 272
+}

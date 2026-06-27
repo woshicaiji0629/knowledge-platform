@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/step-2-connect-to-an-apsaradb-rds-for-mysql-instance",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "deployment",
+  "title": "入门第二步：连接RDS MySQL实例-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/step-2-connect-to-an-apsaradb-rds-for-mysql-instance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-mysql/step-2-connect-to-an-apsaradb-rds-for-mysql-instance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/step-2-connect-to-an-apsaradb-rds-for-mysql-instance.md",
+  "word_count": 1824,
+  "text_units": 4532,
+  "local_links": 25,
+  "external_links": 108,
+  "has_tables": true,
+  "table_count": 3,
+  "quality": "accepted"
+}

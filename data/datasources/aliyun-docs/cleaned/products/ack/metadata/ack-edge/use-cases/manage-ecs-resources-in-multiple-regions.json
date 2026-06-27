@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-edge/use-cases/manage-ecs-resources-in-multiple-regions",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "使用ACK Edge集群统一管理多地域的ECS资源-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/use-cases/manage-ecs-resources-in-multiple-regions",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-edge/use-cases/manage-ecs-resources-in-multiple-regions.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/use-cases/manage-ecs-resources-in-multiple-regions.md",
+  "word_count": 1044,
+  "text_units": 2748,
+  "local_links": 14,
+  "external_links": 71,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

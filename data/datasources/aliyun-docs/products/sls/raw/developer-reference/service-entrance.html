@@ -1,0 +1,996 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    日志服务不同网络类型的服务入口-日志服务(SLS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/sls/developer-reference/service-entrance">
+  <meta name="keywords" content="查询SLS服务入口,选择SLS服务入口,SLS服务入口列表,SLS服务入口参考">
+  <meta name="description" content="本文介绍日志服务不同网络类型的服务入口。">
+  <meta name="last-modified" content="2026-06-03T15:37:22+08:00">
+  <meta name="date" content="2024-08-21T11:28:41+08:00">
+  <meta property="og:title" content="服务入口">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/sls/developer-reference/service-entrance">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="本文介绍日志服务不同网络类型的服务入口。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/sls/developer-reference/service-entrance",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "2844579",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/sls/developer-reference/service-entrance","nodeId":null,"data":{"lastModifiedTime":1780472242000,"keywords":"查询SLS服务入口,选择SLS服务入口,SLS服务入口列表,SLS服务入口参考","docTitle":"服务入口","language":"zh","seoTitle":"日志服务不同网络类型的服务入口-日志服务(SLS)-阿里云帮助中心","title":"服务入口","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"reference-wgx-pwq-zdb\">\n    \n    \n    <p id=\"shortdesc-tv4-3q3-ooq\" data-tag=\"shortdesc\" class=\"shortdesc\">本文介绍日志服务不同网络类型的服务入口。</p>\n    <div data-tag=\"refbody\" id=\"refbody-vtu-m61-o86\" class=\"refbody\">\n      <section data-tag=\"section\" id=\"section-nv4-h2r-12b\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-rw1-vr9-zxu\" class=\"title\">查看服务入口</h2>\n        <div type=\"important\" id=\"70ff923c81cui\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n          <p id=\"809cf2cf3e5l0\">使用<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>的公共云私网<span class=\"help-letter-space\"></span>Endpoint<span class=\"help-letter-space\"></span>时，必须使用阿里云的云上私网<span class=\"help-letter-space\"></span>DNS<span class=\"help-letter-space\"></span>地址（100.100.2.136<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>100.100.2.138），否则可能获取不到正确的私网<span class=\"help-letter-space\"></span>Endpoint<span class=\"help-letter-space\"></span>对应的<span class=\"help-letter-space\"></span>VIP<span class=\"help-letter-space\"></span>地址，导致您无法访问<span class=\"help-letter-space\"></span>SLS。</p>\n        </div></div>\n        <p data-tag=\"p\" id=\"p-pdd-aa3-m3d\" class=\"p\">服务入口（Endpoint）表示日志服务对外服务的访问域名。日志服务提供私网域名和公网域名<span data-tag=\"ph\" id=\"ph-vwk-gz5-3h0\" props=\"china\" data-cond-props=\"china\" class=\"ph\">，不同网络的接入方式请参见<a href=\"https://yq.aliyun.com/articles/59236\" id=\"xref-92t-mgi-1id\" class=\"\" target=\"_blank\">使用<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>收集各网络日志数据</a></span>。</p>\n        <ol data-tag=\"ol\" id=\"ol-3pg-unb-cnl\" class=\"ol\">\n          <li data-tag=\"li\" id=\"li-1jc-tbc-zj7\" class=\"li\">\n            <p id=\"6e3d614141t5i\">在<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>列表区域，单击目标<span class=\"help-letter-space\"></span>Project。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-ay4-t83-f6b\" class=\"li\">\n            <p id=\"6e3d614241tdr\">在<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>的<b data-tag=\"uicontrol\" id=\"wintitle-rvx-n48-nuc\" class=\"uicontrol\">项目概览</b>页面，查看该<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>所在地域的服务入口。在<b>项目概览</b> Tab 页的<b>访问域名</b>区域，可查看私网域名（<code data-tag=\"code\" class=\"code\">cn-shanghai-intranet.log.aliyuncs.com</code>）、公网域名（<code data-tag=\"code\" class=\"code\">cn-shanghai.log.aliyuncs.com</code>）和跨域域名（<code data-tag=\"code\" class=\"code\">cn-shanghai-share.log.aliyuncs.com</code>）。</p>\n          </li>\n        </ol>\n      </section>\n      <section data-tag=\"section\" id=\"section-eqd-vor-1w2\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-6vp-nn4-o50\" class=\"title\">如何选择服务入口</h2>\n        <p data-tag=\"p\" id=\"p-pml-9qo-j0v\" class=\"p\">私网域名和公网域名对外提供的服务都是一致的，但其在网络延时、计费规则方面有少许差异。</p>\n        <table id=\"table-4ac-qfb-qmb\" tablewidth=\"708\" tablecolswidth=\"236 236 236\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"1*\" style=\"width:33.33%\"></colgroup>\n          <colgroup colwidth=\"1*\" style=\"width:33.33%\"></colgroup>\n          <colgroup colwidth=\"1*\" style=\"width:33.33%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-03t-su9-w3c\">\n              <td id=\"reference-wgx-pwq-zdb-entry-nkn-jlh-cdm\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"6e3d614341zha\"><b>对比项</b></p>\n              </td>\n              <td id=\"reference-wgx-pwq-zdb-entry-2cj-bkn-k9n\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"6e3d614441395\"><b>私网域名</b></p>\n              </td>\n              <td id=\"reference-wgx-pwq-zdb-entry-euf-xm9-fsp\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"6e3d614541zkq\"><b>公网域名</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-ndx-ey7-zp3\">\n              <td id=\"entry-a5o-yi0-teh\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3d614641p35\">请求协议</p>\n              </td>\n              <td id=\"entry-29x-xfn-lpz\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3d614741zep\">HTTP、HTTPS</p>\n              </td>\n              <td id=\"entry-mnf-p3a-cbo\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3d885041h40\">HTTP、HTTPS</p>\n              </td>\n            </tr>\n            <tr id=\"row-eai-2lt-2eg\">\n              <td id=\"entry-3ki-iww-q04\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3d885141d9s\">使用场景</p>\n              </td>\n              <td id=\"entry-kmf-g62-x3y\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3d885241uej\">阿里云产品内部相互通信。例如同地域<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>访问日志服务。</p>\n                <p data-tag=\"p\" id=\"p-izt-v0m-ei1\" class=\"p\">建议优先使用私网域名。</p>\n              </td>\n              <td id=\"entry-930-fdb-aj6\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3d885341u6s\">通过公网（互联网）访问日志服务。例如通过本地公网的<span class=\"help-letter-space\"></span>API、SDK<span class=\"help-letter-space\"></span>访问日志服务。</p>\n              </td>\n            </tr>\n            <tr id=\"row-chy-hix-wzz\">\n              <td id=\"entry-ipx-2he-jyz\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3d8854415cf\">相关计费</p>\n              </td>\n              <td id=\"entry-k3b-bgd-enk\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3daf60418y1\">按照日志服务计费项正常计费。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/billable-items#concept-xzl-hjg-vgb\" id=\"xref-wri-n60-fa4\" title=\"\" class=\"xref\">日志服务计费项</a>。</p>\n              </td>\n              <td id=\"entry-qbz-thk-gv0\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3daf6141bn1\">相比私网计费，增加了外网读取流量。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/billable-items#concept-xzl-hjg-vgb\" id=\"xref-kgk-3ku-j08\" title=\"\" class=\"xref\">日志服务计费项</a>。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </section>\n      <section data-tag=\"section\" id=\"section-rxx-n4w-12b\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-h85-wzi-3da\" class=\"title\">公网</h2>\n        <p data-tag=\"p\" id=\"p-i25-viv-9dv\" class=\"p\">服务入口是访问一个项目（Project）及其内部日志数据的<span class=\"help-letter-space\"></span>URL。服务入口与<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>所在的地域相关。目前，日志服务已经在多个地域开通，在各地域内的公网服务入口如下表所示。</p>\n        <table id=\"table-sb5-h2r-12b\" tablewidth=\"100\" tablecolswidth=\"50.07 49.93\" autofit=\"true\" class=\"table\">\n          <colgroup colwidth=\"1*\" style=\"width:50.07%\"></colgroup>\n          <colgroup colwidth=\"1*\" style=\"width:49.93%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-em4-12g-lmc\">\n              <td id=\"reference-wgx-pwq-zdb-entry-1t0-sfo-hj7\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"6e3daf6241bib\"><b>地域</b></p>\n              </td>\n              <td id=\"reference-wgx-pwq-zdb-entry-5yp-pqo-f2j\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"6e3daf634177d\"><b>服务入口</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-hcu-d2s-lak\">\n              <td id=\"entry-9e6-3a8-a6w\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3daf6441flp\">华东<span class=\"help-letter-space\"></span>1（杭州）</p>\n              </td>\n              <td id=\"entry-kc0-xvw-mdo\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3daf6541h3k\">cn-hangzhou.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-y4y-5mx-x1p\">\n              <td id=\"entry-b8s-puk-zbi\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3dd67241tcd\">华东<span class=\"help-letter-space\"></span>2（上海）</p>\n              </td>\n              <td id=\"entry-g0o-28f-me8\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3dd67341ixs\">cn-shanghai.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-5yf-7s2-906\" props=\"china\" data-cond-props=\"china\">\n              <td id=\"entry-bjj-mo9-n9o\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3dd67641o80\">华东<span class=\"help-letter-space\"></span>5（南京-本地地域-关停中）</p>\n              </td>\n              <td id=\"entry-zyd-vjx-zbp\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3dd67741umt\">cn-nanjing.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-zfy-tqo-mu0\" props=\"china\" data-cond-props=\"china\">\n              <td id=\"entry-j9u-go2-qvx\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3dd678416i0\">华东<span class=\"help-letter-space\"></span>6（福州-本地地域-关停中）</p>\n              </td>\n              <td id=\"entry-5v1-cy2-0k7\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3dd679419on\">cn-fuzhou.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-zpt-kw6-bjt\">\n              <td id=\"entry-olr-2d2-xx9\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3dd67a414z3\">华北<span class=\"help-letter-space\"></span>1（青岛）</p>\n              </td>\n              <td id=\"entry-037-kkk-v1h\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3dfd8041qwu\">cn-qingdao.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-jmk-ojg-ywv\">\n              <td id=\"entry-oy0-hm8-r5i\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3dfd8141l1o\">华北<span class=\"help-letter-space\"></span>2（北京）</p>\n              </td>\n              <td id=\"entry-0y6-2zy-9bm\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3dfd8241emd\">cn-beijing.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-81m-19d-tdo\">\n              <td id=\"entry-exz-wb7-9as\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3dfd8741g0p\">华北<span class=\"help-letter-space\"></span>3（张家口）</p>\n              </td>\n              <td id=\"entry-dgf-5fo-c6s\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3dfd88418w6\">cn-zhangjiakou.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-doq-mxz-mm0\">\n              <td id=\"entry-6nr-f9e-v8n\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3dfd8941pml\">华北<span class=\"help-letter-space\"></span>5（呼和浩特）</p>\n              </td>\n              <td id=\"entry-u1z-m3r-w54\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3dfd8a41suo\">cn-huhehaote.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-5y8-pwh-07f\">\n              <td id=\"entry-6ix-k5f-de1\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3dfd8b412fv\">华北<span class=\"help-letter-space\"></span>6（乌兰察布）</p>\n              </td>\n              <td id=\"entry-jmg-2pz-lzl\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3dfd8c41gpg\">cn-wulanchabu.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-a8r-ze3-wee\">\n              <td id=\"entry-23d-kii-uvv\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3dfd8d41hc9\">华南<span class=\"help-letter-space\"></span>1（深圳）</p>\n              </td>\n              <td id=\"entry-ioy-6ug-cq3\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e249041jnv\">cn-shenzhen.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-dzn-vbr-22m\">\n              <td id=\"entry-80a-3va-ngc\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e249341wv1\">华南<span class=\"help-letter-space\"></span>2（河源）</p>\n              </td>\n              <td id=\"entry-ggi-ys9-354\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e249441r4r\">cn-heyuan.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-bzy-wr9-ppc\">\n              <td id=\"entry-y6j-29n-mk3\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e249541s3n\">华南<span class=\"help-letter-space\"></span>3（广州）</p>\n              </td>\n              <td id=\"entry-mvj-1nh-qa0\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e249641b0q\">cn-guangzhou.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-z9q-nb3-6av\">\n              <td id=\"entry-5d9-ena-pdx\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e2497417yc\">西南<span class=\"help-letter-space\"></span>1（成都）</p>\n              </td>\n              <td id=\"entry-wm8-sc4-n06\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e2498411mn\">cn-chengdu.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-mrl-ila-5sj\">\n              <td id=\"entry-tuk-3z0-wh1\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e249941g0f\">中国（香港）</p>\n              </td>\n              <td id=\"entry-pkh-a8m-tx0\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e249a414s4\">cn-hongkong.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-itk-pfd-nwn\">\n              <td id=\"entry-7f2-i09-bvk\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e249b4161u\">日本（东京）</p>\n              </td>\n              <td id=\"entry-oey-lrw-p75\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e249c41g8a\">ap-northeast-1.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-niy-udj-87x\">\n              <td id=\"entry-i2d-hvx-g8h\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e249d41lyl\">韩国（首尔）</p>\n              </td>\n              <td id=\"entry-hcx-eq1-dai\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e4ba041se7\">ap-northeast-2.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-ghd-i2t-ljn\">\n              <td id=\"entry-ct6-373-395\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e4ba141dq0\">新加坡</p>\n              </td>\n              <td id=\"entry-ilk-dn8-z28\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e4ba241vp9\">ap-southeast-1.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-5qu-r43-xak\">\n              <td id=\"entry-i1k-bkr-1cs\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e4ba541bgc\">马来西亚（吉隆坡）</p>\n              </td>\n              <td id=\"entry-23i-zii-k8d\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e4ba641ixb\">ap-southeast-3.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-v5g-2dd-emh\">\n              <td id=\"entry-1u1-gbi-z9d\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e4ba741rpa\">印度尼西亚（雅加达）</p>\n              </td>\n              <td id=\"entry-mc5-m2u-phf\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e4ba841286\">ap-southeast-5.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-786-l7p-e01\">\n              <td id=\"entry-8b6-3lh-tuy\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e4ba941ie4\">菲律宾（马尼拉）</p>\n              </td>\n              <td id=\"entry-lio-inh-13s\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e4baa41560\">ap-southeast-6.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-l2g-3iv-g7j\">\n              <td id=\"entry-521-pk8-u3s\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e4bab4185p\">泰国（曼谷）</p>\n              </td>\n              <td id=\"entry-cmt-j07-r3o\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e4bac41wq3\">ap-southeast-7.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-0it-edb-a5i\">\n              <td id=\"entry-ark-nnf-kzj\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e4bad41qdg\">阿联酋（迪拜）</p>\n              </td>\n              <td id=\"entry-ik9-osq-spd\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e72b041sp7\">me-east-1.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-qc0-fqd-zvn\">\n              <td id=\"entry-iyc-ntm-nii\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e72b141lg4\">美国（硅谷）</p>\n              </td>\n              <td id=\"entry-16q-1jw-ayd\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e72b241mpx\">us-west-1.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-zwu-mji-reu\">\n              <td id=\"entry-su0-jsl-kcr\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e72b341d6l\">德国（法兰克福）</p>\n              </td>\n              <td id=\"entry-7i5-iw8-mt9\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e72b4416h8\">eu-central-1.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-e2t-gzw-z41\">\n              <td id=\"entry-883-yiz-ftu\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e72b541jvg\">美国（弗吉尼亚）</p>\n              </td>\n              <td id=\"entry-egw-pt8-np5\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e72b6418k7\">us-east-1.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-ubi-drd-hmd\">\n              <td id=\"entry-ecy-orp-yft\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e72b9411d5\">英国（伦敦）</p>\n              </td>\n              <td id=\"entry-yul-4tx-1gc\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e72ba41mhz\">eu-west-1.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            \n          </tbody>\n        </table>\n      </section>\n      <section data-tag=\"section\" id=\"section-p5r-r4w-12b\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-uer-nhu-wx8\" class=\"title\">私网</h2>\n        <p data-tag=\"p\" id=\"p-92r-kah-49f\" class=\"p\">如果在阿里云<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>机器环境使用日志服务<span class=\"help-letter-space\"></span>API，还可以使用私网服务入口，各个地域服务入口如下表所示。</p>\n        <div data-tag=\"note\" id=\"note-3vo-7wh-xko\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n          <ul data-tag=\"ul\" id=\"ul-kqt-sxb-ju8\" class=\"ul\">\n            <li data-tag=\"li\" id=\"li-z3r-2cu-e0p\" class=\"li\">\n              <p id=\"6e3e99c34101l\">日志服务<span class=\"help-letter-space\"></span>API<span class=\"help-letter-space\"></span>在如下服务入口仅支持<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>协议、HTTPS<span class=\"help-letter-space\"></span>协议。</p>\n            </li>\n            <li data-tag=\"li\" id=\"li-lpe-tg3-ehd\" class=\"li\">\n              <p id=\"6e3e99c441ju6\">使用私网服务入口访问日志服务不消耗<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>公网流量，可以节约<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>公网带宽。</p>\n            </li>\n          </ul>\n        </div></div>\n        <table id=\"table-fc5-h2r-12b\" tablewidth=\"100\" tablecolswidth=\"50.07 49.93\" autofit=\"true\" class=\"table\">\n          <colgroup colwidth=\"1*\" style=\"width:50.07%\"></colgroup>\n          <colgroup colwidth=\"1*\" style=\"width:49.93%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-6id-hmm-3p1\" style=\"height:41px\">\n              <td id=\"reference-wgx-pwq-zdb-entry-pis-0fu-5oa\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"6e3e99c541pip\"><b>地域</b></p>\n              </td>\n              <td id=\"reference-wgx-pwq-zdb-entry-xye-lr2-138\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"6e3e99c641ez1\"><b>服务入口</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-uvk-sg6-hft\">\n              <td id=\"entry-uso-0m9-j5b\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e99c741txj\">华东<span class=\"help-letter-space\"></span>1（杭州）</p>\n              </td>\n              <td id=\"entry-p8e-q56-6d9\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e99c841q6z\">cn-hangzhou-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-qqh-bor-otq\">\n              <td id=\"entry-8xy-5bs-ttn\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e99cb41ffq\">华东<span class=\"help-letter-space\"></span>2（上海）</p>\n              </td>\n              <td id=\"entry-xpi-x2i-dqu\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3e99cc4137c\">cn-shanghai-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-kwu-sf5-37e\" props=\"china\" style=\"height:42px\" data-cond-props=\"china\">\n              <td id=\"entry-8ws-3qu-x3a\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ec0d24149w\">华东<span class=\"help-letter-space\"></span>5（南京-本地地域-关停中）</p>\n              </td>\n              <td id=\"entry-juq-5sx-puu\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ec0d341eor\">cn-nanjing-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-4ax-1gm-is8\" props=\"china\" data-cond-props=\"china\">\n              <td id=\"entry-cta-imo-smd\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ec0d441o7q\">华东<span class=\"help-letter-space\"></span>6（福州-本地地域-关停中）</p>\n              </td>\n              <td id=\"entry-yg7-ikf-2q8\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ec0d541v1z\">cn-fuzhou-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-tc5-5hi-d15\">\n              <td id=\"entry-gsj-o2m-mtc\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ec0d641460\">华北<span class=\"help-letter-space\"></span>1（青岛）</p>\n              </td>\n              <td id=\"entry-icz-xdq-ph0\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ec0d741jzz\">cn-qingdao-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-zky-lw3-0vc\">\n              <td id=\"entry-tq3-yqb-iby\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ec0d841znh\">华北<span class=\"help-letter-space\"></span>2（北京）</p>\n              </td>\n              <td id=\"entry-s1k-sy1-86e\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ec0d941yh3\">cn-beijing-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-8i3-xcb-3i7\">\n              <td id=\"entry-305-0pm-x21\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ee7e0413cp\">华南<span class=\"help-letter-space\"></span>1（深圳）</p>\n              </td>\n              <td id=\"entry-189-hu4-nd0\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ee7e14154q\">cn-shenzhen-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-t4n-4n5-akb\">\n              <td id=\"entry-g1m-1sk-716\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ee7e441yxl\">华南<span class=\"help-letter-space\"></span>2（河源）</p>\n              </td>\n              <td id=\"entry-f83-0sj-8x7\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ee7e541wrq\">cn-heyuan-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-07w-r0i-pum\">\n              <td id=\"entry-kr0-n24-hbs\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ee7e641jeu\">华南<span class=\"help-letter-space\"></span>3（广州）</p>\n              </td>\n              <td id=\"entry-9fh-bb0-hvw\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ee7e7412r1\">cn-guangzhou-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-ol9-ms9-97f\">\n              <td id=\"entry-h5s-q8b-s6n\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ee7e841n3i\">华北<span class=\"help-letter-space\"></span>3（张家口）</p>\n              </td>\n              <td id=\"entry-tzk-hbb-h08\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ee7e941cai\">cn-zhangjiakou-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-u0e-2yq-f43\">\n              <td id=\"entry-bm7-3zr-kb5\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ee7ea41kj1\">华北<span class=\"help-letter-space\"></span>5（呼和浩特）</p>\n              </td>\n              <td id=\"entry-4bq-ffc-ewd\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ee7eb41syx\">cn-huhehaote-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-8mo-87u-zco\">\n              <td id=\"entry-udu-8uf-ml6\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ee7ec41nti\">华北<span class=\"help-letter-space\"></span>6（乌兰察布）</p>\n              </td>\n              <td id=\"entry-l1b-qdu-i4p\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3ee7ed41wor\">cn-wulanchabu-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-pic-vzy-s5q\">\n              <td id=\"entry-n8b-ngc-r9b\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f0ef041tsh\">西南<span class=\"help-letter-space\"></span>1（成都）</p>\n              </td>\n              <td id=\"entry-jzj-l2r-bcd\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f0ef141tf7\">cn-chengdu-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-q8d-hop-6wr\">\n              <td id=\"entry-ojt-d20-bc9\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f0ef241n4a\">中国（香港）</p>\n              </td>\n              <td id=\"entry-hk1-1ts-5sl\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f0ef34137f\">cn-hongkong-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-ccg-pwu-cac\">\n              <td id=\"entry-qux-p0n-d7d\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f0ef441wg2\">美国（硅谷）</p>\n              </td>\n              <td id=\"entry-oi6-f7d-22f\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f0ef541wzo\">us-west-1-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-mse-1ll-e50\">\n              <td id=\"entry-nqr-lw2-5r1\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f0ef641nlj\">日本（东京）</p>\n              </td>\n              <td id=\"entry-27v-vjt-j05\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f0ef741dsc\">ap-northeast-1-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-i8w-lq2-3ls\">\n              <td id=\"entry-58n-2uh-m75\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f0ef841sxu\">韩国（首尔）</p>\n              </td>\n              <td id=\"entry-3my-kds-0ep\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f0ef9410f8\">ap-northeast-2-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-1na-u61-37u\">\n              <td id=\"entry-z42-wsq-n6m\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f0efa41kj4\">新加坡</p>\n              </td>\n              <td id=\"entry-0n6-v4k-alm\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f0efb41tdh\">ap-southeast-1-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-o0l-e6y-l5t\">\n              <td id=\"entry-ga7-0no-k57\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f360241nzi\">马来西亚（吉隆坡）</p>\n              </td>\n              <td id=\"entry-gpx-gvg-6vf\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f360341wcd\">ap-southeast-3-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-sip-mwr-ltg\">\n              <td id=\"entry-zwi-co8-3oe\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f360441ey1\">印度尼西亚（雅加达）</p>\n              </td>\n              <td id=\"entry-frb-7l7-zs6\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f360541mql\">ap-southeast-5-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-y5a-r45-6sf\">\n              <td id=\"entry-rv8-rez-jp1\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f36064171p\">菲律宾（马尼拉）</p>\n              </td>\n              <td id=\"entry-etv-ut4-026\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f360741nmb\">ap-southeast-6-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-j21-qg9-hz3\">\n              <td id=\"entry-96i-umm-c81\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f360841iqe\">泰国（曼谷）</p>\n              </td>\n              <td id=\"entry-khj-igo-jk2\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f360941plb\">ap-southeast-7-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-yxt-iqt-q3n\">\n              <td id=\"entry-73a-h3s-5w4\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f360a41jgr\">阿联酋（迪拜）</p>\n              </td>\n              <td id=\"entry-nu3-fye-dwr\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f360b41z25\">me-east-1-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-zsv-4xj-6ik\">\n              <td id=\"entry-8ct-mr6-4ag\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f5d1041h9v\">德国（法兰克福）</p>\n              </td>\n              <td id=\"entry-4tv-fzg-gir\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f5d11410wn\">eu-central-1-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-pqr-1sc-ssf\">\n              <td id=\"entry-c4i-k8i-s15\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f5d1241ki5\">美国（弗吉尼亚）</p>\n              </td>\n              <td id=\"entry-60p-8xn-xco\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f5d1341vik\">us-east-1-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-t7w-m25-v1v\">\n              <td id=\"entry-5h3-jp8-f2x\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f5d164133n\">英国（伦敦）</p>\n              </td>\n              <td id=\"entry-nrm-h0x-n3f\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f5d1741w50\">eu-west-1-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            \n          </tbody>\n        </table>\n      </section>\n      <section data-tag=\"section\" id=\"section-kp3-42h-cgb\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-5nu-svw-9jr\" class=\"title\">传输加速</h2>\n        <p data-tag=\"p\" id=\"p-2no-l1k-nvi\" class=\"p\">日志服务在私网和公网基础上，新增传输加速的网络类型。相较于普通的公网访问，传输加速在延时和稳定性上具备显著优势，适用于对数据采集、消费延时、可靠性要求较高的场景。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/transmission-acceleration\" id=\"a375bb542b3e3\" title=\"\" class=\"xref\">管理传输加速</a>。</p>\n        <div data-tag=\"p\" id=\"p-6ie-9o7-qin\" class=\"p\">\n          <p id=\"6e3f842041pu8\">传输加速的服务入口在所有地域一致，服务入口为： </p><pre data-tag=\"codeblock\" id=\"codeblock-c3p-rf9-rt2\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>log-global.aliyuncs.com</code></pre>\n        </div>\n        <div data-tag=\"note\" id=\"note-qgy-d1l-2tw\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n          <p id=\"6e3f842141hy5\">传输加速功能默认为关闭状态，需要手动开启后才可使用。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/enable-the-global-acceleration-feature#concept-bfn-n54-p2b\" id=\"xref-nro-qdt-orq\" title=\"\" class=\"xref\">采集加速</a>。</p>\n        </div></div>\n      </section>\n      <section data-tag=\"section\" id=\"section-p43-x7x-ob2\" props=\"china\" data-type=\"section\" data-cond-props=\"china\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-g5y-ohm-hiy\" class=\"title\">通过<span class=\"help-letter-space\"></span>IPv6<span class=\"help-letter-space\"></span>地址访问<span class=\"help-letter-space\"></span>SLS</h2>\n        <p data-tag=\"p\" id=\"p-oai-vzc-c7s\" class=\"p\">目前日志服务已支持通过<span class=\"help-letter-space\"></span>IPv6、IPv4<span class=\"help-letter-space\"></span>双栈域名访问。 </p>\n        <p data-tag=\"p\" id=\"p-58z-l3s-20o\" class=\"p\">您的<span class=\"help-letter-space\"></span>IPv6、IPv4<span class=\"help-letter-space\"></span>客户端均可以使用<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>提供的统一双栈域名访问<span class=\"help-letter-space\"></span>SLS。DNS<span class=\"help-letter-space\"></span>服务器将按照您使用的协议版本解析对应的<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>服务器地址。</p>\n        <p data-tag=\"p\" id=\"p-qby-wom-e9j\" class=\"p\">目前可以通过<span class=\"help-letter-space\"></span>IPv6<span class=\"help-letter-space\"></span>协议访问的<span class=\"help-letter-space\"></span>Endpoint<span class=\"help-letter-space\"></span>如下：</p>\n        <table id=\"table-1om-lre-lq7\" tablewidth=\"100\" tablecolswidth=\"33.28 66.72\" autofit=\"true\" class=\"table\">\n          <colgroup colwidth=\"0.67*\" style=\"width:33.28%\"></colgroup>\n          <colgroup colwidth=\"1.33*\" style=\"width:66.72%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-kgj-l5d-gtk\">\n              <td id=\"reference-wgx-pwq-zdb-entry-f35-hho-h5l\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"6e3f8422414pn\"><b>地域</b></p>\n              </td>\n              <td id=\"reference-wgx-pwq-zdb-entry-gcc-u8x-sig\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"6e3f842341a5y\"><b>服务入口</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-9op-ewp-2mj\">\n              <td id=\"entry-1uz-mzh-wni\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f842441v1d\">华东<span class=\"help-letter-space\"></span>1（杭州）</p>\n              </td>\n              <td id=\"entry-nsr-irj-ygo\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f8425414ln\">cn-hangzhou.dualstack.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-m7v-1oq-iil\">\n              <td id=\"entry-g6u-k1v-fsf\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f842641h0t\">华东<span class=\"help-letter-space\"></span>2（上海）</p>\n              </td>\n              <td id=\"entry-0qh-qyy-s5i\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f8427410hg\">cn-shanghai.dualstack.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-rtm-ri1-xsf\">\n              <td id=\"entry-m5p-wnf-a9b\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f842841xj4\">华北<span class=\"help-letter-space\"></span>1（青岛）</p>\n              </td>\n              <td id=\"entry-eo1-e5o-y8n\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f842941vup\">cn-qingdao.dualstack.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-qok-254-ffx\">\n              <td id=\"entry-lnn-z47-tyg\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3f842a41k25\">华北<span class=\"help-letter-space\"></span>2（北京）</p>\n              </td>\n              <td id=\"entry-vro-89d-nlr\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3fab30416ot\">cn-beijing.dualstack.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-vsa-mkq-wjb\">\n              <td id=\"entry-i01-b8d-ysp\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3fab3141en9\">华北 3（张家口）</p>\n              </td>\n              <td id=\"entry-nwg-4dn-jj2\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3fab3241tr4\">cn-zhangjiakou.dualstack.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-ugs-ki8-y80\">\n              <td id=\"entry-zoh-3kq-06s\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3fab3341eyc\">华北<span class=\"help-letter-space\"></span>5（呼和浩特）</p>\n              </td>\n              <td id=\"entry-h8q-hvx-tr3\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3fab34410zz\">cn-huhehaote.dualstack.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-w0k-pv1-7cm\">\n              <td id=\"entry-b53-lcc-pif\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3fab3541htn\">华北<span class=\"help-letter-space\"></span>6（乌兰察布）</p>\n              </td>\n              <td id=\"entry-5m1-dqz-xrn\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3fab3641psu\">cn-wulanchabu.dualstack.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-kl7-zl2-wsu\">\n              <td id=\"entry-bgu-63t-xb5\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3fab3741var\">华南<span class=\"help-letter-space\"></span>1（深圳）</p>\n              </td>\n              <td id=\"entry-ds8-5hs-30h\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3fab3841z80\">cn-shenzhen.dualstack.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-avy-e1w-c5n\">\n              <td id=\"entry-uf3-6z1-cwr\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3fab3941uw8\">华南<span class=\"help-letter-space\"></span>2（河源）</p>\n              </td>\n              <td id=\"entry-6t7-fsp-oau\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3fab3a412xm\">cn-heyuan.dualstack.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-02m-31o-tp9\">\n              <td id=\"entry-kq5-p0t-ql1\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3fab3b415fx\">华南<span class=\"help-letter-space\"></span>3（广州）</p>\n              </td>\n              <td id=\"entry-i38-gps-pj0\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3fab3c414b2\">cn-guangzhou.dualstack.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"row-fhg-kog-h4r\">\n              <td id=\"entry-czb-w2y-qhn\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3fd240410os\">西南<span class=\"help-letter-space\"></span>1（成都）</p>\n              </td>\n              <td id=\"entry-n0l-0sw-vl9\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6e3fd24141adf\">cn-chengdu.dualstack.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"065b3d418dycd\">\n              <td id=\"cbd6b45842dha\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"1c38f6d17fg7f\">新加坡</p>\n              </td>\n              <td id=\"5e11553284sz9\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f7a60083cf9zx\">ap-southeast-1.dualstack.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"75f93b4910ic1\">\n              <td id=\"94cd6519adz4p\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"f4b3f50e8f77y\">日本（东京）</p>\n              </td>\n              <td id=\"fd7743cf1dy1x\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"88dc16fecb4am\">ap-northeast-1.dualstack.log.aliyuncs.com</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </section>\n      <section id=\"cdc3a7d041j5j\" props=\"china\" data-cond-props=\"china\" class=\"section\">\n        <h2 id=\"7de6043041owc\">金融云</h2>\n        <table id=\"ac63b82041fex\" tablewidth=\"100\" tablecolswidth=\"33.38 33.38 33.239999999999995\" autofit=\"true\" class=\"table\">\n          <colgroup colwidth=\"1.01*\" style=\"width:33.38%\"></colgroup>\n          <colgroup colwidth=\"1.01*\" style=\"width:33.38%\"></colgroup>\n          <colgroup colwidth=\"1.01*\" style=\"width:33.24%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"ac63b82141fmp\">\n              <td id=\"ac63b822417xo\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"ac63b8234121b\"><b>地域</b></p>\n              </td>\n              <td id=\"ac63df3041gfb\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"ac63df3141uf3\"><b>公网</b></p>\n              </td>\n              <td id=\"953cad8041p2t\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"953cad8141dm0\"><b>私网</b></p>\n              </td>\n            </tr>\n            <tr id=\"ac63df3741d16\">\n              <td id=\"ac63df38416by\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"ac63df3941b35\">华东<span class=\"help-letter-space\"></span>1 金融云</p>\n              </td>\n              <td id=\"ac63df3a418d8\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"ac63df3b41qsk\">cn-hangzhou-finance.log.aliyuncs.com</p>\n              </td>\n              <td id=\"953cad8241b0w\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"c42a1330418ug\">cn-hangzhou-finance-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"ac63df4141ruw\">\n              <td id=\"ac63df4241xym\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"ac63df43418cy\">华东<span class=\"help-letter-space\"></span>2 金融云</p>\n              </td>\n              <td id=\"ac63df44419ig\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"ac63df4541y3e\">cn-shanghai-finance-1.log.aliyuncs.com</p>\n              </td>\n              <td id=\"953cad8441a2b\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"c6b92280411pj\">cn-shanghai-finance-1-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"ac63df5a41mpi\">\n              <td id=\"ac63df5b41pzm\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"ac63df5c412fe\"><span data-ref-searchable=\"yes\" data-tag=\"ph\" id=\"b832b87041dmf\" docid=\"4075072\" is-conref=\"true\" class=\"ph\">华北<span class=\"help-letter-space\"></span>2 金融云（邀测）</span></p>\n              </td>\n              <td id=\"ac63df5d41xmy\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"ac63df5e417ou\">cn-beijing-finance-1.log.aliyuncs.com</p>\n              </td>\n              <td id=\"953cad8641gwo\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"c95b92c041po9\">cn-beijing-finance-1-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n            <tr id=\"ac63df7841wb8\">\n              <td id=\"ac63df79417ax\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"ac63df7a41kg5\">华南<span class=\"help-letter-space\"></span>1 金融云</p>\n              </td>\n              <td id=\"ac63df7b41x3p\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"ac63df7c41qce\">cn-shenzhen-finance-1.log.aliyuncs.com</p>\n              </td>\n              <td id=\"953cad8841jji\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cb93f69041ht3\">cn-shenzhen-finance-1-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </section>\n      <section id=\"03eed7d041zs4\" props=\"china\" data-cond-props=\"china\" class=\"section\">\n        <h2 id=\"d76a0db041b5x\"><b>阿里政务云</b></h2>\n        <table id=\"ed89cf9041lvd\" tablewidth=\"100\" tablecolswidth=\"33.38 33.38 33.239999999999995\" autofit=\"true\" class=\"table\">\n          <colgroup colwidth=\"1.01*\" style=\"width:33.38%\"></colgroup>\n          <colgroup colwidth=\"1.01*\" style=\"width:33.38%\"></colgroup>\n          <colgroup colwidth=\"1.01*\" style=\"width:33.24%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"ed89cf9141c7n\">\n              <td id=\"ed89cf9241mwa\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"ed89cf9341qzz\"><b>地域</b></p>\n              </td>\n              <td id=\"ed89cf9441fd5\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"ed89cf9541vj0\"><b>公网</b></p>\n              </td>\n              <td id=\"ed89cf9641i4c\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"ed89cf9741iqq\"><b>私网</b></p>\n              </td>\n            </tr>\n            <tr id=\"ed89cf98414u6\">\n              <td id=\"ed89cf9941c15\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f2a6b5b041p8p\">华北<span class=\"help-letter-space\"></span>2 阿里政务云<span class=\"help-letter-space\"></span>1</p>\n              </td>\n              <td id=\"ed89cf9b41cwz\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"fcf67af041frd\">cn-north-2-gov-1.log.aliyuncs.com</p>\n              </td>\n              <td id=\"ed89cf9d41nxr\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f887fd40411mw\">cn-north-2-gov-1-intranet.log.aliyuncs.com</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </section>\n      <section id=\"bd7004dc3colg\" class=\"section\">\n        <h2 id=\"c3cedfe36epye\"><b>自定义域名</b></h2>\n        <p id=\"56f7232c4a9q2\">自定义域名创建请参见<a href=\"https://help.aliyun.com/zh/dws/getting-started/quickly-register-a-new-domain-name\" id=\"6cca707239s8m\" title=\"\" class=\"xref\">域名注册</a>。</p>\n        <p id=\"b067bac5eawvi\">在日志服务控制台绑定完自定义域名后，请前往公网<span class=\"help-letter-space\"></span>DNS<span class=\"help-letter-space\"></span>解析添加解析记录，域名绑定才能生效。详情请参见<a href=\"https://help.aliyun.com/zh/dns/add-an-a-record-to-a-website-domain\" id=\"cdfa6f3667fah\" title=\"\" class=\"xref\">添加网站解析</a>。</p>\n      </section>\n    </div>\n  </main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/sls/developer-reference/service-entrance","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"alias":"/sls/developer-reference/service-entrance","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":6,"developerUrl":"https://developer.aliyun.com/group/sls/","nodeType":1,"version":12,"url":"/zh/sls/developer-reference/service-entrance","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":2844579,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"服务入口","id":2844579,"title":"服务入口","url":"/zh/sls/developer-reference/service-entrance"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"API参考附录","id":2844347,"title":"API参考附录","url":"/zh/sls/developer-reference/api-reference-appendix/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"开发参考","id":154068,"title":"开发参考","url":"/zh/sls/developer-reference/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"productUrl":"https://www.aliyun.com/product/sls","nodeId":2844579,"desc":"本文介绍日志服务不同网络类型的服务入口。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"开发参考","id":154068,"title":"开发参考","url":"/zh/sls/developer-reference/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"API参考附录","id":2844347,"title":"API参考附录","url":"/zh/sls/developer-reference/api-reference-appendix/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"服务入口","id":2844579,"title":"服务入口","url":"/zh/sls/developer-reference/service-entrance"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=2150426217825455300244728e3f64&asid=AQAAAAB6fD9qRuA6VQAAAAB2zgkh9gS6rA==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2929180" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/start-using-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开始使用</span>
+</a>
+</li>
+ <li id="128096" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/resource-management/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">资源管理</span>
+</a>
+</li>
+ <li id="128134" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-collection-1/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据采集</span>
+</a>
+</li>
+ <li id="2842370" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-processing-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据处理</span>
+</a>
+</li>
+ <li id="270795" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-storage/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据存储</span>
+</a>
+</li>
+ <li id="128135" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/index-and-query/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">查询与分析</span>
+</a>
+</li>
+ <li id="2928734" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-monitoring/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据监控</span>
+</a>
+</li>
+ <li id="2928732" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-log-output-and-integration/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据输出与集成</span>
+</a>
+</li>
+ <li id="2928739" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-technical-solutions/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">技术解决方案</span>
+</a>
+</li>
+ <li id="154068" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2528763" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/security-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="169976" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/faq-15">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>服务入口</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/sls" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="reference-wgx-pwq-zdb">
+    
+    
+    <p id="shortdesc-tv4-3q3-ooq" data-tag="shortdesc" class="shortdesc">本文介绍日志服务不同网络类型的服务入口。</p>
+    <div data-tag="refbody" id="refbody-vtu-m61-o86" class="refbody">
+      <section data-tag="section" id="section-nv4-h2r-12b" data-type="section" class="section">
+        <h2 data-tag="title" id="title-rw1-vr9-zxu" class="title">查看服务入口</h2>
+        <div type="important" id="70ff923c81cui" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+          <p id="809cf2cf3e5l0">使用<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>的公共云私网<span class="help-letter-space"></span>Endpoint<span class="help-letter-space"></span>时，必须使用阿里云的云上私网<span class="help-letter-space"></span>DNS<span class="help-letter-space"></span>地址（100.100.2.136<span class="help-letter-space"></span>和<span class="help-letter-space"></span>100.100.2.138），否则可能获取不到正确的私网<span class="help-letter-space"></span>Endpoint<span class="help-letter-space"></span>对应的<span class="help-letter-space"></span>VIP<span class="help-letter-space"></span>地址，导致您无法访问<span class="help-letter-space"></span>SLS。</p>
+        </div></div>
+        <p data-tag="p" id="p-pdd-aa3-m3d" class="p">服务入口（Endpoint）表示日志服务对外服务的访问域名。日志服务提供私网域名和公网域名<span data-tag="ph" id="ph-vwk-gz5-3h0" props="china" data-cond-props="china" class="ph">，不同网络的接入方式请参见<a href="https://yq.aliyun.com/articles/59236" id="xref-92t-mgi-1id" class="" target="_blank">使用<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>收集各网络日志数据</a></span>。</p>
+        <ol data-tag="ol" id="ol-3pg-unb-cnl" class="ol">
+          <li data-tag="li" id="li-1jc-tbc-zj7" class="li">
+            <p id="6e3d614141t5i">在<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>列表区域，单击目标<span class="help-letter-space"></span>Project。</p>
+          </li>
+          <li data-tag="li" id="li-ay4-t83-f6b" class="li">
+            <p id="6e3d614241tdr">在<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>的<b data-tag="uicontrol" id="wintitle-rvx-n48-nuc" class="uicontrol">项目概览</b>页面，查看该<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>所在地域的服务入口。在<b>项目概览</b> Tab 页的<b>访问域名</b>区域，可查看私网域名（<code data-tag="code" class="code">cn-shanghai-intranet.log.aliyuncs.com</code>）、公网域名（<code data-tag="code" class="code">cn-shanghai.log.aliyuncs.com</code>）和跨域域名（<code data-tag="code" class="code">cn-shanghai-share.log.aliyuncs.com</code>）。</p>
+          </li>
+        </ol>
+      </section>
+      <section data-tag="section" id="section-eqd-vor-1w2" data-type="section" class="section">
+        <h2 data-tag="title" id="title-6vp-nn4-o50" class="title">如何选择服务入口</h2>
+        <p data-tag="p" id="p-pml-9qo-j0v" class="p">私网域名和公网域名对外提供的服务都是一致的，但其在网络延时、计费规则方面有少许差异。</p>
+        <table id="table-4ac-qfb-qmb" tablewidth="708" tablecolswidth="236 236 236" autofit="false" class="table">
+          <colgroup colwidth="1*" style="width:33.33%"></colgroup>
+          <colgroup colwidth="1*" style="width:33.33%"></colgroup>
+          <colgroup colwidth="1*" style="width:33.33%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-03t-su9-w3c">
+              <td id="reference-wgx-pwq-zdb-entry-nkn-jlh-cdm" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="6e3d614341zha"><b>对比项</b></p>
+              </td>
+              <td id="reference-wgx-pwq-zdb-entry-2cj-bkn-k9n" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="6e3d614441395"><b>私网域名</b></p>
+              </td>
+              <td id="reference-wgx-pwq-zdb-entry-euf-xm9-fsp" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="6e3d614541zkq"><b>公网域名</b></p>
+              </td>
+            </tr>
+            <tr id="row-ndx-ey7-zp3">
+              <td id="entry-a5o-yi0-teh" rowspan="1" colspan="1">
+                <p id="6e3d614641p35">请求协议</p>
+              </td>
+              <td id="entry-29x-xfn-lpz" rowspan="1" colspan="1">
+                <p id="6e3d614741zep">HTTP、HTTPS</p>
+              </td>
+              <td id="entry-mnf-p3a-cbo" rowspan="1" colspan="1">
+                <p id="6e3d885041h40">HTTP、HTTPS</p>
+              </td>
+            </tr>
+            <tr id="row-eai-2lt-2eg">
+              <td id="entry-3ki-iww-q04" rowspan="1" colspan="1">
+                <p id="6e3d885141d9s">使用场景</p>
+              </td>
+              <td id="entry-kmf-g62-x3y" rowspan="1" colspan="1">
+                <p id="6e3d885241uej">阿里云产品内部相互通信。例如同地域<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>访问日志服务。</p>
+                <p data-tag="p" id="p-izt-v0m-ei1" class="p">建议优先使用私网域名。</p>
+              </td>
+              <td id="entry-930-fdb-aj6" rowspan="1" colspan="1">
+                <p id="6e3d885341u6s">通过公网（互联网）访问日志服务。例如通过本地公网的<span class="help-letter-space"></span>API、SDK<span class="help-letter-space"></span>访问日志服务。</p>
+              </td>
+            </tr>
+            <tr id="row-chy-hix-wzz">
+              <td id="entry-ipx-2he-jyz" rowspan="1" colspan="1">
+                <p id="6e3d8854415cf">相关计费</p>
+              </td>
+              <td id="entry-k3b-bgd-enk" rowspan="1" colspan="1">
+                <p id="6e3daf60418y1">按照日志服务计费项正常计费。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/billable-items#concept-xzl-hjg-vgb" id="xref-wri-n60-fa4" title="" class="xref">日志服务计费项</a>。</p>
+              </td>
+              <td id="entry-qbz-thk-gv0" rowspan="1" colspan="1">
+                <p id="6e3daf6141bn1">相比私网计费，增加了外网读取流量。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/billable-items#concept-xzl-hjg-vgb" id="xref-kgk-3ku-j08" title="" class="xref">日志服务计费项</a>。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section data-tag="section" id="section-rxx-n4w-12b" data-type="section" class="section">
+        <h2 data-tag="title" id="title-h85-wzi-3da" class="title">公网</h2>
+        <p data-tag="p" id="p-i25-viv-9dv" class="p">服务入口是访问一个项目（Project）及其内部日志数据的<span class="help-letter-space"></span>URL。服务入口与<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>所在的地域相关。目前，日志服务已经在多个地域开通，在各地域内的公网服务入口如下表所示。</p>
+        <table id="table-sb5-h2r-12b" tablewidth="100" tablecolswidth="50.07 49.93" autofit="true" class="table">
+          <colgroup colwidth="1*" style="width:50.07%"></colgroup>
+          <colgroup colwidth="1*" style="width:49.93%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-em4-12g-lmc">
+              <td id="reference-wgx-pwq-zdb-entry-1t0-sfo-hj7" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="6e3daf6241bib"><b>地域</b></p>
+              </td>
+              <td id="reference-wgx-pwq-zdb-entry-5yp-pqo-f2j" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="6e3daf634177d"><b>服务入口</b></p>
+              </td>
+            </tr>
+            <tr id="row-hcu-d2s-lak">
+              <td id="entry-9e6-3a8-a6w" rowspan="1" colspan="1">
+                <p id="6e3daf6441flp">华东<span class="help-letter-space"></span>1（杭州）</p>
+              </td>
+              <td id="entry-kc0-xvw-mdo" rowspan="1" colspan="1">
+                <p id="6e3daf6541h3k">cn-hangzhou.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-y4y-5mx-x1p">
+              <td id="entry-b8s-puk-zbi" rowspan="1" colspan="1">
+                <p id="6e3dd67241tcd">华东<span class="help-letter-space"></span>2（上海）</p>
+              </td>
+              <td id="entry-g0o-28f-me8" rowspan="1" colspan="1">
+                <p id="6e3dd67341ixs">cn-shanghai.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-5yf-7s2-906" props="china" data-cond-props="china">
+              <td id="entry-bjj-mo9-n9o" rowspan="1" colspan="1">
+                <p id="6e3dd67641o80">华东<span class="help-letter-space"></span>5（南京-本地地域-关停中）</p>
+              </td>
+              <td id="entry-zyd-vjx-zbp" rowspan="1" colspan="1">
+                <p id="6e3dd67741umt">cn-nanjing.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-zfy-tqo-mu0" props="china" data-cond-props="china">
+              <td id="entry-j9u-go2-qvx" rowspan="1" colspan="1">
+                <p id="6e3dd678416i0">华东<span class="help-letter-space"></span>6（福州-本地地域-关停中）</p>
+              </td>
+              <td id="entry-5v1-cy2-0k7" rowspan="1" colspan="1">
+                <p id="6e3dd679419on">cn-fuzhou.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-zpt-kw6-bjt">
+              <td id="entry-olr-2d2-xx9" rowspan="1" colspan="1">
+                <p id="6e3dd67a414z3">华北<span class="help-letter-space"></span>1（青岛）</p>
+              </td>
+              <td id="entry-037-kkk-v1h" rowspan="1" colspan="1">
+                <p id="6e3dfd8041qwu">cn-qingdao.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-jmk-ojg-ywv">
+              <td id="entry-oy0-hm8-r5i" rowspan="1" colspan="1">
+                <p id="6e3dfd8141l1o">华北<span class="help-letter-space"></span>2（北京）</p>
+              </td>
+              <td id="entry-0y6-2zy-9bm" rowspan="1" colspan="1">
+                <p id="6e3dfd8241emd">cn-beijing.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-81m-19d-tdo">
+              <td id="entry-exz-wb7-9as" rowspan="1" colspan="1">
+                <p id="6e3dfd8741g0p">华北<span class="help-letter-space"></span>3（张家口）</p>
+              </td>
+              <td id="entry-dgf-5fo-c6s" rowspan="1" colspan="1">
+                <p id="6e3dfd88418w6">cn-zhangjiakou.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-doq-mxz-mm0">
+              <td id="entry-6nr-f9e-v8n" rowspan="1" colspan="1">
+                <p id="6e3dfd8941pml">华北<span class="help-letter-space"></span>5（呼和浩特）</p>
+              </td>
+              <td id="entry-u1z-m3r-w54" rowspan="1" colspan="1">
+                <p id="6e3dfd8a41suo">cn-huhehaote.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-5y8-pwh-07f">
+              <td id="entry-6ix-k5f-de1" rowspan="1" colspan="1">
+                <p id="6e3dfd8b412fv">华北<span class="help-letter-space"></span>6（乌兰察布）</p>
+              </td>
+              <td id="entry-jmg-2pz-lzl" rowspan="1" colspan="1">
+                <p id="6e3dfd8c41gpg">cn-wulanchabu.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-a8r-ze3-wee">
+              <td id="entry-23d-kii-uvv" rowspan="1" colspan="1">
+                <p id="6e3dfd8d41hc9">华南<span class="help-letter-space"></span>1（深圳）</p>
+              </td>
+              <td id="entry-ioy-6ug-cq3" rowspan="1" colspan="1">
+                <p id="6e3e249041jnv">cn-shenzhen.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-dzn-vbr-22m">
+              <td id="entry-80a-3va-ngc" rowspan="1" colspan="1">
+                <p id="6e3e249341wv1">华南<span class="help-letter-space"></span>2（河源）</p>
+              </td>
+              <td id="entry-ggi-ys9-354" rowspan="1" colspan="1">
+                <p id="6e3e249441r4r">cn-heyuan.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-bzy-wr9-ppc">
+              <td id="entry-y6j-29n-mk3" rowspan="1" colspan="1">
+                <p id="6e3e249541s3n">华南<span class="help-letter-space"></span>3（广州）</p>
+              </td>
+              <td id="entry-mvj-1nh-qa0" rowspan="1" colspan="1">
+                <p id="6e3e249641b0q">cn-guangzhou.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-z9q-nb3-6av">
+              <td id="entry-5d9-ena-pdx" rowspan="1" colspan="1">
+                <p id="6e3e2497417yc">西南<span class="help-letter-space"></span>1（成都）</p>
+              </td>
+              <td id="entry-wm8-sc4-n06" rowspan="1" colspan="1">
+                <p id="6e3e2498411mn">cn-chengdu.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-mrl-ila-5sj">
+              <td id="entry-tuk-3z0-wh1" rowspan="1" colspan="1">
+                <p id="6e3e249941g0f">中国（香港）</p>
+              </td>
+              <td id="entry-pkh-a8m-tx0" rowspan="1" colspan="1">
+                <p id="6e3e249a414s4">cn-hongkong.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-itk-pfd-nwn">
+              <td id="entry-7f2-i09-bvk" rowspan="1" colspan="1">
+                <p id="6e3e249b4161u">日本（东京）</p>
+              </td>
+              <td id="entry-oey-lrw-p75" rowspan="1" colspan="1">
+                <p id="6e3e249c41g8a">ap-northeast-1.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-niy-udj-87x">
+              <td id="entry-i2d-hvx-g8h" rowspan="1" colspan="1">
+                <p id="6e3e249d41lyl">韩国（首尔）</p>
+              </td>
+              <td id="entry-hcx-eq1-dai" rowspan="1" colspan="1">
+                <p id="6e3e4ba041se7">ap-northeast-2.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-ghd-i2t-ljn">
+              <td id="entry-ct6-373-395" rowspan="1" colspan="1">
+                <p id="6e3e4ba141dq0">新加坡</p>
+              </td>
+              <td id="entry-ilk-dn8-z28" rowspan="1" colspan="1">
+                <p id="6e3e4ba241vp9">ap-southeast-1.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-5qu-r43-xak">
+              <td id="entry-i1k-bkr-1cs" rowspan="1" colspan="1">
+                <p id="6e3e4ba541bgc">马来西亚（吉隆坡）</p>
+              </td>
+              <td id="entry-23i-zii-k8d" rowspan="1" colspan="1">
+                <p id="6e3e4ba641ixb">ap-southeast-3.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-v5g-2dd-emh">
+              <td id="entry-1u1-gbi-z9d" rowspan="1" colspan="1">
+                <p id="6e3e4ba741rpa">印度尼西亚（雅加达）</p>
+              </td>
+              <td id="entry-mc5-m2u-phf" rowspan="1" colspan="1">
+                <p id="6e3e4ba841286">ap-southeast-5.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-786-l7p-e01">
+              <td id="entry-8b6-3lh-tuy" rowspan="1" colspan="1">
+                <p id="6e3e4ba941ie4">菲律宾（马尼拉）</p>
+              </td>
+              <td id="entry-lio-inh-13s" rowspan="1" colspan="1">
+                <p id="6e3e4baa41560">ap-southeast-6.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-l2g-3iv-g7j">
+              <td id="entry-521-pk8-u3s" rowspan="1" colspan="1">
+                <p id="6e3e4bab4185p">泰国（曼谷）</p>
+              </td>
+              <td id="entry-cmt-j07-r3o" rowspan="1" colspan="1">
+                <p id="6e3e4bac41wq3">ap-southeast-7.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-0it-edb-a5i">
+              <td id="entry-ark-nnf-kzj" rowspan="1" colspan="1">
+                <p id="6e3e4bad41qdg">阿联酋（迪拜）</p>
+              </td>
+              <td id="entry-ik9-osq-spd" rowspan="1" colspan="1">
+                <p id="6e3e72b041sp7">me-east-1.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-qc0-fqd-zvn">
+              <td id="entry-iyc-ntm-nii" rowspan="1" colspan="1">
+                <p id="6e3e72b141lg4">美国（硅谷）</p>
+              </td>
+              <td id="entry-16q-1jw-ayd" rowspan="1" colspan="1">
+                <p id="6e3e72b241mpx">us-west-1.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-zwu-mji-reu">
+              <td id="entry-su0-jsl-kcr" rowspan="1" colspan="1">
+                <p id="6e3e72b341d6l">德国（法兰克福）</p>
+              </td>
+              <td id="entry-7i5-iw8-mt9" rowspan="1" colspan="1">
+                <p id="6e3e72b4416h8">eu-central-1.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-e2t-gzw-z41">
+              <td id="entry-883-yiz-ftu" rowspan="1" colspan="1">
+                <p id="6e3e72b541jvg">美国（弗吉尼亚）</p>
+              </td>
+              <td id="entry-egw-pt8-np5" rowspan="1" colspan="1">
+                <p id="6e3e72b6418k7">us-east-1.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-ubi-drd-hmd">
+              <td id="entry-ecy-orp-yft" rowspan="1" colspan="1">
+                <p id="6e3e72b9411d5">英国（伦敦）</p>
+              </td>
+              <td id="entry-yul-4tx-1gc" rowspan="1" colspan="1">
+                <p id="6e3e72ba41mhz">eu-west-1.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </section>
+      <section data-tag="section" id="section-p5r-r4w-12b" data-type="section" class="section">
+        <h2 data-tag="title" id="title-uer-nhu-wx8" class="title">私网</h2>
+        <p data-tag="p" id="p-92r-kah-49f" class="p">如果在阿里云<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>机器环境使用日志服务<span class="help-letter-space"></span>API，还可以使用私网服务入口，各个地域服务入口如下表所示。</p>
+        <div data-tag="note" id="note-3vo-7wh-xko" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+          <ul data-tag="ul" id="ul-kqt-sxb-ju8" class="ul">
+            <li data-tag="li" id="li-z3r-2cu-e0p" class="li">
+              <p id="6e3e99c34101l">日志服务<span class="help-letter-space"></span>API<span class="help-letter-space"></span>在如下服务入口仅支持<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>协议、HTTPS<span class="help-letter-space"></span>协议。</p>
+            </li>
+            <li data-tag="li" id="li-lpe-tg3-ehd" class="li">
+              <p id="6e3e99c441ju6">使用私网服务入口访问日志服务不消耗<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>公网流量，可以节约<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>公网带宽。</p>
+            </li>
+          </ul>
+        </div></div>
+        <table id="table-fc5-h2r-12b" tablewidth="100" tablecolswidth="50.07 49.93" autofit="true" class="table">
+          <colgroup colwidth="1*" style="width:50.07%"></colgroup>
+          <colgroup colwidth="1*" style="width:49.93%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-6id-hmm-3p1" style="height:41px">
+              <td id="reference-wgx-pwq-zdb-entry-pis-0fu-5oa" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="6e3e99c541pip"><b>地域</b></p>
+              </td>
+              <td id="reference-wgx-pwq-zdb-entry-xye-lr2-138" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="6e3e99c641ez1"><b>服务入口</b></p>
+              </td>
+            </tr>
+            <tr id="row-uvk-sg6-hft">
+              <td id="entry-uso-0m9-j5b" rowspan="1" colspan="1">
+                <p id="6e3e99c741txj">华东<span class="help-letter-space"></span>1（杭州）</p>
+              </td>
+              <td id="entry-p8e-q56-6d9" rowspan="1" colspan="1">
+                <p id="6e3e99c841q6z">cn-hangzhou-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-qqh-bor-otq">
+              <td id="entry-8xy-5bs-ttn" rowspan="1" colspan="1">
+                <p id="6e3e99cb41ffq">华东<span class="help-letter-space"></span>2（上海）</p>
+              </td>
+              <td id="entry-xpi-x2i-dqu" rowspan="1" colspan="1">
+                <p id="6e3e99cc4137c">cn-shanghai-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-kwu-sf5-37e" props="china" style="height:42px" data-cond-props="china">
+              <td id="entry-8ws-3qu-x3a" rowspan="1" colspan="1">
+                <p id="6e3ec0d24149w">华东<span class="help-letter-space"></span>5（南京-本地地域-关停中）</p>
+              </td>
+              <td id="entry-juq-5sx-puu" rowspan="1" colspan="1">
+                <p id="6e3ec0d341eor">cn-nanjing-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-4ax-1gm-is8" props="china" data-cond-props="china">
+              <td id="entry-cta-imo-smd" rowspan="1" colspan="1">
+                <p id="6e3ec0d441o7q">华东<span class="help-letter-space"></span>6（福州-本地地域-关停中）</p>
+              </td>
+              <td id="entry-yg7-ikf-2q8" rowspan="1" colspan="1">
+                <p id="6e3ec0d541v1z">cn-fuzhou-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-tc5-5hi-d15">
+              <td id="entry-gsj-o2m-mtc" rowspan="1" colspan="1">
+                <p id="6e3ec0d641460">华北<span class="help-letter-space"></span>1（青岛）</p>
+              </td>
+              <td id="entry-icz-xdq-ph0" rowspan="1" colspan="1">
+                <p id="6e3ec0d741jzz">cn-qingdao-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-zky-lw3-0vc">
+              <td id="entry-tq3-yqb-iby" rowspan="1" colspan="1">
+                <p id="6e3ec0d841znh">华北<span class="help-letter-space"></span>2（北京）</p>
+              </td>
+              <td id="entry-s1k-sy1-86e" rowspan="1" colspan="1">
+                <p id="6e3ec0d941yh3">cn-beijing-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-8i3-xcb-3i7">
+              <td id="entry-305-0pm-x21" rowspan="1" colspan="1">
+                <p id="6e3ee7e0413cp">华南<span class="help-letter-space"></span>1（深圳）</p>
+              </td>
+              <td id="entry-189-hu4-nd0" rowspan="1" colspan="1">
+                <p id="6e3ee7e14154q">cn-shenzhen-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-t4n-4n5-akb">
+              <td id="entry-g1m-1sk-716" rowspan="1" colspan="1">
+                <p id="6e3ee7e441yxl">华南<span class="help-letter-space"></span>2（河源）</p>
+              </td>
+              <td id="entry-f83-0sj-8x7" rowspan="1" colspan="1">
+                <p id="6e3ee7e541wrq">cn-heyuan-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-07w-r0i-pum">
+              <td id="entry-kr0-n24-hbs" rowspan="1" colspan="1">
+                <p id="6e3ee7e641jeu">华南<span class="help-letter-space"></span>3（广州）</p>
+              </td>
+              <td id="entry-9fh-bb0-hvw" rowspan="1" colspan="1">
+                <p id="6e3ee7e7412r1">cn-guangzhou-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-ol9-ms9-97f">
+              <td id="entry-h5s-q8b-s6n" rowspan="1" colspan="1">
+                <p id="6e3ee7e841n3i">华北<span class="help-letter-space"></span>3（张家口）</p>
+              </td>
+              <td id="entry-tzk-hbb-h08" rowspan="1" colspan="1">
+                <p id="6e3ee7e941cai">cn-zhangjiakou-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-u0e-2yq-f43">
+              <td id="entry-bm7-3zr-kb5" rowspan="1" colspan="1">
+                <p id="6e3ee7ea41kj1">华北<span class="help-letter-space"></span>5（呼和浩特）</p>
+              </td>
+              <td id="entry-4bq-ffc-ewd" rowspan="1" colspan="1">
+                <p id="6e3ee7eb41syx">cn-huhehaote-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-8mo-87u-zco">
+              <td id="entry-udu-8uf-ml6" rowspan="1" colspan="1">
+                <p id="6e3ee7ec41nti">华北<span class="help-letter-space"></span>6（乌兰察布）</p>
+              </td>
+              <td id="entry-l1b-qdu-i4p" rowspan="1" colspan="1">
+                <p id="6e3ee7ed41wor">cn-wulanchabu-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-pic-vzy-s5q">
+              <td id="entry-n8b-ngc-r9b" rowspan="1" colspan="1">
+                <p id="6e3f0ef041tsh">西南<span class="help-letter-space"></span>1（成都）</p>
+              </td>
+              <td id="entry-jzj-l2r-bcd" rowspan="1" colspan="1">
+                <p id="6e3f0ef141tf7">cn-chengdu-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-q8d-hop-6wr">
+              <td id="entry-ojt-d20-bc9" rowspan="1" colspan="1">
+                <p id="6e3f0ef241n4a">中国（香港）</p>
+              </td>
+              <td id="entry-hk1-1ts-5sl" rowspan="1" colspan="1">
+                <p id="6e3f0ef34137f">cn-hongkong-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-ccg-pwu-cac">
+              <td id="entry-qux-p0n-d7d" rowspan="1" colspan="1">
+                <p id="6e3f0ef441wg2">美国（硅谷）</p>
+              </td>
+              <td id="entry-oi6-f7d-22f" rowspan="1" colspan="1">
+                <p id="6e3f0ef541wzo">us-west-1-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-mse-1ll-e50">
+              <td id="entry-nqr-lw2-5r1" rowspan="1" colspan="1">
+                <p id="6e3f0ef641nlj">日本（东京）</p>
+              </td>
+              <td id="entry-27v-vjt-j05" rowspan="1" colspan="1">
+                <p id="6e3f0ef741dsc">ap-northeast-1-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-i8w-lq2-3ls">
+              <td id="entry-58n-2uh-m75" rowspan="1" colspan="1">
+                <p id="6e3f0ef841sxu">韩国（首尔）</p>
+              </td>
+              <td id="entry-3my-kds-0ep" rowspan="1" colspan="1">
+                <p id="6e3f0ef9410f8">ap-northeast-2-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-1na-u61-37u">
+              <td id="entry-z42-wsq-n6m" rowspan="1" colspan="1">
+                <p id="6e3f0efa41kj4">新加坡</p>
+              </td>
+              <td id="entry-0n6-v4k-alm" rowspan="1" colspan="1">
+                <p id="6e3f0efb41tdh">ap-southeast-1-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-o0l-e6y-l5t">
+              <td id="entry-ga7-0no-k57" rowspan="1" colspan="1">
+                <p id="6e3f360241nzi">马来西亚（吉隆坡）</p>
+              </td>
+              <td id="entry-gpx-gvg-6vf" rowspan="1" colspan="1">
+                <p id="6e3f360341wcd">ap-southeast-3-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-sip-mwr-ltg">
+              <td id="entry-zwi-co8-3oe" rowspan="1" colspan="1">
+                <p id="6e3f360441ey1">印度尼西亚（雅加达）</p>
+              </td>
+              <td id="entry-frb-7l7-zs6" rowspan="1" colspan="1">
+                <p id="6e3f360541mql">ap-southeast-5-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-y5a-r45-6sf">
+              <td id="entry-rv8-rez-jp1" rowspan="1" colspan="1">
+                <p id="6e3f36064171p">菲律宾（马尼拉）</p>
+              </td>
+              <td id="entry-etv-ut4-026" rowspan="1" colspan="1">
+                <p id="6e3f360741nmb">ap-southeast-6-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-j21-qg9-hz3">
+              <td id="entry-96i-umm-c81" rowspan="1" colspan="1">
+                <p id="6e3f360841iqe">泰国（曼谷）</p>
+              </td>
+              <td id="entry-khj-igo-jk2" rowspan="1" colspan="1">
+                <p id="6e3f360941plb">ap-southeast-7-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-yxt-iqt-q3n">
+              <td id="entry-73a-h3s-5w4" rowspan="1" colspan="1">
+                <p id="6e3f360a41jgr">阿联酋（迪拜）</p>
+              </td>
+              <td id="entry-nu3-fye-dwr" rowspan="1" colspan="1">
+                <p id="6e3f360b41z25">me-east-1-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-zsv-4xj-6ik">
+              <td id="entry-8ct-mr6-4ag" rowspan="1" colspan="1">
+                <p id="6e3f5d1041h9v">德国（法兰克福）</p>
+              </td>
+              <td id="entry-4tv-fzg-gir" rowspan="1" colspan="1">
+                <p id="6e3f5d11410wn">eu-central-1-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-pqr-1sc-ssf">
+              <td id="entry-c4i-k8i-s15" rowspan="1" colspan="1">
+                <p id="6e3f5d1241ki5">美国（弗吉尼亚）</p>
+              </td>
+              <td id="entry-60p-8xn-xco" rowspan="1" colspan="1">
+                <p id="6e3f5d1341vik">us-east-1-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-t7w-m25-v1v">
+              <td id="entry-5h3-jp8-f2x" rowspan="1" colspan="1">
+                <p id="6e3f5d164133n">英国（伦敦）</p>
+              </td>
+              <td id="entry-nrm-h0x-n3f" rowspan="1" colspan="1">
+                <p id="6e3f5d1741w50">eu-west-1-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            
+          </tbody>
+        </table>
+      </section>
+      <section data-tag="section" id="section-kp3-42h-cgb" data-type="section" class="section">
+        <h2 data-tag="title" id="title-5nu-svw-9jr" class="title">传输加速</h2>
+        <p data-tag="p" id="p-2no-l1k-nvi" class="p">日志服务在私网和公网基础上，新增传输加速的网络类型。相较于普通的公网访问，传输加速在延时和稳定性上具备显著优势，适用于对数据采集、消费延时、可靠性要求较高的场景。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/transmission-acceleration" id="a375bb542b3e3" title="" class="xref">管理传输加速</a>。</p>
+        <div data-tag="p" id="p-6ie-9o7-qin" class="p">
+          <p id="6e3f842041pu8">传输加速的服务入口在所有地域一致，服务入口为： </p><pre data-tag="codeblock" id="codeblock-c3p-rf9-rt2" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>log-global.aliyuncs.com</code></pre>
+        </div>
+        <div data-tag="note" id="note-qgy-d1l-2tw" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+          <p id="6e3f842141hy5">传输加速功能默认为关闭状态，需要手动开启后才可使用。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/enable-the-global-acceleration-feature#concept-bfn-n54-p2b" id="xref-nro-qdt-orq" title="" class="xref">采集加速</a>。</p>
+        </div></div>
+      </section>
+      <section data-tag="section" id="section-p43-x7x-ob2" props="china" data-type="section" data-cond-props="china" class="section">
+        <h2 data-tag="title" id="title-g5y-ohm-hiy" class="title">通过<span class="help-letter-space"></span>IPv6<span class="help-letter-space"></span>地址访问<span class="help-letter-space"></span>SLS</h2>
+        <p data-tag="p" id="p-oai-vzc-c7s" class="p">目前日志服务已支持通过<span class="help-letter-space"></span>IPv6、IPv4<span class="help-letter-space"></span>双栈域名访问。 </p>
+        <p data-tag="p" id="p-58z-l3s-20o" class="p">您的<span class="help-letter-space"></span>IPv6、IPv4<span class="help-letter-space"></span>客户端均可以使用<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>提供的统一双栈域名访问<span class="help-letter-space"></span>SLS。DNS<span class="help-letter-space"></span>服务器将按照您使用的协议版本解析对应的<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>服务器地址。</p>
+        <p data-tag="p" id="p-qby-wom-e9j" class="p">目前可以通过<span class="help-letter-space"></span>IPv6<span class="help-letter-space"></span>协议访问的<span class="help-letter-space"></span>Endpoint<span class="help-letter-space"></span>如下：</p>
+        <table id="table-1om-lre-lq7" tablewidth="100" tablecolswidth="33.28 66.72" autofit="true" class="table">
+          <colgroup colwidth="0.67*" style="width:33.28%"></colgroup>
+          <colgroup colwidth="1.33*" style="width:66.72%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-kgj-l5d-gtk">
+              <td id="reference-wgx-pwq-zdb-entry-f35-hho-h5l" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="6e3f8422414pn"><b>地域</b></p>
+              </td>
+              <td id="reference-wgx-pwq-zdb-entry-gcc-u8x-sig" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="6e3f842341a5y"><b>服务入口</b></p>
+              </td>
+            </tr>
+            <tr id="row-9op-ewp-2mj">
+              <td id="entry-1uz-mzh-wni" rowspan="1" colspan="1">
+                <p id="6e3f842441v1d">华东<span class="help-letter-space"></span>1（杭州）</p>
+              </td>
+              <td id="entry-nsr-irj-ygo" rowspan="1" colspan="1">
+                <p id="6e3f8425414ln">cn-hangzhou.dualstack.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-m7v-1oq-iil">
+              <td id="entry-g6u-k1v-fsf" rowspan="1" colspan="1">
+                <p id="6e3f842641h0t">华东<span class="help-letter-space"></span>2（上海）</p>
+              </td>
+              <td id="entry-0qh-qyy-s5i" rowspan="1" colspan="1">
+                <p id="6e3f8427410hg">cn-shanghai.dualstack.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-rtm-ri1-xsf">
+              <td id="entry-m5p-wnf-a9b" rowspan="1" colspan="1">
+                <p id="6e3f842841xj4">华北<span class="help-letter-space"></span>1（青岛）</p>
+              </td>
+              <td id="entry-eo1-e5o-y8n" rowspan="1" colspan="1">
+                <p id="6e3f842941vup">cn-qingdao.dualstack.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-qok-254-ffx">
+              <td id="entry-lnn-z47-tyg" rowspan="1" colspan="1">
+                <p id="6e3f842a41k25">华北<span class="help-letter-space"></span>2（北京）</p>
+              </td>
+              <td id="entry-vro-89d-nlr" rowspan="1" colspan="1">
+                <p id="6e3fab30416ot">cn-beijing.dualstack.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-vsa-mkq-wjb">
+              <td id="entry-i01-b8d-ysp" rowspan="1" colspan="1">
+                <p id="6e3fab3141en9">华北 3（张家口）</p>
+              </td>
+              <td id="entry-nwg-4dn-jj2" rowspan="1" colspan="1">
+                <p id="6e3fab3241tr4">cn-zhangjiakou.dualstack.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-ugs-ki8-y80">
+              <td id="entry-zoh-3kq-06s" rowspan="1" colspan="1">
+                <p id="6e3fab3341eyc">华北<span class="help-letter-space"></span>5（呼和浩特）</p>
+              </td>
+              <td id="entry-h8q-hvx-tr3" rowspan="1" colspan="1">
+                <p id="6e3fab34410zz">cn-huhehaote.dualstack.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-w0k-pv1-7cm">
+              <td id="entry-b53-lcc-pif" rowspan="1" colspan="1">
+                <p id="6e3fab3541htn">华北<span class="help-letter-space"></span>6（乌兰察布）</p>
+              </td>
+              <td id="entry-5m1-dqz-xrn" rowspan="1" colspan="1">
+                <p id="6e3fab3641psu">cn-wulanchabu.dualstack.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-kl7-zl2-wsu">
+              <td id="entry-bgu-63t-xb5" rowspan="1" colspan="1">
+                <p id="6e3fab3741var">华南<span class="help-letter-space"></span>1（深圳）</p>
+              </td>
+              <td id="entry-ds8-5hs-30h" rowspan="1" colspan="1">
+                <p id="6e3fab3841z80">cn-shenzhen.dualstack.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-avy-e1w-c5n">
+              <td id="entry-uf3-6z1-cwr" rowspan="1" colspan="1">
+                <p id="6e3fab3941uw8">华南<span class="help-letter-space"></span>2（河源）</p>
+              </td>
+              <td id="entry-6t7-fsp-oau" rowspan="1" colspan="1">
+                <p id="6e3fab3a412xm">cn-heyuan.dualstack.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-02m-31o-tp9">
+              <td id="entry-kq5-p0t-ql1" rowspan="1" colspan="1">
+                <p id="6e3fab3b415fx">华南<span class="help-letter-space"></span>3（广州）</p>
+              </td>
+              <td id="entry-i38-gps-pj0" rowspan="1" colspan="1">
+                <p id="6e3fab3c414b2">cn-guangzhou.dualstack.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="row-fhg-kog-h4r">
+              <td id="entry-czb-w2y-qhn" rowspan="1" colspan="1">
+                <p id="6e3fd240410os">西南<span class="help-letter-space"></span>1（成都）</p>
+              </td>
+              <td id="entry-n0l-0sw-vl9" rowspan="1" colspan="1">
+                <p id="6e3fd24141adf">cn-chengdu.dualstack.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="065b3d418dycd">
+              <td id="cbd6b45842dha" rowspan="1" colspan="1">
+                <p id="1c38f6d17fg7f">新加坡</p>
+              </td>
+              <td id="5e11553284sz9" rowspan="1" colspan="1">
+                <p id="f7a60083cf9zx">ap-southeast-1.dualstack.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="75f93b4910ic1">
+              <td id="94cd6519adz4p" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="f4b3f50e8f77y">日本（东京）</p>
+              </td>
+              <td id="fd7743cf1dy1x" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="88dc16fecb4am">ap-northeast-1.dualstack.log.aliyuncs.com</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section id="cdc3a7d041j5j" props="china" data-cond-props="china" class="section">
+        <h2 id="7de6043041owc">金融云</h2>
+        <table id="ac63b82041fex" tablewidth="100" tablecolswidth="33.38 33.38 33.239999999999995" autofit="true" class="table">
+          <colgroup colwidth="1.01*" style="width:33.38%"></colgroup>
+          <colgroup colwidth="1.01*" style="width:33.38%"></colgroup>
+          <colgroup colwidth="1.01*" style="width:33.24%"></colgroup>
+          <tbody class="tbody">
+            <tr id="ac63b82141fmp">
+              <td id="ac63b822417xo" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="ac63b8234121b"><b>地域</b></p>
+              </td>
+              <td id="ac63df3041gfb" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="ac63df3141uf3"><b>公网</b></p>
+              </td>
+              <td id="953cad8041p2t" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="953cad8141dm0"><b>私网</b></p>
+              </td>
+            </tr>
+            <tr id="ac63df3741d16">
+              <td id="ac63df38416by" rowspan="1" colspan="1">
+                <p id="ac63df3941b35">华东<span class="help-letter-space"></span>1 金融云</p>
+              </td>
+              <td id="ac63df3a418d8" rowspan="1" colspan="1">
+                <p id="ac63df3b41qsk">cn-hangzhou-finance.log.aliyuncs.com</p>
+              </td>
+              <td id="953cad8241b0w" rowspan="1" colspan="1">
+                <p id="c42a1330418ug">cn-hangzhou-finance-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="ac63df4141ruw">
+              <td id="ac63df4241xym" rowspan="1" colspan="1">
+                <p id="ac63df43418cy">华东<span class="help-letter-space"></span>2 金融云</p>
+              </td>
+              <td id="ac63df44419ig" rowspan="1" colspan="1">
+                <p id="ac63df4541y3e">cn-shanghai-finance-1.log.aliyuncs.com</p>
+              </td>
+              <td id="953cad8441a2b" rowspan="1" colspan="1">
+                <p id="c6b92280411pj">cn-shanghai-finance-1-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="ac63df5a41mpi">
+              <td id="ac63df5b41pzm" rowspan="1" colspan="1">
+                <p id="ac63df5c412fe"><span data-ref-searchable="yes" data-tag="ph" id="b832b87041dmf" docid="4075072" is-conref="true" class="ph">华北<span class="help-letter-space"></span>2 金融云（邀测）</span></p>
+              </td>
+              <td id="ac63df5d41xmy" rowspan="1" colspan="1">
+                <p id="ac63df5e417ou">cn-beijing-finance-1.log.aliyuncs.com</p>
+              </td>
+              <td id="953cad8641gwo" rowspan="1" colspan="1">
+                <p id="c95b92c041po9">cn-beijing-finance-1-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+            <tr id="ac63df7841wb8">
+              <td id="ac63df79417ax" rowspan="1" colspan="1">
+                <p id="ac63df7a41kg5">华南<span class="help-letter-space"></span>1 金融云</p>
+              </td>
+              <td id="ac63df7b41x3p" rowspan="1" colspan="1">
+                <p id="ac63df7c41qce">cn-shenzhen-finance-1.log.aliyuncs.com</p>
+              </td>
+              <td id="953cad8841jji" rowspan="1" colspan="1">
+                <p id="cb93f69041ht3">cn-shenzhen-finance-1-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section id="03eed7d041zs4" props="china" data-cond-props="china" class="section">
+        <h2 id="d76a0db041b5x"><b>阿里政务云</b></h2>
+        <table id="ed89cf9041lvd" tablewidth="100" tablecolswidth="33.38 33.38 33.239999999999995" autofit="true" class="table">
+          <colgroup colwidth="1.01*" style="width:33.38%"></colgroup>
+          <colgroup colwidth="1.01*" style="width:33.38%"></colgroup>
+          <colgroup colwidth="1.01*" style="width:33.24%"></colgroup>
+          <tbody class="tbody">
+            <tr id="ed89cf9141c7n">
+              <td id="ed89cf9241mwa" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="ed89cf9341qzz"><b>地域</b></p>
+              </td>
+              <td id="ed89cf9441fd5" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="ed89cf9541vj0"><b>公网</b></p>
+              </td>
+              <td id="ed89cf9641i4c" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="ed89cf9741iqq"><b>私网</b></p>
+              </td>
+            </tr>
+            <tr id="ed89cf98414u6">
+              <td id="ed89cf9941c15" rowspan="1" colspan="1">
+                <p id="f2a6b5b041p8p">华北<span class="help-letter-space"></span>2 阿里政务云<span class="help-letter-space"></span>1</p>
+              </td>
+              <td id="ed89cf9b41cwz" rowspan="1" colspan="1">
+                <p id="fcf67af041frd">cn-north-2-gov-1.log.aliyuncs.com</p>
+              </td>
+              <td id="ed89cf9d41nxr" rowspan="1" colspan="1">
+                <p id="f887fd40411mw">cn-north-2-gov-1-intranet.log.aliyuncs.com</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section id="bd7004dc3colg" class="section">
+        <h2 id="c3cedfe36epye"><b>自定义域名</b></h2>
+        <p id="56f7232c4a9q2">自定义域名创建请参见<a href="https://help.aliyun.com/zh/dws/getting-started/quickly-register-a-new-domain-name" id="6cca707239s8m" title="" class="xref">域名注册</a>。</p>
+        <p id="b067bac5eawvi">在日志服务控制台绑定完自定义域名后，请前往公网<span class="help-letter-space"></span>DNS<span class="help-letter-space"></span>解析添加解析记录，域名绑定才能生效。详情请参见<a href="https://help.aliyun.com/zh/dns/add-an-a-record-to-a-website-domain" id="cdfa6f3667fah" title="" class="xref">添加网站解析</a>。</p>
+      </section>
+    </div>
+  </main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/sls/developer-reference/api-reference-appendix/" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：API参考附录</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/sls/developer-reference/vpc-private-intranet-domain-name" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：VPC专用内网域名<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

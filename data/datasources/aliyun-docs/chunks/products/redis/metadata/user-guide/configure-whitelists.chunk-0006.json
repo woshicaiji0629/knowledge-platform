@@ -1,0 +1,14 @@
+{
+  "id": "redis:user-guide/configure-whitelists:6",
+  "document_id": "redis:user-guide/configure-whitelists",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "selection",
+  "title": "不同场景IP白名单配置方法-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/configure-whitelists",
+  "chunk_index": 6,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/user-guide/configure-whitelists.chunk-0006.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/configure-whitelists.md",
+  "heading_path": "设置IP白名单 > 通过安全组批量添加ECS私网和公网IP",
+  "char_count": 492
+}

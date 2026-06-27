@@ -1,0 +1,19 @@
+### 镜像的操作系统和实例规格的处理器不是官方兼容
+部分ECS实例规格，比如8代ECS实例，对支持的操作系统有限制。
+具体限制如下：
+[AMD](compatibility-between-amd-instance-types-and-operating-systems.md)[实例规格与操作系统兼容性说明](compatibility-between-amd-instance-types-and-operating-systems.md)
+[Intel](intel-instance-specifications-and-operating-system-compatibility.md)[实例规格与操作系统兼容性说明](intel-instance-specifications-and-operating-system-compatibility.md)
+[倚天处理器实例兼容的操作系统](user-guide/the-migration-process.md)
+解决方案：
+如果对操作系统或实例规格没有特殊要求，选择兼容的镜像操作系统或实例规格。
+如果必须选择该镜像和实例规格，您可以在购买页申请放开限制。
+支持放开限制的实例：
+AMD实例：ecs.c8ae、ecs.g8ae、ecs.r8ae、ecs.c8a、ecs.g8a、ecs.r8a、ecs.hpc8a、ecs.g9a、ecs.c9a、ecs.r9a、ecs.g9ae、ecs.c9ae、ecs.r9ae、ecs.u2a
+Intel实例：ecs.g8i、ecs.c8i、ecs.r8i、ecs.hfg8i、ecs.hfc8i、ecs.hfr8i、ecs.g8ise、ecs.c9i、ecs.g9i、ecs.r9i、ecs.u2i
+申请方式如下：
+在实例购买页面，镜像类型选择自定义镜像，单击检查操作链接。
+勾选申请放开限制的勾选框。
+首次勾选并单击确定后，需等待约1分钟再刷新镜像列表。
+重要
+申请放开限制对全地域生效，且生效后不支持再取消。
+单击确定，等待一段时间后刷新即可。

@@ -1,0 +1,14 @@
+{
+  "id": "vpc:address-planning:5",
+  "document_id": "vpc:address-planning",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "地址规划-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/address-planning",
+  "chunk_index": 5,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/address-planning.chunk-0005.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/address-planning.md",
+  "heading_path": "地址规划 > 使用IPAM作用范围和地址池进行规划 > 控制台",
+  "char_count": 1200
+}

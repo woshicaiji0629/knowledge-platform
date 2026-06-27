@@ -1,0 +1,14 @@
+{
+  "id": "oss:user-guide/multipart-upload:2",
+  "document_id": "oss:user-guide/multipart-upload",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "features",
+  "title": "分片上传-对象存储-阿里云",
+  "source_url": "https://help.aliyun.com/zh/oss/user-guide/multipart-upload",
+  "chunk_index": 2,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/oss/documents/user-guide/multipart-upload.chunk-0002.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/user-guide/multipart-upload.md",
+  "heading_path": "分片上传 > 实现大文件分片上传",
+  "char_count": 96
+}

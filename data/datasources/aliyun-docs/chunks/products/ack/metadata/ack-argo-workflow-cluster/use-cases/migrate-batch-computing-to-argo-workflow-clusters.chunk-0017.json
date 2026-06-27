@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-argo-workflow-cluster/use-cases/migrate-batch-computing-to-argo-workflow-clusters:17",
+  "document_id": "ack:ack-argo-workflow-cluster/use-cases/migrate-batch-computing-to-argo-workflow-clusters",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "批处理作业，Batch批量计算-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/use-cases/migrate-batch-computing-to-argo-workflow-clusters",
+  "chunk_index": 17,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-argo-workflow-cluster/use-cases/migrate-batch-computing-to-argo-workflow-clusters.chunk-0017.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-argo-workflow-cluster/use-cases/migrate-batch-computing-to-argo-workflow-clusters.md",
+  "heading_path": "The following workflow executes a diamond workflow apiVersion: argoproj.io/v1alpha1 kind: Workflow metadata: generateName: dag-diamond- spec: entrypoint: diamond templates: - name: diamond dag: tasks: - name: A template: echo arguments: parameters: [{name: message, value: A}] - name: B depends: \"A\" template: echo arguments: parameters: [{name: message, value: B}] - name: C depends: \"A\" template: echo arguments: parameters: [{name: message, value: C}] - name: D depends: \"B && C\" template: echo arguments: parameters: [{name: message, value: D}] - name: echo inputs: parameters: - name: message container: image: mirrors-ssl.aliyuncs.com/alpine:3.7 command: [echo, \"{{inputs.parameters.message}}\"] > 相关参考 > 产品和定价",
+  "char_count": 272
+}

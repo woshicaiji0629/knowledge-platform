@@ -1,0 +1,6 @@
+| 实例引擎 | 支持产品类型 | 支持存储类型 | 主实例规格表 |
+| --- | --- | --- | --- |
+| MySQL | 标准版、倚天版 | 云盘、高性能本地盘 | [RDS MySQL](../apsaradb-rds-for-mysql/primary-apsaradb-rds-for-mysql-instance-types.md) [标准版（原](../apsaradb-rds-for-mysql/primary-apsaradb-rds-for-mysql-instance-types.md) [X86）主实例规格列表](../apsaradb-rds-for-mysql/primary-apsaradb-rds-for-mysql-instance-types.md) [RDS MySQL](../apsaradb-rds-for-mysql/primary-apsaradb-rds-for-mysql-instance-types-5.md) [倚天版（原](../apsaradb-rds-for-mysql/primary-apsaradb-rds-for-mysql-instance-types-5.md) [ARM）主实例规格列表](../apsaradb-rds-for-mysql/primary-apsaradb-rds-for-mysql-instance-types-5.md) |
+| PostgreSQL | 标准版、倚天版 | 云盘 | [RDS PostgreSQL](../apsaradb-rds-for-postgresql/primary-apsaradb-rds-for-postgresql-instance-types.md) [标准版与倚天版主实例规格列表](../apsaradb-rds-for-postgresql/primary-apsaradb-rds-for-postgresql-instance-types.md) |
+| SQL Server | 不涉及 | 云盘 | [RDS SQL Server](../apsaradb-rds-for-sql-server/primary-apsaradb-rds-for-sql-server-instance-types.md) [主实例规格列表](../apsaradb-rds-for-sql-server/primary-apsaradb-rds-for-sql-server-instance-types.md) |
+| MariaDB | 标准版 | 云盘 | [RDS MariaDB](../apsaradb-rds-for-mariadb/instance-types.md) [主实例规格列表](../apsaradb-rds

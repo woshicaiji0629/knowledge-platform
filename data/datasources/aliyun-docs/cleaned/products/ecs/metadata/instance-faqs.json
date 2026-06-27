@@ -1,0 +1,17 @@
+{
+  "id": "ecs:instance-faqs",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "troubleshoot",
+  "title": "ECS实例相关常见问题-云服务器 ECS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ecs/instance-faqs/",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/instance-faqs.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/instance-faqs.md",
+  "word_count": 503,
+  "text_units": 821,
+  "local_links": 0,
+  "external_links": 70,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

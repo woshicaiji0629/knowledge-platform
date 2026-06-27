@@ -1,0 +1,1 @@
+例： GIS.SEARCH Sicily RADIUS 15 37 200 km WITHDIST ASC 返回示例： 1) (integer) 2 2) 1) "Catania" 2) "POINT(15.087269 37.502669)" 3) "56.4413" 4) "Palermo" 5) "POINT(13.361389 38.115556)" 6) "190.4424" |

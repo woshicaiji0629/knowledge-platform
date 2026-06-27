@@ -1,0 +1,17 @@
+{
+  "id": "ack:product-overview/limits",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "performance",
+  "title": "容器服务Kubernetes版的使用配额和限制-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/product-overview/limits",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/product-overview/limits.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/product-overview/limits.md",
+  "word_count": 2269,
+  "text_units": 4669,
+  "local_links": 68,
+  "external_links": 89,
+  "has_tables": true,
+  "table_count": 18,
+  "quality": "accepted"
+}

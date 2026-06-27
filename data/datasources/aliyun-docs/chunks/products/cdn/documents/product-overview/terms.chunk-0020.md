@@ -1,0 +1,2 @@
+## 边缘程序
+边缘程序（EdgeRoutine，简称ER）是一个运行在阿里云全球边缘节点上的JavaScript代码运行环境，支持ES6语法和标准的Web Service Worker API。您可以将自行开发的JavaScript代码发布至全球边缘程序运行，在全球边缘节点上就近地处理客户端的请求。

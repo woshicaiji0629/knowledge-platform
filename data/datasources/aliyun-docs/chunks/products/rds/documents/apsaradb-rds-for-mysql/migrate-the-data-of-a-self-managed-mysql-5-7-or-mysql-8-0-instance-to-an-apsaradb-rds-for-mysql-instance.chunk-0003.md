@@ -1,0 +1,3 @@
+## 步骤一：安装Percona Xtrabackup
+[Percona XtraBackup](https://docs.percona.com/percona-xtrabackup/)是Percona公司开发的用于MySQL数据库物理热备的备份工具，支持多种数据库引擎。如您使用的是Ubuntu系统，请参见[附录](migrate-the-data-of-a-self-managed-mysql-5-7-or-mysql-8-0-instance-to-an-apsaradb-rds-for-mysql-instance.md)[1：Ubuntu](migrate-the-data-of-a-self-managed-mysql-5-7-or-mysql-8-0-instance-to-an-apsaradb-rds-for-mysql-instance.md)[安装](migrate-the-data-of-a-self-managed-mysql-5-7-or-mysql-8-0-instance-to-an-apsaradb-rds-for-mysql-instance.md)[Xtrabackup](migrate-the-data-of-a-self-managed-mysql-5-7-or-mysql-8-0-instance-to-an-apsaradb-rds-for-mysql-instance.md)。
+请根据MySQL数据库的版本选择Xtrabackup的版本。

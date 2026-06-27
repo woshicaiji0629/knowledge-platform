@@ -1,0 +1,17 @@
+{
+  "id": "sls:cross-region-log-collection-through-logtail-and-alibaba-cloud-account",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "通过Logtail跨地域采集日志-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/cross-region-log-collection-through-logtail-and-alibaba-cloud-account",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/cross-region-log-collection-through-logtail-and-alibaba-cloud-account.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/cross-region-log-collection-through-logtail-and-alibaba-cloud-account.md",
+  "word_count": 1263,
+  "text_units": 3027,
+  "local_links": 1,
+  "external_links": 108,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

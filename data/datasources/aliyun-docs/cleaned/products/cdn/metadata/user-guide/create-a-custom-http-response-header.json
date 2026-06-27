@@ -1,0 +1,17 @@
+{
+  "id": "cdn:user-guide/create-a-custom-http-response-header",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "配置缓存出站响应头-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/user-guide/create-a-custom-http-response-header",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/user-guide/create-a-custom-http-response-header.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/user-guide/create-a-custom-http-response-header.md",
+  "word_count": 1087,
+  "text_units": 4341,
+  "local_links": 0,
+  "external_links": 74,
+  "has_tables": true,
+  "table_count": 5,
+  "quality": "accepted"
+}

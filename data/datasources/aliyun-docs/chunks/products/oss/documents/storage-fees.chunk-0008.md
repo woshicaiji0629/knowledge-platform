@@ -1,0 +1,6 @@
+| 计费项 | 按量付费 | 存储包 | 预留空间 | 无地域属性预留空间 | 存储容量单位包 SCU |
+| --- | --- | --- | --- | --- | --- |
+| 标准存储（同城冗余）容量 | √ | [标准-同城冗余存储包](https://common-buy.aliyun.com/?commodityCode=ossbag&request=%7B%22ord_time%22:%221:Month%22,%22order_num%22:1,%22ossbag_type%22:%22storage_std_zrs%22,%22region%22:%22china-common%22,%22pack%22:%22FPT_ossbag_absolute_1572089992%22,%22std_zrs_storage_bag_spec%22:%22100%22,%22showtime%22:%22now%22%7D&regionId=china-common) | × | × | √ |
+| 标准存储（本地冗余）容量 | √ | [标准-本地冗余存储包](https://common-buy.aliyun.com/?commodityCode=ossbag&request=%7B%22ord_time%22:%226:Month%22,%22order_num%22:1,%22ossbag_type%22:%22storage%22,%22region%22:%22china-common%22,%22ossbag_spec%22:%2240%22,%22pack%22:%22FPT_ossbag_absolute_Storage_china_common%22,%22showtime%22:%22now%22%7D&regionId=china-common) | √ | × | √ |
+| 低频访问（同城冗余）容量 | √ | [低频-同城冗余存储包](https://common-buy.aliyun.com/?commodityCode=ossbag&request=%7B%22ord_time%22:%221:Month%22,%22order_num%22:1,%22ossbag_type%22:%22storage_ia_zrs%22,%22region%22:%22china-common%22,%22pack%22:%22FPT_ossbag_absolute_1572090490%22,%22ia_zrs_storage_bag_spec%22:%22100%22,%22showtime%22:%22now%22%7D&regionId=china-common) | × | × | √ |
+| 低频访问（本地冗余）

@@ -1,0 +1,1 @@
+不支持 SELECT 命令。但您可以通过 Proxy 访问集群实例，支持多数据库（DB）功能，支持使用 SELECT 命令，集群版实例默认为 256 个 DB。 说明 若您使用 StackExchange.Redis 客户端，请使用 StackExchange.Redis 2.7.20 及以上版本，否则会产生报错，更多信息请参见 [StackExchange.Redis](notice-suggestions-for-upgrading-stackexchange-redis-clients.md) [升级公告](notice-suggestions-for-upgrading-stackexchange-redis-clients.md) 。 |

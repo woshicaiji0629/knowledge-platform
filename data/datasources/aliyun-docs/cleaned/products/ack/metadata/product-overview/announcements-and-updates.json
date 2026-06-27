@@ -1,0 +1,17 @@
+{
+  "id": "ack:product-overview/announcements-and-updates",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "动态与公告-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/product-overview/announcements-and-updates/",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/product-overview/announcements-and-updates.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/product-overview/announcements-and-updates.md",
+  "word_count": 495,
+  "text_units": 803,
+  "local_links": 0,
+  "external_links": 71,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

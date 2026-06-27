@@ -1,0 +1,14 @@
+{
+  "id": "slb:anipop-uses-alb:4",
+  "document_id": "slb:anipop-uses-alb",
+  "source": "aliyun_docs",
+  "product": "slb",
+  "topic": "selection",
+  "title": "使用ALB应对大流量和高并发场景的解决方案-负载均衡-阿里云",
+  "source_url": "https://help.aliyun.com/zh/slb/anipop-uses-alb",
+  "chunk_index": 4,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/slb/documents/anipop-uses-alb.chunk-0004.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/slb/documents/anipop-uses-alb.md",
+  "heading_path": "【客户案例】开心消消乐使用ALB从容应对大流量和高并发场景 > 更多信息",
+  "char_count": 656
+}

@@ -1,0 +1,17 @@
+{
+  "id": "redis:user-guide/view-endpoints",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "deployment",
+  "title": "查看Tair（以及Redis开源版）的连接地址-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/view-endpoints",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/user-guide/view-endpoints.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/view-endpoints.md",
+  "word_count": 984,
+  "text_units": 2791,
+  "local_links": 8,
+  "external_links": 81,
+  "has_tables": true,
+  "table_count": 5,
+  "quality": "accepted"
+}

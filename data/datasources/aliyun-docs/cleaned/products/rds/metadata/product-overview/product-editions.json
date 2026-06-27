@@ -1,0 +1,17 @@
+{
+  "id": "rds:product-overview/product-editions",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "performance",
+  "title": "产品系列分类与规格功能说明-云数据库 RDS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/rds/product-overview/product-editions",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/product-overview/product-editions.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/product-overview/product-editions.md",
+  "word_count": 1415,
+  "text_units": 2941,
+  "local_links": 53,
+  "external_links": 61,
+  "has_tables": true,
+  "table_count": 12,
+  "quality": "accepted"
+}

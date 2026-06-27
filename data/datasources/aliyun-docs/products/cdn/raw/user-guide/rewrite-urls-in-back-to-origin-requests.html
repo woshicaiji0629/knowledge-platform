@@ -1,0 +1,733 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    重写回源URI工作原理、注意事项及配置示例-CDN(CDN)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/cdn/user-guide/rewrite-urls-in-back-to-origin-requests">
+  <meta name="keywords" content="URL重写,重写回源URL规则,请求URL,源站URL">
+  <meta name="description" content="阿里云CDN支持URL重写，重写不影响CDN内部链路和缓存key，仅在回源请求时使用重写后的URL。">
+  <meta name="last-modified" content="2026-06-11T11:58:31+08:00">
+  <meta name="date" content="2020-02-19T10:24:09+08:00">
+  <meta property="og:title" content="重写回源路径">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/cdn/user-guide/rewrite-urls-in-back-to-origin-requests">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="阿里云CDN支持URL重写，重写不影响CDN内部链路和缓存key，仅在回源请求时使用重写后的URL。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/cdn/user-guide/rewrite-urls-in-back-to-origin-requests",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "153118",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/cdn/user-guide/rewrite-urls-in-back-to-origin-requests","nodeId":null,"data":{"lastModifiedTime":1781150311000,"keywords":"URL重写,重写回源URL规则,请求URL,源站URL","docTitle":"重写回源路径","language":"zh","seoTitle":"重写回源URI工作原理、注意事项及配置示例-CDN(CDN)-阿里云帮助中心","title":"重写回源路径","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"task-2406144\">\n    \n    \n    <p id=\"shortdesc-jb6-z0m-fza\" data-tag=\"shortdesc\" class=\"shortdesc\">阿里云<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>支持<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>重写，重写不影响<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>内部链路和缓存<span class=\"help-letter-space\"></span>key，仅在回源请求时使用重写后的<span class=\"help-letter-space\"></span>URL。</p>\n    <div data-tag=\"taskbody\" id=\"taskbody-i3u-zh9-5x8\" class=\"taskbody\">\n      \n      <section data-tag=\"section\" id=\"section-85o-ahd-7vf\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-hp3-e61-vyr\" class=\"title\">工作原理</h2>\n        <div data-tag=\"p\" id=\"p-vti-c38-fql\" class=\"p\">\n          <p id=\"784da9055bkmc\">通过重写回源<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>规则，使请求<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>与源站<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>匹配，准确获取源站的资源，或者传递指定的参数给源站。</p>\n          <ul data-tag=\"ul\" id=\"ul-coz-124-3sb\" class=\"ul\">\n            <li data-tag=\"li\" id=\"li-lxv-ra1-3pb\" class=\"li\">\n              <p id=\"784da9065bnsk\">执行规则设置为“空”或者“break”的情况下，仅重写<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>中的资源路径部分。</p>\n              <p id=\"b0ef15408f5a6\"><img id=\"6e82d75c2fh01\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8758988371/p912490.jpg\" alt=\"无标题文档-流程图\" placement=\"break\" width=\"800\" class=\"image break\"></p>\n            </li>\n            <li id=\"li-0ik-5mk-2c5\" data-tag=\"li\" class=\"li\">\n              <p id=\"784dd0105b05w\">执行规则设置为“enhance_break”的情况下，能够同时重写资源路径和请求参数。</p>\n              <p id=\"51ec1c00b9b6m\"><img id=\"536eec52f0zmh\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8758988371/p912507.jpg\" alt=\"zh-enhance_break\" placement=\"break\" width=\"800\" class=\"image break\"></p>\n            </li>\n          </ul>\n        </div>\n      </section>\n      <section data-tag=\"section\" id=\"section-bgh-5zt-yex\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-4dc-08p-ohl\" class=\"title\">注意事项</h2>\n        <ul data-tag=\"ul\" id=\"ul-swe-tld-q6c\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-nzz-2ys-a1h\" class=\"li\">\n            <p id=\"784dd0115b6lu\">单个域名可以配置的<b id=\"uicontrol-fpd-2uc-mas\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">重写回源路径</b>规则数量上限是<span class=\"help-letter-space\"></span>50<span class=\"help-letter-space\"></span>个。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-5d0-hn7-ndz\" class=\"li\">\n            <p id=\"784dd0125bckm\">规则重写按照规则列表从上到下顺序依次执行，因此顺序可能会影响您的重写结果。</p>\n          </li>\n          \n          <li data-tag=\"li\" id=\"li-4r0-ikq-8wj\" class=\"li\">\n            <p id=\"784dd0145blj4\">配置<b data-tag=\"uicontrol\" id=\"uicontrol-bmy-qfd-aaz\" class=\"uicontrol\"><b id=\"8268b0734ee8c\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">重写回源路径</b></b>规则时，可能与<b id=\"uicontrol-mos-877-r3e\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">域名管理</b> &gt; <b id=\"uicontrol-q46-pvb-fdb\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">性能优化</b>页签下的<b id=\"b7db5a4865dp5\"><a href=\"https://help.aliyun.com/zh/cdn/user-guide/ignore-parameters#task-187634\" id=\"xref-5ff-kf5-f3g\" title=\"\" class=\"xref\">忽略参数</a></b>功能冲突，配置时要需注意避免冲突。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-k7m-2wx-q9f\" class=\"li\">\n            <p id=\"p-f3n-8bv-t2k\">如果同时配置了<b data-tag=\"uicontrol\" id=\"uicontrol-r5q-3hp-m4e\" class=\"uicontrol\"><b id=\"b-x4c-9jp-w7d\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">重写回源路径</b></b>和条件回源规则，<b data-tag=\"uicontrol\" id=\"uicontrol-m9t-5kp-h2e\" class=\"uicontrol\"><b id=\"b-y7e-4np-k8f\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">重写回源路径</b></b>规则可能改写回源<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>路径，导致源站收到的请求路径与预期不一致，返回<span class=\"help-letter-space\"></span>404<span class=\"help-letter-space\"></span>错误。排查方法：先临时关闭<b data-tag=\"uicontrol\" id=\"uicontrol-p3r-7lp-n5g\" class=\"uicontrol\"><b id=\"b-z8f-5qp-r6h\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">重写回源路径</b></b>规则，验证请求是否恢复正常；如需同时使用两个功能，调整规则的优先级和匹配条件，确保回源路径不被意外改写。</p>\n          </li>\n        </ul>\n      </section>\n      <section id=\"0df7bd58efmx0\" docid=\"301874\" is-conref=\"true\" class=\"section\">\n        <h2 id=\"7c14516b80439\"><b id=\"192624f098my4\" data-tag=\"uicontrol\" data-isbold=\"true\" data-init-id=\"uicontrol_3ua_zsc_eak\" class=\"uicontrol\">重写访问<span class=\"help-letter-space\"></span>URL</b><span class=\"help-letter-space\"></span><b>和</b><b id=\"062b1a9c682mg\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">重写回源路径</b><b>的区别</b></h2>\n        <table id=\"b2cac2e65e99j\" tablewidth=\"100\" tablecolswidth=\"13.97 22.57 23.91 39.54999999999999\" autofit=\"true\" class=\"table\">\n          <colgroup colwidth=\"0.56*\" style=\"width:13.97%\"></colgroup>\n          <colgroup colwidth=\"0.9*\" style=\"width:22.57%\"></colgroup>\n          <colgroup colwidth=\"0.96*\" style=\"width:23.91%\"></colgroup>\n          <colgroup colwidth=\"1.58*\" style=\"width:39.55%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"5b310f66d252h\">\n              <td id=\"99a698271c0eu\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"c87d8b7dbdg1h\"><b>功能</b></p>\n              </td>\n              <td id=\"a34717b5e63ob\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"7cfffad2d0242\"><b>作用对象</b></p>\n              </td>\n              <td id=\"5966f5c018fv9\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"77f4859baer42\"><b>客户端体验</b></p>\n              </td>\n              <td id=\"a6bb7aed4dpio\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"6227f147c3c2s\"><b>应用场景</b></p>\n              </td>\n            </tr>\n            <tr id=\"4e467ac732bz4\">\n              <td id=\"395a5b6b40290\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"d0c46488a0gqy\"><a href=\"https://help.aliyun.com/zh/cdn/user-guide/create-an-access-url-rewrite-rule\" id=\"e800cfe926je7\" title=\"\" class=\"xref\">重写访问<span class=\"help-letter-space\"></span>URL</a></p>\n              </td>\n              <td id=\"dc031fba3468d\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"a62332e3afea4\">影响的是客户端访问的<span class=\"help-letter-space\"></span>URL，同时也会改变<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点回源的<span class=\"help-letter-space\"></span>URL。</p>\n              </td>\n              <td id=\"ce91149719q2v\" rowspan=\"1\" colspan=\"1\">\n                <ul id=\"6748a6e4d6gwe\">\n                  <li id=\"340e7ada59yad\">\n                    <p id=\"1ecf26003aq0x\" uuid=\"1c255e1f-6eb2-4241-b4b6-988844712711\">执行规则为 redirect 的情况下，客户端将会使用重定向以后的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>重新发起访问请求。</p>\n                  </li>\n                  <li id=\"768d8220deag0\">\n                    <p id=\"3f0a94ed7dfft\" uuid=\"6ad77e26-1532-460e-a238-b32511333d19\">执行规则为 break 的情况下，客户端看到的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>与实际访问的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>一致，没有变化。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"525c34c86fex4\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"d77916757e24u\">常用于将旧域名的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>迁移、映射到新域名；或者为移动端和<span class=\"help-letter-space\"></span>PC<span class=\"help-letter-space\"></span>端提供不同的<span class=\"help-letter-space\"></span>URL。</p>\n                <p id=\"66e1901e7fqk2\"><b>示例</b>：访问<code data-tag=\"code\" code-type=\"xCode\" id=\"d776ae61cdbm4\" class=\"code\">old.example.com/hello</code>时，重写访问<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>为<code data-tag=\"code\" code-type=\"xCode\" id=\"6e776da4963bb\" class=\"code\">new.example.com/hello</code>。</p>\n              </td>\n            </tr>\n            <tr id=\"e70876c684od4\">\n              <td id=\"f3b3dea0856ms\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"a44c481d4fo5g\"><a href=\"https://help.aliyun.com/zh/cdn/user-guide/rewrite-urls-in-back-to-origin-requests\" id=\"8d42300befbsi\" title=\"\" class=\"xref\">重写回源路径</a></p>\n              </td>\n              <td id=\"8f308591639xf\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"430104a74clfp\">影响的是<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点回源时访问的<span class=\"help-letter-space\"></span>URL，而客户端访问的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>不变。</p>\n              </td>\n              <td id=\"55e3b795d4fw5\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"5f17198453jde\">客户端看到的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>与实际访问的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>一致，没有变化。</p>\n              </td>\n              <td id=\"7493791495f66\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"231b6879efoyu\">常用于隐藏源站的真实<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>结构，保护源站信息；或者通过<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>映射，让<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点回源到不同的源站目录。</p>\n                <p id=\"6db13b772cyj5\"><b>示例</b>：访问<code data-tag=\"code\" code-type=\"xCode\" id=\"78dd56362bnih\" class=\"code\">cdn.example.com/hello</code>时重写回源<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>为<code data-tag=\"code\" code-type=\"xCode\" id=\"cf00f47b66jsn\" class=\"code\">origin.example.com/source/hello</code>。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <section id=\"556f34bf7alcq\" class=\"section\">\n          <h3 id=\"4c0ca11c955fg\"><b id=\"f8481a2dc2tqb\" data-tag=\"uicontrol\" data-isbold=\"true\" data-init-id=\"uicontrol_3ua_zsc_eak\" class=\"uicontrol\">重写访问<span class=\"help-letter-space\"></span>URL</b><span class=\"help-letter-space\"></span><b>示意图</b></h3>\n          <hetu type=\"flowchart\" id=\"5d77ba6c30zjr\" uuid=\"4426101_20240523140327.057\" versionid=\"CAEQQhiBgID2vvKQ_RgiIDJmYzI4ODVhMGZkZDQ2ZGViNGQzYjg1OTU1OWYwZTBm\" hetuid=\"9001cac6-20f3-43ad-ac02-6ceb4495f5d7\"><img src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9030511871/CAEQQhiBgID2vvKQ_RgiIDJmYzI4ODVhMGZkZDQ2ZGViNGQzYjg1OTU1OWYwZTBm4426101_20240523140327.057.svg\" alt=\"image\" class=\"image break flowchart hetu\"></hetu>\n          <ol id=\"b7fe978c8aw8l\">\n            <li id=\"dae9d46db5a0m\">\n              <p id=\"128efaf25exao\">客户端向<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>发起请求，请求的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>为<code data-tag=\"code\" code-type=\"xCode\" id=\"5bf33c32fb0qy\" class=\"code\">old.example.com/hello</code>。</p>\n            </li>\n            <li id=\"048ef60603bq9\">\n              <p id=\"02986937654n0\">CDN<span class=\"help-letter-space\"></span>接收到请求后，根据重写访问<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>规则，CDN<span class=\"help-letter-space\"></span>节点会在给客户端发送的<span class=\"help-letter-space\"></span>302<span class=\"help-letter-space\"></span>状态码响应信息的<span class=\"help-letter-space\"></span>HTTP Location<span class=\"help-letter-space\"></span>头部中放置新的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>地址信息，将请求的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>重写为<code data-tag=\"code\" code-type=\"xCode\" id=\"3c7991f6d5i2j\" class=\"code\">new.example.com/hello</code>。</p>\n            </li>\n            <li id=\"e1937f9d9dr5k\">\n              <p data-tag=\"p\" id=\"ce9633c5f4wkj\" class=\"p\">客户端收到<span class=\"help-letter-space\"></span>302<span class=\"help-letter-space\"></span>状态码响应之后，将会向新的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>地址发起请求。</p>\n            </li>\n            <li id=\"bf4be07e3a7fa\">\n              <p id=\"0ac27787f3hmo\">CDN<span class=\"help-letter-space\"></span>节点检查缓存，如果缓存中有重写后<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>的内容，直接返回给客户端；如果没有，则<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点向源站发起请求，请求的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>为重写后的<code data-tag=\"code\" code-type=\"xCode\" id=\"9f7703c060yrb\" class=\"code\">new.example.com/hello</code>。 </p>\n            </li>\n            <li id=\"4e2088cec3lfo\">\n              <p id=\"6202e1420dz6u\">源站接收到请求，返回响应内容给<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点。 </p>\n            </li>\n            <li id=\"595445342cxbn\">\n              <p id=\"b637d14fc374x\">CDN<span class=\"help-letter-space\"></span>节点将响应内容缓存，并返回给客户端。</p>\n            </li>\n          </ol>\n        </section>\n        <section id=\"aff02d86fd97u\" class=\"section\">\n          <h3 id=\"673a61528axid\"><b id=\"c68930eed7ij0\" data-tag=\"uicontrol\" data-isbold=\"true\" data-init-id=\"062b1a9c682mg\" class=\"uicontrol\">重写回源路径</b><b>示意图</b></h3>\n          <hetu type=\"flowchart\" id=\"25672c5d2ckpa\" uuid=\"4426101_20240523143901.093\" versionid=\"CAEQQhiBgIC7.u.Q_RgiIDUxYmU1NjQ1MDU5MDRkYjc4MzYxZjI4Mjk0YWI5NWRh\" hetuid=\"b4c9b896-3812-4895-8dc5-8873d967ac47\"><img src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0130511871/CAEQQhiBgIC7.u.Q_RgiIDUxYmU1NjQ1MDU5MDRkYjc4MzYxZjI4Mjk0YWI5NWRh4426101_20240523143901.093.svg\" alt=\"image\" class=\"image break flowchart hetu\"></hetu>\n          <ol id=\"ba8a68215c32r\">\n            <li id=\"120fb55d47y7h\">\n              <p id=\"3acdae0f17elk\">客户端向<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>发起请求，请求的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>为<code data-tag=\"code\" code-type=\"xCode\" id=\"85ebf7deceh9f\" class=\"code\">cdn.example.com/files/hello.txt</code>。 </p>\n            </li>\n            <li id=\"9125b0f186vrp\">\n              <p id=\"053d753206tbi\">CDN<span class=\"help-letter-space\"></span>接收到请求后，检查缓存，如果缓存中有请求<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>的内容，直接返回给客户端；如果没有，则<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点根据重写回源<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>规则，将回源<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>重写为 <code data-tag=\"code\" code-type=\"xCode\" id=\"1740aa328dmmv\" class=\"code\">origin.example.com/secret/files/hello.txt</code>，向源站发起请求。</p>\n            </li>\n            <li id=\"b3bff5c45desu\">\n              <p id=\"25568c848eel0\">源站接收到请求后，向<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点返回响应内容。</p>\n            </li>\n            <li id=\"123b4c45b24ic\">\n              <p id=\"a6ff4d8076e11\">CDN<span class=\"help-letter-space\"></span>节点将响应内容缓存，并返回给客户端。</p>\n            </li>\n          </ol>\n        </section>\n      </section>\n      <section data-tag=\"section\" id=\"section-xn8-r45-ig4\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-aco-g59-f3u\" class=\"title\">配置回源路径</h2>\n        <ol data-tag=\"steps\" id=\"steps-m7n-5ql-qzo\" class=\"steps\">\n          <li data-tag=\"step\" id=\"step-ela-fex-97t\" is-conref=\"true\" class=\"step\"><p id=\"57912ad06cz5r\">登录<span data-tag=\"ph\" id=\"70e318298ar3q\" props=\"china\" data-cond-props=\"china\" class=\"ph\"><span data-tag=\"cmd\" id=\"cmd-a5o-xbu-9jk\" class=\"cmd\"><a href=\"https://cdn.console.aliyun.com\" id=\"xref-3wg-wkz-yew\" class=\"\" target=\"_blank\">CDN<span class=\"help-letter-space\"></span>控制台</a></span></span>。</p></li>\n          <li data-tag=\"step\" id=\"step-yu7-1wb-peb\" is-conref=\"true\" class=\"step\"><p id=\"579178f06cxyc\"><span data-tag=\"cmd\" id=\"cmd-s7b-t59-yfo\" class=\"cmd\">在左侧导航栏，单击<b id=\"uicontrol-7gx-exp-h8x\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">域名管理</b>。</span></p></li>\n          <li data-tag=\"step\" id=\"step-ynf-xli-cx5\" is-conref=\"true\" class=\"step\"><p id=\"579178f16caqi\"><span data-tag=\"cmd\" id=\"cmd-1ap-nxp-wdb\" class=\"cmd\"><span data-tag=\"ph\" id=\"ph-taj-8l0-rpq\" class=\"ph\">在<b id=\"uicontrol-xdy-plp-3xe\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">域名管理</b>页面，找到目标域名，单击<b id=\"2574e6a087kfg\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">操作</b>列的<b id=\"67ed12d08796d\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">管理</b>。</span></span></p></li>\n          <li data-tag=\"step\" id=\"step-wta-ka8-hp0\" class=\"step\">\n            <p id=\"784e1e305blcu\"><span data-tag=\"cmd\" id=\"cmd-ove-5so-267\" class=\"cmd\">在指定域名的左侧导航栏，单击<b id=\"uicontrol-2nr-0ly-viu\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">回源配置</b>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-9mk-l4k-nxo\" class=\"step\">\n            <p id=\"784e1e315b22t\"><span data-tag=\"cmd\" id=\"cmd-7d3-nqt-7v8\" class=\"cmd\">单击<b id=\"062b1a9c682mg\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">重写回源路径</b>页签。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-phc-06n-zgl\" class=\"step\">\n            <p id=\"784e1e325bbmm\"><span data-tag=\"cmd\" id=\"cmd-cup-311-4z9\" class=\"cmd\">单击<b id=\"uicontrol-yr0-zob-mln\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">添加</b>。</span><span data-tag=\"cmd\" id=\"cmd-nob-5q1-vzk\" class=\"cmd\">根据您的需求，配置<b id=\"78a032373a8pi\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">待重写的<span class=\"help-letter-space\"></span>Path</b>、<b id=\"75b82265f5pgw\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">目标<span class=\"help-letter-space\"></span>Path</b><span class=\"help-letter-space\"></span>和<b id=\"8a6b944066cwi\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">执行规则</b>。</span></p>\n            <div data-tag=\"info\" id=\"info-gsy-xa2-ysd\" class=\"info\">\n              <table id=\"table-gfy-n0y-neb\" tablewidth=\"100\" tablecolswidth=\"18.78 18.78 62.44\" autofit=\"true\" class=\"table\">\n                <colgroup colwidth=\"0.57*\" style=\"width:18.78%\"></colgroup>\n                <colgroup colwidth=\"0.57*\" style=\"width:18.78%\"></colgroup>\n                <colgroup colwidth=\"1.89*\" style=\"width:62.44%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"row-muv-m2t-te5\">\n                    <td id=\"task-2406144-entry-uk5-ozu-a7h\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"784e45405b78i\"><b>参数</b></p>\n                    </td>\n                    <td id=\"task-2406144-entry-tgc-ses-9h0\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"784e45415bops\"><b>示例</b></p>\n                    </td>\n                    <td id=\"task-2406144-entry-jc2-t7v-d1x\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"784e45425bk3a\"><b>说明</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-556-gwn-41o\">\n                    <td id=\"entry-szz-l0h-5b4\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"784e45435b4wp\"><b id=\"8ee88c84271j0\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">待重写的<span class=\"help-letter-space\"></span>Path</b></p>\n                    </td>\n                    <td id=\"entry-pui-35w-42h\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"784e45445bgll\">^/hello$</p>\n                    </td>\n                    <td id=\"entry-52r-j25-iq2\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"784e45455bhdb\">以正斜线（/）开头的<span class=\"help-letter-space\"></span>URL，不含<span class=\"help-letter-space\"></span>http://头及域名。必须使用<span class=\"help-letter-space\"></span>PCRE<span class=\"help-letter-space\"></span>正则表达式。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-ibh-roy-7se\">\n                    <td id=\"entry-qh0-39v-5lr\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"784e45465bxg9\"><b id=\"854b35078843j\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">目标<span class=\"help-letter-space\"></span>Path</b></p>\n                    </td>\n                    <td id=\"entry-ixf-r74-l28\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"784e45475bsyz\">/hello/test</p>\n                    </td>\n                    <td id=\"entry-f0m-g3n-r9w\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"784e45485b23v\">以正斜线（/）开头的<span class=\"help-letter-space\"></span>URL，不含<span class=\"help-letter-space\"></span>http://头及域名。支持使用<span class=\"help-letter-space\"></span>PCRE<span class=\"help-letter-space\"></span>正则表达式。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-bmg-5kz-dbn\">\n                    <td id=\"entry-1ls-bkl-an7\" rowspan=\"3\" colspan=\"1\">\n                      <p id=\"784e45495byy5\"><b id=\"9882d0ac8avvc\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">执行规则</b></p>\n                    </td>\n                    <td id=\"entry-lg2-rhs-qk5\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"784e6c505bx55\">空</p>\n                    </td>\n                    <td id=\"entry-nw4-be5-c95\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"784e6c515b92v\">如果配置了多条规则，在匹配执行当前规则后，将按照从上到下的顺序依次执行所有可以匹配的规则。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-pjq-4ax-h1i\">\n                    <td id=\"entry-h73-kts-xyk\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"784e6c545b9rb\">break</p>\n                    </td>\n                    <td id=\"entry-xwa-khy-jyw\" rowspan=\"1\" colspan=\"1\">\n                      <ul data-tag=\"ul\" id=\"ul-pva-j1l-apo\" class=\"ul\">\n                        <li data-tag=\"li\" id=\"li-ed6-mui-vvw\" class=\"li\">\n                          <p id=\"784e6c555brpp\">如果配置了多条规则，若请求的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>匹配了当前规则，匹配执行完当前规则后，剩余规则将不再匹配。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-hz6-ooh-fxi\" class=\"li\">\n                          <p id=\"784e6c565b2q0\">只修改<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>中的资源路径部分，不修改<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>的参数，因此不会影响<b id=\"8ee276261ayxe\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">重写回源路径</b>功能对<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>中参数的重写。</p>\n                        </li>\n                      </ul>\n                    </td>\n                  </tr>\n                  <tr id=\"row-4x9-ge9-o5h\">\n                    <td id=\"entry-rou-30n-ksa\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"784eba705blbx\">enhance break</p>\n                    </td>\n                    <td id=\"entry-qhs-em2-jk4\" rowspan=\"1\" colspan=\"1\">\n                      <ul data-tag=\"ul\" id=\"ul-pjp-e2q-se9\" class=\"ul\">\n                        <li data-tag=\"li\" id=\"li-ya9-1fl-bvx\" class=\"li\">\n                          <p id=\"784eba715bley\">如果配置了多条规则，若请求的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>匹配了当前规则，匹配执行完当前规则后，剩余规则将不再匹配。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-er0-la6-pki\" class=\"li\">\n                          <p id=\"784eba725bdnw\">与<span class=\"help-letter-space\"></span>break<span class=\"help-letter-space\"></span>相似，但是增加了对<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>中参数部分的重写能力，对<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>中参数的重写可能会与<a href=\"https://help.aliyun.com/zh/cdn/user-guide/rewrite-url-parameters-in-back-to-origin-requests#task-2406266\" id=\"xref-y74-x1e-ncg\" title=\"\" class=\"xref\">回源参数重写</a>功能产生冲突，因此在同时配置这两个功能时，需要注意避免配置冲突。</p>\n                        </li>\n                      </ul>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>\n          </li>\n          <li data-tag=\"step\" id=\"step-s0m-8wf-131\" class=\"step\">\n            <p id=\"784ee1805bk6t\"><span data-tag=\"cmd\" id=\"cmd-67k-d1k-qga\" class=\"cmd\">单击<b id=\"uicontrol-fcs-7t3-687\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>，使重写规则开始执行和生效。</span></p>\n            <div data-tag=\"info\" id=\"info-n8u-5n0-nui\" class=\"info\">\n              <p data-tag=\"p\" id=\"p-264-1ok-wx0\" class=\"p\">您也可以在<b id=\"c1748e336d0vw\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">重写回源路径</b>页面的规则列表中，单击<b id=\"2478500b77wom\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">修改</b>或<b id=\"5d5b8fc52c49s\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">删除</b>，对当前配置的规则进行相应操作。</p>\n            </div>\n          </li>\n        </ol>\n      </section>\n      <section id=\"section-pbv-4rf-334\" data-tag=\"section\" data-type=\"section\" class=\"section\">\n        <h2 id=\"title-ejx-t4u-54c\" data-tag=\"title\" class=\"title\">配置示例</h2>\n        <ul data-tag=\"ul\" id=\"ul-x98-izv-2c7\" class=\"ul\">\n          <li id=\"li-286-9bp-ad7\" data-tag=\"li\" class=\"li\">\n            <h3 id=\"784ee1815b56z\"><b id=\"uicontrol-qhd-ez3-idt\">示例一：执行空规则。</b></h3>\n            <table id=\"table-jgj-a1g-o5s\" tablewidth=\"100\" tablecolswidth=\"19.19 80.81\" autofit=\"true\" class=\"table\">\n              <colgroup colwidth=\"0.38*\" style=\"width:19.19%\"></colgroup>\n              <colgroup colwidth=\"1.62*\" style=\"width:80.81%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-bzg-8jc-7gr\">\n                  <td id=\"entry-ue6-j5a-bmj\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784ee1825b53e\">待重写的<span class=\"help-letter-space\"></span>Path</p>\n                  </td>\n                  <td id=\"entry-8fw-j8h-10v\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784ee1835b08f\">^/hello$</p>\n                  </td>\n                </tr>\n                <tr id=\"row-g71-8qc-vsj\">\n                  <td id=\"entry-x64-ku3-pe1\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784ee1845btvx\">目标<span class=\"help-letter-space\"></span>Path</p>\n                  </td>\n                  <td id=\"entry-y33-tzv-nbv\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784ee1855bt0z\">/index.html</p>\n                  </td>\n                </tr>\n                <tr id=\"row-0ts-lqn-xno\">\n                  <td id=\"entry-s6w-d7c-dfa\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f08905b4yk\">执行规则</p>\n                  </td>\n                  <td id=\"entry-7hu-zh4-y93\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f08915bgla\">空</p>\n                  </td>\n                </tr>\n                <tr id=\"row-6x2-rhf-5x9\">\n                  <td id=\"entry-dr9-ew4-tgi\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f08925bm9a\">结果说明</p>\n                  </td>\n                  <td id=\"entry-lfd-gbk-8w5\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f08935bojq\">原始请求：<span data-tag=\"ph\" id=\"codeph-7ew-kft-ve1\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"b53dcae2f7eeb\" class=\"code\">http://example.com/hello</code></span></p>\n                    <p data-tag=\"p\" id=\"p-en2-i3u-f7e\" class=\"p\">重写后的回源请求：<span data-tag=\"ph\" id=\"codeph-30p-zbo-n34\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"ec80cee5d3llj\" class=\"code\">http://example.com/index.html</code></span></p>\n                    <p data-tag=\"p\" id=\"p-s4e-q3i-h4x\" class=\"p\">该请求将会继续匹配<b data-tag=\"uicontrol\" id=\"uicontrol-wdx-3rf-s2m\" class=\"uicontrol\"><b id=\"ce0d554ea3vhm\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">重写回源路径</b></b>规则列表中其余的规则。</p>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </li>\n          <li data-tag=\"li\" id=\"li-iwg-fdl-uxe\" class=\"li\">\n            <h3 id=\"784f08945b3q8\"><b id=\"uicontrol-f30-jpv-vnb\">示例二：执行<span class=\"help-letter-space\"></span>break<span class=\"help-letter-space\"></span>规则。</b></h3>\n            <table id=\"table-rns-yp1-nu6\" tablewidth=\"100\" tablecolswidth=\"18.91 81.09\" autofit=\"true\" class=\"table\">\n              <colgroup colwidth=\"0.38*\" style=\"width:18.91%\"></colgroup>\n              <colgroup colwidth=\"1.62*\" style=\"width:81.09%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-gpi-z2j-dwj\">\n                  <td id=\"entry-w63-xik-i26\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f08955bokg\">待重写的<span class=\"help-letter-space\"></span>Path</p>\n                  </td>\n                  <td id=\"entry-jd6-btc-hhl\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f2fa05bue8\">^/hello.jpg$</p>\n                  </td>\n                </tr>\n                <tr id=\"row-p2m-7wa-wih\">\n                  <td id=\"entry-744-ut2-lex\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f2fa15bnna\">目标<span class=\"help-letter-space\"></span>Path</p>\n                  </td>\n                  <td id=\"entry-ngz-yke-3rh\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f2fa25bkax\">/image/hello.jpg</p>\n                  </td>\n                </tr>\n                <tr id=\"row-k10-iyd-455\">\n                  <td id=\"entry-swg-dfc-7os\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f2fa35bg28\">执行规则</p>\n                  </td>\n                  <td id=\"entry-ynx-9s6-o6a\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f2fa45b1oi\">break</p>\n                  </td>\n                </tr>\n                <tr id=\"row-b80-r0c-t90\">\n                  <td id=\"entry-fh1-nmu-ozv\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f2fa55bpzp\">结果说明</p>\n                  </td>\n                  <td id=\"entry-xhq-0ju-emf\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f2fa65bcye\">原始请求：<span data-tag=\"ph\" id=\"codeph-4td-vsf-khx\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"2e4bae66938ar\" class=\"code\">http://example.com/hello.jpg</code></span></p>\n                    <p data-tag=\"p\" id=\"p-xwb-qvt-96x\" class=\"p\">重写后的回源请求：<span data-tag=\"ph\" id=\"codeph-uyj-9xl-spc\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"714197670e6zl\" class=\"code\">http://example.com/image/hello.jpg</code></span></p>\n                    <p data-tag=\"p\" id=\"p-x81-9aj-vlj\" class=\"p\">该请求将不再继续匹配<b id=\"4e1ef43741wnq\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">重写回源路径</b>规则列表中其余的规则。</p>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </li>\n          <li data-tag=\"li\" id=\"li-qfh-x4z-05g\" class=\"li\">\n            <h3 id=\"784f56b05b6dw\"><b id=\"uicontrol-tiu-yot-b7t\">示例三：执行<span class=\"help-letter-space\"></span>enhance break<span class=\"help-letter-space\"></span>规则。</b></h3>\n            <table id=\"table-gkd-sia-jww\" tablewidth=\"100\" tablecolswidth=\"18.49 81.51\" autofit=\"true\" class=\"table\">\n              <colgroup colwidth=\"0.37*\" style=\"width:18.49%\"></colgroup>\n              <colgroup colwidth=\"1.63*\" style=\"width:81.51%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-l85-x9x-yde\">\n                  <td id=\"entry-ss4-ews-p29\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f56b15baet\">待重写的<span class=\"help-letter-space\"></span>Path</p>\n                  </td>\n                  <td id=\"entry-wgs-g8t-qbi\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f56b25b0m3\">^/hello.jpg?code=123$</p>\n                  </td>\n                </tr>\n                <tr id=\"row-rf7-uar-jif\">\n                  <td id=\"entry-ve6-tws-85h\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f56b35b7i8\">目标<span class=\"help-letter-space\"></span>Path</p>\n                  </td>\n                  <td id=\"entry-8f3-taf-vvv\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f56b45bu7k\">/image/hello.jpg?code=321</p>\n                  </td>\n                </tr>\n                <tr id=\"row-sqw-u61-oog\">\n                  <td id=\"entry-1r3-c2v-qax\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f7dc05bpox\">执行规则</p>\n                  </td>\n                  <td id=\"entry-sbc-amk-ddp\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f7dc15buzy\">enhance break</p>\n                  </td>\n                </tr>\n                <tr id=\"row-o3l-gqp-qvs\">\n                  <td id=\"entry-24i-7t8-zqr\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f7dc25bqpp\">结果说明</p>\n                  </td>\n                  <td id=\"entry-w9e-r9y-bss\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784f7dc35bghv\">原始请求：<span data-tag=\"ph\" id=\"codeph-x5j-s2g-9fj\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"e0a8b8322a5tc\" class=\"code\">http://example.com/hello.jpg?code=123</code></span></p>\n                    <p data-tag=\"p\" id=\"p-tpo-o0g-jku\" class=\"p\">重写后的回源请求：<span data-tag=\"ph\" id=\"codeph-u10-gml-js0\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"f6ba759e1foza\" class=\"code\">http://example.com/image/hello.jpg?code=321</code></span></p>\n                    <p id=\"784f7dc45b6zz\">该请求将不再继续匹配<b id=\"4d00c4fe3ftzy\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">重写回源路径</b>规则列表中其余的规则。</p>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </li>\n          <li data-tag=\"li\" id=\"li-lga-uae-jxa\" class=\"li\">\n            <h3 id=\"784f7dc55b32c\"><b id=\"uicontrol-2ou-88w-rlc\">示例四：在文件名是变量的情况下对根目录添加<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>前缀。</b></h3>\n            <p data-tag=\"p\" id=\"p-lb1-2ev-p2a\" class=\"p\">例如：将包含/xxx<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>URL（xxx<span class=\"help-letter-space\"></span>代表任意文件名称，例如：/hello.jpg、/hello.html<span class=\"help-letter-space\"></span>等等）重写为/image/xxx，即对根目录下的任意文件的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>都插入路径/image。</p>\n            <table id=\"table-d61-nh8-cyb\" tablewidth=\"100\" tablecolswidth=\"18.56 81.44\" autofit=\"true\" class=\"table\">\n              <colgroup colwidth=\"0.37*\" style=\"width:18.56%\"></colgroup>\n              <colgroup colwidth=\"1.63*\" style=\"width:81.44%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-uml-76c-7gn\">\n                  <td id=\"entry-kkc-vl8-iqo\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784fa4d05b84j\">待重写的<span class=\"help-letter-space\"></span>Path</p>\n                  </td>\n                  <td id=\"entry-fpy-37i-dlf\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784fa4d15bco3\">^(.*)$</p>\n                    <div id=\"b50403ea2a68n\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                      <p id=\"b65b545528rxy\"><code data-tag=\"code\" class=\"code blog-code\" data-spm-anchor-id=\"0.0.0.i42.13e45fb4k5H844\" code-type=\"xCode\" id=\"5641bb09f4o7c\">^</code>表示匹配字符串的开始位置；<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"bfd8cfebe9gy6\">(.*)</code>是一个分组，其中<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"10b4b33cc74fz\">.</code>表示匹配任意单个字符（除了换行符），<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"31084180efxs8\">*</code>表示匹配前面的字符或分组零次或多次，可以在目标<span class=\"help-letter-space\"></span>Path<span class=\"help-letter-space\"></span>中通过$1<span class=\"help-letter-space\"></span>来调用分组的变量内容；<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"7465a45710h7x\">$</code>表示匹配字符串的结束位置。所以，<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"3791adabc8ja9\">^(.*)$</code>的意思是：匹配整个字符串，从开始到结束，中间可以包含任意字符（除了换行符），并将匹配到的内容捕获到一个分组中。例如，对于字符串<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"9dd2b2d5b3s4r\">\"hello world\"</code>来说，<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"2771579859tgi\">^(.*)$</code>会匹配整个字符串，并将<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"8ad9ee6a47jgc\">\"hello world\"</code>捕获到第一个分组中。</p>\n                    </div></div>\n                  </td>\n                </tr>\n                <tr id=\"row-tyo-aql-nla\">\n                  <td id=\"entry-7ae-c0b-qk4\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784fa4d35ba31\">目标<span class=\"help-letter-space\"></span>Path</p>\n                  </td>\n                  <td id=\"entry-z2f-qke-1bl\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784fa4d45bz51\">/image$1</p>\n                    <div id=\"9e083340399jr\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                      <p id=\"32ed649f6dc6s\"><code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"d043f9efb09m6\">/image</code>表示匹配字符串<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"409df71f85sdf\">\"/image\"</code>；<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"574f3b462erfg\">$1</code>表示引用第一个捕获分组的内容，<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"61264c60aa6os\">$2</code>表示引用第二个捕获分组的内容，依此类推。所以，<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"6d80f559edts6\">/image$1</code>的意思是：匹配字符串<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"e2160552eb66t\">\"/image\"</code>后面紧跟着第一个捕获分组的内容。例如，如果第一个捕获分组的内容是<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"afcdbcf05clhu\">\"abc\"</code>，那么<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"bf22bd853bq5x\">/image$1</code>将匹配字符串<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"4e1f75ebd3sn9\">\"/imageabc\"</code>。需要注意的是，<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"5e4a67d8afsbh\">$1</code>引用的是捕获分组的内容，而不是字面量<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"943913c8afp73\">\"$1\"</code>。如果想要匹配字面量<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"e83c587643fhk\">\"$1\"</code>，需要使用转义字符<code data-tag=\"code\" class=\"code blog-code\" code-type=\"xCode\" id=\"809c5494daxx9\">\"\\$1\"</code>。</p>\n                    </div></div>\n                  </td>\n                </tr>\n                <tr id=\"row-cxk-29q-ikd\">\n                  <td id=\"entry-zuu-yv2-2f5\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784fa4d65bsnv\">执行规则</p>\n                  </td>\n                  <td id=\"entry-32p-mwf-nul\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784fa4d75bdsw\">break</p>\n                  </td>\n                </tr>\n                <tr id=\"row-2f0-i1b-fcc\">\n                  <td id=\"entry-ffb-mn1-k06\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"784fcbe05bq88\">结果说明</p>\n                  </td>\n                  <td id=\"entry-yfo-5f7-yqj\" rowspan=\"1\" colspan=\"1\">\n                    <ul data-tag=\"ul\" id=\"ul-40c-2hl-t6v\" class=\"ul\">\n                      <li data-tag=\"li\" id=\"li-q7p-yo2-mgw\" class=\"li\">\n                        <p id=\"784fcbe15bmei\">原始请求：<span data-tag=\"ph\" id=\"codeph-c8d-dbg-apx\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"012a7a64ae7gd\" class=\"code\">http://example.com/hello.jpg</code></span></p>\n                        <p data-tag=\"p\" id=\"p-85y-jsy-i7o\" class=\"p\">重写后的回源请求：<span data-tag=\"ph\" id=\"codeph-bxc-c4e-1f2\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"3321bf4560kd0\" class=\"code\">http://example.com/image/hello.jpg</code></span></p>\n                      </li>\n                      <li data-tag=\"li\" id=\"li-82a-y13-xep\" class=\"li\">\n                        <p id=\"784fcbe25bmgi\">原始请求：<span data-tag=\"ph\" id=\"codeph-37e-2p7-nuc\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"8259eda2e6f88\" class=\"code\">http://example.com/hello.html</code></span></p>\n                        <p data-tag=\"p\" id=\"p-6p6-gez-tzh\" class=\"p\">重写后的回源请求：<span data-tag=\"ph\" id=\"codeph-t6j-k35-x6w\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"ce57ebda73scb\" class=\"code\">http://example.com/image/hello.html</code></span></p>\n                      </li>\n                    </ul>\n                    <p id=\"784fcbe35biba\">该请求将不再继续匹配<b id=\"uicontrol-uat-ulg-e4x\">回源<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>重写</b>规则列表中其余的规则。</p>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </li>\n          <li data-tag=\"li\" id=\"li-pnm-pck-4px\" class=\"li\">\n            <h3 id=\"784ff2f05bpte\"><b id=\"uicontrol-g45-svc-83b\">示例五：在文件名是变量的情况下对指定目录添加<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>前缀。</b></h3>\n            <div data-tag=\"p\" id=\"p-u50-aw0-poq\" class=\"p\">\n              <p id=\"784ff2f15bve1\">例如：将包含/live/xxx<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>URL（xxx<span class=\"help-letter-space\"></span>代表任意文件名称，例如：/live/hello.jpg、/live/hello.html 等等）重写为/image/live/xxx，即对目录/live<span class=\"help-letter-space\"></span>下的任意文件的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>都插入路径/image。</p>\n              <table id=\"table-tkc-2nc-gyj\" tablewidth=\"100\" tablecolswidth=\"18.52 81.48\" autofit=\"true\" class=\"table\">\n                <colgroup colwidth=\"0.37*\" style=\"width:18.52%\"></colgroup>\n                <colgroup colwidth=\"1.63*\" style=\"width:81.48%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"row-i4j-s23-pzh\">\n                    <td id=\"entry-hor-lap-pxy\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"784ff2f25bn19\">待重写的<span class=\"help-letter-space\"></span>Path</p>\n                    </td>\n                    <td id=\"entry-q4z-78z-j5y\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"784ff2f35bsvo\">^/live/(.*)$</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-nfm-v5o-wvb\">\n                    <td id=\"entry-lnd-j0i-e2j\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"784ff2f45b3lf\">目标<span class=\"help-letter-space\"></span>Path</p>\n                    </td>\n                    <td id=\"entry-v2w-lr1-nel\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"784ff2f55bbam\">/image/live/$1</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-doj-8f3-46i\">\n                    <td id=\"entry-69x-cod-l40\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"784ff2f65b84k\">执行规则</p>\n                    </td>\n                    <td id=\"entry-fu3-81m-2ut\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"78501a005bcb1\">break</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-od1-w49-qv2\">\n                    <td id=\"entry-dpw-dvu-nex\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"78501a015bavv\">结果说明</p>\n                    </td>\n                    <td id=\"entry-act-h0w-anu\" rowspan=\"1\" colspan=\"1\">\n                      <ul data-tag=\"ul\" id=\"ul-axh-m72-3gd\" class=\"ul\">\n                        <li data-tag=\"li\" id=\"li-cvz-pg5-lw6\" class=\"li\">\n                          <p id=\"78501a025bfvx\">原始请求：<span data-tag=\"ph\" id=\"codeph-tbd-3zk-1qc\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"4de28f4dd5wga\" class=\"code\">http://example.com/live/hello.jpg</code></span></p>\n                          <p data-tag=\"p\" id=\"p-w50-s30-p28\" class=\"p\">重写后的回源请求：<span data-tag=\"ph\" id=\"codeph-2gg-cp7-qz5\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"a2e0658a9b07h\" class=\"code\">http://example.com/image/live/hello.jpg</code></span></p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-095-c0c-c0z\" class=\"li\">\n                          <p id=\"78501a035b827\">原始请求：<span data-tag=\"ph\" id=\"codeph-b6r-sta-6sh\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"0a9250f170t7w\" class=\"code\">http://example.com/live/hello.html</code></span></p>\n                          <p data-tag=\"p\" id=\"p-j8b-0m9-gzt\" class=\"p\">重写后的回源请求：<span data-tag=\"ph\" id=\"codeph-zyt-bs5-f84\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"7796cab746gds\" class=\"code\">http://example.com/image/live/hello.html</code></span></p>\n                        </li>\n                      </ul>\n                      <p id=\"785041105bgz2\">该请求将不再继续匹配<b id=\"uicontrol-dpz-13y-8uz\">回源<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>重写</b>规则列表中其余的规则。</p>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>\n          </li>\n          <li data-tag=\"li\" id=\"li-pim-w3a-dqw\" class=\"li\">\n            <h3 id=\"785041115buqx\"><b id=\"uicontrol-6d8-502-3fu\">示例六：匹配多条规则时，执行空规则。</b></h3>\n            <div data-tag=\"p\" id=\"p-cjs-s07-4dt\" class=\"p\">\n              <p id=\"785041125bgcu\">在回源<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>重写配置中添加两条规则：第一条将待重写<span class=\"help-letter-space\"></span>Path <code data-tag=\"code\" class=\"code\">^/image_01.png$</code> 重写为目标<span class=\"help-letter-space\"></span>Path <code data-tag=\"code\" class=\"code\">/image_02.png</code>，执行规则为空；第二条将待重写<span class=\"help-letter-space\"></span>Path <code data-tag=\"code\" class=\"code\">^(.*)$</code> 重写为目标<span class=\"help-letter-space\"></span>Path <code data-tag=\"code\" class=\"code\">/image$1</code>，执行规则为空。两条规则状态均为已生效。</p>\n            </div>\n            <div data-tag=\"p\" id=\"p-tib-wor-ble\" class=\"p\">\n              <p id=\"785041135bmln\">结果说明：</p>\n              <ul data-tag=\"ul\" id=\"ul-wjj-f3f-1dk\" class=\"ul\">\n                <li data-tag=\"li\" id=\"li-rjq-9sk-w8j\" class=\"li\">\n                  <p id=\"785041145bx60\">原始请求：<span data-tag=\"ph\" id=\"codeph-d1u-sju-kqf\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"06d7d24f5bz0q\" class=\"code\">http://example.com/image_01.png</code></span></p>\n                </li>\n                <li data-tag=\"li\" id=\"li-akj-f6g-83z\" class=\"li\">\n                  <p id=\"785068205b91a\">重写后的回源请求：<span data-tag=\"ph\" id=\"codeph-oft-6vu-og9\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"3b40dfed31bg0\" class=\"code\">http://example.com/image/image_02.png</code></span></p>\n                  <div data-tag=\"note\" id=\"note-hpk-e9g-uhm\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                    <p id=\"785068215bfas\">先匹配第一条规则，重写为<span data-tag=\"ph\" id=\"codeph-tcn-ntr-laf\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"ac31983397030\" class=\"code\">http://example.com/image_02.png</code></span>，继续匹配第二条规则，最终重写为<span data-tag=\"ph\" id=\"codeph-f5t-llu-smk\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"d8bea60e06a9a\" class=\"code\">http://example.com/image/image_02.png</code></span>。</p>\n                  </div></div>\n                </li>\n              </ul>\n            </div>\n          </li>\n          <li data-tag=\"li\" id=\"li-qf9-bx5-yf7\" class=\"li\">\n            <h3 id=\"785068225bjzi\"><b id=\"uicontrol-k45-q71-uwi\">示例七：匹配多条规则时，执行<span class=\"help-letter-space\"></span>break<span class=\"help-letter-space\"></span>规则。</b></h3>\n            <div data-tag=\"p\" id=\"p-co3-f5r-1rd\" class=\"p\">\n              <p id=\"785068235bv2e\">在回源<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>重写配置中添加两条重写规则：第一条待重写<span class=\"help-letter-space\"></span>Path<span class=\"help-letter-space\"></span>为 <code data-tag=\"code\" class=\"code\">^/image_01.png$</code>，目标<span class=\"help-letter-space\"></span>Path<span class=\"help-letter-space\"></span>为 <code data-tag=\"code\" class=\"code\">/image_02.png</code>，执行规则为 <b>break</b>，状态为已生效；第二条待重写<span class=\"help-letter-space\"></span>Path<span class=\"help-letter-space\"></span>为 <code data-tag=\"code\" class=\"code\">^(.*)$</code>，目标<span class=\"help-letter-space\"></span>Path<span class=\"help-letter-space\"></span>为 <code data-tag=\"code\" class=\"code\">/image$1</code>，执行规则为空，状态为已生效。当请求<span class=\"help-letter-space\"></span>URI<span class=\"help-letter-space\"></span>匹配到第一条规则且执行规则为 <b>break</b> 时，将不再继续匹配后续规则。</p>\n            </div>\n            <div data-tag=\"p\" id=\"p-ur9-se2-lz2\" class=\"p\">\n              <p id=\"785068245bt3m\">结果说明：</p>\n              <ul data-tag=\"ul\" id=\"ul-hpa-qcr-13m\" class=\"ul\">\n                <li data-tag=\"li\" id=\"li-kk4-qa7-f9s\" class=\"li\">\n                  <p id=\"78508f305ba0y\">原始请求：<span data-tag=\"ph\" id=\"codeph-o6e-vp6-rk7\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"eddc60747e461\" class=\"code\">http://example.com/image_01.png</code></span></p>\n                </li>\n                <li data-tag=\"li\" id=\"li-x8l-ebn-r8y\" class=\"li\">\n                  <p id=\"78508f315bdyr\">重写后的回源请求：<span data-tag=\"ph\" id=\"codeph-49y-968-tej\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"2edbc1f9ed8be\" class=\"code\">http://example.com/image_02.png</code></span></p>\n                  <div data-tag=\"note\" id=\"note-wyx-x8g-ms2\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                    <p id=\"78508f325bms0\">先匹配第一条规则，重写为<span data-tag=\"ph\" id=\"codeph-q1x-wrf-u8p\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"40fa9cb85fell\" class=\"code\">http://example.com/image_02.png</code></span>，由于第一条规则设置为<span class=\"help-letter-space\"></span>break，所以不再匹配后续规则。</p>\n                  </div></div>\n                </li>\n              </ul>\n            </div>\n          </li>\n        </ul>\n      </section>\n    </div>\n  </main>\n\n\n\n\n</div>","path":"https://help.aliyun.com/zh/cdn/user-guide/rewrite-urls-in-back-to-origin-requests","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"CDN","id":27099,"title":"CDN","url":"/zh/cdn/"},"alias":"/cdn/user-guide/rewrite-urls-in-back-to-origin-requests","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":7,"developerUrl":"https://developer.aliyun.com/group/videocloud/","nodeType":1,"version":28,"url":"/zh/cdn/user-guide/rewrite-urls-in-back-to-origin-requests","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":153118,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"重写回源路径","id":153118,"title":"重写回源路径","url":"/zh/cdn/user-guide/rewrite-urls-in-back-to-origin-requests"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"重写回源请求","id":2998696,"title":"重写回源请求","url":"/zh/cdn/user-guide/rewrite-origin-requests/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"回源配置","id":43227,"title":"回源配置","url":"/zh/cdn/user-guide/back-to-origin-settings/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"操作指南","id":2399342,"title":"操作指南","url":"/zh/cdn/user-guide/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"CDN","id":27099,"title":"CDN","url":"/zh/cdn/"},"productUrl":"https://www.aliyun.com/product/cdn","nodeId":153118,"desc":"阿里云CDN支持URL重写，重写不影响CDN内部链路和缓存key，仅在回源请求时使用重写后的URL。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"CDN","id":27099,"title":"CDN","url":"/zh/cdn/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"操作指南","id":2399342,"title":"操作指南","url":"/zh/cdn/user-guide/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"回源配置","id":43227,"title":"回源配置","url":"/zh/cdn/user-guide/back-to-origin-settings/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"重写回源请求","id":2998696,"title":"重写回源请求","url":"/zh/cdn/user-guide/rewrite-origin-requests/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"重写回源路径","id":153118,"title":"重写回源路径","url":"/zh/cdn/user-guide/rewrite-urls-in-back-to-origin-requests"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=2150421617825530290811081e8c87&asid=AQAAAADFmT9qgp9LbQAAAAC+RroPDOJNwg==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2399341" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/product-overview/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品概述</span>
+</a>
+</li>
+ <li id="27111" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/getting-started/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">快速入门</span>
+</a>
+</li>
+ <li id="2399342" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">操作指南</span>
+</a>
+</li>
+ <li id="2399344" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/use-cases/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">实践教程</span>
+</a>
+</li>
+ <li id="2743872" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/security-and-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="2399346" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2399343" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/support/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">服务支持</span>
+</a>
+</li>
+ <li id="40215" class="Menu--level1--UN3zYr3">
+<a href="/zh/cdn/videos/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">视频专区</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>重写回源路径</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/cdn" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="task-2406144">
+    
+    
+    <p id="shortdesc-jb6-z0m-fza" data-tag="shortdesc" class="shortdesc">阿里云<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>支持<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>重写，重写不影响<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>内部链路和缓存<span class="help-letter-space"></span>key，仅在回源请求时使用重写后的<span class="help-letter-space"></span>URL。</p>
+    <div data-tag="taskbody" id="taskbody-i3u-zh9-5x8" class="taskbody">
+      
+      <section data-tag="section" id="section-85o-ahd-7vf" data-type="section" class="section">
+        <h2 data-tag="title" id="title-hp3-e61-vyr" class="title">工作原理</h2>
+        <div data-tag="p" id="p-vti-c38-fql" class="p">
+          <p id="784da9055bkmc">通过重写回源<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>规则，使请求<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>与源站<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>匹配，准确获取源站的资源，或者传递指定的参数给源站。</p>
+          <ul data-tag="ul" id="ul-coz-124-3sb" class="ul">
+            <li data-tag="li" id="li-lxv-ra1-3pb" class="li">
+              <p id="784da9065bnsk">执行规则设置为“空”或者“break”的情况下，仅重写<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>中的资源路径部分。</p>
+              <p id="b0ef15408f5a6"><img id="6e82d75c2fh01" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8758988371/p912490.jpg" alt="无标题文档-流程图" placement="break" width="800" class="image break"></p>
+            </li>
+            <li id="li-0ik-5mk-2c5" data-tag="li" class="li">
+              <p id="784dd0105b05w">执行规则设置为“enhance_break”的情况下，能够同时重写资源路径和请求参数。</p>
+              <p id="51ec1c00b9b6m"><img id="536eec52f0zmh" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8758988371/p912507.jpg" alt="zh-enhance_break" placement="break" width="800" class="image break"></p>
+            </li>
+          </ul>
+        </div>
+      </section>
+      <section data-tag="section" id="section-bgh-5zt-yex" data-type="section" class="section">
+        <h2 data-tag="title" id="title-4dc-08p-ohl" class="title">注意事项</h2>
+        <ul data-tag="ul" id="ul-swe-tld-q6c" class="ul">
+          <li data-tag="li" id="li-nzz-2ys-a1h" class="li">
+            <p id="784dd0115b6lu">单个域名可以配置的<b id="uicontrol-fpd-2uc-mas" data-tag="uicontrol" data-isbold="true" class="uicontrol">重写回源路径</b>规则数量上限是<span class="help-letter-space"></span>50<span class="help-letter-space"></span>个。</p>
+          </li>
+          <li data-tag="li" id="li-5d0-hn7-ndz" class="li">
+            <p id="784dd0125bckm">规则重写按照规则列表从上到下顺序依次执行，因此顺序可能会影响您的重写结果。</p>
+          </li>
+          
+          <li data-tag="li" id="li-4r0-ikq-8wj" class="li">
+            <p id="784dd0145blj4">配置<b data-tag="uicontrol" id="uicontrol-bmy-qfd-aaz" class="uicontrol"><b id="8268b0734ee8c" data-tag="uicontrol" data-isbold="true" class="uicontrol">重写回源路径</b></b>规则时，可能与<b id="uicontrol-mos-877-r3e" data-tag="uicontrol" data-isbold="true" class="uicontrol">域名管理</b> &gt; <b id="uicontrol-q46-pvb-fdb" data-tag="uicontrol" data-isbold="true" class="uicontrol">性能优化</b>页签下的<b id="b7db5a4865dp5"><a href="https://help.aliyun.com/zh/cdn/user-guide/ignore-parameters#task-187634" id="xref-5ff-kf5-f3g" title="" class="xref">忽略参数</a></b>功能冲突，配置时要需注意避免冲突。</p>
+          </li>
+          <li data-tag="li" id="li-k7m-2wx-q9f" class="li">
+            <p id="p-f3n-8bv-t2k">如果同时配置了<b data-tag="uicontrol" id="uicontrol-r5q-3hp-m4e" class="uicontrol"><b id="b-x4c-9jp-w7d" data-tag="uicontrol" data-isbold="true" class="uicontrol">重写回源路径</b></b>和条件回源规则，<b data-tag="uicontrol" id="uicontrol-m9t-5kp-h2e" class="uicontrol"><b id="b-y7e-4np-k8f" data-tag="uicontrol" data-isbold="true" class="uicontrol">重写回源路径</b></b>规则可能改写回源<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>路径，导致源站收到的请求路径与预期不一致，返回<span class="help-letter-space"></span>404<span class="help-letter-space"></span>错误。排查方法：先临时关闭<b data-tag="uicontrol" id="uicontrol-p3r-7lp-n5g" class="uicontrol"><b id="b-z8f-5qp-r6h" data-tag="uicontrol" data-isbold="true" class="uicontrol">重写回源路径</b></b>规则，验证请求是否恢复正常；如需同时使用两个功能，调整规则的优先级和匹配条件，确保回源路径不被意外改写。</p>
+          </li>
+        </ul>
+      </section>
+      <section id="0df7bd58efmx0" docid="301874" is-conref="true" class="section">
+        <h2 id="7c14516b80439"><b id="192624f098my4" data-tag="uicontrol" data-isbold="true" data-init-id="uicontrol_3ua_zsc_eak" class="uicontrol">重写访问<span class="help-letter-space"></span>URL</b><span class="help-letter-space"></span><b>和</b><b id="062b1a9c682mg" data-tag="uicontrol" data-isbold="true" class="uicontrol">重写回源路径</b><b>的区别</b></h2>
+        <table id="b2cac2e65e99j" tablewidth="100" tablecolswidth="13.97 22.57 23.91 39.54999999999999" autofit="true" class="table">
+          <colgroup colwidth="0.56*" style="width:13.97%"></colgroup>
+          <colgroup colwidth="0.9*" style="width:22.57%"></colgroup>
+          <colgroup colwidth="0.96*" style="width:23.91%"></colgroup>
+          <colgroup colwidth="1.58*" style="width:39.55%"></colgroup>
+          <tbody class="tbody">
+            <tr id="5b310f66d252h">
+              <td id="99a698271c0eu" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="c87d8b7dbdg1h"><b>功能</b></p>
+              </td>
+              <td id="a34717b5e63ob" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="7cfffad2d0242"><b>作用对象</b></p>
+              </td>
+              <td id="5966f5c018fv9" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="77f4859baer42"><b>客户端体验</b></p>
+              </td>
+              <td id="a6bb7aed4dpio" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="6227f147c3c2s"><b>应用场景</b></p>
+              </td>
+            </tr>
+            <tr id="4e467ac732bz4">
+              <td id="395a5b6b40290" rowspan="1" colspan="1">
+                <p id="d0c46488a0gqy"><a href="https://help.aliyun.com/zh/cdn/user-guide/create-an-access-url-rewrite-rule" id="e800cfe926je7" title="" class="xref">重写访问<span class="help-letter-space"></span>URL</a></p>
+              </td>
+              <td id="dc031fba3468d" rowspan="1" colspan="1">
+                <p id="a62332e3afea4">影响的是客户端访问的<span class="help-letter-space"></span>URL，同时也会改变<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点回源的<span class="help-letter-space"></span>URL。</p>
+              </td>
+              <td id="ce91149719q2v" rowspan="1" colspan="1">
+                <ul id="6748a6e4d6gwe">
+                  <li id="340e7ada59yad">
+                    <p id="1ecf26003aq0x" uuid="1c255e1f-6eb2-4241-b4b6-988844712711">执行规则为 redirect 的情况下，客户端将会使用重定向以后的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>重新发起访问请求。</p>
+                  </li>
+                  <li id="768d8220deag0">
+                    <p id="3f0a94ed7dfft" uuid="6ad77e26-1532-460e-a238-b32511333d19">执行规则为 break 的情况下，客户端看到的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>与实际访问的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>一致，没有变化。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="525c34c86fex4" rowspan="1" colspan="1">
+                <p id="d77916757e24u">常用于将旧域名的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>迁移、映射到新域名；或者为移动端和<span class="help-letter-space"></span>PC<span class="help-letter-space"></span>端提供不同的<span class="help-letter-space"></span>URL。</p>
+                <p id="66e1901e7fqk2"><b>示例</b>：访问<code data-tag="code" code-type="xCode" id="d776ae61cdbm4" class="code">old.example.com/hello</code>时，重写访问<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>为<code data-tag="code" code-type="xCode" id="6e776da4963bb" class="code">new.example.com/hello</code>。</p>
+              </td>
+            </tr>
+            <tr id="e70876c684od4">
+              <td id="f3b3dea0856ms" rowspan="1" colspan="1">
+                <p id="a44c481d4fo5g"><a href="https://help.aliyun.com/zh/cdn/user-guide/rewrite-urls-in-back-to-origin-requests" id="8d42300befbsi" title="" class="xref">重写回源路径</a></p>
+              </td>
+              <td id="8f308591639xf" rowspan="1" colspan="1">
+                <p id="430104a74clfp">影响的是<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点回源时访问的<span class="help-letter-space"></span>URL，而客户端访问的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>不变。</p>
+              </td>
+              <td id="55e3b795d4fw5" rowspan="1" colspan="1">
+                <p id="5f17198453jde">客户端看到的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>与实际访问的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>一致，没有变化。</p>
+              </td>
+              <td id="7493791495f66" rowspan="1" colspan="1">
+                <p id="231b6879efoyu">常用于隐藏源站的真实<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>结构，保护源站信息；或者通过<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>映射，让<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点回源到不同的源站目录。</p>
+                <p id="6db13b772cyj5"><b>示例</b>：访问<code data-tag="code" code-type="xCode" id="78dd56362bnih" class="code">cdn.example.com/hello</code>时重写回源<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>为<code data-tag="code" code-type="xCode" id="cf00f47b66jsn" class="code">origin.example.com/source/hello</code>。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <section id="556f34bf7alcq" class="section">
+          <h3 id="4c0ca11c955fg"><b id="f8481a2dc2tqb" data-tag="uicontrol" data-isbold="true" data-init-id="uicontrol_3ua_zsc_eak" class="uicontrol">重写访问<span class="help-letter-space"></span>URL</b><span class="help-letter-space"></span><b>示意图</b></h3>
+          <hetu type="flowchart" id="5d77ba6c30zjr" uuid="4426101_20240523140327.057" versionid="CAEQQhiBgID2vvKQ_RgiIDJmYzI4ODVhMGZkZDQ2ZGViNGQzYjg1OTU1OWYwZTBm" hetuid="9001cac6-20f3-43ad-ac02-6ceb4495f5d7"><img src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9030511871/CAEQQhiBgID2vvKQ_RgiIDJmYzI4ODVhMGZkZDQ2ZGViNGQzYjg1OTU1OWYwZTBm4426101_20240523140327.057.svg" alt="image" class="image break flowchart hetu"></hetu>
+          <ol id="b7fe978c8aw8l">
+            <li id="dae9d46db5a0m">
+              <p id="128efaf25exao">客户端向<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>发起请求，请求的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>为<code data-tag="code" code-type="xCode" id="5bf33c32fb0qy" class="code">old.example.com/hello</code>。</p>
+            </li>
+            <li id="048ef60603bq9">
+              <p id="02986937654n0">CDN<span class="help-letter-space"></span>接收到请求后，根据重写访问<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>规则，CDN<span class="help-letter-space"></span>节点会在给客户端发送的<span class="help-letter-space"></span>302<span class="help-letter-space"></span>状态码响应信息的<span class="help-letter-space"></span>HTTP Location<span class="help-letter-space"></span>头部中放置新的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>地址信息，将请求的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>重写为<code data-tag="code" code-type="xCode" id="3c7991f6d5i2j" class="code">new.example.com/hello</code>。</p>
+            </li>
+            <li id="e1937f9d9dr5k">
+              <p data-tag="p" id="ce9633c5f4wkj" class="p">客户端收到<span class="help-letter-space"></span>302<span class="help-letter-space"></span>状态码响应之后，将会向新的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>地址发起请求。</p>
+            </li>
+            <li id="bf4be07e3a7fa">
+              <p id="0ac27787f3hmo">CDN<span class="help-letter-space"></span>节点检查缓存，如果缓存中有重写后<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>的内容，直接返回给客户端；如果没有，则<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点向源站发起请求，请求的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>为重写后的<code data-tag="code" code-type="xCode" id="9f7703c060yrb" class="code">new.example.com/hello</code>。 </p>
+            </li>
+            <li id="4e2088cec3lfo">
+              <p id="6202e1420dz6u">源站接收到请求，返回响应内容给<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点。 </p>
+            </li>
+            <li id="595445342cxbn">
+              <p id="b637d14fc374x">CDN<span class="help-letter-space"></span>节点将响应内容缓存，并返回给客户端。</p>
+            </li>
+          </ol>
+        </section>
+        <section id="aff02d86fd97u" class="section">
+          <h3 id="673a61528axid"><b id="c68930eed7ij0" data-tag="uicontrol" data-isbold="true" data-init-id="062b1a9c682mg" class="uicontrol">重写回源路径</b><b>示意图</b></h3>
+          <hetu type="flowchart" id="25672c5d2ckpa" uuid="4426101_20240523143901.093" versionid="CAEQQhiBgIC7.u.Q_RgiIDUxYmU1NjQ1MDU5MDRkYjc4MzYxZjI4Mjk0YWI5NWRh" hetuid="b4c9b896-3812-4895-8dc5-8873d967ac47"><img src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0130511871/CAEQQhiBgIC7.u.Q_RgiIDUxYmU1NjQ1MDU5MDRkYjc4MzYxZjI4Mjk0YWI5NWRh4426101_20240523143901.093.svg" alt="image" class="image break flowchart hetu"></hetu>
+          <ol id="ba8a68215c32r">
+            <li id="120fb55d47y7h">
+              <p id="3acdae0f17elk">客户端向<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>发起请求，请求的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>为<code data-tag="code" code-type="xCode" id="85ebf7deceh9f" class="code">cdn.example.com/files/hello.txt</code>。 </p>
+            </li>
+            <li id="9125b0f186vrp">
+              <p id="053d753206tbi">CDN<span class="help-letter-space"></span>接收到请求后，检查缓存，如果缓存中有请求<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>的内容，直接返回给客户端；如果没有，则<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点根据重写回源<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>规则，将回源<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>重写为 <code data-tag="code" code-type="xCode" id="1740aa328dmmv" class="code">origin.example.com/secret/files/hello.txt</code>，向源站发起请求。</p>
+            </li>
+            <li id="b3bff5c45desu">
+              <p id="25568c848eel0">源站接收到请求后，向<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点返回响应内容。</p>
+            </li>
+            <li id="123b4c45b24ic">
+              <p id="a6ff4d8076e11">CDN<span class="help-letter-space"></span>节点将响应内容缓存，并返回给客户端。</p>
+            </li>
+          </ol>
+        </section>
+      </section>
+      <section data-tag="section" id="section-xn8-r45-ig4" data-type="section" class="section">
+        <h2 data-tag="title" id="title-aco-g59-f3u" class="title">配置回源路径</h2>
+        <ol data-tag="steps" id="steps-m7n-5ql-qzo" class="steps">
+          <li data-tag="step" id="step-ela-fex-97t" is-conref="true" class="step"><p id="57912ad06cz5r">登录<span data-tag="ph" id="70e318298ar3q" props="china" data-cond-props="china" class="ph"><span data-tag="cmd" id="cmd-a5o-xbu-9jk" class="cmd"><a href="https://cdn.console.aliyun.com" id="xref-3wg-wkz-yew" class="" target="_blank">CDN<span class="help-letter-space"></span>控制台</a></span></span>。</p></li>
+          <li data-tag="step" id="step-yu7-1wb-peb" is-conref="true" class="step"><p id="579178f06cxyc"><span data-tag="cmd" id="cmd-s7b-t59-yfo" class="cmd">在左侧导航栏，单击<b id="uicontrol-7gx-exp-h8x" data-tag="uicontrol" data-isbold="true" class="uicontrol">域名管理</b>。</span></p></li>
+          <li data-tag="step" id="step-ynf-xli-cx5" is-conref="true" class="step"><p id="579178f16caqi"><span data-tag="cmd" id="cmd-1ap-nxp-wdb" class="cmd"><span data-tag="ph" id="ph-taj-8l0-rpq" class="ph">在<b id="uicontrol-xdy-plp-3xe" data-tag="uicontrol" data-isbold="true" class="uicontrol">域名管理</b>页面，找到目标域名，单击<b id="2574e6a087kfg" data-tag="uicontrol" data-isbold="true" class="uicontrol">操作</b>列的<b id="67ed12d08796d" data-tag="uicontrol" data-isbold="true" class="uicontrol">管理</b>。</span></span></p></li>
+          <li data-tag="step" id="step-wta-ka8-hp0" class="step">
+            <p id="784e1e305blcu"><span data-tag="cmd" id="cmd-ove-5so-267" class="cmd">在指定域名的左侧导航栏，单击<b id="uicontrol-2nr-0ly-viu" data-tag="uicontrol" data-isbold="true" class="uicontrol">回源配置</b>。</span></p>
+          </li>
+          <li data-tag="step" id="step-9mk-l4k-nxo" class="step">
+            <p id="784e1e315b22t"><span data-tag="cmd" id="cmd-7d3-nqt-7v8" class="cmd">单击<b id="062b1a9c682mg" data-tag="uicontrol" data-isbold="true" class="uicontrol">重写回源路径</b>页签。</span></p>
+          </li>
+          <li data-tag="step" id="step-phc-06n-zgl" class="step">
+            <p id="784e1e325bbmm"><span data-tag="cmd" id="cmd-cup-311-4z9" class="cmd">单击<b id="uicontrol-yr0-zob-mln" data-tag="uicontrol" data-isbold="true" class="uicontrol">添加</b>。</span><span data-tag="cmd" id="cmd-nob-5q1-vzk" class="cmd">根据您的需求，配置<b id="78a032373a8pi" data-tag="uicontrol" data-isbold="true" class="uicontrol">待重写的<span class="help-letter-space"></span>Path</b>、<b id="75b82265f5pgw" data-tag="uicontrol" data-isbold="true" class="uicontrol">目标<span class="help-letter-space"></span>Path</b><span class="help-letter-space"></span>和<b id="8a6b944066cwi" data-tag="uicontrol" data-isbold="true" class="uicontrol">执行规则</b>。</span></p>
+            <div data-tag="info" id="info-gsy-xa2-ysd" class="info">
+              <table id="table-gfy-n0y-neb" tablewidth="100" tablecolswidth="18.78 18.78 62.44" autofit="true" class="table">
+                <colgroup colwidth="0.57*" style="width:18.78%"></colgroup>
+                <colgroup colwidth="0.57*" style="width:18.78%"></colgroup>
+                <colgroup colwidth="1.89*" style="width:62.44%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="row-muv-m2t-te5">
+                    <td id="task-2406144-entry-uk5-ozu-a7h" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="784e45405b78i"><b>参数</b></p>
+                    </td>
+                    <td id="task-2406144-entry-tgc-ses-9h0" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="784e45415bops"><b>示例</b></p>
+                    </td>
+                    <td id="task-2406144-entry-jc2-t7v-d1x" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="784e45425bk3a"><b>说明</b></p>
+                    </td>
+                  </tr>
+                  <tr id="row-556-gwn-41o">
+                    <td id="entry-szz-l0h-5b4" rowspan="1" colspan="1">
+                      <p id="784e45435b4wp"><b id="8ee88c84271j0" data-tag="uicontrol" data-isbold="true" class="uicontrol">待重写的<span class="help-letter-space"></span>Path</b></p>
+                    </td>
+                    <td id="entry-pui-35w-42h" rowspan="1" colspan="1">
+                      <p id="784e45445bgll">^/hello$</p>
+                    </td>
+                    <td id="entry-52r-j25-iq2" rowspan="1" colspan="1">
+                      <p id="784e45455bhdb">以正斜线（/）开头的<span class="help-letter-space"></span>URL，不含<span class="help-letter-space"></span>http://头及域名。必须使用<span class="help-letter-space"></span>PCRE<span class="help-letter-space"></span>正则表达式。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-ibh-roy-7se">
+                    <td id="entry-qh0-39v-5lr" rowspan="1" colspan="1">
+                      <p id="784e45465bxg9"><b id="854b35078843j" data-tag="uicontrol" data-isbold="true" class="uicontrol">目标<span class="help-letter-space"></span>Path</b></p>
+                    </td>
+                    <td id="entry-ixf-r74-l28" rowspan="1" colspan="1">
+                      <p id="784e45475bsyz">/hello/test</p>
+                    </td>
+                    <td id="entry-f0m-g3n-r9w" rowspan="1" colspan="1">
+                      <p id="784e45485b23v">以正斜线（/）开头的<span class="help-letter-space"></span>URL，不含<span class="help-letter-space"></span>http://头及域名。支持使用<span class="help-letter-space"></span>PCRE<span class="help-letter-space"></span>正则表达式。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-bmg-5kz-dbn">
+                    <td id="entry-1ls-bkl-an7" rowspan="3" colspan="1">
+                      <p id="784e45495byy5"><b id="9882d0ac8avvc" data-tag="uicontrol" data-isbold="true" class="uicontrol">执行规则</b></p>
+                    </td>
+                    <td id="entry-lg2-rhs-qk5" rowspan="1" colspan="1">
+                      <p id="784e6c505bx55">空</p>
+                    </td>
+                    <td id="entry-nw4-be5-c95" rowspan="1" colspan="1">
+                      <p id="784e6c515b92v">如果配置了多条规则，在匹配执行当前规则后，将按照从上到下的顺序依次执行所有可以匹配的规则。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-pjq-4ax-h1i">
+                    <td id="entry-h73-kts-xyk" rowspan="1" colspan="1">
+                      <p id="784e6c545b9rb">break</p>
+                    </td>
+                    <td id="entry-xwa-khy-jyw" rowspan="1" colspan="1">
+                      <ul data-tag="ul" id="ul-pva-j1l-apo" class="ul">
+                        <li data-tag="li" id="li-ed6-mui-vvw" class="li">
+                          <p id="784e6c555brpp">如果配置了多条规则，若请求的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>匹配了当前规则，匹配执行完当前规则后，剩余规则将不再匹配。</p>
+                        </li>
+                        <li data-tag="li" id="li-hz6-ooh-fxi" class="li">
+                          <p id="784e6c565b2q0">只修改<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>中的资源路径部分，不修改<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>的参数，因此不会影响<b id="8ee276261ayxe" data-tag="uicontrol" data-isbold="true" class="uicontrol">重写回源路径</b>功能对<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>中参数的重写。</p>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr id="row-4x9-ge9-o5h">
+                    <td id="entry-rou-30n-ksa" rowspan="1" colspan="1">
+                      <p id="784eba705blbx">enhance break</p>
+                    </td>
+                    <td id="entry-qhs-em2-jk4" rowspan="1" colspan="1">
+                      <ul data-tag="ul" id="ul-pjp-e2q-se9" class="ul">
+                        <li data-tag="li" id="li-ya9-1fl-bvx" class="li">
+                          <p id="784eba715bley">如果配置了多条规则，若请求的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>匹配了当前规则，匹配执行完当前规则后，剩余规则将不再匹配。</p>
+                        </li>
+                        <li data-tag="li" id="li-er0-la6-pki" class="li">
+                          <p id="784eba725bdnw">与<span class="help-letter-space"></span>break<span class="help-letter-space"></span>相似，但是增加了对<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>中参数部分的重写能力，对<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>中参数的重写可能会与<a href="https://help.aliyun.com/zh/cdn/user-guide/rewrite-url-parameters-in-back-to-origin-requests#task-2406266" id="xref-y74-x1e-ncg" title="" class="xref">回源参数重写</a>功能产生冲突，因此在同时配置这两个功能时，需要注意避免配置冲突。</p>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li data-tag="step" id="step-s0m-8wf-131" class="step">
+            <p id="784ee1805bk6t"><span data-tag="cmd" id="cmd-67k-d1k-qga" class="cmd">单击<b id="uicontrol-fcs-7t3-687" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>，使重写规则开始执行和生效。</span></p>
+            <div data-tag="info" id="info-n8u-5n0-nui" class="info">
+              <p data-tag="p" id="p-264-1ok-wx0" class="p">您也可以在<b id="c1748e336d0vw" data-tag="uicontrol" data-isbold="true" class="uicontrol">重写回源路径</b>页面的规则列表中，单击<b id="2478500b77wom" data-tag="uicontrol" data-isbold="true" class="uicontrol">修改</b>或<b id="5d5b8fc52c49s" data-tag="uicontrol" data-isbold="true" class="uicontrol">删除</b>，对当前配置的规则进行相应操作。</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <section id="section-pbv-4rf-334" data-tag="section" data-type="section" class="section">
+        <h2 id="title-ejx-t4u-54c" data-tag="title" class="title">配置示例</h2>
+        <ul data-tag="ul" id="ul-x98-izv-2c7" class="ul">
+          <li id="li-286-9bp-ad7" data-tag="li" class="li">
+            <h3 id="784ee1815b56z"><b id="uicontrol-qhd-ez3-idt">示例一：执行空规则。</b></h3>
+            <table id="table-jgj-a1g-o5s" tablewidth="100" tablecolswidth="19.19 80.81" autofit="true" class="table">
+              <colgroup colwidth="0.38*" style="width:19.19%"></colgroup>
+              <colgroup colwidth="1.62*" style="width:80.81%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-bzg-8jc-7gr">
+                  <td id="entry-ue6-j5a-bmj" rowspan="1" colspan="1">
+                    <p id="784ee1825b53e">待重写的<span class="help-letter-space"></span>Path</p>
+                  </td>
+                  <td id="entry-8fw-j8h-10v" rowspan="1" colspan="1">
+                    <p id="784ee1835b08f">^/hello$</p>
+                  </td>
+                </tr>
+                <tr id="row-g71-8qc-vsj">
+                  <td id="entry-x64-ku3-pe1" rowspan="1" colspan="1">
+                    <p id="784ee1845btvx">目标<span class="help-letter-space"></span>Path</p>
+                  </td>
+                  <td id="entry-y33-tzv-nbv" rowspan="1" colspan="1">
+                    <p id="784ee1855bt0z">/index.html</p>
+                  </td>
+                </tr>
+                <tr id="row-0ts-lqn-xno">
+                  <td id="entry-s6w-d7c-dfa" rowspan="1" colspan="1">
+                    <p id="784f08905b4yk">执行规则</p>
+                  </td>
+                  <td id="entry-7hu-zh4-y93" rowspan="1" colspan="1">
+                    <p id="784f08915bgla">空</p>
+                  </td>
+                </tr>
+                <tr id="row-6x2-rhf-5x9">
+                  <td id="entry-dr9-ew4-tgi" rowspan="1" colspan="1">
+                    <p id="784f08925bm9a">结果说明</p>
+                  </td>
+                  <td id="entry-lfd-gbk-8w5" rowspan="1" colspan="1">
+                    <p id="784f08935bojq">原始请求：<span data-tag="ph" id="codeph-7ew-kft-ve1" class="ph"><code data-tag="code" code-type="xCode" id="b53dcae2f7eeb" class="code">http://example.com/hello</code></span></p>
+                    <p data-tag="p" id="p-en2-i3u-f7e" class="p">重写后的回源请求：<span data-tag="ph" id="codeph-30p-zbo-n34" class="ph"><code data-tag="code" code-type="xCode" id="ec80cee5d3llj" class="code">http://example.com/index.html</code></span></p>
+                    <p data-tag="p" id="p-s4e-q3i-h4x" class="p">该请求将会继续匹配<b data-tag="uicontrol" id="uicontrol-wdx-3rf-s2m" class="uicontrol"><b id="ce0d554ea3vhm" data-tag="uicontrol" data-isbold="true" class="uicontrol">重写回源路径</b></b>规则列表中其余的规则。</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li data-tag="li" id="li-iwg-fdl-uxe" class="li">
+            <h3 id="784f08945b3q8"><b id="uicontrol-f30-jpv-vnb">示例二：执行<span class="help-letter-space"></span>break<span class="help-letter-space"></span>规则。</b></h3>
+            <table id="table-rns-yp1-nu6" tablewidth="100" tablecolswidth="18.91 81.09" autofit="true" class="table">
+              <colgroup colwidth="0.38*" style="width:18.91%"></colgroup>
+              <colgroup colwidth="1.62*" style="width:81.09%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-gpi-z2j-dwj">
+                  <td id="entry-w63-xik-i26" rowspan="1" colspan="1">
+                    <p id="784f08955bokg">待重写的<span class="help-letter-space"></span>Path</p>
+                  </td>
+                  <td id="entry-jd6-btc-hhl" rowspan="1" colspan="1">
+                    <p id="784f2fa05bue8">^/hello.jpg$</p>
+                  </td>
+                </tr>
+                <tr id="row-p2m-7wa-wih">
+                  <td id="entry-744-ut2-lex" rowspan="1" colspan="1">
+                    <p id="784f2fa15bnna">目标<span class="help-letter-space"></span>Path</p>
+                  </td>
+                  <td id="entry-ngz-yke-3rh" rowspan="1" colspan="1">
+                    <p id="784f2fa25bkax">/image/hello.jpg</p>
+                  </td>
+                </tr>
+                <tr id="row-k10-iyd-455">
+                  <td id="entry-swg-dfc-7os" rowspan="1" colspan="1">
+                    <p id="784f2fa35bg28">执行规则</p>
+                  </td>
+                  <td id="entry-ynx-9s6-o6a" rowspan="1" colspan="1">
+                    <p id="784f2fa45b1oi">break</p>
+                  </td>
+                </tr>
+                <tr id="row-b80-r0c-t90">
+                  <td id="entry-fh1-nmu-ozv" rowspan="1" colspan="1">
+                    <p id="784f2fa55bpzp">结果说明</p>
+                  </td>
+                  <td id="entry-xhq-0ju-emf" rowspan="1" colspan="1">
+                    <p id="784f2fa65bcye">原始请求：<span data-tag="ph" id="codeph-4td-vsf-khx" class="ph"><code data-tag="code" code-type="xCode" id="2e4bae66938ar" class="code">http://example.com/hello.jpg</code></span></p>
+                    <p data-tag="p" id="p-xwb-qvt-96x" class="p">重写后的回源请求：<span data-tag="ph" id="codeph-uyj-9xl-spc" class="ph"><code data-tag="code" code-type="xCode" id="714197670e6zl" class="code">http://example.com/image/hello.jpg</code></span></p>
+                    <p data-tag="p" id="p-x81-9aj-vlj" class="p">该请求将不再继续匹配<b id="4e1ef43741wnq" data-tag="uicontrol" data-isbold="true" class="uicontrol">重写回源路径</b>规则列表中其余的规则。</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li data-tag="li" id="li-qfh-x4z-05g" class="li">
+            <h3 id="784f56b05b6dw"><b id="uicontrol-tiu-yot-b7t">示例三：执行<span class="help-letter-space"></span>enhance break<span class="help-letter-space"></span>规则。</b></h3>
+            <table id="table-gkd-sia-jww" tablewidth="100" tablecolswidth="18.49 81.51" autofit="true" class="table">
+              <colgroup colwidth="0.37*" style="width:18.49%"></colgroup>
+              <colgroup colwidth="1.63*" style="width:81.51%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-l85-x9x-yde">
+                  <td id="entry-ss4-ews-p29" rowspan="1" colspan="1">
+                    <p id="784f56b15baet">待重写的<span class="help-letter-space"></span>Path</p>
+                  </td>
+                  <td id="entry-wgs-g8t-qbi" rowspan="1" colspan="1">
+                    <p id="784f56b25b0m3">^/hello.jpg?code=123$</p>
+                  </td>
+                </tr>
+                <tr id="row-rf7-uar-jif">
+                  <td id="entry-ve6-tws-85h" rowspan="1" colspan="1">
+                    <p id="784f56b35b7i8">目标<span class="help-letter-space"></span>Path</p>
+                  </td>
+                  <td id="entry-8f3-taf-vvv" rowspan="1" colspan="1">
+                    <p id="784f56b45bu7k">/image/hello.jpg?code=321</p>
+                  </td>
+                </tr>
+                <tr id="row-sqw-u61-oog">
+                  <td id="entry-1r3-c2v-qax" rowspan="1" colspan="1">
+                    <p id="784f7dc05bpox">执行规则</p>
+                  </td>
+                  <td id="entry-sbc-amk-ddp" rowspan="1" colspan="1">
+                    <p id="784f7dc15buzy">enhance break</p>
+                  </td>
+                </tr>
+                <tr id="row-o3l-gqp-qvs">
+                  <td id="entry-24i-7t8-zqr" rowspan="1" colspan="1">
+                    <p id="784f7dc25bqpp">结果说明</p>
+                  </td>
+                  <td id="entry-w9e-r9y-bss" rowspan="1" colspan="1">
+                    <p id="784f7dc35bghv">原始请求：<span data-tag="ph" id="codeph-x5j-s2g-9fj" class="ph"><code data-tag="code" code-type="xCode" id="e0a8b8322a5tc" class="code">http://example.com/hello.jpg?code=123</code></span></p>
+                    <p data-tag="p" id="p-tpo-o0g-jku" class="p">重写后的回源请求：<span data-tag="ph" id="codeph-u10-gml-js0" class="ph"><code data-tag="code" code-type="xCode" id="f6ba759e1foza" class="code">http://example.com/image/hello.jpg?code=321</code></span></p>
+                    <p id="784f7dc45b6zz">该请求将不再继续匹配<b id="4d00c4fe3ftzy" data-tag="uicontrol" data-isbold="true" class="uicontrol">重写回源路径</b>规则列表中其余的规则。</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li data-tag="li" id="li-lga-uae-jxa" class="li">
+            <h3 id="784f7dc55b32c"><b id="uicontrol-2ou-88w-rlc">示例四：在文件名是变量的情况下对根目录添加<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>前缀。</b></h3>
+            <p data-tag="p" id="p-lb1-2ev-p2a" class="p">例如：将包含/xxx<span class="help-letter-space"></span>的<span class="help-letter-space"></span>URL（xxx<span class="help-letter-space"></span>代表任意文件名称，例如：/hello.jpg、/hello.html<span class="help-letter-space"></span>等等）重写为/image/xxx，即对根目录下的任意文件的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>都插入路径/image。</p>
+            <table id="table-d61-nh8-cyb" tablewidth="100" tablecolswidth="18.56 81.44" autofit="true" class="table">
+              <colgroup colwidth="0.37*" style="width:18.56%"></colgroup>
+              <colgroup colwidth="1.63*" style="width:81.44%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-uml-76c-7gn">
+                  <td id="entry-kkc-vl8-iqo" rowspan="1" colspan="1">
+                    <p id="784fa4d05b84j">待重写的<span class="help-letter-space"></span>Path</p>
+                  </td>
+                  <td id="entry-fpy-37i-dlf" rowspan="1" colspan="1">
+                    <p id="784fa4d15bco3">^(.*)$</p>
+                    <div id="b50403ea2a68n" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                      <p id="b65b545528rxy"><code data-tag="code" class="code blog-code" data-spm-anchor-id="0.0.0.i42.13e45fb4k5H844" code-type="xCode" id="5641bb09f4o7c">^</code>表示匹配字符串的开始位置；<code data-tag="code" class="code blog-code" code-type="xCode" id="bfd8cfebe9gy6">(.*)</code>是一个分组，其中<code data-tag="code" class="code blog-code" code-type="xCode" id="10b4b33cc74fz">.</code>表示匹配任意单个字符（除了换行符），<code data-tag="code" class="code blog-code" code-type="xCode" id="31084180efxs8">*</code>表示匹配前面的字符或分组零次或多次，可以在目标<span class="help-letter-space"></span>Path<span class="help-letter-space"></span>中通过$1<span class="help-letter-space"></span>来调用分组的变量内容；<code data-tag="code" class="code blog-code" code-type="xCode" id="7465a45710h7x">$</code>表示匹配字符串的结束位置。所以，<code data-tag="code" class="code blog-code" code-type="xCode" id="3791adabc8ja9">^(.*)$</code>的意思是：匹配整个字符串，从开始到结束，中间可以包含任意字符（除了换行符），并将匹配到的内容捕获到一个分组中。例如，对于字符串<code data-tag="code" class="code blog-code" code-type="xCode" id="9dd2b2d5b3s4r">"hello world"</code>来说，<code data-tag="code" class="code blog-code" code-type="xCode" id="2771579859tgi">^(.*)$</code>会匹配整个字符串，并将<code data-tag="code" class="code blog-code" code-type="xCode" id="8ad9ee6a47jgc">"hello world"</code>捕获到第一个分组中。</p>
+                    </div></div>
+                  </td>
+                </tr>
+                <tr id="row-tyo-aql-nla">
+                  <td id="entry-7ae-c0b-qk4" rowspan="1" colspan="1">
+                    <p id="784fa4d35ba31">目标<span class="help-letter-space"></span>Path</p>
+                  </td>
+                  <td id="entry-z2f-qke-1bl" rowspan="1" colspan="1">
+                    <p id="784fa4d45bz51">/image$1</p>
+                    <div id="9e083340399jr" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                      <p id="32ed649f6dc6s"><code data-tag="code" class="code blog-code" code-type="xCode" id="d043f9efb09m6">/image</code>表示匹配字符串<code data-tag="code" class="code blog-code" code-type="xCode" id="409df71f85sdf">"/image"</code>；<code data-tag="code" class="code blog-code" code-type="xCode" id="574f3b462erfg">$1</code>表示引用第一个捕获分组的内容，<code data-tag="code" class="code blog-code" code-type="xCode" id="61264c60aa6os">$2</code>表示引用第二个捕获分组的内容，依此类推。所以，<code data-tag="code" class="code blog-code" code-type="xCode" id="6d80f559edts6">/image$1</code>的意思是：匹配字符串<code data-tag="code" class="code blog-code" code-type="xCode" id="e2160552eb66t">"/image"</code>后面紧跟着第一个捕获分组的内容。例如，如果第一个捕获分组的内容是<code data-tag="code" class="code blog-code" code-type="xCode" id="afcdbcf05clhu">"abc"</code>，那么<code data-tag="code" class="code blog-code" code-type="xCode" id="bf22bd853bq5x">/image$1</code>将匹配字符串<code data-tag="code" class="code blog-code" code-type="xCode" id="4e1f75ebd3sn9">"/imageabc"</code>。需要注意的是，<code data-tag="code" class="code blog-code" code-type="xCode" id="5e4a67d8afsbh">$1</code>引用的是捕获分组的内容，而不是字面量<code data-tag="code" class="code blog-code" code-type="xCode" id="943913c8afp73">"$1"</code>。如果想要匹配字面量<code data-tag="code" class="code blog-code" code-type="xCode" id="e83c587643fhk">"$1"</code>，需要使用转义字符<code data-tag="code" class="code blog-code" code-type="xCode" id="809c5494daxx9">"\$1"</code>。</p>
+                    </div></div>
+                  </td>
+                </tr>
+                <tr id="row-cxk-29q-ikd">
+                  <td id="entry-zuu-yv2-2f5" rowspan="1" colspan="1">
+                    <p id="784fa4d65bsnv">执行规则</p>
+                  </td>
+                  <td id="entry-32p-mwf-nul" rowspan="1" colspan="1">
+                    <p id="784fa4d75bdsw">break</p>
+                  </td>
+                </tr>
+                <tr id="row-2f0-i1b-fcc">
+                  <td id="entry-ffb-mn1-k06" rowspan="1" colspan="1">
+                    <p id="784fcbe05bq88">结果说明</p>
+                  </td>
+                  <td id="entry-yfo-5f7-yqj" rowspan="1" colspan="1">
+                    <ul data-tag="ul" id="ul-40c-2hl-t6v" class="ul">
+                      <li data-tag="li" id="li-q7p-yo2-mgw" class="li">
+                        <p id="784fcbe15bmei">原始请求：<span data-tag="ph" id="codeph-c8d-dbg-apx" class="ph"><code data-tag="code" code-type="xCode" id="012a7a64ae7gd" class="code">http://example.com/hello.jpg</code></span></p>
+                        <p data-tag="p" id="p-85y-jsy-i7o" class="p">重写后的回源请求：<span data-tag="ph" id="codeph-bxc-c4e-1f2" class="ph"><code data-tag="code" code-type="xCode" id="3321bf4560kd0" class="code">http://example.com/image/hello.jpg</code></span></p>
+                      </li>
+                      <li data-tag="li" id="li-82a-y13-xep" class="li">
+                        <p id="784fcbe25bmgi">原始请求：<span data-tag="ph" id="codeph-37e-2p7-nuc" class="ph"><code data-tag="code" code-type="xCode" id="8259eda2e6f88" class="code">http://example.com/hello.html</code></span></p>
+                        <p data-tag="p" id="p-6p6-gez-tzh" class="p">重写后的回源请求：<span data-tag="ph" id="codeph-t6j-k35-x6w" class="ph"><code data-tag="code" code-type="xCode" id="ce57ebda73scb" class="code">http://example.com/image/hello.html</code></span></p>
+                      </li>
+                    </ul>
+                    <p id="784fcbe35biba">该请求将不再继续匹配<b id="uicontrol-uat-ulg-e4x">回源<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>重写</b>规则列表中其余的规则。</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li data-tag="li" id="li-pnm-pck-4px" class="li">
+            <h3 id="784ff2f05bpte"><b id="uicontrol-g45-svc-83b">示例五：在文件名是变量的情况下对指定目录添加<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>前缀。</b></h3>
+            <div data-tag="p" id="p-u50-aw0-poq" class="p">
+              <p id="784ff2f15bve1">例如：将包含/live/xxx<span class="help-letter-space"></span>的<span class="help-letter-space"></span>URL（xxx<span class="help-letter-space"></span>代表任意文件名称，例如：/live/hello.jpg、/live/hello.html 等等）重写为/image/live/xxx，即对目录/live<span class="help-letter-space"></span>下的任意文件的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>都插入路径/image。</p>
+              <table id="table-tkc-2nc-gyj" tablewidth="100" tablecolswidth="18.52 81.48" autofit="true" class="table">
+                <colgroup colwidth="0.37*" style="width:18.52%"></colgroup>
+                <colgroup colwidth="1.63*" style="width:81.48%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="row-i4j-s23-pzh">
+                    <td id="entry-hor-lap-pxy" rowspan="1" colspan="1">
+                      <p id="784ff2f25bn19">待重写的<span class="help-letter-space"></span>Path</p>
+                    </td>
+                    <td id="entry-q4z-78z-j5y" rowspan="1" colspan="1">
+                      <p id="784ff2f35bsvo">^/live/(.*)$</p>
+                    </td>
+                  </tr>
+                  <tr id="row-nfm-v5o-wvb">
+                    <td id="entry-lnd-j0i-e2j" rowspan="1" colspan="1">
+                      <p id="784ff2f45b3lf">目标<span class="help-letter-space"></span>Path</p>
+                    </td>
+                    <td id="entry-v2w-lr1-nel" rowspan="1" colspan="1">
+                      <p id="784ff2f55bbam">/image/live/$1</p>
+                    </td>
+                  </tr>
+                  <tr id="row-doj-8f3-46i">
+                    <td id="entry-69x-cod-l40" rowspan="1" colspan="1">
+                      <p id="784ff2f65b84k">执行规则</p>
+                    </td>
+                    <td id="entry-fu3-81m-2ut" rowspan="1" colspan="1">
+                      <p id="78501a005bcb1">break</p>
+                    </td>
+                  </tr>
+                  <tr id="row-od1-w49-qv2">
+                    <td id="entry-dpw-dvu-nex" rowspan="1" colspan="1">
+                      <p id="78501a015bavv">结果说明</p>
+                    </td>
+                    <td id="entry-act-h0w-anu" rowspan="1" colspan="1">
+                      <ul data-tag="ul" id="ul-axh-m72-3gd" class="ul">
+                        <li data-tag="li" id="li-cvz-pg5-lw6" class="li">
+                          <p id="78501a025bfvx">原始请求：<span data-tag="ph" id="codeph-tbd-3zk-1qc" class="ph"><code data-tag="code" code-type="xCode" id="4de28f4dd5wga" class="code">http://example.com/live/hello.jpg</code></span></p>
+                          <p data-tag="p" id="p-w50-s30-p28" class="p">重写后的回源请求：<span data-tag="ph" id="codeph-2gg-cp7-qz5" class="ph"><code data-tag="code" code-type="xCode" id="a2e0658a9b07h" class="code">http://example.com/image/live/hello.jpg</code></span></p>
+                        </li>
+                        <li data-tag="li" id="li-095-c0c-c0z" class="li">
+                          <p id="78501a035b827">原始请求：<span data-tag="ph" id="codeph-b6r-sta-6sh" class="ph"><code data-tag="code" code-type="xCode" id="0a9250f170t7w" class="code">http://example.com/live/hello.html</code></span></p>
+                          <p data-tag="p" id="p-j8b-0m9-gzt" class="p">重写后的回源请求：<span data-tag="ph" id="codeph-zyt-bs5-f84" class="ph"><code data-tag="code" code-type="xCode" id="7796cab746gds" class="code">http://example.com/image/live/hello.html</code></span></p>
+                        </li>
+                      </ul>
+                      <p id="785041105bgz2">该请求将不再继续匹配<b id="uicontrol-dpz-13y-8uz">回源<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>重写</b>规则列表中其余的规则。</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li data-tag="li" id="li-pim-w3a-dqw" class="li">
+            <h3 id="785041115buqx"><b id="uicontrol-6d8-502-3fu">示例六：匹配多条规则时，执行空规则。</b></h3>
+            <div data-tag="p" id="p-cjs-s07-4dt" class="p">
+              <p id="785041125bgcu">在回源<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>重写配置中添加两条规则：第一条将待重写<span class="help-letter-space"></span>Path <code data-tag="code" class="code">^/image_01.png$</code> 重写为目标<span class="help-letter-space"></span>Path <code data-tag="code" class="code">/image_02.png</code>，执行规则为空；第二条将待重写<span class="help-letter-space"></span>Path <code data-tag="code" class="code">^(.*)$</code> 重写为目标<span class="help-letter-space"></span>Path <code data-tag="code" class="code">/image$1</code>，执行规则为空。两条规则状态均为已生效。</p>
+            </div>
+            <div data-tag="p" id="p-tib-wor-ble" class="p">
+              <p id="785041135bmln">结果说明：</p>
+              <ul data-tag="ul" id="ul-wjj-f3f-1dk" class="ul">
+                <li data-tag="li" id="li-rjq-9sk-w8j" class="li">
+                  <p id="785041145bx60">原始请求：<span data-tag="ph" id="codeph-d1u-sju-kqf" class="ph"><code data-tag="code" code-type="xCode" id="06d7d24f5bz0q" class="code">http://example.com/image_01.png</code></span></p>
+                </li>
+                <li data-tag="li" id="li-akj-f6g-83z" class="li">
+                  <p id="785068205b91a">重写后的回源请求：<span data-tag="ph" id="codeph-oft-6vu-og9" class="ph"><code data-tag="code" code-type="xCode" id="3b40dfed31bg0" class="code">http://example.com/image/image_02.png</code></span></p>
+                  <div data-tag="note" id="note-hpk-e9g-uhm" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                    <p id="785068215bfas">先匹配第一条规则，重写为<span data-tag="ph" id="codeph-tcn-ntr-laf" class="ph"><code data-tag="code" code-type="xCode" id="ac31983397030" class="code">http://example.com/image_02.png</code></span>，继续匹配第二条规则，最终重写为<span data-tag="ph" id="codeph-f5t-llu-smk" class="ph"><code data-tag="code" code-type="xCode" id="d8bea60e06a9a" class="code">http://example.com/image/image_02.png</code></span>。</p>
+                  </div></div>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li data-tag="li" id="li-qf9-bx5-yf7" class="li">
+            <h3 id="785068225bjzi"><b id="uicontrol-k45-q71-uwi">示例七：匹配多条规则时，执行<span class="help-letter-space"></span>break<span class="help-letter-space"></span>规则。</b></h3>
+            <div data-tag="p" id="p-co3-f5r-1rd" class="p">
+              <p id="785068235bv2e">在回源<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>重写配置中添加两条重写规则：第一条待重写<span class="help-letter-space"></span>Path<span class="help-letter-space"></span>为 <code data-tag="code" class="code">^/image_01.png$</code>，目标<span class="help-letter-space"></span>Path<span class="help-letter-space"></span>为 <code data-tag="code" class="code">/image_02.png</code>，执行规则为 <b>break</b>，状态为已生效；第二条待重写<span class="help-letter-space"></span>Path<span class="help-letter-space"></span>为 <code data-tag="code" class="code">^(.*)$</code>，目标<span class="help-letter-space"></span>Path<span class="help-letter-space"></span>为 <code data-tag="code" class="code">/image$1</code>，执行规则为空，状态为已生效。当请求<span class="help-letter-space"></span>URI<span class="help-letter-space"></span>匹配到第一条规则且执行规则为 <b>break</b> 时，将不再继续匹配后续规则。</p>
+            </div>
+            <div data-tag="p" id="p-ur9-se2-lz2" class="p">
+              <p id="785068245bt3m">结果说明：</p>
+              <ul data-tag="ul" id="ul-hpa-qcr-13m" class="ul">
+                <li data-tag="li" id="li-kk4-qa7-f9s" class="li">
+                  <p id="78508f305ba0y">原始请求：<span data-tag="ph" id="codeph-o6e-vp6-rk7" class="ph"><code data-tag="code" code-type="xCode" id="eddc60747e461" class="code">http://example.com/image_01.png</code></span></p>
+                </li>
+                <li data-tag="li" id="li-x8l-ebn-r8y" class="li">
+                  <p id="78508f315bdyr">重写后的回源请求：<span data-tag="ph" id="codeph-49y-968-tej" class="ph"><code data-tag="code" code-type="xCode" id="2edbc1f9ed8be" class="code">http://example.com/image_02.png</code></span></p>
+                  <div data-tag="note" id="note-wyx-x8g-ms2" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                    <p id="78508f325bms0">先匹配第一条规则，重写为<span data-tag="ph" id="codeph-q1x-wrf-u8p" class="ph"><code data-tag="code" code-type="xCode" id="40fa9cb85fell" class="code">http://example.com/image_02.png</code></span>，由于第一条规则设置为<span class="help-letter-space"></span>break，所以不再匹配后续规则。</p>
+                  </div></div>
+                </li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/cdn/user-guide/configure-the-origin-protocol-policy" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：配置回源协议</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/cdn/user-guide/configure-custom-request-headers" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：修改出站请求头<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

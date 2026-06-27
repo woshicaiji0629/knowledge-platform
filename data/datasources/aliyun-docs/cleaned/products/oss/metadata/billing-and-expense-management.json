@@ -1,0 +1,17 @@
+{
+  "id": "oss:billing-and-expense-management",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "pricing",
+  "title": "账单与费用管理-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/billing-and-expense-management",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/oss/documents/billing-and-expense-management.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/billing-and-expense-management.md",
+  "word_count": 476,
+  "text_units": 770,
+  "local_links": 0,
+  "external_links": 67,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

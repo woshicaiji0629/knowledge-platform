@@ -1,0 +1,14 @@
+{
+  "id": "oss:user-guide/bucket-inventory:49",
+  "document_id": "oss:user-guide/bucket-inventory",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "features",
+  "title": "通过存储空间清单获取Bucket内的Object信息-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/user-guide/bucket-inventory",
+  "chunk_index": 49,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/oss/documents/user-guide/bucket-inventory.chunk-0049.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/user-guide/bucket-inventory.md",
+  "heading_path": "使用存储空间清单 > 应用于生产环境 > 风险防范",
+  "char_count": 411
+}

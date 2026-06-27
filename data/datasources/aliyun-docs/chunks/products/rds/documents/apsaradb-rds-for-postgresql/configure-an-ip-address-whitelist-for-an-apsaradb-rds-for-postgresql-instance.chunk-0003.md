@@ -1,0 +1,2 @@
+议您通过 DTS 将 RDS 实例迁移至 ACK 集群所属地域。详情请参见 [RDS PostgreSQL](migrate-data-between-apsaradb-rds-for-postgresql-instances.md) [实例间数据迁移](migrate-data-between-apsaradb-rds-for-postgresql-instances.md) 。 添加应用程序所在的 ACK 集群对应的 IP 地址。 当 ACK 集群的容器网络插件为 Flannel 时，添加应用程序所在的节点 IP。 当 ACK 集群的容器网络插件为 Terway 时，添加应用程序所在的 Pod IP。 |  |
+| 云外主机连接 RDS 实例 | 无 | 在 IP 白名单中添加云外主机的公网 IP 地址。 云外主机的应用程序中使用 RDS 实例的外网连接地址。 通过 curl ipinfo.io/ip 可以查询云外主机公网 IP。 说明 如果云外主机没有固定 IP，或者 IP 地址经常变动，请参见 [常见问题](errors-and-faq-about-ip-address-whitelist-settings-in-apsaradb-rds-for-postgresql-1.md) 获取处理方案。 |

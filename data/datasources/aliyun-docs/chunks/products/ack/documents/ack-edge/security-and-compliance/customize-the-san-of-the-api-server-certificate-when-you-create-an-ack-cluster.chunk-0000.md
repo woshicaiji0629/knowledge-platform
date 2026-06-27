@@ -1,0 +1,2 @@
+# 自定义集群API Server证书的SAN字段
+ACK集群的API Server服务端证书中SAN（Subject Alternative Name）字段默认包括集群本地域名、API Server负载均衡的内网IP、API Server服务本地IP和公网EIP等字段。如果您有特殊的代理访问或跨域访问需求，可以通过控制台为新建集群或已有集群自定义SAN字段。

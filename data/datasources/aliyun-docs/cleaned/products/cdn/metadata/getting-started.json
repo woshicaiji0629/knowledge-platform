@@ -1,0 +1,17 @@
+{
+  "id": "cdn:getting-started",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "快速入门-CDN-阿里云",
+  "source_url": "https://help.aliyun.com/zh/cdn/getting-started/",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/getting-started.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/getting-started.md",
+  "word_count": 477,
+  "text_units": 772,
+  "local_links": 0,
+  "external_links": 66,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

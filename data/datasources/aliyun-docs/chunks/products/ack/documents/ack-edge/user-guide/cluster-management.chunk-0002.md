@@ -1,0 +1,1 @@
+oduct-overview/billing-of-ack-edge-clusters.md) 。 | 不收取集群管理费用，但仍然收取边缘节点管理费（按接入的非云端节点数量计费）以及在使用 ACK Edge 集群过程中涉及到其他的阿里云产品资源费用，详细信息请参见 [ACK Edge](../product-overview/billing-of-ack-edge-clusters.md) [集群计费说明](../product-overview/billing-of-ack-edge-clusters.md) 。 |

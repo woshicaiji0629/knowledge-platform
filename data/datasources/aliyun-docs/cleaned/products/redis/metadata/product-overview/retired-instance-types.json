@@ -1,0 +1,17 @@
+{
+  "id": "redis:product-overview/retired-instance-types",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "performance",
+  "title": "Redis实例有哪些规格已停售-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/retired-instance-types",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/product-overview/retired-instance-types.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/retired-instance-types.md",
+  "word_count": 1590,
+  "text_units": 2643,
+  "local_links": 2,
+  "external_links": 61,
+  "has_tables": true,
+  "table_count": 35,
+  "quality": "accepted"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "cdn:product-overview/terms",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "什么是阿里云CDN-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/product-overview/terms",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/product-overview/terms.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/product-overview/terms.md",
+  "word_count": 1127,
+  "text_units": 5143,
+  "local_links": 18,
+  "external_links": 65,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

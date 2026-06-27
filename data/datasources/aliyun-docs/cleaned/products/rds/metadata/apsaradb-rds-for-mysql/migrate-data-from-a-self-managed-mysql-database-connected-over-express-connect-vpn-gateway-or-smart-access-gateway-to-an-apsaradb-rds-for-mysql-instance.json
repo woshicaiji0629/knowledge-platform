@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/migrate-data-from-a-self-managed-mysql-database-connected-over-express-connect-vpn-gateway-or-smart-access-gateway-to-an-apsaradb-rds-for-mysql-instance",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "deployment",
+  "title": "如何将自建MySQL迁移至RDSMySQL实例-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/migrate-data-from-a-self-managed-mysql-database-connected-over-express-connect-vpn-gateway-or-smart-access-gateway-to-an-apsaradb-rds-for-mysql-instance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-mysql/migrate-data-from-a-self-managed-mysql-database-connected-over-express-connect-vpn-gateway-or-smart-access-gateway-to-an-apsaradb-rds-for-mysql-instance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/migrate-data-from-a-self-managed-mysql-database-connected-over-express-connect-vpn-gateway-or-smart-access-gateway-to-an-apsaradb-rds-for-mysql-instance.md",
+  "word_count": 1618,
+  "text_units": 4720,
+  "local_links": 0,
+  "external_links": 96,
+  "has_tables": true,
+  "table_count": 14,
+  "quality": "accepted"
+}

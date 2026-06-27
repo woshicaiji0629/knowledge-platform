@@ -1,0 +1,1 @@
+Error Code:" + oe.getErrorCode()); System.out.println("Request ID:" + oe.getRequestId()); System.out.println("Host ID:" + oe.getHostId()); } catch (Exception e) { System.out.println("Caught an unexpected exception:"); e.printStackTrace(); } finally { if (ossClient != null) { // 释放OSSClient资源 ossClient.shutdown(); } } } }

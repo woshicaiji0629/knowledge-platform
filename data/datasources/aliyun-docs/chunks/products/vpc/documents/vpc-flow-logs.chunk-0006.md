@@ -1,0 +1,1 @@
+name log_store_name = alicloud_log_store.example.logstore_name description = var.name traffic_path = ["all"] # 采集所有场景 project_name = alicloud_log_project.example.project_name resource_type = "VPC" # 资源类型为VPC resource_id = "vpc-bp1ekmgzch0bo3hxXXXXXX" # VPC的ID aggregation_interval = "1" # 采集时间窗口为1分钟 traffic_type = "All" # 采集全部流量，无论访问控制允许还是拒绝 }

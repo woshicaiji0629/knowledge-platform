@@ -1,0 +1,17 @@
+{
+  "id": "redis:developer-reference/tairsearch",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "全文搜索数据结构聚合查询-TairSearch-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/developer-reference/tairsearch",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/developer-reference/tairsearch.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/tairsearch.md",
+  "word_count": 6123,
+  "text_units": 13771,
+  "local_links": 22,
+  "external_links": 111,
+  "has_tables": true,
+  "table_count": 58,
+  "quality": "accepted"
+}

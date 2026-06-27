@@ -1,0 +1,2 @@
+# 在CI Pipeline中Clone私有Git仓库
+ACK One工作流集群构建CI Pipeline，其使用BuildKit Cache和NAS存储Go mode cache，可大幅加速CI Pipeline的流程。通过工作流集群构建基于Golang项目CI Pipeline时，若您使用的Git仓库为私有仓库，您需要在CI流程中先成功Clone该私有仓库，再进行CI Pipeline的构建操作。本文为您介绍如何在CI Pipeline中Clone私有Git仓库。

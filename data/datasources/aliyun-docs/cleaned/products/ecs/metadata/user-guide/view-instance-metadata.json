@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/view-instance-metadata",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "通过元数据服务从ECS实例内部获取实例属性等信息-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/view-instance-metadata",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/view-instance-metadata.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/view-instance-metadata.md",
+  "word_count": 2002,
+  "text_units": 5237,
+  "local_links": 8,
+  "external_links": 84,
+  "has_tables": true,
+  "table_count": 7,
+  "quality": "accepted"
+}

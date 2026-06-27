@@ -1,0 +1,3 @@
+## 后续步骤
+采集Windows事件至日志服务后，您可以在日志服务控制台上查看日志。
+_source_: xxx __tag__:__client_ip__: xxx __tag__:__hostname__: xxx __tag__:__receive_time__: 1545292473 __topic__: activity_id: {085C7022-038B-40E4-BF0B-EB97C4337940} computer_name: xxx event_data: {"DCName":"\\\\HZ-FT-xxx","ProcessingMode":"0","ProcessingTimeInMilliseconds":"5812","SupportInfo1":"1","SupportInfo2":"4220"} event_id: 1501 kernel_time: 0 keywords: [] level: 信息 log_name: System message: 成功处理了此用户的组策略设置。自上一次成功处理了组策略后，没有检测到更改。 message_error: opcode: 开始 process_id: 248024 processor_id: 0 processor_time: 0 provider_guid: {AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9} record_number: 6908 related_activity_id: session_id: 0 source_name: Microsoft-Windows-GroupPolicy

@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/rapid-instance-type-change",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "RDS MySQL极速变配-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/rapid-instance-type-change",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-mysql/rapid-instance-type-change.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/rapid-instance-type-change.md",
+  "word_count": 656,
+  "text_units": 2249,
+  "local_links": 0,
+  "external_links": 66,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

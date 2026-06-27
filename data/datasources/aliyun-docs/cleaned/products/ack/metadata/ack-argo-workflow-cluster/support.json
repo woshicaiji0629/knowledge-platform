@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-argo-workflow-cluster/support",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "云产品全生命周期技术支持-服务支持-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/support",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-argo-workflow-cluster/support.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-argo-workflow-cluster/support.md",
+  "word_count": 484,
+  "text_units": 784,
+  "local_links": 0,
+  "external_links": 66,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

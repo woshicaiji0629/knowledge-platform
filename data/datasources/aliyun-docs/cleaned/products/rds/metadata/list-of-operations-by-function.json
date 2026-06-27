@@ -1,0 +1,17 @@
+{
+  "id": "rds:list-of-operations-by-function",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "API概览-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/list-of-operations-by-function",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/list-of-operations-by-function.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/list-of-operations-by-function.md",
+  "word_count": 3024,
+  "text_units": 5545,
+  "local_links": 0,
+  "external_links": 281,
+  "has_tables": true,
+  "table_count": 60,
+  "quality": "accepted"
+}

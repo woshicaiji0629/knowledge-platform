@@ -1,0 +1,2 @@
+he-go-driver-package-go-mysql-driver-to-connect-to-a-database.md)[驱动包](use-the-go-driver-package-go-mysql-driver-to-connect-to-a-database.md)[Go-MySQL-Driver](use-the-go-driver-package-go-mysql-driver-to-connect-to-a-database.md)[连接数据库](use-the-go-driver-package-go-mysql-driver-to-connect-to-a-database.md)
+简介：如果您的应用连接创建频繁（例如短连接场景）或者连接数量很大（大于MySQL数据库的连接数限制），您可以使用合适的连接池连接数据库，降低连接建立的频率以减少数据库主线程的开销和数据库上的总连接数。

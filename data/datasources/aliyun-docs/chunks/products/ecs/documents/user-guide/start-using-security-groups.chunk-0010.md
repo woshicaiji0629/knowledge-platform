@@ -1,0 +1,1 @@
+portrangelists.md)查看端口列表信息，并且可以通过[AuthorizeSecurityGroup](../developer-reference/api-ecs-2014-05-26-authorizesecuritygroup.md)、[AuthorizeSecurityGroupEgress](../developer-reference/api-ecs-2014-05-26-authorizesecuritygroupegress.md)在安全组规则中设置PortRangeListId授权已经创建的端口列表。

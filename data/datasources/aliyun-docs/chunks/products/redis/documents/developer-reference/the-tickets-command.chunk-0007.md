@@ -1,0 +1,6 @@
+ey 的元数据信息，包含 Datapoint 数量、最近 Datapoint 的时间戳与 value 值、Skey 的标签信息等信息。 |  |
+| [EXTS.S.QUERYINDEX](the-tickets-command.md) | EXTS.S.QUERYINDEX Pkey filter1 [filter2 ...] | 在 Pkey 中自定义过滤条件（filter），查询目标 Skey。 |  |
+| 聚合操作 | [EXTS.S.RANGE](the-tickets-command.md) | EXTS.S.RANGE Pkey Skey fromTs toTs [MAXCOUNT count] [AGGREGATION aggregationType timeBucket] | 在 Skey 中查询指定时间内（包含指定时间点）的 Datapoint 数据。 |
+| [EXTS.S.MRANGE](the-tickets-command.md) | EXTS.S.MRANGE Pkey fromTs toTs [MAXCOUNT count] [AGGREGATION aggregationType timeBucket] [WITHLABELS] FILTER filter1 [filter2 ...] | 在 Skey 中自定义过滤条件（filter）与查询时间点（包含指定时间点），查询目标 Datapoint 数据。 |  |
+| [EXTS.P.RANGE](the-tickets-command.md) | EXTS.P.RANGE Pkey fromTs toTs pkeyAggregationType pkeyTimeBucket [MAXCOUNT count] [AGGREGATION aggregationType timeBucket] FILTER filter1 [filter2 ...] | 在 Pkey 层级对符合过滤条件（filter）的 Datapoint 数据进行聚合，若您指定了 Skey 层级的聚合，则会优先进行 Skey 层级聚合（效果与 EXTS.S.MRANGE 命令相同），再从 Pkey 层级对第一次聚合结果进行二次聚合。 |  |
+| 并发写操作 | [EXTS.S.RAW_MODIFY](the-tickets-command.md) | EXTS.S.RAW_MODIFY Pkey Skey ts value [DATA_ET time] [CHUNK_SIZE size] [UNCOMPRESSED] [LABELS label1 val1 ...] | 修改指定 Skey 中 Datapoint 数据的 value 值。若 Pkey 或 Skey 不存在则会自动创建，属性（过期时间、是否

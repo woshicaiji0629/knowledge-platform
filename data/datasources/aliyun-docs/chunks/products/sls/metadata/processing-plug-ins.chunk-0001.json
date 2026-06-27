@@ -1,0 +1,14 @@
+{
+  "id": "sls:processing-plug-ins:1",
+  "document_id": "sls:processing-plug-ins",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "处理插件-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/processing-plug-ins",
+  "chunk_index": 1,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/processing-plug-ins.chunk-0001.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/processing-plug-ins.md",
+  "heading_path": "数据采集时处理（处理插件） > 使用限制 > 性能限制",
+  "char_count": 218
+}

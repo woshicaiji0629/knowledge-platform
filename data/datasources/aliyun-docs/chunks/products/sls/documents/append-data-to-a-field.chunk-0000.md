@@ -1,0 +1,4 @@
+# 追加字段
+您可以使用processor_appender插件为指定的字段（可以为不存在的字段）追加特定的值，支持在字段值中添加模板变量。该插件通常与input_prometheus、input_system_v2等时序监控相关的插件结合使用，用于给拉取到的Prometheus数据追加特定的值。
+重要
+Logtail 0.16.66及以上版本支持processor_appender插件。

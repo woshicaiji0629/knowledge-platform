@@ -1,0 +1,5 @@
+### 场景三：对比最近一小时与昨天同期的延迟趋势
+提示词
+分析 SLS 日志库 prod-web/nginx-access 中最近一小时与昨天同期相比的平均延迟变化，按分钟粒度统计平均值，分析延迟是否存在明显异常。
+Agent 输出示例
+查询模式：索引查询 + SQL 原因：需要对当前最近一小时和昨天同期分别按分钟聚合平均延迟，再按分钟对齐计算变化量和变化率。 执行命令（当前最近一小时）： aliyun sls get-logs-v2 \ --project prod-web \ --logstore nginx-access \ --from 1777014000 \ --to 1777017600 \ --query "* | SELECT date_trunc('minute', __time__) AS minute, avg(request_time) AS avg_latency FROM log GROUP BY minute ORDER BY minute LIMIT 60" 执行命令（昨天同期）： aliyun sls get-logs-v2 \ --project prod-web \ --logstore nginx-access \ --from 1776927600 \ --to 1776931200 \ --query "* | SELECT date_trunc('minute', __time__) AS minute, avg(request_time) AS avg_latency FROM log GROUP BY minute ORDER BY minute LIMIT 60" 查询结果： | 分钟 | 当前平均延迟 | 昨天同期平均延迟 | 变化量 | 变化率 | | --- | ---: | ---: | ---: | ---: | | 2026-04-24 15:00 | 0.132s | 0.118s | +14ms | +11.9% | | 2026-04-24 15:01 | 0.141s | 0.116s | +25ms | +21.6% | | 2026-04-24 15:02 | 0.338s | 0.129s | +209ms | +162.0% | | 2026-04-24 15:03 | 0.351s | 0.131s | +220ms | +167.9% | 结论：最近一小时平均延迟整体高于昨天同期，其中 15:02 到 15:03 上升最明显，平均延迟增加超过 160%。建议继续按 request_uri、upstream_addr 或 service 维度下钻，定位延迟上升来源。

@@ -1,0 +1,3 @@
+立即执行但不保存命令：文件大小不能超过 24 KB。 上传文件：文件大小不能超过 32 KB。 | 无 |
+| 一条命令中的自定义参数个数上限 | 20 | 无 |
+| 操作系统 | 您只能在以下操作系统中运行云助手命令： Alibaba Cloud Linux CentOS 6/7/8 及更高版本 CoreOS Debian 8/9/10 及更高版本 OpenSUSE RedHat 5/6/7 及更高版本 说明 RedHat 中需要您自行下载 rpm 包安装云助手 Agent，具体操作，请参见 [安装云助手](install-the-cloud-assistant-agent.md) [Agent](install-the-cloud-assistant-agent.md) 。 SUSE Linux Enterprise Server 11/12/15 及更高版本 Ubuntu 12/14/16/18 及更高版本 FreeBSD 11/12/13/14 及更高版本 Window Server 2012/2016/2019 及更高版本 说明 使用 ECS 公共镜像创建的实例会默认安装云助手 Agent。 使用自定义镜像或者云市场镜像创建的实例需要您首先确认操作系统是否支持云助手，再自行安装云助手 Agent。具体步骤请参见 [安装云助手](install-the-cloud-assistant-agent.md) [Agent](install-the-cloud-assistant-agent.md) 。 | 无 |

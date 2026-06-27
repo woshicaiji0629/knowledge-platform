@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/create-a-snapshot",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "为单块系统盘或数据盘创建快照备份云盘数据-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/create-a-snapshot",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/create-a-snapshot.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/create-a-snapshot.md",
+  "word_count": 941,
+  "text_units": 3334,
+  "local_links": 10,
+  "external_links": 83,
+  "has_tables": true,
+  "table_count": 5,
+  "quality": "accepted"
+}

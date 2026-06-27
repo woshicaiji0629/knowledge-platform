@@ -1,0 +1,14 @@
+{
+  "id": "sls:collect-k8s-cluster-logs-through-sidecar:28",
+  "document_id": "sls:collect-k8s-cluster-logs-through-sidecar",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "通过Sidecar方式采集集群日志（阿里云ACK集群和自建Kubernetes集群）-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/collect-k8s-cluster-logs-through-sidecar",
+  "chunk_index": 28,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/collect-k8s-cluster-logs-through-sidecar.chunk-0028.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/collect-k8s-cluster-logs-through-sidecar.md",
+  "heading_path": "根据日志产生速率配置CPU、内存资源 resources: limits: cpu: \"2000m\" memory: \"2Gi\" # 影响采集性能的参数 env: - name: cpu_usage_limit value: \"2\" - name: mem_usage_limit value: \"2048\" - name: max_bytes_per_sec value: \"209715200\" - name: process_thread_count value: \"8\" - name: send_request_concurrency value: \"20\"",
+  "char_count": 1082
+}

@@ -1,0 +1,2 @@
+## json_parse函数
+json_parse函数只用于将字符串类型转化成JSON类型，判断是否符合JSON格式。一般情况下，json_parse函数使用意义不大，如果您需要从JSON中提取值，建议使用json_extract_scalar函数。

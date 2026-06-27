@@ -1,0 +1,5 @@
+### 如何修改其中一条或多条生命周期规则配置？
+假设您的Bucket配置了两条生命周期规则，分别为Rule1和Rule2，您希望修改Rule1的某个配置项，您需要执行以下操作。
+调用GetBucketLifecycle接口获取当前Bucket配置的所有生命周期规则，即Rule1和Rule2。
+修改Rule1生命周期规则的配置项。
+调用PutBucketLifecycle接口更新生命周期规则为Rule1+Rule2。

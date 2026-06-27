@@ -1,0 +1,5 @@
+## 节点池部署
+在云端节点池和边缘节点池分别部署Ingress Controller。
+云端节点池的Ingress Controller通过LoadBalancer类型的Service对外暴露服务，使用阿里云CLB地址作为端点。
+边缘节点池的Ingress Controller通过NodePort类型的Service对外暴露服务，使用节点池内任意节点的IP地址作为访问端点。
+您需要配置Service流量拓扑，来确保外部请求通过Ingress Controller转发到后端Service时，流量仅限于转发到同一节点池内的后端Pod。具体操作，请参见[节点池服务拓扑管理](configure-a-service-topology.md)。

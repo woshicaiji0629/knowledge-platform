@@ -1,0 +1,3 @@
+# 查看实例所在Region token=$(curl -s -X PUT -H "X-aliyun-ecs-metadata-token-ttl-seconds: 5" "http://100.100.100.200/latest/api/token") region_id=$(curl -s -H "X-aliyun-ecs-metadata-token: $token" http://100.100.100.200/latest/meta-data/region-id) # 配置PCCS_URL指向实例所在Region的PCCS PCCS_URL=https://sgx-dcap-server-vpc.${region_id}.aliyuncs.com/sgx/certification/v4/ sudo bash -c 'cat > /etc/sgx_default_qcnl.conf' << EOF # PCCS server address PCCS_URL=${PCCS_URL} # To accept insecure HTTPS cert, set this option to FALSE USE_SECURE_CERT=TRUE EOF
+方法二：手动修改/etc/sgx_default_qcnl.conf配置文件。
+如果vSGX实例已分配公网IP，/etc/sgx_default_qcnl.conf文件的内容修改如下。其中，[Region-ID]需替换为vSGX实例所在地域的ID。

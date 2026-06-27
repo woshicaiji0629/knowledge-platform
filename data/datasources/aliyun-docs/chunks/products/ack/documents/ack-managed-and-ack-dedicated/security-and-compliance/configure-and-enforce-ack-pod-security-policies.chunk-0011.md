@@ -1,0 +1,2 @@
+group": "", "version": "v1", "resource": "persistentvolumeclaims" "requestID": review.uid, "userInfo": review.userInfo, "requestFrom": "PVCProtector", "labelSelector": "protected", "limit": 1 } // 示例 2 { "action": "GetK8sResource", "namespaced": true, "namespace": "default", "group": "apps", "version": "v1", "resource": "deployments", "requestID": review.uid, "userInfo": review.userInfo, "requestFrom": "FinOpsPolicy", "labelSelector": "protected", "limit": 1 }
+核心参数说明：

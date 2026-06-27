@@ -1,0 +1,14 @@
+{
+  "id": "redis:user-guide/use-a-private-endpoint-to-connect-to-an-apsaradb-for-redis-instance:10",
+  "document_id": "redis:user-guide/use-a-private-endpoint-to-connect-to-an-apsaradb-for-redis-instance",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "deployment",
+  "title": "使用多种客户端通过直连模式连接Tair实例-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/use-a-private-endpoint-to-connect-to-an-apsaradb-for-redis-instance",
+  "chunk_index": 10,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/user-guide/use-a-private-endpoint-to-connect-to-an-apsaradb-for-redis-instance.chunk-0010.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/use-a-private-endpoint-to-connect-to-an-apsaradb-for-redis-instance.md",
+  "heading_path": "!/usr/bin/env python # -*- coding: utf-8 -*- from redis.cluster import RedisCluster # 分别将host和port的值替换为实例的连接地址、端口号。 host = 'r-bp10noxlhcoim2****.redis.rds.aliyuncs.com' port = 6379 # 分别将user和pwd的值替换为实例的账号和密码。 user = 'testaccount' pwd = 'Rp829dlwa' rc = RedisCluster(host=host, port=port, username=user, password=pwd) # 连接建立后即可执行数据库操作，下述代码为您提供SET与GET的使用示例。 rc.set('foo', 'bar') print(rc.get('foo')) > Spring Data Redis",
+  "char_count": 1200
+}

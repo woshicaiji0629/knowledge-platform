@@ -1,0 +1,17 @@
+{
+  "id": "sls:best-practice-use-oos-to-batch-install-or-upgrade-logtail",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "deployment",
+  "title": "如何使用OOS批量安装或升级Logtail-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/best-practice-use-oos-to-batch-install-or-upgrade-logtail",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/best-practice-use-oos-to-batch-install-or-upgrade-logtail.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/best-practice-use-oos-to-batch-install-or-upgrade-logtail.md",
+  "word_count": 766,
+  "text_units": 1697,
+  "local_links": 7,
+  "external_links": 72,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

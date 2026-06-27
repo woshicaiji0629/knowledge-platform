@@ -1,0 +1,14 @@
+时：
+系统路由表中不存在0.0.0.0/0的路由条目：系统将自动配置指向该公网NAT网关的路由条目。
+系统路由表中存在0.0.0.0/0的路由条目：需要先删除现有的路由条目，然后添加指向公网NAT网关的路由条目。
+路由到VPC对等连接
+不同VPC之间网络隔离，但可使用[VPC](vpc-peer-to-peer-connection.md)[对等连接](vpc-peer-to-peer-connection.md)实现同账号或跨账号、同地域或跨地域的两个VPC间的私网互通。在两个VPC之间建立对等连接后，VPC内部署的云产品资源可以通过私有IPv4地址或IPv6地址互相访问。
+路由到转发路由器
+当使用[云企业网](../../cen/documents/product-overview/what-is-cen.md)连通VPC时，VPC路由表中需添加指向转发路由器的路由条目，可选如下任一方式添加：
+创建VPC连接时，勾选自动为VPC的所有路由表配置指向转发路由器的路由。
+开启本功能后，系统将在VPC实例的所有路由表内自动配置目标网段为10.0.0.0/8、172.16.0.0/12、192.168.0.0/16的三条路由条目，其下一跳均指向VPC连接，用于引导VPC实例的IPv4流量进入转发路由器。
+在转发路由器中开启[路由学习](../../cen/documents/user-guide/route-learning.md)后：针对每个VPC开启[路由同步](../../cen/documents/user-guide/route-synchronization.md)；或手动在每个VPC路由表中添加指向对端VPC的路由条目。
+下图是在转发路由器开启路由学习后，手动在VPC路由表中添加了目标网段为对端VPC网段、下一跳为转发路由器的路由条目示例：
+路由到VPN网关
+通过VPN网关建立加密隧道，可实现本地数据中心等网络与云上专有网络之间安全可靠的网络连接。
+使用VPN网关时，需为VPC配置目标网段为本地IDC网段，下一跳为VPN网关的路由，实现[VPC](https://help.aliyun.com/zh/vpn/sub-product-ipsec-vpn/getting-started/establish-a-connection-between-the-vpc-and-the-on-premises-data)[通过](https://help.aliyun.com/zh/vpn/sub-product-ipsec-vpn/getting-started/establish-a-connection-between-the-vpc-and-the-on-premises-data)[IPsec-VPN](https://help.aliyun.com

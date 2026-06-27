@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/developer-reference/use-terraform-to-manage-components:17",
+  "document_id": "ack:ack-edge/developer-reference/use-terraform-to-manage-components",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "Terraform管理组件配置与生命周期-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/use-terraform-to-manage-components",
+  "chunk_index": 17,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/developer-reference/use-terraform-to-manage-components.chunk-0017.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/use-terraform-to-manage-components.md",
+  "heading_path": "定义Data Source获取gatekeeper组件的可配置参数Schema。 data \"alicloud_cs_kubernetes_addon_metadata\" \"default\" { cluster_id = \"ce36b7c61e126430b8b245730ca6d****\" name = \"gatekeeper\" version = \"v3.8.1.113-geb7947ef-aliyun\" } # 通过Output进行输出。 output \"addon_config_schema\" { value = data.alicloud_cs_kubernetes_addon_metadata.default.config_schema }",
+  "char_count": 1159
+}

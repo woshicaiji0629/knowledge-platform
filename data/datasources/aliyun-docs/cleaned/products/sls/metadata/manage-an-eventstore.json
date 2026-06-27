@@ -1,0 +1,17 @@
+{
+  "id": "sls:manage-an-eventstore",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "创建、修改、删除事件库EventStore-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/manage-an-eventstore",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/manage-an-eventstore.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/manage-an-eventstore.md",
+  "word_count": 796,
+  "text_units": 2218,
+  "local_links": 0,
+  "external_links": 76,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

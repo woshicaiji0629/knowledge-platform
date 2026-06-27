@@ -1,0 +1,17 @@
+{
+  "id": "sls:authorized-ram-user-operation-alarm",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "使用权限策略为RAM用户授予告警操作权限-日志服务-阿里云",
+  "source_url": "https://help.aliyun.com/zh/sls/authorized-ram-user-operation-alarm",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/authorized-ram-user-operation-alarm.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/authorized-ram-user-operation-alarm.md",
+  "word_count": 927,
+  "text_units": 1857,
+  "local_links": 17,
+  "external_links": 65,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

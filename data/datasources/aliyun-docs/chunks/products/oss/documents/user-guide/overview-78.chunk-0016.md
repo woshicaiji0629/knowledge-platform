@@ -1,0 +1,4 @@
+OssClient($accessKeyId, $accessKeySecret, $endpoint); try { // 暂停版本控制。 $ossClient->putBucketVersioning($bucket, "Suspended"); } catch (OssException $e) { printf(__FUNCTION__ . ": FAILED\n"); printf($e->getMessage() . "\n"); return; } print(__FUNCTION__ . ": OK" . "\n");
+Node.js
+const OSS = require("ali-oss"); const client = new OSS({ // yourregion填写Bucket所在地域。以华东1（杭州）为例，Region填写为oss-cn-hangzhou。 region: "oss-cn-hangzhou", // 从环境变量中获取访问凭证。运行本代码示例之前，请确保已设置环境变量OSS_ACCESS_KEY_ID和OSS_ACCESS_KEY_SECRET。 accessKeyId: process.env.OSS_ACCESS_KEY_ID, accessKeySecret: process.env.OSS_ACCESS_KEY_SECRET, // 填写存储空间名称，例如examplebucket。 bucket: "examplebucket", }); async function putBucketVersioning() { // 暂停版本控制。 const status = "Suspended"; const result = await client.putBucketVersioning("examplebucket", status); console.log(result); } putBucketVersioning();
+Python

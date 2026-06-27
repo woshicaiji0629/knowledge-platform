@@ -1,0 +1,17 @@
+{
+  "id": "sls:data-consumption-processor",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "数据消费处理器-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/data-consumption-processor",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/data-consumption-processor.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/data-consumption-processor.md",
+  "word_count": 868,
+  "text_units": 2447,
+  "local_links": 0,
+  "external_links": 88,
+  "has_tables": true,
+  "table_count": 5,
+  "quality": "accepted"
+}

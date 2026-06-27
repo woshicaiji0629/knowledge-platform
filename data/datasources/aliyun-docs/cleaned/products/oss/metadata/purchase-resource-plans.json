@@ -1,0 +1,17 @@
+{
+  "id": "oss:purchase-resource-plans",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "features",
+  "title": "购买OSS资源包-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/purchase-resource-plans",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/oss/documents/purchase-resource-plans.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/purchase-resource-plans.md",
+  "word_count": 835,
+  "text_units": 2590,
+  "local_links": 0,
+  "external_links": 71,
+  "has_tables": true,
+  "table_count": 7,
+  "quality": "accepted"
+}

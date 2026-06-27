@@ -1,0 +1,14 @@
+{
+  "id": "vpc:vpc-and-vswitch:14",
+  "document_id": "vpc:vpc-and-vswitch",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "专有网络与交换机-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/vpc-and-vswitch",
+  "chunk_index": 14,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/vpc-and-vswitch.chunk-0014.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/vpc-and-vswitch.md",
+  "heading_path": "指定创建VPC的地域 provider \"alicloud\" { region = \"cn-hangzhou\" } # 根据数据源自动获取可以创建交换机的可用区列表 data \"alicloud_zones\" \"available_zones\" { available_resource_creation = \"VSwitch\" # 查询VPC内可创建的可用区 # available_instance_type = \"ecs.g7.large\" # 查询VPC内可创建ECS实例的可用区 # available_resource_creation = \"slb\" # 查询VPC内可创建SLB实例的可用区 } # 创建双栈VPC resource \"alicloud_vpc\" \"example_vpc\" { vpc_name = \"example_vpc_name\" cidr_block = \"10.0.0.0/16\" enable_ipv6 = true # 开启IPv6，false为关闭IPv6 ipv6_isp = \"BGP\" # 指定IPv6网段类型 } # 创建双栈交换机 resource \"alicloud_vswitch\" \"example_vswitch\" { vswitch_name = \"example_vswitch_name\" cidr_block = \"10.0.0.0/24\" vpc_id = alicloud_vpc.example_vpc.id zone_id = data.alicloud_zones.available_zones.zones.0.id enable_ipv6 = true # 开启IPv6，false为关闭IPv6 ipv6_cidr_block_mask = 1 # 指定交换机IPv6网段的最后8比特位 } > 预留网段",
+  "char_count": 288
+}

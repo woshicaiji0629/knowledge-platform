@@ -1,0 +1,25 @@
++01:00 |
+| Europe/Prague | +01:00 |
+| Europe/Riga | +02:00 |
+| Europe/Rome | +01:00 |
+| Europe/Samara | +04:00 |
+| Europe/San_Marino | +01:00 |
+| Europe/Sarajevo | +01:00 |
+| Europe/Saratov | +04:00 |
+| Europe/Simferopol | +03:00 |
+| Europe/Skopje | +01:00 |
+| Europe/Sofia | +02:00 |
+| Europe/Stockholm | +01:00 |
+| Europe/Tallinn | +02:00 |
+| Europe/Tirane | +01:00 |
+| Europe/Ulyanovsk | +04:00 |
+| Europe/Uzhgorod | +02:00 |
+| Europe/Vaduz | +01:00 |
+| Europe/Vatican | +01:00 |
+| Europe/Vienna | +01:00 |
+| Europe/Vilnius | +02:00 |
+| Europe/Volgograd | +04:00 |
+| Europe/Warsaw | +01:00 |
+| Europe/Zagreb | +01:00 |
+| Europe/Zaporozhye | +02:00 |
+| Europe/Zurich | +01:00 |

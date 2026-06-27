@@ -1,0 +1,5 @@
+。 说明 仅当 迁移类型 选择了 增量迁移 ，才有此配置项。 |
+| 环境标签 | 您可以根据实际情况，选择用于标识实例的环境标签。本示例无需选择。 |
+| 是否去除正反向任务的心跳表 sql | 根据业务需求选择是否在 DTS 实例运行时，在源库中写入心跳 SQL 信息。 是 ：不在源库中写入心跳 SQL 信息，DTS 实例可能会显示有延迟。 否 ：在源库中写入心跳 SQL 信息，可能会影响源库的物理备份和克隆等功能。 |
+| 配置 ETL 功能 | 选择是否配置 ETL 功能。关于 ETL 的更多信息，请参见 [什么是](https://help.aliyun.com/zh/dts/user-guide/what-is-etl#task-2101705) [ETL](https://help.aliyun.com/zh/dts/user-guide/what-is-etl#task-2101705) 。 是 ：配置 ETL 功能，并在文本框中填写数据处理语句，详情请参见 [在](https://help.aliyun.com/zh/dts/user-guide/configure-etl-in-a-data-migration-or-data-synchronization-task#task-2189872) [DTS](https://help.aliyun.com/zh/dts/user-guide/configure-etl-in-a-data-migration-or-data-synchronization-task#task-2189872) [迁移或同步任务中配置](https://help.aliyun.com/zh/dts/user-guide/configure-etl-in-a-data-migration-or-data-synchronization-task#task-2189872) [ETL](https://help.aliyun.com/zh/dts/user-guide/configure-etl-in-a-data-migration-or-data-synchronization-task#task-2189872) 。 否 ：不配置 ETL 功能。 |
+| 监控告警 | 是否设置告警，当迁移失败或延迟超过阈值后，将通知告警联系人。 不设置 ：不设置告警。 设置 ：设置告警，您还需要设置告警阈值和 告警联系人 。更多信息，请参见 [在配置任务过程中配置监控告警](https://help.aliyun.com/zh/dts/user-guide/configure-monitoring-and-alerting-1#section-r6s-w5c-kmz) 。 |

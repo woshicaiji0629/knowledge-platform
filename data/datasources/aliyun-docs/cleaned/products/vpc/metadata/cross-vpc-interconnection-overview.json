@@ -1,0 +1,17 @@
+{
+  "id": "vpc:cross-vpc-interconnection-overview",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "deployment",
+  "title": "VPC互连-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/cross-vpc-interconnection-overview",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/cross-vpc-interconnection-overview.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/cross-vpc-interconnection-overview.md",
+  "word_count": 783,
+  "text_units": 1833,
+  "local_links": 11,
+  "external_links": 68,
+  "has_tables": true,
+  "table_count": 3,
+  "quality": "accepted"
+}

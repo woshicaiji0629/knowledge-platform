@@ -1,0 +1,6 @@
+ail\_buffer\_file_* 的文件移动到此目录，以保证 Logtail 可以读取到该缓存文件并在发送后进行删除。 | "buffer_file_path" : "" |
+| bind_interface | String | 本机绑定的网卡名。默认值为空，自动绑定可用的网卡。 如果设置为指定的网卡（例如 eth1），则表示 Logtail 将强制使用该网卡上传日志。 只支持 Linux 版本。 | "bind_interface" : "" |
+| check_point_filename | String | Logtail 的 checkpoint 文件的保存路径， 默认值： /tmp/logtail_check_point 。 建议 Docker/Kubernetes 用户参见 [iLogtail](https://developer.aliyun.com/article/901257) [容器重启数据可靠性探讨](https://developer.aliyun.com/article/901257) 进行配置，避免 Logtail 容器重启时丢失 checkpoint 信息等而造成采集重复或丢失。 | "check_point_filename" : /tmp/logtail_check_point |
+| check_point_dump_interval | int | Logtail 更新 Checkpoint 文件的周期，默认值：900，单位：秒。即默认情况下每 15 分钟更新一次 Checkpoint 文件。 仅 Linux Logtail 1.0.19 及以上版本或 Windows Logtail 1.0.19.0 及以上版本支持该参数。 | "check_point_dump_interval" : 900 |
+| user_config_file_path | String | Logtail 配置文件的保存路径，默认为进程 binary 所在目录，文件名为 user_log_config.json 。 建议 Docker/Kubernetes 用户参见 [iLogtail](https://developer.aliyun.com/article/901257) [容器重启数据可靠性探讨](https://developer.aliyun.com/article/901257) 进行配置，避免 Logtail 容器重启导致采集重复或丢失。 | "user_config_file_path" : user_log_config.json |
+| docker_file_cache_path | String | 该文件记录了容器文件到宿主机文件的路径映射，默认为 /usr/local/ilogtail/docker_pa

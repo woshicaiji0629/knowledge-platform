@@ -1,0 +1,14 @@
+{
+  "id": "vpc:identity-management-and-access-control:4",
+  "document_id": "vpc:identity-management-and-access-control",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "使用RAM进行访问控制-专有网络VPC-阿里云",
+  "source_url": "https://help.aliyun.com/zh/vpc/identity-management-and-access-control",
+  "chunk_index": 4,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/identity-management-and-access-control.chunk-0004.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/identity-management-and-access-control.md",
+  "heading_path": "使用RAM进行访问控制 > 为什么选择阿里云 > 技术内容",
+  "char_count": 201
+}

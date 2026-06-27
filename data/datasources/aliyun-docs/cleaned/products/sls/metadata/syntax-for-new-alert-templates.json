@@ -1,0 +1,17 @@
+{
+  "id": "sls:syntax-for-new-alert-templates",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "使用内容模板语法自定义告警通知-日志服务-阿里云",
+  "source_url": "https://help.aliyun.com/zh/sls/syntax-for-new-alert-templates",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/syntax-for-new-alert-templates.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/syntax-for-new-alert-templates.md",
+  "word_count": 1220,
+  "text_units": 3117,
+  "local_links": 0,
+  "external_links": 67,
+  "has_tables": true,
+  "table_count": 16,
+  "quality": "accepted"
+}

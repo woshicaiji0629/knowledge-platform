@@ -1,0 +1,17 @@
+{
+  "id": "sls:use-logtail-to-collect-data",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "Logtail（旧版采集器）-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/use-logtail-to-collect-data",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/use-logtail-to-collect-data.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/use-logtail-to-collect-data.md",
+  "word_count": 1227,
+  "text_units": 4574,
+  "local_links": 0,
+  "external_links": 108,
+  "has_tables": true,
+  "table_count": 5,
+  "quality": "accepted"
+}

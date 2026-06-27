@@ -1,0 +1,14 @@
+{
+  "id": "sls:collect-docker-container-text-logs:18",
+  "document_id": "sls:collect-docker-container-text-logs",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "采集Docker容器日志（标准输出/文件）-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/collect-docker-container-text-logs",
+  "chunk_index": 18,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/collect-docker-container-text-logs.chunk-0018.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/collect-docker-container-text-logs.md",
+  "heading_path": "LoongCollector镜像地址 docker pull aliyun-observability-release-registry.${region_id}.cr.aliyuncs.com/loongcollector/loongcollector:v3.0.12.0-25723a1-aliyun # Logtail镜像地址 docker pull registry.${region_id}.aliyuncs.com/log-service/logtail:v2.1.11.0-aliyun > 容器过滤 > 4. 日志分类",
+  "char_count": 101
+}

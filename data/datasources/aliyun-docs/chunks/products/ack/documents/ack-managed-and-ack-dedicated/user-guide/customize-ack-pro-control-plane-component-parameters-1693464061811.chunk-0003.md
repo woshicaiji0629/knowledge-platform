@@ -1,0 +1,11 @@
+| 组件名 | 参数 | 参数说明 |
+| --- | --- | --- |
+| Kube API Server | enableAdmissionPlugins | 默认为空。 |
+| serviceNodePortRange | 可选范围 10000～65535，默认为空。 重要 请谨慎修改 NodePort 端口范围，务必保证 NodePort 端口范围与集群节点上 Linux 内核提供的 net.ipv4.ip_local_port_range 参数的端口范围不冲突。更多信息，请参见 [如何正确配置](faq-about-network-management.md) [NodePort](faq-about-network-management.md) [范围？](faq-about-network-management.md) 。 |  |
+| requestTimeout | 默认为空。 |  |
+| defaultNotReadyTolerationSeconds | 默认为空。 |  |
+| defaultUnreachableTolerationSeconds | 默认为空。 |  |
+| maxMutatingRequestsInflight | 可选范围 1~1000，默认为空。 |  |
+| maxRequestsInflight | 可选范围 1~3000，默认为空。 |  |
+| featureGates | 可选参数包括 ServerSideApply 、 TTLAfterFinished 、 EphemeralContainers 、 RemoveSelfLink 、 HPAScaleToZero ，默认为空。 说明 支持在 1.18 及以上集群中使用 HPAScaleToZero ，不支持在 1.24 及以上集群中修改 RemoveSelfLink 。 |  |
+| oidcIssuerURL | 默认为空。 支持 1.18 及以上集群。 重要 配置 oidcIssuerURL 后，集群中 API Server 会访问 oidcIssuerURL 配置项对应的地址，如果您的服务域名为公网域名，请确保集群已开启公网访问能力，具体操作请参见 [为集群开启访问公网的能力](enable-an-existing-ack-cluster-to-access-the-internet.md) 。 如果集群开启公网访问后，API Server 仍无法访问 oidcIssuerURL 配置项中的地址，您可以通过 kubectl get endpoints 来检查 Kubernetes 后端的 IP 数量。 如果 IP 大于 1 个，请登录 Worker 节点尝试访问 oidcIssuerURL，并检查公网配置、安全组规则等。 如果只有 1

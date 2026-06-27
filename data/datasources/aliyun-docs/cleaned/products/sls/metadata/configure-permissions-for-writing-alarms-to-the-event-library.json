@@ -1,0 +1,17 @@
+{
+  "id": "sls:configure-permissions-for-writing-alarms-to-the-event-library",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "如何配置告警写入事件库的权限-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/configure-permissions-for-writing-alarms-to-the-event-library",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/configure-permissions-for-writing-alarms-to-the-event-library.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/configure-permissions-for-writing-alarms-to-the-event-library.md",
+  "word_count": 683,
+  "text_units": 1385,
+  "local_links": 10,
+  "external_links": 64,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

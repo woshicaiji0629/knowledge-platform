@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "基于gatekeeper组件配置Pod级别的安全策略管理-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies.md",
+  "word_count": 1618,
+  "text_units": 4707,
+  "local_links": 11,
+  "external_links": 76,
+  "has_tables": true,
+  "table_count": 8,
+  "quality": "accepted"
+}

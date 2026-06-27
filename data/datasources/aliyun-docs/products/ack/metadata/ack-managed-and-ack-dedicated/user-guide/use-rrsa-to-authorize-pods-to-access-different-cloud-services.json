@@ -1,0 +1,12 @@
+{
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services",
+  "title": "通过RRSA配置ServiceAccount的RAM权限实现Pod权限隔离-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "fetched_at": "2026-06-27T07:39:04.065175+00:00",
+  "status_code": "200",
+  "content_type": "text/html;charset=UTF-8",
+  "raw_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/raw/ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.html",
+  "document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md"
+}

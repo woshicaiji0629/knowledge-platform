@@ -1,0 +1,2 @@
+## Pod无法创建，报错详情：PodSecurityPolicy: unable to admit pod: pod.spec.securityContext.sysctls[0]: Forbidden: unsafe sysctl
+出于安全考量，集群默认不允许创建使用“不安全”sysctl的 Pod。如需为特定应用开启此权限，可通过创建新的 Pod 安全策略来实现。具体操作，请参见[Pod](use-pod-security-policies.md)[创建失败，报错信息包含](use-pod-security-policies.md)[PodSecurityPolicy: unable to admit pod: pod.spec.securityContext.sysctls[0]: Forbidden: unsafe sysctl](use-pod-security-policies.md)。

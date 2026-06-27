@@ -1,0 +1,18 @@
+# 操作指南
+更新时间: 2023-07-10 12:21:29
+- [授权](user-guide/authorization-2.md)
+- [集群](user-guide/cluster-2.md)
+- [ECI Pod](user-guide/eci-pod.md)
+- [镜像](user-guide/images.md)
+- [应用](user-guide/application-11.md)
+- [配置项及密钥](user-guide/configmaps-and-secrets.md)
+- [存储-CSI](user-guide/storage-csi.md)
+- [【已弃用】存储-Flexvolume](user-guide/deprecated-storage-flexvolume.md)
+- [网络](user-guide/network-2.md)
+- [日志](user-guide/log-management.md)
+- [监控](user-guide/monitoring.md)
+- [弹性伸缩](user-guide/auto-scaling.md)
+- [调度](user-guide/scheduling.md)
+- [Knative](user-guide/knative.md)
+- [AIOps套件](user-guide/cluster-inspection-and-diagnosis.md)
+[阿里云首页](https://www.aliyun.com/)[容器服务Kubernetes版](https://www.aliyun.com/product/kubernetes)[相关技术圈](https://developer.aliyun.com/group/kubernetes/)

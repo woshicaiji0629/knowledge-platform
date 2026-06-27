@@ -1,0 +1,17 @@
+{
+  "id": "redis:user-guide/latency-insights",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "数据库命令事件时延统计分析-时延洞察-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/latency-insights",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/user-guide/latency-insights.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/latency-insights.md",
+  "word_count": 874,
+  "text_units": 2256,
+  "local_links": 1,
+  "external_links": 68,
+  "has_tables": true,
+  "table_count": 6,
+  "quality": "accepted"
+}

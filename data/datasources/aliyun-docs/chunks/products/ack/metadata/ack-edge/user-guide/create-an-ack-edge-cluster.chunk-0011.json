@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/user-guide/create-an-ack-edge-cluster:11",
+  "document_id": "ack:ack-edge/user-guide/create-an-ack-edge-cluster",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "调用CreateCluster接口创建ACK Edge集群-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/user-guide/create-an-ack-edge-cluster",
+  "chunk_index": 11,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/user-guide/create-an-ack-edge-cluster.chunk-0011.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/user-guide/create-an-ack-edge-cluster.md",
+  "heading_path": "通过OpenAPI创建ACK Edge集群 > 创建ACK边缘托管版集群示例",
+  "char_count": 656
+}

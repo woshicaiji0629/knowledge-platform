@@ -1,0 +1,14 @@
+{
+  "id": "redis:developer-reference/tairsearch-word-splitter:7",
+  "document_id": "redis:developer-reference/tairsearch-word-splitter",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "Search分词器类型与配置方法-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/developer-reference/tairsearch-word-splitter",
+  "chunk_index": 7,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/developer-reference/tairsearch-word-splitter.chunk-0007.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/tairsearch-word-splitter.md",
+  "heading_path": "默认配置： { \"mappings\":{ \"properties\":{ \"f0\":{ \"type\":\"text\", \"analyzer\":\"jieba\" } } } } # 自定义停用词配置： { \"mappings\":{ \"properties\":{ \"f0\":{ \"type\":\"text\", \"analyzer\":\"my_analyzer\" } } }, \"settings\":{ \"analysis\":{ \"analyzer\":{ \"my_analyzer\":{ \"type\":\"jieba\", \"stopwords\":[ \"memory\", \"disk\", \"is\", \"a\" ],\"userwords\":[ \"Redis\", \"开源免费\", \"灵活\" ], \"use_hmm\":true } } } } } > IK",
+  "char_count": 1200
+}

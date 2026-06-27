@@ -1,0 +1,5 @@
+、remote_user、http_referer、http_user_agent、status、server_protocal、http_x_forward_for、upstream_addr字段不包含叶子节点，可以在content字段下直接建立索引。
+request、time字段包含叶子节点，而且叶子节点不是JSON数组。
+不能为request、time这两个父字段本身建立索引，也不能查询分析这两个父字段。
+可以为request、time下的叶子节点建立索引，需要指定完整的路径，从最外层的父字段到最内层的叶子节点。格式为KEY1.KEY2.KEY3，例如time.request_time、time.upstream_response_time。建立索引后，可以查询time.request_time、time.upstream_response_time字段。
+body_bytes_sent字段的值为JSON数组，不能建立索引，也不能为叶子节点建立索引。不能查询分析body_bytes_sent字段或body_bytes_sent的叶子节点。

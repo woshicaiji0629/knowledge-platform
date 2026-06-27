@@ -1,0 +1,2 @@
+### 添加可疑Referer至黑名单
+攻击者在请求头中伪造Referer字段，以假冒合法的引用来源，进行恶意请求。配置Referer黑白名单，允许合法的Referer访问，防止未经授权的第三方网站链接到资源，拒绝带有恶意Referer的请求。在规则输入框中填写日志中查询出的异常Referer，建议勾选忽略Scheme。具体操作请参见[配置](../user-guide/configure-a-referer-whitelist-or-blacklist-to-enable-hotlink-protection.md)[Referer](../user-guide/configure-a-referer-whitelist-or-blacklist-to-enable-hotlink-protection.md)[黑/白名单](../user-guide/configure-a-referer-whitelist-or-blacklist-to-enable-hotlink-protection.md)。

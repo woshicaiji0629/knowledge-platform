@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-edge/security-and-compliance/dynamically-add-the-ip-addresses-of-pods-to-the-whitelists-of-alibaba-cloud-services",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "为Pod动态添加IP到RDS白名单-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/security-and-compliance/dynamically-add-the-ip-addresses-of-pods-to-the-whitelists-of-alibaba-cloud-services",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-edge/security-and-compliance/dynamically-add-the-ip-addresses-of-pods-to-the-whitelists-of-alibaba-cloud-services.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/security-and-compliance/dynamically-add-the-ip-addresses-of-pods-to-the-whitelists-of-alibaba-cloud-services.md",
+  "word_count": 1164,
+  "text_units": 2552,
+  "local_links": 17,
+  "external_links": 71,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

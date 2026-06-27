@@ -1,0 +1,14 @@
+{
+  "id": "sls:collect-text-logs-of-self-built-k8s-clusters-deploy-logtail-in-daemonset-mode-2:50",
+  "document_id": "sls:collect-text-logs-of-self-built-k8s-clusters-deploy-logtail-in-daemonset-mode-2",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "deployment",
+  "title": "通过AliyunPipelineConfig CRD在Kubernetes集群中采集容器标准输出和文件日志-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/collect-text-logs-of-self-built-k8s-clusters-deploy-logtail-in-daemonset-mode-2",
+  "chunk_index": 50,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/collect-text-logs-of-self-built-k8s-clusters-deploy-logtail-in-daemonset-mode-2.chunk-0050.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/collect-text-logs-of-self-built-k8s-clusters-deploy-logtail-in-daemonset-mode-2.md",
+  "heading_path": "检查Pod状态 kubectl get po -n kube-system | grep loongcollector-ds > 附录：正则表达式使用限制（容器过滤） > 产品和定价",
+  "char_count": 272
+}

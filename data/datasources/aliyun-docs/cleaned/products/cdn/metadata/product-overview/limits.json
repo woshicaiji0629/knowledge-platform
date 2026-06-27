@@ -1,0 +1,17 @@
+{
+  "id": "cdn:product-overview/limits",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "performance",
+  "title": "使用限制-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/product-overview/limits",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/product-overview/limits.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/product-overview/limits.md",
+  "word_count": 2155,
+  "text_units": 6353,
+  "local_links": 31,
+  "external_links": 87,
+  "has_tables": true,
+  "table_count": 16,
+  "quality": "accepted"
+}

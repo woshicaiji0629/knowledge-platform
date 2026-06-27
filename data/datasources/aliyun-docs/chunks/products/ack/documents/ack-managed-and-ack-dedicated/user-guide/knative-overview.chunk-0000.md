@@ -1,0 +1,2 @@
+# Knative概述
+Knative是一款基于Kubernetes的Serverless框架，支持基于请求的自动弹性、在没有流量时将实例数量自动缩容至零、版本管理与灰度发布等能力。在完全兼容社区Knative和Kubernetes API的基础上，ACK Knative进行了多维度的能力增强，例如通过保留实例降低冷启动时间、基于AHPA实现弹性预测等。

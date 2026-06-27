@@ -1,0 +1,1 @@
+ata: name: coredns namespace: kube-system --- apiVersion: v1 kind: Service metadata: labels: k8s-app: kube-dns kubernetes.io/cluster-service: "true" kubernetes.io/name: KubeDNS name: kube-dns namespace: kube-system

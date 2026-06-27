@@ -1,0 +1,17 @@
+{
+  "id": "vpc:dhcp-option-set-and-dns-hostname",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "DHCP选项集与DNS主机名-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/dhcp-option-set-and-dns-hostname",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/dhcp-option-set-and-dns-hostname.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/dhcp-option-set-and-dns-hostname.md",
+  "word_count": 2417,
+  "text_units": 5761,
+  "local_links": 4,
+  "external_links": 106,
+  "has_tables": true,
+  "table_count": 17,
+  "quality": "accepted"
+}

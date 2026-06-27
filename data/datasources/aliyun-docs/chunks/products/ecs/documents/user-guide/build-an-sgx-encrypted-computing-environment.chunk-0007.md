@@ -1,0 +1,3 @@
+### 步骤二：构建SGX机密计算环境
+为开发SGX程序，您需要在vSGX实例上安装运行时（runtime）、SDK，并配置远程证明服务，建议您使用阿里云提供的专用镜像获得更好的使用体验。这些镜像已搭载SGX驱动，并提供完全兼容Intel®SGX SDK的阿里云TEE SDK。本文以Alibaba Cloud Linux 2/3和Ubuntu 22.04 UEFI镜像为例演示构建过程，如果您使用CentOS等Linux镜像，请参考Intel官方提供的[Intel](https://download.01.org/intel-sgx/latest/linux-latest/docs/Intel_SGX_SW_Installation_Guide_for_Linux.pdf)[®](https://download.01.org/intel-sgx/latest/linux-latest/docs/Intel_SGX_SW_Installation_Guide_for_Linux.pdf)[SGX](https://download.01.org/intel-sgx/latest/linux-latest/docs/Intel_SGX_SW_Installation_Guide_for_Linux.pdf)[软件安装指南](https://download.01.org/intel-sgx/latest/linux-latest/docs/Intel_SGX_SW_Installation_Guide_for_Linux.pdf)安装所需的驱动、PSW等。
+安装构建SGX机密计算环境所需模块。

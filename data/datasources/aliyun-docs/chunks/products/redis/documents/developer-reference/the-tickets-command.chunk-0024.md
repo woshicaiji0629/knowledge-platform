@@ -1,0 +1,1 @@
+WITHLABELS FILTER sensor_id=1 返回示例： 1) 1) "temperature" 2) 1) 1) "sensor_id" 2) "1" 3) 1) 1) (integer) 1644481000000 2) "30" 4) (integer) 0 2) 1) "test" 2) 1) 1) "sensor_id" 2) "1" 3) 1) 1) (integer) 1644459730000 2) "20" 2) 1) (integer) 1644459790000 2) "20" 3) 1) (integer) 1644460620000 2) "29" 4) (integer) 0 |

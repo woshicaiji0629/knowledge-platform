@@ -1,0 +1,19 @@
+## 常见问题
+在客户端查看实例监控，为什么看不到数据？
+在客户端查看监控数据前需要先[为登录的](../../../ram/documents/user-guide/grant-permissions-to-the-ram-user.md)[RAM](../../../ram/documents/user-guide/grant-permissions-to-the-ram-user.md)[用户授予](../../../ram/documents/user-guide/grant-permissions-to-the-ram-user.md)[AliyunCloudMonitorMetricDataReadOnlyAccess](../../../ram/documents/user-guide/grant-permissions-to-the-ram-user.md)权限。
+如何设置SSH密钥文件实现免密登录？
+为绑定密钥对的ECS实例在客户端添加SSH密钥，可实现免密登录ECS，不需要输入密码、密钥文件等。
+在阿里云客户端首页，单击云服务器(ECS)。在实例列表上方选择实例所在地域。
+在实例列表中找到目标实例，在对应的操作列中选择实例系统管理>添加SSH密钥。
+在添加SSH密钥对话框中，选择本地SSH密钥文件，选择追加密钥或替换密钥，然后单击添加SSH密钥。
+如何在客户端中下载OSS文件到实例？
+重要
+需要先为[登录的](../../../ram/documents/user-guide/grant-permissions-to-the-ram-user.md)[RAM](../../../ram/documents/user-guide/grant-permissions-to-the-ram-user.md)[用户授予](../../../ram/documents/user-guide/grant-permissions-to-the-ram-user.md)[AliyunOSSFullAccess](../../../ram/documents/user-guide/grant-permissions-to-the-ram-user.md)的权限。
+客户端还支持下载OSS文件到实例和上传实例文件到OSS。
+在阿里云客户端首页，单击云服务器(ECS)。在实例列表上方选择实例所在地域。
+在实例列表中找到目标实例，在对应的操作列中选择文件管理(SFTP)...。
+在对话框中，配置用户名和端口。并选择认证方式：
+临时密码：临时生成一个密钥对，并把公钥通过云助手发送到实例内，再使用私钥登录实例。此方式无需管理密码或密钥文件，更为简便。
+密码：需要输入ECS实例的密码。
+密钥文件：使用SSH私钥文件进行登录。可通过以下两种方式获取私钥文件。
+在目标实例对

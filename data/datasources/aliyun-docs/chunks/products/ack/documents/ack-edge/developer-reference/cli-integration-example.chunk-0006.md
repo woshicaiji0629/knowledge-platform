@@ -1,0 +1,6 @@
+### 示例二：查询集群详情
+以下示例将为您展示如何使用阿里云CLI调用ACKDescribeClusterDetail接口，根据集群ID查询指定ACK集群的详细信息。更多接口信息，请参见[查询指定集群的信息](../../ack-managed-and-ack-dedicated/developer-reference/api-cs-2015-12-15-describeclusterdetail.md)。
+执行以下命令。
+aliyun cs GET /clusters/cdde1f21ae22e483ebcb068a6eb7f****
+预期输出。
+{ "cluster_id": "c82e6987e2961451182edacd74faf****", "cluster_type": "Kubernetes", "created": "2019-11-25T15:50:20+08:00", "init_version": "1.16.6-aliyun.1", "current_version": "1.16.6-aliyun.1", "next_version": "1.18.8-aliyun.1", "deletion_protection": true, "docker_version": "19.03.5", "external_loadbalancer_id": "lb-2zehc05z3b8dwiifh****", "meta_data": "\\\"Addons\\\":***", "name": "cluster-demo", "network_mode": "vpc", "region_id": "cn-beijing", "resource_group_id": "rg-acfmyvw3wjm****", "security_group_id": "sg-25yq****", "container_cidr": "172.20.0.0/16", "service_cidr": "172.21.0.0/20", "proxy_mode": "ipvs", "timezone": "Asia/Shanghai", "node_cidr_mask": "26", "ip_stack": "ipv4", "cluster_domain": "cluster.local", "size": 5, "state": "running", "tags": [ { "key": "env", "value": "prod" } ], "updated": "2020-01-13T23:01:03+08:00", "vpc_id": "vpc-2zecuu62b9zw7a7qn****", "vswitch_id": "vsw-2zete8s4qocqg0

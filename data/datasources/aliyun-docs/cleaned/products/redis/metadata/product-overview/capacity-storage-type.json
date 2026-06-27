@@ -1,0 +1,17 @@
+{
+  "id": "redis:product-overview/capacity-storage-type",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "performance",
+  "title": "Tair磁盘型的实例规格-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/capacity-storage-type",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/product-overview/capacity-storage-type.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/capacity-storage-type.md",
+  "word_count": 1154,
+  "text_units": 2539,
+  "local_links": 6,
+  "external_links": 66,
+  "has_tables": true,
+  "table_count": 32,
+  "quality": "accepted"
+}

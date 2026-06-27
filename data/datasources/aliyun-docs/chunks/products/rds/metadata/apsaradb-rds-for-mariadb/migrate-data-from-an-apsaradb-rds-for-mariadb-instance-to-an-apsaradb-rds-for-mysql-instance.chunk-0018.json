@@ -1,0 +1,14 @@
+{
+  "id": "rds:apsaradb-rds-for-mariadb/migrate-data-from-an-apsaradb-rds-for-mariadb-instance-to-an-apsaradb-rds-for-mysql-instance:18",
+  "document_id": "rds:apsaradb-rds-for-mariadb/migrate-data-from-an-apsaradb-rds-for-mariadb-instance-to-an-apsaradb-rds-for-mysql-instance",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "使用DTS将RDS MariaDB数据迁移至RDS MySQL-云数据库 RDS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mariadb/migrate-data-from-an-apsaradb-rds-for-mariadb-instance-to-an-apsaradb-rds-for-mysql-instance",
+  "chunk_index": 18,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/rds/documents/apsaradb-rds-for-mariadb/migrate-data-from-an-apsaradb-rds-for-mariadb-instance-to-an-apsaradb-rds-for-mysql-instance.chunk-0018.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mariadb/migrate-data-from-an-apsaradb-rds-for-mariadb-instance-to-an-apsaradb-rds-for-mysql-instance.md",
+  "heading_path": "从RDS MariaDB迁移至RDS MySQL > 后续步骤 > 为什么选择阿里云",
+  "char_count": 328
+}

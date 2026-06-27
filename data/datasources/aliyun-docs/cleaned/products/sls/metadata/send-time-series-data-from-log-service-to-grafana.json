@@ -1,0 +1,17 @@
+{
+  "id": "sls:send-time-series-data-from-log-service-to-grafana",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "配置Prometheus监控数据为Grafana数据源-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/send-time-series-data-from-log-service-to-grafana",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/send-time-series-data-from-log-service-to-grafana.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/send-time-series-data-from-log-service-to-grafana.md",
+  "word_count": 880,
+  "text_units": 1596,
+  "local_links": 0,
+  "external_links": 83,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

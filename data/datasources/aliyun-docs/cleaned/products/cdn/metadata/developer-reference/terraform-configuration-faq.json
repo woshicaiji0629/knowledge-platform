@@ -1,0 +1,17 @@
+{
+  "id": "cdn:developer-reference/terraform-configuration-faq",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "troubleshoot",
+  "title": "使用Terraform配置CDN证书的常见问题-CDN-阿里云",
+  "source_url": "https://help.aliyun.com/zh/cdn/developer-reference/terraform-configuration-faq",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/developer-reference/terraform-configuration-faq.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/developer-reference/terraform-configuration-faq.md",
+  "word_count": 654,
+  "text_units": 1344,
+  "local_links": 0,
+  "external_links": 62,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

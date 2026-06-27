@@ -1,0 +1,2 @@
+## 通用型（默认）
+apiVersion: argoproj.io/v1alpha1 kind: Workflow metadata: generateName: helloworld-- spec: entrypoint: helloworld templates: - name: helloworld metadata: labels: alibabacloud.com/acs: "true" # 默认配置可以省略 alibabacloud.com/compute-class: general-purpose # 默认配置可以省略 container: image: mirrors-ssl.aliyuncs.com/busybox:latest resources: # 默认配置可以省略 limits: cpu: 2 memory: "4Gi" requests: cpu: 2 memory: "4Gi" command: - sh - -c args: - echo "Hello, world!"; sleep 30;

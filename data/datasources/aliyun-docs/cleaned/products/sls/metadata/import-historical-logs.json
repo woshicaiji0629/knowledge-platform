@@ -1,0 +1,17 @@
+{
+  "id": "sls:import-historical-logs",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "如何通过Logtail导入历史日志文件-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/import-historical-logs",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/import-historical-logs.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/import-historical-logs.md",
+  "word_count": 802,
+  "text_units": 2011,
+  "local_links": 0,
+  "external_links": 74,
+  "has_tables": true,
+  "table_count": 5,
+  "quality": "accepted"
+}

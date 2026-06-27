@@ -1,0 +1,17 @@
+{
+  "id": "sls:sls-alerting",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "什么是日志服务告警-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/sls-alerting",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/sls-alerting.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/sls-alerting.md",
+  "word_count": 1800,
+  "text_units": 8619,
+  "local_links": 0,
+  "external_links": 101,
+  "has_tables": true,
+  "table_count": 17,
+  "quality": "accepted"
+}

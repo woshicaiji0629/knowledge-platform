@@ -1,0 +1,2 @@
+### 海外地域名称在不同页面中显示不一致？
+部分海外地域名称在OSS产品定价页面和资源包购买页面中可能存在表述差异，但均指向相同的物理地理位置。例如，美国（硅谷）地域在不同页面中可能显示为美西1或美西，更多信息请参见[OSS](https://www.aliyun.com/price/product?spm=a2c4g.11186623.0.0.628c4d22ZdP2B0#/oss/detail/oss)[产品定价](https://www.aliyun.com/price/product?spm=a2c4g.11186623.0.0.628c4d22ZdP2B0#/oss/detail/oss)或[购买资源包](https://common-buy.aliyun.com/?spm=5176.7933691.1309819..68b22a66FQKm7f&commodityCode=ossbag&request=%7B%22region%22%3A%22china-common%22%7D#/buy)。

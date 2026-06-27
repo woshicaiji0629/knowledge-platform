@@ -1,0 +1,17 @@
+{
+  "id": "sls:data-tamper-proof",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "基于AppendOnly模式的数据防篡改原理-日志服务-阿里云",
+  "source_url": "https://help.aliyun.com/zh/sls/data-tamper-proof",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/data-tamper-proof.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/data-tamper-proof.md",
+  "word_count": 470,
+  "text_units": 984,
+  "local_links": 0,
+  "external_links": 61,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

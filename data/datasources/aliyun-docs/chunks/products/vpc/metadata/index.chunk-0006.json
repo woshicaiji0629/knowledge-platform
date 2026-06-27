@@ -1,0 +1,14 @@
+{
+  "id": "vpc:index:6",
+  "document_id": "vpc:index",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "专有网络VPC-专有网络VPC-阿里云",
+  "source_url": "https://help.aliyun.com/zh/vpc/",
+  "chunk_index": 6,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/index.chunk-0006.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/index.md",
+  "heading_path": "专有网络VPC > 学习路径 > 大模型",
+  "char_count": 197
+}

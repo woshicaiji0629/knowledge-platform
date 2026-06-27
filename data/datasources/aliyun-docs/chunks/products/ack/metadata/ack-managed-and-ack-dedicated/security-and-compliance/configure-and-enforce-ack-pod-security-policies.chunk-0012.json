@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies:12",
+  "document_id": "ack:ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "基于gatekeeper组件配置Pod级别的安全策略管理-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies",
+  "chunk_index": 12,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies.chunk-0012.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies.md",
+  "heading_path": "通过安全策略管理配置Pod的安全策略 > 相关操作 > 通过ack-policy-external-provider实现跨资源验证",
+  "char_count": 753
+}

@@ -1,0 +1,14 @@
+{
+  "id": "ecs:spot-instance:2",
+  "document_id": "ecs:spot-instance",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "pricing",
+  "title": "抢占式实例如何计费-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/spot-instance",
+  "chunk_index": 2,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ecs/documents/spot-instance.chunk-0002.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/spot-instance.md",
+  "heading_path": "抢占式实例 > 相关文档",
+  "char_count": 186
+}

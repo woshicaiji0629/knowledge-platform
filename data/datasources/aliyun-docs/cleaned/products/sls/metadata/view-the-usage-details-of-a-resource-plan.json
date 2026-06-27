@@ -1,0 +1,17 @@
+{
+  "id": "sls:view-the-usage-details-of-a-resource-plan",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "如何查询日志服务资源包使用明细-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/view-the-usage-details-of-a-resource-plan",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/view-the-usage-details-of-a-resource-plan.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/view-the-usage-details-of-a-resource-plan.md",
+  "word_count": 463,
+  "text_units": 833,
+  "local_links": 0,
+  "external_links": 62,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

@@ -1,0 +1,19 @@
+## 步骤二：采集Nginx监控日志
+登录[日志服务控制台](https://sls.console.aliyun.com)。
+单击控制台页面右侧的快速接入数据卡片。
+在接入数据页面，查找自定义数据插件并单击。
+选择目标Project和LogStore，单击下一步。
+创建机器组。
+如果您已有可用的机器组，请单击使用现有机器组。
+如果您还没有可用的机器组，请执行以下操作（以ECS为例）。
+在ECS机器页签中，通过手动选择实例方式选择目标ECS实例，单击创建。
+具体操作，请参见[安装](install-logtail-on-ecs-instances.md)[Logtail（ECS](install-logtail-on-ecs-instances.md)[实例）](install-logtail-on-ecs-instances.md)。
+重要
+如果您的服务器是与日志服务属于不同账号的ECS、其他云厂商的服务器和自建IDC时，您需要手动安装Logtail。更多信息，请参见[安装](install-logtail-on-a-linux-server.md)[Logtail（Linux](install-logtail-on-a-linux-server.md)[系统）](install-logtail-on-a-linux-server.md)或[安装](install-logtail-on-a-windows-server.md)[Logtail（Windows](install-logtail-on-a-windows-server.md)[系统）](install-logtail-on-a-windows-server.md)。
+手动安装Logtail后，您必须在该服务器上手动配置用户标识。具体操作，请参见[配置用户标识](configure-a-user-identifier.md)。
+安装完成后，单击确认安装完毕。
+在创建机器组页面，输入名称，单击下一步。
+日志服务支持创建IP地址机器组和用户自定义标识机器组，详细参数说明请参见[创建](create-an-ip-address-based-machine-group.md)[IP](create-an-ip-address-based-machine-group.md)[地址机器组](create-an-ip-address-based-machine-group.md)和[创建用户自定义标识机器组](create-a-user-defined-identity-machine-group.md)。
+确认目标机器组已在应用机器组区域，单击下一步。
+重要
+创建机器组后立刻应用，可能因为连接未生效，导致心跳为FAIL，您可单击自动重试。如果还未解决，请参见[Logtail](troubleshoot-th

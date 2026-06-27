@@ -1,0 +1,12 @@
+{
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/user-guide/use-rds-for-argo-workflow-persistence",
+  "title": "配置Argo工作流将日志与状态持久化到RDS数据库-容器服务Kubernetes版ACK-阿里云",
+  "fetched_at": "2026-06-27T08:26:07.428135+00:00",
+  "status_code": "200",
+  "content_type": "text/html;charset=UTF-8",
+  "raw_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/raw/ack-argo-workflow-cluster/user-guide/use-rds-for-argo-workflow-persistence.html",
+  "document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-argo-workflow-cluster/user-guide/use-rds-for-argo-workflow-persistence.md"
+}

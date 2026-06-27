@@ -1,0 +1,1 @@
+置 HTTP 路由、请求 Header 修改和按比例分发请求。 | [使用](../ack-edge/user-guide/using-gateway-with-inference-extension-to-access-services.md) [Gateway with Inference Extension](../ack-edge/user-guide/using-gateway-with-inference-extension-to-access-services.md) [访问服务](../ack-edge/user-guide/using-gateway-with-inference-extension-to-access-services.md) |

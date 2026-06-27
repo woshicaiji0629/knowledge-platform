@@ -1,0 +1,17 @@
+{
+  "id": "vpc:vpc-sharing",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "共享VPC-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/vpc-sharing",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/vpc-sharing.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/vpc-sharing.md",
+  "word_count": 1479,
+  "text_units": 4532,
+  "local_links": 4,
+  "external_links": 94,
+  "has_tables": true,
+  "table_count": 11,
+  "quality": "accepted"
+}

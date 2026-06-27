@@ -1,0 +1,9 @@
+## 步骤二：在Master节点上配置Kube API Server文件
+依次登录所有Master节点机器，在Kube API Server文件的路径/etc/kubernetes/manifests/kube-apiserver.yaml，请完成以下相关配置：
+根据以下示例添加command参数--audit-log-*：
+... spec: containers: - command: - kube-apiserver - --audit-log-maxbackup=10 - --audit-log-maxsize=100 - --audit-log-path=/var/log/kubernetes/kubernetes.audit - --audit-log-maxage=30 - --audit-policy-file=/etc/kubernetes/audit-policy.yaml ...
+根据以下示例添加env参数aliyun_logs_audit-*：
+... spec: containers: - command: - kube-apiserver - --audit-log-maxbackup=10 - --audit-log-maxsize=100 - --audit-log-path=/var/log/kubernetes/kubernetes.audit - --audit-log-maxage=30 - --audit-policy-file=/etc/kubernetes/audit-policy.yaml ... ... env: - name: aliyun_logs_audit-${cluster_id} value: /var/log/kubernetes/kubernetes.audit - name: aliyun_logs_audit-${cluster_id}_tags value: audit=apiserver - name: aliyun_logs_audit-${cluster_id}_product value: k8s-audit - name: aliyun_logs_audit-${cluster_id}_jsonfile value: "true" image: registry-vpc.cn-shenzhen.aliyuncs.com/acs/kube-apiserver:v1.20.4-aliyun.1
+重要
+需要将{cluster_id}替换为您集群的Cluster ID。关于集群ID的获取，请参见[查看集群信息](../../ack-managed-and-ack-dedicated/user-guide/view-cluster-information.md)。
+根据以下示例挂载/et

@@ -1,0 +1,17 @@
+{
+  "id": "cdn:use-cases/best-practices-for-preventing-traffic-theft",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "防范流量盗刷最佳实践-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/use-cases/best-practices-for-preventing-traffic-theft",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/use-cases/best-practices-for-preventing-traffic-theft.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/use-cases/best-practices-for-preventing-traffic-theft.md",
+  "word_count": 1811,
+  "text_units": 6047,
+  "local_links": 18,
+  "external_links": 109,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

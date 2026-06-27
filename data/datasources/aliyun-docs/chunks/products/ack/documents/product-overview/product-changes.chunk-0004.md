@@ -1,0 +1,12 @@
+ntainer-service-serverless-cluster-architecture.md)
+- [【产品变更】关于CheckServiceRole鉴权失败公告](product-change-announcement-on-checkservicerole-authentication-failure.md)
+- [【产品变更】关于新增集群停止提供Ingress测试域名的公告](product-change-announcement-on-the-offline-of-alicontainer-com-test-domain-name-service.md)
+- [【产品变更】基于CIS的加固功能下线公告](cis-reinforcement-downline-announcement.md)
+- [【产品变更】容器服务发行版 ACK Distro停止维护公告](ack-distro-eol.md)
+- [【产品变更】停止维护Alibaba Cloud Linux 2、CentOS 7的公告](announcement-on-stopping-maintenance-of-alibaba-cloud-linux-2-and-centos-7.md)
+- [【产品变更】ACK集群API Server内部证书有效时长变更公告](validity-period-change-for-api-server-internal-certificates.md)
+- [【产品变更】ACK新建集群API Server的CLB实例默认计费方式切换为按使用量计费](billing-method-change-for-the-clb-instance-of-the-api-server-in-new-ack-clusters.md)
+- [【产品变更】应用中心功能迁移至分布式云容器平台ACK One GitOps公告](application-center-function-migration-to-distributed-cloud-container-platform-ack-one-gitops-announcement.md)
+- [【产品变更】升级1.22版本后ServiceAccount Token过期解决方案](solution-to-serviceaccount-token-expiration-after-upgrading-122-version.md)
+- [【产品变更】迁移低版本ACK集群监控端口至鉴权端口](product-updates-replace-the-monitoring-port-with-authentication-port-in-ack-clusters-of-earlier-versions.md)
+- [【产品变更】容

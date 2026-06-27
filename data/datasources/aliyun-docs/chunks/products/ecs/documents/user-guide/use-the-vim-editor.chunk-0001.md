@@ -1,0 +1,3 @@
+## 安装情况
+Linux系统都已经默认安装Vim工具，您无需进行安装。在终端中输入vim --version查看Vim版本信息。本文档以vim 8.0版本为例进行介绍，其他版本可能存在差异，请参考使用。
+VIM - Vi IMproved 8.0 (2016 Sep 12, compiled Aug 10 2022 11:26:47) Included patches: 1-1763 Modified by OpenAnolis Community Compiled by OpenAnolis Community Huge version without GUI. Features included (+) or not (-): +acl +farsi +mouse_sgr -tag_any_white ......

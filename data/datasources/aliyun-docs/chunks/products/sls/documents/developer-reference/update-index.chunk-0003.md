@@ -1,0 +1,6 @@
+e-a的索引配置。命令示例如下：
+aliyunlog log update_index --project_name="aliyun-test-project" --logstore_name="logstore-a" --index_detail="file://./indexdetail.json"
+查询已索引配置。命令示例如下：
+aliyunlog log get_index_config --project_name="aliyun-test-project" --logstore_name="logstore-a"
+返回结果如下：
+{ "index_mode": "v2", "keys": { "key1": { "caseSensitive": false, "doc_value": true, "token": [ ",", " ", "'", "\"", ";", "=", "(", ")", "[", "]", "{", "}", "?", "@", "&", "<", ">", "/", ":", "\n", "\t" ], "type": "text" }, "key2": { "caseSensitive": false, "doc_value": true, "token": [ ",", " ", "'", "\"", ";", "=", "(", ")", "[", "]", "{", "}", "?", "@", "&", "<", ">", "/", ":", "\n", "\t" ], "type": "text" }, "key3": { "caseSensitive": false, "doc_value": true, "token": [ ",", " ", "'", "\"", ";", "=", "(", ")", "[", "]", "{", "}", "?", "@", "&", "<", ">", "/", ":", "\n", "\t" ], "type": "text" }, "key4": { "caseSensitive": false, "doc_value": true, "token": [ ",", " ", "'", "\"", ";", "=", "(", ")", "[", "]", "{", "}", "?", "@", "&", "<", ">", "/", ":", "\n", "\t" ], "type": "text" } }, "lastModifyTime": 0, "line": { "caseSensitive": false, "chn": false, "token": [ ",", " ", "'", "\"", ";", "=", "(", ")", "["

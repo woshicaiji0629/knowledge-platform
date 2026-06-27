@@ -1,0 +1,17 @@
+{
+  "id": "sls:spl-data-processing-best-practices",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "数据处理最佳实践-日志服务-阿里云-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/spl-data-processing-best-practices",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/spl-data-processing-best-practices.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/spl-data-processing-best-practices.md",
+  "word_count": 498,
+  "text_units": 799,
+  "local_links": 0,
+  "external_links": 69,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

@@ -1,0 +1,2 @@
+## 使用说明
+本功能仅支持1.28及以上版本的[ACK](create-an-ack-managed-cluster-2.md)[托管集群](create-an-ack-managed-cluster-2.md)、[ACK](create-an-ack-dedicated-cluster.md)[专有集群（已停止新建）](create-an-ack-dedicated-cluster.md)、[ACK Edge](../../ack-edge/user-guide/create-an-ack-edge-cluster-1.md)[集群](../../ack-edge/user-guide/create-an-ack-edge-cluster-1.md)。如需升级集群，请参见[手动升级集群](update-the-kubernetes-version-of-an-ack-cluster.md)。

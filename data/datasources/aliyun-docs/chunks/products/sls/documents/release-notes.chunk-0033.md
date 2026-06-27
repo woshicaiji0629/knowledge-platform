@@ -1,0 +1,2 @@
+upported-regions1.md) | [接入](collect-monitoring-data-from-kubernetes-jvms.md) [Kubernetes JVM](collect-monitoring-data-from-kubernetes-jvms.md) [监控数据](collect-monitoring-data-from-kubernetes-jvms.md) |
+| 接入 Kubernetes 数据面监控数据 | Kubernetes 数据面监控基于 日志服务 与龙蜥社区合作共建的无侵入监控能力，您可以直观地分析整个 Kubernetes 的数据流向与瓶颈问题，轻松应对复杂的云原生环境。 | 2022-11-16 | [全部地域](sls-supported-regions1.md) | [接入无侵入服务观测](collect-monitoring-data-about-kubernetes-data-planes.md) |

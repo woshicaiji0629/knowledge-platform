@@ -1,0 +1,45 @@
+{
+  "source": "aliyun_docs",
+  "updated_at": "2026-06-27T09:49:58.273444+00:00",
+  "summary": {
+    "crawled": 198,
+    "anti_bot": 0,
+    "failed": 0,
+    "retried": 0,
+    "remaining_retry_urls": 0
+  },
+  "products": [
+    {
+      "product": "vpc",
+      "crawled": 49,
+      "anti_bot": 0,
+      "failed": 0,
+      "retried": 0,
+      "remaining_retry_urls": []
+    },
+    {
+      "product": "cdn",
+      "crawled": 50,
+      "anti_bot": 0,
+      "failed": 0,
+      "retried": 0,
+      "remaining_retry_urls": []
+    },
+    {
+      "product": "sls",
+      "crawled": 50,
+      "anti_bot": 0,
+      "failed": 0,
+      "retried": 0,
+      "remaining_retry_urls": []
+    },
+    {
+      "product": "ack",
+      "crawled": 49,
+      "anti_bot": 0,
+      "failed": 0,
+      "retried": 0,
+      "remaining_retry_urls": []
+    }
+  ]
+}

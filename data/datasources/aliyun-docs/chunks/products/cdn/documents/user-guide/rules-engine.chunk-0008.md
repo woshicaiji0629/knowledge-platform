@@ -1,0 +1,6 @@
+持 IPv4（例如 1.1.X.X ）、IPv6（例如 240e:95c:3004:2:3:0:0:XXX ）、支持网段（例如 20.209.XXX.XXX/31 ）。 | 建联 IP XFF IP 说明 建联 IP、XFF IP 详细说明，请参见 [IP](rules-engine.md) [地址校验模式](rules-engine.md) 。 | 包含其中任意一个 不包含其中任意一个 | 支持填写 IPv6 格式 IP，例如：240e:XXX:3004:2:3:0:0:3f7，支持网段方式填写，例如：120.209.XXX.XXX/31，支持输入多个值。 | 不涉及 | $remote_addr |
+| 客户端 IP 版本 | clientipVer | IPv4 或 IPv6。 | 建联 IP XFF IP 说明 建联 IP、XFF IP 详细说明，请参见 [IP](rules-engine.md) [地址校验模式](rules-engine.md) 。 | 等于 不等于 | v4 v6 | 不涉及 | - |
+| 用户网络运营商 | geolocation | 客户端 IP 归属的运营商。 | 建联 IP XFF IP 说明 建联 IP、XFF IP 详细说明，请参见 [IP](rules-engine.md) [地址校验模式](rules-engine.md) 。 | 包含其中任意一个 不包含其中任意一个 | 可以通过下拉列表来选择，可以输入字符来过滤选项，支持输入 ID 或名称来模糊匹配查询，支持输入多个值。 | 不涉及 | $ip_isp_id |
+| 用户 IP 地理位置 | geolocation | 客户端 IP 所处的地理位置。 | 建联 IP XFF IP 说明 建联 IP、XFF IP 详细说明，请参见 [IP](rules-engine.md) [地址校验模式](rules-engine.md) 。 | 包含其中任意一个 不包含其中任意一个 | 可以通过下拉列表来选择，可以输入字符来过滤选项，支持输入 ID 或名称来模糊匹配查询，支持输入多个值。 | 不涉及 | $ip_country_id |
+| 请求参数 | querystring | 用户请求 URL 中携带的请求参数。 | 输入参数名称。 | 存在 不存在 包含其中任意一个 不包含其中任意一个 大于 大于等于 小于 小于等于 | 支持通配符 ? 和 * ，支持输入多个值。 | 区分大小写 忽略大小写 | $arg_{name} |
+| 请求头 | header | 用户请求中携带的请求头。 | 支持输入参数名称，也支持通过下拉列表来选择参数。 | 存在 不存在 包含其中任意一个 不包含其中任意一个 大于 大于等于 小于 小于等于 | 支持输入多个值。 | 区分大小写 忽略

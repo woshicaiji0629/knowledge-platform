@@ -1,0 +1,17 @@
+{
+  "id": "sls:query-resource-usage",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "如何查询日志服务使用明细-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/query-resource-usage",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/query-resource-usage.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/query-resource-usage.md",
+  "word_count": 485,
+  "text_units": 918,
+  "local_links": 0,
+  "external_links": 62,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

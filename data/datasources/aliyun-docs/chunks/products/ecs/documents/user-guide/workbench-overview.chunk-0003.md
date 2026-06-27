@@ -1,0 +1,4 @@
+## Workbench的服务关联角色
+由于Workbench需要操作您的ECS实例，因此，在首次使用Workbench连接实例时，会提示您创建服务关联角色AliyunServiceRoleForECSWorkbench，Workbench服务会以该角色的身份访问您的ECS实例。更多服务关联角色的说明，请参见[服务关联角色](https://help.aliyun.com/zh/ram/user-guide/service-linked-roles#concept-2448621)。
+在首次连接实例时会出现对话框，单击确定系统会自动为您创建该服务关联角色。
+如果您是RAM用户，您需要联系主账号或管理员为您授予AliyunECSWorkbenchFullAccess系统权限策略，拥有该权限的用户才可以创建Workbench的服务关联角色。

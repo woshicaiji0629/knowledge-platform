@@ -1,0 +1,1 @@
+制： 如果通过 ExternalTrafficPolicy=Local 访问服务时，访问流量可能不通，请修改为 ExternalTrafficPolicy=Cluster 。 使用 ExternalTrafficPolicy=Cluster 情况下，需要对来源地址进行 SNAT，可用端口范围在 32768-65535 之间。 eBPF 加速功能和默认的 Linux 实现有所不同，根据不同业务流量规模需要调整组件配置，请务必参考 [Datapath V2](datapath-v2-best-practices.md) [下最佳实践](datapath-v2-best-practices.md) 进行监控配置、eBPF map 上限调整。 |

@@ -1,0 +1,17 @@
+{
+  "id": "sls:comparison-of-processing-plug-ins-write-processors-data-processing-and-consumer-processors",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "selection",
+  "title": "处理插件、写入处理器、数据加工、消费处理器的对比-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/comparison-of-processing-plug-ins-write-processors-data-processing-and-consumer-processors",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/comparison-of-processing-plug-ins-write-processors-data-processing-and-consumer-processors.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/comparison-of-processing-plug-ins-write-processors-data-processing-and-consumer-processors.md",
+  "word_count": 765,
+  "text_units": 2251,
+  "local_links": 0,
+  "external_links": 67,
+  "has_tables": true,
+  "table_count": 10,
+  "quality": "accepted"
+}

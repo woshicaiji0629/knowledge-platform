@@ -1,0 +1,2 @@
+# 在ACK Edge集群中部署和管理ack-kserve组件
+KServe是一个开源项目，旨在通过YAML文件提供声明式API，简化Kubernetes上机器学习模型的部署和管理。ack-kserve基于开源KServe进行深度优化，并与阿里云生态（如存储、日志、网络等）深度集成，简化了KServe的部署和运维流程。本文介绍如何在ACK集群中部署和管理ack-kserve组件。

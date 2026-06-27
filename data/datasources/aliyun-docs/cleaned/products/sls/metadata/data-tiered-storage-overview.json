@@ -1,0 +1,17 @@
+{
+  "id": "sls:data-tiered-storage-overview",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "通过配置低频存储、归档存储降低日志存储成本。-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/data-tiered-storage-overview",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/data-tiered-storage-overview.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/data-tiered-storage-overview.md",
+  "word_count": 893,
+  "text_units": 3157,
+  "local_links": 0,
+  "external_links": 77,
+  "has_tables": true,
+  "table_count": 11,
+  "quality": "accepted"
+}

@@ -1,0 +1,945 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    ACK Edge集群如何收费-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/ack/ack-edge/product-overview/billing-of-ack-edge-clusters">
+  <meta name="keywords" content="ACK Edge集群计费说明,边缘标准版集群计费说明,边缘Pro版集群计费说明">
+  <meta name="description" content="本文介绍ACK Edge集群计费说明、欠费说明和计费常见问题等相关信息。">
+  <meta name="last-modified" content="2026-04-08T14:25:29+08:00">
+  <meta name="date" content="2020-08-13T11:40:04+08:00">
+  <meta property="og:title" content="ACK Edge集群计费说明">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/ack/ack-edge/product-overview/billing-of-ack-edge-clusters">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="本文介绍ACK Edge集群计费说明、欠费说明和计费常见问题等相关信息。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/ack/ack-edge/product-overview/billing-of-ack-edge-clusters",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "178718",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/ack/ack-edge/product-overview/billing-of-ack-edge-clusters","nodeId":null,"data":{"lastModifiedTime":1775629529000,"keywords":"ACK Edge集群计费说明,边缘标准版集群计费说明,边缘Pro版集群计费说明","docTitle":"ACK Edge集群计费说明","language":"zh","seoTitle":"ACK Edge集群如何收费-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心","title":"ACK Edge集群计费说明","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"concept-1936963\">\n    \n    \n    <p data-tag=\"shortdesc\" id=\"shortdesc-v56-1uk-zgy\" class=\"shortdesc\">本文介绍<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"75622fd06eq5u\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>计费说明、欠费说明和计费常见问题等相关信息。</p>\n    <div data-tag=\"conbody\" id=\"conbody-215-2cm-asr\" class=\"conbody\">\n      \n      <section data-tag=\"section\" data-type=\"section\" id=\"section-zde-yfv-8yv\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-3i3-n3m-fr7\" class=\"title\"><span data-tag=\"ph\" id=\"bfd2e73f2ak0l\" class=\"ph\">计费说明</span></h2>\n        <section id=\"6c8ed57fc2az3\" class=\"section\">\n          <table autofit=\"true\" id=\"782ab650f81u2\" tablecolswidth=\"24.93 24.93 24.93 25.210000000000008\" tablewidth=\"100\" class=\"table\">\n            <colgroup colwidth=\"1*\" style=\"width:24.93%\"></colgroup>\n            <colgroup colwidth=\"1*\" style=\"width:24.93%\"></colgroup>\n            <colgroup colwidth=\"1*\" style=\"width:24.93%\"></colgroup>\n            <colgroup colwidth=\"1.01*\" style=\"width:25.21%\"></colgroup>\n            <tbody class=\"tbody\">\n              <tr id=\"4514c1abd1xgq\">\n                <td id=\"54135e881dazt\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"bab3a0e21fxn9\" jc=\"left\" style=\"text-align:left\"><b>集群类型</b></p>\n                </td>\n                <td id=\"e958cc5285qx9\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                  <p id=\"985cec2a42gva\" jc=\"left\" style=\"text-align:left\"><b>集群管理费用</b></p>\n                </td>\n                <td id=\"437b5a58542ok\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"2c680c9a66ms6\"><b>节点管理费用</b></p>\n                </td>\n                <td id=\"3094b365b0h1l\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"b0f2d27e3b49c\" jc=\"left\" style=\"text-align:left\"><b>云产品资源费用</b></p>\n                </td>\n              </tr>\n              <tr id=\"d1351820acs59\">\n                <td id=\"9c54aa66b56ip\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"cf7ea47fd5keh\" jc=\"left\" style=\"text-align:left\"><span data-tag=\"ph\" id=\"ccba47dd76dbj\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群<span class=\"help-letter-space\"></span>Pro<span class=\"help-letter-space\"></span>版</span></p>\n                </td>\n                <td id=\"213b8c54f41nv\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                  <p id=\"f6b6bc2440ubn\" jc=\"left\" style=\"text-align:left\"><img alt=\"支持\" class=\"image inline\" data-tag=\"image\" height=\"16\" id=\"7958b68057yoj\" placement=\"inline\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9943349471/p961103.png\"></p>\n                </td>\n                <td id=\"7e0243d48b4gr\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"e017aeb1f3k0l\"><img alt=\"支持\" class=\"image inline\" data-tag=\"image\" height=\"16\" id=\"0fe4a1c454qdx\" placement=\"inline\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9943349471/p961104.png\"></p>\n                </td>\n                <td id=\"5a06e18e50kpi\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"1c67cc623dqrh\" jc=\"left\" style=\"text-align:left\"><img alt=\"支持\" class=\"image inline\" data-tag=\"image\" height=\"16\" id=\"bc2e8f90813qe\" placement=\"inline\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9943349471/p961104.png\"></p>\n                </td>\n              </tr>\n              <tr id=\"ce105b394ff8q\">\n                <td id=\"a154e7a448g4c\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"cf83e157f3hn8\" jc=\"left\" style=\"text-align:left\"><span data-tag=\"ph\" id=\"240839bdfcdq4\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群基础版</span></p>\n                </td>\n                <td id=\"9417d0ece8ya2\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                  <p id=\"91613c721c928\" jc=\"left\" style=\"text-align:left\"><img alt=\"错\" class=\"image inline\" data-tag=\"image\" height=\"16\" id=\"16c0db10f754z\" placement=\"inline\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9943349471/p961105.png\"></p>\n                </td>\n                <td id=\"de5be7e23268y\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"c2e28e5d1c2hv\"><img alt=\"支持\" class=\"image inline\" data-tag=\"image\" height=\"16\" id=\"58a6501c8btdk\" placement=\"inline\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9943349471/p961104.png\"></p>\n                </td>\n                <td id=\"4f6f9585990fj\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"72f6eb49d0fru\" jc=\"left\" style=\"text-align:left\"><img alt=\"支持\" class=\"image inline lazy-media lazy-loading\" data-tag=\"image\" height=\"16\" id=\"fb2309183d0j5\" placement=\"inline\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=\" data-src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9943349471/p961106.png\"></p>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n          <section id=\"4085b94356fux\" class=\"section\">\n            <hetu hetuid=\"591de8ad-b8c6-4f00-8fe7-defb24e1059e\" id=\"ae3861f473bfm\" type=\"flowchart\" uuid=\"4755304_20241122150432.489\" versionid=\"CAEQWhiBgIDi.JC2uhkiIDYwOWY5NTA3NjM2MTQ4MzRiZGU2NjNkM2VhOWRkODdk\"><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=\" data-src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7259265771/CAEQWhiBgIDi.JC2uhkiIDYwOWY5NTA3NjM2MTQ4MzRiZGU2NjNkM2VhOWRkODdk4755304_20241122150432.489.svg\" alt=\"image\" class=\"image break flowchart hetu lazy-media lazy-loading\"></hetu>\n            <div data-tag=\"note\" id=\"note-phm-7o6-y4r\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n              <p id=\"bd1f36b11bdt2\">以下计费示例仅供参考，实际费用以购买产品的控制台页面（或购买页面）为准。</p>\n            </div></div>\n          </section>\n          <section id=\"2b8ffba3c1cgo\" class=\"section\">\n            <h3 data-tag=\"p\" id=\"p-o1s-x7b-vae\" outputclass=\"h3\" class=\"p h3\">集群管理计费</h3>\n            <section id=\"ea36a18377iek\" class=\"section\">\n              <p id=\"ba9a58a4ce3v9\">阿里云<span data-tag=\"ph\" id=\"b1ceefd16en4o\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">容器服务 Edge 版</span>整合阿里云虚拟化、存储、网络和安全等能力，并简化集群运维工作，专注于容器化应用的开发与管理，所以针对<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"9d93a5606edu4\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群<span class=\"help-letter-space\"></span>Pro<span class=\"help-letter-space\"></span>版</span>会收取集群的管理费用。</p>\n              <table autofit=\"false\" id=\"table-981-a8y-oz1\" tablecolswidth=\"343 343\" tablewidth=\"686\" class=\"table\">\n                <colgroup colwidth=\"1*\" style=\"width:50.00%\"></colgroup>\n                <colgroup colwidth=\"1*\" style=\"width:50.00%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"row-4zm-eu3-te9\">\n                    <td id=\"concept-1936963-entry-szg-q2b-8qv\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"bd1f5dc01b4n7\"><b>计费方式</b></p>\n                    </td>\n                    <td id=\"concept-1936963-entry-9dc-n05-co4\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"bd1f5dc11b9h5\"><b>价格</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-wyk-oqn-5h0\" props=\"china\" data-cond-props=\"china\">\n                    <td id=\"entry-3hb-igh-3gf\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"bd1f5dc21bdoz\">按量计费</p>\n                    </td>\n                    <td id=\"entry-72g-9od-708\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"bd1f5dc31bs1z\">每个集群<span class=\"help-letter-space\"></span>0.64<span class=\"help-letter-space\"></span>元/小时</p>\n                    </td>\n                  </tr>\n                  \n                </tbody>\n              </table>\n            </section>\n          </section>\n          <section id=\"b5fe6cc192rgs\" class=\"section\">\n            <h3 data-tag=\"p\" id=\"p-3gv-e4j-25u\" outputclass=\"h3\" class=\"p h3\">节点管理计费</h3>\n            <p data-tag=\"p\" id=\"p-gzy-un7-m63\" class=\"p\">阿里云<span data-tag=\"ph\" id=\"b56d25316emrh\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">容器服务 Edge 版</span>支持丰富的异构边缘节点资源，包括自建<span class=\"help-letter-space\"></span>IDC<span class=\"help-letter-space\"></span>资源、<a href=\"https://www.aliyun.com/product/ens\" id=\"xref-iv8-oar-r2y\" class=\"\" target=\"_blank\">ENS</a>、IoT<span class=\"help-letter-space\"></span>设备、X86、ARM<span class=\"help-letter-space\"></span>架构等；并支持异构资源的混合调度，所以会收取非云端<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>的节点管理费用。例如，集群下有<span class=\"help-letter-space\"></span>3<span class=\"help-letter-space\"></span>台<span class=\"help-letter-space\"></span>4 vCPU 8 GB<span class=\"help-letter-space\"></span>的节点（其中<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>台是<span class=\"help-letter-space\"></span>ECS，另外<span class=\"help-letter-space\"></span>2<span class=\"help-letter-space\"></span>台是<span class=\"help-letter-space\"></span>ENS<span class=\"help-letter-space\"></span>或者线下节点），边缘容器服务收取的费用为<hetu formula=\"0.2 元/vCPU/天 * 2 * 4 vCPU = 1.6元/天\" hetuid=\"c9ae36c2-fb7f-4fd5-a2c9-43dcecfbbb1f\" id=\"d4efac5e5cozl\" props=\"china\" style=\"display:inline-block;max-width:100%;overflow:auto;vertical-align:middle\" type=\"xFormula\" data-cond-props=\"china\"><span class=\"katex-display\"><span class=\"katex\"><span aria-hidden=\"true\" class=\"katex-html\"><span class=\"base\"><span class=\"strut\" style=\"height:1em;vertical-align:-0.25em;\"></span><span class=\"mord\">0.2</span><span class=\"help-letter-space\"></span><span class=\"mord cjk_fallback\">元</span><span class=\"mord\">/</span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">v</span><span class=\"mord mathnormal\" style=\"margin-right:0.13889em;\">CP</span><span class=\"mord mathnormal\" style=\"margin-right:0.10903em;\">U</span><span class=\"mord\">/</span><span class=\"mord cjk_fallback\">天</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">∗</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.6444em;\"></span><span class=\"mord\">2</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">∗</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.6833em;\"></span><span class=\"mord\">4</span><span class=\"mord mathnormal\" style=\"margin-right:0.03588em;\">v</span><span class=\"mord mathnormal\" style=\"margin-right:0.13889em;\">CP</span><span class=\"mord mathnormal\" style=\"margin-right:0.10903em;\">U</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span><span class=\"mrel\">=</span><span class=\"mspace\" style=\"margin-right:0.2778em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:1em;vertical-align:-0.25em;\"></span><span class=\"mord\">1.6</span><span class=\"help-letter-space\"></span><span class=\"mord cjk_fallback\">元</span><span class=\"mord\">/</span><span class=\"mord cjk_fallback\">天</span></span></span></span></span></hetu>\n              ，使用时间不足一天，按一天计算。\n            </p>\n            <p id=\"7ab8c4fae211h\">默认情况下，节点管理费用采用按量付费的方式，也可以购买<a href=\"#5c9c221df5iu2\" id=\"f86f80e347xlb\" title=\"\" class=\"xref\">容器服务边缘节点资源包</a>\n              来抵扣。\n            </p>\n            <section id=\"7573e2325974k\" class=\"section\">\n              <h4 id=\"cce88b29c8i5h\"><b>按量付费</b></h4>\n              <table autofit=\"true\" id=\"table-qnc-ixp-unq\" tablecolswidth=\"50.08 49.92\" tablewidth=\"100\" class=\"table\">\n                <colgroup colwidth=\"1*\" style=\"width:50.08%\"></colgroup>\n                <colgroup colwidth=\"1*\" style=\"width:49.92%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"row-hl2-ahl-4st\">\n                    <td id=\"concept-1936963-entry-9x1-i7m-o4l\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"bd1f5dc41b19l\"><b>计费方式</b></p>\n                    </td>\n                    <td id=\"concept-1936963-entry-b65-ezr-l5i\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"bd1f84d01bohj\"><b>价格</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-ee3-arl-0b2\" props=\"china\" data-cond-props=\"china\">\n                    <td id=\"entry-n5y-4q6-qrr\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"bd1f84d11bdoa\">按量计费</p>\n                    </td>\n                    <td id=\"entry-lqw-j3j-121\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"bd1f84d21b0ui\">0.2<span class=\"help-letter-space\"></span>元/vCPU/天</p>\n                    </td>\n                  </tr>\n                  \n                </tbody>\n              </table>\n            </section>\n            <section id=\"ed57f405aaaru\" class=\"section\">\n              <h4 id=\"5c9c221df5iu2\"><b>容器服务边缘节点资源包</b></h4>\n              <div id=\"4b2785e592qg4\" outputclass=\"collapse\" class=\"collapse\">\n                <p data-tag=\"expandable-title\" id=\"05034fbd1d2mt\" class=\"expandable-title\"><b>购买资源包</b></p>\n                <div data-tag=\"expandable-content\" id=\"e3c958681eiiu\" class=\"expandable-content\">\n                  <p id=\"ceaa804728i0t\" props=\"china\" data-cond-props=\"china\">购买<a href=\"https://common-buy.aliyun.com/?commodityCode=csk_edgevcore_dp_cn\" id=\"81e4b27340v9g\" class=\"\" target=\"_blank\">容器服务边缘节点资源包</a>，以此抵扣<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"3d39044ba75u2\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>对边缘节点的管理费用。</p>\n                  <p id=\"e981299177ve7\">容器服务边缘节点资源包仅一种规格，支持购买多个，可叠加抵扣。</p>\n                  <table autofit=\"true\" id=\"af06c6042b1zz\" tablecolswidth=\"12.64 43.68 15.44 28.239999999999995\" tablewidth=\"100\" class=\"table\">\n                    <colgroup colwidth=\"0.51*\" style=\"width:12.64%\"></colgroup>\n                    <colgroup colwidth=\"1.75*\" style=\"width:43.68%\"></colgroup>\n                    <colgroup colwidth=\"0.62*\" style=\"width:15.44%\"></colgroup>\n                    <colgroup colwidth=\"1.13*\" style=\"width:28.24%\"></colgroup>\n                    <tbody class=\"tbody\">\n                      <tr id=\"1f860fa92915y\">\n                        <td id=\"80745558f1sow\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                          <p id=\"e89c89c259kxa\" jc=\"left\" style=\"text-align:left\"><b>规格</b></p>\n                        </td>\n                        <td id=\"c0a82656b32hb\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                          <p id=\"42090a87d53m0\" jc=\"left\" style=\"text-align:left\"><b>说明</b></p>\n                        </td>\n                        <td id=\"0dce757936dlm\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                          <p id=\"6034b3f024q5g\" jc=\"left\" style=\"text-align:left\"><b>价格</b></p>\n                        </td>\n                        <td id=\"e99e6cfc6dorg\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                          <p id=\"cf163b5e40yry\" jc=\"left\" style=\"text-align:left\"><b>有效期</b></p>\n                        </td>\n                      </tr>\n                      <tr id=\"6f4dfc429c2ys\" props=\"china\" data-cond-props=\"china\">\n                        <td id=\"9ecf344cb77by\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0)\" colspan=\"1\">\n                          <p id=\"f1499e2cd2qjc\" jc=\"left\" style=\"text-align:left\">500 vCPU</p>\n                        </td>\n                        <td id=\"71f23767cbmag\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0)\" colspan=\"1\">\n                          <p id=\"3013b7025bpbd\" jc=\"left\" style=\"text-align:left\">按天抵扣，单个资源包可固定抵扣边缘节点<span class=\"help-letter-space\"></span>500<span class=\"help-letter-space\"></span>个<span class=\"help-letter-space\"></span>vCPU 365<span class=\"help-letter-space\"></span>天的按量计费账单。</p>\n                        </td>\n                        <td id=\"7c5511a8bdl82\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0)\" colspan=\"1\">\n                          <p id=\"73ce714666alx\" jc=\"left\" style=\"text-align:left\">12000<span class=\"help-letter-space\"></span>元</p>\n                        </td>\n                        <td id=\"4b04b864ee3cd\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0)\" colspan=\"1\">\n                          <p id=\"7d336fc0bdp5x\" jc=\"left\" style=\"text-align:left\">365<span class=\"help-letter-space\"></span>天。</p>\n                          <p id=\"ffb9fcd2964ml\">开通时间可以选择购买后立即生效，也可以指定<span class=\"help-letter-space\"></span>6<span class=\"help-letter-space\"></span>个月内任意一天生效。</p>\n                        </td>\n                      </tr>\n                      \n                    </tbody>\n                  </table>\n                </div>\n              </div>\n              <div id=\"8359adb233854\" outputclass=\"collapse\" class=\"collapse\">\n                <p data-tag=\"expandable-title\" id=\"38f90081ad74d\" class=\"expandable-title\"><b>使用资源包</b></p>\n                <div data-tag=\"expandable-content\" id=\"b6e9f17937qna\" class=\"expandable-content\">\n                  <p id=\"1a048715a88ew\" uuid=\"mb4yxnctwjxfx9xbjoj\">购买容器服务边缘节点资源包后，会自动抵扣阿里云账号下<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"60f0b75cc7zk8\" data-init-id=\"3d39044ba75u2\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>的边缘节点管理费用，无需进行操作。</p>\n                  <p id=\"7ebabfd8e8mok\" uuid=\"mb5zgwva1htzwtuxkql\">抵扣时，遵循以下规则：</p>\n                  <ul id=\"bffe886e0brel\">\n                    <li id=\"0ccd0833a5dht\">\n                      <p id=\"b2b0dcb863mzy\" uuid=\"mb4yzczia3ayqz2rq3q\">每天会固定抵扣掉<span class=\"help-letter-space\"></span>500 vCPU<span class=\"help-letter-space\"></span>核数的边缘节点（非云端<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>节点）的管理费。</p>\n                    </li>\n                    <li id=\"f4c9de5f93jmt\">\n                      <p id=\"71e4ee4a99szd\">本资源包不能抵扣已经产生的用量。</p>\n                    </li>\n                    <li id=\"f623e0cfb8qt1\">\n                      <p id=\"05c4552176e8k\" uuid=\"mb5zhmdh6o5fxc4ctld\">资源包耗尽或过期失效后，边缘节点管理费用将自动转为按量付费。</p>\n                    </li>\n                    <li id=\"88f0f4a869c9r\">\n                      <p id=\"29dabb81e464t\" uuid=\"mb4z1nxn84nqo2wnz4n\">如果边缘节点的<span class=\"help-letter-space\"></span>vCPU<span class=\"help-letter-space\"></span>核数过多，可以叠加购买多个资源包。例如，如果边缘节点为<span class=\"help-letter-space\"></span>1000 vCPU，可以购买<span class=\"help-letter-space\"></span>2<span class=\"help-letter-space\"></span>个边缘节点资源包，抵扣时会按下单顺序依次抵扣。请注意资源包生效日期。</p>\n                    </li>\n                  </ul>\n                </div>\n              </div>\n              <div id=\"605dcca743sdr\" outputclass=\"collapse\" class=\"collapse\">\n                <p data-tag=\"expandable-title\" id=\"f36a33fd83j29\" class=\"expandable-title\"><b>查看资源包使用情况</b></p>\n                <div data-tag=\"expandable-content\" id=\"091a334ef96zm\" class=\"expandable-content\">\n                  <p id=\"f1bbd10aa2s4w\">购买容器服务边缘节点资源包后，可以通过以下操作查询资源包使用情况，并设置余量预警。</p>\n                  <ol id=\"e078d162efuvf\">\n                    <li id=\"c286ba88bf2q5\">\n                      <p data-init-id=\"7450173183469\" id=\"3fafd9ba64xyf\">登录费用与成本页面。</p>\n                      <div data-init-id=\"fbd8ef50ce2z0\" id=\"cd0016511a3v5\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                        <p id=\"5c399d5eaenaw\">以下操作以新版（蓝色版）控制台为例。</p>\n                      </div></div>\n                    </li>\n                    <li data-tag=\"step\" id=\"7672317724imf\" docid=\"3896739\" is-conref=\"true\" class=\"step\"><p id=\"6720807193vz5\">在左侧导航栏，选择<span data-tag=\"menucascade\" id=\"ef2b95c0d09pw\" class=\"menucascade\"><b data-tag=\"uicontrol\" id=\"d9845d1be7p6y\" class=\"uicontrol\">账户</b> &gt; <b id=\"0e53ce252bqn6\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">资源包</b></span>。</p></li>\n                    <li id=\"edef9fe076iwx\">\n                      <p id=\"97371230ddlul\">在<b id=\"29c1d35dbeicj\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\" data-spm-anchor-id=\"a2c4g.11186623.0.i31.56bb11885NF1r0\">资源维度</b>处，选中<b id=\"aa50ae66f4phz\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">资源包</b>，然后在资源包列表中，筛选<b id=\"90d14e4573wul\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">资源包类型</b>为<b class=\"uicontrol\" id=\"da4af77fa8o2y\">容器服务边缘节点资源包</b>。</p>\n                      <div data-init-id=\"b359be396bdaa\" id=\"9eaa0bc3a1vrp\" tagname=\"note\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                        <p id=\"4ff4e50d0008z\">单击列表右上角的<img alt=\"image\" height=\"20.714\" id=\"655f3a2ceedo7\" placement=\"inline\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=\" data-src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1264883371/p875246.png\" width=\"20\" class=\"image inline lazy-media lazy-loading\">图标可以设置列表显示的列；单击<img alt=\"image\" height=\"21.481\" id=\"cfcaad3290yrm\" placement=\"inline\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=\" data-src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1264883371/p875249.png\" width=\"20\" class=\"image inline lazy-media lazy-loading\">图标可以将列表信息导出为<span class=\"help-letter-space\"></span>CSV<span class=\"help-letter-space\"></span>文件。</p>\n                      </div></div>\n                    </li>\n                    <li id=\"5c172531a58on\">\n                      <p id=\"47daa620f158p\" docid=\"3896739\" is-conref=\"true\">根据需要进行以下操作。</p>\n                      <section data-tag=\"tabbed-content-box\" id=\"30ba30fa5b6h2\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n                        <section id=\"19b3044df0zxe\" class=\"section\">\n                          <h2 id=\"2ef4642a3em2y\">查询整体用量</h2>\n                          <ol id=\"a52d21b4b6j2i\">\n                            <li id=\"1b29504307qm4\">\n                              <p data-init-id=\"dba9b01704nzk\" id=\"bec7a0613269i\">在<b id=\"248c93c2e8s6t\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">实例汇总</b>页签下，找到要操作的容器服务边缘节点资源包，单击对应<b id=\"4c9a168eecg0n\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">操作</b>列中的<b id=\"07b56cfde85cq\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">统计</b>。</p>\n                            </li>\n                            <li id=\"21c719919dbr1\">\n                              <p data-init-id=\"e4fea62962jgh\" id=\"435dadc1c0hhw\" tagname=\"p\">在弹出页面查看容器服务边缘节点的信息以及使用情况，包括失效时间、剩余量、实例抵扣情况等。</p>\n                            </li>\n                          </ol>\n                        </section>\n                        <section id=\"a601386983s0w\" class=\"section\">\n                          <h2 id=\"3f7fe9411fql2\">查看使用明细</h2>\n                          <ol id=\"6b168e19aaee2\">\n                            <li id=\"7cbee1a367l9p\" docid=\"3896739\" is-conref=\"true\"><p id=\"e4d0a382e8knj\">单击<b id=\"395c79fe97stj\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">使用明细</b>页签。</p></li>\n                            <li id=\"518c849ab0m94\" docid=\"3896739\" is-conref=\"true\"><p id=\"e408ad5362uhf\">设置查询条件，单击<b id=\"9bd99b5d7e7g4\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">搜索</b>。</p></li>\n                            <li id=\"c714f45a4210r\">\n                              <p data-init-id=\"57d9d43644cxf\" id=\"43bda0b02ezqs\" tagname=\"p\">查看容器服务边缘节点资源包的使用明细，包括抵扣量、被抵扣的集群<span class=\"help-letter-space\"></span>ID、抵扣时间段等。</p>\n                            </li>\n                          </ol>\n                        </section>\n                        <section id=\"f85db329f1j74\" class=\"section\">\n                          <h2 id=\"54374b571d36t\">设置余量预警</h2>\n                          <ol id=\"426d10e234aw0\">\n                            <li id=\"c6a668f5786oz\" docid=\"3896739\" is-conref=\"true\"><p id=\"ffa34dd578t57\">在页面右上角单击<b id=\"51fa8f0262d2q\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">余量预警设置</b>。</p></li>\n                            <li id=\"ea2d257d2ekza\">\n                              <p id=\"8b7d106517y0t\">在弹出的对话框中找到容器服务边缘节点资源包，开启预警并设置额度比例，然后单击<b id=\"c30116297ar9w\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>。</p>\n                            </li>\n                          </ol>\n                        </section>\n                      </section>\n                    </li>\n                  </ol>\n                </div>\n              </div>\n            </section>\n          </section>\n        </section>\n        <section id=\"f72b09f8d3dbw\" class=\"section\">\n          <h3 data-tag=\"p\" id=\"p-65d-2j7-gkl\" outputclass=\"h3\" class=\"p h3\">云产品资源计费</h3>\n          <p data-tag=\"p\" id=\"p-76s-hv4-k0h\" class=\"p\">如果在使用<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"c6b82d816ez62\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>过程中使用了其他的阿里云云产品资源，需要按照各云产品规定的计费规则，为使用的这些资源付费，费用由各云产品收取。如果未使用其他阿里云云产品，则不收取云产品资源费用。</p>\n          <table autofit=\"true\" id=\"table-4da-lwu-1qz\" tablecolswidth=\"9.75 12.44 22.34 20.84 19.64 14.989999999999995\" tablewidth=\"100\" class=\"table\">\n            <colgroup colwidth=\"0.61*\" style=\"width:9.75%\"></colgroup>\n            <colgroup colwidth=\"0.78*\" style=\"width:12.44%\"></colgroup>\n            <colgroup colwidth=\"1.4*\" style=\"width:22.34%\"></colgroup>\n            <colgroup colwidth=\"1.3*\" style=\"width:20.84%\"></colgroup>\n            <colgroup colwidth=\"1.23*\" style=\"width:19.64%\"></colgroup>\n            <colgroup colwidth=\"0.94*\" style=\"width:14.99%\"></colgroup>\n            <tbody class=\"tbody\">\n              <tr id=\"row-a0q-ddd-sja\">\n                <td id=\"concept-1936963-entry-a2u-wc2-gon\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"bd1f84d31bsjt\"><b>云产品名称</b></p>\n                </td>\n                <td id=\"concept-1936963-entry-9et-zu3-jxv\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"bd1f84d41b6ul\"><b>开通类型</b></p>\n                </td>\n                <td id=\"concept-1936963-entry-kuw-q8i-tiz\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"bd1fabe01by1c\"><b>产品说明</b></p>\n                </td>\n                <td id=\"concept-1936963-entry-2i1-vk0-xc9\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"bd1fabe11b14x\"><b>是否支持包年包月</b></p>\n                </td>\n                <td id=\"concept-1936963-entry-dzf-89r-19w\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"bd1fabe21bo6r\"><b>是否支持资源包</b></p>\n                </td>\n                <td id=\"concept-1936963-entry-nqw-3ic-7in\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"bd1fabe31brzl\"><b>计费说明</b></p>\n                </td>\n              </tr>\n              <tr id=\"row-eay-wfc-wcz\">\n                <td id=\"entry-tle-8qc-ya8\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1fabe41benm\"><a href=\"https://help.aliyun.com/zh/ecs/user-guide/what-is-ecs#EcsWelcome\" id=\"9254ceb28abu3\" title=\"\" class=\"xref\">云服务器<span class=\"help-letter-space\"></span>ECS</a></p>\n                </td>\n                <td id=\"entry-f2d-k3g-kpp\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1fabe51bh59\">必选项</p>\n                </td>\n                <td id=\"entry-7xh-fuy-24j\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1fabe61b5la\">用于为<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"ca5774516e4yq\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>创建节点。</p>\n                </td>\n                <td id=\"entry-hrj-7hc-xqo\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1fd2f01beb3\">支持</p>\n                </td>\n                <td id=\"entry-jaf-y84-5xf\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1fd2f11bh63\">不支持</p>\n                </td>\n                <td id=\"entry-kc7-psk-ii5\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1fd2f21blag\"><a href=\"https://help.aliyun.com/zh/ecs/billing-overview#concept-isb-scd-5db\" id=\"xref-cmf-itw-04x\" title=\"\" class=\"xref\">计费概述</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-rv9-1nx-nlx\">\n                <td id=\"entry-1kz-5a3-g90\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1fd2f31b0lh\"><a href=\"https://help.aliyun.com/zh/ens/product-overview/what-is-ens\" id=\"a571980022l22\" title=\"\" class=\"xref\">边缘节点服务<span class=\"help-letter-space\"></span>ENS</a></p>\n                </td>\n                <td id=\"entry-rtf-jg6-3ms\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1fd2f41bil9\">可选项</p>\n                </td>\n                <td id=\"entry-2n1-vce-jn9\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1fd2f51bllh\">用于为<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"cd18de406eyzt\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>添加边缘节点。</p>\n                </td>\n                <td id=\"entry-xz3-k8n-0nn\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1fd2f61bgil\">支持</p>\n                </td>\n                <td id=\"entry-m5n-ha1-hu5\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1fd2f71bx05\">不支持</p>\n                </td>\n                <td id=\"entry-xts-1fs-934\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1fd2f81bq4x\"><a href=\"https://help.aliyun.com/zh/ens/product-overview/overview-5#concept-1828715\" id=\"xref-fo1-aow-uow\" title=\"\" class=\"xref\">边缘节点服务<span class=\"help-letter-space\"></span>ENS<span class=\"help-letter-space\"></span>计费概览</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-hvz-vbd-zk8\">\n                <td id=\"entry-xq0-dq2-i72\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"ca5ed1ca458gb\"><a href=\"https://help.aliyun.com/zh/vpc/what-is-vpc#concept-kbk-cpz-ndb\" id=\"2111363e1ccyb\" title=\"\" class=\"xref\">专有网络<span class=\"help-letter-space\"></span>VPC</a></p>\n                </td>\n                <td id=\"entry-g8j-0wt-vyg\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1ffa011blb8\">必选项</p>\n                </td>\n                <td id=\"entry-407-hag-741\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1ffa021buln\">用于构建集群网络环境和路由规则。</p>\n                </td>\n                <td id=\"entry-xqc-6ux-y45\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1ffa031bf4s\">不支持</p>\n                </td>\n                <td id=\"entry-9xw-xxu-s34\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1ffa041b6ww\">不支持</p>\n                </td>\n                <td id=\"entry-7qr-4t9-mfw\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1ffa051bmlp\"><a href=\"https://help.aliyun.com/zh/vpc/product-overview/product-billing#concept-1357436\" id=\"xref-n55-slz-ye1\" title=\"\" class=\"xref\">产品计费</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-xep-4hi-jaa\">\n                <td id=\"entry-35u-x6k-suv\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1ffa061b9uu\"><a href=\"https://help.aliyun.com/zh/slb/classic-load-balancer/product-overview/what-is-clb/#concept-whs-lp4-tdb\" id=\"c9761ee00e5iz\" title=\"\" class=\"xref\">传统型负载均衡<span class=\"help-letter-space\"></span>CLB</a></p>\n                </td>\n                <td id=\"entry-tkl-o1x-34e\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1ffa071bmzn\">必选项</p>\n                </td>\n                <td id=\"entry-7s1-7gy-sl8\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1ffa081b7mo\">用于为<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"d15094806e9g5\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>创建负载均衡。</p>\n                </td>\n                <td id=\"entry-r37-38p-9v9\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd1ffa091b81p\"><span data-tag=\"ph\" id=\"ph-bg0-wb1-301\" props=\"china\" data-cond-props=\"china\" class=\"ph\">不支持</span></p>\n                  <div data-tag=\"note\" id=\"note-0i4-5jm-e44\" props=\"china\" data-cond-props=\"china\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                    <p id=\"bd2021101byel\">自<span class=\"help-letter-space\"></span>2024<span class=\"help-letter-space\"></span>年<span class=\"help-letter-space\"></span>12<span class=\"help-letter-space\"></span>月<span class=\"help-letter-space\"></span>01<span class=\"help-letter-space\"></span>日起，创建<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"7a669ab92adi8\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>时，API Server<span class=\"help-letter-space\"></span>关联的<span class=\"help-letter-space\"></span>CLB<span class=\"help-letter-space\"></span>实例不再支持包年包月。更多信息，请参见<a href=\"https://help.aliyun.com/zh/ack/product-overview/product-announcement-announcement-on-adding-cluster-api-server-load-balancing-clb-to-stop-supporting-annual-and-monthly-payment-types#DAS\" id=\"e673f73e01cqk\" title=\"\" class=\"xref\">【产品公告】关于取消新增集群<span class=\"help-letter-space\"></span>API Server<span class=\"help-letter-space\"></span>负载均衡<span class=\"help-letter-space\"></span>CLB<span class=\"help-letter-space\"></span>包年包月付费的公告</a>。</p>\n                  </div></div>\n                  \n                </td>\n                <td id=\"entry-b4r-h4s-ctj\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2021131b91k\">不支持</p>\n                </td>\n                <td id=\"entry-1fr-4pe-1xz\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2021141b3xc\"><a href=\"https://help.aliyun.com/zh/slb/classic-load-balancer/product-overview/billing-overview/\" id=\"2816b65556076\" title=\"\" class=\"xref\">CLB<span class=\"help-letter-space\"></span>计费概述</a></p>\n                  \n                </td>\n              </tr>\n              <tr id=\"row-i7r-v5h-br8\">\n                <td id=\"entry-hka-zcq-ay6\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2021161bact\"><a href=\"https://help.aliyun.com/zh/auto-scaling/product-overview/what-is-auto-scaling#concept-25857-zh\" id=\"957dd273fbk34\" title=\"\" class=\"xref\">弹性伸缩<span class=\"help-letter-space\"></span>ESS</a></p>\n                </td>\n                <td id=\"entry-zbn-u5u-ymj\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2048201bnej\">必选项</p>\n                </td>\n                <td id=\"entry-grq-k4o-coh\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2048211by07\">用于为<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"d509f3016e8al\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>创建节点和实现自动伸缩。</p>\n                </td>\n                <td id=\"entry-mr2-jzo-5m7\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2048221bgy3\">不支持</p>\n                </td>\n                <td id=\"entry-rkf-gpf-det\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2048231bad2\">不支持</p>\n                </td>\n                <td id=\"entry-tqu-8ce-wul\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2048241blan\"><a href=\"https://help.aliyun.com/zh/auto-scaling/product-overview/billing-rules#concept-nw2-h3m-qfb\" id=\"xref-248-gfc-bc8\" title=\"\" class=\"xref\">产品计费</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-iof-xit-9ns\">\n                <td id=\"entry-mdh-ovv-b5l\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2048251bbel\"><a href=\"https://help.aliyun.com/zh/acr/product-overview/what-is-container-registry#concept-2058233\" id=\"f9ab5e2e38qgj\" title=\"\" class=\"xref\">容器镜像服务<span class=\"help-letter-space\"></span>ACR</a></p>\n                </td>\n                <td id=\"entry-6xz-a8e-2n5\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2048261b20t\">建议项</p>\n                </td>\n                <td id=\"entry-b9u-qzo-tle\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2048271bl00\">用于云原生资产的安全托管和全生命周期管理。</p>\n                </td>\n                <td id=\"entry-hor-86y-c2c\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2048281bedh\">支持</p>\n                  <div data-tag=\"note\" id=\"note-f2f-jve-pw8\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                    <p id=\"bd2048291bzvo\">ACR<span class=\"help-letter-space\"></span>企业版实例仅支持按照实例的包年包月计费方式。更多信息，请参见<a href=\"https://help.aliyun.com/zh/acr/product-overview/billing-of-container-registry-enterprise-edition-instances#task-2273187\" id=\"xref-pb3-0dt-9oo\" title=\"\" class=\"xref\">企业版实例计费说明</a>。</p>\n                  </div></div>\n                </td>\n                <td id=\"entry-jss-rtw-eq0\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd206f301b5r6\">不支持</p>\n                </td>\n                <td id=\"entry-n9i-mjj-efr\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd206f311b8gt\"><a href=\"https://help.aliyun.com/zh/acr/product-overview/billing-description#concept-2047822\" id=\"xref-ws3-7cg-pgq\" title=\"\" class=\"xref\">计费说明</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-u54-xmp-791\">\n                <td id=\"entry-9t9-dcv-i4n\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd206f321b6gp\"><a href=\"https://help.aliyun.com/zh/eip/product-overview/what-is-eip#concept-zmv-hd3-vdb\" id=\"aea29bd20a19a\" title=\"\" class=\"xref\">弹性公网<span class=\"help-letter-space\"></span>IP</a></p>\n                </td>\n                <td id=\"entry-wo3-dok-ss5\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd206f331bd8s\">建议项</p>\n                </td>\n                <td id=\"entry-ums-sdp-354\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd206f341bb3h\">用于云资源与公网通信。</p>\n                </td>\n                <td id=\"entry-rm9-9ky-rod\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd206f351bgg7\">不支持</p>\n                </td>\n                <td id=\"entry-u34-vxe-ft3\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd206f361bdxb\">不支持</p>\n                </td>\n                <td id=\"entry-53v-y77-kc4\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd206f371b88t\"><a href=\"https://help.aliyun.com/zh/eip/billing-overview#concept-645525\" id=\"xref-hkm-stu-er5\" title=\"\" class=\"xref\">计费概述</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-ub2-cub-2ts\">\n                <td id=\"entry-380-5ho-d06\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd206f381b9bm\"><a href=\"https://help.aliyun.com/zh/eci/product-overview/what-is-elastic-container-instance#topic-1860079\" id=\"76428ca818bch\" title=\"\" class=\"xref\">弹性容器实例</a></p>\n                </td>\n                <td id=\"entry-tul-nfr-z2u\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd206f391b9kq\">建议项</p>\n                </td>\n                <td id=\"entry-krj-toh-8kp\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd206f3a1bxx8\">用于部署集群。</p>\n                </td>\n                <td id=\"entry-3dk-saw-ryo\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2096401bfx2\">不支持</p>\n                </td>\n                <td id=\"entry-ufa-pcy-5hm\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2096411b3it\">不支持</p>\n                </td>\n                <td id=\"entry-dfh-3r4-1e5\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2096421bt8t\"><a href=\"https://help.aliyun.com/zh/eci/product-overview/billing-overview#topic-1860085\" id=\"xref-hrc-7a3-b5x\" title=\"\" class=\"xref\">计费概述</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-plz-zjs-8sd\">\n                <td id=\"entry-h7z-dyl-mtm\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2096431bxiv\"><a href=\"https://help.aliyun.com/zh/asm/product-overview/what-is-asm#concept-2366983\" id=\"1aedf856b7bie\" title=\"\" class=\"xref\">服务网格<span class=\"help-letter-space\"></span>ASM</a></p>\n                </td>\n                <td id=\"entry-bpq-d08-ayj\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2096441bvne\">建议项</p>\n                </td>\n                <td id=\"entry-i30-jgl-d6i\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2096451b6wq\">基于<span id=\"851b39c0b2irb\" outputclass=\"productName\" data-tag=\"ph\" data-ref-searchable=\"yes\" data-reuse-tag=\"productName\" data-type=\"productName\" data-product-code=\"servicemesh\" docid=\"4225920\" is-conref=\"true\" class=\"ph productName\">服务网格</span>实现多个集群应用的统一流量管理。</p>\n                </td>\n                <td id=\"entry-5pk-eou-tgy\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2096461bqtg\">不支持</p>\n                </td>\n                <td id=\"entry-fqu-oi5-3fv\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2096471by5c\">支持</p>\n                  <div data-tag=\"note\" id=\"note-7dt-f4i-cdk\" props=\"china\" data-cond-props=\"china\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                    <p id=\"bd2096481b38h\">请参见<a href=\"https://help.aliyun.com/zh/asm/product-overview/billing-rules#section-tvp-y6a-85h\" id=\"xref-2qo-ry5-rvs\" title=\"\" class=\"xref\">网格管理计费（资源包）</a>，根据业务需要选购合适的资源包。</p>\n                  </div></div>\n                </td>\n                <td id=\"entry-g2v-mql-hvw\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2096491bvxc\"><a href=\"https://help.aliyun.com/zh/asm/product-overview/billing-rules#concept-2370573\" id=\"xref-3bg-dre-28i\" title=\"\" class=\"xref\">计费说明</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-ll3-zrx-cqa\">\n                <td id=\"entry-mm6-xo6-uw8\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20964a1b4oi\"><a href=\"https://help.aliyun.com/zh/sls/what-is-log-service#concept-mt2-ykn-vdb\" id=\"557f0034ce4i0\" title=\"\" class=\"xref\">日志服务<span class=\"help-letter-space\"></span>SLS</a></p>\n                </td>\n                <td id=\"entry-mvv-qkh-7hv\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20964b1bvpr\">建议项</p>\n                </td>\n                <td id=\"entry-lx9-q5n-1yi\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20bd501bn6v\">用于集群组件和应用的日志采集和检索。</p>\n                </td>\n                <td id=\"entry-c4g-gtf-9a6\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20bd511boht\">不支持</p>\n                </td>\n                <td id=\"entry-qt6-f63-fs5\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20bd521bdg3\">支持</p>\n                  <div data-tag=\"note\" id=\"note-a3a-u53-d4t\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                    <p id=\"bd20bd531brmw\">可参考如下文档，根据业务需要选购合适的资源包：<a href=\"https://help.aliyun.com/zh/sls/purchase-a-resource-plan#task-2190130\" id=\"xref-j3w-dm9-j78\" title=\"\" class=\"xref\">选购资源包</a>。</p>\n                  </div></div>\n                </td>\n                <td id=\"entry-op3-adc-05z\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20bd541bnrn\"><a href=\"https://help.aliyun.com/zh/sls/billing-overview#concept-2086667\" id=\"xref-i0t-tcn-pqn\" title=\"\" class=\"xref\">计费概述</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-yyo-lbn-vg5\">\n                <td id=\"entry-i3x-xsx-lzr\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20bd551b8kj\"><a href=\"https://help.aliyun.com/zh/cms/cloudmonitor-1-0/product-overview/what-is-cloudmonitor#concept-2452587\" id=\"7b44ceb4723x5\" title=\"\" class=\"xref\">CMS<span class=\"help-letter-space\"></span>云监控服务</a></p>\n                </td>\n                <td id=\"entry-zyx-kkd-8tt\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20bd561bx0v\">建议项</p>\n                </td>\n                <td id=\"entry-gkf-y21-pfi\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20bd571bqzs\">用于监控集群节点和应用运行状态。</p>\n                </td>\n                <td id=\"entry-i0g-ofz-tyh\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20bd581br5i\">不支持</p>\n                </td>\n                <td id=\"entry-g9i-t8p-8e7\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20bd591bglp\">支持</p>\n                  <div data-tag=\"note\" id=\"note-01z-rhy-24n\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                    <p id=\"bd20bd5a1baj9\">可参考如下文档，根据业务需要选购合适的资源包：<span data-tag=\"ph\" id=\"a79e7e801bzki\" props=\"china\" data-cond-props=\"china\" class=\"ph\"><a href=\"https://help.aliyun.com/zh/cms/cloudmonitor-1-0/product-overview/billing-overview\" id=\"8ba38f901bg1o\" title=\"\" class=\"xref\">计费概述</a></span></p>\n                  </div></div>\n                </td>\n                <td id=\"entry-n0n-j7b-rnu\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20e4601bwh7\"><span data-tag=\"ph\" id=\"fc40e8111b8fy\" props=\"china\" data-cond-props=\"china\" class=\"ph\"><a href=\"https://help.aliyun.com/zh/cms/cloudmonitor-1-0/product-overview/billing-overview\" id=\"fc4136301b06y\" title=\"\" class=\"xref\">计费概述</a></span></p>\n                </td>\n              </tr>\n              <tr id=\"row-36c-t8o-0um\">\n                <td id=\"entry-1b7-cwy-2wn\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20e4611bz94\"><a href=\"https://help.aliyun.com/zh/arms/prometheus-monitoring/product-overview/what-is-prometheus#concept-662038\" id=\"2bf0e4badbrzm\" title=\"\" class=\"xref\">可观测监控 Prometheus 版</a></p>\n                </td>\n                <td id=\"entry-pzp-0av-oar\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20e4621b72a\">建议项</p>\n                </td>\n                <td id=\"entry-985-2i8-fmj\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20e4631bz8w\">基于<span class=\"help-letter-space\"></span>Prometheus<span class=\"help-letter-space\"></span>实现对集群的监控和告警。</p>\n                </td>\n                <td id=\"entry-170-qeg-ods\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20e4641b9c1\">不支持</p>\n                </td>\n                <td id=\"entry-m35-d0x-9yk\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20e4661bhnx\">不支持</p>\n                </td>\n                <td id=\"entry-iu0-g3n-yp7\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20e4671bcbx\"><a href=\"https://help.aliyun.com/zh/arms/prometheus-monitoring/product-overview/pay-as-you-go#concept-2372659\" id=\"xref-mbl-b7r-tka\" title=\"\" class=\"xref\">按量计费</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-b34-xfk-573\">\n                <td id=\"entry-7uj-otk-4dw\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20e4681bxk8\"><a href=\"https://help.aliyun.com/zh/nat-gateway/product-overview/what-is-nat-gateway#concept-wpm-kfy-ydb\" id=\"0ee5bdef78irw\" title=\"\" class=\"xref\">NAT 网关服务</a></p>\n                </td>\n                <td id=\"entry-w49-j85-gqh\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20e4691bxxw\">可选项</p>\n                </td>\n                <td id=\"entry-rmg-2am-3mf\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20e46a1b0u4\">用于为集群开启公网访问和公网镜像拉取。</p>\n                </td>\n                <td id=\"entry-pbr-xt2-grd\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20e46b1bch2\">不支持</p>\n                </td>\n                <td id=\"entry-e0j-3vm-9oa\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd20e46c1bpvy\">支持</p>\n                  <div data-tag=\"note\" id=\"note-fs9-h39-2fm\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                    <p id=\"bd210b701bdtx\">可参考如下文档，根据业务需要选购合适的资源包：<a href=\"https://help.aliyun.com/zh/nat-gateway/nat-resource-plans#concept-2121008\" id=\"xref-tce-bvy-02v\" title=\"\" class=\"xref\">NAT 网关资源包</a>。</p>\n                  </div></div>\n                </td>\n                <td id=\"entry-yka-c7n-buz\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd210b711bxtq\"><a href=\"https://help.aliyun.com/zh/nat-gateway/nat-gateway-billing#concept-z13-hty-ydb\" id=\"xref-mv7-0cn-isc\" title=\"\" class=\"xref\">NAT 网关计费</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-otz-heg-bn8\">\n                <td id=\"entry-3ka-q1n-27h\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd210b721b5md\"><a href=\"https://help.aliyun.com/zh/security-center/product-overview/what-is-security-center#concept-bjv-y5w-ydb\" id=\"63e471a8a5b11\" title=\"\" class=\"xref\">云安全中心</a></p>\n                </td>\n                <td id=\"entry-gdn-x09-fzm\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd210b731bsgf\">可选项</p>\n                </td>\n                <td id=\"entry-6ax-mkh-cjn\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd210b741bj0c\">用于监控集群应用运行时的安全事件和告警。</p>\n                </td>\n                <td id=\"entry-r2w-c0d-vjf\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd210b751b12j\">不支持</p>\n                </td>\n                <td id=\"entry-xsq-aws-7ad\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd210b761blj8\">不支持</p>\n                </td>\n                <td id=\"entry-krg-2ja-n6q\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd210b771b1we\"><a href=\"https://help.aliyun.com/zh/security-center/product-overview/billing-overview#concept-z2v-2bc-zdb\" id=\"xref-dwc-p5u-02k\" title=\"\" class=\"xref\">计费说明</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-m6k-nhr-waw\">\n                <td id=\"entry-s3a-n56-ui7\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd210b781bw52\"><a href=\"https://help.aliyun.com/zh/nas/product-overview/what-is-nas#concept-qpg-wrt-1fb\" id=\"bde9aee978b9n\" title=\"\" class=\"xref\">文件存储<span class=\"help-letter-space\"></span>NAS</a></p>\n                </td>\n                <td id=\"entry-2oy-rpo-19f\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd210b791bfws\">可选项</p>\n                </td>\n                <td id=\"entry-wrr-9qj-g2h\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd210b7a1brgb\">基于<span class=\"help-letter-space\"></span>NAS<span class=\"help-letter-space\"></span>实现集群应用数据的文件存储方案。</p>\n                </td>\n                <td id=\"entry-c6e-o2c-tm6\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2132801b6ce\">不支持</p>\n                </td>\n                <td id=\"entry-1c1-2zj-9hq\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2132811bat7\">支持</p>\n                  <div data-tag=\"note\" id=\"note-52e-8mx-wie\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                    <p id=\"bd2132821b31x\">可参考如下文档，根据业务需要选购合适的资源包：<a href=\"https://help.aliyun.com/zh/nas/product-overview/purchase-resource-plans#concept-53974-zh\" id=\"xref-r27-gce-9bv\" title=\"\" class=\"xref\">选购资源包</a>。</p>\n                  </div></div>\n                </td>\n                <td id=\"entry-jdq-pqi-x9g\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2132831bset\"><a href=\"https://help.aliyun.com/zh/nas/product-overview/billing-of-general-purpose-nas-file-systems#task-2567548\" id=\"xref-29m-1x5-n45\" title=\"\" class=\"xref\">通用型<span class=\"help-letter-space\"></span>NAS<span class=\"help-letter-space\"></span>计费</a>和<a href=\"https://help.aliyun.com/zh/nas/product-overview/billing-of-extreme-nas-file-systems#task-2567605\" id=\"xref-daw-gus-9qx\" title=\"\" class=\"xref\">极速型<span class=\"help-letter-space\"></span>NAS<span class=\"help-letter-space\"></span>计费</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-0pt-v2a-jii\">\n                <td id=\"entry-bvm-osy-fej\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2132841b30b\"><a href=\"https://help.aliyun.com/zh/oss/user-guide/what-is-oss#concept-ybr-fg1-tdb\" id=\"5ab8fb31513jr\" title=\"\" class=\"xref\">对象存储<span class=\"help-letter-space\"></span>OSS</a></p>\n                </td>\n                <td id=\"entry-9ba-zz4-cnl\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2132851bfnl\">可选项</p>\n                </td>\n                <td id=\"entry-40f-0mb-352\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2132861blk1\">基于<span class=\"help-letter-space\"></span>OSS<span class=\"help-letter-space\"></span>实现集群应用数据的对象存储方案。</p>\n                </td>\n                <td id=\"entry-mjp-1wz-c6f\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2132871bjin\">不支持</p>\n                </td>\n                <td id=\"entry-6w1-gfq-f1p\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2132881b3lj\">支持</p>\n                  <div data-tag=\"note\" id=\"note-ntj-uhz-w83\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                    <p id=\"bd2132891bjph\">可参考如下文档，根据业务需要选购合适的资源包：<a href=\"https://help.aliyun.com/zh/oss/purchase-resource-plans#task-2190990\" id=\"xref-b3g-fck-y08\" title=\"\" class=\"xref\">资源包购买指南</a>。</p>\n                  </div></div>\n                </td>\n                <td id=\"entry-tzk-k0s-xtc\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd21328a1bfkz\"><a href=\"https://help.aliyun.com/zh/oss/billing-overview#concept-n4t-mwg-tdb\" id=\"xref-9qj-fu7-beh\" title=\"\" class=\"xref\">计费概述</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-4bt-dy5-6o2\">\n                <td id=\"entry-xgf-nt9-cnv\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2180a01bd9y\"><a href=\"https://help.aliyun.com/zh/kms/key-management-service/support/what-is-key-management-service#concept-28935-zh\" id=\"8b4baf1c4cgt5\" title=\"\" class=\"xref\">KMS<span class=\"help-letter-space\"></span>密钥管理服务</a></p>\n                </td>\n                <td id=\"entry-s2y-bu3-tdk\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd2180a11b87s\">可选项</p>\n                </td>\n                <td id=\"entry-ekd-mx2-du6\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd21a7b01bb7s\">用于集群应用密钥的管理以及<span class=\"help-letter-space\"></span>Pro<span class=\"help-letter-space\"></span>版集群开启密钥的落盘加密能力。</p>\n                </td>\n                <td id=\"entry-i8o-hqv-2gi\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd21a7b11brrc\">不支持</p>\n                </td>\n                <td id=\"entry-6eo-jd1-5xg\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd21a7b21b66s\">不支持</p>\n                </td>\n                <td id=\"entry-h1z-iwy-zjd\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd21a7b31btx5\"><a href=\"https://help.aliyun.com/zh/kms/key-management-service/support/billing-of-kms#concept-52608-zh\" id=\"xref-fiq-xfb-rnf\" title=\"\" class=\"xref\">KMS 1.0<span class=\"help-letter-space\"></span>计费说明</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-oz4-p1k-7uu\">\n                <td id=\"entry-jgb-6nx-kx4\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd21a7b41bjdi\"><a href=\"https://help.aliyun.com/zh/cloud-backup/product-overview/what-is-hbr#concept-62362-zh\" id=\"696f8b5904bdp\" title=\"\" class=\"xref\">云备份</a></p>\n                </td>\n                <td id=\"entry-97p-2hh-unq\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd21a7b51bou3\">可选项</p>\n                </td>\n                <td id=\"entry-wq2-8bt-tnz\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd21a7b61bl5w\">提供备份、容灾保护以及策略化归档管理。</p>\n                </td>\n                <td id=\"entry-s7j-fir-7yg\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd21a7b71b579\">支持</p>\n                </td>\n                <td id=\"entry-wxi-85e-rm7\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd21cec01bj5v\">支持</p>\n                  <div data-tag=\"note\" id=\"note-6ch-r3l-oop\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                    <p id=\"bd21cec11bzfp\">可参考如下文档，根据业务需要选购合适的资源包：<a href=\"https://help.aliyun.com/zh/cloud-backup/product-overview/purchase-resource-plans#concept-2531739\" id=\"xref-2rb-ptx-yyw\" title=\"\" class=\"xref\">资源包购买指南</a>。</p>\n                  </div></div>\n                </td>\n                <td id=\"entry-7jk-8ww-cua\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd21cec21by73\"><a href=\"https://help.aliyun.com/zh/cloud-backup/product-overview/billing-methods-and-billable-items#concept-89062-zh\" id=\"xref-cjz-hz2-e3y\" title=\"\" class=\"xref\">计费方式与计费项</a></p>\n                </td>\n              </tr>\n              <tr id=\"row-1c3-a7v-0pw\">\n                <td id=\"entry-nui-bu8-oce\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd21cec31bhds\"><a href=\"https://help.aliyun.com/zh/cen/product-overview/what-is-cen/#concept-2090845\" id=\"2cd4f96ce0vjw\" title=\"\" class=\"xref\">云企业网</a></p>\n                </td>\n                <td id=\"entry-cn6-xr4-yq6\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd21cec41byvz\">可选项</p>\n                </td>\n                <td id=\"entry-mlk-0gz-tvq\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd21cec51bp0m\">用于在跨地域专有网络之间，以及专有网络与本地数据中心间搭建私网通信通道。</p>\n                </td>\n                <td id=\"entry-a9t-e2g-vcy\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd21cec61bcwf\">支持</p>\n                  <div data-tag=\"note\" id=\"note-xtp-ouy-tif\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                    <p id=\"bd21cec71bhpq\">带宽包支持包年包月。</p>\n                  </div></div>\n                </td>\n                <td id=\"entry-05x-i6x-85c\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd21cec81bsxu\">支持带宽包</p>\n                  <div data-tag=\"note\" id=\"note-259-hit-u3u\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                    <p id=\"bd21cec91bgdf\">可参考如下文档，根据需求选择合适的带宽包操作：<a href=\"https://help.aliyun.com/zh/cen/user-guide/work-with-a-bandwidth-plan\" id=\"4776bb167fnbv\" title=\"\" class=\"xref\">使用带宽包</a>。</p>\n                  </div></div>\n                </td>\n                <td id=\"entry-z4e-25w-a3q\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bd21ceca1b8cf\"><a href=\"https://help.aliyun.com/zh/cen/product-overview/billing-rules#concept-1985505\" id=\"xref-yq6-yms-925\" title=\"\" class=\"xref\">计费说明</a></p>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </section>\n      </section>\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-iar-2bg-k0v\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-pqu-yid-w5w\" class=\"title\">欠费说明</h2>\n        <p data-tag=\"p\" id=\"p-0o7-28p-6t8\" class=\"p\">如果账户余额不足以支付账单金额，<span data-tag=\"ph\" id=\"06d6d1f16e6n8\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>会处于欠费状态，将无法访问集群<span class=\"help-letter-space\"></span>API Server，但节点上的业务仍可继续运行。如果超过<span class=\"help-letter-space\"></span>15<span class=\"help-letter-space\"></span>天仍处于欠费状态，阿里云将暂停提供服务，从集群中移除相应节点（但不会释放）并删除<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"0a0b49006e13i\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>及集群中的容器实例。因<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"0c89dd906eo0c\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>删除而释放的容器实例，将不可被恢复。</p>\n        <div data-tag=\"note\" id=\"note-lic-oam-05e\" props=\"china\" is-conref=\"true\" data-cond-props=\"china\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n<p data-tag=\"p\" id=\"b63f0d0147s8l\" props=\"china\" docid=\"123261\" is-conref=\"true\" data-cond-props=\"china\" class=\"p\">阿里云提供延期免停权益，即当按量付费的资源发生欠费后，提供一定额度或时长继续使用云服务的权益，延停期间正常计费。具体使用说明和规则，请参见<a href=\"https://help.aliyun.com/zh/user-center/exemption-of-suspension-after-delinquency\" id=\"xref-4ok-g5q-p6h\" class=\"\" target=\"_blank\">延期免停权益</a>。</p>\n</div></div>\n      </section>\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-1t7-vmx-dnk\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-3h3-ss5-gll\" class=\"title\">退款说明</h2>\n        <p data-tag=\"p\" id=\"p-unl-bu9-off\" class=\"p\">按量计费方式不涉及退款相关内容。</p>\n      </section>\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-68z-5o1-hqe\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-bce-ph9-vvv\" class=\"title\">计费周期</h2>\n        <p data-tag=\"p\" id=\"p-k98-mj0-rhi\" class=\"p\"><span data-tag=\"ph\" id=\"1e8cc4306e42y\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">容器服务 Edge 版</span>费用的计费周期为<span class=\"help-letter-space\"></span>24<span class=\"help-letter-space\"></span>小时，即阿里云将在下一个自然日就上一个自然日的服务使用进行计量、出具账单，出具账单后从阿里云账户中按账单金额扣划服务费用。账单出账时间通常在当前计费周期结束后<span class=\"help-letter-space\"></span>8<span class=\"help-letter-space\"></span>至<span class=\"help-letter-space\"></span>10<span class=\"help-letter-space\"></span>个小时内。</p>\n      </section>\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-zyl-au8-9f3\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-mcb-t97-zvy\" class=\"title\">查看账单</h2>\n        <p data-tag=\"p\" id=\"p-6oi-2yu-jww\" class=\"p\">关于查看账单的具体操作，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/product-overview/view-your-bills#task-2260050\" id=\"xref-7fi-ivo-o66\" title=\"\" class=\"xref\">查看账单</a>。</p>\n      </section>\n      <section class=\"section\" data-cond-props=\"china\" data-tag=\"section\" data-type=\"section\" id=\"section-bby-x52-oh9\">\n        <h2 class=\"title\" data-spm-anchor-id=\"a2c4g.11186623.0.i1.28a47ea1Gq9Xg7\" data-tag=\"title\" id=\"title-6ye-8x3-atr\" jc=\"left\" style=\"text-align:left\"><b>计费常见问题</b></h2>\n        <ul class=\"ul\" data-spm-anchor-id=\"a2c4g.11186623.0.i4.28a47ea1Gq9Xg7\" data-tag=\"ul\" id=\"ul-1ht-kmp-92d\">\n          <li id=\"10bf3ca3b4f3r\">\n            <p id=\"86254c691crg2\">为什么会突然增加或减少每天的账单金额？</p>\n            <ul class=\"ul\" data-tag=\"ul\" id=\"ul-3b5-8ct-qxz\">\n              <li class=\"li\" data-tag=\"li\" id=\"li-qjm-1do-laq\">\n                <p id=\"9a443adf1ab7m\">如果在使用过程中扩容或缩容了节点，系统会按照集群所管理的节点的总<span class=\"help-letter-space\"></span>vCPU<span class=\"help-letter-space\"></span>数调整计费，在第二天的出账中体现新的费用。</p>\n              </li>\n              <li class=\"li\" data-tag=\"li\" id=\"li-qbu-3hv-wbg\">\n                <p id=\"54c2dc78e24sn\">当未通过容器服务控制台移除节点时（如：使用<span class=\"ph\" data-tag=\"ph\" id=\"codeph-zxx-dly-lu9\"><code class=\"code\" data-tag=\"code\" id=\"97332e314aqps\">kubectl delete node</code></span>移除节点），被移除的节点在移除当天有可能还会被计费。因此请通过容器服务控制台移除节点。</p>\n              </li>\n            </ul>\n          </li>\n          <li class=\"li\" data-tag=\"li\" id=\"li-csg-gh1-wxl\">\n            <p id=\"28c8870a31zhq\">删除了<span class=\"help-letter-space\"></span><span class=\"ph\" data-tag=\"ph\" docid=\"4431993\" id=\"2dc5dc706ecnk\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>，为什么今天还会收到账单并被扣费？</p>\n            <p id=\"4c6fb5d0b28e0\"><span class=\"ph\" data-tag=\"ph\" docid=\"4431993\" id=\"2f75af506egdp\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>管理费用以每天<span class=\"help-letter-space\"></span>0<span class=\"help-letter-space\"></span>时<span class=\"help-letter-space\"></span>0<span class=\"help-letter-space\"></span>分<span class=\"help-letter-space\"></span>0<span class=\"help-letter-space\"></span>秒至<span class=\"help-letter-space\"></span>23<span class=\"help-letter-space\"></span>时<span class=\"help-letter-space\"></span>59<span class=\"help-letter-space\"></span>分<span class=\"help-letter-space\"></span>59<span class=\"help-letter-space\"></span>秒为周期进行计费，第二天收费。所以昨天删除<span class=\"help-letter-space\"></span><span class=\"ph\" data-tag=\"ph\" docid=\"4431993\" id=\"3246f7c06euco\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>，昨天的计费系统已经计入，今天会出账单进行扣费，次日就不会出账单扣费了。</p>\n          </li>\n          <li class=\"li\" data-tag=\"li\" id=\"li-ldn-e1f-ria\">\n            <p id=\"7edd2938b95wa\">如何停止<span class=\"help-letter-space\"></span><span class=\"ph\" data-tag=\"ph\" docid=\"4431993\" id=\"343385816e0ir\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>的计费？</p>\n            <p id=\"5ada7c5c03h71\">删除所有地域的<span class=\"help-letter-space\"></span><span class=\"ph\" data-tag=\"ph\" docid=\"4431993\" id=\"361390206e98l\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>，删除集群前请注意备份应用和数据。</p>\n          </li>\n          <li class=\"li\" data-tag=\"li\" id=\"li-r63-mt0-qsk\">\n            <p id=\"8f927f81644qy\">NotReady<span class=\"help-letter-space\"></span>状态的节点是否会计费？</p>\n            <p id=\"6f788778e5qu0\">节点状态不论是<span class=\"help-letter-space\"></span>Ready<span class=\"help-letter-space\"></span>还是<span class=\"help-letter-space\"></span>NotReady，<span class=\"ph\" data-tag=\"ph\" docid=\"4431993\" id=\"38141b116enxa\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>都会对节点进行管理，因此<span class=\"help-letter-space\"></span>NotReady<span class=\"help-letter-space\"></span>状态的节点仍然会计费。必须通过容器服务控制台移除节点，相关节点才不会计费。</p>\n          </li>\n        </ul>\n      </section>\n      \n      <p id=\"206973706e8hq\"></p>\n    </div>\n  </main>\n\n\n\n\n</div>","path":"https://help.aliyun.com/zh/ack/ack-edge/product-overview/billing-of-ack-edge-clusters","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"alias":"/ack/ack-edge/product-overview/billing-of-ack-edge-clusters","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":6,"developerUrl":"https://developer.aliyun.com/group/kubernetes/","nodeType":1,"version":43,"url":"/zh/ack/ack-edge/product-overview/billing-of-ack-edge-clusters","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":178718,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"ACK Edge集群计费说明","id":178718,"title":"ACK Edge集群计费说明","url":"/zh/ack/ack-edge/product-overview/billing-of-ack-edge-clusters"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"产品概述","id":2391815,"title":"产品概述","url":"/zh/ack/ack-edge/product-overview/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"ACK Edge集群","id":181471,"title":"ACK Edge集群","url":"/zh/ack/ack-edge/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"productUrl":"https://www.aliyun.com/product/kubernetes","nodeId":178718,"desc":"本文介绍ACK Edge集群计费说明、欠费说明和计费常见问题等相关信息。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"ACK Edge集群","id":181471,"title":"ACK Edge集群","url":"/zh/ack/ack-edge/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"产品概述","id":2391815,"title":"产品概述","url":"/zh/ack/ack-edge/product-overview/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"ACK Edge集群计费说明","id":178718,"title":"ACK Edge集群计费说明","url":"/zh/ack/ack-edge/product-overview/billing-of-ack-edge-clusters"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=2150420f17825421954225944e9a32&asid=AQAAAABzbz9qQzeaXgAAAAAII0wSL3f7lw==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"><div class="help-subproduct-container"></div></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2391815" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/product-overview/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品概述</span>
+</a>
+</li>
+ <li id="2870142" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/quick-start">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">快速入门</span>
+</a>
+</li>
+ <li id="2391816" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">操作指南</span>
+</a>
+</li>
+ <li id="2865114" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/use-cases/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">实践教程</span>
+</a>
+</li>
+ <li id="2852069" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/security-and-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="2391824" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2391859" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/support/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">服务支持</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>ACK Edge集群计费说明</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/kubernetes" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="concept-1936963">
+    
+    
+    <p data-tag="shortdesc" id="shortdesc-v56-1uk-zgy" class="shortdesc">本文介绍<span class="help-letter-space"></span><span data-tag="ph" id="75622fd06eq5u" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群</span>计费说明、欠费说明和计费常见问题等相关信息。</p>
+    <div data-tag="conbody" id="conbody-215-2cm-asr" class="conbody">
+      
+      <section data-tag="section" data-type="section" id="section-zde-yfv-8yv" class="section">
+        <h2 data-tag="title" id="title-3i3-n3m-fr7" class="title"><span data-tag="ph" id="bfd2e73f2ak0l" class="ph">计费说明</span></h2>
+        <section id="6c8ed57fc2az3" class="section">
+          <table autofit="true" id="782ab650f81u2" tablecolswidth="24.93 24.93 24.93 25.210000000000008" tablewidth="100" class="table">
+            <colgroup colwidth="1*" style="width:24.93%"></colgroup>
+            <colgroup colwidth="1*" style="width:24.93%"></colgroup>
+            <colgroup colwidth="1*" style="width:24.93%"></colgroup>
+            <colgroup colwidth="1.01*" style="width:25.21%"></colgroup>
+            <tbody class="tbody">
+              <tr id="4514c1abd1xgq">
+                <td id="54135e881dazt" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="bab3a0e21fxn9" jc="left" style="text-align:left"><b>集群类型</b></p>
+                </td>
+                <td id="e958cc5285qx9" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                  <p id="985cec2a42gva" jc="left" style="text-align:left"><b>集群管理费用</b></p>
+                </td>
+                <td id="437b5a58542ok" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="2c680c9a66ms6"><b>节点管理费用</b></p>
+                </td>
+                <td id="3094b365b0h1l" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="b0f2d27e3b49c" jc="left" style="text-align:left"><b>云产品资源费用</b></p>
+                </td>
+              </tr>
+              <tr id="d1351820acs59">
+                <td id="9c54aa66b56ip" rowspan="1" colspan="1">
+                  <p id="cf7ea47fd5keh" jc="left" style="text-align:left"><span data-tag="ph" id="ccba47dd76dbj" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群<span class="help-letter-space"></span>Pro<span class="help-letter-space"></span>版</span></p>
+                </td>
+                <td id="213b8c54f41nv" rowspan="1" style="vertical-align:middle" colspan="1">
+                  <p id="f6b6bc2440ubn" jc="left" style="text-align:left"><img alt="支持" class="image inline" data-tag="image" height="16" id="7958b68057yoj" placement="inline" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9943349471/p961103.png"></p>
+                </td>
+                <td id="7e0243d48b4gr" rowspan="1" colspan="1">
+                  <p id="e017aeb1f3k0l"><img alt="支持" class="image inline" data-tag="image" height="16" id="0fe4a1c454qdx" placement="inline" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9943349471/p961104.png"></p>
+                </td>
+                <td id="5a06e18e50kpi" rowspan="1" colspan="1">
+                  <p id="1c67cc623dqrh" jc="left" style="text-align:left"><img alt="支持" class="image inline" data-tag="image" height="16" id="bc2e8f90813qe" placement="inline" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9943349471/p961104.png"></p>
+                </td>
+              </tr>
+              <tr id="ce105b394ff8q">
+                <td id="a154e7a448g4c" rowspan="1" colspan="1">
+                  <p id="cf83e157f3hn8" jc="left" style="text-align:left"><span data-tag="ph" id="240839bdfcdq4" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群基础版</span></p>
+                </td>
+                <td id="9417d0ece8ya2" rowspan="1" style="vertical-align:middle" colspan="1">
+                  <p id="91613c721c928" jc="left" style="text-align:left"><img alt="错" class="image inline" data-tag="image" height="16" id="16c0db10f754z" placement="inline" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9943349471/p961105.png"></p>
+                </td>
+                <td id="de5be7e23268y" rowspan="1" colspan="1">
+                  <p id="c2e28e5d1c2hv"><img alt="支持" class="image inline" data-tag="image" height="16" id="58a6501c8btdk" placement="inline" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9943349471/p961104.png"></p>
+                </td>
+                <td id="4f6f9585990fj" rowspan="1" colspan="1">
+                  <p id="72f6eb49d0fru" jc="left" style="text-align:left"><img alt="支持" class="image inline lazy-media lazy-loading" data-tag="image" height="16" id="fb2309183d0j5" placement="inline" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9943349471/p961106.png"></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <section id="4085b94356fux" class="section">
+            <hetu hetuid="591de8ad-b8c6-4f00-8fe7-defb24e1059e" id="ae3861f473bfm" type="flowchart" uuid="4755304_20241122150432.489" versionid="CAEQWhiBgIDi.JC2uhkiIDYwOWY5NTA3NjM2MTQ4MzRiZGU2NjNkM2VhOWRkODdk"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7259265771/CAEQWhiBgIDi.JC2uhkiIDYwOWY5NTA3NjM2MTQ4MzRiZGU2NjNkM2VhOWRkODdk4755304_20241122150432.489.svg" alt="image" class="image break flowchart hetu lazy-media lazy-loading"></hetu>
+            <div data-tag="note" id="note-phm-7o6-y4r" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+              <p id="bd1f36b11bdt2">以下计费示例仅供参考，实际费用以购买产品的控制台页面（或购买页面）为准。</p>
+            </div></div>
+          </section>
+          <section id="2b8ffba3c1cgo" class="section">
+            <h3 data-tag="p" id="p-o1s-x7b-vae" outputclass="h3" class="p h3">集群管理计费</h3>
+            <section id="ea36a18377iek" class="section">
+              <p id="ba9a58a4ce3v9">阿里云<span data-tag="ph" id="b1ceefd16en4o" docid="4431993" is-conref="true" class="ph">容器服务 Edge 版</span>整合阿里云虚拟化、存储、网络和安全等能力，并简化集群运维工作，专注于容器化应用的开发与管理，所以针对<span class="help-letter-space"></span><span data-tag="ph" id="9d93a5606edu4" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群<span class="help-letter-space"></span>Pro<span class="help-letter-space"></span>版</span>会收取集群的管理费用。</p>
+              <table autofit="false" id="table-981-a8y-oz1" tablecolswidth="343 343" tablewidth="686" class="table">
+                <colgroup colwidth="1*" style="width:50.00%"></colgroup>
+                <colgroup colwidth="1*" style="width:50.00%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="row-4zm-eu3-te9">
+                    <td id="concept-1936963-entry-szg-q2b-8qv" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="bd1f5dc01b4n7"><b>计费方式</b></p>
+                    </td>
+                    <td id="concept-1936963-entry-9dc-n05-co4" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="bd1f5dc11b9h5"><b>价格</b></p>
+                    </td>
+                  </tr>
+                  <tr id="row-wyk-oqn-5h0" props="china" data-cond-props="china">
+                    <td id="entry-3hb-igh-3gf" rowspan="1" colspan="1">
+                      <p id="bd1f5dc21bdoz">按量计费</p>
+                    </td>
+                    <td id="entry-72g-9od-708" rowspan="1" colspan="1">
+                      <p id="bd1f5dc31bs1z">每个集群<span class="help-letter-space"></span>0.64<span class="help-letter-space"></span>元/小时</p>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </section>
+          </section>
+          <section id="b5fe6cc192rgs" class="section">
+            <h3 data-tag="p" id="p-3gv-e4j-25u" outputclass="h3" class="p h3">节点管理计费</h3>
+            <p data-tag="p" id="p-gzy-un7-m63" class="p">阿里云<span data-tag="ph" id="b56d25316emrh" docid="4431993" is-conref="true" class="ph">容器服务 Edge 版</span>支持丰富的异构边缘节点资源，包括自建<span class="help-letter-space"></span>IDC<span class="help-letter-space"></span>资源、<a href="https://www.aliyun.com/product/ens" id="xref-iv8-oar-r2y" class="" target="_blank">ENS</a>、IoT<span class="help-letter-space"></span>设备、X86、ARM<span class="help-letter-space"></span>架构等；并支持异构资源的混合调度，所以会收取非云端<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>的节点管理费用。例如，集群下有<span class="help-letter-space"></span>3<span class="help-letter-space"></span>台<span class="help-letter-space"></span>4 vCPU 8 GB<span class="help-letter-space"></span>的节点（其中<span class="help-letter-space"></span>1<span class="help-letter-space"></span>台是<span class="help-letter-space"></span>ECS，另外<span class="help-letter-space"></span>2<span class="help-letter-space"></span>台是<span class="help-letter-space"></span>ENS<span class="help-letter-space"></span>或者线下节点），边缘容器服务收取的费用为<hetu formula="0.2 元/vCPU/天 * 2 * 4 vCPU = 1.6元/天" hetuid="c9ae36c2-fb7f-4fd5-a2c9-43dcecfbbb1f" id="d4efac5e5cozl" props="china" style="display:inline-block;max-width:100%;overflow:auto;vertical-align:middle" type="xFormula" data-cond-props="china"><span class="katex-display"><span class="katex"><span aria-hidden="true" class="katex-html"><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">0.2</span><span class="help-letter-space"></span><span class="mord cjk_fallback">元</span><span class="mord">/</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal" style="margin-right:0.13889em;">CP</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mord">/</span><span class="mord cjk_fallback">天</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6444em;"></span><span class="mord">2</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">∗</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">4</span><span class="mord mathnormal" style="margin-right:0.03588em;">v</span><span class="mord mathnormal" style="margin-right:0.13889em;">CP</span><span class="mord mathnormal" style="margin-right:0.10903em;">U</span><span class="mspace" style="margin-right:0.2778em;"></span><span class="mrel">=</span><span class="mspace" style="margin-right:0.2778em;"></span></span><span class="base"><span class="strut" style="height:1em;vertical-align:-0.25em;"></span><span class="mord">1.6</span><span class="help-letter-space"></span><span class="mord cjk_fallback">元</span><span class="mord">/</span><span class="mord cjk_fallback">天</span></span></span></span></span></hetu>
+              ，使用时间不足一天，按一天计算。
+            </p>
+            <p id="7ab8c4fae211h">默认情况下，节点管理费用采用按量付费的方式，也可以购买<a href="#5c9c221df5iu2" id="f86f80e347xlb" title="" class="xref">容器服务边缘节点资源包</a>
+              来抵扣。
+            </p>
+            <section id="7573e2325974k" class="section">
+              <h4 id="cce88b29c8i5h"><b>按量付费</b></h4>
+              <table autofit="true" id="table-qnc-ixp-unq" tablecolswidth="50.08 49.92" tablewidth="100" class="table">
+                <colgroup colwidth="1*" style="width:50.08%"></colgroup>
+                <colgroup colwidth="1*" style="width:49.92%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="row-hl2-ahl-4st">
+                    <td id="concept-1936963-entry-9x1-i7m-o4l" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="bd1f5dc41b19l"><b>计费方式</b></p>
+                    </td>
+                    <td id="concept-1936963-entry-b65-ezr-l5i" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="bd1f84d01bohj"><b>价格</b></p>
+                    </td>
+                  </tr>
+                  <tr id="row-ee3-arl-0b2" props="china" data-cond-props="china">
+                    <td id="entry-n5y-4q6-qrr" rowspan="1" colspan="1">
+                      <p id="bd1f84d11bdoa">按量计费</p>
+                    </td>
+                    <td id="entry-lqw-j3j-121" rowspan="1" colspan="1">
+                      <p id="bd1f84d21b0ui">0.2<span class="help-letter-space"></span>元/vCPU/天</p>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </section>
+            <section id="ed57f405aaaru" class="section">
+              <h4 id="5c9c221df5iu2"><b>容器服务边缘节点资源包</b></h4>
+              <div id="4b2785e592qg4" outputclass="collapse" class="collapse">
+                <p data-tag="expandable-title" id="05034fbd1d2mt" class="expandable-title"><b>购买资源包</b></p>
+                <div data-tag="expandable-content" id="e3c958681eiiu" class="expandable-content">
+                  <p id="ceaa804728i0t" props="china" data-cond-props="china">购买<a href="https://common-buy.aliyun.com/?commodityCode=csk_edgevcore_dp_cn" id="81e4b27340v9g" class="" target="_blank">容器服务边缘节点资源包</a>，以此抵扣<span class="help-letter-space"></span><span data-tag="ph" id="3d39044ba75u2" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群</span>对边缘节点的管理费用。</p>
+                  <p id="e981299177ve7">容器服务边缘节点资源包仅一种规格，支持购买多个，可叠加抵扣。</p>
+                  <table autofit="true" id="af06c6042b1zz" tablecolswidth="12.64 43.68 15.44 28.239999999999995" tablewidth="100" class="table">
+                    <colgroup colwidth="0.51*" style="width:12.64%"></colgroup>
+                    <colgroup colwidth="1.75*" style="width:43.68%"></colgroup>
+                    <colgroup colwidth="0.62*" style="width:15.44%"></colgroup>
+                    <colgroup colwidth="1.13*" style="width:28.24%"></colgroup>
+                    <tbody class="tbody">
+                      <tr id="1f860fa92915y">
+                        <td id="80745558f1sow" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                          <p id="e89c89c259kxa" jc="left" style="text-align:left"><b>规格</b></p>
+                        </td>
+                        <td id="c0a82656b32hb" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                          <p id="42090a87d53m0" jc="left" style="text-align:left"><b>说明</b></p>
+                        </td>
+                        <td id="0dce757936dlm" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                          <p id="6034b3f024q5g" jc="left" style="text-align:left"><b>价格</b></p>
+                        </td>
+                        <td id="e99e6cfc6dorg" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                          <p id="cf163b5e40yry" jc="left" style="text-align:left"><b>有效期</b></p>
+                        </td>
+                      </tr>
+                      <tr id="6f4dfc429c2ys" props="china" data-cond-props="china">
+                        <td id="9ecf344cb77by" rowspan="1" style="background-color:rgba(0, 0, 0, 0)" colspan="1">
+                          <p id="f1499e2cd2qjc" jc="left" style="text-align:left">500 vCPU</p>
+                        </td>
+                        <td id="71f23767cbmag" rowspan="1" style="background-color:rgba(0, 0, 0, 0)" colspan="1">
+                          <p id="3013b7025bpbd" jc="left" style="text-align:left">按天抵扣，单个资源包可固定抵扣边缘节点<span class="help-letter-space"></span>500<span class="help-letter-space"></span>个<span class="help-letter-space"></span>vCPU 365<span class="help-letter-space"></span>天的按量计费账单。</p>
+                        </td>
+                        <td id="7c5511a8bdl82" rowspan="1" style="background-color:rgba(0, 0, 0, 0)" colspan="1">
+                          <p id="73ce714666alx" jc="left" style="text-align:left">12000<span class="help-letter-space"></span>元</p>
+                        </td>
+                        <td id="4b04b864ee3cd" rowspan="1" style="background-color:rgba(0, 0, 0, 0)" colspan="1">
+                          <p id="7d336fc0bdp5x" jc="left" style="text-align:left">365<span class="help-letter-space"></span>天。</p>
+                          <p id="ffb9fcd2964ml">开通时间可以选择购买后立即生效，也可以指定<span class="help-letter-space"></span>6<span class="help-letter-space"></span>个月内任意一天生效。</p>
+                        </td>
+                      </tr>
+                      
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <div id="8359adb233854" outputclass="collapse" class="collapse">
+                <p data-tag="expandable-title" id="38f90081ad74d" class="expandable-title"><b>使用资源包</b></p>
+                <div data-tag="expandable-content" id="b6e9f17937qna" class="expandable-content">
+                  <p id="1a048715a88ew" uuid="mb4yxnctwjxfx9xbjoj">购买容器服务边缘节点资源包后，会自动抵扣阿里云账号下<span class="help-letter-space"></span><span data-tag="ph" id="60f0b75cc7zk8" data-init-id="3d39044ba75u2" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群</span>的边缘节点管理费用，无需进行操作。</p>
+                  <p id="7ebabfd8e8mok" uuid="mb5zgwva1htzwtuxkql">抵扣时，遵循以下规则：</p>
+                  <ul id="bffe886e0brel">
+                    <li id="0ccd0833a5dht">
+                      <p id="b2b0dcb863mzy" uuid="mb4yzczia3ayqz2rq3q">每天会固定抵扣掉<span class="help-letter-space"></span>500 vCPU<span class="help-letter-space"></span>核数的边缘节点（非云端<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>节点）的管理费。</p>
+                    </li>
+                    <li id="f4c9de5f93jmt">
+                      <p id="71e4ee4a99szd">本资源包不能抵扣已经产生的用量。</p>
+                    </li>
+                    <li id="f623e0cfb8qt1">
+                      <p id="05c4552176e8k" uuid="mb5zhmdh6o5fxc4ctld">资源包耗尽或过期失效后，边缘节点管理费用将自动转为按量付费。</p>
+                    </li>
+                    <li id="88f0f4a869c9r">
+                      <p id="29dabb81e464t" uuid="mb4z1nxn84nqo2wnz4n">如果边缘节点的<span class="help-letter-space"></span>vCPU<span class="help-letter-space"></span>核数过多，可以叠加购买多个资源包。例如，如果边缘节点为<span class="help-letter-space"></span>1000 vCPU，可以购买<span class="help-letter-space"></span>2<span class="help-letter-space"></span>个边缘节点资源包，抵扣时会按下单顺序依次抵扣。请注意资源包生效日期。</p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div id="605dcca743sdr" outputclass="collapse" class="collapse">
+                <p data-tag="expandable-title" id="f36a33fd83j29" class="expandable-title"><b>查看资源包使用情况</b></p>
+                <div data-tag="expandable-content" id="091a334ef96zm" class="expandable-content">
+                  <p id="f1bbd10aa2s4w">购买容器服务边缘节点资源包后，可以通过以下操作查询资源包使用情况，并设置余量预警。</p>
+                  <ol id="e078d162efuvf">
+                    <li id="c286ba88bf2q5">
+                      <p data-init-id="7450173183469" id="3fafd9ba64xyf">登录费用与成本页面。</p>
+                      <div data-init-id="fbd8ef50ce2z0" id="cd0016511a3v5" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                        <p id="5c399d5eaenaw">以下操作以新版（蓝色版）控制台为例。</p>
+                      </div></div>
+                    </li>
+                    <li data-tag="step" id="7672317724imf" docid="3896739" is-conref="true" class="step"><p id="6720807193vz5">在左侧导航栏，选择<span data-tag="menucascade" id="ef2b95c0d09pw" class="menucascade"><b data-tag="uicontrol" id="d9845d1be7p6y" class="uicontrol">账户</b> &gt; <b id="0e53ce252bqn6" data-tag="uicontrol" data-isbold="true" class="uicontrol">资源包</b></span>。</p></li>
+                    <li id="edef9fe076iwx">
+                      <p id="97371230ddlul">在<b id="29c1d35dbeicj" data-tag="uicontrol" data-isbold="true" class="uicontrol" data-spm-anchor-id="a2c4g.11186623.0.i31.56bb11885NF1r0">资源维度</b>处，选中<b id="aa50ae66f4phz" data-tag="uicontrol" data-isbold="true" class="uicontrol">资源包</b>，然后在资源包列表中，筛选<b id="90d14e4573wul" data-tag="uicontrol" data-isbold="true" class="uicontrol">资源包类型</b>为<b class="uicontrol" id="da4af77fa8o2y">容器服务边缘节点资源包</b>。</p>
+                      <div data-init-id="b359be396bdaa" id="9eaa0bc3a1vrp" tagname="note" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                        <p id="4ff4e50d0008z">单击列表右上角的<img alt="image" height="20.714" id="655f3a2ceedo7" placement="inline" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1264883371/p875246.png" width="20" class="image inline lazy-media lazy-loading">图标可以设置列表显示的列；单击<img alt="image" height="21.481" id="cfcaad3290yrm" placement="inline" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1264883371/p875249.png" width="20" class="image inline lazy-media lazy-loading">图标可以将列表信息导出为<span class="help-letter-space"></span>CSV<span class="help-letter-space"></span>文件。</p>
+                      </div></div>
+                    </li>
+                    <li id="5c172531a58on">
+                      <p id="47daa620f158p" docid="3896739" is-conref="true">根据需要进行以下操作。</p>
+                      <section data-tag="tabbed-content-box" id="30ba30fa5b6h2" outputclass="tabbed-content-box" class="tabbed-content-box section">
+                        <section id="19b3044df0zxe" class="section">
+                          <h2 id="2ef4642a3em2y">查询整体用量</h2>
+                          <ol id="a52d21b4b6j2i">
+                            <li id="1b29504307qm4">
+                              <p data-init-id="dba9b01704nzk" id="bec7a0613269i">在<b id="248c93c2e8s6t" data-tag="uicontrol" data-isbold="true" class="uicontrol">实例汇总</b>页签下，找到要操作的容器服务边缘节点资源包，单击对应<b id="4c9a168eecg0n" data-tag="uicontrol" data-isbold="true" class="uicontrol">操作</b>列中的<b id="07b56cfde85cq" data-tag="uicontrol" data-isbold="true" class="uicontrol">统计</b>。</p>
+                            </li>
+                            <li id="21c719919dbr1">
+                              <p data-init-id="e4fea62962jgh" id="435dadc1c0hhw" tagname="p">在弹出页面查看容器服务边缘节点的信息以及使用情况，包括失效时间、剩余量、实例抵扣情况等。</p>
+                            </li>
+                          </ol>
+                        </section>
+                        <section id="a601386983s0w" class="section">
+                          <h2 id="3f7fe9411fql2">查看使用明细</h2>
+                          <ol id="6b168e19aaee2">
+                            <li id="7cbee1a367l9p" docid="3896739" is-conref="true"><p id="e4d0a382e8knj">单击<b id="395c79fe97stj" data-tag="uicontrol" data-isbold="true" class="uicontrol">使用明细</b>页签。</p></li>
+                            <li id="518c849ab0m94" docid="3896739" is-conref="true"><p id="e408ad5362uhf">设置查询条件，单击<b id="9bd99b5d7e7g4" data-tag="uicontrol" data-isbold="true" class="uicontrol">搜索</b>。</p></li>
+                            <li id="c714f45a4210r">
+                              <p data-init-id="57d9d43644cxf" id="43bda0b02ezqs" tagname="p">查看容器服务边缘节点资源包的使用明细，包括抵扣量、被抵扣的集群<span class="help-letter-space"></span>ID、抵扣时间段等。</p>
+                            </li>
+                          </ol>
+                        </section>
+                        <section id="f85db329f1j74" class="section">
+                          <h2 id="54374b571d36t">设置余量预警</h2>
+                          <ol id="426d10e234aw0">
+                            <li id="c6a668f5786oz" docid="3896739" is-conref="true"><p id="ffa34dd578t57">在页面右上角单击<b id="51fa8f0262d2q" data-tag="uicontrol" data-isbold="true" class="uicontrol">余量预警设置</b>。</p></li>
+                            <li id="ea2d257d2ekza">
+                              <p id="8b7d106517y0t">在弹出的对话框中找到容器服务边缘节点资源包，开启预警并设置额度比例，然后单击<b id="c30116297ar9w" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>。</p>
+                            </li>
+                          </ol>
+                        </section>
+                      </section>
+                    </li>
+                  </ol>
+                </div>
+              </div>
+            </section>
+          </section>
+        </section>
+        <section id="f72b09f8d3dbw" class="section">
+          <h3 data-tag="p" id="p-65d-2j7-gkl" outputclass="h3" class="p h3">云产品资源计费</h3>
+          <p data-tag="p" id="p-76s-hv4-k0h" class="p">如果在使用<span class="help-letter-space"></span><span data-tag="ph" id="c6b82d816ez62" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群</span>过程中使用了其他的阿里云云产品资源，需要按照各云产品规定的计费规则，为使用的这些资源付费，费用由各云产品收取。如果未使用其他阿里云云产品，则不收取云产品资源费用。</p>
+          <table autofit="true" id="table-4da-lwu-1qz" tablecolswidth="9.75 12.44 22.34 20.84 19.64 14.989999999999995" tablewidth="100" class="table">
+            <colgroup colwidth="0.61*" style="width:9.75%"></colgroup>
+            <colgroup colwidth="0.78*" style="width:12.44%"></colgroup>
+            <colgroup colwidth="1.4*" style="width:22.34%"></colgroup>
+            <colgroup colwidth="1.3*" style="width:20.84%"></colgroup>
+            <colgroup colwidth="1.23*" style="width:19.64%"></colgroup>
+            <colgroup colwidth="0.94*" style="width:14.99%"></colgroup>
+            <tbody class="tbody">
+              <tr id="row-a0q-ddd-sja">
+                <td id="concept-1936963-entry-a2u-wc2-gon" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="bd1f84d31bsjt"><b>云产品名称</b></p>
+                </td>
+                <td id="concept-1936963-entry-9et-zu3-jxv" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="bd1f84d41b6ul"><b>开通类型</b></p>
+                </td>
+                <td id="concept-1936963-entry-kuw-q8i-tiz" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="bd1fabe01by1c"><b>产品说明</b></p>
+                </td>
+                <td id="concept-1936963-entry-2i1-vk0-xc9" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="bd1fabe11b14x"><b>是否支持包年包月</b></p>
+                </td>
+                <td id="concept-1936963-entry-dzf-89r-19w" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="bd1fabe21bo6r"><b>是否支持资源包</b></p>
+                </td>
+                <td id="concept-1936963-entry-nqw-3ic-7in" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="bd1fabe31brzl"><b>计费说明</b></p>
+                </td>
+              </tr>
+              <tr id="row-eay-wfc-wcz">
+                <td id="entry-tle-8qc-ya8" rowspan="1" colspan="1">
+                  <p id="bd1fabe41benm"><a href="https://help.aliyun.com/zh/ecs/user-guide/what-is-ecs#EcsWelcome" id="9254ceb28abu3" title="" class="xref">云服务器<span class="help-letter-space"></span>ECS</a></p>
+                </td>
+                <td id="entry-f2d-k3g-kpp" rowspan="1" colspan="1">
+                  <p id="bd1fabe51bh59">必选项</p>
+                </td>
+                <td id="entry-7xh-fuy-24j" rowspan="1" colspan="1">
+                  <p id="bd1fabe61b5la">用于为<span class="help-letter-space"></span><span data-tag="ph" id="ca5774516e4yq" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群</span>创建节点。</p>
+                </td>
+                <td id="entry-hrj-7hc-xqo" rowspan="1" colspan="1">
+                  <p id="bd1fd2f01beb3">支持</p>
+                </td>
+                <td id="entry-jaf-y84-5xf" rowspan="1" colspan="1">
+                  <p id="bd1fd2f11bh63">不支持</p>
+                </td>
+                <td id="entry-kc7-psk-ii5" rowspan="1" colspan="1">
+                  <p id="bd1fd2f21blag"><a href="https://help.aliyun.com/zh/ecs/billing-overview#concept-isb-scd-5db" id="xref-cmf-itw-04x" title="" class="xref">计费概述</a></p>
+                </td>
+              </tr>
+              <tr id="row-rv9-1nx-nlx">
+                <td id="entry-1kz-5a3-g90" rowspan="1" colspan="1">
+                  <p id="bd1fd2f31b0lh"><a href="https://help.aliyun.com/zh/ens/product-overview/what-is-ens" id="a571980022l22" title="" class="xref">边缘节点服务<span class="help-letter-space"></span>ENS</a></p>
+                </td>
+                <td id="entry-rtf-jg6-3ms" rowspan="1" colspan="1">
+                  <p id="bd1fd2f41bil9">可选项</p>
+                </td>
+                <td id="entry-2n1-vce-jn9" rowspan="1" colspan="1">
+                  <p id="bd1fd2f51bllh">用于为<span class="help-letter-space"></span><span data-tag="ph" id="cd18de406eyzt" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群</span>添加边缘节点。</p>
+                </td>
+                <td id="entry-xz3-k8n-0nn" rowspan="1" colspan="1">
+                  <p id="bd1fd2f61bgil">支持</p>
+                </td>
+                <td id="entry-m5n-ha1-hu5" rowspan="1" colspan="1">
+                  <p id="bd1fd2f71bx05">不支持</p>
+                </td>
+                <td id="entry-xts-1fs-934" rowspan="1" colspan="1">
+                  <p id="bd1fd2f81bq4x"><a href="https://help.aliyun.com/zh/ens/product-overview/overview-5#concept-1828715" id="xref-fo1-aow-uow" title="" class="xref">边缘节点服务<span class="help-letter-space"></span>ENS<span class="help-letter-space"></span>计费概览</a></p>
+                </td>
+              </tr>
+              <tr id="row-hvz-vbd-zk8">
+                <td id="entry-xq0-dq2-i72" rowspan="1" colspan="1">
+                  <p id="ca5ed1ca458gb"><a href="https://help.aliyun.com/zh/vpc/what-is-vpc#concept-kbk-cpz-ndb" id="2111363e1ccyb" title="" class="xref">专有网络<span class="help-letter-space"></span>VPC</a></p>
+                </td>
+                <td id="entry-g8j-0wt-vyg" rowspan="1" colspan="1">
+                  <p id="bd1ffa011blb8">必选项</p>
+                </td>
+                <td id="entry-407-hag-741" rowspan="1" colspan="1">
+                  <p id="bd1ffa021buln">用于构建集群网络环境和路由规则。</p>
+                </td>
+                <td id="entry-xqc-6ux-y45" rowspan="1" colspan="1">
+                  <p id="bd1ffa031bf4s">不支持</p>
+                </td>
+                <td id="entry-9xw-xxu-s34" rowspan="1" colspan="1">
+                  <p id="bd1ffa041b6ww">不支持</p>
+                </td>
+                <td id="entry-7qr-4t9-mfw" rowspan="1" colspan="1">
+                  <p id="bd1ffa051bmlp"><a href="https://help.aliyun.com/zh/vpc/product-overview/product-billing#concept-1357436" id="xref-n55-slz-ye1" title="" class="xref">产品计费</a></p>
+                </td>
+              </tr>
+              <tr id="row-xep-4hi-jaa">
+                <td id="entry-35u-x6k-suv" rowspan="1" colspan="1">
+                  <p id="bd1ffa061b9uu"><a href="https://help.aliyun.com/zh/slb/classic-load-balancer/product-overview/what-is-clb/#concept-whs-lp4-tdb" id="c9761ee00e5iz" title="" class="xref">传统型负载均衡<span class="help-letter-space"></span>CLB</a></p>
+                </td>
+                <td id="entry-tkl-o1x-34e" rowspan="1" colspan="1">
+                  <p id="bd1ffa071bmzn">必选项</p>
+                </td>
+                <td id="entry-7s1-7gy-sl8" rowspan="1" colspan="1">
+                  <p id="bd1ffa081b7mo">用于为<span class="help-letter-space"></span><span data-tag="ph" id="d15094806e9g5" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群</span>创建负载均衡。</p>
+                </td>
+                <td id="entry-r37-38p-9v9" rowspan="1" colspan="1">
+                  <p id="bd1ffa091b81p"><span data-tag="ph" id="ph-bg0-wb1-301" props="china" data-cond-props="china" class="ph">不支持</span></p>
+                  <div data-tag="note" id="note-0i4-5jm-e44" props="china" data-cond-props="china" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                    <p id="bd2021101byel">自<span class="help-letter-space"></span>2024<span class="help-letter-space"></span>年<span class="help-letter-space"></span>12<span class="help-letter-space"></span>月<span class="help-letter-space"></span>01<span class="help-letter-space"></span>日起，创建<span class="help-letter-space"></span><span data-tag="ph" id="7a669ab92adi8" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群</span>时，API Server<span class="help-letter-space"></span>关联的<span class="help-letter-space"></span>CLB<span class="help-letter-space"></span>实例不再支持包年包月。更多信息，请参见<a href="https://help.aliyun.com/zh/ack/product-overview/product-announcement-announcement-on-adding-cluster-api-server-load-balancing-clb-to-stop-supporting-annual-and-monthly-payment-types#DAS" id="e673f73e01cqk" title="" class="xref">【产品公告】关于取消新增集群<span class="help-letter-space"></span>API Server<span class="help-letter-space"></span>负载均衡<span class="help-letter-space"></span>CLB<span class="help-letter-space"></span>包年包月付费的公告</a>。</p>
+                  </div></div>
+                  
+                </td>
+                <td id="entry-b4r-h4s-ctj" rowspan="1" colspan="1">
+                  <p id="bd2021131b91k">不支持</p>
+                </td>
+                <td id="entry-1fr-4pe-1xz" rowspan="1" colspan="1">
+                  <p id="bd2021141b3xc"><a href="https://help.aliyun.com/zh/slb/classic-load-balancer/product-overview/billing-overview/" id="2816b65556076" title="" class="xref">CLB<span class="help-letter-space"></span>计费概述</a></p>
+                  
+                </td>
+              </tr>
+              <tr id="row-i7r-v5h-br8">
+                <td id="entry-hka-zcq-ay6" rowspan="1" colspan="1">
+                  <p id="bd2021161bact"><a href="https://help.aliyun.com/zh/auto-scaling/product-overview/what-is-auto-scaling#concept-25857-zh" id="957dd273fbk34" title="" class="xref">弹性伸缩<span class="help-letter-space"></span>ESS</a></p>
+                </td>
+                <td id="entry-zbn-u5u-ymj" rowspan="1" colspan="1">
+                  <p id="bd2048201bnej">必选项</p>
+                </td>
+                <td id="entry-grq-k4o-coh" rowspan="1" colspan="1">
+                  <p id="bd2048211by07">用于为<span class="help-letter-space"></span><span data-tag="ph" id="d509f3016e8al" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群</span>创建节点和实现自动伸缩。</p>
+                </td>
+                <td id="entry-mr2-jzo-5m7" rowspan="1" colspan="1">
+                  <p id="bd2048221bgy3">不支持</p>
+                </td>
+                <td id="entry-rkf-gpf-det" rowspan="1" colspan="1">
+                  <p id="bd2048231bad2">不支持</p>
+                </td>
+                <td id="entry-tqu-8ce-wul" rowspan="1" colspan="1">
+                  <p id="bd2048241blan"><a href="https://help.aliyun.com/zh/auto-scaling/product-overview/billing-rules#concept-nw2-h3m-qfb" id="xref-248-gfc-bc8" title="" class="xref">产品计费</a></p>
+                </td>
+              </tr>
+              <tr id="row-iof-xit-9ns">
+                <td id="entry-mdh-ovv-b5l" rowspan="1" colspan="1">
+                  <p id="bd2048251bbel"><a href="https://help.aliyun.com/zh/acr/product-overview/what-is-container-registry#concept-2058233" id="f9ab5e2e38qgj" title="" class="xref">容器镜像服务<span class="help-letter-space"></span>ACR</a></p>
+                </td>
+                <td id="entry-6xz-a8e-2n5" rowspan="1" colspan="1">
+                  <p id="bd2048261b20t">建议项</p>
+                </td>
+                <td id="entry-b9u-qzo-tle" rowspan="1" colspan="1">
+                  <p id="bd2048271bl00">用于云原生资产的安全托管和全生命周期管理。</p>
+                </td>
+                <td id="entry-hor-86y-c2c" rowspan="1" colspan="1">
+                  <p id="bd2048281bedh">支持</p>
+                  <div data-tag="note" id="note-f2f-jve-pw8" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                    <p id="bd2048291bzvo">ACR<span class="help-letter-space"></span>企业版实例仅支持按照实例的包年包月计费方式。更多信息，请参见<a href="https://help.aliyun.com/zh/acr/product-overview/billing-of-container-registry-enterprise-edition-instances#task-2273187" id="xref-pb3-0dt-9oo" title="" class="xref">企业版实例计费说明</a>。</p>
+                  </div></div>
+                </td>
+                <td id="entry-jss-rtw-eq0" rowspan="1" colspan="1">
+                  <p id="bd206f301b5r6">不支持</p>
+                </td>
+                <td id="entry-n9i-mjj-efr" rowspan="1" colspan="1">
+                  <p id="bd206f311b8gt"><a href="https://help.aliyun.com/zh/acr/product-overview/billing-description#concept-2047822" id="xref-ws3-7cg-pgq" title="" class="xref">计费说明</a></p>
+                </td>
+              </tr>
+              <tr id="row-u54-xmp-791">
+                <td id="entry-9t9-dcv-i4n" rowspan="1" colspan="1">
+                  <p id="bd206f321b6gp"><a href="https://help.aliyun.com/zh/eip/product-overview/what-is-eip#concept-zmv-hd3-vdb" id="aea29bd20a19a" title="" class="xref">弹性公网<span class="help-letter-space"></span>IP</a></p>
+                </td>
+                <td id="entry-wo3-dok-ss5" rowspan="1" colspan="1">
+                  <p id="bd206f331bd8s">建议项</p>
+                </td>
+                <td id="entry-ums-sdp-354" rowspan="1" colspan="1">
+                  <p id="bd206f341bb3h">用于云资源与公网通信。</p>
+                </td>
+                <td id="entry-rm9-9ky-rod" rowspan="1" colspan="1">
+                  <p id="bd206f351bgg7">不支持</p>
+                </td>
+                <td id="entry-u34-vxe-ft3" rowspan="1" colspan="1">
+                  <p id="bd206f361bdxb">不支持</p>
+                </td>
+                <td id="entry-53v-y77-kc4" rowspan="1" colspan="1">
+                  <p id="bd206f371b88t"><a href="https://help.aliyun.com/zh/eip/billing-overview#concept-645525" id="xref-hkm-stu-er5" title="" class="xref">计费概述</a></p>
+                </td>
+              </tr>
+              <tr id="row-ub2-cub-2ts">
+                <td id="entry-380-5ho-d06" rowspan="1" colspan="1">
+                  <p id="bd206f381b9bm"><a href="https://help.aliyun.com/zh/eci/product-overview/what-is-elastic-container-instance#topic-1860079" id="76428ca818bch" title="" class="xref">弹性容器实例</a></p>
+                </td>
+                <td id="entry-tul-nfr-z2u" rowspan="1" colspan="1">
+                  <p id="bd206f391b9kq">建议项</p>
+                </td>
+                <td id="entry-krj-toh-8kp" rowspan="1" colspan="1">
+                  <p id="bd206f3a1bxx8">用于部署集群。</p>
+                </td>
+                <td id="entry-3dk-saw-ryo" rowspan="1" colspan="1">
+                  <p id="bd2096401bfx2">不支持</p>
+                </td>
+                <td id="entry-ufa-pcy-5hm" rowspan="1" colspan="1">
+                  <p id="bd2096411b3it">不支持</p>
+                </td>
+                <td id="entry-dfh-3r4-1e5" rowspan="1" colspan="1">
+                  <p id="bd2096421bt8t"><a href="https://help.aliyun.com/zh/eci/product-overview/billing-overview#topic-1860085" id="xref-hrc-7a3-b5x" title="" class="xref">计费概述</a></p>
+                </td>
+              </tr>
+              <tr id="row-plz-zjs-8sd">
+                <td id="entry-h7z-dyl-mtm" rowspan="1" colspan="1">
+                  <p id="bd2096431bxiv"><a href="https://help.aliyun.com/zh/asm/product-overview/what-is-asm#concept-2366983" id="1aedf856b7bie" title="" class="xref">服务网格<span class="help-letter-space"></span>ASM</a></p>
+                </td>
+                <td id="entry-bpq-d08-ayj" rowspan="1" colspan="1">
+                  <p id="bd2096441bvne">建议项</p>
+                </td>
+                <td id="entry-i30-jgl-d6i" rowspan="1" colspan="1">
+                  <p id="bd2096451b6wq">基于<span id="851b39c0b2irb" outputclass="productName" data-tag="ph" data-ref-searchable="yes" data-reuse-tag="productName" data-type="productName" data-product-code="servicemesh" docid="4225920" is-conref="true" class="ph productName">服务网格</span>实现多个集群应用的统一流量管理。</p>
+                </td>
+                <td id="entry-5pk-eou-tgy" rowspan="1" colspan="1">
+                  <p id="bd2096461bqtg">不支持</p>
+                </td>
+                <td id="entry-fqu-oi5-3fv" rowspan="1" colspan="1">
+                  <p id="bd2096471by5c">支持</p>
+                  <div data-tag="note" id="note-7dt-f4i-cdk" props="china" data-cond-props="china" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                    <p id="bd2096481b38h">请参见<a href="https://help.aliyun.com/zh/asm/product-overview/billing-rules#section-tvp-y6a-85h" id="xref-2qo-ry5-rvs" title="" class="xref">网格管理计费（资源包）</a>，根据业务需要选购合适的资源包。</p>
+                  </div></div>
+                </td>
+                <td id="entry-g2v-mql-hvw" rowspan="1" colspan="1">
+                  <p id="bd2096491bvxc"><a href="https://help.aliyun.com/zh/asm/product-overview/billing-rules#concept-2370573" id="xref-3bg-dre-28i" title="" class="xref">计费说明</a></p>
+                </td>
+              </tr>
+              <tr id="row-ll3-zrx-cqa">
+                <td id="entry-mm6-xo6-uw8" rowspan="1" colspan="1">
+                  <p id="bd20964a1b4oi"><a href="https://help.aliyun.com/zh/sls/what-is-log-service#concept-mt2-ykn-vdb" id="557f0034ce4i0" title="" class="xref">日志服务<span class="help-letter-space"></span>SLS</a></p>
+                </td>
+                <td id="entry-mvv-qkh-7hv" rowspan="1" colspan="1">
+                  <p id="bd20964b1bvpr">建议项</p>
+                </td>
+                <td id="entry-lx9-q5n-1yi" rowspan="1" colspan="1">
+                  <p id="bd20bd501bn6v">用于集群组件和应用的日志采集和检索。</p>
+                </td>
+                <td id="entry-c4g-gtf-9a6" rowspan="1" colspan="1">
+                  <p id="bd20bd511boht">不支持</p>
+                </td>
+                <td id="entry-qt6-f63-fs5" rowspan="1" colspan="1">
+                  <p id="bd20bd521bdg3">支持</p>
+                  <div data-tag="note" id="note-a3a-u53-d4t" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                    <p id="bd20bd531brmw">可参考如下文档，根据业务需要选购合适的资源包：<a href="https://help.aliyun.com/zh/sls/purchase-a-resource-plan#task-2190130" id="xref-j3w-dm9-j78" title="" class="xref">选购资源包</a>。</p>
+                  </div></div>
+                </td>
+                <td id="entry-op3-adc-05z" rowspan="1" colspan="1">
+                  <p id="bd20bd541bnrn"><a href="https://help.aliyun.com/zh/sls/billing-overview#concept-2086667" id="xref-i0t-tcn-pqn" title="" class="xref">计费概述</a></p>
+                </td>
+              </tr>
+              <tr id="row-yyo-lbn-vg5">
+                <td id="entry-i3x-xsx-lzr" rowspan="1" colspan="1">
+                  <p id="bd20bd551b8kj"><a href="https://help.aliyun.com/zh/cms/cloudmonitor-1-0/product-overview/what-is-cloudmonitor#concept-2452587" id="7b44ceb4723x5" title="" class="xref">CMS<span class="help-letter-space"></span>云监控服务</a></p>
+                </td>
+                <td id="entry-zyx-kkd-8tt" rowspan="1" colspan="1">
+                  <p id="bd20bd561bx0v">建议项</p>
+                </td>
+                <td id="entry-gkf-y21-pfi" rowspan="1" colspan="1">
+                  <p id="bd20bd571bqzs">用于监控集群节点和应用运行状态。</p>
+                </td>
+                <td id="entry-i0g-ofz-tyh" rowspan="1" colspan="1">
+                  <p id="bd20bd581br5i">不支持</p>
+                </td>
+                <td id="entry-g9i-t8p-8e7" rowspan="1" colspan="1">
+                  <p id="bd20bd591bglp">支持</p>
+                  <div data-tag="note" id="note-01z-rhy-24n" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                    <p id="bd20bd5a1baj9">可参考如下文档，根据业务需要选购合适的资源包：<span data-tag="ph" id="a79e7e801bzki" props="china" data-cond-props="china" class="ph"><a href="https://help.aliyun.com/zh/cms/cloudmonitor-1-0/product-overview/billing-overview" id="8ba38f901bg1o" title="" class="xref">计费概述</a></span></p>
+                  </div></div>
+                </td>
+                <td id="entry-n0n-j7b-rnu" rowspan="1" colspan="1">
+                  <p id="bd20e4601bwh7"><span data-tag="ph" id="fc40e8111b8fy" props="china" data-cond-props="china" class="ph"><a href="https://help.aliyun.com/zh/cms/cloudmonitor-1-0/product-overview/billing-overview" id="fc4136301b06y" title="" class="xref">计费概述</a></span></p>
+                </td>
+              </tr>
+              <tr id="row-36c-t8o-0um">
+                <td id="entry-1b7-cwy-2wn" rowspan="1" colspan="1">
+                  <p id="bd20e4611bz94"><a href="https://help.aliyun.com/zh/arms/prometheus-monitoring/product-overview/what-is-prometheus#concept-662038" id="2bf0e4badbrzm" title="" class="xref">可观测监控 Prometheus 版</a></p>
+                </td>
+                <td id="entry-pzp-0av-oar" rowspan="1" colspan="1">
+                  <p id="bd20e4621b72a">建议项</p>
+                </td>
+                <td id="entry-985-2i8-fmj" rowspan="1" colspan="1">
+                  <p id="bd20e4631bz8w">基于<span class="help-letter-space"></span>Prometheus<span class="help-letter-space"></span>实现对集群的监控和告警。</p>
+                </td>
+                <td id="entry-170-qeg-ods" rowspan="1" colspan="1">
+                  <p id="bd20e4641b9c1">不支持</p>
+                </td>
+                <td id="entry-m35-d0x-9yk" rowspan="1" colspan="1">
+                  <p id="bd20e4661bhnx">不支持</p>
+                </td>
+                <td id="entry-iu0-g3n-yp7" rowspan="1" colspan="1">
+                  <p id="bd20e4671bcbx"><a href="https://help.aliyun.com/zh/arms/prometheus-monitoring/product-overview/pay-as-you-go#concept-2372659" id="xref-mbl-b7r-tka" title="" class="xref">按量计费</a></p>
+                </td>
+              </tr>
+              <tr id="row-b34-xfk-573">
+                <td id="entry-7uj-otk-4dw" rowspan="1" colspan="1">
+                  <p id="bd20e4681bxk8"><a href="https://help.aliyun.com/zh/nat-gateway/product-overview/what-is-nat-gateway#concept-wpm-kfy-ydb" id="0ee5bdef78irw" title="" class="xref">NAT 网关服务</a></p>
+                </td>
+                <td id="entry-w49-j85-gqh" rowspan="1" colspan="1">
+                  <p id="bd20e4691bxxw">可选项</p>
+                </td>
+                <td id="entry-rmg-2am-3mf" rowspan="1" colspan="1">
+                  <p id="bd20e46a1b0u4">用于为集群开启公网访问和公网镜像拉取。</p>
+                </td>
+                <td id="entry-pbr-xt2-grd" rowspan="1" colspan="1">
+                  <p id="bd20e46b1bch2">不支持</p>
+                </td>
+                <td id="entry-e0j-3vm-9oa" rowspan="1" colspan="1">
+                  <p id="bd20e46c1bpvy">支持</p>
+                  <div data-tag="note" id="note-fs9-h39-2fm" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                    <p id="bd210b701bdtx">可参考如下文档，根据业务需要选购合适的资源包：<a href="https://help.aliyun.com/zh/nat-gateway/nat-resource-plans#concept-2121008" id="xref-tce-bvy-02v" title="" class="xref">NAT 网关资源包</a>。</p>
+                  </div></div>
+                </td>
+                <td id="entry-yka-c7n-buz" rowspan="1" colspan="1">
+                  <p id="bd210b711bxtq"><a href="https://help.aliyun.com/zh/nat-gateway/nat-gateway-billing#concept-z13-hty-ydb" id="xref-mv7-0cn-isc" title="" class="xref">NAT 网关计费</a></p>
+                </td>
+              </tr>
+              <tr id="row-otz-heg-bn8">
+                <td id="entry-3ka-q1n-27h" rowspan="1" colspan="1">
+                  <p id="bd210b721b5md"><a href="https://help.aliyun.com/zh/security-center/product-overview/what-is-security-center#concept-bjv-y5w-ydb" id="63e471a8a5b11" title="" class="xref">云安全中心</a></p>
+                </td>
+                <td id="entry-gdn-x09-fzm" rowspan="1" colspan="1">
+                  <p id="bd210b731bsgf">可选项</p>
+                </td>
+                <td id="entry-6ax-mkh-cjn" rowspan="1" colspan="1">
+                  <p id="bd210b741bj0c">用于监控集群应用运行时的安全事件和告警。</p>
+                </td>
+                <td id="entry-r2w-c0d-vjf" rowspan="1" colspan="1">
+                  <p id="bd210b751b12j">不支持</p>
+                </td>
+                <td id="entry-xsq-aws-7ad" rowspan="1" colspan="1">
+                  <p id="bd210b761blj8">不支持</p>
+                </td>
+                <td id="entry-krg-2ja-n6q" rowspan="1" colspan="1">
+                  <p id="bd210b771b1we"><a href="https://help.aliyun.com/zh/security-center/product-overview/billing-overview#concept-z2v-2bc-zdb" id="xref-dwc-p5u-02k" title="" class="xref">计费说明</a></p>
+                </td>
+              </tr>
+              <tr id="row-m6k-nhr-waw">
+                <td id="entry-s3a-n56-ui7" rowspan="1" colspan="1">
+                  <p id="bd210b781bw52"><a href="https://help.aliyun.com/zh/nas/product-overview/what-is-nas#concept-qpg-wrt-1fb" id="bde9aee978b9n" title="" class="xref">文件存储<span class="help-letter-space"></span>NAS</a></p>
+                </td>
+                <td id="entry-2oy-rpo-19f" rowspan="1" colspan="1">
+                  <p id="bd210b791bfws">可选项</p>
+                </td>
+                <td id="entry-wrr-9qj-g2h" rowspan="1" colspan="1">
+                  <p id="bd210b7a1brgb">基于<span class="help-letter-space"></span>NAS<span class="help-letter-space"></span>实现集群应用数据的文件存储方案。</p>
+                </td>
+                <td id="entry-c6e-o2c-tm6" rowspan="1" colspan="1">
+                  <p id="bd2132801b6ce">不支持</p>
+                </td>
+                <td id="entry-1c1-2zj-9hq" rowspan="1" colspan="1">
+                  <p id="bd2132811bat7">支持</p>
+                  <div data-tag="note" id="note-52e-8mx-wie" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                    <p id="bd2132821b31x">可参考如下文档，根据业务需要选购合适的资源包：<a href="https://help.aliyun.com/zh/nas/product-overview/purchase-resource-plans#concept-53974-zh" id="xref-r27-gce-9bv" title="" class="xref">选购资源包</a>。</p>
+                  </div></div>
+                </td>
+                <td id="entry-jdq-pqi-x9g" rowspan="1" colspan="1">
+                  <p id="bd2132831bset"><a href="https://help.aliyun.com/zh/nas/product-overview/billing-of-general-purpose-nas-file-systems#task-2567548" id="xref-29m-1x5-n45" title="" class="xref">通用型<span class="help-letter-space"></span>NAS<span class="help-letter-space"></span>计费</a>和<a href="https://help.aliyun.com/zh/nas/product-overview/billing-of-extreme-nas-file-systems#task-2567605" id="xref-daw-gus-9qx" title="" class="xref">极速型<span class="help-letter-space"></span>NAS<span class="help-letter-space"></span>计费</a></p>
+                </td>
+              </tr>
+              <tr id="row-0pt-v2a-jii">
+                <td id="entry-bvm-osy-fej" rowspan="1" colspan="1">
+                  <p id="bd2132841b30b"><a href="https://help.aliyun.com/zh/oss/user-guide/what-is-oss#concept-ybr-fg1-tdb" id="5ab8fb31513jr" title="" class="xref">对象存储<span class="help-letter-space"></span>OSS</a></p>
+                </td>
+                <td id="entry-9ba-zz4-cnl" rowspan="1" colspan="1">
+                  <p id="bd2132851bfnl">可选项</p>
+                </td>
+                <td id="entry-40f-0mb-352" rowspan="1" colspan="1">
+                  <p id="bd2132861blk1">基于<span class="help-letter-space"></span>OSS<span class="help-letter-space"></span>实现集群应用数据的对象存储方案。</p>
+                </td>
+                <td id="entry-mjp-1wz-c6f" rowspan="1" colspan="1">
+                  <p id="bd2132871bjin">不支持</p>
+                </td>
+                <td id="entry-6w1-gfq-f1p" rowspan="1" colspan="1">
+                  <p id="bd2132881b3lj">支持</p>
+                  <div data-tag="note" id="note-ntj-uhz-w83" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                    <p id="bd2132891bjph">可参考如下文档，根据业务需要选购合适的资源包：<a href="https://help.aliyun.com/zh/oss/purchase-resource-plans#task-2190990" id="xref-b3g-fck-y08" title="" class="xref">资源包购买指南</a>。</p>
+                  </div></div>
+                </td>
+                <td id="entry-tzk-k0s-xtc" rowspan="1" colspan="1">
+                  <p id="bd21328a1bfkz"><a href="https://help.aliyun.com/zh/oss/billing-overview#concept-n4t-mwg-tdb" id="xref-9qj-fu7-beh" title="" class="xref">计费概述</a></p>
+                </td>
+              </tr>
+              <tr id="row-4bt-dy5-6o2">
+                <td id="entry-xgf-nt9-cnv" rowspan="1" colspan="1">
+                  <p id="bd2180a01bd9y"><a href="https://help.aliyun.com/zh/kms/key-management-service/support/what-is-key-management-service#concept-28935-zh" id="8b4baf1c4cgt5" title="" class="xref">KMS<span class="help-letter-space"></span>密钥管理服务</a></p>
+                </td>
+                <td id="entry-s2y-bu3-tdk" rowspan="1" colspan="1">
+                  <p id="bd2180a11b87s">可选项</p>
+                </td>
+                <td id="entry-ekd-mx2-du6" rowspan="1" colspan="1">
+                  <p id="bd21a7b01bb7s">用于集群应用密钥的管理以及<span class="help-letter-space"></span>Pro<span class="help-letter-space"></span>版集群开启密钥的落盘加密能力。</p>
+                </td>
+                <td id="entry-i8o-hqv-2gi" rowspan="1" colspan="1">
+                  <p id="bd21a7b11brrc">不支持</p>
+                </td>
+                <td id="entry-6eo-jd1-5xg" rowspan="1" colspan="1">
+                  <p id="bd21a7b21b66s">不支持</p>
+                </td>
+                <td id="entry-h1z-iwy-zjd" rowspan="1" colspan="1">
+                  <p id="bd21a7b31btx5"><a href="https://help.aliyun.com/zh/kms/key-management-service/support/billing-of-kms#concept-52608-zh" id="xref-fiq-xfb-rnf" title="" class="xref">KMS 1.0<span class="help-letter-space"></span>计费说明</a></p>
+                </td>
+              </tr>
+              <tr id="row-oz4-p1k-7uu">
+                <td id="entry-jgb-6nx-kx4" rowspan="1" colspan="1">
+                  <p id="bd21a7b41bjdi"><a href="https://help.aliyun.com/zh/cloud-backup/product-overview/what-is-hbr#concept-62362-zh" id="696f8b5904bdp" title="" class="xref">云备份</a></p>
+                </td>
+                <td id="entry-97p-2hh-unq" rowspan="1" colspan="1">
+                  <p id="bd21a7b51bou3">可选项</p>
+                </td>
+                <td id="entry-wq2-8bt-tnz" rowspan="1" colspan="1">
+                  <p id="bd21a7b61bl5w">提供备份、容灾保护以及策略化归档管理。</p>
+                </td>
+                <td id="entry-s7j-fir-7yg" rowspan="1" colspan="1">
+                  <p id="bd21a7b71b579">支持</p>
+                </td>
+                <td id="entry-wxi-85e-rm7" rowspan="1" colspan="1">
+                  <p id="bd21cec01bj5v">支持</p>
+                  <div data-tag="note" id="note-6ch-r3l-oop" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                    <p id="bd21cec11bzfp">可参考如下文档，根据业务需要选购合适的资源包：<a href="https://help.aliyun.com/zh/cloud-backup/product-overview/purchase-resource-plans#concept-2531739" id="xref-2rb-ptx-yyw" title="" class="xref">资源包购买指南</a>。</p>
+                  </div></div>
+                </td>
+                <td id="entry-7jk-8ww-cua" rowspan="1" colspan="1">
+                  <p id="bd21cec21by73"><a href="https://help.aliyun.com/zh/cloud-backup/product-overview/billing-methods-and-billable-items#concept-89062-zh" id="xref-cjz-hz2-e3y" title="" class="xref">计费方式与计费项</a></p>
+                </td>
+              </tr>
+              <tr id="row-1c3-a7v-0pw">
+                <td id="entry-nui-bu8-oce" rowspan="1" colspan="1">
+                  <p id="bd21cec31bhds"><a href="https://help.aliyun.com/zh/cen/product-overview/what-is-cen/#concept-2090845" id="2cd4f96ce0vjw" title="" class="xref">云企业网</a></p>
+                </td>
+                <td id="entry-cn6-xr4-yq6" rowspan="1" colspan="1">
+                  <p id="bd21cec41byvz">可选项</p>
+                </td>
+                <td id="entry-mlk-0gz-tvq" rowspan="1" colspan="1">
+                  <p id="bd21cec51bp0m">用于在跨地域专有网络之间，以及专有网络与本地数据中心间搭建私网通信通道。</p>
+                </td>
+                <td id="entry-a9t-e2g-vcy" rowspan="1" colspan="1">
+                  <p id="bd21cec61bcwf">支持</p>
+                  <div data-tag="note" id="note-xtp-ouy-tif" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                    <p id="bd21cec71bhpq">带宽包支持包年包月。</p>
+                  </div></div>
+                </td>
+                <td id="entry-05x-i6x-85c" rowspan="1" colspan="1">
+                  <p id="bd21cec81bsxu">支持带宽包</p>
+                  <div data-tag="note" id="note-259-hit-u3u" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                    <p id="bd21cec91bgdf">可参考如下文档，根据需求选择合适的带宽包操作：<a href="https://help.aliyun.com/zh/cen/user-guide/work-with-a-bandwidth-plan" id="4776bb167fnbv" title="" class="xref">使用带宽包</a>。</p>
+                  </div></div>
+                </td>
+                <td id="entry-z4e-25w-a3q" rowspan="1" colspan="1">
+                  <p id="bd21ceca1b8cf"><a href="https://help.aliyun.com/zh/cen/product-overview/billing-rules#concept-1985505" id="xref-yq6-yms-925" title="" class="xref">计费说明</a></p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+      <section data-tag="section" data-type="section" id="section-iar-2bg-k0v" class="section">
+        <h2 data-tag="title" id="title-pqu-yid-w5w" class="title">欠费说明</h2>
+        <p data-tag="p" id="p-0o7-28p-6t8" class="p">如果账户余额不足以支付账单金额，<span data-tag="ph" id="06d6d1f16e6n8" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群</span>会处于欠费状态，将无法访问集群<span class="help-letter-space"></span>API Server，但节点上的业务仍可继续运行。如果超过<span class="help-letter-space"></span>15<span class="help-letter-space"></span>天仍处于欠费状态，阿里云将暂停提供服务，从集群中移除相应节点（但不会释放）并删除<span class="help-letter-space"></span><span data-tag="ph" id="0a0b49006e13i" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群</span>及集群中的容器实例。因<span class="help-letter-space"></span><span data-tag="ph" id="0c89dd906eo0c" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群</span>删除而释放的容器实例，将不可被恢复。</p>
+        <div data-tag="note" id="note-lic-oam-05e" props="china" is-conref="true" data-cond-props="china" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+<p data-tag="p" id="b63f0d0147s8l" props="china" docid="123261" is-conref="true" data-cond-props="china" class="p">阿里云提供延期免停权益，即当按量付费的资源发生欠费后，提供一定额度或时长继续使用云服务的权益，延停期间正常计费。具体使用说明和规则，请参见<a href="https://help.aliyun.com/zh/user-center/exemption-of-suspension-after-delinquency" id="xref-4ok-g5q-p6h" class="" target="_blank">延期免停权益</a>。</p>
+</div></div>
+      </section>
+      <section data-tag="section" data-type="section" id="section-1t7-vmx-dnk" class="section">
+        <h2 data-tag="title" id="title-3h3-ss5-gll" class="title">退款说明</h2>
+        <p data-tag="p" id="p-unl-bu9-off" class="p">按量计费方式不涉及退款相关内容。</p>
+      </section>
+      <section data-tag="section" data-type="section" id="section-68z-5o1-hqe" class="section">
+        <h2 data-tag="title" id="title-bce-ph9-vvv" class="title">计费周期</h2>
+        <p data-tag="p" id="p-k98-mj0-rhi" class="p"><span data-tag="ph" id="1e8cc4306e42y" docid="4431993" is-conref="true" class="ph">容器服务 Edge 版</span>费用的计费周期为<span class="help-letter-space"></span>24<span class="help-letter-space"></span>小时，即阿里云将在下一个自然日就上一个自然日的服务使用进行计量、出具账单，出具账单后从阿里云账户中按账单金额扣划服务费用。账单出账时间通常在当前计费周期结束后<span class="help-letter-space"></span>8<span class="help-letter-space"></span>至<span class="help-letter-space"></span>10<span class="help-letter-space"></span>个小时内。</p>
+      </section>
+      <section data-tag="section" data-type="section" id="section-zyl-au8-9f3" class="section">
+        <h2 data-tag="title" id="title-mcb-t97-zvy" class="title">查看账单</h2>
+        <p data-tag="p" id="p-6oi-2yu-jww" class="p">关于查看账单的具体操作，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/product-overview/view-your-bills#task-2260050" id="xref-7fi-ivo-o66" title="" class="xref">查看账单</a>。</p>
+      </section>
+      <section class="section" data-cond-props="china" data-tag="section" data-type="section" id="section-bby-x52-oh9">
+        <h2 class="title" data-spm-anchor-id="a2c4g.11186623.0.i1.28a47ea1Gq9Xg7" data-tag="title" id="title-6ye-8x3-atr" jc="left" style="text-align:left"><b>计费常见问题</b></h2>
+        <ul class="ul" data-spm-anchor-id="a2c4g.11186623.0.i4.28a47ea1Gq9Xg7" data-tag="ul" id="ul-1ht-kmp-92d">
+          <li id="10bf3ca3b4f3r">
+            <p id="86254c691crg2">为什么会突然增加或减少每天的账单金额？</p>
+            <ul class="ul" data-tag="ul" id="ul-3b5-8ct-qxz">
+              <li class="li" data-tag="li" id="li-qjm-1do-laq">
+                <p id="9a443adf1ab7m">如果在使用过程中扩容或缩容了节点，系统会按照集群所管理的节点的总<span class="help-letter-space"></span>vCPU<span class="help-letter-space"></span>数调整计费，在第二天的出账中体现新的费用。</p>
+              </li>
+              <li class="li" data-tag="li" id="li-qbu-3hv-wbg">
+                <p id="54c2dc78e24sn">当未通过容器服务控制台移除节点时（如：使用<span class="ph" data-tag="ph" id="codeph-zxx-dly-lu9"><code class="code" data-tag="code" id="97332e314aqps">kubectl delete node</code></span>移除节点），被移除的节点在移除当天有可能还会被计费。因此请通过容器服务控制台移除节点。</p>
+              </li>
+            </ul>
+          </li>
+          <li class="li" data-tag="li" id="li-csg-gh1-wxl">
+            <p id="28c8870a31zhq">删除了<span class="help-letter-space"></span><span class="ph" data-tag="ph" docid="4431993" id="2dc5dc706ecnk">ACK Edge<span class="help-letter-space"></span>集群</span>，为什么今天还会收到账单并被扣费？</p>
+            <p id="4c6fb5d0b28e0"><span class="ph" data-tag="ph" docid="4431993" id="2f75af506egdp">ACK Edge<span class="help-letter-space"></span>集群</span>管理费用以每天<span class="help-letter-space"></span>0<span class="help-letter-space"></span>时<span class="help-letter-space"></span>0<span class="help-letter-space"></span>分<span class="help-letter-space"></span>0<span class="help-letter-space"></span>秒至<span class="help-letter-space"></span>23<span class="help-letter-space"></span>时<span class="help-letter-space"></span>59<span class="help-letter-space"></span>分<span class="help-letter-space"></span>59<span class="help-letter-space"></span>秒为周期进行计费，第二天收费。所以昨天删除<span class="help-letter-space"></span><span class="ph" data-tag="ph" docid="4431993" id="3246f7c06euco">ACK Edge<span class="help-letter-space"></span>集群</span>，昨天的计费系统已经计入，今天会出账单进行扣费，次日就不会出账单扣费了。</p>
+          </li>
+          <li class="li" data-tag="li" id="li-ldn-e1f-ria">
+            <p id="7edd2938b95wa">如何停止<span class="help-letter-space"></span><span class="ph" data-tag="ph" docid="4431993" id="343385816e0ir">ACK Edge<span class="help-letter-space"></span>集群</span>的计费？</p>
+            <p id="5ada7c5c03h71">删除所有地域的<span class="help-letter-space"></span><span class="ph" data-tag="ph" docid="4431993" id="361390206e98l">ACK Edge<span class="help-letter-space"></span>集群</span>，删除集群前请注意备份应用和数据。</p>
+          </li>
+          <li class="li" data-tag="li" id="li-r63-mt0-qsk">
+            <p id="8f927f81644qy">NotReady<span class="help-letter-space"></span>状态的节点是否会计费？</p>
+            <p id="6f788778e5qu0">节点状态不论是<span class="help-letter-space"></span>Ready<span class="help-letter-space"></span>还是<span class="help-letter-space"></span>NotReady，<span class="ph" data-tag="ph" docid="4431993" id="38141b116enxa">ACK Edge<span class="help-letter-space"></span>集群</span>都会对节点进行管理，因此<span class="help-letter-space"></span>NotReady<span class="help-letter-space"></span>状态的节点仍然会计费。必须通过容器服务控制台移除节点，相关节点才不会计费。</p>
+          </li>
+        </ul>
+      </section>
+      
+      <p id="206973706e8hq"></p>
+    </div>
+  </main>
+
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/ack/ack-edge/product-overview/ack-edge-overview" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：什么是容器服务 Edge 版</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/ack/ack-edge/quick-start" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：快速入门<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

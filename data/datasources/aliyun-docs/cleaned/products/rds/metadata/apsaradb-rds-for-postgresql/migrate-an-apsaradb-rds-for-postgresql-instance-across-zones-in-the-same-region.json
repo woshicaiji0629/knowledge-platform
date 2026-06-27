@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-postgresql/migrate-an-apsaradb-rds-for-postgresql-instance-across-zones-in-the-same-region",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "将RDS实例迁移至同一地域内的其他可用区-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/migrate-an-apsaradb-rds-for-postgresql-instance-across-zones-in-the-same-region",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-postgresql/migrate-an-apsaradb-rds-for-postgresql-instance-across-zones-in-the-same-region.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-postgresql/migrate-an-apsaradb-rds-for-postgresql-instance-across-zones-in-the-same-region.md",
+  "word_count": 837,
+  "text_units": 2312,
+  "local_links": 1,
+  "external_links": 77,
+  "has_tables": true,
+  "table_count": 6,
+  "quality": "accepted"
+}

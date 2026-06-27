@@ -1,0 +1,14 @@
+{
+  "id": "redis:user-guide/overview-of-global-distributed-cache-for-tair:2",
+  "document_id": "redis:user-guide/overview-of-global-distributed-cache-for-tair",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "全球多活数据库跨域数据同步-全球多活-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/overview-of-global-distributed-cache-for-tair",
+  "chunk_index": 2,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/user-guide/overview-of-global-distributed-cache-for-tair.chunk-0002.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/overview-of-global-distributed-cache-for-tair.md",
+  "heading_path": "全球多活 > 功能简介",
+  "char_count": 646
+}

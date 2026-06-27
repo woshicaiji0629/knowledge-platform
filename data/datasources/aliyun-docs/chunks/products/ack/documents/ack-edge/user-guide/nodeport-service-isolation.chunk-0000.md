@@ -1,0 +1,2 @@
+# NodePort端口监听隔离
+在边缘网络场景中，服务隔离是必需的。例如，当使用NodePort类型的Service时，您可以指定特定节点池的节点上才会监听NodePort Service中的端口，从而避免可能产生的端口冲突风险。本文介绍如何使用NodePort端口监听隔离。

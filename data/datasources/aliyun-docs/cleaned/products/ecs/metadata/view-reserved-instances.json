@@ -1,0 +1,17 @@
+{
+  "id": "ecs:view-reserved-instances",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "查看预留实例券使用明细、使用情况-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/view-reserved-instances",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/view-reserved-instances.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/view-reserved-instances.md",
+  "word_count": 699,
+  "text_units": 2258,
+  "local_links": 0,
+  "external_links": 70,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

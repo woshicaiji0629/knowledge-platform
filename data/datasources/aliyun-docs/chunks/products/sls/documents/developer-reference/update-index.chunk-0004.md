@@ -1,0 +1,1 @@
+, "\n", "\t" ], "type": "text" } }, "lastModifyTime": 0, "line": { "caseSensitive": false, "chn": false, "token": [ ",", " ", "'", "\"", ";", "=", "(", ")", "[", "]", "{", "}", "?", "@", "&", "<", ">", "/", ":", "\n", "\t" ] }, "storage": "pg", "ttl": 30 }

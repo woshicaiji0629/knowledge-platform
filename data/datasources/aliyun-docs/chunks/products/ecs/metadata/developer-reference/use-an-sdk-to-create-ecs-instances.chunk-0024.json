@@ -1,0 +1,14 @@
+{
+  "id": "ecs:developer-reference/use-an-sdk-to-create-ecs-instances:24",
+  "document_id": "ecs:developer-reference/use-an-sdk-to-create-ecs-instances",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "使用Java SDK完成ECS实例的创建运维与释放-云服务器 ECS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ecs/developer-reference/use-an-sdk-to-create-ecs-instances",
+  "chunk_index": 24,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ecs/documents/developer-reference/use-an-sdk-to-create-ecs-instances.chunk-0024.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/developer-reference/use-an-sdk-to-create-ecs-instances.md",
+  "heading_path": "通过SDK创建并使用ECS实例 > 释放资源",
+  "char_count": 1200
+}

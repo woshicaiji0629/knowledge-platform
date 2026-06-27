@@ -1,0 +1,17 @@
+{
+  "id": "cdn:configure-custom-request-headers-old",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "如何配置回源HTTP请求头-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/configure-custom-request-headers-old",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/configure-custom-request-headers-old.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/configure-custom-request-headers-old.md",
+  "word_count": 519,
+  "text_units": 1230,
+  "local_links": 0,
+  "external_links": 65,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

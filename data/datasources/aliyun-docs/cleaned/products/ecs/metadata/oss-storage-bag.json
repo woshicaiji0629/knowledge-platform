@@ -1,0 +1,17 @@
+{
+  "id": "ecs:oss-storage-bag",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "pricing",
+  "title": "OSS标准-本地冗余存储包在快照存储费用中的应用-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/oss-storage-bag",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/oss-storage-bag.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/oss-storage-bag.md",
+  "word_count": 879,
+  "text_units": 3040,
+  "local_links": 11,
+  "external_links": 79,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

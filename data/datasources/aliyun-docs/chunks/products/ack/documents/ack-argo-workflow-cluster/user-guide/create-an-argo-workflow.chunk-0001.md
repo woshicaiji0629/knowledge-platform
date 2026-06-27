@@ -1,0 +1,2 @@
+## 工作流ServiceAccount
+工作流可指定ServiceAccount用于运行中访问其他Kubernetes资源，您可以创建自己的ServiceAccount，工作流集群会为ServiceAccount自动绑定权限，

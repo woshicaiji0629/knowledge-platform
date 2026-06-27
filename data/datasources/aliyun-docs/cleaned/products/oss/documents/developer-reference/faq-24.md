@@ -1,0 +1,50 @@
+# 排查SignatureDoesNotMatch签名错误的方法与常见场景-对象存储-阿里云
+
+Source: https://help.aliyun.com/zh/oss/developer-reference/faq-24
+
+# 签名错误问题排查
+本文主要介绍OSS签名错误的常见场景以及排查方法。
+## 签名错误报错信息
+<?xml version="1.0" encoding="UTF-8"?> <Error> <Code>SignatureDoesNotMatch</Code> <Message>The request signature we calculated does not match the signature you provided. Check your key and signing method.</Message> <RequestId>646DCB189AE2D1333018****</RequestId> <HostId>bucket.oss-cn-hangzhou.aliyuncs.com</HostId> <OSSAccessKeyId>LTAI******** </OSSAccessKeyId> <SignatureProvided>tPN3LTAI******** </SignatureProvided> <StringToSign>PUT\n\n\nTue, 23 May 2023 15:24:55 GMT\n/bucket/?acl</StringToSign> <StringToSignBytes>50 55 54 0A 0A 0A 54 75 65 2C 20 32 33 20 4D 61 79 20 32 30 32 33 20 31 35 3A 32 34 3A 35 35 20 47 4D 54 0A 2F 64 69 6E 61 72 79 2F 3F 61 63 6C </StringToSignBytes> <EC>0002-00000040</EC> </Error>
+使用API接口或者SDK访问OSS时，客户端需要携带签名信息以供OSS服务端进行身份认证。如果服务器返回如上所示的响应，说明您在请求中提供的签名与服务端计算的不一致，导致请求被拒绝。
+## 签名错误排查方法
+如果您的请求出现签名报错，您可以按照以下步骤进行排查。
+确认签名所用的AccessKey ID与AccessKey Secret是否填写正确。
+您可以使用AccessKey ID与AccessKey Secret登录ossbrowser来验证正确性。具体步骤，请参见[安装并登录](install-ossbrowser-1-0.md)[ossbrowser](install-ossbrowser-1-0.md)。
+检查签名算法是否正确。
+OSS提供两种携带签名的请求方式，分别为[在](include-signatures-in-the-authorization-header.md)[Header](include-signatures-in-the-authorization-header.md)[中包含签名](include-signatures-in-the-authorization-header.md)和[在](ddd-signatures-to-urls.md)[URL](ddd-signatures-to-urls.md)[中包含签名](ddd-signatures-to-urls.md)。关于这两种签名方式的算法说明如下：
+在Header中包含签名
+StringToSign = VERB + "\n" + Content-MD5 + "\n" + Content-Type + "\n" + Date + "\n" + CanonicalizedOSSHeaders + CanonicalizedResource Signature = base64(hmac-sha1(AccessKeySecret, StringToSign)
+在URL中包含签名
+StringToSign = VERB + "\n" + CONTENT-MD5 + "\n" + CONTENT-TYPE + "\n" + EXPIRES + "\n" + CanonicalizedOSSHeaders + CanonicalizedResource Signature = urlencode(base64(hmac-sha1(AccessKeySecret, StringToSign)))
+如果业务场景允许，推荐您使用SDK访问OSS，免去手动计算签名的过程。具体步骤，请参见[使用阿里云](overview-63.md)[SDK](overview-63.md)[发起请求](overview-63.md)。
+比对响应体中的StringToSign字段与您发起请求的内容是否存在差异。
+StringToSign字段表示待签字符串，即签名算法中需要使用AccessKey Secret进行加密的内容。
+请求示例如下：
+PUT /bucket/abc?acl Date: Wed, 24 May 2023 02:12:30 GMT Authorization: OSS qn6q**************:77Dv**************** x-oss-abc: mymeta
+以上请求计算得到的待签字符串应为：
+PUT\n\n\nWed, 24 May 2023 02:12:30 GMT\nx-oss-abc:mymeta\n/bucket/abc?acl
+## 签名错误常见场景
+关于签名错误常见场景的更多信息，请参见[0002-00000040](../user-guide/0002-00000040.md)。
+该文章对您有帮助吗？
+反馈
+### 为什么选择阿里云
+[什么是云计算](https://www.aliyun.com/about/what-is-cloud-computing)[全球基础设施](https://infrastructure.aliyun.com/)[技术领先](https://www.aliyun.com/why-us/leading-technology)[稳定可靠](https://www.aliyun.com/why-us/reliability)[安全合规](https://www.aliyun.com/why-us/security-compliance)[分析师报告](https://www.aliyun.com/analyst-reports)
+### 大模型
+[千问大模型](https://www.aliyun.com/product/tongyi)[大模型服务](https://bailian.console.aliyun.com/?tab=model#/model-market)[AI应用构建](https://bailian.console.aliyun.com/app-center?tab=app#/app-center)
+### 产品和定价
+[全部产品](https://www.aliyun.com/product/list)[免费试用](https://free.aliyun.com/)[产品动态](https://www.aliyun.com/product/news/)[产品定价](https://www.aliyun.com/price/detail)[配置报价器](https://www.aliyun.com/price/cpq/list)[云上成本管理](https://www.aliyun.com/price/cost-management)
+### 技术内容
+[技术解决方案](https://www.aliyun.com/solution/tech-solution)[帮助文档](https://help.aliyun.com/)[开发者社区](https://developer.aliyun.com/)[天池大赛](https://tianchi.aliyun.com/)[阿里云认证](https://edu.aliyun.com/)
+### 权益
+[免费试用](https://free.aliyun.com/)[解决方案免费试用](https://www.aliyun.com/solution/free)[高校计划](https://university.aliyun.com/)[5亿算力补贴](https://www.aliyun.com/benefit/form/index)[推荐返现计划](https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&pageCode=yunparterIndex)
+### 服务
+[基础服务](https://www.aliyun.com/service)[企业增值服务](https://www.aliyun.com/service/supportplans)[迁云服务](https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn)[官网公告](https://www.aliyun.com/notice/)[健康看板](https://status.aliyun.com/)[信任中心](https://security.aliyun.com/trust-center)
+### 关注阿里云
+关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务
+联系我们：4008013260
+[法律声明](https://help.aliyun.com/product/67275.html)[Cookies 政策](https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html)[廉正举报](https://aliyun.jubao.alibaba.com/)[安全举报](https://report.aliyun.com/)[联系我们](https://www.aliyun.com/contact)[加入我们](https://careers.aliyun.com/)
+### 友情链接
+[阿里巴巴集团](https://www.alibabagroup.com/cn/global/home)[淘宝网](https://www.taobao.com/)[天猫](https://www.tmall.com/)[全球速卖通](https://www.aliexpress.com/)[阿里巴巴国际交易市场](https://www.alibaba.com/)[1688](https://www.1688.com/)[阿里妈妈](https://www.alimama.com/index.htm)[飞猪](https://www.fliggy.com/)[阿里云计算](https://www.aliyun.com/)[万网](https://wanwang.aliyun.com/)[高德](https://mobile.amap.com/)[UC](https://www.uc.cn/)[友盟](https://www.umeng.com/)[优酷](https://www.youku.com/)[钉钉](https://www.dingtalk.com/)[支付宝](https://www.alipay.com/)[达摩院](https://damo.alibaba.com/)[淘宝海外](https://world.taobao.com/)[阿里云盘](https://www.aliyundrive.com/)[淘宝闪购](https://www.ele.me/)
+© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证：[浙B2-20080101](http://beian.miit.gov.cn/)域名注册服务机构许可：[浙D3-20210002](https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 )
+[浙公网安备 33010602009975号](http://www.beian.gov.cn/portal/registerSystemInfo)[浙B2-20080101-4](https://beian.miit.gov.cn/)

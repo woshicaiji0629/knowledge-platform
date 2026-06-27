@@ -1,0 +1,17 @@
+{
+  "id": "vpc:network-acl-overview",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "网络ACL-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/network-acl-overview",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/network-acl-overview.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/network-acl-overview.md",
+  "word_count": 1504,
+  "text_units": 5246,
+  "local_links": 4,
+  "external_links": 76,
+  "has_tables": true,
+  "table_count": 18,
+  "quality": "accepted"
+}

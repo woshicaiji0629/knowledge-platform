@@ -1,0 +1,3 @@
+## GPU拓扑分布
+图示为通过NVLink连接的8块Tesla V100 GPU的混合立体网络拓扑。由于每块GPU仅有6条NVLink通道，8块GPU无法实现全互联，任意两块GPU之间的NVLink连接最多为2条。
+具体连接方式如下：GPU0与GPU3、GPU4各通过2条NVLink实现直连；GPU0与GPU1、GPU2之间通过1条NVLink连接。相比之下，GPU0与GPU6之间未建立NVLink连接，其通信需依赖PCIe总线完成。

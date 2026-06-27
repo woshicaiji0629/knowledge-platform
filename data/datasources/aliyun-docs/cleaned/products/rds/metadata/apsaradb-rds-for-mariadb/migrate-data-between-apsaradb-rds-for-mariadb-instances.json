@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-mariadb/migrate-data-between-apsaradb-rds-for-mariadb-instances",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "RDS MariaDB实例间的数据迁移-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mariadb/migrate-data-between-apsaradb-rds-for-mariadb-instances",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-mariadb/migrate-data-between-apsaradb-rds-for-mariadb-instances.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mariadb/migrate-data-between-apsaradb-rds-for-mariadb-instances.md",
+  "word_count": 759,
+  "text_units": 1493,
+  "local_links": 0,
+  "external_links": 68,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

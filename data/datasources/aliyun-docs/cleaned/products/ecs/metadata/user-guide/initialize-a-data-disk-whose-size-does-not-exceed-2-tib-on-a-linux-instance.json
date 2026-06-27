@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/initialize-a-data-disk-whose-size-does-not-exceed-2-tib-on-a-linux-instance",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "初始化数据盘（Linux）-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/initialize-a-data-disk-whose-size-does-not-exceed-2-tib-on-a-linux-instance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/initialize-a-data-disk-whose-size-does-not-exceed-2-tib-on-a-linux-instance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/initialize-a-data-disk-whose-size-does-not-exceed-2-tib-on-a-linux-instance.md",
+  "word_count": 2289,
+  "text_units": 5974,
+  "local_links": 5,
+  "external_links": 109,
+  "has_tables": true,
+  "table_count": 13,
+  "quality": "accepted"
+}

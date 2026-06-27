@@ -1,0 +1,17 @@
+{
+  "id": "sls:query-mns-logs",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "selection",
+  "title": "如何实时查询轻量消息队列（原 MNS）推送的常用场景及操作步骤-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/query-mns-logs",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/query-mns-logs.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/query-mns-logs.md",
+  "word_count": 868,
+  "text_units": 2463,
+  "local_links": 0,
+  "external_links": 70,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

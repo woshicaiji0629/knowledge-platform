@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/user-guide/custom-node-pool-os-parameters:20",
+  "document_id": "ack:ack-managed-and-ack-dedicated/user-guide/custom-node-pool-os-parameters",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "performance",
+  "title": "配置节点池OS参数实现性能调优-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/custom-node-pool-os-parameters",
+  "chunk_index": 20,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/custom-node-pool-os-parameters.chunk-0020.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/custom-node-pool-os-parameters.md",
+  "heading_path": "自定义节点池OS参数 > THP参数列表 > 关注阿里云",
+  "char_count": 378
+}

@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-argo-workflow-cluster/use-cases/event-driven-ci-pipeline-via-eventbridge:6",
+  "document_id": "ack:ack-argo-workflow-cluster/use-cases/event-driven-ci-pipeline-via-eventbridge",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "基于EventBridge的事件驱动CI Pipeline-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/use-cases/event-driven-ci-pipeline-via-eventbridge",
+  "chunk_index": 6,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-argo-workflow-cluster/use-cases/event-driven-ci-pipeline-via-eventbridge.chunk-0006.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-argo-workflow-cluster/use-cases/event-driven-ci-pipeline-via-eventbridge.md",
+  "heading_path": "基于EventBridge的事件驱动CI Pipeline > 步骤二：使用EventBridge实现Git事件驱动CI Pipeline",
+  "char_count": 1200
+}

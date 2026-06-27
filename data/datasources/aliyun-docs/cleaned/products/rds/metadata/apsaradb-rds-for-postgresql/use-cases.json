@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-postgresql/use-cases",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "实践教程-云数据库 RDS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/use-cases",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-postgresql/use-cases.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-postgresql/use-cases.md",
+  "word_count": 474,
+  "text_units": 765,
+  "local_links": 0,
+  "external_links": 66,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

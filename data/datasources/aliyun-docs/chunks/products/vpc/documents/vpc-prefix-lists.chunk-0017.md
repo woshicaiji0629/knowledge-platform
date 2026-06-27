@@ -1,0 +1,3 @@
+### Terraform
+当前Terraform不支持将前缀列表共享给任意账户，仅支持在资源目录内共享，请您在操作前确保资源目录管理账号已[启用资源目录组织共享](https://help.aliyun.com/zh/resource-management/resource-sharing/user-guide/enable-resource-sharing)。Resources:[alicloud_resource_manager_resource_share](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/resource_manager_resource_share)、[alicloud_resource_manager_shared_resource](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/resource_manager_shared_resource)、[alicloud_resource_manager_shared_target](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/resource_manager_shared_target)
+使用前缀列表所有者的身份凭证，开启共享：

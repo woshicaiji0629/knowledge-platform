@@ -1,0 +1,6 @@
+og/logsearch/nginx-access-log%3FqueryString=request_time:60) |
+| request_time=60 | [调试](https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-demo-log/logsearch/nginx-access-log%3FqueryString=request_time=60) |  |
+| 查询请求时间大于等于 60 秒，并且小于 200 秒的日志。 | request_time>=60 and request_time<200 | [调试](https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-demo-log/logsearch/nginx-access-log?encode%3Dbase64%26queryString%3DcmVxdWVzdF90aW1lPj02MCBhbmQgcmVxdWVzdF90aW1lPDIwMA%3D%3D) |
+| request_time in [60 200) | [调试](https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-demo-log/logsearch/nginx-access-log?encode%3Dbase64%26queryString%3DcmVxdWVzdF90aW1lIGluIFs2MCAyMDAp) |  |
+| 查询 request_time 字段是否存在。 | request_time:* | [调试](https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-demo-log/logsearch/nginx-access-log?encode%3Dbase64%26queryString%3DcmVxdWVzdF90aW1lOiogbm90IHJlcXVlc3RfdGltZSA%2BIC0xMDAwMDAwMDAwMA%3D%3D%26queryTimeType%3D99) |
+| 查询 request_time 字段值为空或非法数字的日志。 | (request_time:"") or (not request_time > -10000000000) | [调试](https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-d

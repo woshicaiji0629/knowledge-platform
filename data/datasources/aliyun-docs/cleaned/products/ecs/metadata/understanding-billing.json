@@ -1,0 +1,17 @@
+{
+  "id": "ecs:understanding-billing",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "pricing",
+  "title": "了解计费涵盖云服务使用费用的计算方式、计费模式及成本优化策略。-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/understanding-billing",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/understanding-billing.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/understanding-billing.md",
+  "word_count": 477,
+  "text_units": 770,
+  "local_links": 0,
+  "external_links": 67,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

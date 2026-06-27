@@ -1,0 +1,14 @@
+{
+  "id": "sls:collect-text-logs-of-self-built-k8s-clusters-deploy-logtail-in-daemonset-mode-2:38",
+  "document_id": "sls:collect-text-logs-of-self-built-k8s-clusters-deploy-logtail-in-daemonset-mode-2",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "deployment",
+  "title": "通过AliyunPipelineConfig CRD在Kubernetes集群中采集容器标准输出和文件日志-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/collect-text-logs-of-self-built-k8s-clusters-deploy-logtail-in-daemonset-mode-2",
+  "chunk_index": 38,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/collect-text-logs-of-self-built-k8s-clusters-deploy-logtail-in-daemonset-mode-2.chunk-0038.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/collect-text-logs-of-self-built-k8s-clusters-deploy-logtail-in-daemonset-mode-2.md",
+  "heading_path": "检查Pod状态 kubectl get po -n kube-system | grep loongcollector-ds >  > 日志标签富化",
+  "char_count": 474
+}

@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/user-guide/configure-a-service-topology:8",
+  "document_id": "ack:ack-edge/user-guide/configure-a-service-topology",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "如何配置Service流量拓扑-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/user-guide/configure-a-service-topology",
+  "chunk_index": 8,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/user-guide/configure-a-service-topology.chunk-0008.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/user-guide/configure-a-service-topology.md",
+  "heading_path": "节点池服务拓扑管理 > 方式二：通过命令行配置Service流量拓扑 > 大模型",
+  "char_count": 197
+}

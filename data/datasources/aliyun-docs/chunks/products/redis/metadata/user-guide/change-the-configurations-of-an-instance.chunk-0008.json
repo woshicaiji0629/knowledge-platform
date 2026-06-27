@@ -1,0 +1,14 @@
+{
+  "id": "redis:user-guide/change-the-configurations-of-an-instance:8",
+  "document_id": "redis:user-guide/change-the-configurations-of-an-instance",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "变更内存容量和实例架构-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/change-the-configurations-of-an-instance",
+  "chunk_index": 8,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/user-guide/change-the-configurations-of-an-instance.chunk-0008.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/change-the-configurations-of-an-instance.md",
+  "heading_path": "变更实例配置 > 常见问题 > 为什么选择运维时间执行变配，但是任务依然立刻执行了？",
+  "char_count": 128
+}

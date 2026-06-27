@@ -1,0 +1,512 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    如何采集企业内网服务器日志-日志服务(SLS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/sls/how-do-i-collect-logs-from-servers-in-a-corporate-intranet">
+  <meta name="keywords" content="Logtail, 企业内网, 服务器日志, Nginx, 代理">
+  <meta name="description" content="本文以Nginx为例，介绍配置正向代理服务器以及通过代理模式将企业内网服务器日志采集到日志服务的解决方案。">
+  <meta name="last-modified" content="2026-05-25T20:52:03+08:00">
+  <meta name="date" content="2021-05-17T09:15:10+08:00">
+  <meta property="og:title" content="采集企业内网服务器日志">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/sls/how-do-i-collect-logs-from-servers-in-a-corporate-intranet">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="本文以Nginx为例，介绍配置正向代理服务器以及通过代理模式将企业内网服务器日志采集到日志服务的解决方案。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/sls/how-do-i-collect-logs-from-servers-in-a-corporate-intranet",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "217488",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/sls/how-do-i-collect-logs-from-servers-in-a-corporate-intranet","nodeId":null,"data":{"lastModifiedTime":1779713523000,"keywords":"Logtail, 企业内网, 服务器日志, Nginx, 代理","docTitle":"采集企业内网服务器日志","language":"zh","seoTitle":"如何采集企业内网服务器日志-日志服务(SLS)-阿里云帮助中心","title":"采集企业内网服务器日志","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"task-2079852\">\n    \n    \n    <p id=\"shortdesc-n09-1uh-505\" data-tag=\"shortdesc\" class=\"shortdesc\">本文以<span class=\"help-letter-space\"></span>Nginx<span class=\"help-letter-space\"></span>为例，介绍配置正向代理服务器以及通过代理模式将企业内网服务器日志采集到日志服务的解决方案。</p>\n    <div data-tag=\"taskbody\" id=\"taskbody-bhe-gem-1sc\" class=\"taskbody\">\n      <section data-tag=\"prereq\" id=\"prereq-ti9-t9d-onm\" data-type=\"prereq\" class=\"section prereq\">\n        <h2 id=\"d41e14\">前提条件</h2>\n        <ul data-tag=\"ul\" id=\"ul-434-zn0-brq\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-oul-c0b-hq4\" class=\"li\">\n            <p id=\"88a5ba6013kue\">已创建<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>LogStore。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/manage-a-project/#section-ahq-ggx-ndb\" id=\"xref-6o8-xr7-k6p\" title=\"\" class=\"xref\">管理<span class=\"help-letter-space\"></span>Project</a><span class=\"help-letter-space\"></span>和<a href=\"https://help.aliyun.com/zh/sls/manage-a-logstore#section-v52-2jx-ndb\" id=\"xref-w8j-3lf-q0v\" title=\"\" class=\"xref\">创建基础<span class=\"help-letter-space\"></span>LogStore</a>。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-ann-cqj-sbs\" class=\"li\">\n            <p id=\"88a5ba61139w1\">已在服务器上安装<span class=\"help-letter-space\"></span>Linux Logtail 1.5.0<span class=\"help-letter-space\"></span>及以上版本或<span class=\"help-letter-space\"></span>Window Logtail 1.5.0.0<span class=\"help-letter-space\"></span>及以上版本。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/install-logtail-on-a-linux-server#concept-u5y-3lv-vdb\" id=\"xref-b19-exl-byy\" title=\"\" class=\"xref\">安装<span class=\"help-letter-space\"></span>Logtail（Linux<span class=\"help-letter-space\"></span>系统）</a>、<a href=\"https://help.aliyun.com/zh/sls/install-logtail-on-a-windows-server#concept-j22-xnv-vdb\" id=\"xref-i5c-1rw-azi\" title=\"\" class=\"xref\">安装<span class=\"help-letter-space\"></span>Logtail（Windows<span class=\"help-letter-space\"></span>系统）</a>。</p>\n          </li>\n        </ul>\n      </section>\n      <section data-tag=\"context\" id=\"context-372-xpf-iv9\" data-type=\"context\" class=\"context section\">\n        <h2 id=\"d41e28\">背景信息</h2>\n        <p data-tag=\"p\" id=\"p-yju-xs5-wdf\" class=\"p\">如果您的多台服务器部署在企业内网中且没有公网访问权限，但您希望将这些服务器的日志采集到日志服务进行查询与分析，您可以通过代理模式，由具备公网访问权限的内网服务器将其他内网服务器上的日志发送到日志服务。您可以通过任何方式将具备公网访问权限的内网服务器配置为正向代理服务器。</p>\n      </section>\n      <section data-tag=\"section\" id=\"section-plg-iew-j03\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-5ke-a8m-ehm\" class=\"title\">工作原理</h2>\n        <p data-tag=\"p\" id=\"p-had-arc-x70\" class=\"p\">Logtail<span class=\"help-letter-space\"></span>与日志服务交互的数据主要包括管控数据、业务数据和监控数据。其中，管控数据包括<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>配置下发及鉴权等信息。通信协议包括<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>HTTPS，默认使用<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>协议发送业务数据和监控数据。因此，代理服务器必须能够同时代理<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>协议数据和<span class=\"help-letter-space\"></span>HTTPS<span class=\"help-letter-space\"></span>协议数据。</p>\n        <p data-tag=\"p\" id=\"p-8ld-ngf-gfq\" class=\"p\">Nginx<span class=\"help-letter-space\"></span>是一款开源的高性能<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>代理服务器，本身支持代理<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>协议数据，但由于鉴权等原因并不能直接代理<span class=\"help-letter-space\"></span>HTTPS<span class=\"help-letter-space\"></span>协议数据。为此，需要为<span class=\"help-letter-space\"></span>Nginx<span class=\"help-letter-space\"></span>配置<span class=\"help-letter-space\"></span>HTTPS<span class=\"help-letter-space\"></span>补丁，从而使其能够代理<span class=\"help-letter-space\"></span>HTTPS<span class=\"help-letter-space\"></span>协议数据。</p>\n      </section>\n      <section data-tag=\"section\" id=\"section-5co-cgq-gcu\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-m90-npu-nn8\" class=\"title\">步骤一：配置代理服务器</h2>\n        <p data-tag=\"p\" id=\"p-r62-wdx-rqx\" class=\"p\">使用<span class=\"help-letter-space\"></span>Nginx<span class=\"help-letter-space\"></span>将一台具有公网访问权限的企业内网服务器配置为正向代理服务器。</p>\n        <ol data-tag=\"steps\" id=\"steps-juu-8rc-a5x\" class=\"steps\">\n          <li data-tag=\"step\" id=\"step-yu1-fdc-od4\" class=\"step\">\n            <p id=\"88a5ba6213zqz\">登录待配置为正向代理服务器的机器。</p>\n          </li>\n          <li data-tag=\"step\" id=\"step-1nu-jlj-z45\" class=\"step\">\n            <p id=\"88a5e17013omx\">下载<span class=\"help-letter-space\"></span>Nginx<span class=\"help-letter-space\"></span>及<span class=\"help-letter-space\"></span>HTTPS<span class=\"help-letter-space\"></span>补丁。</p>\n            <ol type=\"a\" data-tag=\"substeps\" id=\"substeps-pfi-ycu-6xo\" class=\"substeps\">\n              <li data-tag=\"substep\" id=\"substep-khp-wcf-1oh\" class=\"substep\">\n                <p id=\"88a5e171139fd\">下载<span class=\"help-letter-space\"></span>HTTPS<span class=\"help-letter-space\"></span>补丁。</p><pre id=\"tc0hci\" data-tag=\"codeblock\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>git clone https://github.com/chobits/ngx_http_proxy_connect_module.git</code></pre>\n              </li>\n              <li data-tag=\"substep\" id=\"substep-xw7-e9u-jxu\" class=\"substep\">\n                <p id=\"88a5e172137ta\">下载并解压<span class=\"help-letter-space\"></span>Nginx。</p>\n                <p id=\"8bde5ab01302v\">其中，<span data-tag=\"parmname\" id=\"parmname-18g-l04-1hn\" class=\"parmname\">${version}</span>表示<span class=\"help-letter-space\"></span>Nginx<span class=\"help-letter-space\"></span>版本，请根据实际情况替换。最新版本，请参见<span class=\"help-letter-space\"></span><a href=\"https://nginx.org/en/download.html\" id=\"xref-yxt-yw1-fuh\" class=\"\" target=\"_blank\">nginx: download</a>。</p><pre id=\"n9bqnv\" data-tag=\"codeblock\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>wget http://nginx.org/download/nginx-${version}.tar.gz\ntar -xzvf nginx-${version}.tar.gz\ncd nginx-${version}/</code></pre>\n              </li>\n            </ol>\n          </li>\n          <li data-tag=\"substep\" id=\"substep-ose-qqf-z9l\" class=\"substep\">\n            <p id=\"88a5e17313i5l\">添加<span class=\"help-letter-space\"></span>HTTPS<span class=\"help-letter-space\"></span>补丁到<span class=\"help-letter-space\"></span>Nginx。</p>\n            <p id=\"79d18900131bh\">其中，<span data-tag=\"parmname\" id=\"parmname-e6b-qk8-zh8\" class=\"parmname\">${patchfile}</span>为文件路径，请根据<span class=\"help-letter-space\"></span>Nginx<span class=\"help-letter-space\"></span>版本选择对应的文件。更多信息，请参见<span class=\"help-letter-space\"></span><a href=\"https://github.com/chobits/ngx_http_proxy_connect_module/#select-patch\" id=\"xref-10u-6k4-gvl\" class=\"\" target=\"_blank\">Select patch</a>。</p><pre id=\"98tcht\" data-tag=\"codeblock\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>patch -p1 &lt; ../ngx_http_proxy_connect_module/patch/${patchfile}.patch</code></pre>\n          </li>\n          <li data-tag=\"substep\" id=\"substep-vlm-o2l-jxy\" class=\"substep\">\n            <p id=\"88a67db013jhi\">安装<span class=\"help-letter-space\"></span>Nginx。</p><pre id=\"7gq2qw\" data-tag=\"codeblock\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>./configure --add-module=../ngx_http_proxy_connect_module\nmake &amp;&amp; make install</code></pre>\n          </li>\n          <li data-tag=\"step\" id=\"step-jub-u3t-gto\" class=\"step\">\n            <p id=\"88a6a4c013czu\">在<span class=\"help-letter-space\"></span>nginx.conf<span class=\"help-letter-space\"></span>文件中添加如下配置。</p>\n            <p id=\"99a2fb6013ux7\">其中，<span data-tag=\"parmname\" id=\"parmname-fpf-xzp-21z\" class=\"parmname\">${代理服务器监听端口}</span>和<span data-tag=\"parmname\" id=\"parmname-m7f-w02-u71\" class=\"parmname\">${DNS<span class=\"help-letter-space\"></span>服务器地址}</span>，请根据实际情况替换。</p><pre id=\"q4izsy\" data-tag=\"codeblock\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>server {\n     listen                         ${代理服务器监听端口};\n     resolver                       ${DNS<span class=\"help-letter-space\"></span>服务器地址};\n     # 用于指定非<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>请求的代理。\n     proxy_connect;\n     proxy_connect_allow            443;\n     proxy_connect_connect_timeout  10s;\n     proxy_connect_data_timeout     10s;\n     # 用于指定<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>请求的代理。\n     location / {\n         proxy_pass http://$host;\n         proxy_set_header Host $host;\n     }\n}</code></pre>\n          </li>\n          <li data-tag=\"step\" id=\"step-gka-8h8-ni3\" class=\"step\">\n            <p id=\"88a6cbd013p31\">启动<span class=\"help-letter-space\"></span>Nginx<span class=\"help-letter-space\"></span>服务器。</p>\n          </li>\n        </ol>\n      </section>\n      <section data-tag=\"section\" id=\"section-0zt-b9o-iel\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-bow-z3w-ejp\" class=\"title\">步骤二：设置网络代理相关的环境变量</h2>\n        <section id=\"7d29eef056rji\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n          <section id=\"7d29eef256i7l\" class=\"section\">\n            <h2 id=\"7d29eef156tw3\">Linux<span class=\"help-letter-space\"></span>系统</h2>\n            <p id=\"86efeac0563ah\">您可以通过如下两种方案设置网络代理相关的环境变量。</p>\n            <table id=\"table-tiq-kqo-hg0\" tablewidth=\"684\" tablecolswidth=\"80 204 191 209\" autofit=\"false\" class=\"table\">\n              <colgroup colwidth=\"0.47*\" style=\"width:11.70%\"></colgroup>\n              <colgroup colwidth=\"1.19*\" style=\"width:29.82%\"></colgroup>\n              <colgroup colwidth=\"1.12*\" style=\"width:27.92%\"></colgroup>\n              <colgroup colwidth=\"1.22*\" style=\"width:30.56%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-jt9-szu-n02\">\n                  <td id=\"task-2079852-entry-r4o-wut-0p0\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"88a6cbd113oyu\"><b>方案</b></p>\n                  </td>\n                  <td id=\"task-2079852-entry-fl9-b70-7x9\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"88a6f2e013bmm\"><b>优点</b></p>\n                  </td>\n                  <td id=\"task-2079852-entry-2ze-m1n-qb1\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"88a6f2e113x0r\"><b>缺点</b></p>\n                  </td>\n                  <td id=\"task-2079852-entry-o93-vyq-fx4\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"88a6f2e213xyx\"><b>使用场景</b></p>\n                  </td>\n                </tr>\n                <tr id=\"row-x2w-cud-c92\">\n                  <td id=\"entry-2zu-w67-veu\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"88a6f2e313mt3\">方案一</p>\n                  </td>\n                  <td id=\"entry-m7q-90s-vze\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"88a6f2e413ui7\">配置仅对<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>进程生效，影响较小。</p>\n                  </td>\n                  <td id=\"entry-6i7-6om-v20\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"88a6f2e513ig6\">配置方式相对复杂。</p>\n                  </td>\n                  <td id=\"entry-lzp-di5-6gc\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"88a719f013mv2\">适用于服务器使用者，对服务器整体网络情况不太了解。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-b2p-vew-a4s\">\n                  <td id=\"entry-9oc-kh0-jgm\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"88a719f1133f9\">方案二</p>\n                  </td>\n                  <td id=\"entry-nm4-n52-nrd\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"88a719f213wgs\">配置方式简单。</p>\n                  </td>\n                  <td id=\"entry-tsb-v56-5eg\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"88a719f3130ta\">配置对整台服务器生效，影响较大。</p>\n                  </td>\n                  <td id=\"entry-629-c12-qvx\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"88a719f413xox\">适用于服务器管理员，对服务器上所有进程的网络请求状况较为了解。</p>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n            <section id=\"91c6005013ikb\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n              <section id=\"91c60052134m2\" class=\"section\">\n                <h2 id=\"91c6005113edp\">方案一</h2>\n                <ol id=\"a03fe74013qgq\">\n                  <li id=\"a0400e5113hid\">\n                    <p id=\"a0400e5013y4y\">登录某台企业内网服务器。</p>\n                  </li>\n                  <li id=\"a0400e53139jf\">\n                    <p id=\"a0400e5213au9\">打开<code data-tag=\"code\" class=\"code\">/etc/init.d/ilogtaild</code>文件，在<code data-tag=\"code\" uuid=\"liih22oyq3kjfaebe6m\" class=\"code\">start()</code>函数中增加如下环境变量，然后保存文件。</p>\n                    <p id=\"4dcab06013ob9\">关于环境变量的更多信息，请参见<a href=\"#a252d0a0138pd\" id=\"8712dc1056qhw\" title=\"\" class=\"xref\">附录：网络代理相关的环境变量</a>。</p><pre id=\"0gp3qb\" data-tag=\"codeblock\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>start()\n{\n    cd $BIN_DIR\n    umask $UMASK\n    # 在$BIN_DIR/ilogtail<span class=\"help-letter-space\"></span>前新增代理相关环境变量。\n    # 这里以<span class=\"help-letter-space\"></span>ALL_PROXY<span class=\"help-letter-space\"></span>为例，假设代理服务器地址为<span class=\"help-letter-space\"></span>192.168.1.0，监听端口为<span class=\"help-letter-space\"></span>9000。\n    # 内网服务器与代理服务器之间通过<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>协议进行通信。\n    ALL_PROXY=http://192.168.1.0:9000 $BIN_DIR/ilogtail\n    RETVAL=$?\n}</code></pre>\n                  </li>\n                  <li id=\"a0400e5613ta1\">\n                    <p id=\"a0400e5513b0i\">执行如下命令重启<span class=\"help-letter-space\"></span>Logtail。</p><pre id=\"23m3vh\" data-tag=\"codeblock\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>/etc/init.d/ilogtaild restart</code></pre>\n                  </li>\n                  <li id=\"2661416013xcq\">\n                    <p id=\"26611a5013wgb\">重复执行步骤<span class=\"help-letter-space\"></span><a href=\"#a0400e5113hid\" id=\"8712dc1156bgn\" title=\"\" class=\"xref\">1</a>~<a href=\"#a0400e5613ta1\" id=\"8712dc1256z2h\" title=\"\" class=\"xref\">3</a><span style=\"color:rgb(0, 0, 0);background-color:rgba(0, 0, 0, 0)\">，</span>为其他内网服务器设置代理相关的环境变量。</p>\n                  </li>\n                </ol>\n              </section>\n              <section id=\"91c6005513ske\" class=\"section\">\n                <h2 id=\"91c60054132zo\">方案二</h2>\n                <div type=\"important\" id=\"81c24da1132hp\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                  <p uuid=\"liigjmul15o2xetwxgs\" id=\"820b3d8013vfg\">如果您需要对内网服务器上的所有网络请求进行代理，或者您仅需要对<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>的网络请求进行代理，但您完全了解服务器上其他进程的网络请求发送地址，您可以考虑此方案。否则，请使用方案一。</p>\n                </div></div>\n                <ol id=\"b334cf0213hs5\">\n                  <li id=\"b334cf0013o3x\">\n                    <p id=\"91c6005613vp3\">登录某台企业内网服务器。</p>\n                  </li>\n                  <li id=\"bc2c7e5113w6l\">\n                    <p id=\"bc2c7e5013ps3\">使用<code data-tag=\"code\" class=\"code\">export</code>命令在启动文件<code data-tag=\"code\" class=\"code\">~/.bash_profile</code>或<code data-tag=\"code\" class=\"code\">/etc/profile</code>中添加网络代理相关的环境变量。</p>\n                    <p id=\"d03a8620135a9\">关于环境变量的更多信息，请参见<a href=\"#a252d0a0138pd\" id=\"8712dc1356rkh\" title=\"\" class=\"xref\">附录：网络代理相关的环境变量</a>。</p>\n                  </li>\n                  <li id=\"c38daf20135iv\">\n                    <p id=\"c38d88101352i\">执行如下命令使环境变量生效。</p>\n                    <p id=\"f99ddd1013109\">此处，以<code data-tag=\"code\" class=\"code\">~/.bash_profile</code>启动文件为例。</p><pre id=\"i7p1gb\" data-tag=\"codeblock\" outputclass=\"language-bash\" class=\"pre codeblock language-bash\"><code>source ~/.bash_profile</code></pre>\n                  </li>\n                  <li id=\"f99ddd11138q0\">\n                    <p id=\"01c89f70136gl\">执行如下命令，重启<span class=\"help-letter-space\"></span>Logtail。</p><pre id=\"m1escu\" data-tag=\"codeblock\" outputclass=\"language-bash\" class=\"pre codeblock language-bash\"><code>/etc/init.d/ilogtaild restart</code></pre>\n                  </li>\n                  <li id=\"1557563013cpk\">\n                    <p id=\"15572f201360h\">重复执行步骤<span class=\"help-letter-space\"></span><a href=\"#b334cf0013o3x\" id=\"87130320564rf\" title=\"\" class=\"xref\">1</a>~<a href=\"#01c89f70136gl\" id=\"87130321566ev\" title=\"\" class=\"xref\">4</a>，为其他内网服务器配置代理相关的环境变量。</p>\n                  </li>\n                </ol>\n              </section>\n            </section>\n          </section>\n          <section id=\"7d29eef556nks\" class=\"section\">\n            <h2 id=\"7d29eef456sa8\">Windows<span class=\"help-letter-space\"></span>系统</h2>\n            <ol id=\"1b3e00c156etj\">\n              <li id=\"e9a6cd41566l3\">\n                <p id=\"e9a6cd4056qlr\">打击<b id=\"e90a181056rwv\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">运行</b>窗口，输入<span class=\"help-letter-space\"></span><b id=\"f7ebc18056wkf\">regedit</b>，然后单击<b id=\"ff4ec71056tt8\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>。</p>\n              </li>\n              <li id=\"040b3db0569r1\">\n                <p id=\"040b16a056x6a\">在<b data-tag=\"uicontrol\" id=\"0b651b8056j67\" class=\"uicontrol\">注册表编辑器</b>窗口中，搜索<b data-tag=\"uicontrol\" id=\"7447636056kaj\" class=\"uicontrol\">计算机\\HKEY_LOCAL_MACHINE\\SYSTEM\\ControlSet001\\Services\\LogtailDaemon</b>，然后单击<span class=\"help-letter-space\"></span><b id=\"85dda580568og\">LogtailDaemon</b>。</p>\n              </li>\n              <li id=\"8880d91056vy8\">\n                <p id=\"8880b20056hh4\">单击右键，选择<span data-tag=\"menucascade\" id=\"a882f860565lw\" class=\"menucascade\"><b id=\"a883468056wir\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">新建</b> &gt; <b data-tag=\"uicontrol\" id=\"aab05fb05659p\" class=\"uicontrol\">多字符串值</b></span>，然后命名该新值为<span class=\"help-letter-space\"></span><b id=\"d5c964d056vhv\">Environment</b>。</p>\n              </li>\n              <li id=\"d6c96fb056db9\">\n                <p id=\"d6c9219056yla\">双击<span class=\"help-letter-space\"></span><b id=\"da3a251056pxs\">Environment</b>，在<b data-tag=\"uicontrol\" id=\"ff64557056603\" class=\"uicontrol\">数值数据</b>文本框中，输入代理相关的环境变量，然后单击<b id=\"0b414a60565i7\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>。</p>\n                <p id=\"29819570565qh\">例如以<span class=\"help-letter-space\"></span>ALL_PROXY<span class=\"help-letter-space\"></span>为例，代理服务器地址为<span class=\"help-letter-space\"></span>192.168.1.0，监听端口为<span class=\"help-letter-space\"></span>9000，内网服务器与代理服务器之间通过<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>协议进行通信。关于环境变量的更多信息，请参见<a href=\"#a252d0a0138pd\" id=\"a090f1e0560ut\" title=\"\" class=\"xref\">附录：网络代理相关的环境变量</a>。例如输入 <code data-tag=\"code\" class=\"code\">ALL_PROXY=http://192.168.1.0:9000</code>。</p>\n              </li>\n              <li id=\"4a5b2900563xa\">\n                <p id=\"613958e056adk\">打击<b id=\"da3a251156p1w\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">运行</b>窗口，输入<span class=\"help-letter-space\"></span><b id=\"da3a2512568yb\">services.msc</b>，然后单击<b id=\"da3a2513566pw\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>。</p>\n              </li>\n              <li id=\"6c5bfe8056al3\">\n                <p id=\"6c5bd77056wmk\">在<b id=\"111025f056745\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">服务</b>窗口中，选择<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>对应的服务。</p>\n                <ul data-tag=\"ul\" id=\"ul-4rg-xgq-y98\" class=\"ul\" data-spm-anchor-id=\"a2c4g.11186623.0.i25.398366b0zERQ1l\">\n                  <li data-tag=\"li\" id=\"li-nii-qx7-g8k\" class=\"li\">\n                    <p id=\"2a3e605056ouf\">如果是<span class=\"help-letter-space\"></span>Logtail 0.x.x.x<span class=\"help-letter-space\"></span>版本，选择<span class=\"help-letter-space\"></span>LogtailWorker<span class=\"help-letter-space\"></span>服务。</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-4n3-0yp-f34\" class=\"li\">\n                    <p id=\"2a3e8760561zk\">如果是<span class=\"help-letter-space\"></span>Logtail 1.0.0.0<span class=\"help-letter-space\"></span>及以上版本，选择<span class=\"help-letter-space\"></span>LogtailDaemon<span class=\"help-letter-space\"></span>服务。</p>\n                  </li>\n                </ul>\n              </li>\n              <li id=\"323e1b105611v\">\n                <p id=\"323df400566v4\">单击右键，选择<b data-tag=\"uicontrol\" id=\"5c6d5c7056ib6\" class=\"uicontrol\">重新启动</b>。</p>\n              </li>\n            </ol>\n          </section>\n        </section>\n      </section>\n      <section data-tag=\"section\" id=\"section-s4k-278-m50\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-zxc-00a-q12\" class=\"title\">步骤三：验证网络</h2>\n        <ol data-tag=\"steps\" id=\"steps-aaf-6b8-v6h\" class=\"steps\">\n          <li data-tag=\"step\" id=\"step-kcr-d16-5bx\" class=\"step\">\n            <p id=\"88a7b634130j7\"><span data-tag=\"cmd\" id=\"cmd-vt5-zue-s4x\" class=\"cmd\">登录某台企业内网服务器。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-35u-7iv-kv3\" class=\"step\">\n            <p id=\"88a7dd40132rv\"><span data-tag=\"cmd\" id=\"cmd-6ea-pqw-cip\" class=\"cmd\">执行如下命令。</span></p>\n            <div data-tag=\"info\" id=\"info-1b3-gxb-wl6\" class=\"info\">\n              <p data-tag=\"p\" id=\"p-3jk-gxa-h2q\" class=\"p\">下述命令中的<span data-tag=\"varname\" id=\"varname-5bq-bik-12w\" class=\"varname\"><i>${region}</i></span>为目标<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>所在地域，<span data-tag=\"varname\" id=\"varname-qhj-78u-szc\" class=\"varname\"><i>${project_name}</i></span>为目标<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>名称，请根据实际情况替换。</p><pre data-tag=\"codeblock\" id=\"codeblock-qla-pod-9ak\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>curl http://logtail.${region}.log.aliyuncs.com\ncurl https://logtail.${region}.log.aliyuncs.com\ncurl http://${project_name}.${region}.log.aliyuncs.com\ncurl http://ali-${region}-sls-admin.${region}.log.aliyuncs.com     </code></pre>\n              <div data-tag=\"p\" id=\"p-u67-tpo-qxn\" class=\"p\">\n                <p id=\"88a7dd4113le2\">如果系统返回如下类似信息，表示网络正常。</p><pre data-tag=\"codeblock\" id=\"codeblock-2mh-64z-glf\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>{\"Error\":{\"Code\":\"OLSInvalidMethod\",\"Message\":\"The script name is invalid : /\",\"RequestId\":\"62591BC7C08B7BD4AA99FCD4\"}}</code></pre>\n              </div>\n            </div>\n          </li>\n          <li data-tag=\"step\" id=\"step-1kt-cah-aqn\" class=\"step\">\n            <p id=\"88a7dd4213wte\"><span data-tag=\"cmd\" id=\"cmd-pux-6cl-8zk\" class=\"cmd\">重复执行步骤<span class=\"help-letter-space\"></span><a href=\"#step-kcr-d16-5bx\" id=\"xref-jdg-wvi-0r4\" title=\"\" class=\"xref\">1</a><span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span><a href=\"#step-35u-7iv-kv3\" id=\"xref-mrt-gpz-pb2\" title=\"\" class=\"xref\">2</a>，验证其他企业内网服务器的网络。</span></p>\n          </li>\n        </ol>\n      </section>\n      <h2 id=\"a252d0a0138pd\"><b>附录：</b>网络代理相关的环境变量</h2>\n      <p id=\"f4a074c013w0o\">环境变量的配置说明如下：</p>\n      <div id=\"c700288113yvj\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n        <p id=\"c74ac610136my\">下述环境变量均支持小写模式，但优先级低于大写模式。</p>\n      </div></div>\n      <ul id=\"b1c40fe2132ml\" data-tag=\"ul\" class=\"ul\">\n        <li id=\"0e71f4011391z\" data-tag=\"li\" class=\"li\">\n          <p id=\"0e743df013viv\">如果将<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>HTTPS<span class=\"help-letter-space\"></span>协议数据全部发送给同一台代理服务器，可添加环境变量<code data-tag=\"code\" class=\"code\">ALL_PROXY</code>。</p><pre data-tag=\"codeblock\" outputclass=\"language-shell\" id=\"codeblock-v37-gsq-qjz\" class=\"pre codeblock language-shell\"><code>ALL_PROXY：${正向代理服务器的地址}</code></pre>\n        </li>\n        <li id=\"li-wt6-p2n-o9o\" data-tag=\"li\" class=\"li\">\n          <p id=\"0e743df11309t\">如果将<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>HTTPS<span class=\"help-letter-space\"></span>协议数据分别发送至不同的代理服务器上，可添加环境变量<code data-tag=\"code\" class=\"code\">HTTP_PROXY</code>和<code data-tag=\"code\" class=\"code\">HTTPS_PROXY</code>。</p><pre data-tag=\"codeblock\" id=\"codeblock-tw7-ii2-qsu\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>HTTP_PROXY：${代理<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>协议数据的服务器地址}\nHTTPS_PROXY：${代理<span class=\"help-letter-space\"></span>HTTPS<span class=\"help-letter-space\"></span>协议数据的服务器地址}</code></pre>\n          <div data-tag=\"p\" id=\"13289e4013fcb\" class=\"p\">\n            <p id=\"132a24e013rix\">其中，代理服务器的地址需满足<code data-tag=\"code\" class=\"code\">[协议://[用户名:密码@]]地址[:端口]</code>格式。</p>\n            <ul data-tag=\"ul\" id=\"ul-cul-vol-sye\" class=\"ul\">\n              <li data-tag=\"li\" id=\"li-m3h-4ho-b9b\" class=\"li\">\n                <p id=\"132a24e113mz5\">协议（可选）：指定了当前服务器和代理服务器之间的通信协议，可设置为<span class=\"help-letter-space\"></span>http、https<span class=\"help-letter-space\"></span>或<span class=\"help-letter-space\"></span>socks5。如果不设置，默认使用<span class=\"help-letter-space\"></span>http。</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-1jp-h11-ovi\" class=\"li\">\n                <p id=\"132a24e213x5c\">用户名和密码（可选）：登录代理服务器的用户名和密码。</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-aib-jc7-ne4\" class=\"li\">\n                <p id=\"132a24e313xy4\">地址（必选）：代理服务器的<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址。</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-woa-tis-c7b\" class=\"li\">\n                <p id=\"132a24e413mko\">端口（可选）：设置为您在<span class=\"help-letter-space\"></span>nginx.conf<span class=\"help-letter-space\"></span>文件中配置的代理服务器监听端口。更多信息，请参见配置代理服务器中的步骤<span class=\"help-letter-space\"></span><a href=\"#step-jub-u3t-gto\" id=\"1328c55013g4v\" title=\"\" class=\"xref\">5</a>。如果不设置，默认使用<span class=\"help-letter-space\"></span>80。</p>\n              </li>\n            </ul>\n          </div>\n          <section id=\"2067bb40139sq\" class=\"section\">\n            <p id=\"2067bb4113hxw\">另外，您还可以额外增加<span class=\"help-letter-space\"></span>NO_PROXY<span class=\"help-letter-space\"></span>环境变量，该变量指定发往哪些地址的数据不需要经过代理服务器，多个地址之间可以用半角逗号（,）连接，支持的地址形式包括：</p>\n            <ul data-tag=\"ul\" id=\"ul-ay9-cgm-8jx\" class=\"ul\">\n              <li data-tag=\"li\" id=\"li-i0k-7ek-lid\" class=\"li\">\n                <p id=\"20e43e4013wxs\">IP<span class=\"help-letter-space\"></span>地址</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-kch-4pa-x4o\" class=\"li\">\n                <p id=\"20e43e4113v4c\">域名（可以以半角句号（.）开头，支持匹配当前域名及其子域名。）</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-m4u-4nn-kq2\" class=\"li\">\n                <p id=\"20e43e4213pu5\">*（禁用代理服务器）</p>\n              </li>\n            </ul>\n          </section>\n        </li>\n      </ul>\n    </div>\n  </main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/sls/how-do-i-collect-logs-from-servers-in-a-corporate-intranet","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"alias":"/sls/how-do-i-collect-logs-from-servers-in-a-corporate-intranet","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":7,"developerUrl":"https://developer.aliyun.com/group/sls/","nodeType":1,"version":20,"url":"/zh/sls/how-do-i-collect-logs-from-servers-in-a-corporate-intranet","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":217488,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"采集企业内网服务器日志","id":217488,"title":"采集企业内网服务器日志","url":"/zh/sls/how-do-i-collect-logs-from-servers-in-a-corporate-intranet"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"网络场景与稳定","id":3014953,"title":"网络场景与稳定","url":"/zh/sls/network-scenarios-and-stability/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"数据采集最佳实践","id":89991,"title":"数据采集最佳实践","url":"/zh/sls/data-collection-best-practices/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据采集","id":128134,"title":"数据采集","url":"/zh/sls/data-collection-1/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"productUrl":"https://www.aliyun.com/product/sls","nodeId":217488,"desc":"本文以Nginx为例，介绍配置正向代理服务器以及通过代理模式将企业内网服务器日志采集到日志服务的解决方案。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据采集","id":128134,"title":"数据采集","url":"/zh/sls/data-collection-1/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"数据采集最佳实践","id":89991,"title":"数据采集最佳实践","url":"/zh/sls/data-collection-best-practices/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"网络场景与稳定","id":3014953,"title":"网络场景与稳定","url":"/zh/sls/network-scenarios-and-stability/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"采集企业内网服务器日志","id":217488,"title":"采集企业内网服务器日志","url":"/zh/sls/how-do-i-collect-logs-from-servers-in-a-corporate-intranet"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=213e015517825468360956301e3551&asid=AQAAAACUgT9qMAooXgAAAACk2KgoiqCZdQ==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2929180" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/start-using-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开始使用</span>
+</a>
+</li>
+ <li id="128096" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/resource-management/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">资源管理</span>
+</a>
+</li>
+ <li id="128134" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-collection-1/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据采集</span>
+</a>
+</li>
+ <li id="2842370" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-processing-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据处理</span>
+</a>
+</li>
+ <li id="270795" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-storage/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据存储</span>
+</a>
+</li>
+ <li id="128135" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/index-and-query/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">查询与分析</span>
+</a>
+</li>
+ <li id="2928734" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-monitoring/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据监控</span>
+</a>
+</li>
+ <li id="2928732" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-log-output-and-integration/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据输出与集成</span>
+</a>
+</li>
+ <li id="2928739" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-technical-solutions/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">技术解决方案</span>
+</a>
+</li>
+ <li id="154068" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2528763" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/security-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="169976" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/faq-15">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>采集企业内网服务器日志</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/sls" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="task-2079852">
+    
+    
+    <p id="shortdesc-n09-1uh-505" data-tag="shortdesc" class="shortdesc">本文以<span class="help-letter-space"></span>Nginx<span class="help-letter-space"></span>为例，介绍配置正向代理服务器以及通过代理模式将企业内网服务器日志采集到日志服务的解决方案。</p>
+    <div data-tag="taskbody" id="taskbody-bhe-gem-1sc" class="taskbody">
+      <section data-tag="prereq" id="prereq-ti9-t9d-onm" data-type="prereq" class="section prereq">
+        <h2 id="d41e14">前提条件</h2>
+        <ul data-tag="ul" id="ul-434-zn0-brq" class="ul">
+          <li data-tag="li" id="li-oul-c0b-hq4" class="li">
+            <p id="88a5ba6013kue">已创建<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>和<span class="help-letter-space"></span>LogStore。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/manage-a-project/#section-ahq-ggx-ndb" id="xref-6o8-xr7-k6p" title="" class="xref">管理<span class="help-letter-space"></span>Project</a><span class="help-letter-space"></span>和<a href="https://help.aliyun.com/zh/sls/manage-a-logstore#section-v52-2jx-ndb" id="xref-w8j-3lf-q0v" title="" class="xref">创建基础<span class="help-letter-space"></span>LogStore</a>。</p>
+          </li>
+          <li data-tag="li" id="li-ann-cqj-sbs" class="li">
+            <p id="88a5ba61139w1">已在服务器上安装<span class="help-letter-space"></span>Linux Logtail 1.5.0<span class="help-letter-space"></span>及以上版本或<span class="help-letter-space"></span>Window Logtail 1.5.0.0<span class="help-letter-space"></span>及以上版本。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/install-logtail-on-a-linux-server#concept-u5y-3lv-vdb" id="xref-b19-exl-byy" title="" class="xref">安装<span class="help-letter-space"></span>Logtail（Linux<span class="help-letter-space"></span>系统）</a>、<a href="https://help.aliyun.com/zh/sls/install-logtail-on-a-windows-server#concept-j22-xnv-vdb" id="xref-i5c-1rw-azi" title="" class="xref">安装<span class="help-letter-space"></span>Logtail（Windows<span class="help-letter-space"></span>系统）</a>。</p>
+          </li>
+        </ul>
+      </section>
+      <section data-tag="context" id="context-372-xpf-iv9" data-type="context" class="context section">
+        <h2 id="d41e28">背景信息</h2>
+        <p data-tag="p" id="p-yju-xs5-wdf" class="p">如果您的多台服务器部署在企业内网中且没有公网访问权限，但您希望将这些服务器的日志采集到日志服务进行查询与分析，您可以通过代理模式，由具备公网访问权限的内网服务器将其他内网服务器上的日志发送到日志服务。您可以通过任何方式将具备公网访问权限的内网服务器配置为正向代理服务器。</p>
+      </section>
+      <section data-tag="section" id="section-plg-iew-j03" data-type="section" class="section">
+        <h2 data-tag="title" id="title-5ke-a8m-ehm" class="title">工作原理</h2>
+        <p data-tag="p" id="p-had-arc-x70" class="p">Logtail<span class="help-letter-space"></span>与日志服务交互的数据主要包括管控数据、业务数据和监控数据。其中，管控数据包括<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>配置下发及鉴权等信息。通信协议包括<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>和<span class="help-letter-space"></span>HTTPS，默认使用<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>协议发送业务数据和监控数据。因此，代理服务器必须能够同时代理<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>协议数据和<span class="help-letter-space"></span>HTTPS<span class="help-letter-space"></span>协议数据。</p>
+        <p data-tag="p" id="p-8ld-ngf-gfq" class="p">Nginx<span class="help-letter-space"></span>是一款开源的高性能<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>代理服务器，本身支持代理<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>协议数据，但由于鉴权等原因并不能直接代理<span class="help-letter-space"></span>HTTPS<span class="help-letter-space"></span>协议数据。为此，需要为<span class="help-letter-space"></span>Nginx<span class="help-letter-space"></span>配置<span class="help-letter-space"></span>HTTPS<span class="help-letter-space"></span>补丁，从而使其能够代理<span class="help-letter-space"></span>HTTPS<span class="help-letter-space"></span>协议数据。</p>
+      </section>
+      <section data-tag="section" id="section-5co-cgq-gcu" data-type="section" class="section">
+        <h2 data-tag="title" id="title-m90-npu-nn8" class="title">步骤一：配置代理服务器</h2>
+        <p data-tag="p" id="p-r62-wdx-rqx" class="p">使用<span class="help-letter-space"></span>Nginx<span class="help-letter-space"></span>将一台具有公网访问权限的企业内网服务器配置为正向代理服务器。</p>
+        <ol data-tag="steps" id="steps-juu-8rc-a5x" class="steps">
+          <li data-tag="step" id="step-yu1-fdc-od4" class="step">
+            <p id="88a5ba6213zqz">登录待配置为正向代理服务器的机器。</p>
+          </li>
+          <li data-tag="step" id="step-1nu-jlj-z45" class="step">
+            <p id="88a5e17013omx">下载<span class="help-letter-space"></span>Nginx<span class="help-letter-space"></span>及<span class="help-letter-space"></span>HTTPS<span class="help-letter-space"></span>补丁。</p>
+            <ol type="a" data-tag="substeps" id="substeps-pfi-ycu-6xo" class="substeps">
+              <li data-tag="substep" id="substep-khp-wcf-1oh" class="substep">
+                <p id="88a5e171139fd">下载<span class="help-letter-space"></span>HTTPS<span class="help-letter-space"></span>补丁。</p><pre id="tc0hci" data-tag="codeblock" outputclass="language-shell" class="pre codeblock language-shell"><code>git clone https://github.com/chobits/ngx_http_proxy_connect_module.git</code></pre>
+              </li>
+              <li data-tag="substep" id="substep-xw7-e9u-jxu" class="substep">
+                <p id="88a5e172137ta">下载并解压<span class="help-letter-space"></span>Nginx。</p>
+                <p id="8bde5ab01302v">其中，<span data-tag="parmname" id="parmname-18g-l04-1hn" class="parmname">${version}</span>表示<span class="help-letter-space"></span>Nginx<span class="help-letter-space"></span>版本，请根据实际情况替换。最新版本，请参见<span class="help-letter-space"></span><a href="https://nginx.org/en/download.html" id="xref-yxt-yw1-fuh" class="" target="_blank">nginx: download</a>。</p><pre id="n9bqnv" data-tag="codeblock" outputclass="language-shell" class="pre codeblock language-shell"><code>wget http://nginx.org/download/nginx-${version}.tar.gz
+tar -xzvf nginx-${version}.tar.gz
+cd nginx-${version}/</code></pre>
+              </li>
+            </ol>
+          </li>
+          <li data-tag="substep" id="substep-ose-qqf-z9l" class="substep">
+            <p id="88a5e17313i5l">添加<span class="help-letter-space"></span>HTTPS<span class="help-letter-space"></span>补丁到<span class="help-letter-space"></span>Nginx。</p>
+            <p id="79d18900131bh">其中，<span data-tag="parmname" id="parmname-e6b-qk8-zh8" class="parmname">${patchfile}</span>为文件路径，请根据<span class="help-letter-space"></span>Nginx<span class="help-letter-space"></span>版本选择对应的文件。更多信息，请参见<span class="help-letter-space"></span><a href="https://github.com/chobits/ngx_http_proxy_connect_module/#select-patch" id="xref-10u-6k4-gvl" class="" target="_blank">Select patch</a>。</p><pre id="98tcht" data-tag="codeblock" outputclass="language-shell" class="pre codeblock language-shell"><code>patch -p1 &lt; ../ngx_http_proxy_connect_module/patch/${patchfile}.patch</code></pre>
+          </li>
+          <li data-tag="substep" id="substep-vlm-o2l-jxy" class="substep">
+            <p id="88a67db013jhi">安装<span class="help-letter-space"></span>Nginx。</p><pre id="7gq2qw" data-tag="codeblock" outputclass="language-shell" class="pre codeblock language-shell"><code>./configure --add-module=../ngx_http_proxy_connect_module
+make &amp;&amp; make install</code></pre>
+          </li>
+          <li data-tag="step" id="step-jub-u3t-gto" class="step">
+            <p id="88a6a4c013czu">在<span class="help-letter-space"></span>nginx.conf<span class="help-letter-space"></span>文件中添加如下配置。</p>
+            <p id="99a2fb6013ux7">其中，<span data-tag="parmname" id="parmname-fpf-xzp-21z" class="parmname">${代理服务器监听端口}</span>和<span data-tag="parmname" id="parmname-m7f-w02-u71" class="parmname">${DNS<span class="help-letter-space"></span>服务器地址}</span>，请根据实际情况替换。</p><pre id="q4izsy" data-tag="codeblock" outputclass="language-shell" class="pre codeblock language-shell"><code>server {
+     listen                         ${代理服务器监听端口};
+     resolver                       ${DNS<span class="help-letter-space"></span>服务器地址};
+     # 用于指定非<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>请求的代理。
+     proxy_connect;
+     proxy_connect_allow            443;
+     proxy_connect_connect_timeout  10s;
+     proxy_connect_data_timeout     10s;
+     # 用于指定<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>请求的代理。
+     location / {
+         proxy_pass http://$host;
+         proxy_set_header Host $host;
+     }
+}</code></pre>
+          </li>
+          <li data-tag="step" id="step-gka-8h8-ni3" class="step">
+            <p id="88a6cbd013p31">启动<span class="help-letter-space"></span>Nginx<span class="help-letter-space"></span>服务器。</p>
+          </li>
+        </ol>
+      </section>
+      <section data-tag="section" id="section-0zt-b9o-iel" data-type="section" class="section">
+        <h2 data-tag="title" id="title-bow-z3w-ejp" class="title">步骤二：设置网络代理相关的环境变量</h2>
+        <section id="7d29eef056rji" outputclass="tabbed-content-box" class="tabbed-content-box section">
+          <section id="7d29eef256i7l" class="section">
+            <h2 id="7d29eef156tw3">Linux<span class="help-letter-space"></span>系统</h2>
+            <p id="86efeac0563ah">您可以通过如下两种方案设置网络代理相关的环境变量。</p>
+            <table id="table-tiq-kqo-hg0" tablewidth="684" tablecolswidth="80 204 191 209" autofit="false" class="table">
+              <colgroup colwidth="0.47*" style="width:11.70%"></colgroup>
+              <colgroup colwidth="1.19*" style="width:29.82%"></colgroup>
+              <colgroup colwidth="1.12*" style="width:27.92%"></colgroup>
+              <colgroup colwidth="1.22*" style="width:30.56%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-jt9-szu-n02">
+                  <td id="task-2079852-entry-r4o-wut-0p0" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="88a6cbd113oyu"><b>方案</b></p>
+                  </td>
+                  <td id="task-2079852-entry-fl9-b70-7x9" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="88a6f2e013bmm"><b>优点</b></p>
+                  </td>
+                  <td id="task-2079852-entry-2ze-m1n-qb1" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="88a6f2e113x0r"><b>缺点</b></p>
+                  </td>
+                  <td id="task-2079852-entry-o93-vyq-fx4" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="88a6f2e213xyx"><b>使用场景</b></p>
+                  </td>
+                </tr>
+                <tr id="row-x2w-cud-c92">
+                  <td id="entry-2zu-w67-veu" rowspan="1" colspan="1">
+                    <p id="88a6f2e313mt3">方案一</p>
+                  </td>
+                  <td id="entry-m7q-90s-vze" rowspan="1" colspan="1">
+                    <p id="88a6f2e413ui7">配置仅对<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>进程生效，影响较小。</p>
+                  </td>
+                  <td id="entry-6i7-6om-v20" rowspan="1" colspan="1">
+                    <p id="88a6f2e513ig6">配置方式相对复杂。</p>
+                  </td>
+                  <td id="entry-lzp-di5-6gc" rowspan="1" colspan="1">
+                    <p id="88a719f013mv2">适用于服务器使用者，对服务器整体网络情况不太了解。</p>
+                  </td>
+                </tr>
+                <tr id="row-b2p-vew-a4s">
+                  <td id="entry-9oc-kh0-jgm" rowspan="1" colspan="1">
+                    <p id="88a719f1133f9">方案二</p>
+                  </td>
+                  <td id="entry-nm4-n52-nrd" rowspan="1" colspan="1">
+                    <p id="88a719f213wgs">配置方式简单。</p>
+                  </td>
+                  <td id="entry-tsb-v56-5eg" rowspan="1" colspan="1">
+                    <p id="88a719f3130ta">配置对整台服务器生效，影响较大。</p>
+                  </td>
+                  <td id="entry-629-c12-qvx" rowspan="1" colspan="1">
+                    <p id="88a719f413xox">适用于服务器管理员，对服务器上所有进程的网络请求状况较为了解。</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <section id="91c6005013ikb" outputclass="tabbed-content-box" class="tabbed-content-box section">
+              <section id="91c60052134m2" class="section">
+                <h2 id="91c6005113edp">方案一</h2>
+                <ol id="a03fe74013qgq">
+                  <li id="a0400e5113hid">
+                    <p id="a0400e5013y4y">登录某台企业内网服务器。</p>
+                  </li>
+                  <li id="a0400e53139jf">
+                    <p id="a0400e5213au9">打开<code data-tag="code" class="code">/etc/init.d/ilogtaild</code>文件，在<code data-tag="code" uuid="liih22oyq3kjfaebe6m" class="code">start()</code>函数中增加如下环境变量，然后保存文件。</p>
+                    <p id="4dcab06013ob9">关于环境变量的更多信息，请参见<a href="#a252d0a0138pd" id="8712dc1056qhw" title="" class="xref">附录：网络代理相关的环境变量</a>。</p><pre id="0gp3qb" data-tag="codeblock" outputclass="language-shell" class="pre codeblock language-shell"><code>start()
+{
+    cd $BIN_DIR
+    umask $UMASK
+    # 在$BIN_DIR/ilogtail<span class="help-letter-space"></span>前新增代理相关环境变量。
+    # 这里以<span class="help-letter-space"></span>ALL_PROXY<span class="help-letter-space"></span>为例，假设代理服务器地址为<span class="help-letter-space"></span>192.168.1.0，监听端口为<span class="help-letter-space"></span>9000。
+    # 内网服务器与代理服务器之间通过<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>协议进行通信。
+    ALL_PROXY=http://192.168.1.0:9000 $BIN_DIR/ilogtail
+    RETVAL=$?
+}</code></pre>
+                  </li>
+                  <li id="a0400e5613ta1">
+                    <p id="a0400e5513b0i">执行如下命令重启<span class="help-letter-space"></span>Logtail。</p><pre id="23m3vh" data-tag="codeblock" outputclass="language-shell" class="pre codeblock language-shell"><code>/etc/init.d/ilogtaild restart</code></pre>
+                  </li>
+                  <li id="2661416013xcq">
+                    <p id="26611a5013wgb">重复执行步骤<span class="help-letter-space"></span><a href="#a0400e5113hid" id="8712dc1156bgn" title="" class="xref">1</a>~<a href="#a0400e5613ta1" id="8712dc1256z2h" title="" class="xref">3</a><span style="color:rgb(0, 0, 0);background-color:rgba(0, 0, 0, 0)">，</span>为其他内网服务器设置代理相关的环境变量。</p>
+                  </li>
+                </ol>
+              </section>
+              <section id="91c6005513ske" class="section">
+                <h2 id="91c60054132zo">方案二</h2>
+                <div type="important" id="81c24da1132hp" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                  <p uuid="liigjmul15o2xetwxgs" id="820b3d8013vfg">如果您需要对内网服务器上的所有网络请求进行代理，或者您仅需要对<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>的网络请求进行代理，但您完全了解服务器上其他进程的网络请求发送地址，您可以考虑此方案。否则，请使用方案一。</p>
+                </div></div>
+                <ol id="b334cf0213hs5">
+                  <li id="b334cf0013o3x">
+                    <p id="91c6005613vp3">登录某台企业内网服务器。</p>
+                  </li>
+                  <li id="bc2c7e5113w6l">
+                    <p id="bc2c7e5013ps3">使用<code data-tag="code" class="code">export</code>命令在启动文件<code data-tag="code" class="code">~/.bash_profile</code>或<code data-tag="code" class="code">/etc/profile</code>中添加网络代理相关的环境变量。</p>
+                    <p id="d03a8620135a9">关于环境变量的更多信息，请参见<a href="#a252d0a0138pd" id="8712dc1356rkh" title="" class="xref">附录：网络代理相关的环境变量</a>。</p>
+                  </li>
+                  <li id="c38daf20135iv">
+                    <p id="c38d88101352i">执行如下命令使环境变量生效。</p>
+                    <p id="f99ddd1013109">此处，以<code data-tag="code" class="code">~/.bash_profile</code>启动文件为例。</p><pre id="i7p1gb" data-tag="codeblock" outputclass="language-bash" class="pre codeblock language-bash"><code>source ~/.bash_profile</code></pre>
+                  </li>
+                  <li id="f99ddd11138q0">
+                    <p id="01c89f70136gl">执行如下命令，重启<span class="help-letter-space"></span>Logtail。</p><pre id="m1escu" data-tag="codeblock" outputclass="language-bash" class="pre codeblock language-bash"><code>/etc/init.d/ilogtaild restart</code></pre>
+                  </li>
+                  <li id="1557563013cpk">
+                    <p id="15572f201360h">重复执行步骤<span class="help-letter-space"></span><a href="#b334cf0013o3x" id="87130320564rf" title="" class="xref">1</a>~<a href="#01c89f70136gl" id="87130321566ev" title="" class="xref">4</a>，为其他内网服务器配置代理相关的环境变量。</p>
+                  </li>
+                </ol>
+              </section>
+            </section>
+          </section>
+          <section id="7d29eef556nks" class="section">
+            <h2 id="7d29eef456sa8">Windows<span class="help-letter-space"></span>系统</h2>
+            <ol id="1b3e00c156etj">
+              <li id="e9a6cd41566l3">
+                <p id="e9a6cd4056qlr">打击<b id="e90a181056rwv" data-tag="uicontrol" data-isbold="true" class="uicontrol">运行</b>窗口，输入<span class="help-letter-space"></span><b id="f7ebc18056wkf">regedit</b>，然后单击<b id="ff4ec71056tt8" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>。</p>
+              </li>
+              <li id="040b3db0569r1">
+                <p id="040b16a056x6a">在<b data-tag="uicontrol" id="0b651b8056j67" class="uicontrol">注册表编辑器</b>窗口中，搜索<b data-tag="uicontrol" id="7447636056kaj" class="uicontrol">计算机\HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Services\LogtailDaemon</b>，然后单击<span class="help-letter-space"></span><b id="85dda580568og">LogtailDaemon</b>。</p>
+              </li>
+              <li id="8880d91056vy8">
+                <p id="8880b20056hh4">单击右键，选择<span data-tag="menucascade" id="a882f860565lw" class="menucascade"><b id="a883468056wir" data-tag="uicontrol" data-isbold="true" class="uicontrol">新建</b> &gt; <b data-tag="uicontrol" id="aab05fb05659p" class="uicontrol">多字符串值</b></span>，然后命名该新值为<span class="help-letter-space"></span><b id="d5c964d056vhv">Environment</b>。</p>
+              </li>
+              <li id="d6c96fb056db9">
+                <p id="d6c9219056yla">双击<span class="help-letter-space"></span><b id="da3a251056pxs">Environment</b>，在<b data-tag="uicontrol" id="ff64557056603" class="uicontrol">数值数据</b>文本框中，输入代理相关的环境变量，然后单击<b id="0b414a60565i7" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>。</p>
+                <p id="29819570565qh">例如以<span class="help-letter-space"></span>ALL_PROXY<span class="help-letter-space"></span>为例，代理服务器地址为<span class="help-letter-space"></span>192.168.1.0，监听端口为<span class="help-letter-space"></span>9000，内网服务器与代理服务器之间通过<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>协议进行通信。关于环境变量的更多信息，请参见<a href="#a252d0a0138pd" id="a090f1e0560ut" title="" class="xref">附录：网络代理相关的环境变量</a>。例如输入 <code data-tag="code" class="code">ALL_PROXY=http://192.168.1.0:9000</code>。</p>
+              </li>
+              <li id="4a5b2900563xa">
+                <p id="613958e056adk">打击<b id="da3a251156p1w" data-tag="uicontrol" data-isbold="true" class="uicontrol">运行</b>窗口，输入<span class="help-letter-space"></span><b id="da3a2512568yb">services.msc</b>，然后单击<b id="da3a2513566pw" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>。</p>
+              </li>
+              <li id="6c5bfe8056al3">
+                <p id="6c5bd77056wmk">在<b id="111025f056745" data-tag="uicontrol" data-isbold="true" class="uicontrol">服务</b>窗口中，选择<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>对应的服务。</p>
+                <ul data-tag="ul" id="ul-4rg-xgq-y98" class="ul" data-spm-anchor-id="a2c4g.11186623.0.i25.398366b0zERQ1l">
+                  <li data-tag="li" id="li-nii-qx7-g8k" class="li">
+                    <p id="2a3e605056ouf">如果是<span class="help-letter-space"></span>Logtail 0.x.x.x<span class="help-letter-space"></span>版本，选择<span class="help-letter-space"></span>LogtailWorker<span class="help-letter-space"></span>服务。</p>
+                  </li>
+                  <li data-tag="li" id="li-4n3-0yp-f34" class="li">
+                    <p id="2a3e8760561zk">如果是<span class="help-letter-space"></span>Logtail 1.0.0.0<span class="help-letter-space"></span>及以上版本，选择<span class="help-letter-space"></span>LogtailDaemon<span class="help-letter-space"></span>服务。</p>
+                  </li>
+                </ul>
+              </li>
+              <li id="323e1b105611v">
+                <p id="323df400566v4">单击右键，选择<b data-tag="uicontrol" id="5c6d5c7056ib6" class="uicontrol">重新启动</b>。</p>
+              </li>
+            </ol>
+          </section>
+        </section>
+      </section>
+      <section data-tag="section" id="section-s4k-278-m50" data-type="section" class="section">
+        <h2 data-tag="title" id="title-zxc-00a-q12" class="title">步骤三：验证网络</h2>
+        <ol data-tag="steps" id="steps-aaf-6b8-v6h" class="steps">
+          <li data-tag="step" id="step-kcr-d16-5bx" class="step">
+            <p id="88a7b634130j7"><span data-tag="cmd" id="cmd-vt5-zue-s4x" class="cmd">登录某台企业内网服务器。</span></p>
+          </li>
+          <li data-tag="step" id="step-35u-7iv-kv3" class="step">
+            <p id="88a7dd40132rv"><span data-tag="cmd" id="cmd-6ea-pqw-cip" class="cmd">执行如下命令。</span></p>
+            <div data-tag="info" id="info-1b3-gxb-wl6" class="info">
+              <p data-tag="p" id="p-3jk-gxa-h2q" class="p">下述命令中的<span data-tag="varname" id="varname-5bq-bik-12w" class="varname"><i>${region}</i></span>为目标<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>所在地域，<span data-tag="varname" id="varname-qhj-78u-szc" class="varname"><i>${project_name}</i></span>为目标<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>名称，请根据实际情况替换。</p><pre data-tag="codeblock" id="codeblock-qla-pod-9ak" outputclass="language-shell" class="pre codeblock language-shell"><code>curl http://logtail.${region}.log.aliyuncs.com
+curl https://logtail.${region}.log.aliyuncs.com
+curl http://${project_name}.${region}.log.aliyuncs.com
+curl http://ali-${region}-sls-admin.${region}.log.aliyuncs.com     </code></pre>
+              <div data-tag="p" id="p-u67-tpo-qxn" class="p">
+                <p id="88a7dd4113le2">如果系统返回如下类似信息，表示网络正常。</p><pre data-tag="codeblock" id="codeblock-2mh-64z-glf" outputclass="language-shell" class="pre codeblock language-shell"><code>{"Error":{"Code":"OLSInvalidMethod","Message":"The script name is invalid : /","RequestId":"62591BC7C08B7BD4AA99FCD4"}}</code></pre>
+              </div>
+            </div>
+          </li>
+          <li data-tag="step" id="step-1kt-cah-aqn" class="step">
+            <p id="88a7dd4213wte"><span data-tag="cmd" id="cmd-pux-6cl-8zk" class="cmd">重复执行步骤<span class="help-letter-space"></span><a href="#step-kcr-d16-5bx" id="xref-jdg-wvi-0r4" title="" class="xref">1</a><span class="help-letter-space"></span>和<span class="help-letter-space"></span><a href="#step-35u-7iv-kv3" id="xref-mrt-gpz-pb2" title="" class="xref">2</a>，验证其他企业内网服务器的网络。</span></p>
+          </li>
+        </ol>
+      </section>
+      <h2 id="a252d0a0138pd"><b>附录：</b>网络代理相关的环境变量</h2>
+      <p id="f4a074c013w0o">环境变量的配置说明如下：</p>
+      <div id="c700288113yvj" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+        <p id="c74ac610136my">下述环境变量均支持小写模式，但优先级低于大写模式。</p>
+      </div></div>
+      <ul id="b1c40fe2132ml" data-tag="ul" class="ul">
+        <li id="0e71f4011391z" data-tag="li" class="li">
+          <p id="0e743df013viv">如果将<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>和<span class="help-letter-space"></span>HTTPS<span class="help-letter-space"></span>协议数据全部发送给同一台代理服务器，可添加环境变量<code data-tag="code" class="code">ALL_PROXY</code>。</p><pre data-tag="codeblock" outputclass="language-shell" id="codeblock-v37-gsq-qjz" class="pre codeblock language-shell"><code>ALL_PROXY：${正向代理服务器的地址}</code></pre>
+        </li>
+        <li id="li-wt6-p2n-o9o" data-tag="li" class="li">
+          <p id="0e743df11309t">如果将<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>和<span class="help-letter-space"></span>HTTPS<span class="help-letter-space"></span>协议数据分别发送至不同的代理服务器上，可添加环境变量<code data-tag="code" class="code">HTTP_PROXY</code>和<code data-tag="code" class="code">HTTPS_PROXY</code>。</p><pre data-tag="codeblock" id="codeblock-tw7-ii2-qsu" outputclass="language-shell" class="pre codeblock language-shell"><code>HTTP_PROXY：${代理<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>协议数据的服务器地址}
+HTTPS_PROXY：${代理<span class="help-letter-space"></span>HTTPS<span class="help-letter-space"></span>协议数据的服务器地址}</code></pre>
+          <div data-tag="p" id="13289e4013fcb" class="p">
+            <p id="132a24e013rix">其中，代理服务器的地址需满足<code data-tag="code" class="code">[协议://[用户名:密码@]]地址[:端口]</code>格式。</p>
+            <ul data-tag="ul" id="ul-cul-vol-sye" class="ul">
+              <li data-tag="li" id="li-m3h-4ho-b9b" class="li">
+                <p id="132a24e113mz5">协议（可选）：指定了当前服务器和代理服务器之间的通信协议，可设置为<span class="help-letter-space"></span>http、https<span class="help-letter-space"></span>或<span class="help-letter-space"></span>socks5。如果不设置，默认使用<span class="help-letter-space"></span>http。</p>
+              </li>
+              <li data-tag="li" id="li-1jp-h11-ovi" class="li">
+                <p id="132a24e213x5c">用户名和密码（可选）：登录代理服务器的用户名和密码。</p>
+              </li>
+              <li data-tag="li" id="li-aib-jc7-ne4" class="li">
+                <p id="132a24e313xy4">地址（必选）：代理服务器的<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址。</p>
+              </li>
+              <li data-tag="li" id="li-woa-tis-c7b" class="li">
+                <p id="132a24e413mko">端口（可选）：设置为您在<span class="help-letter-space"></span>nginx.conf<span class="help-letter-space"></span>文件中配置的代理服务器监听端口。更多信息，请参见配置代理服务器中的步骤<span class="help-letter-space"></span><a href="#step-jub-u3t-gto" id="1328c55013g4v" title="" class="xref">5</a>。如果不设置，默认使用<span class="help-letter-space"></span>80。</p>
+              </li>
+            </ul>
+          </div>
+          <section id="2067bb40139sq" class="section">
+            <p id="2067bb4113hxw">另外，您还可以额外增加<span class="help-letter-space"></span>NO_PROXY<span class="help-letter-space"></span>环境变量，该变量指定发往哪些地址的数据不需要经过代理服务器，多个地址之间可以用半角逗号（,）连接，支持的地址形式包括：</p>
+            <ul data-tag="ul" id="ul-ay9-cgm-8jx" class="ul">
+              <li data-tag="li" id="li-i0k-7ek-lid" class="li">
+                <p id="20e43e4013wxs">IP<span class="help-letter-space"></span>地址</p>
+              </li>
+              <li data-tag="li" id="li-kch-4pa-x4o" class="li">
+                <p id="20e43e4113v4c">域名（可以以半角句号（.）开头，支持匹配当前域名及其子域名。）</p>
+              </li>
+              <li data-tag="li" id="li-m4u-4nn-kq2" class="li">
+                <p id="20e43e4213pu5">*（禁用代理服务器）</p>
+              </li>
+            </ul>
+          </section>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/sls/sls-private-network-connection" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：通过私网连接（PrivateLink）访问日志服务</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/sls/high-availability-solutions-to-collect-data-from-clients" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：采集客户端数据的高可用方案<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

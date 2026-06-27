@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-edge/security-and-compliance/best-practices-for-security-1",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "安全最佳实践-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/security-and-compliance/best-practices-for-security-1",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-edge/security-and-compliance/best-practices-for-security-1.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/security-and-compliance/best-practices-for-security-1.md",
+  "word_count": 595,
+  "text_units": 996,
+  "local_links": 11,
+  "external_links": 61,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "ecs:change-the-billing-method-for-network-usage-1",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "pricing",
+  "title": "转换ECS实例的公网带宽计费方式-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/change-the-billing-method-for-network-usage-1",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/change-the-billing-method-for-network-usage-1.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/change-the-billing-method-for-network-usage-1.md",
+  "word_count": 789,
+  "text_units": 2375,
+  "local_links": 1,
+  "external_links": 82,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

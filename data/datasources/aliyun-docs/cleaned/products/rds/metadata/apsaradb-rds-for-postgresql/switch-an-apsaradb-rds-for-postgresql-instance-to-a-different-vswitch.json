@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-postgresql/switch-an-apsaradb-rds-for-postgresql-instance-to-a-different-vswitch",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "切换RDS PostgreSQL实例的虚拟交换机-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/switch-an-apsaradb-rds-for-postgresql-instance-to-a-different-vswitch",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-postgresql/switch-an-apsaradb-rds-for-postgresql-instance-to-a-different-vswitch.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-postgresql/switch-an-apsaradb-rds-for-postgresql-instance-to-a-different-vswitch.md",
+  "word_count": 832,
+  "text_units": 1649,
+  "local_links": 10,
+  "external_links": 78,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

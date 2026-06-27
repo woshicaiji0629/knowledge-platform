@@ -1,0 +1,14 @@
+{
+  "id": "redis:getting-started/step-2-configure-whitelists:1",
+  "document_id": "redis:getting-started/step-2-configure-whitelists",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "设置Tair白名单以允许ECS私网IP访问-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/getting-started/step-2-configure-whitelists",
+  "chunk_index": 1,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/getting-started/step-2-configure-whitelists.chunk-0001.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/getting-started/step-2-configure-whitelists.md",
+  "heading_path": "步骤2：设置白名单 > 操作步骤",
+  "char_count": 428
+}

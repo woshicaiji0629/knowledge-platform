@@ -1,0 +1,14 @@
+{
+  "id": "vpc:use-privatelink-to-access-vpc-openapi-over-private-network:8",
+  "document_id": "vpc:use-privatelink-to-access-vpc-openapi-over-private-network",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "使用 PrivateLink 私网访问 VPC OpenAPI-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/use-privatelink-to-access-vpc-openapi-over-private-network",
+  "chunk_index": 8,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/use-privatelink-to-access-vpc-openapi-over-private-network.chunk-0008.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/use-privatelink-to-access-vpc-openapi-over-private-network.md",
+  "heading_path": "使用 PrivateLink 私网访问 VPC OpenAPI > 创建接口终端节点 > 权益",
+  "char_count": 257
+}

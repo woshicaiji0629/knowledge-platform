@@ -1,0 +1,14 @@
+{
+  "id": "sls:create-an-alert-policy:3",
+  "document_id": "sls:create-an-alert-policy",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "如何创建告警策略-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/create-an-alert-policy",
+  "chunk_index": 3,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/create-an-alert-policy.chunk-0003.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/create-an-alert-policy.md",
+  "heading_path": "创建告警策略 > 第三步：静默策略 > 配置说明",
+  "char_count": 120
+}

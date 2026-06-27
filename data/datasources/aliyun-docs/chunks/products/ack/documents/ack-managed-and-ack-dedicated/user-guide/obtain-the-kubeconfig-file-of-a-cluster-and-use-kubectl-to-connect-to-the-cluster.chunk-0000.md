@@ -1,0 +1,2 @@
+# 获取集群KubeConfig并通过kubectl工具连接集群
+除容器服务控制台外，还可以使用Kubernetes命令行工具kubectl来管理集群与应用。通过kubectl连接集群时，需先获取包含当前用户身份信息的集群KubeConfig。

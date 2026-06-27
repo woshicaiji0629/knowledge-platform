@@ -1,0 +1,14 @@
+{
+  "id": "rds:apsaradb-rds-for-sql-server/data-migration-and-synchronization:13",
+  "document_id": "rds:apsaradb-rds-for-sql-server/data-migration-and-synchronization",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "SQL Server数据迁移或上云方案概览-云数据库 RDS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-sql-server/data-migration-and-synchronization/",
+  "chunk_index": 13,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/rds/documents/apsaradb-rds-for-sql-server/data-migration-and-synchronization.chunk-0013.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-sql-server/data-migration-and-synchronization.md",
+  "heading_path": "SQL Server数据迁移或上云方案概览 > 场景五：RDS SQL Server迁移到本地SQL Server > 服务",
+  "char_count": 303
+}

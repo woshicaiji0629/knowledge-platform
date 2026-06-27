@@ -1,0 +1,6 @@
+| 变更项 | 说明 |
+| --- | --- |
+| 版本 | 支持 [升级数据库大版本](upgrade-the-major-engine-version-and-rds-edition-of-an-apsaradb-rds-for-sql-server-instance.md) 到更高版本。 |
+| 系列 | 支持 [基础系列升级到高可用系列/集群系列、高可用系列升级到集群系列](upgrade-the-major-engine-version-and-rds-edition-of-an-apsaradb-rds-for-sql-server-instance.md) 。 |
+| 规格 | 若 [实例规格族](../product-overview/instance-families.md) 不变，仅需变更规格代码 ：可通过 [变更配置](change-the-specifications-of-an-apsaradb-rds-for-sql-server-instance.md) 入口实现。 例如，实例规格族为通用型保持不变，但需将规格从 mssql.s2.medium.s2 变更为 mssql.s2.large.s2 若需变更实例规格族 ：可通过 [升级版本](upgrade-the-major-engine-version-and-rds-edition-of-an-apsaradb-rds-for-sql-server-instance.md) 入口操作实现，支持向同规格族或更高规格族的变更（ [部分情况](upgrade-the-major-engine-version-and-rds-edition-of-an-apsaradb-rds-for-sql-server-instance.md) 除外），具体以控制台显示为准。规格族自低到高：共享型<通用型<独享型（不支持高规格族降级） 例如，实例规格族从通用型变更为独享型。 说明 高可用系列共享规格不能直接升级为集群系列独享规格。 若控制台找不到目标规格族，可通过 [创建](create-an-apsaradb-rds-for-sql-server-instance-1.md) 一个目标规格族的新实例，再将原实例的数据 [迁移](migrate-data-between-apsaradb-rds-for-sql-server-instances.md) 到新实例的方式实现。 |
+| 存储类型 | ESSD 云盘实例支持升级 PL 等级（不支持降级）。例如 ESSD PL1 升级为 ESSD PL2。 非集群系列的 SSD 云盘实例支持升级为 ESSD 云盘，但不支持再降级回 SSD。 说明 集群系列实例暂不支持从 SSD 云盘升级为 ESSD 云盘。但可通过 [创建](create-an-a

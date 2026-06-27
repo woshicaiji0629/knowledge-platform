@@ -1,0 +1,3 @@
+## node-redis
+本示例的Node.js版本为19.4.0、node-redis版本为4.5.1。
+import { createCluster } from 'redis'; // 分别设置实例的端口号、连接地址、账号、密码， // 注意，在url中配置用户和密码之后，还需要在defaults中设置全局用户和密码， // 用于其余节点的认证，否则将出现NOAUTH的错误。 const cluster = createCluster({ rootNodes: [{ url: 'redis://testaccount:Rp829dlwa@r-bp10noxlhcoim2****.redis.rds.aliyuncs.com:6379' }], defaults: { username: 'testaccount', password: 'Rp829dlwa' } }); cluster.on('error', (err) => console.log('Redis Cluster Error', err)); await cluster.connect(); await cluster.set('key', 'value'); const value = await cluster.get('key'); console.log('get key: %s', value); await cluster.disconnect();

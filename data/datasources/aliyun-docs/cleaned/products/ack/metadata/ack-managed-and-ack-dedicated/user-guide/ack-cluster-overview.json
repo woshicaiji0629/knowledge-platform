@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/user-guide/ack-cluster-overview",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "ACK集群概述-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/ack-cluster-overview/",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/ack-cluster-overview.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/ack-cluster-overview.md",
+  "word_count": 1798,
+  "text_units": 4729,
+  "local_links": 26,
+  "external_links": 137,
+  "has_tables": true,
+  "table_count": 9,
+  "quality": "accepted"
+}

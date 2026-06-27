@@ -1,0 +1,17 @@
+{
+  "id": "sls:configure-access-control-policies",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "跨Project、地域或阿里云账号监控日志时，配置相应的授权-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/configure-access-control-policies",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/configure-access-control-policies.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/configure-access-control-policies.md",
+  "word_count": 1136,
+  "text_units": 2581,
+  "local_links": 29,
+  "external_links": 66,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

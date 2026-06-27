@@ -1,0 +1,6 @@
+| 比较项 | ACK Edge 集群 Pro 版 | ACK Edge 集群基础版 |
+| --- | --- | --- |
+| 集群规模 | 主机网络模式：单集群最大 1000 节点。 容器网络模式：单集群最大 200 节点。 关于网络模式的信息，请参见 [Pod](../../create-an-edge-node-pool-1.md) [网络模式](../../create-an-edge-node-pool-1.md) 。 | 单集群最大 10 节点。 |
+| SLA | 区域级集群提供服务可用性 99.95%的 SLA 保障；可用区级集群提供服务可用性 99.50%的 SLA 保障。更多信息请参见 [阿里云容器服务](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202010221416_90184.html?spm=a2c4g.11186623.0.0.a36c4e9ctmvDZO) [Kubernetes](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202010221416_90184.html?spm=a2c4g.11186623.0.0.a36c4e9ctmvDZO) [版服务等级协议](https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202010221416_90184.html?spm=a2c4g.11186623.0.0.a36c4e9ctmvDZO) 。 | 不支持 SLA。 |
+| 适用场景 | 企业生产与测试环境。 期望降低成本的场景。 | 集群规模上限较小，不保证集群控制面的可用性，适用于个人学习与测试。 |
+| 收费方式 | 收取集群管理费用（按集群数量计费）、边缘节点管理费（按接入的非云端节点数量计费）以及在使用 ACK Edge 集群 过程中涉及到其他的阿里云产品资源费用，详细信息请参见 [ACK Edge](../product-overview/billing-of-ack-edge-clusters.md) [集群计费说明](../product-overview/billing-of-ack-edge-clusters.md) 。 | 不收取集群管理费用，但仍然收取边缘节点管理费（按接入的非云端节点数量计费）以及在使用 ACK Edge 集群过程中涉及到其他的阿里云产品资源费用，详细信息请参见 [ACK Edge](../product-overv

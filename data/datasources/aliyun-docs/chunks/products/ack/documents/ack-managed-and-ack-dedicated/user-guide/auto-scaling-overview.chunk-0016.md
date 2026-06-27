@@ -1,0 +1,3 @@
+-node-instant-scaling.md) | [如何通过](faq-about-node-instant-scaling.md) [Pod](faq-about-node-instant-scaling.md) [控制节点即时弹性的节点缩容？](faq-about-node-instant-scaling.md) |
+| [通过节点控制扩缩容行为](faq-about-node-instant-scaling.md) | [节点即时弹性在缩容过程中如何指定需要删除的节点？](faq-about-node-instant-scaling.md) [如何指定节点不被节点即时弹性缩容？](faq-about-node-instant-scaling.md) [节点即时弹性能否仅缩容空节点？](faq-about-node-instant-scaling.md) |  |
+| [节点即时弹性组件相关](faq-about-node-instant-scaling.md) | [是否有操作会触发节点即时弹性组件的自动更新？](faq-about-node-instant-scaling.md) [ACK](faq-about-node-instant-scaling.md) [托管集群已经完成了角色授权，但节点伸缩活动仍然无法正常运行？](faq-about-node-instant-scaling.md) |  |

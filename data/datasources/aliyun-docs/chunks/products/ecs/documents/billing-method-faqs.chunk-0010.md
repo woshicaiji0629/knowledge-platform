@@ -1,0 +1,9 @@
+机效果后，为什么StartInstance时会报错OperationDenied.NoStock？
+ECS实例触发节省停机效果后，计算资源会被回收。如果库存不足，启动ECS实例时会报错OperationDenied.NoStock。建议您稍后重试启动ECS实例。
+启用了节省停机模式后，停机再开机时公网IP会变化，怎么保持公网IP不变？
+ECS实例触发节省停机效果后，固定公网IP会被回收，下次启动时自动分配新的固定公网IP，因此会发生变化。
+如果需要保持公网IP不变，您可以将ECS实例的固定公网IP转为弹性公网IP，因为ECS实例触发节省停机效果后不会释放弹性公网IP，可以保证公网IP不变。更多信息，请参见[固定公网](user-guide/convert-the-public-ip-address-of-an-instance-in-a-vpc-to-an-eip.md)[IP](user-guide/convert-the-public-ip-address-of-an-instance-in-a-vpc-to-an-eip.md)[转为弹性公网](user-guide/convert-the-public-ip-address-of-an-instance-in-a-vpc-to-an-eip.md)[IP](user-guide/convert-the-public-ip-address-of-an-instance-in-a-vpc-to-an-eip.md)和[ConvertNatPublicIpToEip](api-convertnatpubliciptoeip.md)。
+重要
+固定公网IP转成弹性公网IP后，使用弹性公网IP访问公网会收取公网出网带宽费用、EIP配置费（满足特定条件时不收取）和EIP绑定费（满足特定条件时不收取）。具体收费细则，请参见[弹性公网](../../eip/documents/billing-overview.md)[IP](../../eip/documents/billing-overview.md)[计费概述](../../eip/documents/billing-overview.md)。
+该文章对您有帮助吗？
+反馈

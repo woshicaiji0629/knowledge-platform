@@ -1,0 +1,6 @@
+| 配置项 | 说明 |
+| --- | --- |
+| IPv6 双栈 | 勾选 开启 后，会为集群开启双栈，同时支持 IPv4 与 IPv6 地址。 仅支持 1.22 及以上版本，仅支持 Terway，不支持与 [eRDMA](use-erdma-in-ack-clusters.md) [功能](use-erdma-in-ack-clusters.md) 同时使用 集群同时支持 IPv4 和 IPv6 协议，但 Worker 节点与控制面间的通信仍使用 IPv4 地址。需确保： 集群 VPC 支持 IPv6 双栈。 使用 Terway 共享 ENI 模式时，节点的 [实例规格](../../../../ecs/documents/user-guide/overview-of-instance-families.md) 需支持 IPv6 且支持的 IPv4/IPv6 地址数量相同。 |
+| 专有网络 | 集群所使用的 VPC。 |
+| 网络插件 | 选择 Terway 。 |
+| DataPath V2 | 勾选后，会使用 DataPathv2 加速模式。选择该模式后，Terway 会采取不同于共享 ENI 常规模式的流量转发链路，实现 [网络加速](work-with-terway.md) 。更多内容，请参见 [Datapath V2](datapath-v2-best-practices.md) [下最佳实践](datapath-v2-best-practices.md) 。 说明 新建集群初始版本为 Kubernetes 1.34 或更高，且选择 DataPath V2 的情况下，Terway 节点将不再运行 kube-proxy。 此模式下默认支持 portmap，无需配置 portmap 插件， [配置自定义](custom-cni-chain.md) [CNI Chain](custom-cni-chain.md) 。 DataPath V2 仅支持下列操作系统镜像，且要求 Linux 内核版本为 5.10 或更高： Alibaba Cloud Linux 4 Alibaba Cloud Linux 3（所有版本） ContainerOS Ubuntu 开启后，Terway policy 容器预计会在每个 Worker 节点上多占用 0.5 核 512MB 的资源，此消耗会随着集群规模增大而增大。在 Terway 默认配置中，policy 容器的 CPU 上限为 1 核，内存无限制。 在 DataPath V2 模式下，容器网络的连接跟踪（conntrack）信息通过 eBPF map 进行存储。与 Linux 系统原生的 conntrack 机制类似，eBPF conntrack 基于 LRU（最近最少使用）算法实现，当 map 容量达到上限

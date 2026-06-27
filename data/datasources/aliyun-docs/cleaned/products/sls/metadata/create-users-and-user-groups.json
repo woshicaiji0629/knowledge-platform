@@ -1,0 +1,17 @@
+{
+  "id": "sls:create-users-and-user-groups",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "如何创建用户和用户组-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/create-users-and-user-groups",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/create-users-and-user-groups.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/create-users-and-user-groups.md",
+  "word_count": 539,
+  "text_units": 1221,
+  "local_links": 0,
+  "external_links": 63,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

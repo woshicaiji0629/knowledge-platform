@@ -1,0 +1,2 @@
+# CLI集成示例
+阿里云CLI（Alibaba Cloud Command Line Interface）是基于OpenAPI Explorer构建的通用命令行工具，您可以通过阿里云CLI实现自动化管理和维护CDN。本文将为您介绍使用阿里云CLI调用CDN的操作步骤和示例。

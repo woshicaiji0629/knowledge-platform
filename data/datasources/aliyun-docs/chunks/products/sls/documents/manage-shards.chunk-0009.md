@@ -1,0 +1,12 @@
+## 自动分裂Shard
+日志服务支持自动分裂Shard，帮助您自动处理业务流量超出预估值的场景。自动分裂Shard需要满足以下几个条件。
+开启了自动分裂Shard开关。
+当写入数据量超出当前Shard的[写入服务能力](data-read-and-write.md)且持续5分钟以上。
+LogStore中readwrite状态的Shard数目未超过设定的最大Shard总数。
+说明
+最近15分钟内分裂出来的新Shard不会自动分裂。
+您可以在创建或修改LogStore时开启自动分裂Shard，并设定Shard的最大分裂数。
+自动分裂Shard
+例如原本存在4个Shard，日志服务会独立判断各个Shard是否满足分裂条件。满足分裂条件的Shard会各自进行分裂，分裂总数不会超过您所设定的最大分裂数。
+最大分裂数
+Shard自动分裂的最大总数目。开启自动分裂Shard功能后，最多支持自动分裂至256个readwrite状态的Shard。

@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/elastic-ephemeral-disks",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "弹性临时盘为ECS实例提供临时数据存储空间-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/elastic-ephemeral-disks",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/elastic-ephemeral-disks.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/elastic-ephemeral-disks.md",
+  "word_count": 1299,
+  "text_units": 3310,
+  "local_links": 5,
+  "external_links": 131,
+  "has_tables": true,
+  "table_count": 9,
+  "quality": "accepted"
+}

@@ -1,0 +1,12 @@
+yun.com/zh/ipv6-gateway/user-guide/enable-and-manage-ipv6-internet-bandwidth#section-dvo-wjp-zcb)[地址开通](https://help.aliyun.com/zh/ipv6-gateway/user-guide/enable-and-manage-ipv6-internet-bandwidth#section-dvo-wjp-zcb)[IPv6](https://help.aliyun.com/zh/ipv6-gateway/user-guide/enable-and-manage-ipv6-internet-bandwidth#section-dvo-wjp-zcb)[公网带宽](https://help.aliyun.com/zh/ipv6-gateway/user-guide/enable-and-manage-ipv6-internet-bandwidth#section-dvo-wjp-zcb)后，与系统路由表绑定的交换机将具备公网通信能力。
+而绑定了自定义路由表的已开启IPv6的交换机，若需要IPv6公网通信能力，您需要在自定义路由表中手动添加上述路由条目，
+下一跳为IPv6网关实例的自定义路由条目，目标网段仅支持配置为::/0。
+路由到NAT网关
+若主动访问公网的服务器较多，需占用较多的公网IP资源时，可通过[公网](../../nat-gateway/documents/user-guide/public-network-nat-gateway.md)[NAT](../../nat-gateway/documents/user-guide/public-network-nat-gateway.md)[网关](../../nat-gateway/documents/user-guide/public-network-nat-gateway.md)的SNAT功能，实现VPC内的多个ECS实例共享EIP上网，节省公网IP资源。且多个ECS实例无需暴露其私网IP地址即可实现公网访问，降低安全风险。
+使用NAT网关时，需要为VPC路由表添加指向公网NAT网关的自定义路由条目，实现公网访问。
+当ECS实例所属交换机绑定自定义路由表时：需手动配置目标网段为0.0.0.0/0，下一跳为公网NAT网关的路由条目。
+当ECS实例所属交换机绑定系统路由表时：
+系统路由表中不存在0.0.0.0/0的路由条目：系统将自动配置指向该公网NAT网关的路由条目。
+系统路由表中存在0.0.0.0/0的路由条目：需要先删除现有的路由条目，然后添加指向公网NAT网关的路由条目。
+路由到VPC对等连接
+不同VPC之间网络隔离，但可使用[VPC](vpc-peer-to-peer-con

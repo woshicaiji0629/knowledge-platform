@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-argo-workflow-cluster/user-guide/use-storage-volumes-in-workflow-clusters",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "在工作流集群中使用存储卷-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/user-guide/use-storage-volumes-in-workflow-clusters",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-argo-workflow-cluster/user-guide/use-storage-volumes-in-workflow-clusters.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-argo-workflow-cluster/user-guide/use-storage-volumes-in-workflow-clusters.md",
+  "word_count": 1274,
+  "text_units": 2173,
+  "local_links": 4,
+  "external_links": 64,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

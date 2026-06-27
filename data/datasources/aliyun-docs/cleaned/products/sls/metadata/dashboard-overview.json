@@ -1,0 +1,17 @@
+{
+  "id": "sls:dashboard-overview",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "在日志服务里如何通过控制台快速创建仪表盘-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/dashboard-overview",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/dashboard-overview.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/dashboard-overview.md",
+  "word_count": 692,
+  "text_units": 1932,
+  "local_links": 2,
+  "external_links": 66,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

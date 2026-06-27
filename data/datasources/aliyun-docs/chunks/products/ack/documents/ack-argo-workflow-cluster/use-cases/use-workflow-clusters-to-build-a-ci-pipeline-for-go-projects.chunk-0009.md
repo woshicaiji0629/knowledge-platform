@@ -1,0 +1,1 @@
+/../distributed-cloud-container-platform-for-kubernetes/use-cases/clone-private-git-repository-in-ci-pipeline.md)[Git](../../distributed-cloud-container-platform-for-kubernetes/use-cases/clone-private-git-repository-in-ci-pipeline.md)[仓库](../../distributed-cloud-container-platform-for-kubernetes/use-cases/clone-private-git-repository-in-ci-pipeline.md)。

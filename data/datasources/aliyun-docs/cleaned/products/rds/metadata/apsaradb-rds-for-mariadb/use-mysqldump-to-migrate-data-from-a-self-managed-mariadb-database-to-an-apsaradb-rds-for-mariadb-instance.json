@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-mariadb/use-mysqldump-to-migrate-data-from-a-self-managed-mariadb-database-to-an-apsaradb-rds-for-mariadb-instance",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "如何将自建MariaDB数据库迁移上云-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mariadb/use-mysqldump-to-migrate-data-from-a-self-managed-mariadb-database-to-an-apsaradb-rds-for-mariadb-instance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-mariadb/use-mysqldump-to-migrate-data-from-a-self-managed-mariadb-database-to-an-apsaradb-rds-for-mariadb-instance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mariadb/use-mysqldump-to-migrate-data-from-a-self-managed-mariadb-database-to-an-apsaradb-rds-for-mariadb-instance.md",
+  "word_count": 739,
+  "text_units": 1516,
+  "local_links": 0,
+  "external_links": 67,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

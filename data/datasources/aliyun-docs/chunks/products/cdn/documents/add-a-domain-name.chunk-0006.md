@@ -1,0 +1,1 @@
+到其他自定义端口，请参见 [配置回源协议](user-guide/configure-the-origin-protocol-policy.md) 。 如果配置了 回源协议 功能（默认为关闭状态），这里配置的端口会失效。关闭回源协议的方法，请参见 [配置回源协议](user-guide/configure-the-origin-protocol-policy.md) 。 当源站选择 OSS 域名时，回源端口是否支持自定义端口，取决于 OSS 产品。 |

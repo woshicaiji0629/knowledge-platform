@@ -1,0 +1,6 @@
+| 策略 | 策略说明 | 适用场景 |
+| --- | --- | --- |
+| [nodeSelector](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#nodeselector) | 使用标签（Label）的键值对对节点进行打标，然后在 Pod 配置中通过节点选择器（NodeSelector）将 Pod 调度至带有相应 Label 的节点上。 例如，可使用 NodeSelector [调度应用至指定节点](schedule-pods-to-specific-nodes.md) 或 [调度应用至指定节点池](schedule-an-application-pod-to-a-specific-node-pool.md) 。 | 基础的节点选择功能，但无法支持更复杂的调度功能，例如软性调度规则等。 |
+| [nodeAffinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/#node-affinity) | 相较于 NodeSelector 更灵活、更精细的 Pod 的调度策略，支持配置硬性调度规则（ requiredDuringSchedulingIgnoredDuringExecution ）和软性的调度规则（ preferredDuringSchedulingIgnoredDuringExecution ）。 | 可根据节点特性（例如地区、机型、硬件配置等）指定 Pod 运行位置；反亲和性可实现跨节点分散部署。 |
+| [污点和容忍](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration/) | 污点（Taint）主要由键（key）、值（value）和效果（effect）组成，常见的效果包括 NoSchedule 、 PreferNoSchedule 和 NoExecute 。节点打上污点后，只有声明了与节点污点匹配的容忍（Tolerations）的 Pod 才允许调度到此节点上。 | 为特定应用保留专用节点资源，例如为 AI/ML 工作负载预留 GPU 节点。 ACK 还支持为节点池添加污点或标签，使得某些应用可以调度到指定节点池，请参见 [创建和管理节点池](create-a-node-pool.md) 。 基于污点和容忍的 Pod 驱逐，例如为不健康的节点添加 NoExecute 的污点。 |
+| [podAffinity](https://kubernetes.io/docs/concepts/scheduling-eviction/ass

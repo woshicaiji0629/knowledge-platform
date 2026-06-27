@@ -1,0 +1,3 @@
+e Key 为。 保留 ：在生成 Cache Key 的时候仅保留原始请求 URL 中的指定参数。例如：原始 URL 为 http://image.example.com/cat.jpg?type=jpg&path=image ，保留参数 type ，则 Cache Key 为 http://image.example.com/cat.jpg?type=jpg 。 |
+| HTTP Header | 将客户端原始请求中携带的指定 HTTP Header 的值拼接到 Cache Key 中。支持配置多个 HTTP Header 名称（多个 HTTP Header 名称之间用空格分隔），效果是每个 HTTP Header 的值将会按顺序拼接到 Cache Key 中。 例如：原始 URL 为 http://image.example.com/cat.jpg ，客户端请求携带了一个 HTTP Header（path:image） ；如果 HTTP Header 中设置了 path 这个请求头，则 Cache Key 为 http://image.example.com/cat.jpgimage 。 |
+| 自定义变量 | 可以使用正则表达式来匹配客户端原始请求中携带的指定请求参数的值、指定 HTTP Header 的值、指定 Cookie 参数的值、指定的 URI，正则表达式匹配命中时，将对应的值拼接到 Cache Key 中。具体使用请参见 [配置示例](create-custom-cache-keys.md) 。 |

@@ -1,0 +1,1048 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    分片上传-对象存储-阿里云
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/oss/user-guide/multipart-upload">
+  <meta name="keywords" content="大文件上传,分片上传,断点续传">
+  <meta name="description" content="大文件上传面临网络中断风险和传输时间过长的挑战。分片上传通过将文件分割为多个小分片并发传输，提供断点续传能力和传输性能优化，有效应对网络不稳定环境下的文件传输需求。">
+  <meta name="last-modified" content="2025-11-28T15:10:56+08:00">
+  <meta name="date" content="2016-05-12T07:33:58+08:00">
+  <meta property="og:title" content="分片上传">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/oss/user-guide/multipart-upload">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="大文件上传面临网络中断风险和传输时间过长的挑战。分片上传通过将文件分割为多个小分片并发传输，提供断点续传能力和传输性能优化，有效应对网络不稳定环境下的文件传输需求。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/oss/user-guide/multipart-upload",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "31850",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/oss/user-guide/multipart-upload","nodeId":null,"data":{"lastModifiedTime":1764313856000,"keywords":"大文件上传,分片上传,断点续传","docTitle":"分片上传","language":"zh","seoTitle":"分片上传-对象存储-阿里云","title":"分片上传","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n<main id=\"concept-wzs-2gb-5db\"><p id=\"shortdesc-zzx-onq-cww\" data-tag=\"shortdesc\" class=\"shortdesc\">大文件上传面临网络中断风险和传输时间过长的挑战。分片上传通过将文件分割为多个小分片并发传输，提供断点续传能力和传输性能优化，有效应对网络不稳定环境下的文件传输需求。</p><div data-tag=\"taskbody\" id=\"conbody-myh-xnp-i5u\" class=\"taskbody\"><section id=\"1f1cc2fee0emu\" class=\"section\"><h2 id=\"13076faa10tqg\">工作原理</h2><p id=\"61733121e606f\">分片上传将大文件分割为多个小分片进行独立处理，各分片独立传输和校验，单个分片失败时仅需重传该分片，避免重新上传整个文件。分片上传使用<span class=\"help-letter-space\"></span>Upload ID<span class=\"help-letter-space\"></span>作为任务标识符，确保所有分片正确归属于同一个上传任务。核心流程分为三个步骤：</p><ol id=\"dc913c5ddbn2b\" start=\"1\"><li id=\"381b0d8021umd\"><p id=\"e9af1de8bf57e\"><b>初始化上传任务</b>：调用<span class=\"help-letter-space\"></span>InitiateMultipartUpload<span class=\"help-letter-space\"></span>接口创建分片上传任务，获取唯一的<span class=\"help-letter-space\"></span>Upload ID<span class=\"help-letter-space\"></span>作为后续操作的标识符。</p></li><li id=\"1000950c8br3m\"><p id=\"79ac947448rbz\"><b>上传文件分片数据</b>：将文件切分为多个分片（Part）并发上传，每个分片大小在<span class=\"help-letter-space\"></span>100KB<span class=\"help-letter-space\"></span>到<span class=\"help-letter-space\"></span>5GB<span class=\"help-letter-space\"></span>之间，支持断点续传。</p></li><li id=\"6d109c3f8bf73\"><p id=\"92e5924612id9\"><b>合并分片完成上传</b>：调用<span class=\"help-letter-space\"></span>CompleteMultipartUpload<span class=\"help-letter-space\"></span>接口将所有分片按序号合并为完整的对象文件。</p></li></ol><hetu type=\"flowchart\" id=\"7cc976c6e62zc\" versionid=\"CAEQYxiBgMCtxcXpzxkiIDE1ZmJkYjAyZmFiZDQ1YjFiMTVmZDI3OGQ2OTJjN2Ix\" uuid=\"5798772_20251019104257.734\" hetuid=\"37d42d14-0737-4db6-8b52-59eae244cbc5\"><img src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4583134671/CAEQYxiBgMCtxcXpzxkiIDE1ZmJkYjAyZmFiZDQ1YjFiMTVmZDI3OGQ2OTJjN2Ix5798772_20251019104257.734.svg\" alt=\"image\" class=\"image break flowchart hetu\"></hetu></section><section id=\"82107178124u9\" class=\"section\"><h2 id=\"d75dfabe9c7wr\">实现大文件分片上传</h2><p id=\"d48487b5c2g8h\">根据应用场景和技术要求，可选择图形化工具、命令行工具或<span class=\"help-letter-space\"></span>SDK<span class=\"help-letter-space\"></span>来实现分片上传功能。</p><div type=\"note\" id=\"b5e4556a74wpd\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong><ul id=\"487d37f327ca1\"><li id=\"4ac18bf09ehnm\"><p id=\"0a27bf32853au\">OSS<span class=\"help-letter-space\"></span>控制台暂不支持分片上传操作。</p></li><li id=\"72c0b82c35uv5\"><p id=\"68264bd3b10gv\">支持上传加密的压缩文件，但不支持上传目录。</p></li></ul></div></div><section id=\"dd78a851d3ibh\" class=\"section\"><h3 id=\"02d10f0592z5w\"><b>通过工具自动分片</b></h3><p id=\"52f11685fdcr3\">对于日常开发、测试、运维或手动上传场景，推荐使用图形化或命令行工具，工具会自动处理分片逻辑，操作便捷。</p><ul id=\"873fef56c6dsy\"><li id=\"1f935ebb32plp\"><p id=\"ecd096cb944fz\"><b>图形化管理工具<span class=\"help-letter-space\"></span>ossbrowser</b></p><p id=\"b1564142be59y\">使用<a href=\"https://help.aliyun.com/zh/oss/developer-reference/ossbrowser-2-0-overview/\" id=\"7ecbce141b3gg\" title=\"\" class=\"xref\">图形化管理工具<span class=\"help-letter-space\"></span>ossbrowser 2.0</a><span class=\"help-letter-space\"></span>上传文件时，默认启用分片上传机制，并提供可视化的上传进度和状态监控。</p></li><li id=\"b20fff8b24jb0\"><p id=\"50169edfa5qh4\"><b>命令行工具<span class=\"help-letter-space\"></span>ossutil</b></p><p id=\"efea2d97a5yf7\">使用<a href=\"https://help.aliyun.com/zh/oss/developer-reference/ossutil-overview/\" id=\"2222de65c2gez\" title=\"\" class=\"xref\">命令行工具<span class=\"help-letter-space\"></span>ossutil 2.0</a><span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/oss/developer-reference/cp-upload-file\" id=\"db242cebf5f19\" title=\"\" class=\"xref\">cp</a><span class=\"help-letter-space\"></span>命令上传文件时，工具会自动对超过<span class=\"help-letter-space\"></span>100MiB<span class=\"help-letter-space\"></span>的文件启用分片上传，提高大文件上传的成功率和传输效率。如需手动控制分片上传过程，可组合使用<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/oss/developer-reference/initiate-multipart-upload\" id=\"6c29bad167zu2\" title=\"\" class=\"xref\">initiate-multipart-upload</a>、<a href=\"https://help.aliyun.com/zh/oss/developer-reference/upload-part\" id=\"093d1219e75g4\" title=\"\" class=\"xref\">upload-part</a><span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/oss/developer-reference/complete-multipart-upload\" id=\"559faff738mfd\" title=\"\" class=\"xref\">complete-multipart-upload</a><span class=\"help-letter-space\"></span>命令。</p><pre outputclass=\"language-shell\" data-tag=\"codeblock\" code-type=\"xCode\" id=\"35c4c1689fzt7\" class=\"pre codeblock language-shell\"><code>ossutil cp example.zip oss://example-bucket</code></pre></li></ul></section><section id=\"231ad2012b19o\" class=\"section\"><h3 id=\"fd303b5317hab\"><b>通过<span class=\"help-letter-space\"></span>SDK<span class=\"help-letter-space\"></span>编程实现分片</b></h3><p id=\"b993830377tb5\">各语言<span class=\"help-letter-space\"></span>SDK<span class=\"help-letter-space\"></span>提供完整的分片上传接口封装，支持自定义分片大小、并发控制和错误处理。以下为常见语言的<span class=\"help-letter-space\"></span>SDK<span class=\"help-letter-space\"></span>分片上传示例，更多语言的使用示例请参见<span data-tag=\"ph\" id=\"b434a705044o9\" props=\"china\" data-cond-props=\"china\" class=\"ph\"><span class=\"help-letter-space\"></span><a class=\"\" href=\"https://help.aliyun.com/zh/oss/developer-reference/sdk-code-samples/\" id=\"68559d7110hto\">SDK<span class=\"help-letter-space\"></span>参考</a></span>中对应语言的示例代码。</p><blockquote id=\"6fc12e4a28v92\">运行代码前需安装对应语言的<span class=\"help-letter-space\"></span>SDK<span class=\"help-letter-space\"></span>并配置访问凭证环境变量，使用<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>用户或<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>角色时还需参考<span class=\"help-letter-space\"></span><a href=\"#4093788c9070n\" id=\"dfbaa5a1b7bmx\" title=\"\" class=\"xref\">API<span class=\"help-letter-space\"></span>和权限说明</a>进行接口授权。</blockquote><section id=\"8461fd17a5zne\" data-tag=\"tabbed-content-box\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\"><section id=\"78ebc25d99inq\" class=\"section\"><h2 id=\"6de0788b758tx\">Java SDK V2</h2><pre code-type=\"xCode\" id=\"1855fd0bfbeb2\" index=\"0\" height=\"500\" data-tag=\"codeblock\" outputclass=\"language-java\" class=\"pre codeblock language-java\"><code>import com.aliyun.sdk.service.oss2.OSSClient;\nimport com.aliyun.sdk.service.oss2.credentials.CredentialsProvider;\nimport com.aliyun.sdk.service.oss2.credentials.StaticCredentialsProvider;\nimport com.aliyun.sdk.service.oss2.io.BoundedInputStream;\nimport com.aliyun.sdk.service.oss2.models.*;\nimport com.aliyun.sdk.service.oss2.transport.BinaryData;\n\nimport java.io.File;\nimport java.io.FileInputStream;\nimport java.io.InputStream;\nimport java.util.ArrayList;\nimport java.util.List;\n\n/**\n * OSS分片上传示例\n * 实现大文件的分片上传功能\n */\npublic class MultipartUpload {\n\n    public static void main(String[] args) {\n        // 从环境变量获取访问凭证\n        String accessKeyId = System.getenv(\"OSS_ACCESS_KEY_ID\");\n        String accessKeySecret = System.getenv(\"OSS_ACCESS_KEY_SECRET\");\n\n        // 设置OSS地域和Endpoint\n        String region = \"cn-hangzhou\";\n        String endpoint = \"oss-cn-hangzhou.aliyuncs.com\";\n\n        // 配置Bucket和文件信息\n        String bucket = \"example-bucket\";\n        String key = \"dest.jpg\";\n        String filePath = \"dest.jpg\";\n\n        // 创建凭证提供者\n        CredentialsProvider provider = new StaticCredentialsProvider(accessKeyId, accessKeySecret);\n\n        // 初始化OSS客户端\n        OSSClient client = OSSClient.newBuilder()\n                .credentialsProvider(provider)\n                .region(region)\n                .endpoint(endpoint)\n                .build();\n\n        try {\n            // 步骤1：初始化分片上传\n            InitiateMultipartUploadResult initiateResult = client.initiateMultipartUpload(\n                    InitiateMultipartUploadRequest.newBuilder()\n                            .bucket(bucket)\n                            .key(key)\n                            .build());\n\n            String uploadId = initiateResult.initiateMultipartUpload().uploadId();\n            System.out.printf(\"初始化分片上传成功，状态码:%d, 请求ID:%s, 上传ID:%s\\n\",\n                    initiateResult.statusCode(), initiateResult.requestId(), uploadId);\n\n            // 步骤2：上传分片\n            File file = new File(filePath);\n            long fileSize = file.length();\n            long partSize = 100 * 1024; // 每个分片100KB\n            int partNumber = 1;\n            List&lt;Part&gt; uploadParts = new ArrayList&lt;&gt;();\n\n            for (long start = 0; start &lt; fileSize; start += partSize) {\n                long curPartSize = Math.min(partSize, fileSize - start);\n\n                // 读取文件分片并上传\n                try (InputStream is = new FileInputStream(file)) {\n                    is.skip(start);\n                    BoundedInputStream boundedInputStream = new BoundedInputStream(is, curPartSize);\n\n                    // 上传分片\n                    UploadPartResult partResult = client.uploadPart(UploadPartRequest.newBuilder()\n                            .bucket(bucket)\n                            .key(key)\n                            .uploadId(uploadId)\n                            .partNumber((long) partNumber)\n                            .body(BinaryData.fromStream(boundedInputStream))\n                            .build());\n\n                    System.out.printf(\"状态码: %d, 请求ID: %s, 分片号: %d, ETag: %s\\n\",\n                            partResult.statusCode(), partResult.requestId(), partNumber, partResult.eTag());\n\n                    uploadParts.add(Part.newBuilder()\n                            .partNumber((long) partNumber)\n                            .eTag(partResult.eTag())\n                            .build());\n                }\n                partNumber++;\n            }\n\n            // 步骤3：完成分片上传\n            uploadParts.sort((p1, p2) -&gt; p1.partNumber().compareTo(p2.partNumber()));\n\n            CompleteMultipartUpload completeMultipartUpload = CompleteMultipartUpload.newBuilder()\n                    .parts(uploadParts)\n                    .build();\n\n            CompleteMultipartUploadResult completeResult = client.completeMultipartUpload(\n                    CompleteMultipartUploadRequest.newBuilder()\n                            .bucket(bucket)\n                            .key(key)\n                            .uploadId(uploadId)\n                            .completeMultipartUpload(completeMultipartUpload)\n                            .build());\n\n            System.out.printf(\"完成分片上传，状态码:%d, 请求ID:%s, Bucket:%s, Key:%s, 位置:%s, ETag:%s\\n\",\n                    completeResult.statusCode(), completeResult.requestId(), \n                    completeResult.completeMultipartUpload().bucket(),\n                    completeResult.completeMultipartUpload().key(), \n                    completeResult.completeMultipartUpload().location(),\n                    completeResult.completeMultipartUpload().eTag());\n\n        } catch (Exception e) {\n            System.out.printf(\"错误:\\n%s\", e);\n            e.printStackTrace();\n        } finally {\n            // 关闭客户端连接\n            try {\n                client.close();\n            } catch (Exception e) {\n                e.printStackTrace();\n            }\n        }\n    }\n}</code></pre></section><section id=\"85d82307c6rx2\" class=\"section\"><h2 id=\"9f34932bcdgqx\">Java SDK V1</h2><pre code-type=\"xCode\" id=\"c38b06a1a5fpr\" index=\"0\" height=\"500\" data-tag=\"codeblock\" outputclass=\"language-java\" class=\"pre codeblock language-java\"><code>import com.aliyun.oss.*;\nimport com.aliyun.oss.common.auth.*;\nimport com.aliyun.oss.common.comm.SignVersion;\nimport com.aliyun.oss.model.*;\n\nimport java.io.File;\nimport java.io.FileInputStream;\nimport java.io.InputStream;\nimport java.util.ArrayList;\nimport java.util.List;\n\n/**\n * OSS分片上传示例（V1 SDK）\n * 实现大文件的分片上传功能\n */\npublic class MultipartUpload {\n\n    public static void main(String[] args) {\n        // 从环境变量获取访问凭证\n        String accessKeyId = System.getenv(\"OSS_ACCESS_KEY_ID\");\n        String accessKeySecret = System.getenv(\"OSS_ACCESS_KEY_SECRET\");\n\n        // 设置OSS地域和Endpoint\n        String region = \"cn-hangzhou\";\n        String endpoint = \"oss-cn-hangzhou.aliyuncs.com\";\n\n        // 配置Bucket和文件信息\n        String bucketName = \"example-bucket\";\n        String objectName = \"dest.jpg\";\n        String filePath = \"dest.jpg\";\n\n        // 创建凭证提供者\n        DefaultCredentialProvider provider = new DefaultCredentialProvider(accessKeyId, accessKeySecret);\n\n        // 配置客户端参数\n        ClientBuilderConfiguration clientBuilderConfiguration = new ClientBuilderConfiguration();\n        clientBuilderConfiguration.setSignatureVersion(SignVersion.V4);\n\n        // 初始化OSS客户端\n        OSS ossClient = OSSClientBuilder.create()\n                .credentialsProvider(provider)\n                .clientConfiguration(clientBuilderConfiguration)\n                .region(region)\n                .endpoint(endpoint)\n                .build();\n\n        try {\n            // 步骤1：初始化分片上传\n            InitiateMultipartUploadRequest initiateRequest = new InitiateMultipartUploadRequest(bucketName, objectName);\n            InitiateMultipartUploadResult initiateResult = ossClient.initiateMultipartUpload(initiateRequest);\n            String uploadId = initiateResult.getUploadId();\n            System.out.printf(\"初始化分片上传成功，上传ID: %s\\n\", uploadId);\n\n            // 步骤2：上传分片\n            File file = new File(filePath);\n            long fileLength = file.length();\n            long partSize = 100 * 1024L; // 每个分片100KB\n\n            // 计算分片数量\n            int partCount = (int) (fileLength / partSize);\n            if (fileLength % partSize != 0) {\n                partCount++;\n            }\n\n            // 保存已上传分片的ETag\n            List&lt;PartETag&gt; partETags = new ArrayList&lt;&gt;();\n\n            // 遍历上传分片\n            for (int i = 0; i &lt; partCount; i++) {\n                long startPos = i * partSize;\n                long curPartSize = (i + 1 == partCount) ? (fileLength - startPos) : partSize;\n\n                // 创建分片上传请求\n                UploadPartRequest uploadPartRequest = new UploadPartRequest();\n                uploadPartRequest.setBucketName(bucketName);\n                uploadPartRequest.setKey(objectName);\n                uploadPartRequest.setUploadId(uploadId);\n                uploadPartRequest.setPartNumber(i + 1);\n                uploadPartRequest.setPartSize(curPartSize);\n\n                // 读取文件分片并上传\n                try (InputStream instream = new FileInputStream(file)) {\n                    instream.skip(startPos);\n                    uploadPartRequest.setInputStream(instream);\n\n                    UploadPartResult uploadPartResult = ossClient.uploadPart(uploadPartRequest);\n                    partETags.add(uploadPartResult.getPartETag());\n\n                    System.out.printf(\"上传分片 %d/%d 成功，ETag: %s\\n\",\n                            i + 1, partCount, uploadPartResult.getPartETag().getETag());\n                }\n            }\n\n            // 步骤3：完成分片上传\n            CompleteMultipartUploadRequest completeRequest = new CompleteMultipartUploadRequest(\n                    bucketName, objectName, uploadId, partETags);\n            CompleteMultipartUploadResult completeResult = ossClient.completeMultipartUpload(completeRequest);\n\n            System.out.printf(\"完成分片上传，ETag: %s\\n\", completeResult.getETag());\n\n        } catch (Exception e) {\n            System.out.printf(\"错误: %s\\n\", e.getMessage());\n            e.printStackTrace();\n        } finally {\n            // 关闭客户端连接\n            ossClient.shutdown();\n        }\n    }\n}</code></pre></section><section id=\"e1f9b309761gl\" class=\"section\"><h2 id=\"31487456224qh\">Python SDK V2</h2><pre code-type=\"xCode\" id=\"ee19b0d88b0hn\" index=\"0\" height=\"500\" data-tag=\"codeblock\" outputclass=\"language-python\" class=\"pre codeblock language-python\"><code>#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\n# OSS Python SDK V2 分片上传示例\n# 实现大文件的分片上传功能\n\nimport alibabacloud_oss_v2 as oss\nimport os\n\ndef main():\n    # 从环境变量获取访问凭证\n    credentials_provider = oss.credentials.EnvironmentVariableCredentialsProvider()\n\n    # 加载SDK的默认配置\n    config = oss.config.load_default()\n    config.credentials_provider = credentials_provider\n\n    # 设置OSS地域和Endpoint\n    config.region = \"cn-hangzhou\"\n    config.endpoint = \"oss-cn-hangzhou.aliyuncs.com\"\n\n    # 初始化OSS客户端\n    client = oss.Client(config)\n\n    # 配置Bucket和文件信息\n    bucket = \"example-bucket\"\n    key = \"dest.jpg\"\n    file_path = \"dest.jpg\"\n\n    try:\n        # 步骤1：初始化分片上传\n        initiate_result = client.initiate_multipart_upload(\n            oss.InitiateMultipartUploadRequest(\n                bucket=bucket,\n                key=key\n            ))\n\n        upload_id = initiate_result.upload_id\n        print(f\"初始化分片上传成功，状态码:{initiate_result.status_code}, \"\n              f\"请求ID:{initiate_result.request_id}, 上传ID:{upload_id}\")\n\n        # 步骤2：上传分片\n        file_size = os.path.getsize(file_path)\n        part_size = 100 * 1024  # 每个分片100KB\n        part_number = 1\n        upload_parts = []\n        offset = 0\n\n        with open(file_path, 'rb') as f:\n            while offset &lt; file_size:\n                # 计算当前分片大小\n                current_part_size = min(part_size, file_size - offset)\n                \n                # 读取分片数据\n                f.seek(offset)\n                part_data = f.read(current_part_size)\n\n                # 上传分片\n                part_result = client.upload_part(\n                    oss.UploadPartRequest(\n                        bucket=bucket,\n                        key=key,\n                        upload_id=upload_id,\n                        part_number=part_number,\n                        body=part_data\n                    ))\n\n                print(f\"状态码: {part_result.status_code}, 请求ID: {part_result.request_id}, \"\n                      f\"分片号: {part_number}, ETag: {part_result.etag}\")\n\n                # 记录已上传的分片信息\n                upload_parts.append(oss.UploadPart(\n                    part_number=part_number,\n                    etag=part_result.etag\n                ))\n\n                offset += current_part_size\n                part_number += 1\n\n        # 步骤3：完成分片上传\n        upload_parts.sort(key=lambda p: p.part_number)\n\n        complete_result = client.complete_multipart_upload(\n            oss.CompleteMultipartUploadRequest(\n                bucket=bucket,\n                key=key,\n                upload_id=upload_id,\n                complete_multipart_upload=oss.CompleteMultipartUpload(\n                    parts=upload_parts\n                )\n            ))\n\n        print(f\"完成分片上传，状态码:{complete_result.status_code}, \"\n              f\"请求ID:{complete_result.request_id}, \"\n              f\"Bucket:{complete_result.bucket}, \"\n              f\"Key:{complete_result.key}, \"\n              f\"位置:{complete_result.location}, \"\n              f\"ETag:{complete_result.etag}\")\n\n    except Exception as e:\n        print(f\"错误: {e}\")\n        raise\n\nif __name__ == \"__main__\":\n    main()\n</code></pre></section><section id=\"c927f04e136ft\" class=\"section\"><h2 id=\"90b8d41ae64yl\">Python SDK V1</h2><pre code-type=\"xCode\" id=\"5d4090764bov0\" index=\"0\" height=\"500\" data-tag=\"codeblock\" outputclass=\"language-python\" class=\"pre codeblock language-python\"><code>#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\n# OSS Python SDK V1 分片上传示例\n# 实现大文件的分片上传功能\n\nimport os\nimport oss2\nfrom oss2.credentials import EnvironmentVariableCredentialsProvider\nfrom oss2 import SizedFileAdapter\nfrom oss2.models import PartInfo\n\ndef main():\n    # 从环境变量获取访问凭证\n    auth = oss2.ProviderAuth(EnvironmentVariableCredentialsProvider())\n\n    # 设置OSS地域和Endpoint\n    region = \"cn-hangzhou\"\n    endpoint = \"oss-cn-hangzhou.aliyuncs.com\"\n\n    # 配置Bucket和文件信息\n    bucket_name = \"example-bucket\"\n    key = \"dest.jpg\"\n    file_path = \"dest.jpg\"\n\n    # 初始化OSS Bucket\n    bucket = oss2.Bucket(auth, endpoint, bucket_name, region=region)\n\n    try:\n        # 步骤1：初始化分片上传\n        upload_id = bucket.init_multipart_upload(key).upload_id\n        print(f\"初始化分片上传成功，上传ID: {upload_id}\")\n\n        # 步骤2：上传分片\n        file_size = os.path.getsize(file_path)\n        part_size = 100 * 1024  # 每个分片100KB\n        part_number = 1\n        parts = []\n        offset = 0\n\n        with open(file_path, 'rb') as fileobj:\n            while offset &lt; file_size:\n                # 计算当前分片大小\n                current_part_size = min(part_size, file_size - offset)\n\n                # 上传分片\n                result = bucket.upload_part(\n                    key,\n                    upload_id,\n                    part_number,\n                    SizedFileAdapter(fileobj, current_part_size)\n                )\n\n                print(f\"分片号: {part_number}, ETag: {result.etag}\")\n\n                # 记录已上传的分片信息\n                parts.append(PartInfo(part_number, result.etag))\n\n                offset += current_part_size\n                part_number += 1\n\n        # 步骤3：完成分片上传\n        result = bucket.complete_multipart_upload(key, upload_id, parts)\n        print(f\"完成分片上传，ETag: {result.etag}\")\n\n    except Exception as e:\n        print(f\"错误: {e}\")\n        raise\n\nif __name__ == \"__main__\":\n    main()\n</code></pre></section><section id=\"7e5a952244hr6\" class=\"section\"><h2 id=\"12bca60a3dshn\">Go SDK V2</h2><pre code-type=\"xCode\" id=\"c79561bc7c0ny\" index=\"0\" height=\"500\" data-tag=\"codeblock\" outputclass=\"language-go\" class=\"pre codeblock language-go\"><code>package main\n\n// OSS Go SDK V2 分片上传示例\n// 实现大文件的分片上传功能\n\nimport (\n\t\"context\"\n\t\"fmt\"\n\t\"io\"\n\t\"os\"\n\n\t\"github.com/aliyun/alibabacloud-oss-go-sdk-v2/oss\"\n\t\"github.com/aliyun/alibabacloud-oss-go-sdk-v2/oss/credentials\"\n)\n\nfunc main() {\n\t// 从环境变量获取访问凭证\n\t// 配置OSS客户端，设置凭证提供者和Endpoint\n\tconfig := oss.LoadDefaultConfig().\n\t\tWithCredentialsProvider(credentials.NewEnvironmentVariableCredentialsProvider()).\n\t\tWithRegion(\"cn-hangzhou\").\n\t\tWithEndpoint(\"oss-cn-hangzhou.aliyuncs.com\")\n\n\t// 初始化OSS客户端\n\tclient := oss.NewClient(config)\n\n\t// 配置Bucket和文件信息\n\tbucket := \"example-bucket\"\n\tkey := \"dest.jpg\"\n\tfilePath := \"dest.jpg\"\n\n\t// 步骤1：初始化分片上传\n\tinitResult, err := client.InitiateMultipartUpload(context.TODO(), &amp;oss.InitiateMultipartUploadRequest{\n\t\tBucket: oss.Ptr(bucket),\n\t\tKey:    oss.Ptr(key),\n\t})\n\tif err != nil {\n\t\tfmt.Printf(\"错误: %v\\n\", err)\n\t\treturn\n\t}\n\n\tuploadId := *initResult.UploadId\n\tfmt.Printf(\"初始化分片上传成功，上传ID: %s\\n\", uploadId)\n\n\t// 步骤2：上传分片\n\tfile, err := os.Open(filePath)\n\tif err != nil {\n\t\tfmt.Printf(\"错误: %v\\n\", err)\n\t\treturn\n\t}\n\tdefer file.Close()\n\n\tfileInfo, err := file.Stat()\n\tif err != nil {\n\t\tfmt.Printf(\"错误: %v\\n\", err)\n\t\treturn\n\t}\n\n\tfileSize := fileInfo.Size()\n\tpartSize := int64(100 * 1024) // 每个分片100KB\n\tpartNumber := int32(1)\n\tvar parts []oss.UploadPart\n\n\tfor offset := int64(0); offset &lt; fileSize; offset += partSize {\n\t\t// 计算当前分片大小\n\t\tcurrentPartSize := partSize\n\t\tif offset+partSize &gt; fileSize {\n\t\t\tcurrentPartSize = fileSize - offset\n\t\t}\n\n\t\t// 读取分片数据\n\t\tfile.Seek(offset, 0)\n\t\tpartData := io.LimitReader(file, currentPartSize)\n\n\t\t// 上传分片\n\t\tpartResult, err := client.UploadPart(context.TODO(), &amp;oss.UploadPartRequest{\n\t\t\tBucket:     oss.Ptr(bucket),\n\t\t\tKey:        oss.Ptr(key),\n\t\t\tUploadId:   oss.Ptr(uploadId),\n\t\t\tPartNumber: partNumber,\n\t\t\tBody:       partData,\n\t\t})\n\t\tif err != nil {\n\t\t\tfmt.Printf(\"错误: %v\\n\", err)\n\t\t\treturn\n\t\t}\n\n\t\tfmt.Printf(\"分片号: %d, ETag: %s\\n\", partNumber, *partResult.ETag)\n\n\t\t// 记录已上传的分片信息\n\t\tparts = append(parts, oss.UploadPart{\n\t\t\tPartNumber: partNumber,\n\t\t\tETag:       partResult.ETag,\n\t\t})\n\n\t\tpartNumber++\n\t}\n\n\t// 步骤3：完成分片上传\n\tcompleteResult, err := client.CompleteMultipartUpload(context.TODO(), &amp;oss.CompleteMultipartUploadRequest{\n\t\tBucket:   oss.Ptr(bucket),\n\t\tKey:      oss.Ptr(key),\n\t\tUploadId: oss.Ptr(uploadId),\n\t\tCompleteMultipartUpload: &amp;oss.CompleteMultipartUpload{\n\t\t\tParts: parts,\n\t\t},\n\t})\n\tif err != nil {\n\t\tfmt.Printf(\"错误: %v\\n\", err)\n\t\treturn\n\t}\n\n\tfmt.Printf(\"完成分片上传，Bucket: %s, Key: %s, Location: %s, ETag: %s\\n\",\n\t\t*completeResult.Bucket, *completeResult.Key, *completeResult.Location, *completeResult.ETag)\n}\n</code></pre></section><section id=\"2b6ab8c82a3gb\" class=\"section\"><h2 id=\"ca46dfdf7e0b6\">Go SDK V1</h2><pre code-type=\"xCode\" id=\"6f9ce63e5diac\" index=\"0\" height=\"500\" data-tag=\"codeblock\" outputclass=\"language-go\" class=\"pre codeblock language-go\"><code>package main\n\n// OSS Go SDK V1 分片上传示例\n// 实现大文件的分片上传功能\n\nimport (\n\t\"fmt\"\n\t\"os\"\n\n\t\"github.com/aliyun/aliyun-oss-go-sdk/oss\"\n)\n\nfunc main() {\n\t// 从环境变量获取访问凭证\n\tprovider, _ := oss.NewEnvironmentVariableCredentialsProvider()\n\n\t// 创建OSS客户端实例\n\tclient, _ := oss.New(\n\t\t\"oss-cn-hangzhou.aliyuncs.com\",\n\t\t\"\",\n\t\t\"\",\n\t\toss.SetCredentialsProvider(&amp;provider),\n\t\toss.AuthVersion(oss.AuthV4),\n\t\toss.Region(\"cn-hangzhou\"),\n\t)\n\n\t// 获取Bucket对象\n\tbucket, _ := client.Bucket(\"example-bucket\")\n\n\t// 配置文件信息\n\tkey := \"dest.jpg\"\n\tfilePath := \"dest.jpg\"\n\n\t// 步骤1：初始化分片上传\n\timur, err := bucket.InitiateMultipartUpload(key)\n\tif err != nil {\n\t\tfmt.Printf(\"错误: %v\\n\", err)\n\t\treturn\n\t}\n\n\tfmt.Printf(\"初始化分片上传成功，上传ID: %s\\n\", imur.UploadID)\n\n\t// 步骤2：上传分片\n\tfile, err := os.Open(filePath)\n\tif err != nil {\n\t\tfmt.Printf(\"错误: %v\\n\", err)\n\t\treturn\n\t}\n\tdefer file.Close()\n\n\tfileInfo, err := file.Stat()\n\tif err != nil {\n\t\tfmt.Printf(\"错误: %v\\n\", err)\n\t\treturn\n\t}\n\n\tfileSize := fileInfo.Size()\n\tpartSize := int64(100 * 1024) // 每个分片100KB\n\n\t// 将文件分片\n\tchunks, err := oss.SplitFileByPartSize(filePath, partSize)\n\tif err != nil {\n\t\tfmt.Printf(\"错误: %v\\n\", err)\n\t\treturn\n\t}\n\n\tvar parts []oss.UploadPart\n\tfor _, chunk := range chunks {\n\t\tpart, err := bucket.UploadPart(imur, file, chunk.Size, chunk.Number)\n\t\tif err != nil {\n\t\t\tfmt.Printf(\"错误: %v\\n\", err)\n\t\t\treturn\n\t\t}\n\n\t\tfmt.Printf(\"分片号: %d, ETag: %s\\n\", chunk.Number, part.ETag)\n\t\tparts = append(parts, part)\n\t}\n\n\t// 步骤3：完成分片上传\n\t_, err = bucket.CompleteMultipartUpload(imur, parts)\n\tif err != nil {\n\t\tfmt.Printf(\"错误: %v\\n\", err)\n\t\treturn\n\t}\n\n\tfmt.Printf(\"完成分片上传，文件大小: %d 字节\\n\", fileSize)\n}\n</code></pre></section></section></section></section><section id=\"b91d8f59f1l3v\" class=\"section\"><h2 id=\"7e9f105e0afyd\"><b>清理碎片文件</b></h2><p id=\"6f82700baclky\">分片上传过程意外中断且未调用<span class=\"help-letter-space\"></span>AbortMultipartUpload<span class=\"help-letter-space\"></span>接口时，已上传的分片会作为碎片文件保留在<span class=\"help-letter-space\"></span>Bucket<span class=\"help-letter-space\"></span>中并<b>持续产生存储费用</b>。及时清理这些碎片文件可避免不必要的存储成本。</p><section id=\"eb4d3525b3i7p\" class=\"section\"><h4 id=\"6ba97d69f3ob2\"><b>通过控制台</b></h4><ol id=\"2fc7de3d147go\" start=\"1\"><li id=\"5a506a3e61xky\"><p id=\"ddb79f0931wdn\">前往<span class=\"help-letter-space\"></span><a class=\"\" href=\"https://oss.console.aliyun.com/bucket\" id=\"a2ef5159b6lq8\">Bucket<span class=\"help-letter-space\"></span>列表</a>，单击目标<span class=\"help-letter-space\"></span>Bucket。</p></li><li id=\"42057b12d9deu\"><p id=\"03d7e22dd4wna\">在<b data-tag=\"uicontrol\" id=\"69c4b2d112oyg\" class=\"uicontrol\">文件列表</b>单击<b data-tag=\"uicontrol\" id=\"a88523464brq9\" class=\"uicontrol\">碎片管理</b>，查看并删除碎片文件。</p></li></ol></section><section id=\"44c04572cdubo\" class=\"section\"><h4 id=\"92a6484f6fjcf\"><b>通过生命周期规则</b></h4><p id=\"cb92a5cef1rag\">配置生命周期规则可实现对过期碎片的自动清理，减少手动维护工作量并防止遗漏。具体操作参见<a href=\"https://help.aliyun.com/zh/oss/user-guide/configuration-examples#section-fxr-uqg-cw0\" id=\"b679e183b24sd\" title=\"\" class=\"xref\">通过生命周期规则清理过期碎片</a>。</p></section><section id=\"af78221a5fn89\" class=\"section\"><h4 id=\"d42f5c14b4ooa\"><b>通过工具</b></h4><ul id=\"2e348c6769shp\"><li id=\"510f5fe73982s\"><p id=\"6f781e1b207vp\"><b>图形化管理工具<span class=\"help-letter-space\"></span>ossbrowser</b></p><p id=\"30cc831e814gl\">在<span class=\"help-letter-space\"></span>Bucket<span class=\"help-letter-space\"></span>的文件列表页面单击<b data-tag=\"uicontrol\" id=\"f682457da0fsz\" class=\"uicontrol\">文件碎片</b>，查看并删除碎片文件。</p></li><li id=\"af7177ae3atno\"><p id=\"b52972c9ecke2\"><b>命令行工具<span class=\"help-letter-space\"></span>ossutil</b></p><p id=\"665ca5159ba82\">使用<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/oss/developer-reference/abort-multipart-upload\" id=\"355421db964sx\" title=\"\" class=\"xref\">abort-multipart-upload</a><span class=\"help-letter-space\"></span>命令取消分片上传任务并删除对应的分片数据。命令示例如下：</p><pre code-type=\"xCode\" id=\"caab63856fzx0\" index=\"0\" data-tag=\"codeblock\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>ossutil api abort-multipart-upload --bucket example-bucket --key dest.jpg --upload-id D9F4****************************</code></pre></li></ul></section><section id=\"83f21df6ee1z4\" class=\"section\"><h4 id=\"6edda9de0ebzy\"><b>通过<span class=\"help-letter-space\"></span>SDK</b></h4><p id=\"7a3ce60e5ezvm\">通过调用<span class=\"help-letter-space\"></span>AbortMultipartUpload<span class=\"help-letter-space\"></span>接口取消分片上传任务并删除对应的分片数据。以下为常见语言的<span class=\"help-letter-space\"></span>SDK<span class=\"help-letter-space\"></span>取消分片上传任务代码示例，更多语言的使用示例请参见<span data-tag=\"ph\" id=\"127d391b55zgw\" props=\"china\" data-cond-props=\"china\" class=\"ph\"><span class=\"help-letter-space\"></span><a class=\"\" href=\"https://help.aliyun.com/zh/oss/developer-reference/sdk-code-samples/\" id=\"c69925fa6bsk0\">SDK<span class=\"help-letter-space\"></span>参考</a></span>中对应语言的示例代码。</p><blockquote id=\"414d9f0aad6uq\">运行代码前需安装对应语言的<span class=\"help-letter-space\"></span>SDK<span class=\"help-letter-space\"></span>并配置访问凭证环境变量，使用<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>用户或<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>角色时还需参考<span class=\"help-letter-space\"></span><a href=\"#4093788c9070n\" id=\"b3bd3137858h2\" title=\"\" class=\"xref\">API<span class=\"help-letter-space\"></span>和权限说明</a>进行接口授权。</blockquote><section id=\"1325ffcb76src\" data-tag=\"tabbed-content-box\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\"><section id=\"d393c9216ct4m\" class=\"section\"><h2 id=\"bf4cc4e6edoy5\">Java SDK V2</h2><pre code-type=\"xCode\" id=\"d2c11a03f0nn7\" index=\"0\" height=\"500\" data-tag=\"codeblock\" outputclass=\"language-java\" class=\"pre codeblock language-java\"><code>import com.aliyun.sdk.service.oss2.OSSClient;\nimport com.aliyun.sdk.service.oss2.credentials.CredentialsProvider;\nimport com.aliyun.sdk.service.oss2.credentials.StaticCredentialsProvider;\nimport com.aliyun.sdk.service.oss2.models.AbortMultipartUploadRequest;\nimport com.aliyun.sdk.service.oss2.models.AbortMultipartUploadResult;\n\n/**\n * OSS取消分片上传示例\n * 演示如何取消一个分片上传任务\n */\npublic class AbortMultipartUpload {\n\n    public static void main(String[] args) {\n        // 从环境变量获取访问凭证\n        String accessKeyId = System.getenv(\"OSS_ACCESS_KEY_ID\");\n        String accessKeySecret = System.getenv(\"OSS_ACCESS_KEY_SECRET\");\n\n        // 设置OSS地域和Endpoint\n        String region = \"cn-hangzhou\";\n        String endpoint = \"oss-cn-hangzhou.aliyuncs.com\";\n\n        // 配置Bucket和文件信息\n        String bucket = \"example-bucket\";\n        String key = \"dest.jpg\";\n        String uploadId = \"D9F4****************************\";\n\n        // 创建凭证提供者\n        CredentialsProvider provider = new StaticCredentialsProvider(accessKeyId, accessKeySecret);\n\n        // 初始化OSS客户端\n        OSSClient client = OSSClient.newBuilder()\n                .credentialsProvider(provider)\n                .region(region)\n                .endpoint(endpoint)\n                .build();\n\n        try {\n            // 取消分片上传\n            AbortMultipartUploadResult result = client.abortMultipartUpload(\n                    AbortMultipartUploadRequest.newBuilder()\n                            .bucket(bucket)\n                            .key(key)\n                            .uploadId(uploadId)\n                            .build());\n\n            System.out.printf(\"取消分片上传成功，状态码: %d, 请求ID: %s\\n\",\n                    result.statusCode(), result.requestId());\n\n        } catch (Exception e) {\n            System.out.printf(\"错误: %s\\n\", e.getMessage());\n            e.printStackTrace();\n        } finally {\n            // 关闭客户端连接\n            try {\n                client.close();\n            } catch (Exception e) {\n                e.printStackTrace();\n            }\n        }\n    }\n}</code></pre></section><section id=\"0db1da471fh5r\" class=\"section\"><h2 id=\"2a87a4ee4574i\">Java SDK V1</h2><pre code-type=\"xCode\" id=\"bec5baab3bxte\" index=\"0\" height=\"500\" data-tag=\"codeblock\" outputclass=\"language-java\" class=\"pre codeblock language-java\"><code>import com.aliyun.oss.*;\nimport com.aliyun.oss.common.auth.*;\nimport com.aliyun.oss.common.comm.SignVersion;\nimport com.aliyun.oss.model.*;\n\n/**\n * OSS取消分片上传示例（V1 SDK）\n * 演示如何取消一个分片上传任务\n */\npublic class AbortMultipartUpload {\n\n    public static void main(String[] args) {\n        // 从环境变量获取访问凭证\n        String accessKeyId = System.getenv(\"OSS_ACCESS_KEY_ID\");\n        String accessKeySecret = System.getenv(\"OSS_ACCESS_KEY_SECRET\");\n\n        // 设置OSS地域和Endpoint\n        String region = \"cn-hangzhou\";\n        String endpoint = \"oss-cn-hangzhou.aliyuncs.com\";\n\n        // 配置Bucket和文件信息\n        String bucketName = \"example-bucket\";\n        String objectName = \"dest.jpg\";\n        String uploadId = \"D9F4****************************\";\n\n        // 创建凭证提供者\n        DefaultCredentialProvider provider = new DefaultCredentialProvider(accessKeyId, accessKeySecret);\n\n        // 配置客户端参数\n        ClientBuilderConfiguration clientBuilderConfiguration = new ClientBuilderConfiguration();\n        clientBuilderConfiguration.setSignatureVersion(SignVersion.V4);\n\n        // 初始化OSS客户端\n        OSS ossClient = OSSClientBuilder.create()\n                .credentialsProvider(provider)\n                .clientConfiguration(clientBuilderConfiguration)\n                .region(region)\n                .endpoint(endpoint)\n                .build();\n\n        try {\n            // 取消分片上传\n            AbortMultipartUploadRequest abortMultipartUploadRequest =\n                    new AbortMultipartUploadRequest(bucketName, objectName, uploadId);\n            ossClient.abortMultipartUpload(abortMultipartUploadRequest);\n\n            System.out.printf(\"取消分片上传成功，上传ID: %s\\n\", uploadId);\n\n        } catch (Exception e) {\n            System.out.printf(\"错误: %s\\n\", e.getMessage());\n            e.printStackTrace();\n        } finally {\n            // 关闭客户端连接\n            ossClient.shutdown();\n        }\n    }\n}</code></pre></section><section id=\"81af6eb1d2rtu\" class=\"section\"><h2 id=\"a2ff461637ju4\">Python SDK V2</h2><pre code-type=\"xCode\" id=\"f1113b56f55dh\" index=\"0\" height=\"500\" data-tag=\"codeblock\" outputclass=\"language-python\" class=\"pre codeblock language-python\"><code>#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\n# OSS Python SDK V2 取消分片上传示例\n# 取消分片上传任务并删除已上传的分片\n\nimport alibabacloud_oss_v2 as oss\n\ndef main():\n    # 从环境变量获取访问凭证\n    credentials_provider = oss.credentials.EnvironmentVariableCredentialsProvider()\n\n    # 加载SDK的默认配置\n    config = oss.config.load_default()\n    config.credentials_provider = credentials_provider\n\n    # 设置OSS地域和Endpoint\n    config.region = \"cn-hangzhou\"\n    config.endpoint = \"oss-cn-hangzhou.aliyuncs.com\"\n\n    # 初始化OSS客户端\n    client = oss.Client(config)\n\n    # 配置Bucket和文件信息\n    bucket = \"example-bucket\"\n    key = \"dest.jpg\"\n    upload_id = \"D9F4****************************\"\n\n    # 取消分片上传\n    result = client.abort_multipart_upload(\n        oss.AbortMultipartUploadRequest(\n            bucket=bucket,\n            key=key,\n            upload_id=upload_id\n        ))\n\n    print(f\"取消分片上传成功，状态码: {result.status_code}, 请求ID: {result.request_id}\")\n\nif __name__ == \"__main__\":\n    main()</code></pre></section><section id=\"b43bf74a38lh0\" class=\"section\"><h2 id=\"1ae6450dd6t5q\">Python SDK V1</h2><pre code-type=\"xCode\" id=\"e6d689011fs7l\" index=\"0\" height=\"500\" data-tag=\"codeblock\" outputclass=\"language-python\" class=\"pre codeblock language-python\"><code>#!/usr/bin/env python3\n# -*- coding: utf-8 -*-\n\n# OSS Python SDK V1 取消分片上传示例\n\nimport oss2\nfrom oss2.credentials import EnvironmentVariableCredentialsProvider\n\ndef main():\n    # 从环境变量中获取访问凭证\n    auth = oss2.ProviderAuthV4(EnvironmentVariableCredentialsProvider())\n    \n    # 设置OSS地域和Endpoint\n    region = \"cn-hangzhou\"\n    endpoint = \"https://oss-cn-hangzhou.aliyuncs.com\"\n    \n    # 配置Bucket和文件信息\n    bucket_name = \"example-bucket\"\n    key = \"dest.jpg\"\n    upload_id = \"D9F4****************************\"\n    \n    # 初始化OSS客户端\n    bucket = oss2.Bucket(auth, endpoint, bucket_name, region=region)\n    \n    # 取消分片上传\n    bucket.abort_multipart_upload(key, upload_id)\n    \n    print(f\"取消分片上传成功，上传ID: {upload_id}\")\n\nif __name__ == \"__main__\":\n    main()</code></pre></section><section id=\"8aaae85a4bff4\" class=\"section\"><h2 id=\"0b9453f38aedw\">Go SDK V2</h2><pre code-type=\"xCode\" id=\"68cc899dff4r9\" index=\"0\" height=\"500\" data-tag=\"codeblock\" outputclass=\"language-go\" class=\"pre codeblock language-go\"><code>package main\n\n// OSS Go SDK V2 取消分片上传示例\n\nimport (\n\t\"context\"\n\t\"fmt\"\n\n\t\"github.com/aliyun/alibabacloud-oss-go-sdk-v2/oss\"\n\t\"github.com/aliyun/alibabacloud-oss-go-sdk-v2/oss/credentials\"\n)\n\nfunc main() {\n\t// 从环境变量获取访问凭证\n\t// 配置OSS客户端，设置凭证提供者和Endpoint\n\tconfig := oss.LoadDefaultConfig().\n\t\tWithCredentialsProvider(credentials.NewEnvironmentVariableCredentialsProvider()).\n\t\tWithRegion(\"cn-hangzhou\").\n\t\tWithEndpoint(\"oss-cn-hangzhou.aliyuncs.com\")\n\n\t// 初始化OSS客户端\n\tclient := oss.NewClient(config)\n\n\t// 配置Bucket和文件信息\n\tbucket := \"example-bucket\"\n\tkey := \"dest.jpg\"\n\tuploadId := \"D9F4****************************\"\n\n\t// 取消分片上传\n\tclient.AbortMultipartUpload(context.TODO(), &amp;oss.AbortMultipartUploadRequest{\n\t\tBucket:   oss.Ptr(bucket),\n\t\tKey:      oss.Ptr(key),\n\t\tUploadId: oss.Ptr(uploadId),\n\t})\n\n\tfmt.Printf(\"取消分片上传成功，上传ID: %s\\n\", uploadId)\n}\n</code></pre></section><section id=\"3bf987a27elza\" class=\"section\"><h2 id=\"cb8035b1eapot\">Go SDK V1</h2><pre code-type=\"xCode\" id=\"6a9db934e2xyx\" index=\"0\" height=\"500\" data-tag=\"codeblock\" outputclass=\"language-go\" class=\"pre codeblock language-go\"><code>package main\n\n// OSS Go SDK V1 取消分片上传示例\n\nimport (\n\t\"fmt\"\n\n\t\"github.com/aliyun/aliyun-oss-go-sdk/oss\"\n)\n\nfunc main() {\n\t// 从环境变量获取访问凭证\n\tprovider, _ := oss.NewEnvironmentVariableCredentialsProvider()\n\n\t// 创建OSS客户端实例\n\tclient, _ := oss.New(\n\t\t\"oss-cn-hangzhou.aliyuncs.com\",\n\t\t\"\",\n\t\t\"\",\n\t\toss.SetCredentialsProvider(&amp;provider),\n\t\toss.AuthVersion(oss.AuthV4),\n\t\toss.Region(\"cn-hangzhou\"),\n\t)\n\n\t// 获取Bucket对象\n\tbucket, _ := client.Bucket(\"example-bucket\")\n\n\t// 配置文件信息\n\tkey := \"dest.jpg\"\n\tuploadId := \"D9F4****************************\"\n\n\t// 创建InitiateMultipartUploadResult对象\n\timur := oss.InitiateMultipartUploadResult{\n\t\tUploadID: uploadId,\n\t\tKey:      key,\n\t}\n\n\t// 取消分片上传\n\tbucket.AbortMultipartUpload(imur)\n\n\tfmt.Printf(\"取消分片上传成功，上传ID: %s\\n\", uploadId)\n}\n</code></pre></section></section></section></section><section id=\"77b2aa124d9eg\" class=\"section\"><h2 id=\"db4e8f64d4k8z\">应用于生产环境</h2><section id=\"a897691a6bf7n\" class=\"section\"><h4 id=\"5a9be06913orv\">最佳实践</h4><ul id=\"10b9c85575o38\"><li id=\"21dfdebdd5z13\"><p id=\"f8c2844e8a1h4\"><b>性能优化：提升上传速度和稳定性</b></p><ul id=\"bd1d1ddf54sfc\"><li id=\"a3a28ab210hls\"><p id=\"086f23bb03enu\"><b>合理控制并发数量</b>：根据网络带宽和设备负载确定合理的并发分片数量。过多的并发连接会增加系统负载和网络拥塞，过少则无法充分利用网络资源。</p></li><li id=\"e6caaedb9dfzn\"><p id=\"41e1ed02d5b2k\"><b>避免顺序前缀命名</b>：上传大量文件时避免使用顺序前缀（如时间戳开头），防止请求集中在特定分区造成热点问题，影响整体上传性能。详见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/oss/user-guide/oss-performance-best-practices/#concept-xtt-pln-vdb\" id=\"a8c73c2cb6yie\" title=\"\" class=\"xref\">OSS<span class=\"help-letter-space\"></span>性能最佳实践</a>。</p></li></ul></li><li id=\"37c2ed0e3dg0b\"><p id=\"1aeccc7643pqa\"><b>可靠性保障：实现断点续传</b></p><p id=\"bc926f3469pbj\">分片上传任务无过期时间限制，支持暂停和恢复操作。利用<span class=\"help-letter-space\"></span>Upload ID<span class=\"help-letter-space\"></span>作为任务标识符，当单个分片上传失败时，仅需重传该分片，避免从头开始上传整个文件，大幅提升传输效率。</p></li><li id=\"4229b93f1edd8\"><p id=\"d821ec0b0dpy7\"><b>成本优化：优化深度冷归档上传策略</b></p><p id=\"4c2f18cafcnhd\">对于需要存储到深度冷归档的大量文件，建议先上传为标准存储类型，再通过<a href=\"https://help.aliyun.com/zh/oss/user-guide/lifecycle-rules-based-on-the-last-modified-time#concept-y2g-szy-5db\" id=\"1115cc789fjdy\" title=\"\" class=\"xref\">生命周期规则</a>自动转换存储类型，避免直接上传产生高额的<span class=\"help-letter-space\"></span>PUT<span class=\"help-letter-space\"></span>请求费用。</p></li></ul></section><section id=\"fb6fa8cc829je\" class=\"section\"><h4 id=\"ee6e0b0f04h8k\">风险防范</h4><ul id=\"303250a28cn57\"><li id=\"e2f8b774efb71\"><p id=\"affbf6ba99hws\"><b>数据安全：防止文件覆盖</b></p><p id=\"0adb9d619cgna\">在上传请求<span class=\"help-letter-space\"></span>header<span class=\"help-letter-space\"></span>中设置<code data-tag=\"code\" id=\"ab32a6f50fn3y\" class=\"code\">x-oss-forbid-overwrite</code>参数为<code data-tag=\"code\" code-type=\"xCode\" class=\"code inline-code___1DWt-\" id=\"d457f0570eegp\">true</code>，防止覆盖同名文件造成数据丢失。也可开启<a href=\"https://help.aliyun.com/zh/oss/user-guide/overview-78/#concept-jdg-4rx-bgb\" id=\"182045244a43f\" title=\"\" class=\"xref\">版本控制</a>功能保留历史版本。</p></li></ul></section></section><section id=\"852b4a94cdzg4\" class=\"section\"><h2 id=\"c887bff52e8cf\">配额与限制</h2><table id=\"table-0lt-ekm-3ze\" tablewidth=\"100\" tablecolswidth=\"40 60\" autofit=\"true\" class=\"table\"><colgroup colwidth=\"0.8*\" style=\"width:40.00%\"></colgroup><colgroup colwidth=\"1.2*\" style=\"width:60.00%\"></colgroup><tbody class=\"tbody\"><tr id=\"row-gxu-hu5-ww7\"><td id=\"concept-wzs-2gb-5db-entry-h14-rp4-ly0\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\"><p id=\"07f27bd5eefnc\"><b>限制项</b></p></td><td id=\"concept-wzs-2gb-5db-entry-lud-gog-vyc\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\"><p id=\"07f27bd6eexy3\"><b>说明</b></p></td></tr><tr id=\"row-ptq-ror-161\"><td id=\"entry-pv8-h9w-glg\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"07f2a2e0eeasg\">单个文件的大小</p></td><td id=\"entry-ugx-8ae-h70\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"07f2a2e1eeo4k\">不超过<span class=\"help-letter-space\"></span>48.8TB</p></td></tr><tr id=\"row-6o2-csp-lwd\"><td id=\"entry-hs9-c8z-cgo\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"07f2a2e2eemyf\">分片数量</p></td><td id=\"entry-mjg-gnh-nav\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"07f2a2e3ee0lc\">1~10,000<span class=\"help-letter-space\"></span>个</p></td></tr><tr id=\"row-ndc-n5u-hzx\"><td id=\"entry-dri-cil-p2w\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"07f2a2e4ee53f\">单个分片大小</p></td><td id=\"entry-2ig-9b2-lfh\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"07f2a2e5eetrt\">最小值为<span class=\"help-letter-space\"></span>100KB，最大值为<span class=\"help-letter-space\"></span>5GB。最后一个分片的大小允许小于<span class=\"help-letter-space\"></span>100KB。</p></td></tr><tr id=\"row-qam-edo-he8\"><td id=\"entry-n4l-yte-c8b\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"07f2a2e6eerps\">单次<span class=\"help-letter-space\"></span>ListParts<span class=\"help-letter-space\"></span>请求返回的分片最大数量</p></td><td id=\"entry-8wc-0ys-h6l\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"07f2a2e7eeulv\">1,000<span class=\"help-letter-space\"></span>个</p></td></tr><tr id=\"row-wkz-iey-1wn\"><td id=\"entry-fx4-qla-iqc\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"07f2a2e8eecqr\">单次<span class=\"help-letter-space\"></span>ListMultipartUploads<span class=\"help-letter-space\"></span>请求返回的分片上传事件最大数量</p></td><td id=\"entry-ejc-ark-xlj\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"07f2a2e9eeljb\">1,000<span class=\"help-letter-space\"></span>个</p></td></tr></tbody></table></section><section id=\"1a11fc603dhz1\" class=\"section\"><h2 id=\"2acde6bee30cs\">计费说明</h2><p jc=\"left\" id=\"170d4871caf83\" style=\"text-align:left\">分片上传过程中不同接口产生相应的计费项目如下表所示。详细的计费说明请参见<a href=\"https://help.aliyun.com/zh/oss/api-operation-calling-fees\" id=\"bb2a738597mma\" title=\"\" class=\"xref\">请求费用</a>和<a href=\"https://help.aliyun.com/zh/oss/storage-fees\" id=\"59d1a662422f9\" title=\"\" class=\"xref\">存储费用</a>。</p><table id=\"c43bed10d6qo9\" tablewidth=\"100\" tablecolswidth=\"20 20 60\" autofit=\"true\" class=\"table\"><colgroup colwidth=\"0.61*\" style=\"width:20.00%\"></colgroup><colgroup colwidth=\"0.61*\" style=\"width:20.00%\"></colgroup><colgroup colwidth=\"1.82*\" style=\"width:60.00%\"></colgroup><tbody class=\"tbody\"><tr id=\"78134776e6n38\"><td id=\"5d918bd9724p3\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\"><p id=\"e57311eda3joe\"><b>API</b></p></td><td id=\"1a6ba55300b57\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\"><p id=\"e7027008df4d7\"><b>计费项</b></p></td><td id=\"e927adc000j2s\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\"><p id=\"0000d70cedep7\"><b>说明</b></p></td></tr><tr id=\"e411840aadqrc\"><td id=\"f8473dae3a5e6\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"b730ffd062eok\"><b>InitiateMultipartUpload</b></p></td><td id=\"222464fb9ca3e\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"9cde8517a0z2q\">PUT 类型请求</p></td><td id=\"86b18dabcccxt\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"0d403cd17276r\">根据成功的请求次数计算请求费用。</p></td></tr><tr id=\"bd4038cc065az\"><td id=\"486434a40048m\" rowspan=\"2\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"220710d8b53cu\"><b>UploadPart</b></p></td><td id=\"39dfb2d646nti\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"0860a116488tb\">PUT 类型请求</p></td><td id=\"2e6ec84066h2n\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"0bf222ea5adog\">根据成功的请求次数计算请求费用。</p></td></tr><tr id=\"23af2eb860xhe\"><td id=\"6ccf48939fkf2\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"6303033afbcso\">存储费用</p></td><td id=\"4989926b4c4il\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"b3021304c415p\">根据分片的存储类型（与对象文件类型一致）、实际大小和存储时长收取存储费用。无最小计量单位限制，被删除或合并为完整的对象文件后停止计费。</p></td></tr><tr id=\"b56a4a9fbez31\"><td id=\"bd4463f5cf7xb\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"7cec168ad6aal\"><b>UploadPartCopy</b></p></td><td id=\"9a13e2587c244\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"9e03984f97ivb\">PUT 类型请求</p></td><td id=\"3e83d85ec3fcl\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"5d196b1faaoid\">根据成功的请求次数计算请求费用。</p></td></tr><tr id=\"29e6f8f91fsdl\"><td id=\"1a797f8c0cvno\" rowspan=\"2\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"31bc203b0bvwh\"><b>CompleteMultipartUpload</b></p></td><td id=\"ad12e651cc0um\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"2f7f014095qf9\">PUT 类型请求</p></td><td id=\"9d583157bal9e\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"3f02f71d765aa\">根据成功的请求次数计算请求费用。</p></td></tr><tr id=\"a1be65175biqh\"><td id=\"797c1fe0bbixb\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"311bf84f053cc\">存储费用</p></td><td id=\"2835ca170bknv\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"61d608ef54ib8\">根据对象文件的存储类型、大小和时长收取存储费用。</p></td></tr><tr id=\"fd4f347a8covd\"><td id=\"b8e824a342mvi\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"5b83b272cbc59\"><b>AbortMultipartUpload</b></p></td><td id=\"6411d4f6822dj\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"aa09d5ef7au54\">PUT 类型请求</p></td><td id=\"0941318a1dap6\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"8a6c47ac1c92c\">根据成功的请求次数计算请求费用。</p><div type=\"important\" id=\"a7897b54f51u1\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong><ul id=\"4db3c97f1fznn\" data-spm-anchor-id=\"a2c4g.11186623.0.i25.62749d98jcyQy5\"><li id=\"3ecec7c060cv0\"><p id=\"6825b48db82e0\">在中国内地各地域，通过生命周期规则删除低频访问、归档、冷归档类型碎片的<span class=\"help-letter-space\"></span>PUT<span class=\"help-letter-space\"></span>类请求费用高于删除标准存储类型碎片的<span class=\"help-letter-space\"></span>PUT<span class=\"help-letter-space\"></span>类请求费用；通过生命周期规则删除深度冷归档存储类型碎片，不收取<span class=\"help-letter-space\"></span>PUT<span class=\"help-letter-space\"></span>类请求费用。</p></li><li id=\"ca89aceb053d6\"><p id=\"6d06216a02d17\">在中国香港以及海外地域，通过生命周期规则删除各存储类型碎片时不收取<span class=\"help-letter-space\"></span>PUT<span class=\"help-letter-space\"></span>类请求费用。</p></li></ul></div></div></td></tr><tr id=\"d7ad07ac32iq5\"><td id=\"7d7fa2744d0up\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"03c1560f40mpe\"><b>ListMultipartUploads</b></p></td><td id=\"3c6a40a4d06qe\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"fe65eb46a053p\">PUT 类型请求</p></td><td id=\"726ccf0066r07\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"119651b7752fi\">根据成功的请求次数计算请求费用。</p></td></tr><tr id=\"31b1e10ad3k8i\"><td id=\"054634a728z5i\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"a05720fa50zon\"><b>ListParts</b></p></td><td id=\"0eccd42e03nuk\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"be5bc6b1aepuu\">PUT 类型请求</p></td><td id=\"5de7f0c0a5ab9\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"250a80d2866i0\">根据成功的请求次数计算请求费用。</p></td></tr></tbody></table></section><section id=\"4093788c9070n\" class=\"section\"><h2 id=\"bac39da86939l\"><b>API<span class=\"help-letter-space\"></span>和权限说明</b></h2><p id=\"deee6c02109ch\">阿里云主账号默认拥有全部<span class=\"help-letter-space\"></span>API<span class=\"help-letter-space\"></span>的操作权限。RAM<span class=\"help-letter-space\"></span>用户或<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>角色使用分片上传功能需根据具体操作的<span class=\"help-letter-space\"></span>API<span class=\"help-letter-space\"></span>授予相应权限。更多信息请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/oss/ram-policy-overview/\" id=\"949c149d43zk5\" title=\"\" class=\"xref\">RAM Policy</a><span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/oss/common-examples-of-ram-policies\" id=\"d483ef7355gzd\" title=\"\" class=\"xref\">RAM Policy<span class=\"help-letter-space\"></span>常见示例</a>。</p><table id=\"2b442f5ad6bwe\" tablewidth=\"100\" tablecolswidth=\"20 20 60\" autofit=\"true\" class=\"table\"><colgroup colwidth=\"0.61*\" style=\"width:20.00%\"></colgroup><colgroup colwidth=\"0.61*\" style=\"width:20.00%\"></colgroup><colgroup colwidth=\"1.82*\" style=\"width:60.00%\"></colgroup><tbody class=\"tbody\"><tr id=\"32a500d018tzi\"><td id=\"a3005dc01acwr\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"a46f46bc2bj2v\" style=\"text-align:left\"><b>API</b></p></td><td id=\"5a3cc8c4bdlhz\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"b70750339czwg\" style=\"text-align:left\"><b>Action</b></p></td><td id=\"fa2225b1b3umq\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"f587d22ad290d\" style=\"text-align:left\"><b>说明</b></p></td></tr><tr id=\"ddbb6351f8kjk\"><td id=\"172e33ad82xh0\" rowspan=\"4\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"bb022ba32b3mb\"><b>InitiateMultipartUpload</b></p></td><td id=\"338407f240mr0\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"b33099c57duuj\" style=\"text-align:left\"><code data-tag=\"code\" id=\"48b8efc308c7s\" class=\"code\">oss:PutObject</code></p></td><td id=\"ddd76b5574lsx\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"1252b2ae0fw5a\" style=\"text-align:left\">初始化分片上传任务。</p></td></tr><tr id=\"936e90d4e87vq\"><td id=\"e7e98fb373kfe\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"0aeae8b86fgps\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code\" id=\"c363f532d5dvn\">oss:PutObjectTagging</code></p></td><td id=\"1ba77153186uv\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"4f815801ebc9v\" style=\"text-align:left\">初始化分片上传任务时，如果通过<span class=\"help-letter-space\"></span>x-oss-tagging<span class=\"help-letter-space\"></span>指定对象文件的标签，则需要此操作的权限。</p></td></tr><tr id=\"80b37a1bb9m2j\"><td id=\"77b33a38573rr\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"3f113c3c4bxus\"><code data-tag=\"code\" id=\"bbf418b701jst\" class=\"code\">kms:GenerateDataKey</code></p></td><td id=\"791db4fa25o44\" rowspan=\"2\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"269817a381xh3\" style=\"text-align:left\">上传对象文件时，如果对象文件的元数据包含<span class=\"help-letter-space\"></span>X-Oss-Server-Side-Encryption: KMS，则需要这两个操作的权限。</p></td></tr><tr id=\"7821d0c79dorn\"><td id=\"0da48aa664gfm\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"636a6de4b1ukv\" style=\"text-align:left\"><code data-tag=\"code\" id=\"ba1b260aff0jc\" class=\"code\">kms:Decrypt</code></p></td></tr><tr id=\"b03152db3dq95\"><td id=\"a9f0b941507c7\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"98a80dc2f3ftq\" style=\"text-align:left\"><b>UploadPart</b></p></td><td id=\"dca3df93339bo\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"879e720fb22dr\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code\" id=\"27020c332940j\">oss:PutObject</code></p></td><td id=\"2294a714b3mu8\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"e7396d942dz5g\" style=\"text-align:left\">上传分片。</p></td></tr><tr id=\"b91e3bd32114h\"><td id=\"9ccf5f353de05\" rowspan=\"3\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"9b001270a9t5f\"><b>UploadPartCopy</b></p></td><td id=\"cf8bfd602c5ts\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"90b049dec813i\"><code data-tag=\"code\" class=\"code\" id=\"4cd3083217l1b\">oss:GetObject</code></p></td><td id=\"afd84bb7b95ev\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"097231f004ewr\">从一个已存在的对象文件中拷贝数据来上传一个分片时，需要读取源对象文件的权限。</p></td></tr><tr id=\"bca2b8c9ba3nc\"><td id=\"4e96f58175340\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"653c74d360niu\"><code data-tag=\"code\" class=\"code\" id=\"f016aa574feif\">oss:PutObject</code></p></td><td id=\"17ca3cd37a97k\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"e2f397ac9c6vw\">从一个已存在的对象文件中拷贝数据来上传一个分片时，需要写入目标对象文件的权限。</p></td></tr><tr id=\"9589a7b86ci8j\"><td id=\"c49bbf3f1fvfr\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"82eea138dcm5r\"><code data-tag=\"code\" class=\"code\" id=\"60506664d5esk\">oss:GetObjectVersion</code></p></td><td id=\"c18317b119hwj\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p id=\"e4e636891d5xv\">从一个已存在的对象文件中拷贝数据来上传一个分片时，如果通过<span class=\"help-letter-space\"></span>versionId<span class=\"help-letter-space\"></span>指定对象文件的版本，需要读取源对象文件的指定版本的权限。</p></td></tr><tr id=\"8208ebc9f82le\"><td id=\"8462911f30w9n\" rowspan=\"2\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"cb569fad7c5yp\" style=\"text-align:left\"><b>CompleteMultipartUpload</b></p></td><td id=\"e04c4acf76mh4\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"cb73ea4ee82xt\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code\" id=\"89faee6d96r9v\">oss:PutObject</code></p></td><td id=\"43dc80ebba70h\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"9f1fee0de9ic2\" style=\"text-align:left\">将分片合并为对象文件。</p></td></tr><tr id=\"230436fe40yd1\"><td id=\"255d20c0f3zgg\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"e3dc6f0131wzf\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code\" id=\"af74b42024n8s\">oss:PutObjectTagging</code></p></td><td id=\"212c2c3024pca\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"dd82528c2cywh\" style=\"text-align:left\">将分片合并为对象文件时，如果通过<span class=\"help-letter-space\"></span>x-oss-tagging<span class=\"help-letter-space\"></span>指定对象文件的标签，则需要此操作的权限。</p></td></tr><tr id=\"1b9a5170d57ch\"><td id=\"2a4ee2b372l2y\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"64f5b0d819k6g\" style=\"text-align:left\"><b>AbortMultipartUpload</b></p></td><td id=\"9efe276be7qfi\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"3ed099defdzne\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code\" data-spm-anchor-id=\"a2c4g.11186623.0.i12.235d23829eIC7v\" id=\"f7c5e9319f8h6\">oss:AbortMultipartUpload</code></p></td><td id=\"49d1c309a7u1f\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"a1204fd21eafb\" style=\"text-align:left\">取消分片上传事件并删除对应的分片数据。</p></td></tr><tr id=\"7391004755no4\"><td id=\"fae03212e1tsw\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"4aa4f94bdfqt7\" style=\"text-align:left\"><b>ListMultipartUploads</b></p></td><td id=\"5e7a846686tb2\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"e1ac9c4c7dug6\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code\" data-spm-anchor-id=\"a2c4g.11186623.0.i16.235d23829eIC7v\" id=\"9b75ca760cs36\">oss:ListMultipartUploads</code></p></td><td id=\"d49bcc27170jo\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"e12f5a7af2pxq\" style=\"text-align:left\">列举所有执行中的分片上传事件，即已经初始化但尚未完成或者尚未被中止的分片上传事件。</p></td></tr><tr id=\"abc69562b1wdu\"><td id=\"a4c10054156h6\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"eeb1004d1dyd4\" style=\"text-align:left\"><b>ListParts</b></p></td><td id=\"94b0877b067ct\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"53a87a516alq2\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code\" id=\"e8e8282a142cy\">oss:ListParts</code></p></td><td id=\"a1e6bb5095xop\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\"><p jc=\"left\" id=\"154c244f2f8io\" style=\"text-align:left\">列举指定<span class=\"help-letter-space\"></span>Upload ID<span class=\"help-letter-space\"></span>所属的所有已经上传成功的分片。</p></td></tr></tbody></table></section></div></main>\n\n</div>","path":"https://help.aliyun.com/zh/oss/user-guide/multipart-upload","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"对象存储","id":31815,"title":"对象存储","url":"/zh/oss/"},"alias":"/oss/user-guide/multipart-upload","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":7,"developerUrl":"https://developer.aliyun.com/storage/oss/","nodeType":1,"version":65,"url":"/zh/oss/user-guide/multipart-upload","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":31850,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"分片上传","id":31850,"title":"分片上传","url":"/zh/oss/user-guide/multipart-upload"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"上传文件","id":31847,"title":"上传文件","url":"/zh/oss/user-guide/upload-objects-to-oss/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"对象/文件（Object）","id":2977363,"title":"对象/文件（Object）","url":"/zh/oss/user-guide/object-file-object/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"对象存储","id":31815,"title":"对象存储","url":"/zh/oss/"},"productUrl":"https://www.aliyun.com/product/oss","nodeId":31850,"desc":"大文件上传面临网络中断风险和传输时间过长的挑战。分片上传通过将文件分割为多个小分片并发传输，提供断点续传能力和传输性能优化，有效应对网络不稳定环境下的文件传输需求。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"对象存储","id":31815,"title":"对象存储","url":"/zh/oss/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"对象/文件（Object）","id":2977363,"title":"对象/文件（Object）","url":"/zh/oss/user-guide/object-file-object/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"上传文件","id":31847,"title":"上传文件","url":"/zh/oss/user-guide/upload-objects-to-oss/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"分片上传","id":31850,"title":"分片上传","url":"/zh/oss/user-guide/multipart-upload"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=213e02ef17825380130563423e942b&asid=AQAAAAAdXz9qD/kSKAAAAABfae6D7xSn5w==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="31823" class="Menu--level1--UN3zYr3">
+<a href="/zh/oss/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">用户指南</span>
+</a>
+</li>
+ <li id="2391490" class="Menu--level1--UN3zYr3">
+<a href="/zh/oss/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="48259" class="Menu--level1--UN3zYr3">
+<a href="/zh/oss/billing/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品计费</span>
+</a>
+</li>
+ <li id="2982296" class="Menu--level1--UN3zYr3">
+<a href="/zh/oss/oss-faq/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+ <li id="384052" class="Menu--level1--UN3zYr3">
+<a href="/zh/oss/announcements-and-updates/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">动态与公告</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>分片上传</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/oss" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+<main id="concept-wzs-2gb-5db"><p id="shortdesc-zzx-onq-cww" data-tag="shortdesc" class="shortdesc">大文件上传面临网络中断风险和传输时间过长的挑战。分片上传通过将文件分割为多个小分片并发传输，提供断点续传能力和传输性能优化，有效应对网络不稳定环境下的文件传输需求。</p><div data-tag="taskbody" id="conbody-myh-xnp-i5u" class="taskbody"><section id="1f1cc2fee0emu" class="section"><h2 id="13076faa10tqg">工作原理</h2><p id="61733121e606f">分片上传将大文件分割为多个小分片进行独立处理，各分片独立传输和校验，单个分片失败时仅需重传该分片，避免重新上传整个文件。分片上传使用<span class="help-letter-space"></span>Upload ID<span class="help-letter-space"></span>作为任务标识符，确保所有分片正确归属于同一个上传任务。核心流程分为三个步骤：</p><ol id="dc913c5ddbn2b" start="1"><li id="381b0d8021umd"><p id="e9af1de8bf57e"><b>初始化上传任务</b>：调用<span class="help-letter-space"></span>InitiateMultipartUpload<span class="help-letter-space"></span>接口创建分片上传任务，获取唯一的<span class="help-letter-space"></span>Upload ID<span class="help-letter-space"></span>作为后续操作的标识符。</p></li><li id="1000950c8br3m"><p id="79ac947448rbz"><b>上传文件分片数据</b>：将文件切分为多个分片（Part）并发上传，每个分片大小在<span class="help-letter-space"></span>100KB<span class="help-letter-space"></span>到<span class="help-letter-space"></span>5GB<span class="help-letter-space"></span>之间，支持断点续传。</p></li><li id="6d109c3f8bf73"><p id="92e5924612id9"><b>合并分片完成上传</b>：调用<span class="help-letter-space"></span>CompleteMultipartUpload<span class="help-letter-space"></span>接口将所有分片按序号合并为完整的对象文件。</p></li></ol><hetu type="flowchart" id="7cc976c6e62zc" versionid="CAEQYxiBgMCtxcXpzxkiIDE1ZmJkYjAyZmFiZDQ1YjFiMTVmZDI3OGQ2OTJjN2Ix" uuid="5798772_20251019104257.734" hetuid="37d42d14-0737-4db6-8b52-59eae244cbc5"><img src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4583134671/CAEQYxiBgMCtxcXpzxkiIDE1ZmJkYjAyZmFiZDQ1YjFiMTVmZDI3OGQ2OTJjN2Ix5798772_20251019104257.734.svg" alt="image" class="image break flowchart hetu"></hetu></section><section id="82107178124u9" class="section"><h2 id="d75dfabe9c7wr">实现大文件分片上传</h2><p id="d48487b5c2g8h">根据应用场景和技术要求，可选择图形化工具、命令行工具或<span class="help-letter-space"></span>SDK<span class="help-letter-space"></span>来实现分片上传功能。</p><div type="note" id="b5e4556a74wpd" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong><ul id="487d37f327ca1"><li id="4ac18bf09ehnm"><p id="0a27bf32853au">OSS<span class="help-letter-space"></span>控制台暂不支持分片上传操作。</p></li><li id="72c0b82c35uv5"><p id="68264bd3b10gv">支持上传加密的压缩文件，但不支持上传目录。</p></li></ul></div></div><section id="dd78a851d3ibh" class="section"><h3 id="02d10f0592z5w"><b>通过工具自动分片</b></h3><p id="52f11685fdcr3">对于日常开发、测试、运维或手动上传场景，推荐使用图形化或命令行工具，工具会自动处理分片逻辑，操作便捷。</p><ul id="873fef56c6dsy"><li id="1f935ebb32plp"><p id="ecd096cb944fz"><b>图形化管理工具<span class="help-letter-space"></span>ossbrowser</b></p><p id="b1564142be59y">使用<a href="https://help.aliyun.com/zh/oss/developer-reference/ossbrowser-2-0-overview/" id="7ecbce141b3gg" title="" class="xref">图形化管理工具<span class="help-letter-space"></span>ossbrowser 2.0</a><span class="help-letter-space"></span>上传文件时，默认启用分片上传机制，并提供可视化的上传进度和状态监控。</p></li><li id="b20fff8b24jb0"><p id="50169edfa5qh4"><b>命令行工具<span class="help-letter-space"></span>ossutil</b></p><p id="efea2d97a5yf7">使用<a href="https://help.aliyun.com/zh/oss/developer-reference/ossutil-overview/" id="2222de65c2gez" title="" class="xref">命令行工具<span class="help-letter-space"></span>ossutil 2.0</a><span class="help-letter-space"></span>的<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/oss/developer-reference/cp-upload-file" id="db242cebf5f19" title="" class="xref">cp</a><span class="help-letter-space"></span>命令上传文件时，工具会自动对超过<span class="help-letter-space"></span>100MiB<span class="help-letter-space"></span>的文件启用分片上传，提高大文件上传的成功率和传输效率。如需手动控制分片上传过程，可组合使用<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/oss/developer-reference/initiate-multipart-upload" id="6c29bad167zu2" title="" class="xref">initiate-multipart-upload</a>、<a href="https://help.aliyun.com/zh/oss/developer-reference/upload-part" id="093d1219e75g4" title="" class="xref">upload-part</a><span class="help-letter-space"></span>和<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/oss/developer-reference/complete-multipart-upload" id="559faff738mfd" title="" class="xref">complete-multipart-upload</a><span class="help-letter-space"></span>命令。</p><pre outputclass="language-shell" data-tag="codeblock" code-type="xCode" id="35c4c1689fzt7" class="pre codeblock language-shell"><code>ossutil cp example.zip oss://example-bucket</code></pre></li></ul></section><section id="231ad2012b19o" class="section"><h3 id="fd303b5317hab"><b>通过<span class="help-letter-space"></span>SDK<span class="help-letter-space"></span>编程实现分片</b></h3><p id="b993830377tb5">各语言<span class="help-letter-space"></span>SDK<span class="help-letter-space"></span>提供完整的分片上传接口封装，支持自定义分片大小、并发控制和错误处理。以下为常见语言的<span class="help-letter-space"></span>SDK<span class="help-letter-space"></span>分片上传示例，更多语言的使用示例请参见<span data-tag="ph" id="b434a705044o9" props="china" data-cond-props="china" class="ph"><span class="help-letter-space"></span><a class="" href="https://help.aliyun.com/zh/oss/developer-reference/sdk-code-samples/" id="68559d7110hto">SDK<span class="help-letter-space"></span>参考</a></span>中对应语言的示例代码。</p><blockquote id="6fc12e4a28v92">运行代码前需安装对应语言的<span class="help-letter-space"></span>SDK<span class="help-letter-space"></span>并配置访问凭证环境变量，使用<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>用户或<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>角色时还需参考<span class="help-letter-space"></span><a href="#4093788c9070n" id="dfbaa5a1b7bmx" title="" class="xref">API<span class="help-letter-space"></span>和权限说明</a>进行接口授权。</blockquote><section id="8461fd17a5zne" data-tag="tabbed-content-box" outputclass="tabbed-content-box" class="tabbed-content-box section"><section id="78ebc25d99inq" class="section"><h2 id="6de0788b758tx">Java SDK V2</h2><pre code-type="xCode" id="1855fd0bfbeb2" index="0" height="500" data-tag="codeblock" outputclass="language-java" class="pre codeblock language-java"><code>import com.aliyun.sdk.service.oss2.OSSClient;
+import com.aliyun.sdk.service.oss2.credentials.CredentialsProvider;
+import com.aliyun.sdk.service.oss2.credentials.StaticCredentialsProvider;
+import com.aliyun.sdk.service.oss2.io.BoundedInputStream;
+import com.aliyun.sdk.service.oss2.models.*;
+import com.aliyun.sdk.service.oss2.transport.BinaryData;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * OSS分片上传示例
+ * 实现大文件的分片上传功能
+ */
+public class MultipartUpload {
+
+    public static void main(String[] args) {
+        // 从环境变量获取访问凭证
+        String accessKeyId = System.getenv("OSS_ACCESS_KEY_ID");
+        String accessKeySecret = System.getenv("OSS_ACCESS_KEY_SECRET");
+
+        // 设置OSS地域和Endpoint
+        String region = "cn-hangzhou";
+        String endpoint = "oss-cn-hangzhou.aliyuncs.com";
+
+        // 配置Bucket和文件信息
+        String bucket = "example-bucket";
+        String key = "dest.jpg";
+        String filePath = "dest.jpg";
+
+        // 创建凭证提供者
+        CredentialsProvider provider = new StaticCredentialsProvider(accessKeyId, accessKeySecret);
+
+        // 初始化OSS客户端
+        OSSClient client = OSSClient.newBuilder()
+                .credentialsProvider(provider)
+                .region(region)
+                .endpoint(endpoint)
+                .build();
+
+        try {
+            // 步骤1：初始化分片上传
+            InitiateMultipartUploadResult initiateResult = client.initiateMultipartUpload(
+                    InitiateMultipartUploadRequest.newBuilder()
+                            .bucket(bucket)
+                            .key(key)
+                            .build());
+
+            String uploadId = initiateResult.initiateMultipartUpload().uploadId();
+            System.out.printf("初始化分片上传成功，状态码:%d, 请求ID:%s, 上传ID:%s\n",
+                    initiateResult.statusCode(), initiateResult.requestId(), uploadId);
+
+            // 步骤2：上传分片
+            File file = new File(filePath);
+            long fileSize = file.length();
+            long partSize = 100 * 1024; // 每个分片100KB
+            int partNumber = 1;
+            List&lt;Part&gt; uploadParts = new ArrayList&lt;&gt;();
+
+            for (long start = 0; start &lt; fileSize; start += partSize) {
+                long curPartSize = Math.min(partSize, fileSize - start);
+
+                // 读取文件分片并上传
+                try (InputStream is = new FileInputStream(file)) {
+                    is.skip(start);
+                    BoundedInputStream boundedInputStream = new BoundedInputStream(is, curPartSize);
+
+                    // 上传分片
+                    UploadPartResult partResult = client.uploadPart(UploadPartRequest.newBuilder()
+                            .bucket(bucket)
+                            .key(key)
+                            .uploadId(uploadId)
+                            .partNumber((long) partNumber)
+                            .body(BinaryData.fromStream(boundedInputStream))
+                            .build());
+
+                    System.out.printf("状态码: %d, 请求ID: %s, 分片号: %d, ETag: %s\n",
+                            partResult.statusCode(), partResult.requestId(), partNumber, partResult.eTag());
+
+                    uploadParts.add(Part.newBuilder()
+                            .partNumber((long) partNumber)
+                            .eTag(partResult.eTag())
+                            .build());
+                }
+                partNumber++;
+            }
+
+            // 步骤3：完成分片上传
+            uploadParts.sort((p1, p2) -&gt; p1.partNumber().compareTo(p2.partNumber()));
+
+            CompleteMultipartUpload completeMultipartUpload = CompleteMultipartUpload.newBuilder()
+                    .parts(uploadParts)
+                    .build();
+
+            CompleteMultipartUploadResult completeResult = client.completeMultipartUpload(
+                    CompleteMultipartUploadRequest.newBuilder()
+                            .bucket(bucket)
+                            .key(key)
+                            .uploadId(uploadId)
+                            .completeMultipartUpload(completeMultipartUpload)
+                            .build());
+
+            System.out.printf("完成分片上传，状态码:%d, 请求ID:%s, Bucket:%s, Key:%s, 位置:%s, ETag:%s\n",
+                    completeResult.statusCode(), completeResult.requestId(), 
+                    completeResult.completeMultipartUpload().bucket(),
+                    completeResult.completeMultipartUpload().key(), 
+                    completeResult.completeMultipartUpload().location(),
+                    completeResult.completeMultipartUpload().eTag());
+
+        } catch (Exception e) {
+            System.out.printf("错误:\n%s", e);
+            e.printStackTrace();
+        } finally {
+            // 关闭客户端连接
+            try {
+                client.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}</code></pre></section><section id="85d82307c6rx2" class="section"><h2 id="9f34932bcdgqx">Java SDK V1</h2><pre code-type="xCode" id="c38b06a1a5fpr" index="0" height="500" data-tag="codeblock" outputclass="language-java" class="pre codeblock language-java"><code>import com.aliyun.oss.*;
+import com.aliyun.oss.common.auth.*;
+import com.aliyun.oss.common.comm.SignVersion;
+import com.aliyun.oss.model.*;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * OSS分片上传示例（V1 SDK）
+ * 实现大文件的分片上传功能
+ */
+public class MultipartUpload {
+
+    public static void main(String[] args) {
+        // 从环境变量获取访问凭证
+        String accessKeyId = System.getenv("OSS_ACCESS_KEY_ID");
+        String accessKeySecret = System.getenv("OSS_ACCESS_KEY_SECRET");
+
+        // 设置OSS地域和Endpoint
+        String region = "cn-hangzhou";
+        String endpoint = "oss-cn-hangzhou.aliyuncs.com";
+
+        // 配置Bucket和文件信息
+        String bucketName = "example-bucket";
+        String objectName = "dest.jpg";
+        String filePath = "dest.jpg";
+
+        // 创建凭证提供者
+        DefaultCredentialProvider provider = new DefaultCredentialProvider(accessKeyId, accessKeySecret);
+
+        // 配置客户端参数
+        ClientBuilderConfiguration clientBuilderConfiguration = new ClientBuilderConfiguration();
+        clientBuilderConfiguration.setSignatureVersion(SignVersion.V4);
+
+        // 初始化OSS客户端
+        OSS ossClient = OSSClientBuilder.create()
+                .credentialsProvider(provider)
+                .clientConfiguration(clientBuilderConfiguration)
+                .region(region)
+                .endpoint(endpoint)
+                .build();
+
+        try {
+            // 步骤1：初始化分片上传
+            InitiateMultipartUploadRequest initiateRequest = new InitiateMultipartUploadRequest(bucketName, objectName);
+            InitiateMultipartUploadResult initiateResult = ossClient.initiateMultipartUpload(initiateRequest);
+            String uploadId = initiateResult.getUploadId();
+            System.out.printf("初始化分片上传成功，上传ID: %s\n", uploadId);
+
+            // 步骤2：上传分片
+            File file = new File(filePath);
+            long fileLength = file.length();
+            long partSize = 100 * 1024L; // 每个分片100KB
+
+            // 计算分片数量
+            int partCount = (int) (fileLength / partSize);
+            if (fileLength % partSize != 0) {
+                partCount++;
+            }
+
+            // 保存已上传分片的ETag
+            List&lt;PartETag&gt; partETags = new ArrayList&lt;&gt;();
+
+            // 遍历上传分片
+            for (int i = 0; i &lt; partCount; i++) {
+                long startPos = i * partSize;
+                long curPartSize = (i + 1 == partCount) ? (fileLength - startPos) : partSize;
+
+                // 创建分片上传请求
+                UploadPartRequest uploadPartRequest = new UploadPartRequest();
+                uploadPartRequest.setBucketName(bucketName);
+                uploadPartRequest.setKey(objectName);
+                uploadPartRequest.setUploadId(uploadId);
+                uploadPartRequest.setPartNumber(i + 1);
+                uploadPartRequest.setPartSize(curPartSize);
+
+                // 读取文件分片并上传
+                try (InputStream instream = new FileInputStream(file)) {
+                    instream.skip(startPos);
+                    uploadPartRequest.setInputStream(instream);
+
+                    UploadPartResult uploadPartResult = ossClient.uploadPart(uploadPartRequest);
+                    partETags.add(uploadPartResult.getPartETag());
+
+                    System.out.printf("上传分片 %d/%d 成功，ETag: %s\n",
+                            i + 1, partCount, uploadPartResult.getPartETag().getETag());
+                }
+            }
+
+            // 步骤3：完成分片上传
+            CompleteMultipartUploadRequest completeRequest = new CompleteMultipartUploadRequest(
+                    bucketName, objectName, uploadId, partETags);
+            CompleteMultipartUploadResult completeResult = ossClient.completeMultipartUpload(completeRequest);
+
+            System.out.printf("完成分片上传，ETag: %s\n", completeResult.getETag());
+
+        } catch (Exception e) {
+            System.out.printf("错误: %s\n", e.getMessage());
+            e.printStackTrace();
+        } finally {
+            // 关闭客户端连接
+            ossClient.shutdown();
+        }
+    }
+}</code></pre></section><section id="e1f9b309761gl" class="section"><h2 id="31487456224qh">Python SDK V2</h2><pre code-type="xCode" id="ee19b0d88b0hn" index="0" height="500" data-tag="codeblock" outputclass="language-python" class="pre codeblock language-python"><code>#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# OSS Python SDK V2 分片上传示例
+# 实现大文件的分片上传功能
+
+import alibabacloud_oss_v2 as oss
+import os
+
+def main():
+    # 从环境变量获取访问凭证
+    credentials_provider = oss.credentials.EnvironmentVariableCredentialsProvider()
+
+    # 加载SDK的默认配置
+    config = oss.config.load_default()
+    config.credentials_provider = credentials_provider
+
+    # 设置OSS地域和Endpoint
+    config.region = "cn-hangzhou"
+    config.endpoint = "oss-cn-hangzhou.aliyuncs.com"
+
+    # 初始化OSS客户端
+    client = oss.Client(config)
+
+    # 配置Bucket和文件信息
+    bucket = "example-bucket"
+    key = "dest.jpg"
+    file_path = "dest.jpg"
+
+    try:
+        # 步骤1：初始化分片上传
+        initiate_result = client.initiate_multipart_upload(
+            oss.InitiateMultipartUploadRequest(
+                bucket=bucket,
+                key=key
+            ))
+
+        upload_id = initiate_result.upload_id
+        print(f"初始化分片上传成功，状态码:{initiate_result.status_code}, "
+              f"请求ID:{initiate_result.request_id}, 上传ID:{upload_id}")
+
+        # 步骤2：上传分片
+        file_size = os.path.getsize(file_path)
+        part_size = 100 * 1024  # 每个分片100KB
+        part_number = 1
+        upload_parts = []
+        offset = 0
+
+        with open(file_path, 'rb') as f:
+            while offset &lt; file_size:
+                # 计算当前分片大小
+                current_part_size = min(part_size, file_size - offset)
+                
+                # 读取分片数据
+                f.seek(offset)
+                part_data = f.read(current_part_size)
+
+                # 上传分片
+                part_result = client.upload_part(
+                    oss.UploadPartRequest(
+                        bucket=bucket,
+                        key=key,
+                        upload_id=upload_id,
+                        part_number=part_number,
+                        body=part_data
+                    ))
+
+                print(f"状态码: {part_result.status_code}, 请求ID: {part_result.request_id}, "
+                      f"分片号: {part_number}, ETag: {part_result.etag}")
+
+                # 记录已上传的分片信息
+                upload_parts.append(oss.UploadPart(
+                    part_number=part_number,
+                    etag=part_result.etag
+                ))
+
+                offset += current_part_size
+                part_number += 1
+
+        # 步骤3：完成分片上传
+        upload_parts.sort(key=lambda p: p.part_number)
+
+        complete_result = client.complete_multipart_upload(
+            oss.CompleteMultipartUploadRequest(
+                bucket=bucket,
+                key=key,
+                upload_id=upload_id,
+                complete_multipart_upload=oss.CompleteMultipartUpload(
+                    parts=upload_parts
+                )
+            ))
+
+        print(f"完成分片上传，状态码:{complete_result.status_code}, "
+              f"请求ID:{complete_result.request_id}, "
+              f"Bucket:{complete_result.bucket}, "
+              f"Key:{complete_result.key}, "
+              f"位置:{complete_result.location}, "
+              f"ETag:{complete_result.etag}")
+
+    except Exception as e:
+        print(f"错误: {e}")
+        raise
+
+if __name__ == "__main__":
+    main()
+</code></pre></section><section id="c927f04e136ft" class="section"><h2 id="90b8d41ae64yl">Python SDK V1</h2><pre code-type="xCode" id="5d4090764bov0" index="0" height="500" data-tag="codeblock" outputclass="language-python" class="pre codeblock language-python"><code>#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# OSS Python SDK V1 分片上传示例
+# 实现大文件的分片上传功能
+
+import os
+import oss2
+from oss2.credentials import EnvironmentVariableCredentialsProvider
+from oss2 import SizedFileAdapter
+from oss2.models import PartInfo
+
+def main():
+    # 从环境变量获取访问凭证
+    auth = oss2.ProviderAuth(EnvironmentVariableCredentialsProvider())
+
+    # 设置OSS地域和Endpoint
+    region = "cn-hangzhou"
+    endpoint = "oss-cn-hangzhou.aliyuncs.com"
+
+    # 配置Bucket和文件信息
+    bucket_name = "example-bucket"
+    key = "dest.jpg"
+    file_path = "dest.jpg"
+
+    # 初始化OSS Bucket
+    bucket = oss2.Bucket(auth, endpoint, bucket_name, region=region)
+
+    try:
+        # 步骤1：初始化分片上传
+        upload_id = bucket.init_multipart_upload(key).upload_id
+        print(f"初始化分片上传成功，上传ID: {upload_id}")
+
+        # 步骤2：上传分片
+        file_size = os.path.getsize(file_path)
+        part_size = 100 * 1024  # 每个分片100KB
+        part_number = 1
+        parts = []
+        offset = 0
+
+        with open(file_path, 'rb') as fileobj:
+            while offset &lt; file_size:
+                # 计算当前分片大小
+                current_part_size = min(part_size, file_size - offset)
+
+                # 上传分片
+                result = bucket.upload_part(
+                    key,
+                    upload_id,
+                    part_number,
+                    SizedFileAdapter(fileobj, current_part_size)
+                )
+
+                print(f"分片号: {part_number}, ETag: {result.etag}")
+
+                # 记录已上传的分片信息
+                parts.append(PartInfo(part_number, result.etag))
+
+                offset += current_part_size
+                part_number += 1
+
+        # 步骤3：完成分片上传
+        result = bucket.complete_multipart_upload(key, upload_id, parts)
+        print(f"完成分片上传，ETag: {result.etag}")
+
+    except Exception as e:
+        print(f"错误: {e}")
+        raise
+
+if __name__ == "__main__":
+    main()
+</code></pre></section><section id="7e5a952244hr6" class="section"><h2 id="12bca60a3dshn">Go SDK V2</h2><pre code-type="xCode" id="c79561bc7c0ny" index="0" height="500" data-tag="codeblock" outputclass="language-go" class="pre codeblock language-go"><code>package main
+
+// OSS Go SDK V2 分片上传示例
+// 实现大文件的分片上传功能
+
+import (
+	"context"
+	"fmt"
+	"io"
+	"os"
+
+	"github.com/aliyun/alibabacloud-oss-go-sdk-v2/oss"
+	"github.com/aliyun/alibabacloud-oss-go-sdk-v2/oss/credentials"
+)
+
+func main() {
+	// 从环境变量获取访问凭证
+	// 配置OSS客户端，设置凭证提供者和Endpoint
+	config := oss.LoadDefaultConfig().
+		WithCredentialsProvider(credentials.NewEnvironmentVariableCredentialsProvider()).
+		WithRegion("cn-hangzhou").
+		WithEndpoint("oss-cn-hangzhou.aliyuncs.com")
+
+	// 初始化OSS客户端
+	client := oss.NewClient(config)
+
+	// 配置Bucket和文件信息
+	bucket := "example-bucket"
+	key := "dest.jpg"
+	filePath := "dest.jpg"
+
+	// 步骤1：初始化分片上传
+	initResult, err := client.InitiateMultipartUpload(context.TODO(), &amp;oss.InitiateMultipartUploadRequest{
+		Bucket: oss.Ptr(bucket),
+		Key:    oss.Ptr(key),
+	})
+	if err != nil {
+		fmt.Printf("错误: %v\n", err)
+		return
+	}
+
+	uploadId := *initResult.UploadId
+	fmt.Printf("初始化分片上传成功，上传ID: %s\n", uploadId)
+
+	// 步骤2：上传分片
+	file, err := os.Open(filePath)
+	if err != nil {
+		fmt.Printf("错误: %v\n", err)
+		return
+	}
+	defer file.Close()
+
+	fileInfo, err := file.Stat()
+	if err != nil {
+		fmt.Printf("错误: %v\n", err)
+		return
+	}
+
+	fileSize := fileInfo.Size()
+	partSize := int64(100 * 1024) // 每个分片100KB
+	partNumber := int32(1)
+	var parts []oss.UploadPart
+
+	for offset := int64(0); offset &lt; fileSize; offset += partSize {
+		// 计算当前分片大小
+		currentPartSize := partSize
+		if offset+partSize &gt; fileSize {
+			currentPartSize = fileSize - offset
+		}
+
+		// 读取分片数据
+		file.Seek(offset, 0)
+		partData := io.LimitReader(file, currentPartSize)
+
+		// 上传分片
+		partResult, err := client.UploadPart(context.TODO(), &amp;oss.UploadPartRequest{
+			Bucket:     oss.Ptr(bucket),
+			Key:        oss.Ptr(key),
+			UploadId:   oss.Ptr(uploadId),
+			PartNumber: partNumber,
+			Body:       partData,
+		})
+		if err != nil {
+			fmt.Printf("错误: %v\n", err)
+			return
+		}
+
+		fmt.Printf("分片号: %d, ETag: %s\n", partNumber, *partResult.ETag)
+
+		// 记录已上传的分片信息
+		parts = append(parts, oss.UploadPart{
+			PartNumber: partNumber,
+			ETag:       partResult.ETag,
+		})
+
+		partNumber++
+	}
+
+	// 步骤3：完成分片上传
+	completeResult, err := client.CompleteMultipartUpload(context.TODO(), &amp;oss.CompleteMultipartUploadRequest{
+		Bucket:   oss.Ptr(bucket),
+		Key:      oss.Ptr(key),
+		UploadId: oss.Ptr(uploadId),
+		CompleteMultipartUpload: &amp;oss.CompleteMultipartUpload{
+			Parts: parts,
+		},
+	})
+	if err != nil {
+		fmt.Printf("错误: %v\n", err)
+		return
+	}
+
+	fmt.Printf("完成分片上传，Bucket: %s, Key: %s, Location: %s, ETag: %s\n",
+		*completeResult.Bucket, *completeResult.Key, *completeResult.Location, *completeResult.ETag)
+}
+</code></pre></section><section id="2b6ab8c82a3gb" class="section"><h2 id="ca46dfdf7e0b6">Go SDK V1</h2><pre code-type="xCode" id="6f9ce63e5diac" index="0" height="500" data-tag="codeblock" outputclass="language-go" class="pre codeblock language-go"><code>package main
+
+// OSS Go SDK V1 分片上传示例
+// 实现大文件的分片上传功能
+
+import (
+	"fmt"
+	"os"
+
+	"github.com/aliyun/aliyun-oss-go-sdk/oss"
+)
+
+func main() {
+	// 从环境变量获取访问凭证
+	provider, _ := oss.NewEnvironmentVariableCredentialsProvider()
+
+	// 创建OSS客户端实例
+	client, _ := oss.New(
+		"oss-cn-hangzhou.aliyuncs.com",
+		"",
+		"",
+		oss.SetCredentialsProvider(&amp;provider),
+		oss.AuthVersion(oss.AuthV4),
+		oss.Region("cn-hangzhou"),
+	)
+
+	// 获取Bucket对象
+	bucket, _ := client.Bucket("example-bucket")
+
+	// 配置文件信息
+	key := "dest.jpg"
+	filePath := "dest.jpg"
+
+	// 步骤1：初始化分片上传
+	imur, err := bucket.InitiateMultipartUpload(key)
+	if err != nil {
+		fmt.Printf("错误: %v\n", err)
+		return
+	}
+
+	fmt.Printf("初始化分片上传成功，上传ID: %s\n", imur.UploadID)
+
+	// 步骤2：上传分片
+	file, err := os.Open(filePath)
+	if err != nil {
+		fmt.Printf("错误: %v\n", err)
+		return
+	}
+	defer file.Close()
+
+	fileInfo, err := file.Stat()
+	if err != nil {
+		fmt.Printf("错误: %v\n", err)
+		return
+	}
+
+	fileSize := fileInfo.Size()
+	partSize := int64(100 * 1024) // 每个分片100KB
+
+	// 将文件分片
+	chunks, err := oss.SplitFileByPartSize(filePath, partSize)
+	if err != nil {
+		fmt.Printf("错误: %v\n", err)
+		return
+	}
+
+	var parts []oss.UploadPart
+	for _, chunk := range chunks {
+		part, err := bucket.UploadPart(imur, file, chunk.Size, chunk.Number)
+		if err != nil {
+			fmt.Printf("错误: %v\n", err)
+			return
+		}
+
+		fmt.Printf("分片号: %d, ETag: %s\n", chunk.Number, part.ETag)
+		parts = append(parts, part)
+	}
+
+	// 步骤3：完成分片上传
+	_, err = bucket.CompleteMultipartUpload(imur, parts)
+	if err != nil {
+		fmt.Printf("错误: %v\n", err)
+		return
+	}
+
+	fmt.Printf("完成分片上传，文件大小: %d 字节\n", fileSize)
+}
+</code></pre></section></section></section></section><section id="b91d8f59f1l3v" class="section"><h2 id="7e9f105e0afyd"><b>清理碎片文件</b></h2><p id="6f82700baclky">分片上传过程意外中断且未调用<span class="help-letter-space"></span>AbortMultipartUpload<span class="help-letter-space"></span>接口时，已上传的分片会作为碎片文件保留在<span class="help-letter-space"></span>Bucket<span class="help-letter-space"></span>中并<b>持续产生存储费用</b>。及时清理这些碎片文件可避免不必要的存储成本。</p><section id="eb4d3525b3i7p" class="section"><h4 id="6ba97d69f3ob2"><b>通过控制台</b></h4><ol id="2fc7de3d147go" start="1"><li id="5a506a3e61xky"><p id="ddb79f0931wdn">前往<span class="help-letter-space"></span><a class="" href="https://oss.console.aliyun.com/bucket" id="a2ef5159b6lq8">Bucket<span class="help-letter-space"></span>列表</a>，单击目标<span class="help-letter-space"></span>Bucket。</p></li><li id="42057b12d9deu"><p id="03d7e22dd4wna">在<b data-tag="uicontrol" id="69c4b2d112oyg" class="uicontrol">文件列表</b>单击<b data-tag="uicontrol" id="a88523464brq9" class="uicontrol">碎片管理</b>，查看并删除碎片文件。</p></li></ol></section><section id="44c04572cdubo" class="section"><h4 id="92a6484f6fjcf"><b>通过生命周期规则</b></h4><p id="cb92a5cef1rag">配置生命周期规则可实现对过期碎片的自动清理，减少手动维护工作量并防止遗漏。具体操作参见<a href="https://help.aliyun.com/zh/oss/user-guide/configuration-examples#section-fxr-uqg-cw0" id="b679e183b24sd" title="" class="xref">通过生命周期规则清理过期碎片</a>。</p></section><section id="af78221a5fn89" class="section"><h4 id="d42f5c14b4ooa"><b>通过工具</b></h4><ul id="2e348c6769shp"><li id="510f5fe73982s"><p id="6f781e1b207vp"><b>图形化管理工具<span class="help-letter-space"></span>ossbrowser</b></p><p id="30cc831e814gl">在<span class="help-letter-space"></span>Bucket<span class="help-letter-space"></span>的文件列表页面单击<b data-tag="uicontrol" id="f682457da0fsz" class="uicontrol">文件碎片</b>，查看并删除碎片文件。</p></li><li id="af7177ae3atno"><p id="b52972c9ecke2"><b>命令行工具<span class="help-letter-space"></span>ossutil</b></p><p id="665ca5159ba82">使用<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/oss/developer-reference/abort-multipart-upload" id="355421db964sx" title="" class="xref">abort-multipart-upload</a><span class="help-letter-space"></span>命令取消分片上传任务并删除对应的分片数据。命令示例如下：</p><pre code-type="xCode" id="caab63856fzx0" index="0" data-tag="codeblock" outputclass="language-shell" class="pre codeblock language-shell"><code>ossutil api abort-multipart-upload --bucket example-bucket --key dest.jpg --upload-id D9F4****************************</code></pre></li></ul></section><section id="83f21df6ee1z4" class="section"><h4 id="6edda9de0ebzy"><b>通过<span class="help-letter-space"></span>SDK</b></h4><p id="7a3ce60e5ezvm">通过调用<span class="help-letter-space"></span>AbortMultipartUpload<span class="help-letter-space"></span>接口取消分片上传任务并删除对应的分片数据。以下为常见语言的<span class="help-letter-space"></span>SDK<span class="help-letter-space"></span>取消分片上传任务代码示例，更多语言的使用示例请参见<span data-tag="ph" id="127d391b55zgw" props="china" data-cond-props="china" class="ph"><span class="help-letter-space"></span><a class="" href="https://help.aliyun.com/zh/oss/developer-reference/sdk-code-samples/" id="c69925fa6bsk0">SDK<span class="help-letter-space"></span>参考</a></span>中对应语言的示例代码。</p><blockquote id="414d9f0aad6uq">运行代码前需安装对应语言的<span class="help-letter-space"></span>SDK<span class="help-letter-space"></span>并配置访问凭证环境变量，使用<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>用户或<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>角色时还需参考<span class="help-letter-space"></span><a href="#4093788c9070n" id="b3bd3137858h2" title="" class="xref">API<span class="help-letter-space"></span>和权限说明</a>进行接口授权。</blockquote><section id="1325ffcb76src" data-tag="tabbed-content-box" outputclass="tabbed-content-box" class="tabbed-content-box section"><section id="d393c9216ct4m" class="section"><h2 id="bf4cc4e6edoy5">Java SDK V2</h2><pre code-type="xCode" id="d2c11a03f0nn7" index="0" height="500" data-tag="codeblock" outputclass="language-java" class="pre codeblock language-java"><code>import com.aliyun.sdk.service.oss2.OSSClient;
+import com.aliyun.sdk.service.oss2.credentials.CredentialsProvider;
+import com.aliyun.sdk.service.oss2.credentials.StaticCredentialsProvider;
+import com.aliyun.sdk.service.oss2.models.AbortMultipartUploadRequest;
+import com.aliyun.sdk.service.oss2.models.AbortMultipartUploadResult;
+
+/**
+ * OSS取消分片上传示例
+ * 演示如何取消一个分片上传任务
+ */
+public class AbortMultipartUpload {
+
+    public static void main(String[] args) {
+        // 从环境变量获取访问凭证
+        String accessKeyId = System.getenv("OSS_ACCESS_KEY_ID");
+        String accessKeySecret = System.getenv("OSS_ACCESS_KEY_SECRET");
+
+        // 设置OSS地域和Endpoint
+        String region = "cn-hangzhou";
+        String endpoint = "oss-cn-hangzhou.aliyuncs.com";
+
+        // 配置Bucket和文件信息
+        String bucket = "example-bucket";
+        String key = "dest.jpg";
+        String uploadId = "D9F4****************************";
+
+        // 创建凭证提供者
+        CredentialsProvider provider = new StaticCredentialsProvider(accessKeyId, accessKeySecret);
+
+        // 初始化OSS客户端
+        OSSClient client = OSSClient.newBuilder()
+                .credentialsProvider(provider)
+                .region(region)
+                .endpoint(endpoint)
+                .build();
+
+        try {
+            // 取消分片上传
+            AbortMultipartUploadResult result = client.abortMultipartUpload(
+                    AbortMultipartUploadRequest.newBuilder()
+                            .bucket(bucket)
+                            .key(key)
+                            .uploadId(uploadId)
+                            .build());
+
+            System.out.printf("取消分片上传成功，状态码: %d, 请求ID: %s\n",
+                    result.statusCode(), result.requestId());
+
+        } catch (Exception e) {
+            System.out.printf("错误: %s\n", e.getMessage());
+            e.printStackTrace();
+        } finally {
+            // 关闭客户端连接
+            try {
+                client.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+}</code></pre></section><section id="0db1da471fh5r" class="section"><h2 id="2a87a4ee4574i">Java SDK V1</h2><pre code-type="xCode" id="bec5baab3bxte" index="0" height="500" data-tag="codeblock" outputclass="language-java" class="pre codeblock language-java"><code>import com.aliyun.oss.*;
+import com.aliyun.oss.common.auth.*;
+import com.aliyun.oss.common.comm.SignVersion;
+import com.aliyun.oss.model.*;
+
+/**
+ * OSS取消分片上传示例（V1 SDK）
+ * 演示如何取消一个分片上传任务
+ */
+public class AbortMultipartUpload {
+
+    public static void main(String[] args) {
+        // 从环境变量获取访问凭证
+        String accessKeyId = System.getenv("OSS_ACCESS_KEY_ID");
+        String accessKeySecret = System.getenv("OSS_ACCESS_KEY_SECRET");
+
+        // 设置OSS地域和Endpoint
+        String region = "cn-hangzhou";
+        String endpoint = "oss-cn-hangzhou.aliyuncs.com";
+
+        // 配置Bucket和文件信息
+        String bucketName = "example-bucket";
+        String objectName = "dest.jpg";
+        String uploadId = "D9F4****************************";
+
+        // 创建凭证提供者
+        DefaultCredentialProvider provider = new DefaultCredentialProvider(accessKeyId, accessKeySecret);
+
+        // 配置客户端参数
+        ClientBuilderConfiguration clientBuilderConfiguration = new ClientBuilderConfiguration();
+        clientBuilderConfiguration.setSignatureVersion(SignVersion.V4);
+
+        // 初始化OSS客户端
+        OSS ossClient = OSSClientBuilder.create()
+                .credentialsProvider(provider)
+                .clientConfiguration(clientBuilderConfiguration)
+                .region(region)
+                .endpoint(endpoint)
+                .build();
+
+        try {
+            // 取消分片上传
+            AbortMultipartUploadRequest abortMultipartUploadRequest =
+                    new AbortMultipartUploadRequest(bucketName, objectName, uploadId);
+            ossClient.abortMultipartUpload(abortMultipartUploadRequest);
+
+            System.out.printf("取消分片上传成功，上传ID: %s\n", uploadId);
+
+        } catch (Exception e) {
+            System.out.printf("错误: %s\n", e.getMessage());
+            e.printStackTrace();
+        } finally {
+            // 关闭客户端连接
+            ossClient.shutdown();
+        }
+    }
+}</code></pre></section><section id="81af6eb1d2rtu" class="section"><h2 id="a2ff461637ju4">Python SDK V2</h2><pre code-type="xCode" id="f1113b56f55dh" index="0" height="500" data-tag="codeblock" outputclass="language-python" class="pre codeblock language-python"><code>#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# OSS Python SDK V2 取消分片上传示例
+# 取消分片上传任务并删除已上传的分片
+
+import alibabacloud_oss_v2 as oss
+
+def main():
+    # 从环境变量获取访问凭证
+    credentials_provider = oss.credentials.EnvironmentVariableCredentialsProvider()
+
+    # 加载SDK的默认配置
+    config = oss.config.load_default()
+    config.credentials_provider = credentials_provider
+
+    # 设置OSS地域和Endpoint
+    config.region = "cn-hangzhou"
+    config.endpoint = "oss-cn-hangzhou.aliyuncs.com"
+
+    # 初始化OSS客户端
+    client = oss.Client(config)
+
+    # 配置Bucket和文件信息
+    bucket = "example-bucket"
+    key = "dest.jpg"
+    upload_id = "D9F4****************************"
+
+    # 取消分片上传
+    result = client.abort_multipart_upload(
+        oss.AbortMultipartUploadRequest(
+            bucket=bucket,
+            key=key,
+            upload_id=upload_id
+        ))
+
+    print(f"取消分片上传成功，状态码: {result.status_code}, 请求ID: {result.request_id}")
+
+if __name__ == "__main__":
+    main()</code></pre></section><section id="b43bf74a38lh0" class="section"><h2 id="1ae6450dd6t5q">Python SDK V1</h2><pre code-type="xCode" id="e6d689011fs7l" index="0" height="500" data-tag="codeblock" outputclass="language-python" class="pre codeblock language-python"><code>#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+# OSS Python SDK V1 取消分片上传示例
+
+import oss2
+from oss2.credentials import EnvironmentVariableCredentialsProvider
+
+def main():
+    # 从环境变量中获取访问凭证
+    auth = oss2.ProviderAuthV4(EnvironmentVariableCredentialsProvider())
+    
+    # 设置OSS地域和Endpoint
+    region = "cn-hangzhou"
+    endpoint = "https://oss-cn-hangzhou.aliyuncs.com"
+    
+    # 配置Bucket和文件信息
+    bucket_name = "example-bucket"
+    key = "dest.jpg"
+    upload_id = "D9F4****************************"
+    
+    # 初始化OSS客户端
+    bucket = oss2.Bucket(auth, endpoint, bucket_name, region=region)
+    
+    # 取消分片上传
+    bucket.abort_multipart_upload(key, upload_id)
+    
+    print(f"取消分片上传成功，上传ID: {upload_id}")
+
+if __name__ == "__main__":
+    main()</code></pre></section><section id="8aaae85a4bff4" class="section"><h2 id="0b9453f38aedw">Go SDK V2</h2><pre code-type="xCode" id="68cc899dff4r9" index="0" height="500" data-tag="codeblock" outputclass="language-go" class="pre codeblock language-go"><code>package main
+
+// OSS Go SDK V2 取消分片上传示例
+
+import (
+	"context"
+	"fmt"
+
+	"github.com/aliyun/alibabacloud-oss-go-sdk-v2/oss"
+	"github.com/aliyun/alibabacloud-oss-go-sdk-v2/oss/credentials"
+)
+
+func main() {
+	// 从环境变量获取访问凭证
+	// 配置OSS客户端，设置凭证提供者和Endpoint
+	config := oss.LoadDefaultConfig().
+		WithCredentialsProvider(credentials.NewEnvironmentVariableCredentialsProvider()).
+		WithRegion("cn-hangzhou").
+		WithEndpoint("oss-cn-hangzhou.aliyuncs.com")
+
+	// 初始化OSS客户端
+	client := oss.NewClient(config)
+
+	// 配置Bucket和文件信息
+	bucket := "example-bucket"
+	key := "dest.jpg"
+	uploadId := "D9F4****************************"
+
+	// 取消分片上传
+	client.AbortMultipartUpload(context.TODO(), &amp;oss.AbortMultipartUploadRequest{
+		Bucket:   oss.Ptr(bucket),
+		Key:      oss.Ptr(key),
+		UploadId: oss.Ptr(uploadId),
+	})
+
+	fmt.Printf("取消分片上传成功，上传ID: %s\n", uploadId)
+}
+</code></pre></section><section id="3bf987a27elza" class="section"><h2 id="cb8035b1eapot">Go SDK V1</h2><pre code-type="xCode" id="6a9db934e2xyx" index="0" height="500" data-tag="codeblock" outputclass="language-go" class="pre codeblock language-go"><code>package main
+
+// OSS Go SDK V1 取消分片上传示例
+
+import (
+	"fmt"
+
+	"github.com/aliyun/aliyun-oss-go-sdk/oss"
+)
+
+func main() {
+	// 从环境变量获取访问凭证
+	provider, _ := oss.NewEnvironmentVariableCredentialsProvider()
+
+	// 创建OSS客户端实例
+	client, _ := oss.New(
+		"oss-cn-hangzhou.aliyuncs.com",
+		"",
+		"",
+		oss.SetCredentialsProvider(&amp;provider),
+		oss.AuthVersion(oss.AuthV4),
+		oss.Region("cn-hangzhou"),
+	)
+
+	// 获取Bucket对象
+	bucket, _ := client.Bucket("example-bucket")
+
+	// 配置文件信息
+	key := "dest.jpg"
+	uploadId := "D9F4****************************"
+
+	// 创建InitiateMultipartUploadResult对象
+	imur := oss.InitiateMultipartUploadResult{
+		UploadID: uploadId,
+		Key:      key,
+	}
+
+	// 取消分片上传
+	bucket.AbortMultipartUpload(imur)
+
+	fmt.Printf("取消分片上传成功，上传ID: %s\n", uploadId)
+}
+</code></pre></section></section></section></section><section id="77b2aa124d9eg" class="section"><h2 id="db4e8f64d4k8z">应用于生产环境</h2><section id="a897691a6bf7n" class="section"><h4 id="5a9be06913orv">最佳实践</h4><ul id="10b9c85575o38"><li id="21dfdebdd5z13"><p id="f8c2844e8a1h4"><b>性能优化：提升上传速度和稳定性</b></p><ul id="bd1d1ddf54sfc"><li id="a3a28ab210hls"><p id="086f23bb03enu"><b>合理控制并发数量</b>：根据网络带宽和设备负载确定合理的并发分片数量。过多的并发连接会增加系统负载和网络拥塞，过少则无法充分利用网络资源。</p></li><li id="e6caaedb9dfzn"><p id="41e1ed02d5b2k"><b>避免顺序前缀命名</b>：上传大量文件时避免使用顺序前缀（如时间戳开头），防止请求集中在特定分区造成热点问题，影响整体上传性能。详见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/oss/user-guide/oss-performance-best-practices/#concept-xtt-pln-vdb" id="a8c73c2cb6yie" title="" class="xref">OSS<span class="help-letter-space"></span>性能最佳实践</a>。</p></li></ul></li><li id="37c2ed0e3dg0b"><p id="1aeccc7643pqa"><b>可靠性保障：实现断点续传</b></p><p id="bc926f3469pbj">分片上传任务无过期时间限制，支持暂停和恢复操作。利用<span class="help-letter-space"></span>Upload ID<span class="help-letter-space"></span>作为任务标识符，当单个分片上传失败时，仅需重传该分片，避免从头开始上传整个文件，大幅提升传输效率。</p></li><li id="4229b93f1edd8"><p id="d821ec0b0dpy7"><b>成本优化：优化深度冷归档上传策略</b></p><p id="4c2f18cafcnhd">对于需要存储到深度冷归档的大量文件，建议先上传为标准存储类型，再通过<a href="https://help.aliyun.com/zh/oss/user-guide/lifecycle-rules-based-on-the-last-modified-time#concept-y2g-szy-5db" id="1115cc789fjdy" title="" class="xref">生命周期规则</a>自动转换存储类型，避免直接上传产生高额的<span class="help-letter-space"></span>PUT<span class="help-letter-space"></span>请求费用。</p></li></ul></section><section id="fb6fa8cc829je" class="section"><h4 id="ee6e0b0f04h8k">风险防范</h4><ul id="303250a28cn57"><li id="e2f8b774efb71"><p id="affbf6ba99hws"><b>数据安全：防止文件覆盖</b></p><p id="0adb9d619cgna">在上传请求<span class="help-letter-space"></span>header<span class="help-letter-space"></span>中设置<code data-tag="code" id="ab32a6f50fn3y" class="code">x-oss-forbid-overwrite</code>参数为<code data-tag="code" code-type="xCode" class="code inline-code___1DWt-" id="d457f0570eegp">true</code>，防止覆盖同名文件造成数据丢失。也可开启<a href="https://help.aliyun.com/zh/oss/user-guide/overview-78/#concept-jdg-4rx-bgb" id="182045244a43f" title="" class="xref">版本控制</a>功能保留历史版本。</p></li></ul></section></section><section id="852b4a94cdzg4" class="section"><h2 id="c887bff52e8cf">配额与限制</h2><table id="table-0lt-ekm-3ze" tablewidth="100" tablecolswidth="40 60" autofit="true" class="table"><colgroup colwidth="0.8*" style="width:40.00%"></colgroup><colgroup colwidth="1.2*" style="width:60.00%"></colgroup><tbody class="tbody"><tr id="row-gxu-hu5-ww7"><td id="concept-wzs-2gb-5db-entry-h14-rp4-ly0" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1"><p id="07f27bd5eefnc"><b>限制项</b></p></td><td id="concept-wzs-2gb-5db-entry-lud-gog-vyc" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1"><p id="07f27bd6eexy3"><b>说明</b></p></td></tr><tr id="row-ptq-ror-161"><td id="entry-pv8-h9w-glg" rowspan="1" style="vertical-align:middle" colspan="1"><p id="07f2a2e0eeasg">单个文件的大小</p></td><td id="entry-ugx-8ae-h70" rowspan="1" style="vertical-align:middle" colspan="1"><p id="07f2a2e1eeo4k">不超过<span class="help-letter-space"></span>48.8TB</p></td></tr><tr id="row-6o2-csp-lwd"><td id="entry-hs9-c8z-cgo" rowspan="1" style="vertical-align:middle" colspan="1"><p id="07f2a2e2eemyf">分片数量</p></td><td id="entry-mjg-gnh-nav" rowspan="1" style="vertical-align:middle" colspan="1"><p id="07f2a2e3ee0lc">1~10,000<span class="help-letter-space"></span>个</p></td></tr><tr id="row-ndc-n5u-hzx"><td id="entry-dri-cil-p2w" rowspan="1" style="vertical-align:middle" colspan="1"><p id="07f2a2e4ee53f">单个分片大小</p></td><td id="entry-2ig-9b2-lfh" rowspan="1" style="vertical-align:middle" colspan="1"><p id="07f2a2e5eetrt">最小值为<span class="help-letter-space"></span>100KB，最大值为<span class="help-letter-space"></span>5GB。最后一个分片的大小允许小于<span class="help-letter-space"></span>100KB。</p></td></tr><tr id="row-qam-edo-he8"><td id="entry-n4l-yte-c8b" rowspan="1" style="vertical-align:middle" colspan="1"><p id="07f2a2e6eerps">单次<span class="help-letter-space"></span>ListParts<span class="help-letter-space"></span>请求返回的分片最大数量</p></td><td id="entry-8wc-0ys-h6l" rowspan="1" style="vertical-align:middle" colspan="1"><p id="07f2a2e7eeulv">1,000<span class="help-letter-space"></span>个</p></td></tr><tr id="row-wkz-iey-1wn"><td id="entry-fx4-qla-iqc" rowspan="1" style="vertical-align:middle" colspan="1"><p id="07f2a2e8eecqr">单次<span class="help-letter-space"></span>ListMultipartUploads<span class="help-letter-space"></span>请求返回的分片上传事件最大数量</p></td><td id="entry-ejc-ark-xlj" rowspan="1" style="vertical-align:middle" colspan="1"><p id="07f2a2e9eeljb">1,000<span class="help-letter-space"></span>个</p></td></tr></tbody></table></section><section id="1a11fc603dhz1" class="section"><h2 id="2acde6bee30cs">计费说明</h2><p jc="left" id="170d4871caf83" style="text-align:left">分片上传过程中不同接口产生相应的计费项目如下表所示。详细的计费说明请参见<a href="https://help.aliyun.com/zh/oss/api-operation-calling-fees" id="bb2a738597mma" title="" class="xref">请求费用</a>和<a href="https://help.aliyun.com/zh/oss/storage-fees" id="59d1a662422f9" title="" class="xref">存储费用</a>。</p><table id="c43bed10d6qo9" tablewidth="100" tablecolswidth="20 20 60" autofit="true" class="table"><colgroup colwidth="0.61*" style="width:20.00%"></colgroup><colgroup colwidth="0.61*" style="width:20.00%"></colgroup><colgroup colwidth="1.82*" style="width:60.00%"></colgroup><tbody class="tbody"><tr id="78134776e6n38"><td id="5d918bd9724p3" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1"><p id="e57311eda3joe"><b>API</b></p></td><td id="1a6ba55300b57" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1"><p id="e7027008df4d7"><b>计费项</b></p></td><td id="e927adc000j2s" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1"><p id="0000d70cedep7"><b>说明</b></p></td></tr><tr id="e411840aadqrc"><td id="f8473dae3a5e6" rowspan="1" style="vertical-align:middle" colspan="1"><p id="b730ffd062eok"><b>InitiateMultipartUpload</b></p></td><td id="222464fb9ca3e" rowspan="1" style="vertical-align:middle" colspan="1"><p id="9cde8517a0z2q">PUT 类型请求</p></td><td id="86b18dabcccxt" rowspan="1" style="vertical-align:middle" colspan="1"><p id="0d403cd17276r">根据成功的请求次数计算请求费用。</p></td></tr><tr id="bd4038cc065az"><td id="486434a40048m" rowspan="2" style="vertical-align:middle" colspan="1"><p id="220710d8b53cu"><b>UploadPart</b></p></td><td id="39dfb2d646nti" rowspan="1" style="vertical-align:middle" colspan="1"><p id="0860a116488tb">PUT 类型请求</p></td><td id="2e6ec84066h2n" rowspan="1" style="vertical-align:middle" colspan="1"><p id="0bf222ea5adog">根据成功的请求次数计算请求费用。</p></td></tr><tr id="23af2eb860xhe"><td id="6ccf48939fkf2" rowspan="1" style="vertical-align:middle" colspan="1"><p id="6303033afbcso">存储费用</p></td><td id="4989926b4c4il" rowspan="1" style="vertical-align:middle" colspan="1"><p id="b3021304c415p">根据分片的存储类型（与对象文件类型一致）、实际大小和存储时长收取存储费用。无最小计量单位限制，被删除或合并为完整的对象文件后停止计费。</p></td></tr><tr id="b56a4a9fbez31"><td id="bd4463f5cf7xb" rowspan="1" style="vertical-align:middle" colspan="1"><p id="7cec168ad6aal"><b>UploadPartCopy</b></p></td><td id="9a13e2587c244" rowspan="1" style="vertical-align:middle" colspan="1"><p id="9e03984f97ivb">PUT 类型请求</p></td><td id="3e83d85ec3fcl" rowspan="1" style="vertical-align:middle" colspan="1"><p id="5d196b1faaoid">根据成功的请求次数计算请求费用。</p></td></tr><tr id="29e6f8f91fsdl"><td id="1a797f8c0cvno" rowspan="2" style="vertical-align:middle" colspan="1"><p id="31bc203b0bvwh"><b>CompleteMultipartUpload</b></p></td><td id="ad12e651cc0um" rowspan="1" style="vertical-align:middle" colspan="1"><p id="2f7f014095qf9">PUT 类型请求</p></td><td id="9d583157bal9e" rowspan="1" style="vertical-align:middle" colspan="1"><p id="3f02f71d765aa">根据成功的请求次数计算请求费用。</p></td></tr><tr id="a1be65175biqh"><td id="797c1fe0bbixb" rowspan="1" style="vertical-align:middle" colspan="1"><p id="311bf84f053cc">存储费用</p></td><td id="2835ca170bknv" rowspan="1" style="vertical-align:middle" colspan="1"><p id="61d608ef54ib8">根据对象文件的存储类型、大小和时长收取存储费用。</p></td></tr><tr id="fd4f347a8covd"><td id="b8e824a342mvi" rowspan="1" style="vertical-align:middle" colspan="1"><p id="5b83b272cbc59"><b>AbortMultipartUpload</b></p></td><td id="6411d4f6822dj" rowspan="1" style="vertical-align:middle" colspan="1"><p id="aa09d5ef7au54">PUT 类型请求</p></td><td id="0941318a1dap6" rowspan="1" style="vertical-align:middle" colspan="1"><p id="8a6c47ac1c92c">根据成功的请求次数计算请求费用。</p><div type="important" id="a7897b54f51u1" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong><ul id="4db3c97f1fznn" data-spm-anchor-id="a2c4g.11186623.0.i25.62749d98jcyQy5"><li id="3ecec7c060cv0"><p id="6825b48db82e0">在中国内地各地域，通过生命周期规则删除低频访问、归档、冷归档类型碎片的<span class="help-letter-space"></span>PUT<span class="help-letter-space"></span>类请求费用高于删除标准存储类型碎片的<span class="help-letter-space"></span>PUT<span class="help-letter-space"></span>类请求费用；通过生命周期规则删除深度冷归档存储类型碎片，不收取<span class="help-letter-space"></span>PUT<span class="help-letter-space"></span>类请求费用。</p></li><li id="ca89aceb053d6"><p id="6d06216a02d17">在中国香港以及海外地域，通过生命周期规则删除各存储类型碎片时不收取<span class="help-letter-space"></span>PUT<span class="help-letter-space"></span>类请求费用。</p></li></ul></div></div></td></tr><tr id="d7ad07ac32iq5"><td id="7d7fa2744d0up" rowspan="1" style="vertical-align:middle" colspan="1"><p id="03c1560f40mpe"><b>ListMultipartUploads</b></p></td><td id="3c6a40a4d06qe" rowspan="1" style="vertical-align:middle" colspan="1"><p id="fe65eb46a053p">PUT 类型请求</p></td><td id="726ccf0066r07" rowspan="1" style="vertical-align:middle" colspan="1"><p id="119651b7752fi">根据成功的请求次数计算请求费用。</p></td></tr><tr id="31b1e10ad3k8i"><td id="054634a728z5i" rowspan="1" style="vertical-align:middle" colspan="1"><p id="a05720fa50zon"><b>ListParts</b></p></td><td id="0eccd42e03nuk" rowspan="1" style="vertical-align:middle" colspan="1"><p id="be5bc6b1aepuu">PUT 类型请求</p></td><td id="5de7f0c0a5ab9" rowspan="1" style="vertical-align:middle" colspan="1"><p id="250a80d2866i0">根据成功的请求次数计算请求费用。</p></td></tr></tbody></table></section><section id="4093788c9070n" class="section"><h2 id="bac39da86939l"><b>API<span class="help-letter-space"></span>和权限说明</b></h2><p id="deee6c02109ch">阿里云主账号默认拥有全部<span class="help-letter-space"></span>API<span class="help-letter-space"></span>的操作权限。RAM<span class="help-letter-space"></span>用户或<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>角色使用分片上传功能需根据具体操作的<span class="help-letter-space"></span>API<span class="help-letter-space"></span>授予相应权限。更多信息请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/oss/ram-policy-overview/" id="949c149d43zk5" title="" class="xref">RAM Policy</a><span class="help-letter-space"></span>和<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/oss/common-examples-of-ram-policies" id="d483ef7355gzd" title="" class="xref">RAM Policy<span class="help-letter-space"></span>常见示例</a>。</p><table id="2b442f5ad6bwe" tablewidth="100" tablecolswidth="20 20 60" autofit="true" class="table"><colgroup colwidth="0.61*" style="width:20.00%"></colgroup><colgroup colwidth="0.61*" style="width:20.00%"></colgroup><colgroup colwidth="1.82*" style="width:60.00%"></colgroup><tbody class="tbody"><tr id="32a500d018tzi"><td id="a3005dc01acwr" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1"><p jc="left" id="a46f46bc2bj2v" style="text-align:left"><b>API</b></p></td><td id="5a3cc8c4bdlhz" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1"><p jc="left" id="b70750339czwg" style="text-align:left"><b>Action</b></p></td><td id="fa2225b1b3umq" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1"><p jc="left" id="f587d22ad290d" style="text-align:left"><b>说明</b></p></td></tr><tr id="ddbb6351f8kjk"><td id="172e33ad82xh0" rowspan="4" style="vertical-align:middle" colspan="1"><p id="bb022ba32b3mb"><b>InitiateMultipartUpload</b></p></td><td id="338407f240mr0" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="b33099c57duuj" style="text-align:left"><code data-tag="code" id="48b8efc308c7s" class="code">oss:PutObject</code></p></td><td id="ddd76b5574lsx" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="1252b2ae0fw5a" style="text-align:left">初始化分片上传任务。</p></td></tr><tr id="936e90d4e87vq"><td id="e7e98fb373kfe" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="0aeae8b86fgps" style="text-align:left"><code data-tag="code" class="code" id="c363f532d5dvn">oss:PutObjectTagging</code></p></td><td id="1ba77153186uv" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="4f815801ebc9v" style="text-align:left">初始化分片上传任务时，如果通过<span class="help-letter-space"></span>x-oss-tagging<span class="help-letter-space"></span>指定对象文件的标签，则需要此操作的权限。</p></td></tr><tr id="80b37a1bb9m2j"><td id="77b33a38573rr" rowspan="1" style="vertical-align:middle" colspan="1"><p id="3f113c3c4bxus"><code data-tag="code" id="bbf418b701jst" class="code">kms:GenerateDataKey</code></p></td><td id="791db4fa25o44" rowspan="2" style="vertical-align:middle" colspan="1"><p jc="left" id="269817a381xh3" style="text-align:left">上传对象文件时，如果对象文件的元数据包含<span class="help-letter-space"></span>X-Oss-Server-Side-Encryption: KMS，则需要这两个操作的权限。</p></td></tr><tr id="7821d0c79dorn"><td id="0da48aa664gfm" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="636a6de4b1ukv" style="text-align:left"><code data-tag="code" id="ba1b260aff0jc" class="code">kms:Decrypt</code></p></td></tr><tr id="b03152db3dq95"><td id="a9f0b941507c7" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="98a80dc2f3ftq" style="text-align:left"><b>UploadPart</b></p></td><td id="dca3df93339bo" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="879e720fb22dr" style="text-align:left"><code data-tag="code" class="code" id="27020c332940j">oss:PutObject</code></p></td><td id="2294a714b3mu8" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="e7396d942dz5g" style="text-align:left">上传分片。</p></td></tr><tr id="b91e3bd32114h"><td id="9ccf5f353de05" rowspan="3" style="vertical-align:middle" colspan="1"><p id="9b001270a9t5f"><b>UploadPartCopy</b></p></td><td id="cf8bfd602c5ts" rowspan="1" style="vertical-align:middle" colspan="1"><p id="90b049dec813i"><code data-tag="code" class="code" id="4cd3083217l1b">oss:GetObject</code></p></td><td id="afd84bb7b95ev" rowspan="1" style="vertical-align:middle" colspan="1"><p id="097231f004ewr">从一个已存在的对象文件中拷贝数据来上传一个分片时，需要读取源对象文件的权限。</p></td></tr><tr id="bca2b8c9ba3nc"><td id="4e96f58175340" rowspan="1" style="vertical-align:middle" colspan="1"><p id="653c74d360niu"><code data-tag="code" class="code" id="f016aa574feif">oss:PutObject</code></p></td><td id="17ca3cd37a97k" rowspan="1" style="vertical-align:middle" colspan="1"><p id="e2f397ac9c6vw">从一个已存在的对象文件中拷贝数据来上传一个分片时，需要写入目标对象文件的权限。</p></td></tr><tr id="9589a7b86ci8j"><td id="c49bbf3f1fvfr" rowspan="1" style="vertical-align:middle" colspan="1"><p id="82eea138dcm5r"><code data-tag="code" class="code" id="60506664d5esk">oss:GetObjectVersion</code></p></td><td id="c18317b119hwj" rowspan="1" style="vertical-align:middle" colspan="1"><p id="e4e636891d5xv">从一个已存在的对象文件中拷贝数据来上传一个分片时，如果通过<span class="help-letter-space"></span>versionId<span class="help-letter-space"></span>指定对象文件的版本，需要读取源对象文件的指定版本的权限。</p></td></tr><tr id="8208ebc9f82le"><td id="8462911f30w9n" rowspan="2" style="vertical-align:middle" colspan="1"><p jc="left" id="cb569fad7c5yp" style="text-align:left"><b>CompleteMultipartUpload</b></p></td><td id="e04c4acf76mh4" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="cb73ea4ee82xt" style="text-align:left"><code data-tag="code" class="code" id="89faee6d96r9v">oss:PutObject</code></p></td><td id="43dc80ebba70h" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="9f1fee0de9ic2" style="text-align:left">将分片合并为对象文件。</p></td></tr><tr id="230436fe40yd1"><td id="255d20c0f3zgg" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="e3dc6f0131wzf" style="text-align:left"><code data-tag="code" class="code" id="af74b42024n8s">oss:PutObjectTagging</code></p></td><td id="212c2c3024pca" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="dd82528c2cywh" style="text-align:left">将分片合并为对象文件时，如果通过<span class="help-letter-space"></span>x-oss-tagging<span class="help-letter-space"></span>指定对象文件的标签，则需要此操作的权限。</p></td></tr><tr id="1b9a5170d57ch"><td id="2a4ee2b372l2y" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="64f5b0d819k6g" style="text-align:left"><b>AbortMultipartUpload</b></p></td><td id="9efe276be7qfi" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="3ed099defdzne" style="text-align:left"><code data-tag="code" class="code" data-spm-anchor-id="a2c4g.11186623.0.i12.235d23829eIC7v" id="f7c5e9319f8h6">oss:AbortMultipartUpload</code></p></td><td id="49d1c309a7u1f" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="a1204fd21eafb" style="text-align:left">取消分片上传事件并删除对应的分片数据。</p></td></tr><tr id="7391004755no4"><td id="fae03212e1tsw" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="4aa4f94bdfqt7" style="text-align:left"><b>ListMultipartUploads</b></p></td><td id="5e7a846686tb2" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="e1ac9c4c7dug6" style="text-align:left"><code data-tag="code" class="code" data-spm-anchor-id="a2c4g.11186623.0.i16.235d23829eIC7v" id="9b75ca760cs36">oss:ListMultipartUploads</code></p></td><td id="d49bcc27170jo" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="e12f5a7af2pxq" style="text-align:left">列举所有执行中的分片上传事件，即已经初始化但尚未完成或者尚未被中止的分片上传事件。</p></td></tr><tr id="abc69562b1wdu"><td id="a4c10054156h6" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="eeb1004d1dyd4" style="text-align:left"><b>ListParts</b></p></td><td id="94b0877b067ct" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="53a87a516alq2" style="text-align:left"><code data-tag="code" class="code" id="e8e8282a142cy">oss:ListParts</code></p></td><td id="a1e6bb5095xop" rowspan="1" style="vertical-align:middle" colspan="1"><p jc="left" id="154c244f2f8io" style="text-align:left">列举指定<span class="help-letter-space"></span>Upload ID<span class="help-letter-space"></span>所属的所有已经上传成功的分片。</p></td></tr></tbody></table></section></div></main>
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/oss/user-guide/simple-upload" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：简单上传</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/oss/user-guide/resumable-upload" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：断点续传上传<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

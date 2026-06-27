@@ -1,0 +1,17 @@
+{
+  "id": "sls:collect-kubernetes-events",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "使用kube-eventer将Kubernetes事件采集到K8s事件中心-日志服务-阿里云",
+  "source_url": "https://help.aliyun.com/zh/sls/collect-kubernetes-events",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/collect-kubernetes-events.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/collect-kubernetes-events.md",
+  "word_count": 1633,
+  "text_units": 4090,
+  "local_links": 10,
+  "external_links": 84,
+  "has_tables": true,
+  "table_count": 9,
+  "quality": "accepted"
+}

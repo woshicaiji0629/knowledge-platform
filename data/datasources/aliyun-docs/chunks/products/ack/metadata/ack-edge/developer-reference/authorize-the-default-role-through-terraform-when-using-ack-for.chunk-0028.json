@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/developer-reference/authorize-the-default-role-through-terraform-when-using-ack-for:28",
+  "document_id": "ack:ack-edge/developer-reference/authorize-the-default-role-through-terraform-when-using-ack-for",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "deployment",
+  "title": "使用Terraform首次开通ACK并对服务角色进行授权-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/authorize-the-default-role-through-terraform-when-using-ack-for",
+  "chunk_index": 28,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/developer-reference/authorize-the-default-role-through-terraform-when-using-ack-for.chunk-0028.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/authorize-the-default-role-through-terraform-when-using-ack-for.md",
+  "heading_path": "使用Terraform首次开通ACK并授权服务角色 > 附录 > 可选角色",
+  "char_count": 1200
+}

@@ -1,0 +1,15 @@
+## 印度洋地区
+
+| 时区 | 时差 |
+| --- | --- |
+| Indian/Antananarivo | +03:00 |
+| Indian/Chagos | +06:00 |
+| Indian/Christmas | +07:00 |
+| Indian/Cocos | +06:30 |
+| Indian/Comoro | +03:00 |
+| Indian/Kerguelen | +05:00 |
+| Indian/Mahe | +04:00 |
+| Indian/Maldives | +05:00 |
+| Indian/Mauritius | +04:00 |
+| Indian/Mayotte | +03:00 |
+| Indian/Reunion | +04:00 |

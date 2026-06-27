@@ -1,0 +1,17 @@
+{
+  "id": "sls:variables-in-new-alert-templates",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "配置行动策略时的内容模板介绍-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/variables-in-new-alert-templates",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/variables-in-new-alert-templates.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/variables-in-new-alert-templates.md",
+  "word_count": 1391,
+  "text_units": 3132,
+  "local_links": 0,
+  "external_links": 74,
+  "has_tables": true,
+  "table_count": 13,
+  "quality": "accepted"
+}

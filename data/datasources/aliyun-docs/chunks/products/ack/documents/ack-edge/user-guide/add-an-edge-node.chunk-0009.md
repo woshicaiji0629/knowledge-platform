@@ -1,0 +1,1 @@
+OK. I0410 10:54:52.764763 19419 postcheck.go:165] [post-check] Callback to the OpenAPI. I0410 10:54:53.014706 19419 postcheck.go:178] [post-check] Callback to the OpenAPI successfully. I0410 10:54:53.014760 19419 postcheck.go:66] This node joined into the cluster successfully.

@@ -1,0 +1,2 @@
+| 存储类型 | ESSD 云盘实例支持升级 PL 等级（不支持降级）。例如 ESSD PL1 升级为 ESSD PL2。 非集群系列的 SSD 云盘实例支持升级为 ESSD 云盘，但不支持再降级回 SSD。 说明 集群系列实例暂不支持从 SSD 云盘升级为 ESSD 云盘。但可通过 [创建](create-an-apsaradb-rds-for-sql-server-instance-1.md) 一个 ESSD 云盘新实例，再将原实例的数据 [迁移](migrate-data-between-apsaradb-rds-for-sql-server-instances.md) 到新实例的方式实现。 |
+| 存储空间 | 所有实例仅支持增加存储空间， 不支持减少存储空间 。 增加存储空间时，最小增加量为 5 GB，最大不能超过当前 [实例规格的存储空间限制](../product-overview/primary-apsaradb-rds-instance-types.md) 。 说明 若主实例有只读实例，由于只读实例存储空间不能小于主实例存储空间，因此需要先增加只读实例存储空间，才能增加主实例的存储空间。 若当前规格对应的存储空间范围无法满足您的需求，请选择其它实例规格。 |

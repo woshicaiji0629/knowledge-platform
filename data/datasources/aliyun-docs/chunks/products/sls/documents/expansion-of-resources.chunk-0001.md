@@ -1,0 +1,2 @@
+## 发现流控
+您可以使用日志服务CloudLens for SLS监控各种资源的使用水位和流控异常事件，当触发告警后，您可以及时进行相应地处理。具体操作，请参见[使用](use-cloudlens-for-sls-to-monitor-project-resource-quotas.md)[CloudLens for SLS](use-cloudlens-for-sls-to-monitor-project-resource-quotas.md)[监控](use-cloudlens-for-sls-to-monitor-project-resource-quotas.md)[Project](use-cloudlens-for-sls-to-monitor-project-resource-quotas.md)[资源配额](use-cloudlens-for-sls-to-monitor-project-resource-quotas.md)。

@@ -1,0 +1,1 @@
+隔离](../user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)为应用配置Pod维度的最小化权限，并通过[GetSecretValue](../../../../kms/documents/key-management-service/developer-reference/api-getsecretvalue.md)直接在应用中获取密钥凭据，以减少密钥内容在Pod文件系统或Kubernetes集群Secrets中的暴露风险。

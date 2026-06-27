@@ -1,0 +1,14 @@
+{
+  "id": "vpc:vpc-prefix-lists:13",
+  "document_id": "vpc:vpc-prefix-lists",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "前缀列表-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/vpc-prefix-lists",
+  "chunk_index": 13,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/vpc-prefix-lists.chunk-0013.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/vpc-prefix-lists.md",
+  "heading_path": "前缀列表 > 共享前缀列表 > 控制台",
+  "char_count": 1200
+}

@@ -1,0 +1,9 @@
+够启动指定数量的实例。
+[alicloud_ecs_command](https://help.aliyun.com/zh/terraform/alicloud-ecs-command)：资源用于在阿里云ECS实例上创建命令，允许用户通过指定命令内容（Base64编码）、描述、是否启用自定义参数、命令名称、超时时间及命令类型等参数来执行预设的脚本命令。
+[alicloud_ecs_dedicated_host](https://help.aliyun.com/zh/terraform/alicloud-ecs-dedicated-host)：用于在阿里云上创建专用主机，并允许用户配置如主机类型、计费方式、自动续费周期、主机名称及描述等参数。
+[alicloud_ecs_dedicated_host_cluster](https://help.aliyun.com/zh/terraform/alicloud-ecs-dedicated-host-cluster)：用于在阿里云上创建专用主机集群，允许用户配置如集群名称、描述、所属可用区及标签等参数，以集中管理和组织专用主机资源。
+[alicloud_ecs_deployment_set](https://help.aliyun.com/zh/terraform/alicloud-ecs-deployment-set)：用于在阿里云上创建部署集，允许用户通过指定部署策略、部署集名称和描述等参数来管理和组织ECS实例的分布，以实现高可用性或低延迟等特定部署目标。
+[alicloud_ecs_disk](https://help.aliyun.com/zh/terraform/alicloud-ecs-disk)：用于在阿里云上创建云盘（数据盘），允许用户配置如磁盘类型、大小、是否加密、快照ID、性能级别及标签等参数，以满足不同应用场景下的存储需求。
+[alicloud_ecs_disk_attachment](https://help.aliyun.com/zh/terraform/alicloud-ecs-disk-attachment)：用于在阿里云上实现ECS实例与磁盘的挂载和卸载操作，允许用户通过指定实例ID和磁盘ID来关联两者，支持设置是否随实例释放磁盘以及是否作为系统盘挂载等选项。
+[alicloud_ecs_elasticity_assurance](https://help.aliyun.com/zh/terraform/alicloud-ecs-elasticity-assurance)：资源用于在阿里云上创建弹性保障，以确保在特定区域中为指定的实例类型预留一定的计算资源容量。
+[alicloud_ecs_hpc_cluster](https://help.aliyun.com/zh/terraf

@@ -1,0 +1,17 @@
+{
+  "id": "ecs:why-am-i-unable-to-see-my-custom-images-when-i-create-ecs-instances",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "为什么创建ECS实例时看不到某些镜像？-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/why-am-i-unable-to-see-my-custom-images-when-i-create-ecs-instances",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/why-am-i-unable-to-see-my-custom-images-when-i-create-ecs-instances.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/why-am-i-unable-to-see-my-custom-images-when-i-create-ecs-instances.md",
+  "word_count": 873,
+  "text_units": 1988,
+  "local_links": 0,
+  "external_links": 88,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

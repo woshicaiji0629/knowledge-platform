@@ -1,0 +1,2 @@
+# 通过阿里云Prometheus监控ACK Edge集群
+可通过阿里云Prometheus监控查看ACK Edge集群预先配置的监控大盘和监控性能指标。本文介绍如何在ACK Edge集群中接入阿里云Prometheus监控。

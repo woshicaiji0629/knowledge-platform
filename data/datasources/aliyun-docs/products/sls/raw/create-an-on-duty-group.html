@@ -1,0 +1,501 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    如何创建值班组-日志服务(SLS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/sls/create-an-on-duty-group">
+  <meta name="keywords" content="值班组">
+  <meta name="description" content="值班组是日志服务告警提供的值班轮岗编排机制，支持根据周期、工作时长等安排轮询值班。本文介绍创建值班组的操作步骤。">
+  <meta name="last-modified" content="2026-05-25T21:10:29+08:00">
+  <meta name="date" content="2021-03-15T05:12:28+08:00">
+  <meta property="og:title" content="创建值班组">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/sls/create-an-on-duty-group">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="值班组是日志服务告警提供的值班轮岗编排机制，支持根据周期、工作时长等安排轮询值班。本文介绍创建值班组的操作步骤。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/sls/create-an-on-duty-group",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "207705",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/sls/create-an-on-duty-group","nodeId":null,"data":{"lastModifiedTime":1779714629000,"keywords":"值班组","docTitle":"创建值班组","language":"zh","seoTitle":"如何创建值班组-日志服务(SLS)-阿里云帮助中心","title":"创建值班组","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"task-2056543\">\n    \n    \n    <p id=\"shortdesc-0ds-f3m-n2p\" data-tag=\"shortdesc\" class=\"shortdesc\">值班组是日志服务告警提供的值班轮岗编排机制，支持根据周期、工作时长等安排轮询值班。本文介绍创建值班组的操作步骤。</p>\n    <div data-tag=\"taskbody\" id=\"taskbody-cfa-pal-97a\" class=\"taskbody\">\n      <section data-tag=\"prereq\" id=\"prereq-0ju-edq-dni\" data-type=\"prereq\" class=\"section prereq\">\n        <h2 id=\"d41e14\">前提条件</h2>\n        <p id=\"1179dfe059y5s\">已创建用户或用户组。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/create-users-and-user-groups#task-2045211\" id=\"xref-96w-v1x-rq8\" title=\"\" class=\"xref\">创建用户和用户组</a>。</p>\n      </section>\n      <section data-tag=\"section\" id=\"section-p5k-i7l-zab\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-670-gue-tvi\" class=\"title\">操作步骤</h2>\n        <ol data-tag=\"steps\" id=\"steps-05a-357-2yw\" class=\"steps\">\n          <li data-tag=\"step\" id=\"step-h5a-dq2-7lt\" is-conref=\"true\" class=\"step\"><p id=\"6a7cc970501ga\"><span data-tag=\"ph\" id=\"ph-q0d-de9-ecs\" class=\"ph\">登录<span data-tag=\"ph\" id=\"ph-i3r-pp7-fzx\" props=\"china intl\" data-cond-props=\"china intl\" class=\"ph\"><a href=\"https://sls.console.aliyun.com\" id=\"xref-ivv-0k8-uct\" class=\"\" target=\"_blank\">日志服务控制台</a></span>。</span></p></li>\n          <li id=\"2ec56ab159m2u\" docid=\"2974463\" is-conref=\"true\"><p id=\"c5d8b22050xzy\">进入值班组管理页面。</p><ol type=\"a\" data-tag=\"substeps\" id=\"3e2b4ee350ny9\" class=\"substeps\"><li data-tag=\"substep\" id=\"3e2b4ee450epm\" class=\"substep\"><p id=\"3e2b4ee550qnz\">在<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>列表区域，单击任意一个<span class=\"help-letter-space\"></span>Project。</p></li><li data-tag=\"substep\" id=\"3e2b4ee650lgu\" class=\"substep\"><p id=\"3e2b4ee750d4s\">在左侧导航栏中，单击<b data-tag=\"uicontrol\" id=\"d640e57950knh\" class=\"uicontrol\">告警</b>。</p></li><li data-tag=\"substep\" id=\"3e2b4ee8505i3\" class=\"substep\"><p id=\"3e2b4ee9506oi\">在<b data-tag=\"uicontrol\" id=\"d640e57a50jmc\" class=\"uicontrol\">告警中心</b>页面，选择<span data-tag=\"menucascade\" id=\"d640e57b50l4h\" class=\"menucascade\"><b data-tag=\"uicontrol\" id=\"d640e57c50ph1\" class=\"uicontrol\">通知对象</b> &gt; <b data-tag=\"uicontrol\" id=\"d640e57d50btl\" class=\"uicontrol\">值班组管理</b></span>。</p></li></ol></li>\n          <li data-tag=\"step\" id=\"step-jpq-puv-qhi\" class=\"step\">\n            <p id=\"117a06f159toq\">单击<b id=\"uicontrol-l9d-mu4-4vn\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建</b>。</p>\n          </li>\n          <li data-tag=\"step\" id=\"step-n6k-gh8-xjs\" class=\"step\">\n            <p id=\"117a06f259sur\">在<b id=\"wintitle-5yf-onn-y1t\">添加值班组</b>对话框中，配置如下基本信息。</p>\n            <div data-tag=\"info\" id=\"info-uqy-v9z-aqp\" class=\"info\">\n              <table id=\"table-1is-3ef-78b\" tablewidth=\"709\" tablecolswidth=\"14.79 85.21000000000001\" autofit=\"true\" class=\"table\">\n                <colgroup colwidth=\"0.04*\" style=\"width:2.09%\"></colgroup>\n                <colgroup colwidth=\"0.24*\" style=\"width:12.02%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"row-10r-z3k-4ei\">\n                    <td id=\"task-2056543-entry-bnf-gs8-xql\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"117a2e005912d\"><b>参数</b></p>\n                    </td>\n                    <td id=\"task-2056543-entry-dsn-99a-lsu\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"117a2e0159s11\"><b>说明</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-era-kgr-fgq\">\n                    <td id=\"entry-ra5-uph-1qv\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"117a2e0259wuq\"><b id=\"uicontrol-4bx-1h9-3z3\">标识符</b></p>\n                    </td>\n                    <td id=\"entry-ra8-n1e-gpt\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"117aa33059305\">值班组唯一标识，单个阿里云账号下不可重复。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-6sh-hpe-yyp\">\n                    <td id=\"entry-mls-g1w-18p\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"117aca40592ga\"><b data-tag=\"uicontrol\" id=\"uicontrol-ld3-w5k-dd9\" class=\"uicontrol\">组名</b></p>\n                    </td>\n                    <td id=\"entry-oea-oi9-3ol\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"117aca41593si\">值班组名称。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-ehw-hxb-7wz\">\n                    <td id=\"entry-wcd-uqa-6yn\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"117af150596i8\"><b id=\"uicontrol-vmz-hw7-qup\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">启用</b></p>\n                    </td>\n                    <td id=\"entry-u0l-4w1-67q\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"117af15159eln\">是否启用值班组。</p>\n                      <ul data-tag=\"ul\" id=\"ul-ott-onx-ka8\" class=\"ul\">\n                        <li data-tag=\"li\" id=\"li-9tt-oc7-zon\" class=\"li\">\n                          <p id=\"117af15259pw6\">启用：值班组处于正常状态，可安排值班。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-ofg-2aa-wk8\" class=\"li\">\n                          <p id=\"117b18605955l\">不启用：值班组处于禁用状态，不可安排值班。</p>\n                        </li>\n                      </ul>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>\n          </li>\n          <li data-tag=\"step\" id=\"step-nug-h20-9g2\" class=\"step\">\n            <p id=\"117b1861598y9\">配置值班表。</p>\n            <div data-tag=\"info\" id=\"info-g96-frr-7tl\" class=\"info\">\n              <p id=\"117b1862599eg\">值班表提供三种视图，分别为<b id=\"7f003b207d8qw\">最终排班</b>、<b id=\"daec389605lxs\">值班轮岗</b>和<b id=\"89d2e7dc56j9a\">代班</b>。配置值班轮岗和代班后，您可以通过最终排班视图看到最终的排班情况。处于值班轮岗中的员工无法值班时，您可以使用代班功能安排其他人进行值班。</p>\n            </div>\n            <ol type=\"a\" data-tag=\"substeps\" id=\"substeps-gr3-2v4-n7c\" class=\"substeps\">\n              <li data-tag=\"substep\" id=\"substep-z6x-wsq-kzq\" class=\"substep\">\n                <p id=\"117b186359amg\"><span data-tag=\"cmd\" id=\"cmd-av2-j99-u3m\" class=\"cmd\">配置值班轮岗。</span></p>\n                <div data-tag=\"info\" id=\"info-iv7-nl9-p4a\" class=\"info\">\n                  <ol id=\"ol-kt4-flw-jzu\" type=\"i\" data-tag=\"ol\" class=\"ol\">\n                    <li data-tag=\"li\" id=\"li-uw5-71n-3ne\" class=\"li\">\n                      <p id=\"117b3f7059kv5\">单击<span data-tag=\"menucascade\" id=\"menucascade-u5n-to3-imj\" class=\"menucascade\"><b data-tag=\"uicontrol\" id=\"uicontrol-9d9-w4u-kb3\" class=\"uicontrol\"><img data-tag=\"image\" id=\"image-a8b-u4z-n76\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/6521065161/p249337.png\" alt=\"jiahao\" placement=\"inline\" class=\"image inline\"></b> &gt; <b data-tag=\"uicontrol\" id=\"uicontrol-mvr-7bu-tg1\" class=\"uicontrol\">值班轮岗</b></span>。</p>\n                    </li>\n                    <li id=\"li-a70-oi0-14g\" data-tag=\"li\" class=\"li\">\n                      <p id=\"117b668059d5d\">在<b id=\"wintitle-us8-ztc-l4f\">添加值班轮岗</b>对话框中，配置如下参数，并单击<b id=\"uicontrol-zmb-t7s-57y\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">保存</b>。</p>\n                      <table id=\"table-0wt-n62-s8b\" tablewidth=\"709\" tablecolswidth=\"15.13 84.87\" autofit=\"true\" class=\"table\">\n                        <colgroup colwidth=\"0.04*\" style=\"width:2.13%\"></colgroup>\n                        <colgroup colwidth=\"0.24*\" style=\"width:11.97%\"></colgroup>\n                        <tbody class=\"tbody\">\n                          <tr id=\"row-9ci-yne-o8o\">\n                            <td id=\"task-2056543-entry-89g-7fi-xj4\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                              <p id=\"117b668159jlj\"><b>参数</b></p>\n                            </td>\n                            <td id=\"task-2056543-entry-t79-pvu-p1v\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                              <p id=\"117b8d9059zo1\"><b>说明</b></p>\n                            </td>\n                          </tr>\n                          <tr id=\"row-pca-hkz-urk\">\n                            <td id=\"entry-gas-ugf-pyk\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117b8d9159ngo\"><b id=\"uicontrol-viz-yd1-me5\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">开始时间</b></p>\n                            </td>\n                            <td id=\"entry-sa7-uk4-638\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117b8d9259eyc\">值班开始时间。</p>\n                            </td>\n                          </tr>\n                          <tr id=\"row-lps-m7v-770\">\n                            <td id=\"entry-2xs-fif-pg5\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117b8d935981s\"><b id=\"uicontrol-fvs-boh-yl3\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">结束时间</b></p>\n                            </td>\n                            <td id=\"entry-0e6-f7w-ts9\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117bb4a05902n\">值班结束时间。</p>\n                            </td>\n                          </tr>\n                          <tr id=\"row-zk7-hpz-hgq\">\n                            <td id=\"entry-3do-cu1-i6k\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117bb4a159lhd\"><b id=\"uicontrol-2fk-hsl-dym\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">限制</b></p>\n                            </td>\n                            <td id=\"entry-2w8-v3c-2nl\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117bdbb059gqq\">配置详细的值班时间段。</p>\n                              <ul data-tag=\"ul\" id=\"ul-pf8-vs3-spg\" class=\"ul\">\n                                <li data-tag=\"li\" id=\"li-iad-9m8-agk\" class=\"li\">\n                                  <p id=\"117bdbb159jqj\"><b id=\"uicontrol-s9q-2id-p2u\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">无</b>：每天<span class=\"help-letter-space\"></span>24<span class=\"help-letter-space\"></span>小时值班。</p>\n                                </li>\n                                <li data-tag=\"li\" id=\"li-wjs-4pt-6yj\" class=\"li\">\n                                  <p id=\"117bdbb2593m9\"><b id=\"uicontrol-6xe-p7j-a6p\">工作日</b>：仅在工作日值班，支持添加具体时间段。</p>\n                                </li>\n                                <li data-tag=\"li\" id=\"li-pz5-45z-od0\" class=\"li\">\n                                  <p id=\"117c02c05945w\"><b id=\"uicontrol-ku3-25p-mvw\">非工作日</b>：仅在非工作日值班，支持添加具体时间段。</p>\n                                </li>\n                                <li data-tag=\"li\" id=\"li-559-m7a-2gh\" class=\"li\">\n                                  <p id=\"117c02c159s8o\"><b id=\"uicontrol-tcs-pn7-lko\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">每天</b>：每天值班，支持添加具体时间段。</p>\n                                </li>\n                                <li data-tag=\"li\" id=\"li-lgj-frj-vp0\" class=\"li\">\n                                  <p id=\"117c29d059dd1\"><b id=\"uicontrol-r2v-5jp-8cv\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">每周</b>：在每周特定时间内值班。</p>\n                                </li>\n                              </ul>\n                            </td>\n                          </tr>\n                          <tr id=\"row-u9x-7y4-iuc\">\n                            <td id=\"entry-gd2-78q-nes\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117c29d159c12\"><b id=\"uicontrol-ry5-no2-j9k\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">对象</b></p>\n                            </td>\n                            <td id=\"entry-xm0-vli-7um\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117c29d259vpc\">值班人员支持选择多个值班人员（用户、用户组）。</p>\n                              <div data-tag=\"note\" id=\"note-pux-xx0-gj1\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                                <p id=\"117c50e059xmg\">如果用户或用户组被禁用，则在排班时自动过滤该用户或用户组。</p>\n                              </div></div>\n                            </td>\n                          </tr>\n                          <tr id=\"row-zgb-tsi-zx1\">\n                            <td id=\"entry-3w9-mqy-xpi\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117c50e1594ia\"><b id=\"uicontrol-tnn-ax3-xab\">轮岗类型</b></p>\n                            </td>\n                            <td id=\"entry-qbz-b8q-y2h\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117c50e259v1x\">支持按照小时班、日班、周班和月班进行轮流值班。</p>\n                            </td>\n                          </tr>\n                          <tr id=\"row-uq3-r3c-xzz\">\n                            <td id=\"entry-hjr-d1f-913\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117c50e359ujg\"><b id=\"uicontrol-ysc-uvh-yfc\">交班时间</b></p>\n                            </td>\n                            <td id=\"entry-5pv-vpw-ue2\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117c50e459vm7\">根据轮岗类型设置交班的具体时间，支持自定义时间。</p>\n                            </td>\n                          </tr>\n                        </tbody>\n                      </table>\n                    </li>\n                  </ol>\n                </div>\n              </li>\n              <li data-tag=\"substep\" id=\"substep-asb-jrf-zdl\" class=\"substep\">\n                <p id=\"117c50e559khs\"><span data-tag=\"ph\" id=\"110d627359bcy\" class=\"ph\"><b>可选：</b></span><span data-tag=\"cmd\" id=\"cmd-99n-wx0-deh\" class=\"cmd\">配置代班。</span></p>\n                <div data-tag=\"info\" id=\"info-o98-jh9-a5w\" class=\"info\">\n                  <ol data-tag=\"ol\" type=\"i\" id=\"ol-j6d-xia-cgj\" class=\"ol\">\n                    <li data-tag=\"li\" id=\"li-8vq-yse-q7y\" class=\"li\">\n                      <p id=\"117c77f159dev\">单击<span data-tag=\"menucascade\" id=\"menucascade-emf-3mu-k3v\" class=\"menucascade\"><b data-tag=\"uicontrol\" id=\"uicontrol-c5z-nqj-oh4\" class=\"uicontrol\"><img data-tag=\"image\" id=\"image-8uu-x1e-x8m\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/6521065161/p249337.png\" alt=\"jiahao\" placement=\"inline\" class=\"image inline\"></b> &gt; <b data-tag=\"uicontrol\" id=\"uicontrol-8qi-xn6-n4j\" class=\"uicontrol\">代班</b></span>。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-2ux-ywp-095\" class=\"li\">\n                      <p id=\"117c77f259itd\">在<b id=\"wintitle-ban-9gz-gza\">添加代班</b>对话框，配置如下参数，并单击<b id=\"uicontrol-gwl-iy9-5la\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">保存</b>。</p>\n                      <table id=\"table-78w-cx7-ggq\" tablewidth=\"709\" tablecolswidth=\"15.69 84.31\" autofit=\"true\" class=\"table\">\n                        <colgroup colwidth=\"0.04*\" style=\"width:2.21%\"></colgroup>\n                        <colgroup colwidth=\"0.24*\" style=\"width:11.89%\"></colgroup>\n                        <tbody class=\"tbody\">\n                          <tr id=\"row-8hj-rcv-f6w\">\n                            <td id=\"task-2056543-entry-49f-noe-tib\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                              <p id=\"117c77f359srf\"><b>参数</b></p>\n                            </td>\n                            <td id=\"task-2056543-entry-zav-zzf-nqj\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                              <p id=\"117c77f459f8o\"><b>说明</b></p>\n                            </td>\n                          </tr>\n                          <tr id=\"row-imm-dsa-q7s\">\n                            <td id=\"entry-gll-78u-a9x\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117c9f0059b1e\"><b id=\"uicontrol-wli-f4i-rbb\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">对象</b></p>\n                            </td>\n                            <td id=\"entry-hjs-r60-xhe\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117c9f0159yjy\">原值班人员，支持选择多个值班人员。</p>\n                            </td>\n                          </tr>\n                          <tr id=\"row-2vs-flg-p3r\">\n                            <td id=\"entry-bha-aoc-2bc\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117c9f0259q9f\"><b id=\"uicontrol-h8b-ner-z51\">执行对象</b></p>\n                            </td>\n                            <td id=\"entry-8y8-yqw-62p\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117c9f03593ep\">代班人员，只能选择一个对象。</p>\n                            </td>\n                          </tr>\n                          <tr id=\"row-4tl-kun-20s\">\n                            <td id=\"entry-oes-evm-vw9\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117c9f0459rel\"><b id=\"uicontrol-l4i-a9z-f4p\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">开始时间</b></p>\n                            </td>\n                            <td id=\"entry-x9o-i01-lf2\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117c9f0559qkq\">代班开始时间。</p>\n                            </td>\n                          </tr>\n                          <tr id=\"row-8ar-9ed-570\">\n                            <td id=\"entry-y53-k9k-2gi\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117cc610599zh\"><b id=\"uicontrol-rw5-0vg-2gr\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">结束时间</b></p>\n                            </td>\n                            <td id=\"entry-1p3-5v8-mj0\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117cc61159dsl\">代班结束时间。</p>\n                              <p data-tag=\"p\" id=\"p-np0-omg-47n\" class=\"p\">支持快捷设置本周结束、下一周结束、本月结束、本季度结束、今年结束和自定义。</p>\n                            </td>\n                          </tr>\n                          <tr id=\"row-w6s-erd-bnm\">\n                            <td id=\"entry-i6m-4ao-ruz\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117cc612599fp\"><b id=\"uicontrol-9fi-sno-2zj\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">限制</b></p>\n                            </td>\n                            <td id=\"entry-uti-kpz-xnl\" rowspan=\"1\" colspan=\"1\">\n                              <p id=\"117ced205911h\">详细的代班时间段。</p>\n                              <ul data-tag=\"ul\" id=\"ul-d9z-omk-q2e\" class=\"ul\">\n                                <li data-tag=\"li\" id=\"li-t67-4pm-ef4\" class=\"li\">\n                                  <p id=\"117ced2159qk1\"><b id=\"uicontrol-k75-in9-4tq\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">无</b>：每天<span class=\"help-letter-space\"></span>24<span class=\"help-letter-space\"></span>小时代班。</p>\n                                </li>\n                                <li data-tag=\"li\" id=\"li-tww-xys-w8f\" class=\"li\">\n                                  <p id=\"117ced2259fwc\"><b id=\"uicontrol-nn6-b2p-5xx\">工作日</b>：仅在工作日代班，支持添加具体时间段。</p>\n                                </li>\n                                <li data-tag=\"li\" id=\"li-ffz-pi2-vlz\" class=\"li\">\n                                  <p id=\"117ced235941b\"><b id=\"uicontrol-az5-ln1-3ym\">非工作日</b>：仅在非工作日代班，支持添加具体时间段。</p>\n                                </li>\n                                <li data-tag=\"li\" id=\"li-mrp-1ox-105\" class=\"li\">\n                                  <p id=\"117ced24593mg\"><b id=\"uicontrol-ehg-vyw-t80\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">每天</b>：每天代班，支持添加具体时间段。</p>\n                                </li>\n                                <li data-tag=\"li\" id=\"li-43j-ka7-xk7\" class=\"li\">\n                                  <p id=\"117d1430595zv\"><b id=\"uicontrol-db4-q4v-45r\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">每周</b>：在每周特定时间内代班。</p>\n                                </li>\n                              </ul>\n                            </td>\n                          </tr>\n                        </tbody>\n                      </table>\n                    </li>\n                  </ol>\n                </div>\n              </li>\n              <li data-tag=\"substep\" id=\"substep-3p1-270-v06\" class=\"substep\">\n                <p id=\"117d143159rtn\"><span data-tag=\"cmd\" id=\"cmd-ma9-i00-g8a\" class=\"cmd\">查看最终排班。</span></p>\n                <div data-tag=\"info\" id=\"info-06q-gcw-mzn\" class=\"info\">\n                  <p id=\"117d143259iax\">单击<span data-tag=\"menucascade\" id=\"menucascade-z1a-te7-ojc\" class=\"menucascade\"><b data-tag=\"uicontrol\" id=\"uicontrol-zvn-2ex-yu8\" class=\"uicontrol\">值班轮岗和代班</b> &gt; <b data-tag=\"uicontrol\" id=\"uicontrol-5za-mlv-bgs\" class=\"uicontrol\">最终排班</b></span>。最终排班日历以月视图展示各日期的班次安排，每个日期标注<b>班</b>或<b>休</b>标记，并显示已分配的排班用户标签（如 user1、wan... 等），当前日期以蓝色圆圈高亮。</p>\n                </div>\n              </li>\n            </ol>\n          </li>\n          <li data-tag=\"step\" id=\"step-uq4-hfz-ki6\" class=\"step\">\n            <p id=\"117d143359k67\"><span data-tag=\"cmd\" id=\"cmd-5to-wic-v0y\" class=\"cmd\">配置日历。</span></p>\n            <div data-tag=\"info\" id=\"info-4st-ymr-l7f\" class=\"info\">\n              <p id=\"117d143459rkv\">支持全局默认日历和自定义日历，日历包含了时区、节假日、默认工作时间等定义，并可以进行重置。日历影响了当前值班组在值班轮岗、代班时的真正值班时间以及交班时间等。</p>\n              <ul data-tag=\"ul\" id=\"ul-8xt-wch-2y2\" class=\"ul\">\n                <li data-tag=\"li\" id=\"li-p8r-mfk-fem\" class=\"li\">\n                  <p id=\"117d143559fxx\"><b id=\"uicontrol-876-650-qc9\">自定义日历</b>：自定义工作日和节假日的时间段。配置后为值班组独有的工作日历。</p>\n                </li>\n                <li data-tag=\"li\" id=\"li-ec4-lg8-e39\" class=\"li\">\n                  <p id=\"117d3b4059wp3\"><b id=\"uicontrol-kza-nvx-72x\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">全局默认日历</b>：默认日历，采用预设国家的工作日历。选择该值后，与其他值班组使用相同的工作日历。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/modify-the-global-default-calendar#task-2057821\" id=\"xref-6ms-s7u-jsb\" title=\"\" class=\"xref\">修改全局默认日历</a>。</p>\n                </li>\n              </ul>\n            </div>\n          </li>\n          <li data-tag=\"step\" id=\"step-o4q-hap-18x\" class=\"step\">\n            <p id=\"117d3b41598pz\"><span data-tag=\"cmd\" id=\"cmd-e6z-53c-tfn\" class=\"cmd\">单击<b id=\"uicontrol-geu-d0s-ib6\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">保存</b>。</span></p>\n          </li>\n        </ol>\n      </section>\n    </div>\n  </main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/sls/create-an-on-duty-group","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"alias":"/sls/create-an-on-duty-group","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":7,"developerUrl":"https://developer.aliyun.com/group/sls/","nodeType":1,"version":11,"url":"/zh/sls/create-an-on-duty-group","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":207705,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"创建值班组","id":207705,"title":"创建值班组","url":"/zh/sls/create-an-on-duty-group"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"通知对象","id":207613,"title":"通知对象","url":"/zh/sls/user-management/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"告警","id":207608,"title":"告警","url":"/zh/sls/sls-alerting/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据监控","id":2928734,"title":"数据监控","url":"/zh/sls/data-monitoring/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"productUrl":"https://www.aliyun.com/product/sls","nodeId":207705,"desc":"值班组是日志服务告警提供的值班轮岗编排机制，支持根据周期、工作时长等安排轮询值班。本文介绍创建值班组的操作步骤。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据监控","id":2928734,"title":"数据监控","url":"/zh/sls/data-monitoring/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"告警","id":207608,"title":"告警","url":"/zh/sls/sls-alerting/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"通知对象","id":207613,"title":"通知对象","url":"/zh/sls/user-management/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"创建值班组","id":207705,"title":"创建值班组","url":"/zh/sls/create-an-on-duty-group"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=2150410017825534979704869ed6ac&asid=AQAAAACamz9qnelrTAAAAAAwUAPjRKpqng==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2929180" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/start-using-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开始使用</span>
+</a>
+</li>
+ <li id="128096" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/resource-management/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">资源管理</span>
+</a>
+</li>
+ <li id="128134" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-collection-1/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据采集</span>
+</a>
+</li>
+ <li id="2842370" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-processing-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据处理</span>
+</a>
+</li>
+ <li id="270795" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-storage/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据存储</span>
+</a>
+</li>
+ <li id="128135" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/index-and-query/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">查询与分析</span>
+</a>
+</li>
+ <li id="2928734" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-monitoring/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据监控</span>
+</a>
+</li>
+ <li id="2928732" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-log-output-and-integration/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据输出与集成</span>
+</a>
+</li>
+ <li id="2928739" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-technical-solutions/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">技术解决方案</span>
+</a>
+</li>
+ <li id="154068" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2528763" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/security-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="169976" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/faq-15">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>创建值班组</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/sls" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="task-2056543">
+    
+    
+    <p id="shortdesc-0ds-f3m-n2p" data-tag="shortdesc" class="shortdesc">值班组是日志服务告警提供的值班轮岗编排机制，支持根据周期、工作时长等安排轮询值班。本文介绍创建值班组的操作步骤。</p>
+    <div data-tag="taskbody" id="taskbody-cfa-pal-97a" class="taskbody">
+      <section data-tag="prereq" id="prereq-0ju-edq-dni" data-type="prereq" class="section prereq">
+        <h2 id="d41e14">前提条件</h2>
+        <p id="1179dfe059y5s">已创建用户或用户组。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/create-users-and-user-groups#task-2045211" id="xref-96w-v1x-rq8" title="" class="xref">创建用户和用户组</a>。</p>
+      </section>
+      <section data-tag="section" id="section-p5k-i7l-zab" data-type="section" class="section">
+        <h2 data-tag="title" id="title-670-gue-tvi" class="title">操作步骤</h2>
+        <ol data-tag="steps" id="steps-05a-357-2yw" class="steps">
+          <li data-tag="step" id="step-h5a-dq2-7lt" is-conref="true" class="step"><p id="6a7cc970501ga"><span data-tag="ph" id="ph-q0d-de9-ecs" class="ph">登录<span data-tag="ph" id="ph-i3r-pp7-fzx" props="china intl" data-cond-props="china intl" class="ph"><a href="https://sls.console.aliyun.com" id="xref-ivv-0k8-uct" class="" target="_blank">日志服务控制台</a></span>。</span></p></li>
+          <li id="2ec56ab159m2u" docid="2974463" is-conref="true"><p id="c5d8b22050xzy">进入值班组管理页面。</p><ol type="a" data-tag="substeps" id="3e2b4ee350ny9" class="substeps"><li data-tag="substep" id="3e2b4ee450epm" class="substep"><p id="3e2b4ee550qnz">在<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>列表区域，单击任意一个<span class="help-letter-space"></span>Project。</p></li><li data-tag="substep" id="3e2b4ee650lgu" class="substep"><p id="3e2b4ee750d4s">在左侧导航栏中，单击<b data-tag="uicontrol" id="d640e57950knh" class="uicontrol">告警</b>。</p></li><li data-tag="substep" id="3e2b4ee8505i3" class="substep"><p id="3e2b4ee9506oi">在<b data-tag="uicontrol" id="d640e57a50jmc" class="uicontrol">告警中心</b>页面，选择<span data-tag="menucascade" id="d640e57b50l4h" class="menucascade"><b data-tag="uicontrol" id="d640e57c50ph1" class="uicontrol">通知对象</b> &gt; <b data-tag="uicontrol" id="d640e57d50btl" class="uicontrol">值班组管理</b></span>。</p></li></ol></li>
+          <li data-tag="step" id="step-jpq-puv-qhi" class="step">
+            <p id="117a06f159toq">单击<b id="uicontrol-l9d-mu4-4vn" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建</b>。</p>
+          </li>
+          <li data-tag="step" id="step-n6k-gh8-xjs" class="step">
+            <p id="117a06f259sur">在<b id="wintitle-5yf-onn-y1t">添加值班组</b>对话框中，配置如下基本信息。</p>
+            <div data-tag="info" id="info-uqy-v9z-aqp" class="info">
+              <table id="table-1is-3ef-78b" tablewidth="709" tablecolswidth="14.79 85.21000000000001" autofit="true" class="table">
+                <colgroup colwidth="0.04*" style="width:2.09%"></colgroup>
+                <colgroup colwidth="0.24*" style="width:12.02%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="row-10r-z3k-4ei">
+                    <td id="task-2056543-entry-bnf-gs8-xql" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="117a2e005912d"><b>参数</b></p>
+                    </td>
+                    <td id="task-2056543-entry-dsn-99a-lsu" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="117a2e0159s11"><b>说明</b></p>
+                    </td>
+                  </tr>
+                  <tr id="row-era-kgr-fgq">
+                    <td id="entry-ra5-uph-1qv" rowspan="1" colspan="1">
+                      <p id="117a2e0259wuq"><b id="uicontrol-4bx-1h9-3z3">标识符</b></p>
+                    </td>
+                    <td id="entry-ra8-n1e-gpt" rowspan="1" colspan="1">
+                      <p id="117aa33059305">值班组唯一标识，单个阿里云账号下不可重复。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-6sh-hpe-yyp">
+                    <td id="entry-mls-g1w-18p" rowspan="1" colspan="1">
+                      <p id="117aca40592ga"><b data-tag="uicontrol" id="uicontrol-ld3-w5k-dd9" class="uicontrol">组名</b></p>
+                    </td>
+                    <td id="entry-oea-oi9-3ol" rowspan="1" colspan="1">
+                      <p id="117aca41593si">值班组名称。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-ehw-hxb-7wz">
+                    <td id="entry-wcd-uqa-6yn" rowspan="1" colspan="1">
+                      <p id="117af150596i8"><b id="uicontrol-vmz-hw7-qup" data-tag="uicontrol" data-isbold="true" class="uicontrol">启用</b></p>
+                    </td>
+                    <td id="entry-u0l-4w1-67q" rowspan="1" colspan="1">
+                      <p id="117af15159eln">是否启用值班组。</p>
+                      <ul data-tag="ul" id="ul-ott-onx-ka8" class="ul">
+                        <li data-tag="li" id="li-9tt-oc7-zon" class="li">
+                          <p id="117af15259pw6">启用：值班组处于正常状态，可安排值班。</p>
+                        </li>
+                        <li data-tag="li" id="li-ofg-2aa-wk8" class="li">
+                          <p id="117b18605955l">不启用：值班组处于禁用状态，不可安排值班。</p>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li data-tag="step" id="step-nug-h20-9g2" class="step">
+            <p id="117b1861598y9">配置值班表。</p>
+            <div data-tag="info" id="info-g96-frr-7tl" class="info">
+              <p id="117b1862599eg">值班表提供三种视图，分别为<b id="7f003b207d8qw">最终排班</b>、<b id="daec389605lxs">值班轮岗</b>和<b id="89d2e7dc56j9a">代班</b>。配置值班轮岗和代班后，您可以通过最终排班视图看到最终的排班情况。处于值班轮岗中的员工无法值班时，您可以使用代班功能安排其他人进行值班。</p>
+            </div>
+            <ol type="a" data-tag="substeps" id="substeps-gr3-2v4-n7c" class="substeps">
+              <li data-tag="substep" id="substep-z6x-wsq-kzq" class="substep">
+                <p id="117b186359amg"><span data-tag="cmd" id="cmd-av2-j99-u3m" class="cmd">配置值班轮岗。</span></p>
+                <div data-tag="info" id="info-iv7-nl9-p4a" class="info">
+                  <ol id="ol-kt4-flw-jzu" type="i" data-tag="ol" class="ol">
+                    <li data-tag="li" id="li-uw5-71n-3ne" class="li">
+                      <p id="117b3f7059kv5">单击<span data-tag="menucascade" id="menucascade-u5n-to3-imj" class="menucascade"><b data-tag="uicontrol" id="uicontrol-9d9-w4u-kb3" class="uicontrol"><img data-tag="image" id="image-a8b-u4z-n76" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/6521065161/p249337.png" alt="jiahao" placement="inline" class="image inline"></b> &gt; <b data-tag="uicontrol" id="uicontrol-mvr-7bu-tg1" class="uicontrol">值班轮岗</b></span>。</p>
+                    </li>
+                    <li id="li-a70-oi0-14g" data-tag="li" class="li">
+                      <p id="117b668059d5d">在<b id="wintitle-us8-ztc-l4f">添加值班轮岗</b>对话框中，配置如下参数，并单击<b id="uicontrol-zmb-t7s-57y" data-tag="uicontrol" data-isbold="true" class="uicontrol">保存</b>。</p>
+                      <table id="table-0wt-n62-s8b" tablewidth="709" tablecolswidth="15.13 84.87" autofit="true" class="table">
+                        <colgroup colwidth="0.04*" style="width:2.13%"></colgroup>
+                        <colgroup colwidth="0.24*" style="width:11.97%"></colgroup>
+                        <tbody class="tbody">
+                          <tr id="row-9ci-yne-o8o">
+                            <td id="task-2056543-entry-89g-7fi-xj4" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                              <p id="117b668159jlj"><b>参数</b></p>
+                            </td>
+                            <td id="task-2056543-entry-t79-pvu-p1v" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                              <p id="117b8d9059zo1"><b>说明</b></p>
+                            </td>
+                          </tr>
+                          <tr id="row-pca-hkz-urk">
+                            <td id="entry-gas-ugf-pyk" rowspan="1" colspan="1">
+                              <p id="117b8d9159ngo"><b id="uicontrol-viz-yd1-me5" data-tag="uicontrol" data-isbold="true" class="uicontrol">开始时间</b></p>
+                            </td>
+                            <td id="entry-sa7-uk4-638" rowspan="1" colspan="1">
+                              <p id="117b8d9259eyc">值班开始时间。</p>
+                            </td>
+                          </tr>
+                          <tr id="row-lps-m7v-770">
+                            <td id="entry-2xs-fif-pg5" rowspan="1" colspan="1">
+                              <p id="117b8d935981s"><b id="uicontrol-fvs-boh-yl3" data-tag="uicontrol" data-isbold="true" class="uicontrol">结束时间</b></p>
+                            </td>
+                            <td id="entry-0e6-f7w-ts9" rowspan="1" colspan="1">
+                              <p id="117bb4a05902n">值班结束时间。</p>
+                            </td>
+                          </tr>
+                          <tr id="row-zk7-hpz-hgq">
+                            <td id="entry-3do-cu1-i6k" rowspan="1" colspan="1">
+                              <p id="117bb4a159lhd"><b id="uicontrol-2fk-hsl-dym" data-tag="uicontrol" data-isbold="true" class="uicontrol">限制</b></p>
+                            </td>
+                            <td id="entry-2w8-v3c-2nl" rowspan="1" colspan="1">
+                              <p id="117bdbb059gqq">配置详细的值班时间段。</p>
+                              <ul data-tag="ul" id="ul-pf8-vs3-spg" class="ul">
+                                <li data-tag="li" id="li-iad-9m8-agk" class="li">
+                                  <p id="117bdbb159jqj"><b id="uicontrol-s9q-2id-p2u" data-tag="uicontrol" data-isbold="true" class="uicontrol">无</b>：每天<span class="help-letter-space"></span>24<span class="help-letter-space"></span>小时值班。</p>
+                                </li>
+                                <li data-tag="li" id="li-wjs-4pt-6yj" class="li">
+                                  <p id="117bdbb2593m9"><b id="uicontrol-6xe-p7j-a6p">工作日</b>：仅在工作日值班，支持添加具体时间段。</p>
+                                </li>
+                                <li data-tag="li" id="li-pz5-45z-od0" class="li">
+                                  <p id="117c02c05945w"><b id="uicontrol-ku3-25p-mvw">非工作日</b>：仅在非工作日值班，支持添加具体时间段。</p>
+                                </li>
+                                <li data-tag="li" id="li-559-m7a-2gh" class="li">
+                                  <p id="117c02c159s8o"><b id="uicontrol-tcs-pn7-lko" data-tag="uicontrol" data-isbold="true" class="uicontrol">每天</b>：每天值班，支持添加具体时间段。</p>
+                                </li>
+                                <li data-tag="li" id="li-lgj-frj-vp0" class="li">
+                                  <p id="117c29d059dd1"><b id="uicontrol-r2v-5jp-8cv" data-tag="uicontrol" data-isbold="true" class="uicontrol">每周</b>：在每周特定时间内值班。</p>
+                                </li>
+                              </ul>
+                            </td>
+                          </tr>
+                          <tr id="row-u9x-7y4-iuc">
+                            <td id="entry-gd2-78q-nes" rowspan="1" colspan="1">
+                              <p id="117c29d159c12"><b id="uicontrol-ry5-no2-j9k" data-tag="uicontrol" data-isbold="true" class="uicontrol">对象</b></p>
+                            </td>
+                            <td id="entry-xm0-vli-7um" rowspan="1" colspan="1">
+                              <p id="117c29d259vpc">值班人员支持选择多个值班人员（用户、用户组）。</p>
+                              <div data-tag="note" id="note-pux-xx0-gj1" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                                <p id="117c50e059xmg">如果用户或用户组被禁用，则在排班时自动过滤该用户或用户组。</p>
+                              </div></div>
+                            </td>
+                          </tr>
+                          <tr id="row-zgb-tsi-zx1">
+                            <td id="entry-3w9-mqy-xpi" rowspan="1" colspan="1">
+                              <p id="117c50e1594ia"><b id="uicontrol-tnn-ax3-xab">轮岗类型</b></p>
+                            </td>
+                            <td id="entry-qbz-b8q-y2h" rowspan="1" colspan="1">
+                              <p id="117c50e259v1x">支持按照小时班、日班、周班和月班进行轮流值班。</p>
+                            </td>
+                          </tr>
+                          <tr id="row-uq3-r3c-xzz">
+                            <td id="entry-hjr-d1f-913" rowspan="1" colspan="1">
+                              <p id="117c50e359ujg"><b id="uicontrol-ysc-uvh-yfc">交班时间</b></p>
+                            </td>
+                            <td id="entry-5pv-vpw-ue2" rowspan="1" colspan="1">
+                              <p id="117c50e459vm7">根据轮岗类型设置交班的具体时间，支持自定义时间。</p>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                  </ol>
+                </div>
+              </li>
+              <li data-tag="substep" id="substep-asb-jrf-zdl" class="substep">
+                <p id="117c50e559khs"><span data-tag="ph" id="110d627359bcy" class="ph"><b>可选：</b></span><span data-tag="cmd" id="cmd-99n-wx0-deh" class="cmd">配置代班。</span></p>
+                <div data-tag="info" id="info-o98-jh9-a5w" class="info">
+                  <ol data-tag="ol" type="i" id="ol-j6d-xia-cgj" class="ol">
+                    <li data-tag="li" id="li-8vq-yse-q7y" class="li">
+                      <p id="117c77f159dev">单击<span data-tag="menucascade" id="menucascade-emf-3mu-k3v" class="menucascade"><b data-tag="uicontrol" id="uicontrol-c5z-nqj-oh4" class="uicontrol"><img data-tag="image" id="image-8uu-x1e-x8m" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/6521065161/p249337.png" alt="jiahao" placement="inline" class="image inline"></b> &gt; <b data-tag="uicontrol" id="uicontrol-8qi-xn6-n4j" class="uicontrol">代班</b></span>。</p>
+                    </li>
+                    <li data-tag="li" id="li-2ux-ywp-095" class="li">
+                      <p id="117c77f259itd">在<b id="wintitle-ban-9gz-gza">添加代班</b>对话框，配置如下参数，并单击<b id="uicontrol-gwl-iy9-5la" data-tag="uicontrol" data-isbold="true" class="uicontrol">保存</b>。</p>
+                      <table id="table-78w-cx7-ggq" tablewidth="709" tablecolswidth="15.69 84.31" autofit="true" class="table">
+                        <colgroup colwidth="0.04*" style="width:2.21%"></colgroup>
+                        <colgroup colwidth="0.24*" style="width:11.89%"></colgroup>
+                        <tbody class="tbody">
+                          <tr id="row-8hj-rcv-f6w">
+                            <td id="task-2056543-entry-49f-noe-tib" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                              <p id="117c77f359srf"><b>参数</b></p>
+                            </td>
+                            <td id="task-2056543-entry-zav-zzf-nqj" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                              <p id="117c77f459f8o"><b>说明</b></p>
+                            </td>
+                          </tr>
+                          <tr id="row-imm-dsa-q7s">
+                            <td id="entry-gll-78u-a9x" rowspan="1" colspan="1">
+                              <p id="117c9f0059b1e"><b id="uicontrol-wli-f4i-rbb" data-tag="uicontrol" data-isbold="true" class="uicontrol">对象</b></p>
+                            </td>
+                            <td id="entry-hjs-r60-xhe" rowspan="1" colspan="1">
+                              <p id="117c9f0159yjy">原值班人员，支持选择多个值班人员。</p>
+                            </td>
+                          </tr>
+                          <tr id="row-2vs-flg-p3r">
+                            <td id="entry-bha-aoc-2bc" rowspan="1" colspan="1">
+                              <p id="117c9f0259q9f"><b id="uicontrol-h8b-ner-z51">执行对象</b></p>
+                            </td>
+                            <td id="entry-8y8-yqw-62p" rowspan="1" colspan="1">
+                              <p id="117c9f03593ep">代班人员，只能选择一个对象。</p>
+                            </td>
+                          </tr>
+                          <tr id="row-4tl-kun-20s">
+                            <td id="entry-oes-evm-vw9" rowspan="1" colspan="1">
+                              <p id="117c9f0459rel"><b id="uicontrol-l4i-a9z-f4p" data-tag="uicontrol" data-isbold="true" class="uicontrol">开始时间</b></p>
+                            </td>
+                            <td id="entry-x9o-i01-lf2" rowspan="1" colspan="1">
+                              <p id="117c9f0559qkq">代班开始时间。</p>
+                            </td>
+                          </tr>
+                          <tr id="row-8ar-9ed-570">
+                            <td id="entry-y53-k9k-2gi" rowspan="1" colspan="1">
+                              <p id="117cc610599zh"><b id="uicontrol-rw5-0vg-2gr" data-tag="uicontrol" data-isbold="true" class="uicontrol">结束时间</b></p>
+                            </td>
+                            <td id="entry-1p3-5v8-mj0" rowspan="1" colspan="1">
+                              <p id="117cc61159dsl">代班结束时间。</p>
+                              <p data-tag="p" id="p-np0-omg-47n" class="p">支持快捷设置本周结束、下一周结束、本月结束、本季度结束、今年结束和自定义。</p>
+                            </td>
+                          </tr>
+                          <tr id="row-w6s-erd-bnm">
+                            <td id="entry-i6m-4ao-ruz" rowspan="1" colspan="1">
+                              <p id="117cc612599fp"><b id="uicontrol-9fi-sno-2zj" data-tag="uicontrol" data-isbold="true" class="uicontrol">限制</b></p>
+                            </td>
+                            <td id="entry-uti-kpz-xnl" rowspan="1" colspan="1">
+                              <p id="117ced205911h">详细的代班时间段。</p>
+                              <ul data-tag="ul" id="ul-d9z-omk-q2e" class="ul">
+                                <li data-tag="li" id="li-t67-4pm-ef4" class="li">
+                                  <p id="117ced2159qk1"><b id="uicontrol-k75-in9-4tq" data-tag="uicontrol" data-isbold="true" class="uicontrol">无</b>：每天<span class="help-letter-space"></span>24<span class="help-letter-space"></span>小时代班。</p>
+                                </li>
+                                <li data-tag="li" id="li-tww-xys-w8f" class="li">
+                                  <p id="117ced2259fwc"><b id="uicontrol-nn6-b2p-5xx">工作日</b>：仅在工作日代班，支持添加具体时间段。</p>
+                                </li>
+                                <li data-tag="li" id="li-ffz-pi2-vlz" class="li">
+                                  <p id="117ced235941b"><b id="uicontrol-az5-ln1-3ym">非工作日</b>：仅在非工作日代班，支持添加具体时间段。</p>
+                                </li>
+                                <li data-tag="li" id="li-mrp-1ox-105" class="li">
+                                  <p id="117ced24593mg"><b id="uicontrol-ehg-vyw-t80" data-tag="uicontrol" data-isbold="true" class="uicontrol">每天</b>：每天代班，支持添加具体时间段。</p>
+                                </li>
+                                <li data-tag="li" id="li-43j-ka7-xk7" class="li">
+                                  <p id="117d1430595zv"><b id="uicontrol-db4-q4v-45r" data-tag="uicontrol" data-isbold="true" class="uicontrol">每周</b>：在每周特定时间内代班。</p>
+                                </li>
+                              </ul>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </li>
+                  </ol>
+                </div>
+              </li>
+              <li data-tag="substep" id="substep-3p1-270-v06" class="substep">
+                <p id="117d143159rtn"><span data-tag="cmd" id="cmd-ma9-i00-g8a" class="cmd">查看最终排班。</span></p>
+                <div data-tag="info" id="info-06q-gcw-mzn" class="info">
+                  <p id="117d143259iax">单击<span data-tag="menucascade" id="menucascade-z1a-te7-ojc" class="menucascade"><b data-tag="uicontrol" id="uicontrol-zvn-2ex-yu8" class="uicontrol">值班轮岗和代班</b> &gt; <b data-tag="uicontrol" id="uicontrol-5za-mlv-bgs" class="uicontrol">最终排班</b></span>。最终排班日历以月视图展示各日期的班次安排，每个日期标注<b>班</b>或<b>休</b>标记，并显示已分配的排班用户标签（如 user1、wan... 等），当前日期以蓝色圆圈高亮。</p>
+                </div>
+              </li>
+            </ol>
+          </li>
+          <li data-tag="step" id="step-uq4-hfz-ki6" class="step">
+            <p id="117d143359k67"><span data-tag="cmd" id="cmd-5to-wic-v0y" class="cmd">配置日历。</span></p>
+            <div data-tag="info" id="info-4st-ymr-l7f" class="info">
+              <p id="117d143459rkv">支持全局默认日历和自定义日历，日历包含了时区、节假日、默认工作时间等定义，并可以进行重置。日历影响了当前值班组在值班轮岗、代班时的真正值班时间以及交班时间等。</p>
+              <ul data-tag="ul" id="ul-8xt-wch-2y2" class="ul">
+                <li data-tag="li" id="li-p8r-mfk-fem" class="li">
+                  <p id="117d143559fxx"><b id="uicontrol-876-650-qc9">自定义日历</b>：自定义工作日和节假日的时间段。配置后为值班组独有的工作日历。</p>
+                </li>
+                <li data-tag="li" id="li-ec4-lg8-e39" class="li">
+                  <p id="117d3b4059wp3"><b id="uicontrol-kza-nvx-72x" data-tag="uicontrol" data-isbold="true" class="uicontrol">全局默认日历</b>：默认日历，采用预设国家的工作日历。选择该值后，与其他值班组使用相同的工作日历。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/modify-the-global-default-calendar#task-2057821" id="xref-6ms-s7u-jsb" title="" class="xref">修改全局默认日历</a>。</p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li data-tag="step" id="step-o4q-hap-18x" class="step">
+            <p id="117d3b41598pz"><span data-tag="cmd" id="cmd-e6z-53c-tfn" class="cmd">单击<b id="uicontrol-geu-d0s-ib6" data-tag="uicontrol" data-isbold="true" class="uicontrol">保存</b>。</span></p>
+          </li>
+        </ol>
+      </section>
+    </div>
+  </main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/sls/create-users-and-user-groups" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：创建用户和用户组</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/sls/create-a-webhook" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：Webhook集成<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

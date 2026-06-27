@@ -1,0 +1,2 @@
+# 采集和查询分析Nginx监控日志
+通过配置Nginx内置的stub_status模块，您可以启用专用的状态页实时显示Nginx服务器的关键指标，例如活跃的客户端连接数（Active connections）、在读取请求头（Reading）、发送响应（Writing）以及处于等待状态（Waiting）的连接数。您可以通过Logtail插件采集Nginx监控日志并进行查询分析，持续监控Nginx集群的性能。

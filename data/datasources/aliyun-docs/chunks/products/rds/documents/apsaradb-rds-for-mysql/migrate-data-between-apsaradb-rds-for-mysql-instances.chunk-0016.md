@@ -1,0 +1,5 @@
+可能导致只能迁移部分列的数据或迁移失败，请谨慎操作。 |
+| 是否迁移 Event | 请根据实际情况选择是否迁移源库中的事件（Event）。若您选择 是 ，则还需遵循相关要求并进行后续操作。更多信息，请参见 [同步或迁移事件](https://help.aliyun.com/zh/dts/user-guide/synchronize-or-migrate-events-from-the-source-database) 。 |
+| 目标库对象名称大小写策略 | 您可以配置目标实例中迁移对象的库名、表名和列名的英文大小写策略。默认情况下选择 DTS 默认策略 ，您也可以选择与源库、目标库默认策略保持一致。更多信息，请参见 [目标库对象名称大小写策略](https://help.aliyun.com/zh/dts/user-guide/specify-the-capitalization-of-object-names-in-the-destination-instance-2#concept-2045083) 。 |
+| 源库对象 | 在 源库对象 框中单击待迁移的对象，然后单击 将其移动到 已选择对象 框。 说明 迁移对象选择的粒度为库、表、列。若选择的迁移对象为表或列，其他对象（如视图、触发器、存储过程）不会被迁移至目标库。 |
+| 已选择对象 | 如需设置待迁移对象在目标实例中的名称，或指定目标实例中接收数据的对象，请右击 已选择对象 中的迁移对象进行修改。设置方式，请参见 [库表列名映射](https://help.aliyun.com/zh/dts/user-guide/map-object-names) 。 如需移除已选择的迁移对象，请在 已选择对象 框中单击待迁移的对象，然后单击 将其移动到 源库对象 框。 说明 如果使用了对象名映射功能，可能会导致依赖这个对象的其他对象迁移失败。 如需设置 WHERE 条件过滤数据，请在 已选择对象 中右击待迁移的表，在弹出的对话框中设置过滤条件。设置方法，请参见 [设置过滤条件](https://help.aliyun.com/zh/dts/user-guide/use-sql-conditions-to-filter-data-1#concept-610729) 。 如需选择增量迁移的 SQL 操作，请在 已选择对象 中右击待迁移的对象，并在弹出的对话框中选择所需迁移的 SQL 操作。 |

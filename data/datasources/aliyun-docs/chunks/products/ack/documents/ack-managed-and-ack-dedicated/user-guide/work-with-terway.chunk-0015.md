@@ -1,0 +1,5 @@
+### 网络加速
+使用Terway共享ENI模式时，可以选择开启网络加速模式。选择开启加速模式后，Terway会采取不同于常规共享ENI模式的流量转发路径，以达成更高的性能。Terway目前支持DataPathv2加速模式，请参考下方的说明了解DataPathv2的特点。
+重要
+DataPathv2是更早的IPvlan+eBPF加速模式的升级版。在Terway V1.8.0及更晚的版本中，创建集群并安装Terway插件时只支持选择DataPathv2加速。
+DataPathv2加速模式与IPvlan+eBPF加速模式仅适用于共享ENI节点池，不影响独占ENI节点池。

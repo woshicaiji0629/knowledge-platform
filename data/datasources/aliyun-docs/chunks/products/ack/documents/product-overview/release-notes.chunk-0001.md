@@ -1,0 +1,6 @@
+| 产品 | 功能名称 | 功能描述 | 相关文档 |
+| --- | --- | --- | --- |
+| 容器服务 Kubernetes 版 | 支持 Alibaba Cloud Linux 4 容器优化版镜像 | Alibaba Cloud Linux 4 容器优化版是基于 Alibaba Cloud Linux 4 标准镜像，面向容器场景进行了深度优化。它搭载 ANCK 6.6 内核，默认启用 cgroup v2 以支持更精细的资源管理。该镜像是阿里云结合其在 ACK 的丰富客户实践经验自研而成，推荐用于各类容器化业务部署。 | [Alibaba Cloud Linux 4 容器优化版](../ack-managed-and-ack-dedicated/user-guide/alibaba-cloud-linux-4-container-optimized-edition.md) |
+| 支持使用 AgentScope 将智能体应用部署为 Knative 服务 | 将 AgentScope 框架开发的智能体应用一键式部署到 ACK Knative 环境中后，可利用 Knative 的自动扩缩容（缩容至 0）、版本管理等 Serverless 能力，实现 AI 智能体的快速、弹性与低成本托管。 | [使用 AgentScope 将智能体应用部署为 Knative 服务](../ack-managed-and-ack-dedicated/user-guide/use-agentscope-to-deploy-smart-body-applications-as-knative-services.md) |  |
+| 在 Auto Mode 集群中部署 Qwen 大语言模型推理服务 | ACK Auto Mode 集群支持 Auto Mode 节点池，结合 Knative Serving 的按需弹性能力，可将 Qwen3.5-4B 大模型部署为按需使用的 Serverless 推理服务。部署后，无需手动运维管理 GPU 资源，适用于对 GPU 成本敏感和运维复杂度有要求的模型推理场景。 | [基于 Knative 部署 Qwen3.5-4B](../ack-managed-and-ack-dedicated/user-guide/deploy-qwen3-5-4b-llm-inference-services-in-ack-auto-mode-clusters-with-knative.md) |  |
+| 容器 Argo 工作流集群 | 使用 PythonSDK 构建大规模 Argo Workflows | Argo Workflows 是一个强大的工作流管理工具，广泛应用于定时任务、机器学习和 ETL 数据处理等场景，但是使用 YAML 定义工作流程

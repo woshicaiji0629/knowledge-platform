@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-postgresql/create-a-read-only-apsaradb-rds-for-postgresql-instance",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "创建PostgreSQL只读实例以扩展读取能力-云数据库RDS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/create-a-read-only-apsaradb-rds-for-postgresql-instance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-postgresql/create-a-read-only-apsaradb-rds-for-postgresql-instance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-postgresql/create-a-read-only-apsaradb-rds-for-postgresql-instance.md",
+  "word_count": 1293,
+  "text_units": 4011,
+  "local_links": 3,
+  "external_links": 96,
+  "has_tables": true,
+  "table_count": 8,
+  "quality": "accepted"
+}

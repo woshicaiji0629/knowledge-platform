@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/create-an-automatic-snapshot-policy-1",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "创建自动快照策略周期性地为云盘创建快照备份数据-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/create-an-automatic-snapshot-policy-1",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/create-an-automatic-snapshot-policy-1.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/create-an-automatic-snapshot-policy-1.md",
+  "word_count": 743,
+  "text_units": 2355,
+  "local_links": 3,
+  "external_links": 76,
+  "has_tables": true,
+  "table_count": 6,
+  "quality": "accepted"
+}

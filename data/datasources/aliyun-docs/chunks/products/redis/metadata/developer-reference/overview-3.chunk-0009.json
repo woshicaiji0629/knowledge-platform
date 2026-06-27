@@ -1,0 +1,14 @@
+{
+  "id": "redis:developer-reference/overview-3:9",
+  "document_id": "redis:developer-reference/overview-3",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "performance",
+  "title": "命令支持范围与使用限制-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/developer-reference/overview-3",
+  "chunk_index": 9,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/developer-reference/overview-3.chunk-0009.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/overview-3.md",
+  "heading_path": "命令概览 > 不同架构下的命令限制 > 服务",
+  "char_count": 303
+}

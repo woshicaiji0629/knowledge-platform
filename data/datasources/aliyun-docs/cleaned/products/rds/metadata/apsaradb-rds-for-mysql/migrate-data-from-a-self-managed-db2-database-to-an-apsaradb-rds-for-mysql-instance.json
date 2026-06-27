@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/migrate-data-from-a-self-managed-db2-database-to-an-apsaradb-rds-for-mysql-instance",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "如何将自建的Db2迁移至RDSMySQL-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/migrate-data-from-a-self-managed-db2-database-to-an-apsaradb-rds-for-mysql-instance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-mysql/migrate-data-from-a-self-managed-db2-database-to-an-apsaradb-rds-for-mysql-instance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/migrate-data-from-a-self-managed-db2-database-to-an-apsaradb-rds-for-mysql-instance.md",
+  "word_count": 1183,
+  "text_units": 3823,
+  "local_links": 0,
+  "external_links": 81,
+  "has_tables": true,
+  "table_count": 12,
+  "quality": "accepted"
+}

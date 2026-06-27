@@ -1,0 +1,17 @@
+{
+  "id": "redis:developer-reference/tairbloom-command",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "TairBloom介绍,命令列表-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/developer-reference/tairbloom-command",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/developer-reference/tairbloom-command.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/tairbloom-command.md",
+  "word_count": 1650,
+  "text_units": 5260,
+  "local_links": 5,
+  "external_links": 71,
+  "has_tables": true,
+  "table_count": 21,
+  "quality": "accepted"
+}

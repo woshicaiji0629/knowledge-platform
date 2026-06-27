@@ -1,0 +1,14 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/migrate-mysql-from-aws-rds-to-alibaba-cloud-rds:32",
+  "document_id": "rds:apsaradb-rds-for-mysql/migrate-mysql-from-aws-rds-to-alibaba-cloud-rds",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "使用DTS将Amazon RDS MySQL的数据迁移至阿里云-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/migrate-mysql-from-aws-rds-to-alibaba-cloud-rds",
+  "chunk_index": 32,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/rds/documents/apsaradb-rds-for-mysql/migrate-mysql-from-aws-rds-to-alibaba-cloud-rds.chunk-0032.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/migrate-mysql-from-aws-rds-to-alibaba-cloud-rds.md",
+  "heading_path": "从Amazon RDS MySQL迁移至阿里云 > 操作步骤（旧版控制台） > 服务",
+  "char_count": 303
+}

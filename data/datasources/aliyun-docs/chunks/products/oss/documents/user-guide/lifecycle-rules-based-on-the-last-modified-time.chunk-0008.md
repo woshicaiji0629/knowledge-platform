@@ -1,0 +1,5 @@
+### 在开通了OSS-HDFS服务的Bucket中配置生命周期规则
+在开通了OSS-HDFS服务的Bucket中配置基于OSS文件的生命周期规则
+如果您对开通了OSS-HDFS服务的Bucket设置或更新为匹配整个Bucket的生命周期规则，需通过NOT元素排除.dlsdata/，避免因生命周期规则触发的Object删除或存储类型转换行为影响OSS-HDFS数据读写。
+在开通了OSS-HDFS服务的Bucket中配置基于HDFS文件的生命周期规则
+如果您需要对经常访问的数据以标准类型进行存储，对于较少访问的数据以低频、归档以及冷归档类型进行存储，您可以使用基于生命周期规则的冷热分层存储功能实现这一场景。具体操作，请参见[使用冷热分层存储](enable-the-automatic-storage-tiering-feature-for-the-oss-hdfs-service.md)。

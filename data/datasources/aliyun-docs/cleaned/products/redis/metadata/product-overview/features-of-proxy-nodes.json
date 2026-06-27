@@ -1,0 +1,17 @@
+{
+  "id": "redis:product-overview/features-of-proxy-nodes",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "Tair Proxy特性与路由转发规则-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/features-of-proxy-nodes",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/product-overview/features-of-proxy-nodes.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/features-of-proxy-nodes.md",
+  "word_count": 1557,
+  "text_units": 5059,
+  "local_links": 17,
+  "external_links": 70,
+  "has_tables": true,
+  "table_count": 9,
+  "quality": "accepted"
+}

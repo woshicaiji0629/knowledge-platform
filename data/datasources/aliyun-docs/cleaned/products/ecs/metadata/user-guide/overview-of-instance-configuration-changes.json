@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/overview-of-instance-configuration-changes",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "pricing",
+  "title": "升级或降低ECS的实例规格、公网带宽或转换云盘计费方式-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/overview-of-instance-configuration-changes",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/overview-of-instance-configuration-changes.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/overview-of-instance-configuration-changes.md",
+  "word_count": 840,
+  "text_units": 2425,
+  "local_links": 8,
+  "external_links": 83,
+  "has_tables": true,
+  "table_count": 14,
+  "quality": "accepted"
+}

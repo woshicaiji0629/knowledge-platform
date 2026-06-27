@@ -1,0 +1,2 @@
+# 使用Gang scheduling
+ACK基于新版的kube-scheduler框架实现Gang scheduling的能力。Gang scheduling主要用于确保一组关联的Pod能够同时调度到集群中的节点上，或者如果无法满足这种条件，则这些Pod都不会被调度，解决原生调度器无法支持All-or-Nothing作业调度的问题。这种策略在执行需要严格同步或共享资源的分布式应用时非常有用，例如Spark、Hadoop等大数据处理任务。本文介绍如何使用Gang scheduling。

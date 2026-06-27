@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-argo-workflow-cluster/use-cases/event-driven-ci-pipeline-via-eventbridge",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "基于EventBridge的事件驱动CI Pipeline-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/use-cases/event-driven-ci-pipeline-via-eventbridge",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-argo-workflow-cluster/use-cases/event-driven-ci-pipeline-via-eventbridge.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-argo-workflow-cluster/use-cases/event-driven-ci-pipeline-via-eventbridge.md",
+  "word_count": 1428,
+  "text_units": 2578,
+  "local_links": 28,
+  "external_links": 78,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

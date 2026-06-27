@@ -1,0 +1,5 @@
+### [快速学会使用命令行工具ossutil](https://developer.aliyun.com/adc/scenario/f8d38ffb94c044dc8f161e1388fc70e5?spm=a2c4g.11186623.0.0.f8cd6aae3lTXpW)
+[创建Bucket](https://developer.aliyun.com/adc/scenario/f8d38ffb94c044dc8f161e1388fc70e5?spm=a2c4g.11186623.0.0.f8cd6aae3lTXpW)
+[上传文件](https://developer.aliyun.com/adc/scenario/f8d38ffb94c044dc8f161e1388fc70e5?spm=a2c4g.11186623.0.0.f8cd6aae3lTXpW)
+[下载文件](https://developer.aliyun.com/adc/scenario/f8d38ffb94c044dc8f161e1388fc70e5?spm=a2c4g.11186623.0.0.f8cd6aae3lTXpW)
+[删除文件](https://developer.aliyun.com/adc/scenario/f8d38ffb94c044dc8f161e1388fc70e5?spm=a2c4g.11186623.0.0.f8cd6aae3lTXpW)

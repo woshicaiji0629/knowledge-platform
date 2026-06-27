@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/user-guide/monitor-ack-edge-clusters-with-managed-service-for-prometheus:10",
+  "document_id": "ack:ack-edge/user-guide/monitor-ack-edge-clusters-with-managed-service-for-prometheus",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "为ACK Edge集群配置Prometheus监控与告警规则-容器服务Kubernetes版ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/user-guide/monitor-ack-edge-clusters-with-managed-service-for-prometheus",
+  "chunk_index": 10,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/user-guide/monitor-ack-edge-clusters-with-managed-service-for-prometheus.chunk-0010.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/user-guide/monitor-ack-edge-clusters-with-managed-service-for-prometheus.md",
+  "heading_path": "通过阿里云Prometheus监控ACK Edge集群 > 配置Prometheus监控报警 > 步骤二：创建Prometheus告警规则",
+  "char_count": 1200
+}

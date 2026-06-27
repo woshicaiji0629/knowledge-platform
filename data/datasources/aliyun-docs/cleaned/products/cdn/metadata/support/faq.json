@@ -1,0 +1,17 @@
+{
+  "id": "cdn:support/faq",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "troubleshoot",
+  "title": "CDN常见问题-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/support/faq",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/support/faq.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/support/faq.md",
+  "word_count": 4447,
+  "text_units": 6559,
+  "local_links": 225,
+  "external_links": 122,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

@@ -1,0 +1,1 @@
+loud.com volumeHandle: pv-oss nodePublishSecretRef: name: oss-secret namespace: default volumeAttributes: bucket: "oss" url: "oss-cn-beijing.aliyuncs.com" otherOpts: "-o max_stat_cache_size=0 -o allow_other" path: "/"

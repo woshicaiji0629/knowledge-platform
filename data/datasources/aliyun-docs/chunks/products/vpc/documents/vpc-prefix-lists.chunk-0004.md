@@ -1,0 +1,2 @@
+### Terraform
+Resource:[alicloud_vpc_prefix_list](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/vpc_prefix_list)# 指定地域 provider "alicloud" { region = "cn-hangzhou" } # 创建前缀列表 resource "alicloud_vpc_prefix_list" "example_pl" { prefix_list_name = "example_pl_name" ip_version = "IPV4" # IP版本 max_entries = 50 # 最大条目数 entrys { cidr = "10.0.1.0/24" # 条目1 } entrys { cidr = "10.0.2.0/24" # 条目2 } }

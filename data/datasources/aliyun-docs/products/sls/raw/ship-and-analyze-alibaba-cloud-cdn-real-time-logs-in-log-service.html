@@ -1,0 +1,523 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    实时日志功能介绍-日志服务(SLS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/sls/ship-and-analyze-alibaba-cloud-cdn-real-time-logs-in-log-service">
+  <meta name="keywords" content="实时日志,日志分析,用户访问数据分析">
+  <meta name="description" content="本文介绍如何使用实时日志功能对用户访问日志进行分析。">
+  <meta name="last-modified" content="2026-05-21T01:05:59+08:00">
+  <meta name="date" content="2023-06-19T10:55:32+08:00">
+  <meta property="og:title" content="投递CDN实时日志到SLS来分析用户访问数据">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/sls/ship-and-analyze-alibaba-cloud-cdn-real-time-logs-in-log-service">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="本文介绍如何使用实时日志功能对用户访问日志进行分析。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/sls/ship-and-analyze-alibaba-cloud-cdn-real-time-logs-in-log-service",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "2391188",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/sls/ship-and-analyze-alibaba-cloud-cdn-real-time-logs-in-log-service","nodeId":null,"data":{"lastModifiedTime":1779296759000,"keywords":"实时日志,日志分析,用户访问数据分析","docTitle":"投递CDN实时日志到SLS来分析用户访问数据","language":"zh","seoTitle":"实时日志功能介绍-日志服务(SLS)-阿里云帮助中心","title":"投递CDN实时日志到SLS来分析用户访问数据","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"task-2233011\">\n    \n    \n    <p id=\"shortdesc-5b7-v7t-jgm\" data-tag=\"shortdesc\" class=\"shortdesc\">本文介绍如何使用实时日志功能对用户访问日志进行分析。</p>\n    <div data-tag=\"taskbody\" id=\"taskbody-toh-0pu-mre\" class=\"taskbody\">\n      <section data-tag=\"section\" id=\"section-v44-4r7-9pv\" data-type=\"section\" is-conref=\"true\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-rqs-jk3-td7\" class=\"title\">概述</h2>\n        <p data-tag=\"p\" id=\"p-ip8-ihi-kzf\" class=\"p\">阿里云<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>产品的实时日志功能是<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>产品与<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>产品联合推出的一项功能，是一种时效性非常高（延迟在<span class=\"help-letter-space\"></span>3<span class=\"help-letter-space\"></span>分钟左右）的日志数据处理服务，能够将<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>节点上采集到的用户访问日志实时推送至<span props=\"china\"><span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/product/28958.html\" id=\"xref-aow-o39-6a1\" class=\"\" target=\"_blank\">SLS<span class=\"help-letter-space\"></span>日志服务</a></span>，然后可以通过<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>来存储和分析用户访问数据。在使用阿里云<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>产品来加速网站域名访问速度的情况下，用户访问网站的图片、视频等资源时，CDN<span class=\"help-letter-space\"></span>会记录用户的访问日志，如果您需要对用户访问日志进行分析来了解用户构成、访问质量或者快速定位问题，您可以使用实时日志功能来快速实现。</p>\n      </section>\n      <section data-tag=\"section\" id=\"section-f7n-8ls-00w\" data-type=\"section\" is-conref=\"true\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-zzz-wch-ijg\" class=\"title\">前提条件</h2>\n        <ul data-tag=\"ul\" id=\"ul-cnq-tid-egs\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-m8q-11a-6t2\" class=\"li\">\n            <p id=\"a73c5ff3275cv\">开通<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>服务：参考<a href=\"https://help.aliyun.com/zh/cdn/activate-alibaba-cloud-cdn#task-187531\" id=\"xref-bi7-li9-p4z\" title=\"\" class=\"xref\">开通<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>服务</a>开通了<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>产品，并且添加了加速域名。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-sg0-8ub-fn3\" class=\"li\">\n            <p id=\"a73c87002753v\">开通<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>服务：参考<a href=\"https://help.aliyun.com/zh/sls/getting-started#concept-gpw-x2w-ydb\" id=\"xref-b0t-sgk-6a3\" title=\"\" class=\"xref\">日志服务快速入门</a>开通了<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>日志服务产品。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-939-mx8-7v3\" class=\"li\">\n            <p id=\"a73c870127ke6\">配置实时日志推送：参考<a href=\"https://help.aliyun.com/zh/cdn/user-guide/configure-real-time-log-delivery#task-187634\" id=\"xref-x11-yer-nq6\" title=\"\" class=\"xref\">配置实时日志推送</a>为需要分析用户访问数据的<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>加速域名配置实时日志推送。</p>\n          </li>\n        </ul>\n      </section>\n      <section data-tag=\"section\" id=\"section-r5v-yuu-a10\" data-type=\"section\" is-conref=\"true\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-gfo-kl0-ecz\" class=\"title\">CDN<span class=\"help-letter-space\"></span>提供的实时日志与离线日志服务的区别</h2>\n        <ul data-tag=\"ul\" id=\"ul-vcx-jtn-vtq\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-vlp-uoe-8b3\" class=\"li\">\n            <p id=\"a73cae1027era\">日志延迟</p>\n            <p data-tag=\"p\" id=\"p-z5j-e8b-jct\" class=\"p\">CDN<span class=\"help-letter-space\"></span>实时日志为实时采集的日志数据，日志数据延迟不超过<span class=\"help-letter-space\"></span>3<span class=\"help-letter-space\"></span>分钟，而离线日志的数据延迟通常在<span class=\"help-letter-space\"></span>24<span class=\"help-letter-space\"></span>小时之内。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-vnj-2ui-jkr\" class=\"li\">\n            <p id=\"a73cae1127v0k\">日志分析</p>\n            <p data-tag=\"p\" id=\"p-wey-zbq-kzk\" class=\"p\">CDN<span class=\"help-letter-space\"></span>实时日志打通了<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>日志服务的日志转存和日志分析能力，预制了<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>基础数据、CDN<span class=\"help-letter-space\"></span>错误分析、CDN<span class=\"help-letter-space\"></span>热门资源、CDN<span class=\"help-letter-space\"></span>用户分析这四张常用分析报表，也支持自定义日志分析策略，可以一站式提供日志存储和日志分析能力，而离线日志目前只支持日志转存到<span class=\"help-letter-space\"></span>OSS<span class=\"help-letter-space\"></span>云存储，尚未打通日志分析能力。</p>\n          </li>\n        </ul>\n      </section>\n      <section data-tag=\"section\" id=\"section-2gf-rsh-s96\" data-type=\"section\" is-conref=\"true\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-mpy-pea-pds\" class=\"title\">实时日志服务的优势</h2>\n        <ul data-tag=\"ul\" id=\"ul-ugl-b5x-gun\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-mhb-tth-rjm\" class=\"li\">\n            <p id=\"a73cae1227ee1\">日志延迟小</p>\n            <p data-tag=\"p\" id=\"p-65i-63r-xli\" class=\"p\">日志数据延迟不超过<span class=\"help-letter-space\"></span>3<span class=\"help-letter-space\"></span>分钟，可以帮助您快速对访问日志进行分析，及时发现问题并做出应对决策。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-zol-mdf-veo\" class=\"li\">\n            <p id=\"a73cae1327jcw\">一站式服务</p>\n            <p data-tag=\"p\" id=\"p-6y6-5kx-knf\" class=\"p\">传统的离线日志分析模式，需要用户将日志下载，再重新上传至数据仓库，然后在数据仓库进行一系列的清洗和数据模型定义，这一系列操作处理完以后才能进行数据分析，整个过程需要的人力较多，时间较长；CDN<span class=\"help-letter-space\"></span>实时日志打通了<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>日志服务的日志转存和日志分析能力，免去传统模式下繁琐的离线日志分析流程。</p>\n          </li>\n        </ul>\n      </section>\n      <section data-tag=\"section\" id=\"cd7d6a7964jf6\" data-type=\"section\" docid=\"4835174\" is-conref=\"true\" class=\"section\"><h2 data-tag=\"title\" id=\"title-b62-fgu-sor\" class=\"title\">使用限制</h2><ul data-tag=\"ul\" id=\"ul-e9c-lhe-a7m\" class=\"ul\"><li data-tag=\"li\" id=\"li-6ai-ao7-wdg\" class=\"li\"><p id=\"fcf95200e5p6r\">专属<span class=\"help-letter-space\"></span>LogStore<span class=\"help-letter-space\"></span>默认类型为<span class=\"help-letter-space\"></span>Standard，默认数据存储时间<span class=\"help-letter-space\"></span>7<span class=\"help-letter-space\"></span>天，不支持写入其他数据，在查询分析、告警、消费等功能上无特殊限制。</p></li><li id=\"335c61e9608i9\"><p id=\"8005803e3ax7d\">专属<span class=\"help-letter-space\"></span>LogStore<span class=\"help-letter-space\"></span>索引支持修改，如遇到不支持修改场景可联系技术同学支持。</p></li><li data-tag=\"li\" id=\"li-fol-qx7-zsf\" class=\"li\"><p id=\"bc2cfbd845nj5\">目前仅支持推送日志到如下地域的日志服务<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>中：华东<span class=\"help-letter-space\"></span>1（杭州）、华东<span class=\"help-letter-space\"></span>2（上海）、华北<span class=\"help-letter-space\"></span>1（青岛）、华北<span class=\"help-letter-space\"></span>2（北京）、华南<span class=\"help-letter-space\"></span>1（深圳）、中国（香港）、亚太东南<span class=\"help-letter-space\"></span>1（新加坡）。</p></li></ul></section>\n      <section data-tag=\"section\" id=\"section-cio-yql-wyt\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-rpd-8ms-3o3\" class=\"title\">适用场景</h2>\n        <p data-tag=\"p\" id=\"p-wlf-vbj-dod\" class=\"p\">实时日志可以帮助您分析加速域名遇到的异常问题，也可以帮助您了解用户的访问情况。阿里云<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>实时日志在提供预制日志分析报表的同时，还支持自定义日志分析策略，可以满足不同场景下的需求。</p>\n        <h3 data-tag=\"p\" id=\"p-hp4-ijd-472\" outputclass=\"h3\" class=\"p h3\">预制的日志分析报表</h3>\n        <table id=\"table-ngx-w84-6t9\" tablewidth=\"709\" tablecolswidth=\"177 532\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.5*\" style=\"width:24.96%\"></colgroup>\n          <colgroup colwidth=\"1.5*\" style=\"width:75.04%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-1dg-vc8-50g\">\n              <td id=\"task-2233011-entry-6zn-lnc-fqz\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"ea739cab43ptd\"><b>日志分析场景</b></p>\n              </td>\n              <td id=\"task-2233011-entry-5t2-s04-to5\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"b2dbc46a7813c\"><b>报表作用描述</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-321-zbi-ctw\">\n              <td id=\"entry-s2y-035-dd3\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6f6408063369g\">CDN<span class=\"help-letter-space\"></span>基础数据</p>\n              </td>\n              <td id=\"entry-dgq-6xb-llk\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"eaf02e177dp7r\">该数据可以帮助您快速了解到<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>整体的服务质量以及终端用户的访问效率（命中率、访问延时、下载速度等），同时也可以在服务质量出现异常情况下及时进行处理。</p>\n              </td>\n            </tr>\n            <tr id=\"row-hdz-xmy-m8s\">\n              <td id=\"entry-ltc-rn1-lhd\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6ce8b4b9c69nk\">CDN<span class=\"help-letter-space\"></span>访问错误</p>\n              </td>\n              <td id=\"entry-p2f-398-0hs\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"8e6e11a17cfqe\">该数据可以帮助您在应用访问出现异常时，快速定位到<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>服务问题的源头，例如：部分<span class=\"help-letter-space\"></span>URI<span class=\"help-letter-space\"></span>问题、源站出现故障、部分节点不可用、部分省份网络问题、部分运营商网络问题等。</p>\n              </td>\n            </tr>\n            <tr id=\"row-8rq-ui6-wl6\">\n              <td id=\"entry-pto-3xp-0ji\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cb7c64e5ae3q3\">CDN<span class=\"help-letter-space\"></span>热门资源</p>\n              </td>\n              <td id=\"entry-72f-rsm-9co\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"fdd339478aj84\">该数据可以帮助您更好地了解热门资源情况，分析出热门域名、热门<span class=\"help-letter-space\"></span>URI、热门省份、热门运营商等，您也可以从热门数据了解到您的运营活动效果是否正常、热点时间内流量的上涨是否符合预期，以帮助您及时调整运营策略。</p>\n              </td>\n            </tr>\n            <tr id=\"row-t6a-xa3-ww6\">\n              <td id=\"entry-opy-hac-vqf\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"c88471ab4ahe1\">CDN<span class=\"help-letter-space\"></span>用户构成</p>\n              </td>\n              <td id=\"entry-lcz-clt-4g5\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"a53ef079bfc79\">该数据可以帮助您更好地了解网站的用户构成，包括用户的客户端类型、省份、运营商等，也能够统计出访问量<span class=\"help-letter-space\"></span>TOP<span class=\"help-letter-space\"></span>用户、下载量<span class=\"help-letter-space\"></span>TOP<span class=\"help-letter-space\"></span>用户。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <p data-tag=\"p\" id=\"p-nni-sgr-ije\" class=\"p\">在实时日志功能页面找到需要分析日志的<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>名称，然后单击<b id=\"uicontrol-c8a-yb6-kc8\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">查看报表</b>即可进入日志分析报表模板的查看页面。</p>\n        <p data-tag=\"p\" id=\"p-hns-v4r-60r\" class=\"p\">在数据查询模板页面，默认情况下查询的是全量域名的数据，也可以查询指定域名或者<span class=\"help-letter-space\"></span>URI<span class=\"help-letter-space\"></span>的数据。</p>\n        <p data-tag=\"p\" id=\"p-2ky-oab-omc\" class=\"p\">具体使用方法您可以参考以下几个章节：</p>\n        <ul data-tag=\"ul\" id=\"ul-1fh-2vh-t5c\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-f8h-dfc-rp9\" class=\"li\">\n            <p id=\"54f09f149enex\"><a href=\"#section-qv3-r57-2ky\" id=\"xref-c70-flc-1vk\" title=\"\" class=\"xref\">预制报表：CDN<span class=\"help-letter-space\"></span>基础数据</a></p>\n          </li>\n          <li data-tag=\"li\" id=\"li-axt-u9e-yq5\" class=\"li\">\n            <p id=\"9e067be961kne\"><a href=\"#section-2hm-qhl-b6w\" id=\"xref-x9q-pmn-ilu\" title=\"\" class=\"xref\">预制报表：CDN<span class=\"help-letter-space\"></span>访问错误</a></p>\n          </li>\n          <li data-tag=\"li\" id=\"li-mdk-3hq-27c\" class=\"li\">\n            <p id=\"8a71aa7e76c0y\"><a href=\"#section-lcz-hgw-0l1\" id=\"xref-upw-hkm-kuw\" title=\"\" class=\"xref\">预制报表：CDN<span class=\"help-letter-space\"></span>热门资源</a></p>\n          </li>\n          <li data-tag=\"li\" id=\"li-f3g-y4c-q9d\" class=\"li\">\n            <p id=\"3dd33e869erc7\"><a href=\"#section-90x-i06-uq7\" id=\"xref-mx9-2f2-bzt\" title=\"\" class=\"xref\">预制报表：CDN<span class=\"help-letter-space\"></span>用户构成</a></p>\n          </li>\n          <li data-tag=\"li\" id=\"li-9r8-06x-9qu\" class=\"li\">\n            <p id=\"b2f8956777szl\"><a href=\"#section-emg-uqg-uhl\" id=\"xref-fyh-wc1-9a2\" title=\"\" class=\"xref\">订阅报表模板数据</a></p>\n          </li>\n        </ul>\n        <h3 data-tag=\"p\" id=\"p-qv1-juj-dtr\" outputclass=\"h3\" class=\"p h3\">自定义日志分析</h3>\n        <p data-tag=\"p\" id=\"p-qmh-i5w-115\" class=\"p\">在预制的日志分析报表无法满足您的需求时，您可以使用<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>产品强大的日志分析能力来实现自定义日志分析。</p>\n        <p data-tag=\"p\" id=\"p-2fb-fdk-ec9\" class=\"p\">例如：查看响应状态码为<span class=\"help-letter-space\"></span>499<span class=\"help-letter-space\"></span>的域名排行榜、查看响应状态码为<span class=\"help-letter-space\"></span>502<span class=\"help-letter-space\"></span>的域名排行榜。</p>\n        <p data-tag=\"p\" id=\"p-rr8-puc-7qc\" class=\"p\">在实时日志功能页面找到需要分析日志的<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>名称，然后单击<b id=\"uicontrol-foy-oj0-way\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">日志分析</b>即可进入自定义日志分析功能的页面。</p>\n        <p data-tag=\"p\" id=\"p-fv8-oon-pkd\" class=\"p\">在自定义分析界面，您可以在搜索框里面输入查询语句直接查询日志数据（通常适用于比较复杂的查询条件），也可以直接单击左侧<b data-tag=\"uicontrol\" id=\"uicontrol-ivk-cd4-nk2\" class=\"uicontrol\">原始日志</b>栏的日志字段来过滤日志（通常适用于比较简单的过滤条件）。</p>\n        <p id=\"p-9fe73513f29d\">日志查询页面顶部为<b>查询输入框</b>（支持输入查询语句、SQL 或 SPL），右侧有<b>查询/分析</b>按钮和<b>时间选择器</b>（可设置查询时间范围，如最近 15 分钟），左侧<b>字段面板</b>列出可筛选的索引字段，下方展示匹配的原始日志记录详情。</p>\n        <p data-tag=\"p\" id=\"p-5i0-ky2-n21\" class=\"p\">具体使用方法您可以参考：<a href=\"#section-y1h-zmg-w67\" id=\"xref-cfo-5gm-qoi\" title=\"\" class=\"xref\">自定义报表</a></p>\n      </section>\n      <section data-tag=\"section\" id=\"section-nc8-6mi-f0k\" data-type=\"section\" is-conref=\"true\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-zeq-1d8-h03\" class=\"title\">创建实时日志推送<span class=\"help-letter-space\"></span>Project</h2>\n        <p data-tag=\"p\" id=\"p-gnb-4jz-psq\" class=\"p\">您可以参考<a href=\"https://help.aliyun.com/zh/cdn/user-guide/configure-real-time-log-delivery#task-187634\" id=\"xref-ctj-sbc-qsq\" title=\"\" class=\"xref\">配置实时日志推送</a>创建一个<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>日志服务的<span class=\"help-letter-space\"></span>project，用于存储<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>产品指定域名（例如：aliyun.example.com）推送的实时日志。</p>\n        <p data-tag=\"p\" id=\"p-m9g-sbx-kn4\" class=\"p\">创建成功的效果如下图，Project<span class=\"help-letter-space\"></span>名称为<span class=\"help-letter-space\"></span>project-example，Logstore<span class=\"help-letter-space\"></span>名称为<span class=\"help-letter-space\"></span>project-example，日志存储区域为<span class=\"help-letter-space\"></span>cn-hangzhou（华东<span class=\"help-letter-space\"></span>1-杭州）。</p>\n        <p id=\"a73d4a5227wu7\"><img data-tag=\"image\" id=\"image-2rh-fdy-xqx\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0240705861/p466297.png\" alt=\"创建实时日志推送project\" placement=\"break\" class=\"image break\"></p>\n      </section>\n      <section data-tag=\"section\" id=\"section-qv3-r57-2ky\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-59w-zv1-fs1\" class=\"title\">预制报表：CDN<span class=\"help-letter-space\"></span>基础数据</h2>\n        <p data-tag=\"p\" id=\"p-51j-osp-qow\" class=\"p\">CDN<span class=\"help-letter-space\"></span>基础数据可以帮助您快速了解到<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>整体的服务质量以及终端用户的访问效率（命中率、访问延时、下载速度等），同时也可以在服务质量出现异常情况下及时进行处理。</p>\n        <p data-tag=\"p\" id=\"p-66j-218-gb4\" class=\"p\">包括以下数据（可以查看总的数据，也可以按域名或者<span class=\"help-letter-space\"></span>URI<span class=\"help-letter-space\"></span>查看）：</p>\n        <ul data-tag=\"ul\" id=\"ul-ntw-s4n-c6c\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-2b7-wz0-rx5\" class=\"li\">\n            <p id=\"876d7fceb9dcm\">健康度：响应正常的状态码总数占比。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-cwv-j9k-f77\" class=\"li\">\n            <p id=\"4d313916216t5\">缓存命中率：资源的平均缓存命中率（按字节数来统计的命中率）。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-jqp-gyw-fg5\" class=\"li\">\n            <p id=\"e8fcf4d91fpfe\">下载速度：资源的平均下载速度。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-fjs-u53-jqo\" class=\"li\">\n            <p id=\"627da69b5cj80\">访问状态：每一种响应状态码的占比，可以用于快速查看当前异常状态码的占比。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-psn-pzp-193\" class=\"li\">\n            <p id=\"664cc710d3z11\">访问延时分布：每一个延时段的占比。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-nub-9rf-jja\" class=\"li\">\n            <p id=\"574b98adb0gbs\">请求带宽：分钟粒度的带宽值。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-p4q-2v1-hcm\" class=\"li\">\n            <p id=\"dfd46d5e81ila\">访问次数/人数：PV、UV<span class=\"help-letter-space\"></span>值。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-hx4-8hj-jqb\" class=\"li\">\n            <p id=\"65eb58616bjix\">请求命中率：按请求数来统计的命中率。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-maw-2oq-n3e\" class=\"li\">\n            <p id=\"11ce210e1e8tl\">访问延时：用于下载资源的平均访问延时。</p>\n          </li>\n        </ul>\n        <p id=\"cc7d8d1426ryp\"><img data-tag=\"image\" id=\"image-7z4-5e6-b1h\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0240705861/p466303.png\" alt=\"CDN基础数据\" placement=\"break\" class=\"image break\"><img data-tag=\"image\" id=\"image-mt8-ws2-k72\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0240705861/p466307.png\" alt=\"CDN基础数据2\" placement=\"break\" class=\"image break\"></p>\n      </section>\n      <section data-tag=\"section\" id=\"section-2hm-qhl-b6w\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-9cj-0rp-2cd\" class=\"title\">预制报表：CDN<span class=\"help-letter-space\"></span>访问错误</h2>\n        <p data-tag=\"p\" id=\"p-a5b-933-zqi\" class=\"p\">CDN<span class=\"help-letter-space\"></span>访问错误数据可以帮助您在应用访问出现异常时，快速定位到<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>服务问题的源头，例如：部分<span class=\"help-letter-space\"></span>URI<span class=\"help-letter-space\"></span>问题、源站出现故障、部分节点不可用、部分省份网络问题、部分运营商网络问题等。</p>\n        <p data-tag=\"p\" id=\"p-60u-0zg-h9u\" class=\"p\">包括以下数据（可以查看总的数据，也可以按域名或者<span class=\"help-letter-space\"></span>URI<span class=\"help-letter-space\"></span>查看）：</p>\n        <ul data-tag=\"ul\" id=\"ul-r1g-psa-ymc\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-yov-ukf-pcc\" class=\"li\">\n            <p id=\"d1f58f0cc5kxb\">错误域名访问<span class=\"help-letter-space\"></span>Top10：按不同域名访问产生的错误占比统计<span class=\"help-letter-space\"></span>Top<span class=\"help-letter-space\"></span>域名。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-dsv-maz-rp4\" class=\"li\">\n            <p id=\"e7a6efc86fmbj\">错误<span class=\"help-letter-space\"></span>URI<span class=\"help-letter-space\"></span>访问<span class=\"help-letter-space\"></span>Top10：按不同<span class=\"help-letter-space\"></span>URI<span class=\"help-letter-space\"></span>下产生的错误占比统计<span class=\"help-letter-space\"></span>Top URI。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-zvk-o1j-v7t\" class=\"li\">\n            <p id=\"db3ed6a134n95\">请求错误百分比：分时间统计<span class=\"help-letter-space\"></span>4xx、5xx<span class=\"help-letter-space\"></span>状态码的占比。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-k22-xsu-8ba\" class=\"li\">\n            <p id=\"d66375b110jth\">错误请求状态分布：统计各个状态码的数量、占比。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-i6a-0z4-le7\" class=\"li\">\n            <p id=\"79c8a7103ewuh\">错误运营商统计：统计不同运营商的<span class=\"help-letter-space\"></span>4xx、5xx<span class=\"help-letter-space\"></span>状态码数量。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-n87-7cr-l3s\" class=\"li\">\n            <p id=\"56465f9dc5dxf\">错误按省份统计：统计不同省份的<span class=\"help-letter-space\"></span>4xx、5xx<span class=\"help-letter-space\"></span>状态码数量。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-n3q-2no-qpg\" class=\"li\">\n            <p id=\"1507c312caqa0\">错误详情（4xx）：统计不同省份、运营商的<span class=\"help-letter-space\"></span>4xx<span class=\"help-letter-space\"></span>状态码数量、占比。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-53d-i6e-nig\" class=\"li\">\n            <p id=\"78189bbf798i0\">错误详情（5xx）：统计不同省份、运营商的<span class=\"help-letter-space\"></span>5xx<span class=\"help-letter-space\"></span>状态码数量、占比。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-vmg-nqd-2wn\" class=\"li\">\n            <p id=\"3b0dfe1f3cf6o\">错误按客户端分布：统计不同的客户端<span class=\"help-letter-space\"></span>UA（user-agent）对应的<span class=\"help-letter-space\"></span>4xx、5xx<span class=\"help-letter-space\"></span>状态码数量及占比。</p>\n          </li>\n        </ul>\n        <p id=\"111698f87frpy\"><img data-tag=\"image\" id=\"image-4r3-lko-t65\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0240705861/p466320.png\" alt=\"CDN访问错误1\" placement=\"break\" class=\"image break\"></p>\n      </section>\n      <section data-tag=\"section\" id=\"section-lcz-hgw-0l1\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-bsv-xh3-l15\" class=\"title\">预制报表：CDN<span class=\"help-letter-space\"></span>热门资源</h2>\n        <p data-tag=\"p\" id=\"p-nur-54w-s7e\" class=\"p\">CDN<span class=\"help-letter-space\"></span>热门资源数据可以帮助您更好地了解热门资源情况，分析出热门域名、热门<span class=\"help-letter-space\"></span>URI、热门省份、热门运营商等，您也可以从热门数据了解到您的运营活动效果是否正常、热点时间内流量的上涨是否符合预期，以帮助您及时调整运营策略。</p>\n        <p data-tag=\"p\" id=\"p-65b-y7k-c0g\" class=\"p\">包括以下数据（可以查看总的数据，也可以按域名或者<span class=\"help-letter-space\"></span>URI<span class=\"help-letter-space\"></span>查看）：</p>\n        <ul data-tag=\"ul\" id=\"ul-s61-roh-2xf\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-aph-5px-dx7\" class=\"li\">\n            <p id=\"44f896039et0u\">访问次数<span class=\"help-letter-space\"></span>Top<span class=\"help-letter-space\"></span>域名：按总访问次数占比统计<span class=\"help-letter-space\"></span>Top<span class=\"help-letter-space\"></span>域名。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-zkg-xwz-xew\" class=\"li\">\n            <p id=\"5e3473c5e9b9i\">下载流量<span class=\"help-letter-space\"></span>Top<span class=\"help-letter-space\"></span>域名：按总下载流量占比统计<span class=\"help-letter-space\"></span>Top<span class=\"help-letter-space\"></span>域名。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-k2h-1y1-los\" class=\"li\">\n            <p id=\"23f60f9139fls\">热门访问<span class=\"help-letter-space\"></span>URI：统计各个<span class=\"help-letter-space\"></span>URI<span class=\"help-letter-space\"></span>的访问次数、访问人数、下载总量。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-e6i-2ud-fhs\" class=\"li\">\n            <p id=\"39f84e11cf8et\">热门访问来源：统计热门<span class=\"help-letter-space\"></span>Referer<span class=\"help-letter-space\"></span>来源域名，并且记录访问次数、UV、占比。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-vkr-f6z-l0r\" class=\"li\">\n            <p id=\"2bccacfe28yfl\">全国访问次数统计：分别统计各个省份的平均访问次数。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-0um-dlt-q3t\" class=\"li\">\n            <p id=\"aa3bb9000fp71\">全国下载网速：分别统计各个省份的平均下载速度。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-6ul-u8n-7bv\" class=\"li\">\n            <p id=\"8e6d9e3a4362q\">省份统计：分别统计各个省份的总访问次数、总下载流量、平均下载速度。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-4fo-kus-ci4\" class=\"li\">\n            <p id=\"30dc22d9d088w\">运营商流量和速度：分别统计各个运营商的下载总量和平均下载速度。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-aac-hm7-zrg\" class=\"li\">\n            <p id=\"02681f8bcbjqi\">运营商统计：分别统计各个运营商的总访问次数、总下载流量、平均下载速度。</p>\n          </li>\n        </ul>\n        <p id=\"4416f4c3b9v8b\"></p>\n      </section>\n      <section data-tag=\"section\" id=\"section-90x-i06-uq7\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-d4d-a9q-hsf\" class=\"title\">预制报表：CDN<span class=\"help-letter-space\"></span>用户构成</h2>\n        <p data-tag=\"p\" id=\"p-tui-29a-ytz\" class=\"p\">CDN<span class=\"help-letter-space\"></span>用户构成数据可以帮助您更好地了解网站的用户构成，包括用户的客户端类型、省份、运营商等，也能够统计出访问<span class=\"help-letter-space\"></span>TOP<span class=\"help-letter-space\"></span>用户、下载量<span class=\"help-letter-space\"></span>TOP<span class=\"help-letter-space\"></span>用户。</p>\n        <p data-tag=\"p\" id=\"p-8lb-nzs-dco\" class=\"p\">包括以下数据（可以查看总的数据，也可以按域名或者<span class=\"help-letter-space\"></span>URI<span class=\"help-letter-space\"></span>查看）：</p>\n        <ul data-tag=\"ul\" id=\"ul-lzq-bmb-nsa\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-zpc-ia2-e9j\" class=\"li\">\n            <p id=\"bced799d2d2me\">访问次数：总访问次数，PV。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-ugj-r2z-8rj\" class=\"li\">\n            <p id=\"64f77a4f85cgk\">访问人数：总访问人数，UV。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-sbr-978-a1w\" class=\"li\">\n            <p id=\"2dd9da8227zu0\">访问地区分布：分别统计各个省份的访问次数、占比。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-fzd-tge-j9e\" class=\"li\">\n            <p id=\"8519568673i00\">访问客户端统计：分别统计各个客户端类型的访问次数、占比。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-i72-nxv-ssc\" class=\"li\">\n            <p id=\"8e93b8e000ioi\">运营商次数统计：分别统计各个运营商的总访问次数、占比。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-izz-30o-d64\" class=\"li\">\n            <p id=\"fc73681b532k9\">下载量<span class=\"help-letter-space\"></span>Top<span class=\"help-letter-space\"></span>用户：按<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>统计用户的总访问数、错误访问数、下载总量。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-mvc-ctd-d28\" class=\"li\">\n            <p id=\"ee13672ff3i4y\">有效访问<span class=\"help-letter-space\"></span>Top<span class=\"help-letter-space\"></span>用户：按<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>统计用户的总访问数、错误访问数、下载总量（去掉<span class=\"help-letter-space\"></span>4xx、5xx<span class=\"help-letter-space\"></span>这些无效访问）。</p>\n          </li>\n        </ul>\n        <p id=\"c1906e2e48v1p\"></p>\n      </section>\n      <section data-tag=\"section\" id=\"section-emg-uqg-uhl\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-ow2-eo1-c22\" class=\"title\">订阅报表模板数据</h2>\n        <p data-tag=\"p\" id=\"p-zbt-5kh-4z3\" class=\"p\">如果您需要<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>日志服务定期将报表模板的数据发送给您，那么您可以使用订阅功能。</p>\n        <h3 data-tag=\"p\" id=\"p-ok3-ntb-bmq\" outputclass=\"h3\" class=\"p h3\">操作步骤</h3>\n        <ol data-tag=\"ol\" id=\"ol-boj-4b5-70p\" class=\"ol\">\n          <li data-tag=\"li\" id=\"li-kdk-2fa-qaq\" class=\"li\">\n            <p id=\"14df370f02hbm\">以<span class=\"help-letter-space\"></span>CDN<span class=\"help-letter-space\"></span>基础数据页面为例，单击右上角的<b data-tag=\"uicontrol\" id=\"uicontrol-w7q-rtm-coa\" class=\"uicontrol\">订阅</b>，然后单击<b id=\"uicontrol-oa8-ca2-i7p\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建</b>。在报表模板页面右上角，单击<b>订阅</b>按钮。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-q6s-ca6-o0s\" class=\"li\">\n            <p id=\"619ed3e9f4ual\">在侧滑出现的配置窗口中输入<b data-tag=\"uicontrol\" id=\"uicontrol-vdf-q3c-tmj\" class=\"uicontrol\">订阅名称</b>、<b data-tag=\"uicontrol\" id=\"uicontrol-38i-0ue-zji\" class=\"uicontrol\">频率</b>和<b data-tag=\"uicontrol\" id=\"uicontrol-ly1-9f8-idg\" class=\"uicontrol\">全局时间</b>，然后单击<b id=\"uicontrol-zy2-8nx-88j\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">下一步</b>。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-dn4-2d3-mbc\" class=\"li\">\n            <p id=\"4e49c654c7xkn\">在<b data-tag=\"uicontrol\" id=\"uicontrol-wgi-ae1-n63\" class=\"uicontrol\">通知列表</b>的下拉菜单中选择通知方式并填写相关信息后，单击<b id=\"uicontrol-a1a-nk2-ypo\" data-status=\"unpublished\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">提交</b>即可成功创建。</p>\n            <p data-tag=\"p\" id=\"p-8nn-rhl-gg4\" class=\"p\">通知方式目前支持邮件、WebHook-钉钉机器人、WebHook-飞书机器人、WebHook-企业微信机器人和微信。</p>\n          </li>\n        </ol>\n      </section>\n      <section data-tag=\"section\" id=\"section-y1h-zmg-w67\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-j53-rb1-xid\" class=\"title\">自定义报表</h2>\n        <ul data-tag=\"ul\" id=\"ul-xon-o26-7kr\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-ovn-4cx-m9k\" class=\"li\">\n            <p id=\"776ab47755rx5\">示例<span class=\"help-letter-space\"></span>1：查看最近<span class=\"help-letter-space\"></span>30<span class=\"help-letter-space\"></span>天内，响应状态码为<span class=\"help-letter-space\"></span>499<span class=\"help-letter-space\"></span>的域名排行榜。</p>\n            <p data-tag=\"p\" id=\"p-ymp-jjl-09l\" class=\"p\">日志分析语句：<span data-tag=\"ph\" id=\"codeph-py5-dxm-ukq\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"f59e915e2egcd\" class=\"code\">return_code = 499| select domain , count(*) as c group by domain order by c desc limit 10</code></span></p>\n          </li>\n          <li data-tag=\"li\" id=\"li-ogx-47q-dlk\" class=\"li\">\n            <p id=\"8047d2d7b6oi9\">示例<span class=\"help-letter-space\"></span>2：查看最近<span class=\"help-letter-space\"></span>30<span class=\"help-letter-space\"></span>天内，响应状态码为<span class=\"help-letter-space\"></span>502<span class=\"help-letter-space\"></span>的域名排行榜。</p>\n            <p data-tag=\"p\" id=\"p-1bw-gok-jno\" class=\"p\">日志分析语句：<span data-tag=\"ph\" id=\"codeph-jxo-nfd-3lu\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"c903c2add3kdi\" class=\"code\">return_code = 502| select domain , count(*) as c group by domain order by c desc limit 10</code></span></p>\n          </li>\n          <li data-tag=\"li\" id=\"li-dn5-wg4-12d\" class=\"li\">\n            <p id=\"48b7acee53eu7\">示例<span class=\"help-letter-space\"></span>3：查看最近<span class=\"help-letter-space\"></span>30<span class=\"help-letter-space\"></span>天内，访问<span class=\"help-letter-space\"></span>URI<span class=\"help-letter-space\"></span>为/cpu<span class=\"help-letter-space\"></span>的日志数据。</p>\n            <p data-tag=\"p\" id=\"p-qc9-21i-pfq\" class=\"p\">可以直接单击左侧<b data-tag=\"uicontrol\" id=\"uicontrol-izd-wkq-uue\" class=\"uicontrol\">原始日志</b>栏的<span class=\"help-letter-space\"></span>URI<span class=\"help-letter-space\"></span>字段，然后单击<b data-tag=\"uicontrol\" id=\"uicontrol-yd3-8c2-7wv\" class=\"uicontrol\">/cpu</b><span class=\"help-letter-space\"></span>即可过滤出需要的日志。</p>\n            <p id=\"p-d626ad266787\">过滤后，左侧<b>快速分析</b>面板的 <b>uri</b> 字段显示 <code data-tag=\"code\" class=\"code\">/cpu</code> 占比 53%，为最主要的请求 URI。查询栏过滤条件为 <code data-tag=\"code\" class=\"code\">* and uri : \"/cpu\"</code>，时间范围选择 <b>30<span class=\"help-letter-space\"></span>天（相对）</b>，日志总条数为 1,556,698。</p>\n          </li>\n        </ul>\n      </section>\n    </div>\n  </main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/sls/ship-and-analyze-alibaba-cloud-cdn-real-time-logs-in-log-service","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"alias":"/sls/ship-and-analyze-alibaba-cloud-cdn-real-time-logs-in-log-service","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":7,"developerUrl":"https://developer.aliyun.com/group/sls/","nodeType":1,"version":9,"url":"/zh/sls/ship-and-analyze-alibaba-cloud-cdn-real-time-logs-in-log-service","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":2391188,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"投递CDN实时日志到SLS来分析用户访问数据","id":2391188,"title":"投递CDN实时日志到SLS来分析用户访问数据","url":"/zh/sls/ship-and-analyze-alibaba-cloud-cdn-real-time-logs-in-log-service"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"其他云产品/云厂商数据","id":3014956,"title":"其他云产品/云厂商数据","url":"/zh/sls/data-from-other-cloud-products-or-vendors/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"数据采集最佳实践","id":89991,"title":"数据采集最佳实践","url":"/zh/sls/data-collection-best-practices/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据采集","id":128134,"title":"数据采集","url":"/zh/sls/data-collection-1/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"productUrl":"https://www.aliyun.com/product/sls","nodeId":2391188,"desc":"本文介绍如何使用实时日志功能对用户访问日志进行分析。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据采集","id":128134,"title":"数据采集","url":"/zh/sls/data-collection-1/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"数据采集最佳实践","id":89991,"title":"数据采集最佳实践","url":"/zh/sls/data-collection-best-practices/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"其他云产品/云厂商数据","id":3014956,"title":"其他云产品/云厂商数据","url":"/zh/sls/data-from-other-cloud-products-or-vendors/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"投递CDN实时日志到SLS来分析用户访问数据","id":2391188,"title":"投递CDN实时日志到SLS来分析用户访问数据","url":"/zh/sls/ship-and-analyze-alibaba-cloud-cdn-real-time-logs-in-log-service"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=2150423517825453205428677e739d&asid=AQAAAACoez9qAbnSIAAAAADj5LJ8JlKSwQ==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2929180" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/start-using-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开始使用</span>
+</a>
+</li>
+ <li id="128096" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/resource-management/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">资源管理</span>
+</a>
+</li>
+ <li id="128134" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-collection-1/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据采集</span>
+</a>
+</li>
+ <li id="2842370" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-processing-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据处理</span>
+</a>
+</li>
+ <li id="270795" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-storage/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据存储</span>
+</a>
+</li>
+ <li id="128135" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/index-and-query/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">查询与分析</span>
+</a>
+</li>
+ <li id="2928734" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-monitoring/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据监控</span>
+</a>
+</li>
+ <li id="2928732" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-log-output-and-integration/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据输出与集成</span>
+</a>
+</li>
+ <li id="2928739" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-technical-solutions/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">技术解决方案</span>
+</a>
+</li>
+ <li id="154068" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2528763" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/security-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="169976" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/faq-15">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>投递CDN实时日志到SLS来分析用户访问数据</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/sls" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="task-2233011">
+    
+    
+    <p id="shortdesc-5b7-v7t-jgm" data-tag="shortdesc" class="shortdesc">本文介绍如何使用实时日志功能对用户访问日志进行分析。</p>
+    <div data-tag="taskbody" id="taskbody-toh-0pu-mre" class="taskbody">
+      <section data-tag="section" id="section-v44-4r7-9pv" data-type="section" is-conref="true" class="section">
+        <h2 data-tag="title" id="title-rqs-jk3-td7" class="title">概述</h2>
+        <p data-tag="p" id="p-ip8-ihi-kzf" class="p">阿里云<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>产品的实时日志功能是<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>产品与<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>产品联合推出的一项功能，是一种时效性非常高（延迟在<span class="help-letter-space"></span>3<span class="help-letter-space"></span>分钟左右）的日志数据处理服务，能够将<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>节点上采集到的用户访问日志实时推送至<span props="china"><span class="help-letter-space"></span><a href="https://help.aliyun.com/product/28958.html" id="xref-aow-o39-6a1" class="" target="_blank">SLS<span class="help-letter-space"></span>日志服务</a></span>，然后可以通过<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>来存储和分析用户访问数据。在使用阿里云<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>产品来加速网站域名访问速度的情况下，用户访问网站的图片、视频等资源时，CDN<span class="help-letter-space"></span>会记录用户的访问日志，如果您需要对用户访问日志进行分析来了解用户构成、访问质量或者快速定位问题，您可以使用实时日志功能来快速实现。</p>
+      </section>
+      <section data-tag="section" id="section-f7n-8ls-00w" data-type="section" is-conref="true" class="section">
+        <h2 data-tag="title" id="title-zzz-wch-ijg" class="title">前提条件</h2>
+        <ul data-tag="ul" id="ul-cnq-tid-egs" class="ul">
+          <li data-tag="li" id="li-m8q-11a-6t2" class="li">
+            <p id="a73c5ff3275cv">开通<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>服务：参考<a href="https://help.aliyun.com/zh/cdn/activate-alibaba-cloud-cdn#task-187531" id="xref-bi7-li9-p4z" title="" class="xref">开通<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>服务</a>开通了<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>产品，并且添加了加速域名。</p>
+          </li>
+          <li data-tag="li" id="li-sg0-8ub-fn3" class="li">
+            <p id="a73c87002753v">开通<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>服务：参考<a href="https://help.aliyun.com/zh/sls/getting-started#concept-gpw-x2w-ydb" id="xref-b0t-sgk-6a3" title="" class="xref">日志服务快速入门</a>开通了<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>日志服务产品。</p>
+          </li>
+          <li data-tag="li" id="li-939-mx8-7v3" class="li">
+            <p id="a73c870127ke6">配置实时日志推送：参考<a href="https://help.aliyun.com/zh/cdn/user-guide/configure-real-time-log-delivery#task-187634" id="xref-x11-yer-nq6" title="" class="xref">配置实时日志推送</a>为需要分析用户访问数据的<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>加速域名配置实时日志推送。</p>
+          </li>
+        </ul>
+      </section>
+      <section data-tag="section" id="section-r5v-yuu-a10" data-type="section" is-conref="true" class="section">
+        <h2 data-tag="title" id="title-gfo-kl0-ecz" class="title">CDN<span class="help-letter-space"></span>提供的实时日志与离线日志服务的区别</h2>
+        <ul data-tag="ul" id="ul-vcx-jtn-vtq" class="ul">
+          <li data-tag="li" id="li-vlp-uoe-8b3" class="li">
+            <p id="a73cae1027era">日志延迟</p>
+            <p data-tag="p" id="p-z5j-e8b-jct" class="p">CDN<span class="help-letter-space"></span>实时日志为实时采集的日志数据，日志数据延迟不超过<span class="help-letter-space"></span>3<span class="help-letter-space"></span>分钟，而离线日志的数据延迟通常在<span class="help-letter-space"></span>24<span class="help-letter-space"></span>小时之内。</p>
+          </li>
+          <li data-tag="li" id="li-vnj-2ui-jkr" class="li">
+            <p id="a73cae1127v0k">日志分析</p>
+            <p data-tag="p" id="p-wey-zbq-kzk" class="p">CDN<span class="help-letter-space"></span>实时日志打通了<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>日志服务的日志转存和日志分析能力，预制了<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>基础数据、CDN<span class="help-letter-space"></span>错误分析、CDN<span class="help-letter-space"></span>热门资源、CDN<span class="help-letter-space"></span>用户分析这四张常用分析报表，也支持自定义日志分析策略，可以一站式提供日志存储和日志分析能力，而离线日志目前只支持日志转存到<span class="help-letter-space"></span>OSS<span class="help-letter-space"></span>云存储，尚未打通日志分析能力。</p>
+          </li>
+        </ul>
+      </section>
+      <section data-tag="section" id="section-2gf-rsh-s96" data-type="section" is-conref="true" class="section">
+        <h2 data-tag="title" id="title-mpy-pea-pds" class="title">实时日志服务的优势</h2>
+        <ul data-tag="ul" id="ul-ugl-b5x-gun" class="ul">
+          <li data-tag="li" id="li-mhb-tth-rjm" class="li">
+            <p id="a73cae1227ee1">日志延迟小</p>
+            <p data-tag="p" id="p-65i-63r-xli" class="p">日志数据延迟不超过<span class="help-letter-space"></span>3<span class="help-letter-space"></span>分钟，可以帮助您快速对访问日志进行分析，及时发现问题并做出应对决策。</p>
+          </li>
+          <li data-tag="li" id="li-zol-mdf-veo" class="li">
+            <p id="a73cae1327jcw">一站式服务</p>
+            <p data-tag="p" id="p-6y6-5kx-knf" class="p">传统的离线日志分析模式，需要用户将日志下载，再重新上传至数据仓库，然后在数据仓库进行一系列的清洗和数据模型定义，这一系列操作处理完以后才能进行数据分析，整个过程需要的人力较多，时间较长；CDN<span class="help-letter-space"></span>实时日志打通了<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>日志服务的日志转存和日志分析能力，免去传统模式下繁琐的离线日志分析流程。</p>
+          </li>
+        </ul>
+      </section>
+      <section data-tag="section" id="cd7d6a7964jf6" data-type="section" docid="4835174" is-conref="true" class="section"><h2 data-tag="title" id="title-b62-fgu-sor" class="title">使用限制</h2><ul data-tag="ul" id="ul-e9c-lhe-a7m" class="ul"><li data-tag="li" id="li-6ai-ao7-wdg" class="li"><p id="fcf95200e5p6r">专属<span class="help-letter-space"></span>LogStore<span class="help-letter-space"></span>默认类型为<span class="help-letter-space"></span>Standard，默认数据存储时间<span class="help-letter-space"></span>7<span class="help-letter-space"></span>天，不支持写入其他数据，在查询分析、告警、消费等功能上无特殊限制。</p></li><li id="335c61e9608i9"><p id="8005803e3ax7d">专属<span class="help-letter-space"></span>LogStore<span class="help-letter-space"></span>索引支持修改，如遇到不支持修改场景可联系技术同学支持。</p></li><li data-tag="li" id="li-fol-qx7-zsf" class="li"><p id="bc2cfbd845nj5">目前仅支持推送日志到如下地域的日志服务<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>中：华东<span class="help-letter-space"></span>1（杭州）、华东<span class="help-letter-space"></span>2（上海）、华北<span class="help-letter-space"></span>1（青岛）、华北<span class="help-letter-space"></span>2（北京）、华南<span class="help-letter-space"></span>1（深圳）、中国（香港）、亚太东南<span class="help-letter-space"></span>1（新加坡）。</p></li></ul></section>
+      <section data-tag="section" id="section-cio-yql-wyt" data-type="section" class="section">
+        <h2 data-tag="title" id="title-rpd-8ms-3o3" class="title">适用场景</h2>
+        <p data-tag="p" id="p-wlf-vbj-dod" class="p">实时日志可以帮助您分析加速域名遇到的异常问题，也可以帮助您了解用户的访问情况。阿里云<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>实时日志在提供预制日志分析报表的同时，还支持自定义日志分析策略，可以满足不同场景下的需求。</p>
+        <h3 data-tag="p" id="p-hp4-ijd-472" outputclass="h3" class="p h3">预制的日志分析报表</h3>
+        <table id="table-ngx-w84-6t9" tablewidth="709" tablecolswidth="177 532" autofit="false" class="table">
+          <colgroup colwidth="0.5*" style="width:24.96%"></colgroup>
+          <colgroup colwidth="1.5*" style="width:75.04%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-1dg-vc8-50g">
+              <td id="task-2233011-entry-6zn-lnc-fqz" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="ea739cab43ptd"><b>日志分析场景</b></p>
+              </td>
+              <td id="task-2233011-entry-5t2-s04-to5" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="b2dbc46a7813c"><b>报表作用描述</b></p>
+              </td>
+            </tr>
+            <tr id="row-321-zbi-ctw">
+              <td id="entry-s2y-035-dd3" rowspan="1" colspan="1">
+                <p id="6f6408063369g">CDN<span class="help-letter-space"></span>基础数据</p>
+              </td>
+              <td id="entry-dgq-6xb-llk" rowspan="1" colspan="1">
+                <p id="eaf02e177dp7r">该数据可以帮助您快速了解到<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>整体的服务质量以及终端用户的访问效率（命中率、访问延时、下载速度等），同时也可以在服务质量出现异常情况下及时进行处理。</p>
+              </td>
+            </tr>
+            <tr id="row-hdz-xmy-m8s">
+              <td id="entry-ltc-rn1-lhd" rowspan="1" colspan="1">
+                <p id="6ce8b4b9c69nk">CDN<span class="help-letter-space"></span>访问错误</p>
+              </td>
+              <td id="entry-p2f-398-0hs" rowspan="1" colspan="1">
+                <p id="8e6e11a17cfqe">该数据可以帮助您在应用访问出现异常时，快速定位到<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>服务问题的源头，例如：部分<span class="help-letter-space"></span>URI<span class="help-letter-space"></span>问题、源站出现故障、部分节点不可用、部分省份网络问题、部分运营商网络问题等。</p>
+              </td>
+            </tr>
+            <tr id="row-8rq-ui6-wl6">
+              <td id="entry-pto-3xp-0ji" rowspan="1" colspan="1">
+                <p id="cb7c64e5ae3q3">CDN<span class="help-letter-space"></span>热门资源</p>
+              </td>
+              <td id="entry-72f-rsm-9co" rowspan="1" colspan="1">
+                <p id="fdd339478aj84">该数据可以帮助您更好地了解热门资源情况，分析出热门域名、热门<span class="help-letter-space"></span>URI、热门省份、热门运营商等，您也可以从热门数据了解到您的运营活动效果是否正常、热点时间内流量的上涨是否符合预期，以帮助您及时调整运营策略。</p>
+              </td>
+            </tr>
+            <tr id="row-t6a-xa3-ww6">
+              <td id="entry-opy-hac-vqf" rowspan="1" colspan="1">
+                <p id="c88471ab4ahe1">CDN<span class="help-letter-space"></span>用户构成</p>
+              </td>
+              <td id="entry-lcz-clt-4g5" rowspan="1" colspan="1">
+                <p id="a53ef079bfc79">该数据可以帮助您更好地了解网站的用户构成，包括用户的客户端类型、省份、运营商等，也能够统计出访问量<span class="help-letter-space"></span>TOP<span class="help-letter-space"></span>用户、下载量<span class="help-letter-space"></span>TOP<span class="help-letter-space"></span>用户。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p data-tag="p" id="p-nni-sgr-ije" class="p">在实时日志功能页面找到需要分析日志的<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>名称，然后单击<b id="uicontrol-c8a-yb6-kc8" data-tag="uicontrol" data-isbold="true" class="uicontrol">查看报表</b>即可进入日志分析报表模板的查看页面。</p>
+        <p data-tag="p" id="p-hns-v4r-60r" class="p">在数据查询模板页面，默认情况下查询的是全量域名的数据，也可以查询指定域名或者<span class="help-letter-space"></span>URI<span class="help-letter-space"></span>的数据。</p>
+        <p data-tag="p" id="p-2ky-oab-omc" class="p">具体使用方法您可以参考以下几个章节：</p>
+        <ul data-tag="ul" id="ul-1fh-2vh-t5c" class="ul">
+          <li data-tag="li" id="li-f8h-dfc-rp9" class="li">
+            <p id="54f09f149enex"><a href="#section-qv3-r57-2ky" id="xref-c70-flc-1vk" title="" class="xref">预制报表：CDN<span class="help-letter-space"></span>基础数据</a></p>
+          </li>
+          <li data-tag="li" id="li-axt-u9e-yq5" class="li">
+            <p id="9e067be961kne"><a href="#section-2hm-qhl-b6w" id="xref-x9q-pmn-ilu" title="" class="xref">预制报表：CDN<span class="help-letter-space"></span>访问错误</a></p>
+          </li>
+          <li data-tag="li" id="li-mdk-3hq-27c" class="li">
+            <p id="8a71aa7e76c0y"><a href="#section-lcz-hgw-0l1" id="xref-upw-hkm-kuw" title="" class="xref">预制报表：CDN<span class="help-letter-space"></span>热门资源</a></p>
+          </li>
+          <li data-tag="li" id="li-f3g-y4c-q9d" class="li">
+            <p id="3dd33e869erc7"><a href="#section-90x-i06-uq7" id="xref-mx9-2f2-bzt" title="" class="xref">预制报表：CDN<span class="help-letter-space"></span>用户构成</a></p>
+          </li>
+          <li data-tag="li" id="li-9r8-06x-9qu" class="li">
+            <p id="b2f8956777szl"><a href="#section-emg-uqg-uhl" id="xref-fyh-wc1-9a2" title="" class="xref">订阅报表模板数据</a></p>
+          </li>
+        </ul>
+        <h3 data-tag="p" id="p-qv1-juj-dtr" outputclass="h3" class="p h3">自定义日志分析</h3>
+        <p data-tag="p" id="p-qmh-i5w-115" class="p">在预制的日志分析报表无法满足您的需求时，您可以使用<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>产品强大的日志分析能力来实现自定义日志分析。</p>
+        <p data-tag="p" id="p-2fb-fdk-ec9" class="p">例如：查看响应状态码为<span class="help-letter-space"></span>499<span class="help-letter-space"></span>的域名排行榜、查看响应状态码为<span class="help-letter-space"></span>502<span class="help-letter-space"></span>的域名排行榜。</p>
+        <p data-tag="p" id="p-rr8-puc-7qc" class="p">在实时日志功能页面找到需要分析日志的<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>名称，然后单击<b id="uicontrol-foy-oj0-way" data-tag="uicontrol" data-isbold="true" class="uicontrol">日志分析</b>即可进入自定义日志分析功能的页面。</p>
+        <p data-tag="p" id="p-fv8-oon-pkd" class="p">在自定义分析界面，您可以在搜索框里面输入查询语句直接查询日志数据（通常适用于比较复杂的查询条件），也可以直接单击左侧<b data-tag="uicontrol" id="uicontrol-ivk-cd4-nk2" class="uicontrol">原始日志</b>栏的日志字段来过滤日志（通常适用于比较简单的过滤条件）。</p>
+        <p id="p-9fe73513f29d">日志查询页面顶部为<b>查询输入框</b>（支持输入查询语句、SQL 或 SPL），右侧有<b>查询/分析</b>按钮和<b>时间选择器</b>（可设置查询时间范围，如最近 15 分钟），左侧<b>字段面板</b>列出可筛选的索引字段，下方展示匹配的原始日志记录详情。</p>
+        <p data-tag="p" id="p-5i0-ky2-n21" class="p">具体使用方法您可以参考：<a href="#section-y1h-zmg-w67" id="xref-cfo-5gm-qoi" title="" class="xref">自定义报表</a></p>
+      </section>
+      <section data-tag="section" id="section-nc8-6mi-f0k" data-type="section" is-conref="true" class="section">
+        <h2 data-tag="title" id="title-zeq-1d8-h03" class="title">创建实时日志推送<span class="help-letter-space"></span>Project</h2>
+        <p data-tag="p" id="p-gnb-4jz-psq" class="p">您可以参考<a href="https://help.aliyun.com/zh/cdn/user-guide/configure-real-time-log-delivery#task-187634" id="xref-ctj-sbc-qsq" title="" class="xref">配置实时日志推送</a>创建一个<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>日志服务的<span class="help-letter-space"></span>project，用于存储<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>产品指定域名（例如：aliyun.example.com）推送的实时日志。</p>
+        <p data-tag="p" id="p-m9g-sbx-kn4" class="p">创建成功的效果如下图，Project<span class="help-letter-space"></span>名称为<span class="help-letter-space"></span>project-example，Logstore<span class="help-letter-space"></span>名称为<span class="help-letter-space"></span>project-example，日志存储区域为<span class="help-letter-space"></span>cn-hangzhou（华东<span class="help-letter-space"></span>1-杭州）。</p>
+        <p id="a73d4a5227wu7"><img data-tag="image" id="image-2rh-fdy-xqx" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0240705861/p466297.png" alt="创建实时日志推送project" placement="break" class="image break"></p>
+      </section>
+      <section data-tag="section" id="section-qv3-r57-2ky" data-type="section" class="section">
+        <h2 data-tag="title" id="title-59w-zv1-fs1" class="title">预制报表：CDN<span class="help-letter-space"></span>基础数据</h2>
+        <p data-tag="p" id="p-51j-osp-qow" class="p">CDN<span class="help-letter-space"></span>基础数据可以帮助您快速了解到<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>整体的服务质量以及终端用户的访问效率（命中率、访问延时、下载速度等），同时也可以在服务质量出现异常情况下及时进行处理。</p>
+        <p data-tag="p" id="p-66j-218-gb4" class="p">包括以下数据（可以查看总的数据，也可以按域名或者<span class="help-letter-space"></span>URI<span class="help-letter-space"></span>查看）：</p>
+        <ul data-tag="ul" id="ul-ntw-s4n-c6c" class="ul">
+          <li data-tag="li" id="li-2b7-wz0-rx5" class="li">
+            <p id="876d7fceb9dcm">健康度：响应正常的状态码总数占比。</p>
+          </li>
+          <li data-tag="li" id="li-cwv-j9k-f77" class="li">
+            <p id="4d313916216t5">缓存命中率：资源的平均缓存命中率（按字节数来统计的命中率）。</p>
+          </li>
+          <li data-tag="li" id="li-jqp-gyw-fg5" class="li">
+            <p id="e8fcf4d91fpfe">下载速度：资源的平均下载速度。</p>
+          </li>
+          <li data-tag="li" id="li-fjs-u53-jqo" class="li">
+            <p id="627da69b5cj80">访问状态：每一种响应状态码的占比，可以用于快速查看当前异常状态码的占比。</p>
+          </li>
+          <li data-tag="li" id="li-psn-pzp-193" class="li">
+            <p id="664cc710d3z11">访问延时分布：每一个延时段的占比。</p>
+          </li>
+          <li data-tag="li" id="li-nub-9rf-jja" class="li">
+            <p id="574b98adb0gbs">请求带宽：分钟粒度的带宽值。</p>
+          </li>
+          <li data-tag="li" id="li-p4q-2v1-hcm" class="li">
+            <p id="dfd46d5e81ila">访问次数/人数：PV、UV<span class="help-letter-space"></span>值。</p>
+          </li>
+          <li data-tag="li" id="li-hx4-8hj-jqb" class="li">
+            <p id="65eb58616bjix">请求命中率：按请求数来统计的命中率。</p>
+          </li>
+          <li data-tag="li" id="li-maw-2oq-n3e" class="li">
+            <p id="11ce210e1e8tl">访问延时：用于下载资源的平均访问延时。</p>
+          </li>
+        </ul>
+        <p id="cc7d8d1426ryp"><img data-tag="image" id="image-7z4-5e6-b1h" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0240705861/p466303.png" alt="CDN基础数据" placement="break" class="image break"><img data-tag="image" id="image-mt8-ws2-k72" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0240705861/p466307.png" alt="CDN基础数据2" placement="break" class="image break"></p>
+      </section>
+      <section data-tag="section" id="section-2hm-qhl-b6w" data-type="section" class="section">
+        <h2 data-tag="title" id="title-9cj-0rp-2cd" class="title">预制报表：CDN<span class="help-letter-space"></span>访问错误</h2>
+        <p data-tag="p" id="p-a5b-933-zqi" class="p">CDN<span class="help-letter-space"></span>访问错误数据可以帮助您在应用访问出现异常时，快速定位到<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>服务问题的源头，例如：部分<span class="help-letter-space"></span>URI<span class="help-letter-space"></span>问题、源站出现故障、部分节点不可用、部分省份网络问题、部分运营商网络问题等。</p>
+        <p data-tag="p" id="p-60u-0zg-h9u" class="p">包括以下数据（可以查看总的数据，也可以按域名或者<span class="help-letter-space"></span>URI<span class="help-letter-space"></span>查看）：</p>
+        <ul data-tag="ul" id="ul-r1g-psa-ymc" class="ul">
+          <li data-tag="li" id="li-yov-ukf-pcc" class="li">
+            <p id="d1f58f0cc5kxb">错误域名访问<span class="help-letter-space"></span>Top10：按不同域名访问产生的错误占比统计<span class="help-letter-space"></span>Top<span class="help-letter-space"></span>域名。</p>
+          </li>
+          <li data-tag="li" id="li-dsv-maz-rp4" class="li">
+            <p id="e7a6efc86fmbj">错误<span class="help-letter-space"></span>URI<span class="help-letter-space"></span>访问<span class="help-letter-space"></span>Top10：按不同<span class="help-letter-space"></span>URI<span class="help-letter-space"></span>下产生的错误占比统计<span class="help-letter-space"></span>Top URI。</p>
+          </li>
+          <li data-tag="li" id="li-zvk-o1j-v7t" class="li">
+            <p id="db3ed6a134n95">请求错误百分比：分时间统计<span class="help-letter-space"></span>4xx、5xx<span class="help-letter-space"></span>状态码的占比。</p>
+          </li>
+          <li data-tag="li" id="li-k22-xsu-8ba" class="li">
+            <p id="d66375b110jth">错误请求状态分布：统计各个状态码的数量、占比。</p>
+          </li>
+          <li data-tag="li" id="li-i6a-0z4-le7" class="li">
+            <p id="79c8a7103ewuh">错误运营商统计：统计不同运营商的<span class="help-letter-space"></span>4xx、5xx<span class="help-letter-space"></span>状态码数量。</p>
+          </li>
+          <li data-tag="li" id="li-n87-7cr-l3s" class="li">
+            <p id="56465f9dc5dxf">错误按省份统计：统计不同省份的<span class="help-letter-space"></span>4xx、5xx<span class="help-letter-space"></span>状态码数量。</p>
+          </li>
+          <li data-tag="li" id="li-n3q-2no-qpg" class="li">
+            <p id="1507c312caqa0">错误详情（4xx）：统计不同省份、运营商的<span class="help-letter-space"></span>4xx<span class="help-letter-space"></span>状态码数量、占比。</p>
+          </li>
+          <li data-tag="li" id="li-53d-i6e-nig" class="li">
+            <p id="78189bbf798i0">错误详情（5xx）：统计不同省份、运营商的<span class="help-letter-space"></span>5xx<span class="help-letter-space"></span>状态码数量、占比。</p>
+          </li>
+          <li data-tag="li" id="li-vmg-nqd-2wn" class="li">
+            <p id="3b0dfe1f3cf6o">错误按客户端分布：统计不同的客户端<span class="help-letter-space"></span>UA（user-agent）对应的<span class="help-letter-space"></span>4xx、5xx<span class="help-letter-space"></span>状态码数量及占比。</p>
+          </li>
+        </ul>
+        <p id="111698f87frpy"><img data-tag="image" id="image-4r3-lko-t65" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0240705861/p466320.png" alt="CDN访问错误1" placement="break" class="image break"></p>
+      </section>
+      <section data-tag="section" id="section-lcz-hgw-0l1" data-type="section" class="section">
+        <h2 data-tag="title" id="title-bsv-xh3-l15" class="title">预制报表：CDN<span class="help-letter-space"></span>热门资源</h2>
+        <p data-tag="p" id="p-nur-54w-s7e" class="p">CDN<span class="help-letter-space"></span>热门资源数据可以帮助您更好地了解热门资源情况，分析出热门域名、热门<span class="help-letter-space"></span>URI、热门省份、热门运营商等，您也可以从热门数据了解到您的运营活动效果是否正常、热点时间内流量的上涨是否符合预期，以帮助您及时调整运营策略。</p>
+        <p data-tag="p" id="p-65b-y7k-c0g" class="p">包括以下数据（可以查看总的数据，也可以按域名或者<span class="help-letter-space"></span>URI<span class="help-letter-space"></span>查看）：</p>
+        <ul data-tag="ul" id="ul-s61-roh-2xf" class="ul">
+          <li data-tag="li" id="li-aph-5px-dx7" class="li">
+            <p id="44f896039et0u">访问次数<span class="help-letter-space"></span>Top<span class="help-letter-space"></span>域名：按总访问次数占比统计<span class="help-letter-space"></span>Top<span class="help-letter-space"></span>域名。</p>
+          </li>
+          <li data-tag="li" id="li-zkg-xwz-xew" class="li">
+            <p id="5e3473c5e9b9i">下载流量<span class="help-letter-space"></span>Top<span class="help-letter-space"></span>域名：按总下载流量占比统计<span class="help-letter-space"></span>Top<span class="help-letter-space"></span>域名。</p>
+          </li>
+          <li data-tag="li" id="li-k2h-1y1-los" class="li">
+            <p id="23f60f9139fls">热门访问<span class="help-letter-space"></span>URI：统计各个<span class="help-letter-space"></span>URI<span class="help-letter-space"></span>的访问次数、访问人数、下载总量。</p>
+          </li>
+          <li data-tag="li" id="li-e6i-2ud-fhs" class="li">
+            <p id="39f84e11cf8et">热门访问来源：统计热门<span class="help-letter-space"></span>Referer<span class="help-letter-space"></span>来源域名，并且记录访问次数、UV、占比。</p>
+          </li>
+          <li data-tag="li" id="li-vkr-f6z-l0r" class="li">
+            <p id="2bccacfe28yfl">全国访问次数统计：分别统计各个省份的平均访问次数。</p>
+          </li>
+          <li data-tag="li" id="li-0um-dlt-q3t" class="li">
+            <p id="aa3bb9000fp71">全国下载网速：分别统计各个省份的平均下载速度。</p>
+          </li>
+          <li data-tag="li" id="li-6ul-u8n-7bv" class="li">
+            <p id="8e6d9e3a4362q">省份统计：分别统计各个省份的总访问次数、总下载流量、平均下载速度。</p>
+          </li>
+          <li data-tag="li" id="li-4fo-kus-ci4" class="li">
+            <p id="30dc22d9d088w">运营商流量和速度：分别统计各个运营商的下载总量和平均下载速度。</p>
+          </li>
+          <li data-tag="li" id="li-aac-hm7-zrg" class="li">
+            <p id="02681f8bcbjqi">运营商统计：分别统计各个运营商的总访问次数、总下载流量、平均下载速度。</p>
+          </li>
+        </ul>
+        <p id="4416f4c3b9v8b"></p>
+      </section>
+      <section data-tag="section" id="section-90x-i06-uq7" data-type="section" class="section">
+        <h2 data-tag="title" id="title-d4d-a9q-hsf" class="title">预制报表：CDN<span class="help-letter-space"></span>用户构成</h2>
+        <p data-tag="p" id="p-tui-29a-ytz" class="p">CDN<span class="help-letter-space"></span>用户构成数据可以帮助您更好地了解网站的用户构成，包括用户的客户端类型、省份、运营商等，也能够统计出访问<span class="help-letter-space"></span>TOP<span class="help-letter-space"></span>用户、下载量<span class="help-letter-space"></span>TOP<span class="help-letter-space"></span>用户。</p>
+        <p data-tag="p" id="p-8lb-nzs-dco" class="p">包括以下数据（可以查看总的数据，也可以按域名或者<span class="help-letter-space"></span>URI<span class="help-letter-space"></span>查看）：</p>
+        <ul data-tag="ul" id="ul-lzq-bmb-nsa" class="ul">
+          <li data-tag="li" id="li-zpc-ia2-e9j" class="li">
+            <p id="bced799d2d2me">访问次数：总访问次数，PV。</p>
+          </li>
+          <li data-tag="li" id="li-ugj-r2z-8rj" class="li">
+            <p id="64f77a4f85cgk">访问人数：总访问人数，UV。</p>
+          </li>
+          <li data-tag="li" id="li-sbr-978-a1w" class="li">
+            <p id="2dd9da8227zu0">访问地区分布：分别统计各个省份的访问次数、占比。</p>
+          </li>
+          <li data-tag="li" id="li-fzd-tge-j9e" class="li">
+            <p id="8519568673i00">访问客户端统计：分别统计各个客户端类型的访问次数、占比。</p>
+          </li>
+          <li data-tag="li" id="li-i72-nxv-ssc" class="li">
+            <p id="8e93b8e000ioi">运营商次数统计：分别统计各个运营商的总访问次数、占比。</p>
+          </li>
+          <li data-tag="li" id="li-izz-30o-d64" class="li">
+            <p id="fc73681b532k9">下载量<span class="help-letter-space"></span>Top<span class="help-letter-space"></span>用户：按<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>统计用户的总访问数、错误访问数、下载总量。</p>
+          </li>
+          <li data-tag="li" id="li-mvc-ctd-d28" class="li">
+            <p id="ee13672ff3i4y">有效访问<span class="help-letter-space"></span>Top<span class="help-letter-space"></span>用户：按<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>统计用户的总访问数、错误访问数、下载总量（去掉<span class="help-letter-space"></span>4xx、5xx<span class="help-letter-space"></span>这些无效访问）。</p>
+          </li>
+        </ul>
+        <p id="c1906e2e48v1p"></p>
+      </section>
+      <section data-tag="section" id="section-emg-uqg-uhl" data-type="section" class="section">
+        <h2 data-tag="title" id="title-ow2-eo1-c22" class="title">订阅报表模板数据</h2>
+        <p data-tag="p" id="p-zbt-5kh-4z3" class="p">如果您需要<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>日志服务定期将报表模板的数据发送给您，那么您可以使用订阅功能。</p>
+        <h3 data-tag="p" id="p-ok3-ntb-bmq" outputclass="h3" class="p h3">操作步骤</h3>
+        <ol data-tag="ol" id="ol-boj-4b5-70p" class="ol">
+          <li data-tag="li" id="li-kdk-2fa-qaq" class="li">
+            <p id="14df370f02hbm">以<span class="help-letter-space"></span>CDN<span class="help-letter-space"></span>基础数据页面为例，单击右上角的<b data-tag="uicontrol" id="uicontrol-w7q-rtm-coa" class="uicontrol">订阅</b>，然后单击<b id="uicontrol-oa8-ca2-i7p" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建</b>。在报表模板页面右上角，单击<b>订阅</b>按钮。</p>
+          </li>
+          <li data-tag="li" id="li-q6s-ca6-o0s" class="li">
+            <p id="619ed3e9f4ual">在侧滑出现的配置窗口中输入<b data-tag="uicontrol" id="uicontrol-vdf-q3c-tmj" class="uicontrol">订阅名称</b>、<b data-tag="uicontrol" id="uicontrol-38i-0ue-zji" class="uicontrol">频率</b>和<b data-tag="uicontrol" id="uicontrol-ly1-9f8-idg" class="uicontrol">全局时间</b>，然后单击<b id="uicontrol-zy2-8nx-88j" data-tag="uicontrol" data-isbold="true" class="uicontrol">下一步</b>。</p>
+          </li>
+          <li data-tag="li" id="li-dn4-2d3-mbc" class="li">
+            <p id="4e49c654c7xkn">在<b data-tag="uicontrol" id="uicontrol-wgi-ae1-n63" class="uicontrol">通知列表</b>的下拉菜单中选择通知方式并填写相关信息后，单击<b id="uicontrol-a1a-nk2-ypo" data-status="unpublished" data-tag="uicontrol" data-isbold="true" class="uicontrol">提交</b>即可成功创建。</p>
+            <p data-tag="p" id="p-8nn-rhl-gg4" class="p">通知方式目前支持邮件、WebHook-钉钉机器人、WebHook-飞书机器人、WebHook-企业微信机器人和微信。</p>
+          </li>
+        </ol>
+      </section>
+      <section data-tag="section" id="section-y1h-zmg-w67" data-type="section" class="section">
+        <h2 data-tag="title" id="title-j53-rb1-xid" class="title">自定义报表</h2>
+        <ul data-tag="ul" id="ul-xon-o26-7kr" class="ul">
+          <li data-tag="li" id="li-ovn-4cx-m9k" class="li">
+            <p id="776ab47755rx5">示例<span class="help-letter-space"></span>1：查看最近<span class="help-letter-space"></span>30<span class="help-letter-space"></span>天内，响应状态码为<span class="help-letter-space"></span>499<span class="help-letter-space"></span>的域名排行榜。</p>
+            <p data-tag="p" id="p-ymp-jjl-09l" class="p">日志分析语句：<span data-tag="ph" id="codeph-py5-dxm-ukq" class="ph"><code data-tag="code" code-type="xCode" id="f59e915e2egcd" class="code">return_code = 499| select domain , count(*) as c group by domain order by c desc limit 10</code></span></p>
+          </li>
+          <li data-tag="li" id="li-ogx-47q-dlk" class="li">
+            <p id="8047d2d7b6oi9">示例<span class="help-letter-space"></span>2：查看最近<span class="help-letter-space"></span>30<span class="help-letter-space"></span>天内，响应状态码为<span class="help-letter-space"></span>502<span class="help-letter-space"></span>的域名排行榜。</p>
+            <p data-tag="p" id="p-1bw-gok-jno" class="p">日志分析语句：<span data-tag="ph" id="codeph-jxo-nfd-3lu" class="ph"><code data-tag="code" code-type="xCode" id="c903c2add3kdi" class="code">return_code = 502| select domain , count(*) as c group by domain order by c desc limit 10</code></span></p>
+          </li>
+          <li data-tag="li" id="li-dn5-wg4-12d" class="li">
+            <p id="48b7acee53eu7">示例<span class="help-letter-space"></span>3：查看最近<span class="help-letter-space"></span>30<span class="help-letter-space"></span>天内，访问<span class="help-letter-space"></span>URI<span class="help-letter-space"></span>为/cpu<span class="help-letter-space"></span>的日志数据。</p>
+            <p data-tag="p" id="p-qc9-21i-pfq" class="p">可以直接单击左侧<b data-tag="uicontrol" id="uicontrol-izd-wkq-uue" class="uicontrol">原始日志</b>栏的<span class="help-letter-space"></span>URI<span class="help-letter-space"></span>字段，然后单击<b data-tag="uicontrol" id="uicontrol-yd3-8c2-7wv" class="uicontrol">/cpu</b><span class="help-letter-space"></span>即可过滤出需要的日志。</p>
+            <p id="p-d626ad266787">过滤后，左侧<b>快速分析</b>面板的 <b>uri</b> 字段显示 <code data-tag="code" class="code">/cpu</code> 占比 53%，为最主要的请求 URI。查询栏过滤条件为 <code data-tag="code" class="code">* and uri : "/cpu"</code>，时间范围选择 <b>30<span class="help-letter-space"></span>天（相对）</b>，日志总条数为 1,556,698。</p>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/sls/import-volcano-engine-tls-log-data-into-alibaba-cloud-sls" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：阿里云SLS导入火山引擎TLS日志数据</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/sls/6-log-collection-failures" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：日志采集失败的 6 大经典雷区<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

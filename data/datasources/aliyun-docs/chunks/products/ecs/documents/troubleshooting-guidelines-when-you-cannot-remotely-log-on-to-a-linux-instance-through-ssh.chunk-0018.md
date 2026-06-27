@@ -1,0 +1,4 @@
+### SSH服务关联目录或文件配置
+SSH服务基于安全性考虑，在运行时，会对相关目录或文件的权限配置、属组等进行检查。过高或过低的权限配置，都可能会引发服务运行异常，进而导致客户端登录失败。常见案例：
+[使用](the-no-supported-key-exchange-algorithms-error-occurs-when-you-log-on-to-a-linux-instance-by-using-ssh-commands.md)[SSH](the-no-supported-key-exchange-algorithms-error-occurs-when-you-log-on-to-a-linux-instance-by-using-ssh-commands.md)[命令登录](the-no-supported-key-exchange-algorithms-error-occurs-when-you-log-on-to-a-linux-instance-by-using-ssh-commands.md)[Linux](the-no-supported-key-exchange-algorithms-error-occurs-when-you-log-on-to-a-linux-instance-by-using-ssh-commands.md)[实例时出现“No supported key exchange algorithms”错误](the-no-supported-key-exchange-algorithms-error-occurs-when-you-log-on-to-a-linux-instance-by-using-ssh-commands.md)
+[SSH](what-should-i-do-if-the-must-be-owned-by.md)[服务启动时系统提示“must be owned by root and not group or word-writable”错误](what-should-i-do-if-the-must-be-owned-by.md)

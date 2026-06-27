@@ -1,0 +1,17 @@
+{
+  "id": "sls:developer-reference/get-index-config",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "使用get_index_config命令获取Logstore索引配置-日志服务-阿里云",
+  "source_url": "https://help.aliyun.com/zh/sls/developer-reference/get-index-config",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/developer-reference/get-index-config.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/developer-reference/get-index-config.md",
+  "word_count": 609,
+  "text_units": 1025,
+  "local_links": 0,
+  "external_links": 64,
+  "has_tables": true,
+  "table_count": 5,
+  "quality": "accepted"
+}

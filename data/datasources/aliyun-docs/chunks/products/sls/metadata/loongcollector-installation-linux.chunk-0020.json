@@ -1,0 +1,14 @@
+{
+  "id": "sls:loongcollector-installation-linux:20",
+  "document_id": "sls:loongcollector-installation-linux",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "deployment",
+  "title": "如何在Linux系统安装LoongCollector-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/loongcollector-installation-linux",
+  "chunk_index": 20,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/loongcollector-installation-linux.chunk-0020.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/loongcollector-installation-linux.md",
+  "heading_path": "安装采集器 > 常见问题 > 服务器无法连接外部网络时如何升级",
+  "char_count": 858
+}

@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-argo-workflow-cluster/user-guide/trigger-workflows-via-simple-message-queue:1",
+  "document_id": "ack:ack-argo-workflow-cluster/user-guide/trigger-workflows-via-simple-message-queue",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "通过轻量消息队列（原 MNS）触发工作流-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/user-guide/trigger-workflows-via-simple-message-queue",
+  "chunk_index": 1,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-argo-workflow-cluster/user-guide/trigger-workflows-via-simple-message-queue.chunk-0001.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-argo-workflow-cluster/user-guide/trigger-workflows-via-simple-message-queue.md",
+  "heading_path": "通过轻量消息队列（原 MNS）触发工作流 > 步骤一：创建Event Bus",
+  "char_count": 206
+}

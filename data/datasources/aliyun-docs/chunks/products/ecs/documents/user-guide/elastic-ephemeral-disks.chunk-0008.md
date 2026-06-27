@@ -1,0 +1,7 @@
+amilies.md)[hpc8i](overview-of-hpc-optimized-instance-families.md)
+[通用型实例规格族](overview-of-instance-families.md)[g9i](overview-of-instance-families.md)
+[计算型实例规格族](overview-of-instance-families.md)[c9i](overview-of-instance-families.md)
+[内存型实例规格族](overview-of-instance-families.md)[r9i](overview-of-instance-families.md)
+[通用算力型实例规格族](overview-of-instance-families.md)[u2i](overview-of-instance-families.md)
+[本地](overview-of-instance-families.md)[SSD](overview-of-instance-families.md)[型实例规格族](overview-of-instance-families.md)[i5e](overview-of-instance-families.md)
+[本地](overview-of-instance-families.md)[SSD](overview-of-instance-families.md)[型实例规格族](overview-of-instance-families.md)[i5](overview-of-instance-families.md)

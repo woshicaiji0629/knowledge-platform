@@ -1,0 +1,2 @@
+measurement-of-ossfs-version-1-91-and-above.md) |
+| sigVersion | 请求 OSS 服务端的请求签名版本。 "v1" （默认）：使用 OSS [签名版本](../../../../oss/documents/developer-reference/ddd-signatures-to-urls.md) [1](../../../../oss/documents/developer-reference/ddd-signatures-to-urls.md) 。 "v4" ：使用 OSS [签名版本](../../../../oss/documents/developer-reference/add-signatures-to-urls.md) [4（推荐）](../../../../oss/documents/developer-reference/add-signatures-to-urls.md) 。 |

@@ -1,0 +1,5 @@
+## 本地为Linux/macOS
+使用ssh-keygen命令从一个现有的私钥文件中提取并显示其对应的公钥
+<path_to_key_pair>为私钥文件的路径，例如/path_to_key_pair/my-key-pair.pem。ssh-keygen -y -f <path_to_key_pair>
+返回公钥信息：
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABA****+GF9q7rhc6vYrExwT4WU4fsaRcVXGV2Mg9RHex21hl1au77GkmnIgukBZjywlQOT4GDdsJy2nBOdJPrCEBIPxxxxxxxxxx/fctNuKjcmMMOA8YUT+sJKn3l7rCLkesE+S5880yNdRjBiiUy40kyr7Y+fqGVdSOHGMXZQPpkBtojcxxxxxxxxxxx/htEqGa/Jq4fH7bR6CYQ2XgH/hCap29Mdi/G5Tx1nbUKuIHdMWOPvjxxxxxxxxxx+lHtTGiAIRG1riyNRVC47ZEVCxxxxxx

@@ -1,0 +1,17 @@
+{
+  "id": "redis:user-guide/enable-the-direct-connection-mode",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "deployment",
+  "title": "开通实例直连访问-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/enable-the-direct-connection-mode",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/user-guide/enable-the-direct-connection-mode.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/enable-the-direct-connection-mode.md",
+  "word_count": 839,
+  "text_units": 2109,
+  "local_links": 6,
+  "external_links": 80,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

@@ -1,0 +1,6 @@
+| 流程 | 说明 |
+| --- | --- |
+| 适用范围 | 1.22 及以上版本的 ACK 托管集群 。如需升级，请参见 [手动升级集群](update-the-kubernetes-version-of-an-ack-cluster.md) 。 |
+| 已部署 ACK Knative ，安装 Knative Serving 组件，请参见 [部署与管理](deploy-knative.md) [Knative](deploy-knative.md) [组件](deploy-knative.md) 。 |  |
+| 已完成网关选型并部署网，请参见 [为](comparison-between-kourier-and-alb-ingresses.md) [Knative](comparison-between-kourier-and-alb-ingresses.md) [选择网关](comparison-between-kourier-and-alb-ingresses.md) 。 [ALB](../../../../slb/documents/application-load-balancer/user-guide/functions-and-features-of-alb-ingresses.md) ：基于阿里云 ALB 提供了更为强大的 Ingress 流量管理方式，全托管免运维，且支持自动弹性能力。 [ASM](https://help.aliyun.com/zh/asm/sidecar/overview-of-asm-gateways) ：统一管理微服务应用流量、兼容 Istio 的托管式平台。通过流量控制、网格观测以及服务间通信安全等功能，简化您的服务治理，并为运行在异构计算基础设施上的服务提供统一的管理能力。 [Kourier](https://github.com/knative-extensions/net-kourier) ：基于 Envoy 架构实现的一款 Knative 社区开源的轻量级网关。 |  |
+| 服务部署与管理 | 指定使用的资源类型： 默认使用 ECS 资源运行 Knative 服务。 使用 ECI 提供的 Pod 资源应对突发流量，请参见 [使用](use-elastic-container-instances-in-knative.md) [ECI](use-elastic-container-instances-in-knative.md) [资源](use-elastic-container-instances-in-knative.md) 。 使用 ACS 提供的 Pod 资源应对突发流量，请参见 [使用](using-acs-resources.md) [ACS](using-acs-resources

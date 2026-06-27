@@ -1,0 +1,2 @@
+### 示例2：授予指定OSS Bucket的读取权限
+请将YOUR_OSS_BUCKET_NAME替换为目标OSS Bucket名称。{"Version":"1","Statement":[{"Effect":"Allow","Action":["oss:ListBuckets","oss:GetBucketStat","oss:GetBucketInfo","oss:GetBucketTagging","oss:GetBucketAcl"],"Resource":"acs:oss:*:*:*"},{"Effect":"Allow","Action":["oss:ListObjects","oss:GetBucketAcl"],"Resource":"acs:oss:*:*:YOUR_OSS_BUCKET_NAME"},{"Effect":"Allow","Action":["oss:GetObject","oss:GetObjectAcl"],"Resource":"acs:oss:*:*:YOUR_OSS_BUCKET_NAME/*"}]}

@@ -1,0 +1,2 @@
+4.J_323065.pricedetail1111.59762bc6BGAZfq&commodityCode=ossbag&request=%7B%22region%22%3A%22china-common%22%7D#/buy) | 用于抵扣 CDN 回源时产生的流量费用，超出部分自动按量计费。 |
+| [OSS](https://common-buy.aliyun.com/?spm=5176.8064714.J_323065.pricedetail1111.59762bc6BGAZfq&commodityCode=ossbag&request=%7B%22region%22%3A%22china-common%22%7D#/buy) [标准存储包](https://common-buy.aliyun.com/?spm=5176.8064714.J_323065.pricedetail1111.59762bc6BGAZfq&commodityCode=ossbag&request=%7B%22region%22%3A%22china-common%22%7D#/buy) | 用于抵扣“标准存储-本地冗余” 和“ECS 快照” 的存储容量，超出部分自动按量计费。 |

@@ -1,0 +1,5 @@
+## 2022年09月
+
+| 功能名称 | 变更类型 | 功能概述 | 相关链接 |
+| --- | --- | --- | --- |
+| IPv4 网关 | 新增 | IPv4 网关是连接专有网络 VPC 和公网的网络组件。VPC 通过 IPv4 网关访问公网，该 IPv4 网关负责路由转发和私网 IP 到公网 IP 的转换，最终实现对公网的访问。 | [IPv4](ipv4-gateway-overview.md) [网关](ipv4-gateway-overview.md) [创建和管理](user-guide/create-and-manage-an-ipv4-gateway.md) [IPv4](user-guide/create-and-manage-an-ipv4-gateway.md) [网关](user-guide/create-and-manage-an-ipv4-gateway.md) [如何在已有公网](user-guide/create-and-enable-ipv4-gateway-in-vpc-associated-with-internet-nat-gateway.md) [NAT](user-guide/create-and-enable-ipv4-gateway-in-vpc-associated-with-internet-nat-gateway.md) [网关的](user-guide/create-and-enable-ipv4-gateway-in-vpc-associated-with-internet-nat-gateway.md) [VPC](user-guide/create-and-enable-ipv4-gateway-in-vpc-associated-with-internet-nat-gateway.md) [中开启](user-guide/create-and-enable-ipv4-gateway-in-vpc-associated-with-internet-nat-gateway.md) [IPv4](user-guide/create-and-enable-ipv4-gateway-in-vpc-associated-with-internet-nat-gateway.md) [网关](user-guide/create-and-enable-ipv4-gateway-in-vpc-associated-with-internet-nat-gateway.md) [IPv4](user-guide/faq-2.md) [网关](user-guide/faq-2.md) [FAQ](user-guide/faq-2.md) |

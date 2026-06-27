@@ -1,0 +1,5 @@
+### 存储类型
+
+| 说明 | 变更方法 |
+| --- | --- |
+| 当前仅支持如下存储类型变更： MySQL 8.0、5.7 高可用系列或基础系列（SSD 云盘），可变更为 ESSD 云盘。 MySQL 8.0、5.7 高可用系列（高性能本地盘），可变更为 ESSD 云盘。 MySQL 5.7 基础系列（SSD 云盘）升级高可用系列时，可同步变更存储类型为高性能本地盘。 云盘空间不低于 40 GB 的 ESSD 云盘实例，可变更为高性能云盘。 基础系列支持 ESSD PL0 变更为 PL1，不支持 ESSD PL1 变更为 PL0。 高可用系列、集群系列实例节点支持在 ESSD PL1、PL2、PL3 云盘之间变更。 | [升级](upgrade-the-storage-type-of-an-apsaradb-rds-for-mysql-instance-from-standard-ssds-to-essds.md) [SSD](upgrade-the-storage-type-of-an-apsaradb-rds-for-mysql-instance-from-standard-ssds-to-essds.md) [云盘至](upgrade-the-storage-type-of-an-apsaradb-rds-for-mysql-instance-from-standard-ssds-to-essds.md) [ESSD](upgrade-the-storage-type-of-an-apsaradb-rds-for-mysql-instance-from-standard-ssds-to-essds.md) [云盘](upgrade-the-storage-type-of-an-apsaradb-rds-for-mysql-instance-from-standard-ssds-to-essds.md) [变更高性能本地盘至云盘](change-the-storage-type-from-local-ssd-to-essd.md) [基础系列升级为高可用系列](upgrade-an-apsaradb-rds-for-mysql-instance-from-basic-edition-to-high-availability-edition.md) [ESSD](essd-changed-to-universal-cloud-disk.md) [云盘变更为高性能云盘](essd-changed-to-universal-cloud-disk.md) [变更节点配置](change-node-specifications.md) |

@@ -1,0 +1,4 @@
+../../ack-managed-and-ack-dedicated/user-guide/overview-of-topology-aware-gpu-scheduling.md) [拓扑感知调度](../../ack-managed-and-ack-dedicated/user-guide/overview-of-topology-aware-gpu-scheduling.md) |  |  |
+| [共享](https://help.aliyun.com/zh/document_detail/212213.html) [GPU](https://help.aliyun.com/zh/document_detail/212213.html) [专业版调度](https://help.aliyun.com/zh/document_detail/212213.html) |  |  |
+| 支持 [使用阿里云](../security-and-compliance/use-kms-to-encrypt-kubernetes-secrets-1.md) [KMS](../security-and-compliance/use-kms-to-encrypt-kubernetes-secrets-1.md) [进行](../security-and-compliance/use-kms-to-encrypt-kubernetes-secrets-1.md) [Secret](../security-and-compliance/use-kms-to-encrypt-kubernetes-secrets-1.md) [的落盘加密](../security-and-compliance/use-kms-to-encrypt-kubernetes-secrets-1.md) |  |  |
+| [托管节点池](../../overview-of-managed-node-pools.md) |  |  |

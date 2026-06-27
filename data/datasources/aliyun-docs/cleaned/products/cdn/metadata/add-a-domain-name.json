@@ -1,0 +1,17 @@
+{
+  "id": "cdn:add-a-domain-name",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "快速配置加速域名，方便接入CDN加速服务-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/add-a-domain-name",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/add-a-domain-name.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/add-a-domain-name.md",
+  "word_count": 1107,
+  "text_units": 3073,
+  "local_links": 4,
+  "external_links": 94,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

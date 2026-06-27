@@ -1,0 +1,2 @@
+### SSL连接
+RDS PostgreSQL支持设置SSL链路加密，对网络连接进行加密，保证传输链路的安全。具体配置请参见[使用](connect-to-an-apsaradb-rds-for-postgresql-instance-over-ssl-connections.md)[SSL](connect-to-an-apsaradb-rds-for-postgresql-instance-over-ssl-connections.md)[链路连接](connect-to-an-apsaradb-rds-for-postgresql-instance-over-ssl-connections.md)[RDS PostgreSQL](connect-to-an-apsaradb-rds-for-postgresql-instance-over-ssl-connections.md)[数据库](connect-to-an-apsaradb-rds-for-postgresql-instance-over-ssl-connections.md)。

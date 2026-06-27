@@ -1,0 +1,17 @@
+{
+  "id": "redis:user-guide/enable-the-new-audit-log-feature",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "deployment",
+  "title": "开通审计日志-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/enable-the-new-audit-log-feature",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/user-guide/enable-the-new-audit-log-feature.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/enable-the-new-audit-log-feature.md",
+  "word_count": 780,
+  "text_units": 2468,
+  "local_links": 8,
+  "external_links": 67,
+  "has_tables": true,
+  "table_count": 6,
+  "quality": "accepted"
+}

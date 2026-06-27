@@ -1,0 +1,14 @@
+{
+  "id": "vpc:use-traffic-mirroring-to-perform-security-audit-on-vpc-traffic:2",
+  "document_id": "vpc:use-traffic-mirroring-to-perform-security-audit-on-vpc-traffic",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "使用流量镜像对VPC流量进行安全审查-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/use-traffic-mirroring-to-perform-security-audit-on-vpc-traffic",
+  "chunk_index": 2,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/use-traffic-mirroring-to-perform-security-audit-on-vpc-traffic.chunk-0002.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/use-traffic-mirroring-to-perform-security-audit-on-vpc-traffic.md",
+  "heading_path": "使用流量镜像对VPC流量进行安全审查 > 操作步骤 > 步骤一：配置Suricata",
+  "char_count": 533
+}

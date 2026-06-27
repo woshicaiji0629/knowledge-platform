@@ -1,0 +1,10 @@
+n-instance-can-be-pinged-but-the-required-port-cannot.md)[ping](troubleshoot-the-issue-that-an-instance-can-be-pinged-but-the-required-port-cannot.md)[通](troubleshoot-the-issue-that-an-instance-can-be-pinged-but-the-required-port-cannot.md)[ECS](troubleshoot-the-issue-that-an-instance-can-be-pinged-but-the-required-port-cannot.md)[实例但端口不通的排查方法](troubleshoot-the-issue-that-an-instance-can-be-pinged-but-the-required-port-cannot.md)进行排查。
+步骤四：检查CPU负载、带宽及内存使用情况
+无法正常远程连接时，可能是因为CPU负载、带宽不足或内存不足导致。
+根据是否存在CPU负载过高情况，选择相应操作。
+存在CPU负载过高情况。
+若应用程序有大量的磁盘访问、网络访问行为、高计算需求，CPU负载过高是正常结果。建议您升配实例规格来解决资源瓶颈问题，具体操作，请参见[升降配方式概述](user-guide/overview-of-instance-configuration-changes.md)。
+说明
+CPU负载过高的解决方法，请参见[Linux](support/query-and-case-analysis-linux-cpu-load.md)[系统](support/query-and-case-analysis-linux-cpu-load.md)[CPU](support/query-and-case-analysis-linux-cpu-load.md)[负载的查询和案例分析](support/query-and-case-analysis-linux-cpu-load.md)。
+说明
+排查是否感染病毒：排除正常业务后，CPU资源仍被异常占满，可能是实例感染挖矿病毒。挖矿程序会恶意抢占CPU等资源，导致实例卡顿、响应缓慢，严重时无法远程连接，具体排查与处理请参见[挖矿病毒处理和防护指南](user-guide/mining-virus-protection-and-handling-guide.md)；如果实例感染勒索病毒，系统文件被加密锁定，同样可能导致无法正常登录，具体请参见[提升实例防勒索能力的指南](user-guide/enhance-anti-ransomware-capabilities-for-instances

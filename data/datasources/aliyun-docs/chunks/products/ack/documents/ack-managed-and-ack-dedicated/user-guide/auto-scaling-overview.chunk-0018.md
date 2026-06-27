@@ -1,0 +1,7 @@
+ng.md)[或内存飙高造成扩容出多余](faq-about-workload-auto-scaling.md)[Pod](faq-about-workload-auto-scaling.md)[的多弹现象？](faq-about-workload-auto-scaling.md)
+[为什么](faq-about-workload-auto-scaling.md)[HPA](faq-about-workload-auto-scaling.md)[审计日志数值未达阈值但扩缩了？](faq-about-workload-auto-scaling.md)
+[HPA](faq-about-workload-auto-scaling.md)[缩容时，能够决定](faq-about-workload-auto-scaling.md)[Pod](faq-about-workload-auto-scaling.md)[缩容的顺序吗？](faq-about-workload-auto-scaling.md)
+[HPA](faq-about-workload-auto-scaling.md)[使用率指标单位的含义是什么？](faq-about-workload-auto-scaling.md)
+[如果执行](faq-about-workload-auto-scaling.md)[kubectl get hpa](faq-about-workload-auto-scaling.md)[后发现](faq-about-workload-auto-scaling.md)[target](faq-about-workload-auto-scaling.md)[一栏为](faq-about-workload-auto-scaling.md)[unknown](faq-about-workload-auto-scaling.md)[怎么办？](faq-about-workload-auto-scaling.md)
+[如何查找](faq-about-workload-auto-scaling.md)[HPA](faq-about-workload-auto-scaling.md)[支持的指标名称？](faq-about-workload-auto-scaling.md)
+[自定义了](faq-about-workload-auto-scaling.md)[Nginx Ingress](faq-about-workload-auto-scaling.md)[日志格式后如何进行适配操作？](faq-about-workload-auto-scaling.md)

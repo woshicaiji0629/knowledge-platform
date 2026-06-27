@@ -1,0 +1,14 @@
+{
+  "id": "sls:data-tiered-storage-overview:1",
+  "document_id": "sls:data-tiered-storage-overview",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "通过配置低频存储、归档存储降低日志存储成本。-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/data-tiered-storage-overview",
+  "chunk_index": 1,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/data-tiered-storage-overview.chunk-0001.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/data-tiered-storage-overview.md",
+  "heading_path": "管理智能存储分层 > 什么是智能存储分层 > 存储类型",
+  "char_count": 297
+}

@@ -1,0 +1,14 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/migrate-data-from-a-user-created-oracle-instance-to-an-rds:24",
+  "document_id": "rds:apsaradb-rds-for-mysql/migrate-data-from-a-user-created-oracle-instance-to-an-rds",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "自建Oracle通过DTS迁移至RDS MySQL-云数据库 RDS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/migrate-data-from-a-user-created-oracle-instance-to-an-rds",
+  "chunk_index": 24,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/rds/documents/apsaradb-rds-for-mysql/migrate-data-from-a-user-created-oracle-instance-to-an-rds.chunk-0024.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/migrate-data-from-a-user-created-oracle-instance-to-an-rds.md",
+  "heading_path": "从自建Oracle迁移至阿里云RDS MySQL > 操作步骤 > 大模型",
+  "char_count": 197
+}

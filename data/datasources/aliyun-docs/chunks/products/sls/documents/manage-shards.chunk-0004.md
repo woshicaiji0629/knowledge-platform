@@ -1,0 +1,6 @@
+### 分裂与合并
+日志服务支持分裂和合并Shard。
+分裂操作是指将一个Shard分裂为另外两个Shard，即分裂后Shard数量增加2。两个新生成的Shard的状态为readwrite，排列在原Shard之后且两个Shard的MD5范围覆盖原Shard的MD5范围。
+分裂Shard时，需指定一个处于readwrite状态的Shard。分裂完成后，原Shard状态由readwrite变为readonly，该Shard中的数据仍可被消费，但该Shard不支持写入新数据。
+合并操作是指将两个Shard合并为一个Shard。新生成的Shard的状态为readwrite，排列在原Shard之后且其MD5范围覆盖原来两个Shard的MD5范围。
+合并Shard时，需指定一个处于readwrite状态且未排列在最后一个的Shard，日志服务自动找到所指定Shard右侧相邻的Shard，并进行合并。合并完成后，原来两个Shard的状态由readwrite变为readonly，这两个Shard中的数据仍可被消费，但这两个Shard不支持写入新数据。

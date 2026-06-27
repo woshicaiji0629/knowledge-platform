@@ -1,0 +1,6 @@
+的规格族，以[DescribeDeploymentSetSupportedInstanceTypeFamily](../developer-reference/api-ecs-2014-05-26-describedeploymentsetsupportedinstancetypefamily.md)接口返回结果为准。
+
+| 部署策略 | 支持的实例规格族 |
+| --- | --- |
+| 高可用策略和部署集组高可用策略 | g9a、g9ae、g9i、g8a、g8i、g8ine、g8ise、g8y、g7、g7a、g7h、g7ne、g7nex、g7se、g7t、g6、g6a、g6e、g6h、g5、g5ne c9a、c9ae、c9i、c8a、c8i、c8ine、c8y、c7、c7a、c7nex、c7se、c7t、c6、c6a、c6e、c5 r9a、r9ae、r9i、r8a、r8i、r8y、r7、r7a、r7se、r7t、r6、r6a、r6e、r5 hfc9i、hfg9i、hfr9i、hfc8i、hfg8i、hfr8i、hfc7、hfg7、hfr7、hfc6、hfg6、hfr6、hfc5、hfg5 ebmc9i、ebmg9a、ebmg9i、ebmr9i、ebmc8a、ebmc8i、ebmc8y、ebmg8a、ebmg8i、ebmg8y、ebmr8a、ebmr8y、ebmc7、ebmc7a、ebmg7、ebmg7a、ebmg7se、ebmhfc7、ebmhfg7、ebmhfr7、ebmr7、ebmr7a、ebmg5 i5、i5g、i5ge、ic5、i4、i4g、i4r、i3、i3g、i2、i2g、i2gne、i2ne gn6i d3c、d3s、d2c、d2s、d1ne re6、re6p、s6、t6、e4、mn4、n4、re4、xn4、sn2ne、u2a、u2i、se1、se1ne、sn1ne、u1、e |
+| 网络低时延策略 | g9a、g9ae、g9i、g8a、g8ae、g8i、g8ise、g8y、g7、g5ne c9a、c9ae、c9i、c8a、c8ae、c8i、c8ine、c8y、c7、c7nex r9a、r9ae、r9i、r8a、r8ae、r8i、r8y、r7 hfc9i、hfg9i、hfr9i、hfc8i、hfg8i、hfr8i ebmc9i、ebmg9a、ebmg9i、ebmr9i、ebmc8a、ebmc8i、ebmc8y、ebmg8a、ebmg8i、ebmg8y、ebmgn8v、ebmr8a、ebmr8y、ebmc7、ebmc7a、ebmg7、ebmg7a、ebmg7se、ebmgn7ex、ebmhfc7、ebmhfg7、ebmhfr7、ebmr7、ebmr7a i5、i5g、i5ge、i4 gn8v hpc8ae、hpc8i、hpc7ip、hpc6id、u2a、u2i |

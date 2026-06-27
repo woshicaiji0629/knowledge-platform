@@ -1,0 +1,6 @@
+| 对比项 | RDS SQL Server | ECS 自建 | 自购服务器搭建数据库 |
+| --- | --- | --- | --- |
+| 性价比 | 弹性资源。 Web 版性价比极高。 备份有 [一半实例空间免费](../apsaradb-rds-for-sql-server/billable-items-and-pricing-for-the-backup-storage-of-an-apsaradb-rds-for-sql-server-instance.md) 。 公网流量免费。 | 弹性资源。 不可使用 Web 版。 备份空间独立收费。 公网流量收费。 | 一次投入的沉没成本大。 不可使用 Web 版。 需要独立准备备份资源，成本极高。 公网流量收费，域名费用高。 |
+| 可用性 | 基础系列约 15 分钟即可完成故障转移。 高可用系列和集群系列提供自研高可用系统，实现 30 秒内故障恢复。 集群系列的 [只读实例](../overview-of-read-only-apsaradb-rds-for-sql-server-instances.md) 自动实现负载均衡。 集群系列的 [读写分离](../overview-of-read-or-write-splitting.md) 使用方便。 | 基础系列约 30 分钟完成故障转移。 需要单独购买高可用系统。 需要单独实现或者购买负载均衡服务。 | 单机实例，少则两小时，多则等待配货数周。 需要单独购买高可用系统。 需要单独实现或者购买负载均衡设备。 |
+| 可靠性 | 数据可靠性高，自动主备复制、数据备份、日志备份等。 集群系列可实现 RPO（Recovery Point Object）=0。 | 在好的架构下才能实现高可靠性。 实现 RPO=0 的成本极高，需要单独购买研发服务。 | 数据可靠性一般，取决于单块磁盘的损害概率。 实现 RPO=0 的成本极高，需要单独购买研发服务。 |
+| 易用性 | [自动化备份恢复](../apsaradb-rds-for-sql-server/back-up-an-apsaradb-rds-for-sql-server-instance.md) 系统，支持按时间点恢复、单库备份恢复等，流式备份对实例性能影响小。 [自动化监控告警](../apsaradb-rds-for-sql-server/configure-an-alert-rule-for-an-apsaradb-rds-for-sql-server-instance.md) 系统，支持秒级监控，覆盖实例和数据库所有性能指标，支持短信、邮箱、旺旺、钉钉等通道，且根据消费有大额度的免费短信数量。 即将支持异地容灾。 | 无自动备份系统，流式备份能力需要单独实现，实现按时间点恢复功能成本高。 需要

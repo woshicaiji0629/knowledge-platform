@@ -1,0 +1,10 @@
+../sls/documents/billable-items.md)。
+开启NIS流量分析：选择NIS流量分析器，进行流量分析。如果选择列表为空，需要先创建NIS流量分析器。确保创建或选择的NIS流量分析器的流量分析采样间隔需大于流日志采样间隔。
+[支持将](https://help.aliyun.com/zh/nis/user-guide/traffic-analyzer/#92cb328627ics)[VPC](https://help.aliyun.com/zh/nis/user-guide/traffic-analyzer/#92cb328627ics)[流日志接入流量分析器的地域](https://help.aliyun.com/zh/nis/user-guide/traffic-analyzer/#92cb328627ics)。
+成功创建流日志后，系统会自动启动流量信息采集，下一步可以[分析流日志](vpc-flow-logs.md)。
+启动或停止流日志
+前往专有网络控制台[流日志页面](https://vpc.console.aliyun.com/flowlog/cn-hangzhou/flowlogs)，在目标流日志的操作列单击启动或停止。
+停止后，VPC不再收取流日志生成费，但SLS会针对已保存的流日志持续[计费](vpc-flow-logs.md)。
+删除流日志
+前往专有网络控制台[流日志页面](https://vpc.console.aliyun.com/flowlog/cn-hangzhou/flowlogs)，在目标流日志的操作列单击删除。
+删除后，VPC不再收取流日志生成费，但SLS会针对已保存的流日志持续[计费](vpc-flow-logs.md)，需至日志服务控制台[删除对应的](../../sls/documents/manage-a-logstore.md)[Logstore](../../sls/documents/manage-a-logstore.md)才能停止全部费用。

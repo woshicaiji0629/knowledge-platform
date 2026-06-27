@@ -1,0 +1,1 @@
+sum(irate(apiserver_dropped_requests_total{request_kind="readOnly"}[$interval])) by (name) sum(irate(apiserver_dropped_requests_total{request_kind="mutating"}[$interval])) by (name) | API Server 的限流速率 ， No data 或者 0 表示没有限流。 |

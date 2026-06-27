@@ -1,0 +1,14 @@
+{
+  "id": "rds:apsaradb-rds-for-mariadb/general-workflow-to-use-apsaradb-rds-for-mariadb:2",
+  "document_id": "rds:apsaradb-rds-for-mariadb/general-workflow-to-use-apsaradb-rds-for-mariadb",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "deployment",
+  "title": "从创建到连接RDS MariaDB实例的完整流程-云数据库 RDS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mariadb/general-workflow-to-use-apsaradb-rds-for-mariadb",
+  "chunk_index": 2,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/rds/documents/apsaradb-rds-for-mariadb/general-workflow-to-use-apsaradb-rds-for-mariadb.chunk-0002.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mariadb/general-workflow-to-use-apsaradb-rds-for-mariadb.md",
+  "heading_path": "使用流程 > 快速入门 > 大模型",
+  "char_count": 197
+}

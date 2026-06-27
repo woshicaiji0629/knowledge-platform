@@ -1,0 +1,938 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    基于gatekeeper组件配置Pod级别的安全策略管理-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies">
+  <meta name="keywords" content="容器应用安全,k8s集群安全,Gatekeeper Admission Controller,Open Policy Agent OPA,PodSecurityPolicy PSP">
+  <meta name="description" content="为了满足集群合规性要求、提升集群安全性，推荐您启用安全策略管理功能。安全策略管理功能提供了符合Kubernetes容器应用场景的安全策略规则，包括Infra（基础设施层资源）、Compliance（Kubernetes合规规范）、PSP（基于PodSecurityPolicy能力的拓展）和K8s-general（通用策略）维度。您可以在控制台为容器应用开启或自定义安全策略，验证Pod的部署和更新是否安全可控。">
+  <meta name="last-modified" content="2026-05-19T19:58:31+08:00">
+  <meta name="date" content="2021-12-02T02:25:45+08:00">
+  <meta property="og:title" content="启用安全策略管理">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="为了满足集群合规性要求、提升集群安全性，推荐您启用安全策略管理功能。安全策略管理功能提供了符合Kubernetes容器应用场景的安全策略规则，包括Infra（基础设施层资源）、Compliance（Kubernetes合规规范）、PSP（基于PodSecurityPolicy能力的拓展）和K8s-general（通用策略）维度。您可以在控制台为容器应用开启或自定义安全策略，验证Pod的部署和更新是否安全可控。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "359818",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/ack/ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies","nodeId":null,"data":{"lastModifiedTime":1779191911000,"keywords":"容器应用安全,k8s集群安全,Gatekeeper Admission Controller,Open Policy Agent OPA,PodSecurityPolicy PSP","docTitle":"通过安全策略管理配置Pod的安全策略","language":"zh","seoTitle":"基于gatekeeper组件配置Pod级别的安全策略管理-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心","title":"启用安全策略管理","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"task-2148676\">\n    \n    \n    <p data-tag=\"shortdesc\" id=\"shortdesc-p19-abu-h7u\" class=\"shortdesc\">为了满足集群合规性要求、提升集群安全性，推荐您启用<span data-tag=\"ph\" id=\"288a46e2f05av\" docid=\"4601275\" is-conref=\"true\" class=\"ph\">安全策略管理</span>功能。安全策略管理功能提供了符合<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>容器应用场景的安全策略规则，包括<span class=\"help-letter-space\"></span>Infra（基础设施层资源）、Compliance（Kubernetes<span class=\"help-letter-space\"></span>合规规范）、PSP（基于<span class=\"help-letter-space\"></span>PodSecurityPolicy<span class=\"help-letter-space\"></span>能力的拓展）和<span class=\"help-letter-space\"></span>K8s-general（通用策略）维度。您可以在控制台为容器应用开启或自定义安全策略，验证<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>的部署和更新是否安全可控。</p>\n    <div data-tag=\"taskbody\" id=\"taskbody-saq-l00-0j2\" class=\"taskbody\">\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-rad-1jw-wtn\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-yzf-r9t-nk0\" class=\"title\">策略治理介绍</h2>\n        <p data-tag=\"p\" id=\"p-9yo-ziv-ga0\" class=\"p\">自<span class=\"help-letter-space\"></span>Kubernetes 1.21<span class=\"help-letter-space\"></span>起，PodSecurityPolicy（PSP）被标记为弃用（Deprecated）状态。为此，ACK<span class=\"help-letter-space\"></span>升级了原先基于<span class=\"help-letter-space\"></span>PSP<span class=\"help-letter-space\"></span>的策略管理功能。基于使用<span class=\"help-letter-space\"></span><a class=\"\" href=\"https://www.openpolicyagent.org/\" id=\"9d8f6f618diby\">OPA</a><span class=\"help-letter-space\"></span>策略的<span class=\"help-letter-space\"></span>Gatekeeper Admission Controller，ACK<span class=\"help-letter-space\"></span>扩展了相应的策略治理状态统计、日志上报检索等能力，同时内置了种类丰富的策略治理规则库，提供符合更多<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>应用场景的策略规则。在规则配置上，您可以在控制台上白屏化配置，降低使用策略治理相关能力的门槛。</p>\n      </section>\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-8n1-64j-o0j\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-qc1-6tl-xlu\" class=\"title\">前提条件</h2>\n        <ul data-tag=\"ul\" id=\"ul-5qh-2bd-cyc\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-cmd-mp8-v2z\" class=\"li\">\n            <p id=\"a68370d8c70x1\">集群版本为<span class=\"help-letter-space\"></span>1.16<span class=\"help-letter-space\"></span>及以上。如需升级集群，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/update-the-kubernetes-version-of-an-ack-cluster\" id=\"07b555d913ay3\" title=\"\" class=\"xref\">手动升级集群</a>。</p>\n          </li>\n          <li id=\"07c49f20c9sj1\">\n            <p id=\"c2c7702626vlh\">如需使用<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>用户进行策略管理时，请确保该<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>用户拥有以下授权：</p>\n            <ul data-tag=\"ul\" id=\"ul-13w-pqc-wox\" class=\"ul\">\n              <li data-tag=\"li\" id=\"li-nhp-m0k-esn\" class=\"li\">\n                <p id=\"07e697a1f4s4d\"><code data-tag=\"code\" code-type=\"xCode\" id=\"3543a620c27de\" class=\"code\">cs:DescribePolicies</code>：列举策略治理规则库列表</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-bqx-sdp-opj\" class=\"li\">\n                <p id=\"07e697a2f4mgs\"><code data-tag=\"code\" code-type=\"xCode\" id=\"330026a53dfnj\" class=\"code\">cs:DescribePoliceDetails</code>：获取策略规则模板详情</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-qnp-hvz-9fa\" class=\"li\">\n                <p id=\"07e6beb0f4sw6\"><code data-tag=\"code\" code-type=\"xCode\" id=\"5e87cb3307qvj\" class=\"code\">cs:DescribePolicyGovernanceInCluster</code>：获取集群策略治理详情</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-nat-zts-v0f\" class=\"li\">\n                <p id=\"07e6beb1f4jeh\"><code data-tag=\"code\" code-type=\"xCode\" id=\"c2d26c6b62hz2\" class=\"code\">cs:DescribePolicyInstances</code>：获取集群中当前部署的策略实例列表</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-ezw-a7v-gqk\" class=\"li\">\n                <p id=\"07e6e5c0f4596\"><code data-tag=\"code\" code-type=\"xCode\" id=\"480107f2c1yg6\" class=\"code\">cs:DescribePolicyInstancesStatus</code>：获取集群当前不同策略类型对应的实例部署状态</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-7uy-jvc-4m5\" class=\"li\">\n                <p id=\"07e6e5c1f482h\"><code data-tag=\"code\" code-type=\"xCode\" id=\"2563217fe1m4u\" class=\"code\">cs:DeployPolicyInstance</code>：在指定集群中部署策略规则实例</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-2cs-wsa-yin\" class=\"li\">\n                <p id=\"07e6e5c2f4zc1\"><code data-tag=\"code\" code-type=\"xCode\" id=\"dba595b763kf9\" class=\"code\">cs:DeletePolicyInstance</code>：在指定集群中删除策略规则实例</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-foc-td7-twa\" class=\"li\">\n                <p id=\"07e70cd0f44f5\"><code data-tag=\"code\" code-type=\"xCode\" id=\"37948f181057g\" class=\"code\">cs:ModifyPolicyInstance</code>：在指定集群中修改策略规则实例</p>\n              </li>\n            </ul>\n            <p data-tag=\"p\" id=\"p-c98-ycg-5sf\" class=\"p\">关于如何自定义<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>授权策略，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/create-a-custom-ram-policy#task-1664328\" id=\"xref-c3z-zze-bz2\" title=\"\" class=\"xref\">使用<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>授予集群及云资源访问权限</a>。</p>\n          </li>\n        </ul>\n      </section>\n      <section id=\"7ce6ff7203ekt\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"7d21ed94ba2kh\" class=\"title\">安全策略组件对比</h2>\n        <p id=\"1caa4347010ve\">ACK<span class=\"help-letter-space\"></span>提供两种安全策略组件形态：托管版与非托管版。集群在同一时间只能启用其中一种。两者详细对比如下。</p>\n        <table id=\"5f475ec4feybu\" tablewidth=\"100\" tablecolswidth=\"18.99 37.83 43.18000000000001\" autofit=\"true\" class=\"table\">\n          <colgroup colwidth=\"0.58*\" style=\"width:18.99%\"></colgroup>\n          <colgroup colwidth=\"1.15*\" style=\"width:37.83%\"></colgroup>\n          <colgroup colwidth=\"1.31*\" style=\"width:43.18%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"9ba8ac4929eyv\">\n              <td id=\"9023d10fa68jb\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p jc=\"left\" id=\"9b51251830bp8\" style=\"text-align:left\"><b>差异项</b></p>\n              </td>\n              <td id=\"4541aad2efk4u\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p jc=\"left\" id=\"ab7ae5a439hwg\" style=\"text-align:left\"><b>托管版</b></p>\n              </td>\n              <td id=\"2169cee9aezku\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p jc=\"left\" id=\"43b9240eebpcl\" style=\"text-align:left\"><b>非托管版</b></p>\n              </td>\n            </tr>\n            <tr id=\"5fe173f6d621b\">\n              <td id=\"826fee72a4uzz\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"left\" id=\"b41109d373b2a\" style=\"text-align:left\">部署模式</p>\n              </td>\n              <td id=\"eb8cc218e9jwp\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"left\" id=\"0e89fae2a2oq7\" style=\"text-align:left\">控制面托管：部署在集群控制面，由<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>全面托管</p>\n              </td>\n              <td id=\"d2c80428fe1ir\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"left\" id=\"716b61e42db8o\" style=\"text-align:left\">数据面部署：通过工作负载的形式部署在集群中，默认安装在<span class=\"help-letter-space\"></span>kube-system<span class=\"help-letter-space\"></span>命名空间下，会占用<span class=\"help-letter-space\"></span>Worker<span class=\"help-letter-space\"></span>节点的<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>资源</p>\n              </td>\n            </tr>\n            <tr id=\"8e76222644o1d\">\n              <td id=\"eb236b8d7c5sj\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"left\" id=\"576f93f110p97\" style=\"text-align:left\">适用集群</p>\n              </td>\n              <td id=\"95b057390edn9\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"801f5573ae5k8\">1.30<span class=\"help-letter-space\"></span>及以上版本的<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/auto-mode-overview/\" id=\"c3aae4b8c044r\" title=\"\" class=\"xref\">Auto Mode<span class=\"help-letter-space\"></span>集群</a></p>\n              </td>\n              <td id=\"7f6cae6592zae\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"3cd1aa1a50w5w\">1.16<span class=\"help-letter-space\"></span>及以上版本的<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"482caa197esme\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK<span class=\"help-letter-space\"></span>托管集群</span>、<span data-tag=\"ph\" id=\"056a9f75d9ret\" data-ref-searchable=\"yes\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK<span class=\"help-letter-space\"></span>专有集群</span></p>\n              </td>\n            </tr>\n            <tr id=\"cac0abbb2co3r\">\n              <td id=\"292c8a51a3o80\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"a8cfb654d7or4\">启用参数配置</p>\n              </td>\n              <td id=\"9ce89ecde0lij\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"a607b9c03eot7\">组件的启动参数由系统默认配置，不支持自定义</p>\n              </td>\n              <td id=\"d9814699a61hy\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6f351990a42zh\">可自定义修改组件的启动参数</p>\n              </td>\n            </tr>\n            <tr id=\"b18eebfadauqu\">\n              <td id=\"0f3ec1e1c4m9a\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"4eb8aed5a44oe\">核心组件安装</p>\n              </td>\n              <td id=\"31bcd248184h2\" rowspan=\"1\" colspan=\"1\">\n                <ul id=\"4ca591094aepr\">\n                  <li id=\"324d5064601s5\">\n                    <p id=\"bd7516b710v5i\">managed-gatekeeper</p>\n                  </li>\n                  <li id=\"6a54ab6786w26\">\n                    <p id=\"dbe0b9a1b6xsl\">managed-policy-template-controller</p>\n                  </li>\n                </ul>\n                <blockquote id=\"ccf79c78e0e1z\">在<span style=\"color:rgb(24, 24, 24)\">控制台的</span><b id=\"78da5351a4pfn\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">组件管理</b><span style=\"color:rgb(24, 24, 24)\">页面，托管版组件卡片将显示托管</span><img alt=\"image\" height=\"20\" id=\"39126ff59ei45\" placement=\"inline\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7439806571/p996931.png\" width=\"30\" class=\"image inline\"><span style=\"color:rgb(24, 24, 24)\">。</span></blockquote>\n              </td>\n              <td id=\"ba1e25bc15nrj\" rowspan=\"1\" colspan=\"1\">\n                <ul id=\"82eb991ff7hm1\">\n                  <li id=\"f797de94f79to\">\n                    <p id=\"6e9f4d32034yz\">gatekeeper</p>\n                  </li>\n                  <li id=\"50f9a0fb96uo9\">\n                    <p id=\"dd2a2cc700a8q\">policy-template-controller</p>\n                  </li>\n                  <li id=\"70d3bb4201m54\">\n                    <p id=\"84f82bf4f7sw2\">日志采集组件（logtail-ds<span class=\"help-letter-space\"></span>或<span class=\"help-letter-space\"></span>loongcollector）</p>\n                  </li>\n                </ul>\n              </td>\n            </tr>\n            <tr id=\"751ede9a8f6jj\">\n              <td id=\"016bf3766agq2\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"left\" id=\"3ffd074b7dfx3\" style=\"text-align:left\">策略日志采集</p>\n              </td>\n              <td id=\"4b3d70e9e4rib\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"left\" id=\"571feafc9d2q7\" style=\"text-align:left\">通过<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/collect-control-plane-component-logs-of-ack-managed-cluster\" id=\"3b44ef49066vr\" title=\"\" class=\"xref\">采集<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>托管集群控制面组件日志</a>发送到指定的<span class=\"help-letter-space\"></span>SLS Project<span class=\"help-letter-space\"></span>中</p>\n              </td>\n              <td id=\"7e1b9e936bcbd\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"left\" id=\"de90ba3e2eq5u\" style=\"text-align:left\">通过在集群中安装日志采集组件以采集日志，并发送至指定的<span class=\"help-letter-space\"></span>SLS Project<span class=\"help-letter-space\"></span>中</p>\n              </td>\n            </tr>\n            <tr id=\"d10bbcfcc4s5q\">\n              <td id=\"40f60cb90fecv\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"left\" id=\"20a74b938eh4o\" style=\"text-align:left\">策略规则库</p>\n              </td>\n              <td id=\"3d161d462115v\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"left\" id=\"f0c505f9581gz\" style=\"text-align:left\"><a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/predefined-security-policies-of-ack\" id=\"7f04d9d7ec1jr\" title=\"\" class=\"xref\">容器安全策略规则库说明</a>中的所有策略</p>\n              </td>\n              <td id=\"976e8f1e4esux\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <ul id=\"f8362d7d53ebg\">\n                  <li id=\"831e69f208h8d\">\n                    <p jc=\"left\" data-spm-anchor-id=\"a2c4g.11186623.0.i12.20fda3f2H7EdYc\" id=\"d5f0ae161eq68\" style=\"text-align:left\"><a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/predefined-security-policies-of-ack\" id=\"031537921632l\" title=\"\" class=\"xref\">容器安全策略规则库说明</a>中的所有策略</p>\n                  </li>\n                  <li id=\"033e7e8ec7k4z\">\n                    <p id=\"390f8b9ba8z3q\">云安全中心提供的<a href=\"https://help.aliyun.com/zh/security-center/user-guide/use-the-feature-of-proactive-defense-for-containers#section-i5h-11v-pag\" id=\"9e722460e5tvr\" title=\"\" class=\"xref\">容器主动防御</a></p>\n                  </li>\n                </ul>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </section>\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-ykr-oc3-p9n\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-fm2-581-4z0\" class=\"title\">注意事项</h2>\n        <ul data-tag=\"ul\" id=\"ul-eab-gva-q1p\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-7wb-08s-ip4\" class=\"li\">\n            <p id=\"07e733e0f42mq\">仅适用于<span class=\"help-letter-space\"></span>Linux<span class=\"help-letter-space\"></span>节点。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-jmq-zj3-skt\" class=\"li\">\n            <p id=\"07e733e1f492l\">不支持自定义策略规则。所有规则均来自于阿里云容器服务内置的规则库。</p>\n          </li>\n        </ul>\n      </section>\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-3k8-sl8-fi0\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-y6a-4jm-9v4\" class=\"title\">步骤一：安装或升级<span data-tag=\"ph\" id=\"7292fd103ay06\" docid=\"4601275\" is-conref=\"true\" class=\"ph\">安全策略管理</span>组件</h2>\n        <ol data-tag=\"steps\" id=\"steps-zw4-eb5-5rt\" class=\"steps\">\n          <li data-tag=\"step\" id=\"c0a6aac5b09ql\" docid=\"3660168\" is-conref=\"true\" class=\"step\">\n            <p id=\"7bdb0bf11b631\"><span data-tag=\"cmd\" id=\"cmd-mto-t3v-p7d\" class=\"cmd\">登录<span props=\"china intl\"><a href=\"https://cs.console.aliyun.com\" id=\"xref-c6s-99d-s5k\" class=\"\" target=\"_blank\">容器服务管理控制台</a></span>，在左侧导航栏选择<b id=\"uicontrol-42p-agm-35k\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"bb094cd6c1esl\" docid=\"3660168\" is-conref=\"true\" class=\"step\">\n            <p id=\"7bdd55e31buz3\"><span data-tag=\"cmd\" id=\"cmd-qpk-td0-r07\" class=\"cmd\">在<b id=\"wintitle-2wv-em0-u0r\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，选择<span data-tag=\"menucascade\" id=\"menucascade-3nx-6x4-mee\" class=\"menucascade\"><b id=\"uicontrol-5yc-deq-aat\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">安全管理</b> &gt; <b id=\"uicontrol-hh3-ucb-d4j\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">策略管理</b></span>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-mre-zf6-xj4\" class=\"step\">\n            <p id=\"07e7a910f4ieq\">在<b id=\"74f35f3167db1\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">策略管理</b>页面，根据页面提示安装或升级组件。</p>\n            <p id=\"eb6485e7a7aqh\">启用<span data-tag=\"ph\" id=\"c121465896x6k\" docid=\"4601275\" is-conref=\"true\" class=\"ph\">安全策略管理</span>功能时，需安装以下组件。以下组件本身不收取费用，但会占用您的<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>资源。</p>\n            <ul data-tag=\"ul\" id=\"361532c6bau66\" class=\"ul\">\n              <li id=\"c4a7c49a2bnbe\">\n                <p id=\"fd7bc55601jbe\">gatekeeper<span class=\"help-letter-space\"></span>组件：基于<span class=\"help-letter-space\"></span>OPA<span class=\"help-letter-space\"></span>策略引擎的<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>策略准入控制器，便于您管理和应用集群内的<span class=\"help-letter-space\"></span>OPA<span class=\"help-letter-space\"></span>策略，实现命名空间标签管理等功能。</p>\n                <div id=\"aafd37fe45mjj\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                  <p id=\"4a14150f5cfgn\">仅支持使用<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>集群提供的<span class=\"help-letter-space\"></span>gatekeeper<span class=\"help-letter-space\"></span>组件。如您通过其他途径安装了<span class=\"help-letter-space\"></span>gatekeeper<span class=\"help-letter-space\"></span>组件，请卸载后重新安装。关于<span class=\"help-letter-space\"></span>gatekeeper<span class=\"help-letter-space\"></span>组件的版本发布信息，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ack/product-overview/gatekeeper#task-1938542\" id=\"fdeac73ee2uih\" title=\"\" class=\"xref\">gatekeeper</a>。</p>\n                </div></div>\n              </li>\n              <li data-tag=\"li\" id=\"li-t5q-1ml-tg5\" props=\"ack\" data-cond-props=\"ack\" class=\"li\">\n                <p id=\"07e75af2f4r54\">日志采集组件：用于收集和检索不符合策略约束的拦截或告警事件。</p>\n              </li>\n              \n              <li id=\"426a5b591b9bw\">\n                <p data-tag=\"p\" id=\"c41fbb82aaviw\" class=\"p\">policy-template-controller<span class=\"help-letter-space\"></span>组件：基于阿里云策略模板开发的<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>控制器，便于您更好地管理基于不同策略模板部署的策略实例和集群整体的治理状态。</p>\n              </li>\n            </ul>\n          </li>\n        </ol>\n      </section>\n      <section id=\"88777ff753f72\" class=\"section\">\n        <h2 id=\"39190b0775nxa\"><b>步骤二：使用</b><span data-tag=\"ph\" id=\"c240d2b7d7hb0\" docid=\"4601275\" is-conref=\"true\" class=\"ph\">安全策略管理</span>功能</h2>\n        <section id=\"eee55ad814p04\" class=\"section\">\n          <h3 id=\"af6875a8887ju\"><b>操作入口</b></h3>\n          <ol data-tag=\"steps\" id=\"ecc1153b5aopx\" class=\"steps\">\n            <li data-tag=\"step\" id=\"32bf0d9c03ain\" docid=\"3660168\" is-conref=\"true\" class=\"step\">\n            <p id=\"7bdb0bf11b631\"><span data-tag=\"cmd\" id=\"cmd-mto-t3v-p7d\" class=\"cmd\">登录<span props=\"china intl\"><a href=\"https://cs.console.aliyun.com\" id=\"xref-c6s-99d-s5k\" class=\"\" target=\"_blank\">容器服务管理控制台</a></span>，在左侧导航栏选择<b id=\"uicontrol-42p-agm-35k\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>。</span></p>\n          </li>\n            <li data-tag=\"step\" id=\"86ceb8ebf61bp\" docid=\"3660168\" is-conref=\"true\" class=\"step\">\n            <p id=\"7bdd55e31buz3\"><span data-tag=\"cmd\" id=\"cmd-qpk-td0-r07\" class=\"cmd\">在<b id=\"wintitle-2wv-em0-u0r\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，选择<span data-tag=\"menucascade\" id=\"menucascade-3nx-6x4-mee\" class=\"menucascade\"><b id=\"uicontrol-5yc-deq-aat\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">安全管理</b> &gt; <b id=\"uicontrol-hh3-ucb-d4j\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">策略管理</b></span>。</span></p>\n          </li>\n            <li id=\"20944bd30bjn6\">\n              <p id=\"321f6e1158qxc\">在<b id=\"0709c2e3d9ang\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">策略管理</b>页面，按页面提示完成组件的安装或升级（如有），然后按需进行以下操作。</p>\n            </li>\n          </ol>\n        </section>\n        <section id=\"2e1cc607c4zva\" class=\"section\">\n          <h3 data-tag=\"title\" id=\"1c38406378vb3\" class=\"title\"><b>查看集群当前安全策略执行状态</b></h3>\n          <p id=\"10642530cawzl\">您可以单击<b id=\"wintitle-v6a-zdy-idh\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">策略实施总览</b>页签，查看集群当前的策略治理状态。</p>\n          <ul data-tag=\"ul\" id=\"ul-k1h-1rz-pdg\" class=\"ul\">\n            <li data-tag=\"li\" id=\"li-h7p-2df-kpy\" class=\"li\">\n              <p id=\"07ec15e3f4jiv\">策略开启总览，包括高危和中危防护策略的总数和已开启数展示，以及建议开启的策略列表等。</p>\n            </li>\n            <li data-tag=\"li\" id=\"li-43g-qtt-u0t\" class=\"li\">\n              <p id=\"07ec15e4f4q8o\">近<span class=\"help-letter-space\"></span>7<span class=\"help-letter-space\"></span>天拦截和告警结果统计。</p>\n            </li>\n            <li data-tag=\"li\" id=\"li-abe-syn-a39\" class=\"li\">\n              <p id=\"07ec15e5f4lyl\">近<span class=\"help-letter-space\"></span>7<span class=\"help-letter-space\"></span>天策略实施记录，当前页面表格中会默认展示<span class=\"help-letter-space\"></span>7<span class=\"help-letter-space\"></span>天内最近<span class=\"help-letter-space\"></span>100<span class=\"help-letter-space\"></span>条的拦截或告警日志，如果您想查看更多审计日志，可以单击<b id=\"uicontrol-rft-5sz-1ua\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">近<span class=\"help-letter-space\"></span>7<span class=\"help-letter-space\"></span>天策略实施记录</b>后的<img alt=\"未知\" data-tag=\"image\" id=\"image-abt-653-ews\" placement=\"inline\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1109158361/p362057.png\" class=\"image inline\">图标，并单击悬浮窗口中的日志服务链接在<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>日志服务控制台指定的<span class=\"help-letter-space\"></span>logstore<span class=\"help-letter-space\"></span>中查看全部日志。页面下方<b>近<span class=\"help-letter-space\"></span>7<span class=\"help-letter-space\"></span>天策略实施记录</b>表格展示每条策略的<b>实施时间</b>、<b>策略类型</b>、<b>策略名称</b>、<b>策略描述</b>、<b>风险等级</b>、<b>实施动作</b>和<b>详细信息</b>，可通过搜索框和筛选按钮定位具体记录。</p>\n            </li>\n          </ul>\n        </section>\n        <section id=\"8a1196b9a98sf\" class=\"section\">\n          <h3 data-tag=\"title\" id=\"ac685759a1fad\" class=\"title\"><b>创建并管理安全策略实例</b></h3>\n          <p id=\"f2762a7a56jld\">单击<b id=\"wintitle-pf0-xmt-coz\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">我的策略</b>页签，然后单击<b id=\"uicontrol-a3j-nva-01a\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建策略实例</b>，在<b id=\"wintitle-yut-brd-ccq\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建策略实例</b>对话框配置相关参数。</p>\n          <table id=\"table-mr9-230-yy6\" tablewidth=\"100\" tablecolswidth=\"16.69 83.31\" autofit=\"true\" class=\"table\">\n            <colgroup colwidth=\"0.33*\" style=\"width:16.69%\"></colgroup>\n            <colgroup colwidth=\"1.67*\" style=\"width:83.31%\"></colgroup>\n            <tbody class=\"tbody\">\n              <tr id=\"row-w89-uwk-le3\">\n                <td id=\"task-2148676-entry-6cp-h6i-c86\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"ccf637275br33\"><b>配置项</b></p>\n                </td>\n                <td id=\"task-2148676-entry-v3c-3t2-kz5\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"fe8e7fedd4v3v\"><b>说明</b></p>\n                </td>\n              </tr>\n              <tr id=\"row-vut-df4-577\">\n                <td id=\"entry-zmc-78a-l72\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"fb3b02f7f4vgf\"><b id=\"uicontrol-wrc-iwb-a1p\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">策略类型</b></p>\n                </td>\n                <td id=\"entry-gt8-un7-3w6\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"55d10c3f1fwh1\">首先选择策略类型，包括：</p>\n                  <ul data-tag=\"ul\" id=\"ul-0n2-8mk-ei7\" class=\"ul\">\n                    <li data-tag=\"li\" id=\"li-1u8-2sn-054\" class=\"li\">\n                      <p id=\"cf48888580g17\">infra：基础设施层资源相关的策略类型。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-dqp-q69-dgt\" class=\"li\">\n                      <p id=\"b9fb9bdfb1r9j\">compliance：基于<span data-tag=\"ph\" id=\"3fbd4ec2884pr\" docid=\"4790250\" is-conref=\"true\" class=\"ph\">阿里云<span class=\"help-letter-space\"></span>K8s<span class=\"help-letter-space\"></span>加固</span>等<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>合规规范定制的策略类型。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-qoh-0yt-esg\" class=\"li\">\n                      <p id=\"c69113435f44r\">psp：替代<span class=\"help-letter-space\"></span>Pod Security Policy（PSP）能力的策略类型。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-5lw-fcx-jfj\" class=\"li\">\n                      <p id=\"ddbd5eb368rl0\">k8s-general：基于最佳安全实践对<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>资源配置进行安全加固约束的通用策略类型。</p>\n                    </li>\n                  </ul>\n                  <p id=\"84d5f9f6acagm\">详见<span props=\"ack\"><a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/predefined-security-policies-of-ack\" id=\"22b6992df5tvg\" title=\"\" class=\"xref\">容器安全策略规则库说明</a></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"a644006659gbv\">\n                <td id=\"577e92b824d77\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"a445933ad07a9\"><b id=\"uicontrol-l4u-gyq-6in\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">策略名称</b></p>\n                </td>\n                <td id=\"d4e541de52ar2\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"dde3f86d93q2z\">根据选择的策略类型，在策略名称下拉列表中选择需要部署的策略模板名称。</p>\n                </td>\n              </tr>\n              <tr id=\"row-lhm-npb-y5k\">\n                <td id=\"entry-g2q-ze5-tvx\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"a6308916aeukl\"><b id=\"uicontrol-kr3-jqa-ryr\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">实施动作</b></p>\n                </td>\n                <td id=\"entry-gj5-6rt-wqj\" rowspan=\"1\" colspan=\"1\">\n                  <ul data-tag=\"ul\" id=\"ul-5re-4up-4qd\" class=\"ul\">\n                    <li data-tag=\"li\" id=\"li-swf-7kt-yhk\" class=\"li\">\n                      <p id=\"62b8b20369gxd\">拦截：违反策略规则约束的指定资源部署会被拦截。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-t7l-vjo-3fn\" class=\"li\">\n                      <p id=\"af66ac0ecfs2w\">警告：违反策略规则约束的指定资源仍旧可以部署，只会产生对应违规审计的告警日志。</p>\n                    </li>\n                  </ul>\n                </td>\n              </tr>\n              <tr id=\"row-vt2-yr7-nya\">\n                <td id=\"entry-hv2-p00-0hz\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"eeb0e12b9cvtk\"><b>作用范围</b></p>\n                </td>\n                <td id=\"entry-z8r-ftd-b2t\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"06e59ababbno9\">选择策略实例实施在集群中哪些指定的命名空间。</p>\n                </td>\n              </tr>\n              <tr id=\"row-l7b-p9e-ea1\">\n                <td id=\"entry-agn-48b-7uy\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"0762578ae4kgx\"><b id=\"uicontrol-y8e-s3g-ggv\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">参数配置</b></p>\n                </td>\n                <td id=\"entry-wwo-mrf-bn7\" rowspan=\"1\" colspan=\"1\">\n                  <ul data-tag=\"ul\" id=\"ul-1bh-143-6fb\" class=\"ul\">\n                    <li data-tag=\"li\" id=\"li-1ua-01s-uv2\" class=\"li\">\n                      <p id=\"1e70907d06vyp\">如果参数配置输入框中默认为空，说明规则不需要进行参数配置。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-uu8-5p0-gs1\" class=\"li\">\n                      <p id=\"a3201ea2693n8\">如果输入框中包含需要配置的参数模板，则请参考策略参数说明按照指定格式配置参数。</p>\n                    </li>\n                  </ul>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </section>\n        <section id=\"c8b75c2337395\" class=\"section\">\n          <h3 id=\"07ec3cf2f45wh\"><b>查看安全策略列表和集群中已部署的安全策略实例</b></h3>\n          <p id=\"9b866c6d59tx0\">单击<b id=\"wintitle-i30-o9c-10w\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">我的策略</b>页签，查看集群所有可部署的策略名称。</p>\n          <ul id=\"10c137b12079t\">\n            <li id=\"4eb90cdb5e4kb\">\n              <p id=\"b49d3c358ekgx\">可在列表右上角筛选显示的策略。已开启的策略名称会优先展示。策略实例数会显示对应策略在集群中已部署的实例个数。</p>\n              <p id=\"d746da89cex6f\">如果策略实例数为空，表明该策略还未在集群中部署，可在<b id=\"uicontrol-bib-3nm-l9u\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">操作</b>列单击<b id=\"uicontrol-v56-j4r-p7n\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">开启</b>配置参数并部署对应的策略实例。</p>\n            </li>\n            <li id=\"c7398e06b7aza\">\n              <p id=\"87ba29fd8bbcn\">单击<b id=\"uicontrol-il8-aoe-lwd\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">操作</b>列中的<b id=\"uicontrol-chf-253-d0i\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">编辑</b>可以修改策略实例的配置。</p>\n              <p id=\"6056d5a00d2il\">当策略在集群中已部署超过<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>个实例时，可单击<b id=\"uicontrol-ac6-2nd-cpa\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">操作</b>列的<b id=\"uicontrol-t4z-ewg-h9c\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">查看策略实例</b>，然后单击<b id=\"uicontrol-dzc-la8-1mf\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">编辑</b>修改相关配置。</p>\n            </li>\n            <li data-tag=\"li\" id=\"li-ca5-uk7-luz\" class=\"li\">\n              <p id=\"07ec3cf5f4b6r\">单击<b id=\"uicontrol-65w-slu-swg\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">操作</b>列中的<b id=\"b7d74ee1d57k1\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">删除</b>，可删除该策略在集群中部署的所有实例。</p>\n            </li>\n          </ul>\n          <p id=\"07ec3cf7f4bwe\">关于策略说明和模板示例的更多信息，请参见<span props=\"ack\"><a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/predefined-security-policies-of-ack\" id=\"af333f244apnf\" title=\"\" class=\"xref\">容器安全策略规则库说明</a></span>。</p>\n        </section>\n      </section>\n      <section id=\"701e53f19fywd\" class=\"section\">\n        <h2 id=\"96ca3b02e7t1d\"><b>相关操作</b></h2>\n        <section id=\"cf83956eeb5sa\" class=\"section\">\n          <h3 id=\"9ba015d4b10yu\"><b>为命名空间或<span class=\"help-letter-space\"></span>Service<span class=\"help-letter-space\"></span>开启删除保护</b></h3>\n          <p id=\"3c1a5af580dfd\" uuid=\"lzwc5mfmcty6g75hh5w\">参见<a href=\"#section-3k8-sl8-fi0\" id=\"cd28152d72sdx\" title=\"\" class=\"xref\">步骤一：安装或升级安全策略管理组件</a>启用<span data-tag=\"ph\" id=\"a601321f37jmf\" docid=\"4601275\" is-conref=\"true\" class=\"ph\">安全策略管理</span>功能后，您还可以为涉及关键业务、敏感数据的命名空间或<span class=\"help-letter-space\"></span>Service<span class=\"help-letter-space\"></span>开启删除保护功能，以避免误删除带来的维护成本。启用后，仅当您手动关闭删除保护后，对应的资源才可以被删除。</p>\n          <p id=\"c30446f03fhv2\" uuid=\"m00qzjeq2elu076nn0a\">下文以为存量命名空间的开启删除保护为例，介绍流程步骤。其他操作步骤流程类似，您可以进入控制台对应页面，按照页面提示完成配置。</p>\n          <ul id=\"7ad9e9db5020m\">\n            <li id=\"5648a1a402muh\">\n              <p id=\"8d97bb7fdbv7h\">为存量命名空间开启删除保护</p>\n              <section id=\"1299a1d20e8vf\" class=\"section\">\n                <ol id=\"a8c3646623dms\">\n                  <li data-tag=\"step\" id=\"dc9b357702j4b\" docid=\"3660168\" is-conref=\"true\" class=\"step\">\n            <p id=\"7bdb0bf11b631\"><span data-tag=\"cmd\" id=\"cmd-mto-t3v-p7d\" class=\"cmd\">登录<span props=\"china intl\"><a href=\"https://cs.console.aliyun.com\" id=\"xref-c6s-99d-s5k\" class=\"\" target=\"_blank\">容器服务管理控制台</a></span>，在左侧导航栏选择<b id=\"uicontrol-42p-agm-35k\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>。</span></p>\n          </li>\n                  <li data-tag=\"step\" id=\"a22092d6d5s80\" docid=\"3660168\" is-conref=\"true\" class=\"step\">\n            <p id=\"7bdce0b11bffv\"><span data-tag=\"cmd\" id=\"cmd-wgc-jsb-rla\" class=\"cmd\">在<b id=\"wintitle-yhg-txb-jht\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，选择<b id=\"uicontrol-3ik-4h1-p9e\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">命名空间与配额</b>。</span></p>\n          </li>\n                  <li id=\"5802a4ff630i6\">\n                    <p id=\"4dce10855evws\">在命名空间列表的<b id=\"f6f31e8bc2xl9\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">操作</b>列，单击<b id=\"066745e1a6mh7\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">编辑</b>，在对话框中按照页面完成删除保护的启用。</p>\n                  </li>\n                </ol>\n              </section>\n                  </li>\n            <li id=\"539aa05302zbr\">\n              <p id=\"92d87e0e87la4\">为存量<span class=\"help-letter-space\"></span>Service<span class=\"help-letter-space\"></span>开启删除保护</p>\n              <section id=\"2fe4b89ef924n\" class=\"section\">\n                <ol id=\"23668968f54cv\">\n                  <li data-tag=\"step\" id=\"1028096ecbyif\" docid=\"3660168\" is-conref=\"true\" class=\"step\">\n            <p id=\"7bdb0bf11b631\"><span data-tag=\"cmd\" id=\"cmd-mto-t3v-p7d\" class=\"cmd\">登录<span props=\"china intl\"><a href=\"https://cs.console.aliyun.com\" id=\"xref-c6s-99d-s5k\" class=\"\" target=\"_blank\">容器服务管理控制台</a></span>，在左侧导航栏选择<b id=\"uicontrol-42p-agm-35k\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>。</span></p>\n          </li>\n                  <li data-tag=\"step\" id=\"82262a626bss9\" docid=\"3660168\" is-conref=\"true\" class=\"step\">\n            <p id=\"7bdc6b831b8kd\"><span data-tag=\"cmd\" id=\"cmd-b18-fkc-0oz\" class=\"cmd\">在<b id=\"wintitle-fz8-u06-0l9\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，选择<span data-tag=\"menucascade\" id=\"menucascade-avt-207-qwr\" class=\"menucascade\"><b id=\"uicontrol-mwk-e5g-tjo\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">网络</b> &gt; <b id=\"uicontrol-gh7-516-v1a\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">服务</b></span>。</span></p>\n          </li>\n                  <li id=\"1947621652hn7\">\n                    <p id=\"3de037e057yau\">在服务列表的<b id=\"63366fea7e6ae\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">操作</b>列，单击<img alt=\"image\" id=\"1c440be3e7y2y\" placement=\"inline\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5511960371/p867409.png\" class=\"image inline\">，然后单击<b id=\"26427d052bic4\" data-status=\"unpublished\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">开启删除保护</b>，在对话框中按照页面完成删除保护的启用。</p>\n                  </li>\n                </ol>\n              </section>\n                  </li>\n          </ul>\n        </section>\n        <section id=\"2bbfc02cdd8w6\" class=\"section\">\n          <h3 id=\"685343c11c24p\"><b>通过<span class=\"help-letter-space\"></span>ack-policy-external-provider</b><span class=\"help-letter-space\"></span>实现跨资源验证</h3>\n          <p jc=\"left\" id=\"50d472cc20ldl\" style=\"text-align:left\">默认情况下，Gatekeeper 策略的决策依据仅限于被审查的资源本身。但在许多复杂的安全场景中，策略需要引用集群中的其他资源状态才能做出正确判断。</p>\n          <p jc=\"left\" id=\"cf913cae14m4u\" style=\"text-align:left\">托管组件&nbsp;ack-policy-external-provider&nbsp;可充当 Gatekeeper 的外部数据源，让策略开发者可以在策略代码（Rego）中查询<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>资源（如内置的<span class=\"help-letter-space\"></span>CRD<span class=\"help-letter-space\"></span>保护策略）。</p>\n          <div id=\"ab96392a73l1i\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n            <p id=\"a8cbaba0cawg0\">ack-policy-external-provider<span class=\"help-letter-space\"></span>需配合<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ack/product-overview/gatekeeper\" id=\"1a3b99bdbcu9y\" title=\"\" class=\"xref\">gatekeeper</a><span class=\"help-letter-space\"></span>使用。请确保集群中已部署 gatekeeper。</p>\n          </div></div>\n          <section id=\"4eb59857c6xji\" class=\"section\">\n            <h4 id=\"5a3e5bc422k0x\"><b>安装和配置<span class=\"help-letter-space\"></span>ack-policy-external-provider</b></h4>\n            <ol data-init-id=\"777a707cfftq3\" id=\"3fe6f6ca2bfwx\">\n              <li id=\"423fa50ccavs5\" docid=\"5851131\" is-conref=\"true\">\n            <p id=\"a4f4b2bfceq48\">在<span props=\"china intl\"><span class=\"help-letter-space\"></span><a href=\"https://cs.console.aliyun.com\" id=\"eb3a81ffe3mo3\" class=\"\" target=\"_blank\">ACK<span class=\"help-letter-space\"></span>集群列表</a></span>页面，单击目标集群名称，在集群详情页左侧导航栏，单击<b id=\"6359d39685o2z\" data-tag=\"uicontrol\" data-isbold=\"true\" data-init-id=\"18d0b380bd0ho\" class=\"uicontrol\">组件管理</b>。</p>\n          </li>\n              <li id=\"bd231f10b09n0\">\n                <p id=\"98bd7cecf3l4t\">搜索并定位<span class=\"help-letter-space\"></span>ack-policy-external-provider，按照页面提示完成配置。</p>\n                <ul id=\"ce92b6152exlr\">\n                  <li id=\"e53859e3a2efv\">\n                    <p id=\"189c271210e1b\">ProviderPodNumber：组件的实例个数。</p>\n                  </li>\n                  <li id=\"3ac45d0578n4t\">\n                    <p id=\"165a23d191436\">ProtectedKinds：添加需要保护 CRD 对应的资源类型。</p>\n                    <blockquote id=\"202b40a1fbot2\">CRD 删除保护需要检查集群中是否存在该资源类型的实例。遵循最小化权限原则，ack-policy-external-provider<span class=\"help-letter-space\"></span>默认不具备该检查所需的查询权限，需手动配置。</blockquote>\n                    <p id=\"p-85868bd46885\">设置 <b>ProviderPodNumber</b>（副本数量，默认为 <code data-tag=\"code\" class=\"code\">1</code>）。在 <b>ProtectedKinds</b> 区域，输入资源类型名称（如 <code data-tag=\"code\" class=\"code\">pods</code>、<code data-tag=\"code\" class=\"code\">policies</code>、<code data-tag=\"code\" class=\"code\">customresources</code>），单击<b>添加</b>可增加多个条目，单击<b>删除</b>可移除条目，完成后单击<b>确认</b>。</p>\n                  </li>\n                </ul>\n              </li>\n            </ol>\n          </section>\n          <section id=\"7def7534c8siz\" class=\"section\">\n            <h4 id=\"14388203605sf\"><b>接口定义及参数说明</b></h4>\n            <p id=\"ce9b7b1e66sda\">ack-policy-external-provider 实现了一个标准的 Gatekeeper&nbsp;外部数据 Provider。可在 Rego 策略模板中，通过调用&nbsp;<code data-tag=\"code\" class=\"code blog-code\" id=\"c5b9c84c1f4v8\">external_data</code>&nbsp;函数并指定&nbsp;<code data-tag=\"code\" class=\"code blog-code\" id=\"73cacdb112zht\">provider: ack-policy-external-data-provider</code>，来向该组件发起资源查询请求。</p>\n            <p id=\"16a6d1db50ofs\">请求参数以 JSON 格式定义，示例如下。</p>\n<pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"52401ff5398nx\" index=\"0\" outputclass=\"language-json\" class=\"pre codeblock language-json\"><code>// 示例 1\n{\n  \"action\": \"ListK8sResource\",\n  \"namespaced\": false,\n  \"group\": \"\",\n  \"version\": \"v1\",\n  \"resource\": \"persistentvolumeclaims\"\n  \"requestID\": review.uid,\n  \"userInfo\": review.userInfo,\n  \"requestFrom\": \"PVCProtector\",\n  \"labelSelector\": \"protected\",\n  \"limit\": 1\n}\n// 示例 2\n{\n  \"action\": \"GetK8sResource\",\n  \"namespaced\": true,\n  \"namespace\": \"default\",\n  \"group\": \"apps\",\n  \"version\": \"v1\",\n  \"resource\": \"deployments\",\n  \"requestID\": review.uid,\n  \"userInfo\": review.userInfo,\n  \"requestFrom\": \"FinOpsPolicy\",\n  \"labelSelector\": \"protected\",\n  \"limit\": 1\n}</code></pre>\n            <p id=\"f698a810555fw\">核心参数说明：</p>\n            <table id=\"80a07499f5tr4\" tablewidth=\"100\" tablecolswidth=\"15.94 67.83 16.23\" autofit=\"true\" class=\"table\">\n              <colgroup colwidth=\"0.48*\" style=\"width:15.94%\"></colgroup>\n              <colgroup colwidth=\"2.06*\" style=\"width:67.83%\"></colgroup>\n              <colgroup colwidth=\"0.49*\" style=\"width:16.23%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"7c12fe39a06be\">\n                  <td id=\"ece6b365d4qqj\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"13dd3ac00bubj\" style=\"text-align:left\"><b>参数</b></p>\n                  </td>\n                  <td id=\"cacb5c6f46fq7\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"38a8d01912l2o\" style=\"text-align:left\"><b>说明</b></p>\n                  </td>\n                  <td id=\"ed959a55ed51n\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"a70bd777caise\" style=\"text-align:left\"><b>是否必选</b></p>\n                  </td>\n                </tr>\n                <tr id=\"ec51c7b57adre\">\n                  <td id=\"9785380314x52\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"f7531dcc3c3vc\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code blog-code\" id=\"a02f97040408l\">action</code></p>\n                  </td>\n                  <td id=\"87dced75canlk\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"7639159c8ca4h\" style=\"text-align:left\">操作类型，支持&nbsp;<code data-tag=\"code\" class=\"code blog-code\" id=\"2bb947b4a7kyf\">ListK8sResource</code>和&nbsp;<code data-tag=\"code\" class=\"code blog-code\" id=\"79fc6f89c3hkx\">GetK8sResource</code>。</p>\n                  </td>\n                  <td id=\"0d78898fba7wf\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"48d81decfcjsc\" style=\"text-align:left\">是</p>\n                  </td>\n                </tr>\n                <tr id=\"896d1129e3da0\">\n                  <td id=\"18af14aab57wr\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"7d03f7a6dajm6\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code blog-code\" id=\"f61f07582d6w1\">group</code></p>\n                  </td>\n                  <td id=\"6203490a248mk\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"4a44683700h1s\" style=\"text-align:left\">目标资源的 API Group。</p>\n                  </td>\n                  <td id=\"2a39e2d6ce892\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"006fdfe529br6\" style=\"text-align:left\">是</p>\n                  </td>\n                </tr>\n                <tr id=\"c21f1735e5f3z\">\n                  <td id=\"642b2e7629z7d\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"9490007453mgf\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code blog-code\" id=\"b8e0ed7037id0\">version</code></p>\n                  </td>\n                  <td id=\"a162eeec45uva\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"f8d09f06a15p8\" style=\"text-align:left\">目标资源的 API Version。</p>\n                  </td>\n                  <td id=\"1429d3aede0jq\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"374a60509bwkc\" style=\"text-align:left\">否</p>\n                  </td>\n                </tr>\n                <tr id=\"083db59024wbs\">\n                  <td id=\"dceae6f90eo98\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"f24708c921rmz\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code blog-code\" id=\"b1f44d4e73utb\">resource</code></p>\n                  </td>\n                  <td id=\"cae0af9e540ji\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"e00ef441a05hq\" style=\"text-align:left\">目标资源的复数名称（例如&nbsp;<code data-tag=\"code\" class=\"code blog-code\" id=\"e934d227e7ji9\">persistentvolumeclaims</code>）。</p>\n                  </td>\n                  <td id=\"4ec242abc95wf\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"9ddbfb82b93wx\" style=\"text-align:left\">是</p>\n                  </td>\n                </tr>\n                <tr id=\"ca6119559bdv6\">\n                  <td id=\"32cf04d97cvk5\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"0c6ffa8791ozs\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code blog-code\" id=\"651506a14awd2\">namespaced</code></p>\n                  </td>\n                  <td id=\"1e7af15604nuw\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"3749f8222b4tt\" style=\"text-align:left\">目标资源是否位于命名空间内。<code data-tag=\"code\" class=\"code blog-code\" id=\"bc896340fchp1\">true</code>&nbsp;或&nbsp;<code data-tag=\"code\" class=\"code blog-code\" id=\"14925bb931ur5\">false</code>。</p>\n                    <blockquote id=\"48f35b2e4b4dh\">集群范围内资源请使用<code data-tag=\"code\" id=\"f293f5566djip\" class=\"code\">false</code>。</blockquote>\n                  </td>\n                  <td id=\"48f28d3c65371\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"ae5bd92d02j25\" style=\"text-align:left\">是</p>\n                  </td>\n                </tr>\n                <tr id=\"71fe465bd0oqv\">\n                  <td id=\"eb70cb4e80bpn\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"9f3407fe10oh1\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code blog-code\" id=\"e04d9b41ffrwr\">namespace</code></p>\n                  </td>\n                  <td id=\"e9cb520d6ae9e\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"3f3993d92dgeb\" style=\"text-align:left\">当&nbsp;<code data-tag=\"code\" class=\"code blog-code\" id=\"900d234d288hi\">namespaced</code>&nbsp;为&nbsp;<code data-tag=\"code\" class=\"code blog-code\" id=\"68f629afe4xrk\">true</code>&nbsp;时，指定查询的命名空间。</p>\n                  </td>\n                  <td id=\"23de897e76t0b\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"d0bb54b2f5zqe\" style=\"text-align:left\">否</p>\n                  </td>\n                </tr>\n                <tr id=\"7a1442fb21v46\">\n                  <td id=\"d3c4acc38528l\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"cecd43b4e7gy8\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code blog-code\" id=\"1383835925shd\">name</code></p>\n                  </td>\n                  <td id=\"3a05c444ff0bi\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"ae453929feawf\" style=\"text-align:left\">当&nbsp;<code data-tag=\"code\" class=\"code blog-code\" id=\"ed87a45c5dqft\">action</code>&nbsp;为&nbsp;<code data-tag=\"code\" class=\"code blog-code\" id=\"f853d52982ffq\">GetK8sResource</code>&nbsp;时，指定要获取的资源名称。</p>\n                  </td>\n                  <td id=\"d68e3481d8drv\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"1ba34676c01zc\" style=\"text-align:left\">否</p>\n                  </td>\n                </tr>\n                <tr id=\"8a15e606dfp4y\">\n                  <td id=\"53b7ad3d498p8\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"27b344acedgmv\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code blog-code\" id=\"f9fbeb7a5319g\">labelSelector</code></p>\n                  </td>\n                  <td id=\"d096242a9d26v\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"f7e47ef70b1o2\" style=\"text-align:left\">基于标签筛选资源，遵循 Kubernetes&nbsp;<a href=\"https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors\" id=\"8b264ba4de6pr\" class=\"\" target=\"_blank\">Label Selector 规范</a>。</p>\n                  </td>\n                  <td id=\"5e01c19dc9nm5\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"0f091b62b32kw\" style=\"text-align:left\">否</p>\n                  </td>\n                </tr>\n                <tr id=\"27916774b3wiu\">\n                  <td id=\"5e0f99a7733hh\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"6b9fd6a446egq\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code blog-code\" id=\"44daca3c9dwlc\">limit</code></p>\n                  </td>\n                  <td id=\"8899073b9bvgb\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"466a7a1fb0pa3\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code blog-code\" id=\"2d5b244660z29\">ListK8sResource</code>&nbsp;返回的资源数量上限。</p>\n                  </td>\n                  <td id=\"c677597ba4s14\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"57c8275c3965b\" style=\"text-align:left\">否</p>\n                  </td>\n                </tr>\n                <tr id=\"601d6ab206t9l\">\n                  <td id=\"ac12fb8e92oyu\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"fff322a029z9s\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code blog-code\" id=\"049d090f04y54\">requestID</code></p>\n                  </td>\n                  <td id=\"eb10b0047d7q3\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"496cb7f108jat\" style=\"text-align:left\">请求的唯一<span class=\"help-letter-space\"></span>ID，建议使用&nbsp;<code data-tag=\"code\" class=\"code blog-code\" id=\"bc572d736b8j3\">review.uid</code>。</p>\n                  </td>\n                  <td id=\"e0fdeff48fot5\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"9da835013f09i\" style=\"text-align:left\">否</p>\n                  </td>\n                </tr>\n                <tr id=\"7204781c19z73\">\n                  <td id=\"93bd9fdca7sp3\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"7a217565ce3e5\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code blog-code\" id=\"ffb181658bxar\">userInfo</code></p>\n                  </td>\n                  <td id=\"7be833681c7ar\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"10a67e2ca2322\" style=\"text-align:left\">发起请求的用户信息，建议使用&nbsp;<code data-tag=\"code\" class=\"code blog-code\" id=\"580359e1b62uk\">review.userInfo</code>。</p>\n                  </td>\n                  <td id=\"9008120977qco\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"4db9294d38ao2\" style=\"text-align:left\">否</p>\n                  </td>\n                </tr>\n                <tr id=\"0dcf8c84b5zo6\">\n                  <td id=\"88c891ee80ux7\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"b21e28d17adoo\" style=\"text-align:left\"><code data-tag=\"code\" class=\"code blog-code\" id=\"1c67e5d552vsy\">requestFrom</code></p>\n                  </td>\n                  <td id=\"2c44b9fa6dnii\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"c2c8a5cecfemg\" style=\"text-align:left\">请求来源标识，通常为策略模板名称，用于日志追溯。</p>\n                  </td>\n                  <td id=\"d4e5c44dd256i\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                    <p jc=\"left\" id=\"33cc573ff5nnj\" style=\"text-align:left\">是</p>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </section>\n          <section id=\"5e3e1e7808aol\" class=\"section\">\n            <h4 id=\"e130c2fa74syb\"><b>场景示例：防止<span class=\"help-letter-space\"></span>CRD<span class=\"help-letter-space\"></span>被删除</b></h4>\n            <p id=\"433589b359jht\">本示例展示利用 ack-policy-external-provider 实现一个常见的高级策略：当 CRD 仍然存在关联的 CR 实例时，禁止删除该 CRD。</p>\n            <blockquote id=\"4ed3ace6d6jnk\">此策略已作为内置规则集成到策略库中，无需手动部署。仅作为原理说明。</blockquote>\n            <ul id=\"c67faddbb2514\">\n              <li id=\"59e9306958rzi\">\n                <p jc=\"left\" id=\"dda627c701olr\" style=\"text-align:left\">策略逻辑</p>\n                <ul id=\"c82051010esfv\">\n                  <li id=\"2d44acf165nav\">\n                    <p id=\"2703c864e4rmr\">触发：Gatekeeper 监听到&nbsp;<code data-tag=\"code\" class=\"code blog-code\" id=\"404b095f07429\">DELETE</code>&nbsp;CRD 操作。</p>\n                  </li>\n                  <li id=\"eb8f8d6aaes0l\">\n                    <p id=\"4c5095302629t\">查询：Rego 策略通过&nbsp;<code data-tag=\"code\" class=\"code blog-code\" id=\"3d08756c65nzb\">external_data</code>&nbsp;调用&nbsp;ack-policy-external-provider。</p>\n                  </li>\n                  <li id=\"4f3258e3713mr\">\n                    <p id=\"0eda2dc0b3goh\">判断：ack-policy-external-provider&nbsp;根据请求参数查询集群中是否存在对应的 CR 实例。</p>\n                  </li>\n                  <li id=\"8f22ff7fe6dhx\">\n                    <p id=\"3af33ce8c1d8s\">决策：如果查询结果返回了至少一个 CR 实例，ack-policy-external-provider&nbsp;会将结果返回给 Rego 策略，策略最终会&nbsp;<code data-tag=\"code\" class=\"code blog-code\" id=\"9d025ac6a5ra9\">deny</code>&nbsp;(拒绝) 本次删除操作。</p>\n                  </li>\n                </ul>\n              </li>\n              <li id=\"c1708f0e202qz\">\n                <p id=\"d7cfe73fd8j67\">策略模板（ConstraintTemplate）</p>\n                <p id=\"2394f3eaa995w\">定义策略的逻辑。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"2be28c7bb9o6w\" index=\"0\" outputclass=\"language-yaml\" class=\"pre codeblock language-yaml\"><code>apiVersion: templates.gatekeeper.sh/v1beta1\nkind: ConstraintTemplate\nmetadata:\n  name: blockcrddeletion\n  annotations:\n    meta.helm.sh/release-name: gatekeeper\n    meta.helm.sh/release-namespace: kube-system\n    metadata.gatekeeper.sh/version: 1.0.0\n  labels:\n    app.kubernetes.io/managed-by: Helm\nspec:\n  crd:\n    spec:\n      names:\n        kind: BlockCrdDeletion\n      validation:\n        legacySchema: true\n  targets:\n  - target: admission.k8s.gatekeeper.sh\n    rego: |\n      package block_crd_deletion\n      violation[{\"msg\": msg}] {\n        before(input.review.operation)\n        response := handle(input.review)\n        msg := after(response)\n      }\n\n      before(operation) {\n        operation == \"DELETE\"\n      }\n\n      handle(review) = response {\n        customrequest := {\n          \"action\": \"ListK8sResource\",\n          \"namespaced\": false,\n          \"group\": review.object.spec.group,\n          \"version\": \"\",\n          \"resource\": review.object.spec.names.plural,\n          \"requestID\": review.uid,\n          \"userInfo\": review.userInfo,\n          \"requestFrom\": \"BlockCrdDeletion\",\n          \"labelSelector\": \"protected\",\n          \"limit\": 1\n        }\n        request_keys := [json.marshal(customrequest)]\n        response := external_data({\n          \"provider\": \"ack-policy-external-data-provider\",\n          \"keys\": request_keys\n        })\n      }\n\n      after(response) = msg {\n        count(response.responses[0]) &gt; 0\n        msg := sprintf(\n          \"The CRD %v is not allowed to be deleted. Reason: It is not allowed to delete a CRD object when it contains a collection of custom resources. Current existing custom resources: %v, etc.\",\n          [input.review.name, response.responses[0][0]]\n        )\n      }</code></pre>\n              </li>\n              <li id=\"126437fa73vi3\">\n                <p id=\"1444334e1dpm2\">策略实例（Constraint）</p>\n                <p id=\"e8678b4beatqb\">将模板应用到具体资源。本示例应用到所有<span class=\"help-letter-space\"></span>CRD。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"65b81fb69fdp2\" index=\"0\" outputclass=\"language-yaml\" class=\"pre codeblock language-yaml\"><code>apiVersion: constraints.gatekeeper.sh/v1beta1\nkind: BlockCrdDeletion\nmetadata:\n  name: block-crd-deletion-rule\nspec:\n  enforcementAction: deny\n  match:\n    kinds:\n    - apiGroups:\n      - '*'\n      kinds:\n      - CustomResourceDefinition</code></pre>\n              </li>\n              <li id=\"ab46e7157d0m9\">\n                <p id=\"6d32152175zir\">效果验证</p>\n                <ol id=\"a342894c04nqr\">\n                  <li id=\"6d60c31a25fjq\">\n                    <p id=\"2c2685028ball\">创建一个测试 CRD 和对应的 CR 实例：</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"3032a6c0a98sf\" index=\"0\" outputclass=\"language-yaml\" class=\"pre codeblock language-yaml\"><code># 创建 CRD\napiVersion: apiextensions.k8s.io/v1\nkind: CustomResourceDefinition\nmetadata:\n  name: simplestthings.example.com\nspec:\n  group: example.com\n  scope: Namespaced\n  names:\n    plural: simplestthings\n    singular: simplestthing\n    kind: SimplestThing\n  versions:\n    - name: v1\n      served: true\n      storage: true\n      schema:\n        openAPIV3Schema:\n          type: object\n          properties:\n            spec:\n              type: object\n              properties:\n                message:\n                  type: string\n---\n# 创建 CR 实例\napiVersion: example.com/v1\nkind: SimplestThing\nmetadata:\n  name: my-simple-thing\n  namespace: default\n  labels:\n    protected: \"false\"\nspec:\n  message: \"Hello\"</code></pre>\n                  </li>\n                  <li id=\"035fcfca48opd\">\n                    <p id=\"00243d5c4cfj6\">尝试删除该 CRD。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"74e3e3c206fkb\" index=\"0\" outputclass=\"language-bash\" class=\"pre codeblock language-bash\"><code>kubectl delete crd simplestthings.example.com</code></pre>\n                  </li>\n                  <li id=\"250ebf8517o43\">\n                    <p id=\"4a5e8b2c0f425\">查看删除操作是否被策略拦截，并返回明确的错误信息。</p>\n                    <p id=\"2fb4c808cdejq\">预期输出：</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"91eb418a49fl6\" index=\"0\" outputclass=\"language-bash\" class=\"pre codeblock language-bash\"><code>Error from server (Forbidden): admission webhook \"delete.validation.gatekeeper.sh\" denied the request: [block-crd-deletion-rule] The CRD simplestthings.example.com is not allowed to be deleted. Reason: It is not allowed to delete a CRD object when it contains a collection of custom resources. Current existing custom resources: my-simple-thing, etc.</code></pre>\n                  </li>\n                </ol>\n              </li>\n            </ul>\n          </section>\n        </section>\n      </section>\n      <section id=\"4a6b1f5d470ih\" class=\"section\">\n        <h2 id=\"eb6341f943ioq\"><b>相关文档</b></h2>\n        <p id=\"046fc6cd6dtv5\">配置巡检功能可以扫描集群中工作负载配置的安全隐患。更多信息，请参见<span props=\"ack\"><a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/use-the-inspection-feature-to-detect-security-risks-in-the-workloads-of-an-ack-cluster\" id=\"4939f064dbila\" title=\"\" class=\"xref\">配置巡检检查集群工作负载</a></span>。</p>\n      </section>\n</div>\n  </main>\n\n\n\n\n</div>","path":"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"alias":"/ack/ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":7,"developerUrl":"https://developer.aliyun.com/group/kubernetes/","nodeType":1,"version":31,"url":"/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":359818,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"启用安全策略管理","id":359818,"title":"启用安全策略管理","url":"/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"容器应用安全","id":173632,"title":"容器应用安全","url":"/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/container-security/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"安全合规","id":2543123,"title":"安全合规","url":"/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"ACK托管与专有集群","id":126295,"title":"ACK托管与专有集群","url":"/zh/ack/ack-managed-and-ack-dedicated/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"productUrl":"https://www.aliyun.com/product/kubernetes","nodeId":359818,"desc":"为了满足集群合规性要求、提升集群安全性，推荐您启用安全策略管理功能。安全策略管理功能提供了符合Kubernetes容器应用场景的安全策略规则，包括Infra（基础设施层资源）、Compliance（Kubernetes合规规范）、PSP（基于PodSecurityPolicy能力的拓展）和K8s-general（通用策略）维度。您可以在控制台为容器应用开启或自定义安全策略，验证Pod的部署和更新是否安全可控。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"ACK托管与专有集群","id":126295,"title":"ACK托管与专有集群","url":"/zh/ack/ack-managed-and-ack-dedicated/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"安全合规","id":2543123,"title":"安全合规","url":"/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"容器应用安全","id":173632,"title":"容器应用安全","url":"/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/container-security/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"启用安全策略管理","id":359818,"title":"启用安全策略管理","url":"/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=213e054317825474754575000e7f43&asid=AQAAAAAThD9qe2EQdAAAAABVvavphLbmeQ==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"><div class="help-subproduct-container"></div></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2391827" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/product-overview/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品概述</span>
+</a>
+</li>
+ <li id="2391837" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/getting-started/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">快速入门</span>
+</a>
+</li>
+ <li id="2391836" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">操作指南</span>
+</a>
+</li>
+ <li id="2391840" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/use-cases/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">实践教程</span>
+</a>
+</li>
+ <li id="2543123" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="2391838" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2391839" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/support/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">服务支持</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>通过安全策略管理配置Pod的安全策略</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/kubernetes" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="task-2148676">
+    
+    
+    <p data-tag="shortdesc" id="shortdesc-p19-abu-h7u" class="shortdesc">为了满足集群合规性要求、提升集群安全性，推荐您启用<span data-tag="ph" id="288a46e2f05av" docid="4601275" is-conref="true" class="ph">安全策略管理</span>功能。安全策略管理功能提供了符合<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>容器应用场景的安全策略规则，包括<span class="help-letter-space"></span>Infra（基础设施层资源）、Compliance（Kubernetes<span class="help-letter-space"></span>合规规范）、PSP（基于<span class="help-letter-space"></span>PodSecurityPolicy<span class="help-letter-space"></span>能力的拓展）和<span class="help-letter-space"></span>K8s-general（通用策略）维度。您可以在控制台为容器应用开启或自定义安全策略，验证<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>的部署和更新是否安全可控。</p>
+    <div data-tag="taskbody" id="taskbody-saq-l00-0j2" class="taskbody">
+      <section data-tag="section" data-type="section" id="section-rad-1jw-wtn" class="section">
+        <h2 data-tag="title" id="title-yzf-r9t-nk0" class="title">策略治理介绍</h2>
+        <p data-tag="p" id="p-9yo-ziv-ga0" class="p">自<span class="help-letter-space"></span>Kubernetes 1.21<span class="help-letter-space"></span>起，PodSecurityPolicy（PSP）被标记为弃用（Deprecated）状态。为此，ACK<span class="help-letter-space"></span>升级了原先基于<span class="help-letter-space"></span>PSP<span class="help-letter-space"></span>的策略管理功能。基于使用<span class="help-letter-space"></span><a class="" href="https://www.openpolicyagent.org/" id="9d8f6f618diby">OPA</a><span class="help-letter-space"></span>策略的<span class="help-letter-space"></span>Gatekeeper Admission Controller，ACK<span class="help-letter-space"></span>扩展了相应的策略治理状态统计、日志上报检索等能力，同时内置了种类丰富的策略治理规则库，提供符合更多<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>应用场景的策略规则。在规则配置上，您可以在控制台上白屏化配置，降低使用策略治理相关能力的门槛。</p>
+      </section>
+      <section data-tag="section" data-type="section" id="section-8n1-64j-o0j" class="section">
+        <h2 data-tag="title" id="title-qc1-6tl-xlu" class="title">前提条件</h2>
+        <ul data-tag="ul" id="ul-5qh-2bd-cyc" class="ul">
+          <li data-tag="li" id="li-cmd-mp8-v2z" class="li">
+            <p id="a68370d8c70x1">集群版本为<span class="help-letter-space"></span>1.16<span class="help-letter-space"></span>及以上。如需升级集群，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/update-the-kubernetes-version-of-an-ack-cluster" id="07b555d913ay3" title="" class="xref">手动升级集群</a>。</p>
+          </li>
+          <li id="07c49f20c9sj1">
+            <p id="c2c7702626vlh">如需使用<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>用户进行策略管理时，请确保该<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>用户拥有以下授权：</p>
+            <ul data-tag="ul" id="ul-13w-pqc-wox" class="ul">
+              <li data-tag="li" id="li-nhp-m0k-esn" class="li">
+                <p id="07e697a1f4s4d"><code data-tag="code" code-type="xCode" id="3543a620c27de" class="code">cs:DescribePolicies</code>：列举策略治理规则库列表</p>
+              </li>
+              <li data-tag="li" id="li-bqx-sdp-opj" class="li">
+                <p id="07e697a2f4mgs"><code data-tag="code" code-type="xCode" id="330026a53dfnj" class="code">cs:DescribePoliceDetails</code>：获取策略规则模板详情</p>
+              </li>
+              <li data-tag="li" id="li-qnp-hvz-9fa" class="li">
+                <p id="07e6beb0f4sw6"><code data-tag="code" code-type="xCode" id="5e87cb3307qvj" class="code">cs:DescribePolicyGovernanceInCluster</code>：获取集群策略治理详情</p>
+              </li>
+              <li data-tag="li" id="li-nat-zts-v0f" class="li">
+                <p id="07e6beb1f4jeh"><code data-tag="code" code-type="xCode" id="c2d26c6b62hz2" class="code">cs:DescribePolicyInstances</code>：获取集群中当前部署的策略实例列表</p>
+              </li>
+              <li data-tag="li" id="li-ezw-a7v-gqk" class="li">
+                <p id="07e6e5c0f4596"><code data-tag="code" code-type="xCode" id="480107f2c1yg6" class="code">cs:DescribePolicyInstancesStatus</code>：获取集群当前不同策略类型对应的实例部署状态</p>
+              </li>
+              <li data-tag="li" id="li-7uy-jvc-4m5" class="li">
+                <p id="07e6e5c1f482h"><code data-tag="code" code-type="xCode" id="2563217fe1m4u" class="code">cs:DeployPolicyInstance</code>：在指定集群中部署策略规则实例</p>
+              </li>
+              <li data-tag="li" id="li-2cs-wsa-yin" class="li">
+                <p id="07e6e5c2f4zc1"><code data-tag="code" code-type="xCode" id="dba595b763kf9" class="code">cs:DeletePolicyInstance</code>：在指定集群中删除策略规则实例</p>
+              </li>
+              <li data-tag="li" id="li-foc-td7-twa" class="li">
+                <p id="07e70cd0f44f5"><code data-tag="code" code-type="xCode" id="37948f181057g" class="code">cs:ModifyPolicyInstance</code>：在指定集群中修改策略规则实例</p>
+              </li>
+            </ul>
+            <p data-tag="p" id="p-c98-ycg-5sf" class="p">关于如何自定义<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>授权策略，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/create-a-custom-ram-policy#task-1664328" id="xref-c3z-zze-bz2" title="" class="xref">使用<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>授予集群及云资源访问权限</a>。</p>
+          </li>
+        </ul>
+      </section>
+      <section id="7ce6ff7203ekt" class="section">
+        <h2 data-tag="title" id="7d21ed94ba2kh" class="title">安全策略组件对比</h2>
+        <p id="1caa4347010ve">ACK<span class="help-letter-space"></span>提供两种安全策略组件形态：托管版与非托管版。集群在同一时间只能启用其中一种。两者详细对比如下。</p>
+        <table id="5f475ec4feybu" tablewidth="100" tablecolswidth="18.99 37.83 43.18000000000001" autofit="true" class="table">
+          <colgroup colwidth="0.58*" style="width:18.99%"></colgroup>
+          <colgroup colwidth="1.15*" style="width:37.83%"></colgroup>
+          <colgroup colwidth="1.31*" style="width:43.18%"></colgroup>
+          <tbody class="tbody">
+            <tr id="9ba8ac4929eyv">
+              <td id="9023d10fa68jb" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p jc="left" id="9b51251830bp8" style="text-align:left"><b>差异项</b></p>
+              </td>
+              <td id="4541aad2efk4u" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p jc="left" id="ab7ae5a439hwg" style="text-align:left"><b>托管版</b></p>
+              </td>
+              <td id="2169cee9aezku" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p jc="left" id="43b9240eebpcl" style="text-align:left"><b>非托管版</b></p>
+              </td>
+            </tr>
+            <tr id="5fe173f6d621b">
+              <td id="826fee72a4uzz" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="left" id="b41109d373b2a" style="text-align:left">部署模式</p>
+              </td>
+              <td id="eb8cc218e9jwp" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="left" id="0e89fae2a2oq7" style="text-align:left">控制面托管：部署在集群控制面，由<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>全面托管</p>
+              </td>
+              <td id="d2c80428fe1ir" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="left" id="716b61e42db8o" style="text-align:left">数据面部署：通过工作负载的形式部署在集群中，默认安装在<span class="help-letter-space"></span>kube-system<span class="help-letter-space"></span>命名空间下，会占用<span class="help-letter-space"></span>Worker<span class="help-letter-space"></span>节点的<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>资源</p>
+              </td>
+            </tr>
+            <tr id="8e76222644o1d">
+              <td id="eb236b8d7c5sj" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="left" id="576f93f110p97" style="text-align:left">适用集群</p>
+              </td>
+              <td id="95b057390edn9" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="801f5573ae5k8">1.30<span class="help-letter-space"></span>及以上版本的<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/auto-mode-overview/" id="c3aae4b8c044r" title="" class="xref">Auto Mode<span class="help-letter-space"></span>集群</a></p>
+              </td>
+              <td id="7f6cae6592zae" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="3cd1aa1a50w5w">1.16<span class="help-letter-space"></span>及以上版本的<span class="help-letter-space"></span><span data-tag="ph" id="482caa197esme" docid="4431993" is-conref="true" class="ph">ACK<span class="help-letter-space"></span>托管集群</span>、<span data-tag="ph" id="056a9f75d9ret" data-ref-searchable="yes" docid="4431993" is-conref="true" class="ph">ACK<span class="help-letter-space"></span>专有集群</span></p>
+              </td>
+            </tr>
+            <tr id="cac0abbb2co3r">
+              <td id="292c8a51a3o80" rowspan="1" colspan="1">
+                <p id="a8cfb654d7or4">启用参数配置</p>
+              </td>
+              <td id="9ce89ecde0lij" rowspan="1" colspan="1">
+                <p id="a607b9c03eot7">组件的启动参数由系统默认配置，不支持自定义</p>
+              </td>
+              <td id="d9814699a61hy" rowspan="1" colspan="1">
+                <p id="6f351990a42zh">可自定义修改组件的启动参数</p>
+              </td>
+            </tr>
+            <tr id="b18eebfadauqu">
+              <td id="0f3ec1e1c4m9a" rowspan="1" colspan="1">
+                <p id="4eb8aed5a44oe">核心组件安装</p>
+              </td>
+              <td id="31bcd248184h2" rowspan="1" colspan="1">
+                <ul id="4ca591094aepr">
+                  <li id="324d5064601s5">
+                    <p id="bd7516b710v5i">managed-gatekeeper</p>
+                  </li>
+                  <li id="6a54ab6786w26">
+                    <p id="dbe0b9a1b6xsl">managed-policy-template-controller</p>
+                  </li>
+                </ul>
+                <blockquote id="ccf79c78e0e1z">在<span style="color:rgb(24, 24, 24)">控制台的</span><b id="78da5351a4pfn" data-tag="uicontrol" data-isbold="true" class="uicontrol">组件管理</b><span style="color:rgb(24, 24, 24)">页面，托管版组件卡片将显示托管</span><img alt="image" height="20" id="39126ff59ei45" placement="inline" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7439806571/p996931.png" width="30" class="image inline"><span style="color:rgb(24, 24, 24)">。</span></blockquote>
+              </td>
+              <td id="ba1e25bc15nrj" rowspan="1" colspan="1">
+                <ul id="82eb991ff7hm1">
+                  <li id="f797de94f79to">
+                    <p id="6e9f4d32034yz">gatekeeper</p>
+                  </li>
+                  <li id="50f9a0fb96uo9">
+                    <p id="dd2a2cc700a8q">policy-template-controller</p>
+                  </li>
+                  <li id="70d3bb4201m54">
+                    <p id="84f82bf4f7sw2">日志采集组件（logtail-ds<span class="help-letter-space"></span>或<span class="help-letter-space"></span>loongcollector）</p>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr id="751ede9a8f6jj">
+              <td id="016bf3766agq2" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="left" id="3ffd074b7dfx3" style="text-align:left">策略日志采集</p>
+              </td>
+              <td id="4b3d70e9e4rib" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="left" id="571feafc9d2q7" style="text-align:left">通过<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/collect-control-plane-component-logs-of-ack-managed-cluster" id="3b44ef49066vr" title="" class="xref">采集<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>托管集群控制面组件日志</a>发送到指定的<span class="help-letter-space"></span>SLS Project<span class="help-letter-space"></span>中</p>
+              </td>
+              <td id="7e1b9e936bcbd" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="left" id="de90ba3e2eq5u" style="text-align:left">通过在集群中安装日志采集组件以采集日志，并发送至指定的<span class="help-letter-space"></span>SLS Project<span class="help-letter-space"></span>中</p>
+              </td>
+            </tr>
+            <tr id="d10bbcfcc4s5q">
+              <td id="40f60cb90fecv" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="left" id="20a74b938eh4o" style="text-align:left">策略规则库</p>
+              </td>
+              <td id="3d161d462115v" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="left" id="f0c505f9581gz" style="text-align:left"><a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/predefined-security-policies-of-ack" id="7f04d9d7ec1jr" title="" class="xref">容器安全策略规则库说明</a>中的所有策略</p>
+              </td>
+              <td id="976e8f1e4esux" rowspan="1" style="vertical-align:middle" colspan="1">
+                <ul id="f8362d7d53ebg">
+                  <li id="831e69f208h8d">
+                    <p jc="left" data-spm-anchor-id="a2c4g.11186623.0.i12.20fda3f2H7EdYc" id="d5f0ae161eq68" style="text-align:left"><a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/predefined-security-policies-of-ack" id="031537921632l" title="" class="xref">容器安全策略规则库说明</a>中的所有策略</p>
+                  </li>
+                  <li id="033e7e8ec7k4z">
+                    <p id="390f8b9ba8z3q">云安全中心提供的<a href="https://help.aliyun.com/zh/security-center/user-guide/use-the-feature-of-proactive-defense-for-containers#section-i5h-11v-pag" id="9e722460e5tvr" title="" class="xref">容器主动防御</a></p>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section data-tag="section" data-type="section" id="section-ykr-oc3-p9n" class="section">
+        <h2 data-tag="title" id="title-fm2-581-4z0" class="title">注意事项</h2>
+        <ul data-tag="ul" id="ul-eab-gva-q1p" class="ul">
+          <li data-tag="li" id="li-7wb-08s-ip4" class="li">
+            <p id="07e733e0f42mq">仅适用于<span class="help-letter-space"></span>Linux<span class="help-letter-space"></span>节点。</p>
+          </li>
+          <li data-tag="li" id="li-jmq-zj3-skt" class="li">
+            <p id="07e733e1f492l">不支持自定义策略规则。所有规则均来自于阿里云容器服务内置的规则库。</p>
+          </li>
+        </ul>
+      </section>
+      <section data-tag="section" data-type="section" id="section-3k8-sl8-fi0" class="section">
+        <h2 data-tag="title" id="title-y6a-4jm-9v4" class="title">步骤一：安装或升级<span data-tag="ph" id="7292fd103ay06" docid="4601275" is-conref="true" class="ph">安全策略管理</span>组件</h2>
+        <ol data-tag="steps" id="steps-zw4-eb5-5rt" class="steps">
+          <li data-tag="step" id="c0a6aac5b09ql" docid="3660168" is-conref="true" class="step">
+            <p id="7bdb0bf11b631"><span data-tag="cmd" id="cmd-mto-t3v-p7d" class="cmd">登录<span props="china intl"><a href="https://cs.console.aliyun.com" id="xref-c6s-99d-s5k" class="" target="_blank">容器服务管理控制台</a></span>，在左侧导航栏选择<b id="uicontrol-42p-agm-35k" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>。</span></p>
+          </li>
+          <li data-tag="step" id="bb094cd6c1esl" docid="3660168" is-conref="true" class="step">
+            <p id="7bdd55e31buz3"><span data-tag="cmd" id="cmd-qpk-td0-r07" class="cmd">在<b id="wintitle-2wv-em0-u0r" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，选择<span data-tag="menucascade" id="menucascade-3nx-6x4-mee" class="menucascade"><b id="uicontrol-5yc-deq-aat" data-tag="uicontrol" data-isbold="true" class="uicontrol">安全管理</b> &gt; <b id="uicontrol-hh3-ucb-d4j" data-tag="uicontrol" data-isbold="true" class="uicontrol">策略管理</b></span>。</span></p>
+          </li>
+          <li data-tag="step" id="step-mre-zf6-xj4" class="step">
+            <p id="07e7a910f4ieq">在<b id="74f35f3167db1" data-tag="uicontrol" data-isbold="true" class="uicontrol">策略管理</b>页面，根据页面提示安装或升级组件。</p>
+            <p id="eb6485e7a7aqh">启用<span data-tag="ph" id="c121465896x6k" docid="4601275" is-conref="true" class="ph">安全策略管理</span>功能时，需安装以下组件。以下组件本身不收取费用，但会占用您的<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>资源。</p>
+            <ul data-tag="ul" id="361532c6bau66" class="ul">
+              <li id="c4a7c49a2bnbe">
+                <p id="fd7bc55601jbe">gatekeeper<span class="help-letter-space"></span>组件：基于<span class="help-letter-space"></span>OPA<span class="help-letter-space"></span>策略引擎的<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>策略准入控制器，便于您管理和应用集群内的<span class="help-letter-space"></span>OPA<span class="help-letter-space"></span>策略，实现命名空间标签管理等功能。</p>
+                <div id="aafd37fe45mjj" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                  <p id="4a14150f5cfgn">仅支持使用<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>集群提供的<span class="help-letter-space"></span>gatekeeper<span class="help-letter-space"></span>组件。如您通过其他途径安装了<span class="help-letter-space"></span>gatekeeper<span class="help-letter-space"></span>组件，请卸载后重新安装。关于<span class="help-letter-space"></span>gatekeeper<span class="help-letter-space"></span>组件的版本发布信息，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ack/product-overview/gatekeeper#task-1938542" id="fdeac73ee2uih" title="" class="xref">gatekeeper</a>。</p>
+                </div></div>
+              </li>
+              <li data-tag="li" id="li-t5q-1ml-tg5" props="ack" data-cond-props="ack" class="li">
+                <p id="07e75af2f4r54">日志采集组件：用于收集和检索不符合策略约束的拦截或告警事件。</p>
+              </li>
+              
+              <li id="426a5b591b9bw">
+                <p data-tag="p" id="c41fbb82aaviw" class="p">policy-template-controller<span class="help-letter-space"></span>组件：基于阿里云策略模板开发的<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>控制器，便于您更好地管理基于不同策略模板部署的策略实例和集群整体的治理状态。</p>
+              </li>
+            </ul>
+          </li>
+        </ol>
+      </section>
+      <section id="88777ff753f72" class="section">
+        <h2 id="39190b0775nxa"><b>步骤二：使用</b><span data-tag="ph" id="c240d2b7d7hb0" docid="4601275" is-conref="true" class="ph">安全策略管理</span>功能</h2>
+        <section id="eee55ad814p04" class="section">
+          <h3 id="af6875a8887ju"><b>操作入口</b></h3>
+          <ol data-tag="steps" id="ecc1153b5aopx" class="steps">
+            <li data-tag="step" id="32bf0d9c03ain" docid="3660168" is-conref="true" class="step">
+            <p id="7bdb0bf11b631"><span data-tag="cmd" id="cmd-mto-t3v-p7d" class="cmd">登录<span props="china intl"><a href="https://cs.console.aliyun.com" id="xref-c6s-99d-s5k" class="" target="_blank">容器服务管理控制台</a></span>，在左侧导航栏选择<b id="uicontrol-42p-agm-35k" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>。</span></p>
+          </li>
+            <li data-tag="step" id="86ceb8ebf61bp" docid="3660168" is-conref="true" class="step">
+            <p id="7bdd55e31buz3"><span data-tag="cmd" id="cmd-qpk-td0-r07" class="cmd">在<b id="wintitle-2wv-em0-u0r" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，选择<span data-tag="menucascade" id="menucascade-3nx-6x4-mee" class="menucascade"><b id="uicontrol-5yc-deq-aat" data-tag="uicontrol" data-isbold="true" class="uicontrol">安全管理</b> &gt; <b id="uicontrol-hh3-ucb-d4j" data-tag="uicontrol" data-isbold="true" class="uicontrol">策略管理</b></span>。</span></p>
+          </li>
+            <li id="20944bd30bjn6">
+              <p id="321f6e1158qxc">在<b id="0709c2e3d9ang" data-tag="uicontrol" data-isbold="true" class="uicontrol">策略管理</b>页面，按页面提示完成组件的安装或升级（如有），然后按需进行以下操作。</p>
+            </li>
+          </ol>
+        </section>
+        <section id="2e1cc607c4zva" class="section">
+          <h3 data-tag="title" id="1c38406378vb3" class="title"><b>查看集群当前安全策略执行状态</b></h3>
+          <p id="10642530cawzl">您可以单击<b id="wintitle-v6a-zdy-idh" data-tag="uicontrol" data-isbold="true" class="uicontrol">策略实施总览</b>页签，查看集群当前的策略治理状态。</p>
+          <ul data-tag="ul" id="ul-k1h-1rz-pdg" class="ul">
+            <li data-tag="li" id="li-h7p-2df-kpy" class="li">
+              <p id="07ec15e3f4jiv">策略开启总览，包括高危和中危防护策略的总数和已开启数展示，以及建议开启的策略列表等。</p>
+            </li>
+            <li data-tag="li" id="li-43g-qtt-u0t" class="li">
+              <p id="07ec15e4f4q8o">近<span class="help-letter-space"></span>7<span class="help-letter-space"></span>天拦截和告警结果统计。</p>
+            </li>
+            <li data-tag="li" id="li-abe-syn-a39" class="li">
+              <p id="07ec15e5f4lyl">近<span class="help-letter-space"></span>7<span class="help-letter-space"></span>天策略实施记录，当前页面表格中会默认展示<span class="help-letter-space"></span>7<span class="help-letter-space"></span>天内最近<span class="help-letter-space"></span>100<span class="help-letter-space"></span>条的拦截或告警日志，如果您想查看更多审计日志，可以单击<b id="uicontrol-rft-5sz-1ua" data-tag="uicontrol" data-isbold="true" class="uicontrol">近<span class="help-letter-space"></span>7<span class="help-letter-space"></span>天策略实施记录</b>后的<img alt="未知" data-tag="image" id="image-abt-653-ews" placement="inline" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1109158361/p362057.png" class="image inline">图标，并单击悬浮窗口中的日志服务链接在<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>日志服务控制台指定的<span class="help-letter-space"></span>logstore<span class="help-letter-space"></span>中查看全部日志。页面下方<b>近<span class="help-letter-space"></span>7<span class="help-letter-space"></span>天策略实施记录</b>表格展示每条策略的<b>实施时间</b>、<b>策略类型</b>、<b>策略名称</b>、<b>策略描述</b>、<b>风险等级</b>、<b>实施动作</b>和<b>详细信息</b>，可通过搜索框和筛选按钮定位具体记录。</p>
+            </li>
+          </ul>
+        </section>
+        <section id="8a1196b9a98sf" class="section">
+          <h3 data-tag="title" id="ac685759a1fad" class="title"><b>创建并管理安全策略实例</b></h3>
+          <p id="f2762a7a56jld">单击<b id="wintitle-pf0-xmt-coz" data-tag="uicontrol" data-isbold="true" class="uicontrol">我的策略</b>页签，然后单击<b id="uicontrol-a3j-nva-01a" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建策略实例</b>，在<b id="wintitle-yut-brd-ccq" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建策略实例</b>对话框配置相关参数。</p>
+          <table id="table-mr9-230-yy6" tablewidth="100" tablecolswidth="16.69 83.31" autofit="true" class="table">
+            <colgroup colwidth="0.33*" style="width:16.69%"></colgroup>
+            <colgroup colwidth="1.67*" style="width:83.31%"></colgroup>
+            <tbody class="tbody">
+              <tr id="row-w89-uwk-le3">
+                <td id="task-2148676-entry-6cp-h6i-c86" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="ccf637275br33"><b>配置项</b></p>
+                </td>
+                <td id="task-2148676-entry-v3c-3t2-kz5" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="fe8e7fedd4v3v"><b>说明</b></p>
+                </td>
+              </tr>
+              <tr id="row-vut-df4-577">
+                <td id="entry-zmc-78a-l72" rowspan="1" colspan="1">
+                  <p id="fb3b02f7f4vgf"><b id="uicontrol-wrc-iwb-a1p" data-tag="uicontrol" data-isbold="true" class="uicontrol">策略类型</b></p>
+                </td>
+                <td id="entry-gt8-un7-3w6" rowspan="1" colspan="1">
+                  <p id="55d10c3f1fwh1">首先选择策略类型，包括：</p>
+                  <ul data-tag="ul" id="ul-0n2-8mk-ei7" class="ul">
+                    <li data-tag="li" id="li-1u8-2sn-054" class="li">
+                      <p id="cf48888580g17">infra：基础设施层资源相关的策略类型。</p>
+                    </li>
+                    <li data-tag="li" id="li-dqp-q69-dgt" class="li">
+                      <p id="b9fb9bdfb1r9j">compliance：基于<span data-tag="ph" id="3fbd4ec2884pr" docid="4790250" is-conref="true" class="ph">阿里云<span class="help-letter-space"></span>K8s<span class="help-letter-space"></span>加固</span>等<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>合规规范定制的策略类型。</p>
+                    </li>
+                    <li data-tag="li" id="li-qoh-0yt-esg" class="li">
+                      <p id="c69113435f44r">psp：替代<span class="help-letter-space"></span>Pod Security Policy（PSP）能力的策略类型。</p>
+                    </li>
+                    <li data-tag="li" id="li-5lw-fcx-jfj" class="li">
+                      <p id="ddbd5eb368rl0">k8s-general：基于最佳安全实践对<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>资源配置进行安全加固约束的通用策略类型。</p>
+                    </li>
+                  </ul>
+                  <p id="84d5f9f6acagm">详见<span props="ack"><a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/predefined-security-policies-of-ack" id="22b6992df5tvg" title="" class="xref">容器安全策略规则库说明</a></span>。</p>
+                </td>
+              </tr>
+              <tr id="a644006659gbv">
+                <td id="577e92b824d77" rowspan="1" colspan="1">
+                  <p id="a445933ad07a9"><b id="uicontrol-l4u-gyq-6in" data-tag="uicontrol" data-isbold="true" class="uicontrol">策略名称</b></p>
+                </td>
+                <td id="d4e541de52ar2" rowspan="1" colspan="1">
+                  <p id="dde3f86d93q2z">根据选择的策略类型，在策略名称下拉列表中选择需要部署的策略模板名称。</p>
+                </td>
+              </tr>
+              <tr id="row-lhm-npb-y5k">
+                <td id="entry-g2q-ze5-tvx" rowspan="1" colspan="1">
+                  <p id="a6308916aeukl"><b id="uicontrol-kr3-jqa-ryr" data-tag="uicontrol" data-isbold="true" class="uicontrol">实施动作</b></p>
+                </td>
+                <td id="entry-gj5-6rt-wqj" rowspan="1" colspan="1">
+                  <ul data-tag="ul" id="ul-5re-4up-4qd" class="ul">
+                    <li data-tag="li" id="li-swf-7kt-yhk" class="li">
+                      <p id="62b8b20369gxd">拦截：违反策略规则约束的指定资源部署会被拦截。</p>
+                    </li>
+                    <li data-tag="li" id="li-t7l-vjo-3fn" class="li">
+                      <p id="af66ac0ecfs2w">警告：违反策略规则约束的指定资源仍旧可以部署，只会产生对应违规审计的告警日志。</p>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr id="row-vt2-yr7-nya">
+                <td id="entry-hv2-p00-0hz" rowspan="1" colspan="1">
+                  <p id="eeb0e12b9cvtk"><b>作用范围</b></p>
+                </td>
+                <td id="entry-z8r-ftd-b2t" rowspan="1" colspan="1">
+                  <p id="06e59ababbno9">选择策略实例实施在集群中哪些指定的命名空间。</p>
+                </td>
+              </tr>
+              <tr id="row-l7b-p9e-ea1">
+                <td id="entry-agn-48b-7uy" rowspan="1" colspan="1">
+                  <p id="0762578ae4kgx"><b id="uicontrol-y8e-s3g-ggv" data-tag="uicontrol" data-isbold="true" class="uicontrol">参数配置</b></p>
+                </td>
+                <td id="entry-wwo-mrf-bn7" rowspan="1" colspan="1">
+                  <ul data-tag="ul" id="ul-1bh-143-6fb" class="ul">
+                    <li data-tag="li" id="li-1ua-01s-uv2" class="li">
+                      <p id="1e70907d06vyp">如果参数配置输入框中默认为空，说明规则不需要进行参数配置。</p>
+                    </li>
+                    <li data-tag="li" id="li-uu8-5p0-gs1" class="li">
+                      <p id="a3201ea2693n8">如果输入框中包含需要配置的参数模板，则请参考策略参数说明按照指定格式配置参数。</p>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section id="c8b75c2337395" class="section">
+          <h3 id="07ec3cf2f45wh"><b>查看安全策略列表和集群中已部署的安全策略实例</b></h3>
+          <p id="9b866c6d59tx0">单击<b id="wintitle-i30-o9c-10w" data-tag="uicontrol" data-isbold="true" class="uicontrol">我的策略</b>页签，查看集群所有可部署的策略名称。</p>
+          <ul id="10c137b12079t">
+            <li id="4eb90cdb5e4kb">
+              <p id="b49d3c358ekgx">可在列表右上角筛选显示的策略。已开启的策略名称会优先展示。策略实例数会显示对应策略在集群中已部署的实例个数。</p>
+              <p id="d746da89cex6f">如果策略实例数为空，表明该策略还未在集群中部署，可在<b id="uicontrol-bib-3nm-l9u" data-tag="uicontrol" data-isbold="true" class="uicontrol">操作</b>列单击<b id="uicontrol-v56-j4r-p7n" data-tag="uicontrol" data-isbold="true" class="uicontrol">开启</b>配置参数并部署对应的策略实例。</p>
+            </li>
+            <li id="c7398e06b7aza">
+              <p id="87ba29fd8bbcn">单击<b id="uicontrol-il8-aoe-lwd" data-tag="uicontrol" data-isbold="true" class="uicontrol">操作</b>列中的<b id="uicontrol-chf-253-d0i" data-tag="uicontrol" data-isbold="true" class="uicontrol">编辑</b>可以修改策略实例的配置。</p>
+              <p id="6056d5a00d2il">当策略在集群中已部署超过<span class="help-letter-space"></span>1<span class="help-letter-space"></span>个实例时，可单击<b id="uicontrol-ac6-2nd-cpa" data-tag="uicontrol" data-isbold="true" class="uicontrol">操作</b>列的<b id="uicontrol-t4z-ewg-h9c" data-tag="uicontrol" data-isbold="true" class="uicontrol">查看策略实例</b>，然后单击<b id="uicontrol-dzc-la8-1mf" data-tag="uicontrol" data-isbold="true" class="uicontrol">编辑</b>修改相关配置。</p>
+            </li>
+            <li data-tag="li" id="li-ca5-uk7-luz" class="li">
+              <p id="07ec3cf5f4b6r">单击<b id="uicontrol-65w-slu-swg" data-tag="uicontrol" data-isbold="true" class="uicontrol">操作</b>列中的<b id="b7d74ee1d57k1" data-tag="uicontrol" data-isbold="true" class="uicontrol">删除</b>，可删除该策略在集群中部署的所有实例。</p>
+            </li>
+          </ul>
+          <p id="07ec3cf7f4bwe">关于策略说明和模板示例的更多信息，请参见<span props="ack"><a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/predefined-security-policies-of-ack" id="af333f244apnf" title="" class="xref">容器安全策略规则库说明</a></span>。</p>
+        </section>
+      </section>
+      <section id="701e53f19fywd" class="section">
+        <h2 id="96ca3b02e7t1d"><b>相关操作</b></h2>
+        <section id="cf83956eeb5sa" class="section">
+          <h3 id="9ba015d4b10yu"><b>为命名空间或<span class="help-letter-space"></span>Service<span class="help-letter-space"></span>开启删除保护</b></h3>
+          <p id="3c1a5af580dfd" uuid="lzwc5mfmcty6g75hh5w">参见<a href="#section-3k8-sl8-fi0" id="cd28152d72sdx" title="" class="xref">步骤一：安装或升级安全策略管理组件</a>启用<span data-tag="ph" id="a601321f37jmf" docid="4601275" is-conref="true" class="ph">安全策略管理</span>功能后，您还可以为涉及关键业务、敏感数据的命名空间或<span class="help-letter-space"></span>Service<span class="help-letter-space"></span>开启删除保护功能，以避免误删除带来的维护成本。启用后，仅当您手动关闭删除保护后，对应的资源才可以被删除。</p>
+          <p id="c30446f03fhv2" uuid="m00qzjeq2elu076nn0a">下文以为存量命名空间的开启删除保护为例，介绍流程步骤。其他操作步骤流程类似，您可以进入控制台对应页面，按照页面提示完成配置。</p>
+          <ul id="7ad9e9db5020m">
+            <li id="5648a1a402muh">
+              <p id="8d97bb7fdbv7h">为存量命名空间开启删除保护</p>
+              <section id="1299a1d20e8vf" class="section">
+                <ol id="a8c3646623dms">
+                  <li data-tag="step" id="dc9b357702j4b" docid="3660168" is-conref="true" class="step">
+            <p id="7bdb0bf11b631"><span data-tag="cmd" id="cmd-mto-t3v-p7d" class="cmd">登录<span props="china intl"><a href="https://cs.console.aliyun.com" id="xref-c6s-99d-s5k" class="" target="_blank">容器服务管理控制台</a></span>，在左侧导航栏选择<b id="uicontrol-42p-agm-35k" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>。</span></p>
+          </li>
+                  <li data-tag="step" id="a22092d6d5s80" docid="3660168" is-conref="true" class="step">
+            <p id="7bdce0b11bffv"><span data-tag="cmd" id="cmd-wgc-jsb-rla" class="cmd">在<b id="wintitle-yhg-txb-jht" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，选择<b id="uicontrol-3ik-4h1-p9e" data-tag="uicontrol" data-isbold="true" class="uicontrol">命名空间与配额</b>。</span></p>
+          </li>
+                  <li id="5802a4ff630i6">
+                    <p id="4dce10855evws">在命名空间列表的<b id="f6f31e8bc2xl9" data-tag="uicontrol" data-isbold="true" class="uicontrol">操作</b>列，单击<b id="066745e1a6mh7" data-tag="uicontrol" data-isbold="true" class="uicontrol">编辑</b>，在对话框中按照页面完成删除保护的启用。</p>
+                  </li>
+                </ol>
+              </section>
+                  </li>
+            <li id="539aa05302zbr">
+              <p id="92d87e0e87la4">为存量<span class="help-letter-space"></span>Service<span class="help-letter-space"></span>开启删除保护</p>
+              <section id="2fe4b89ef924n" class="section">
+                <ol id="23668968f54cv">
+                  <li data-tag="step" id="1028096ecbyif" docid="3660168" is-conref="true" class="step">
+            <p id="7bdb0bf11b631"><span data-tag="cmd" id="cmd-mto-t3v-p7d" class="cmd">登录<span props="china intl"><a href="https://cs.console.aliyun.com" id="xref-c6s-99d-s5k" class="" target="_blank">容器服务管理控制台</a></span>，在左侧导航栏选择<b id="uicontrol-42p-agm-35k" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>。</span></p>
+          </li>
+                  <li data-tag="step" id="82262a626bss9" docid="3660168" is-conref="true" class="step">
+            <p id="7bdc6b831b8kd"><span data-tag="cmd" id="cmd-b18-fkc-0oz" class="cmd">在<b id="wintitle-fz8-u06-0l9" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，选择<span data-tag="menucascade" id="menucascade-avt-207-qwr" class="menucascade"><b id="uicontrol-mwk-e5g-tjo" data-tag="uicontrol" data-isbold="true" class="uicontrol">网络</b> &gt; <b id="uicontrol-gh7-516-v1a" data-tag="uicontrol" data-isbold="true" class="uicontrol">服务</b></span>。</span></p>
+          </li>
+                  <li id="1947621652hn7">
+                    <p id="3de037e057yau">在服务列表的<b id="63366fea7e6ae" data-tag="uicontrol" data-isbold="true" class="uicontrol">操作</b>列，单击<img alt="image" id="1c440be3e7y2y" placement="inline" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5511960371/p867409.png" class="image inline">，然后单击<b id="26427d052bic4" data-status="unpublished" data-tag="uicontrol" data-isbold="true" class="uicontrol">开启删除保护</b>，在对话框中按照页面完成删除保护的启用。</p>
+                  </li>
+                </ol>
+              </section>
+                  </li>
+          </ul>
+        </section>
+        <section id="2bbfc02cdd8w6" class="section">
+          <h3 id="685343c11c24p"><b>通过<span class="help-letter-space"></span>ack-policy-external-provider</b><span class="help-letter-space"></span>实现跨资源验证</h3>
+          <p jc="left" id="50d472cc20ldl" style="text-align:left">默认情况下，Gatekeeper 策略的决策依据仅限于被审查的资源本身。但在许多复杂的安全场景中，策略需要引用集群中的其他资源状态才能做出正确判断。</p>
+          <p jc="left" id="cf913cae14m4u" style="text-align:left">托管组件&nbsp;ack-policy-external-provider&nbsp;可充当 Gatekeeper 的外部数据源，让策略开发者可以在策略代码（Rego）中查询<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>资源（如内置的<span class="help-letter-space"></span>CRD<span class="help-letter-space"></span>保护策略）。</p>
+          <div id="ab96392a73l1i" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+            <p id="a8cbaba0cawg0">ack-policy-external-provider<span class="help-letter-space"></span>需配合<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ack/product-overview/gatekeeper" id="1a3b99bdbcu9y" title="" class="xref">gatekeeper</a><span class="help-letter-space"></span>使用。请确保集群中已部署 gatekeeper。</p>
+          </div></div>
+          <section id="4eb59857c6xji" class="section">
+            <h4 id="5a3e5bc422k0x"><b>安装和配置<span class="help-letter-space"></span>ack-policy-external-provider</b></h4>
+            <ol data-init-id="777a707cfftq3" id="3fe6f6ca2bfwx">
+              <li id="423fa50ccavs5" docid="5851131" is-conref="true">
+            <p id="a4f4b2bfceq48">在<span props="china intl"><span class="help-letter-space"></span><a href="https://cs.console.aliyun.com" id="eb3a81ffe3mo3" class="" target="_blank">ACK<span class="help-letter-space"></span>集群列表</a></span>页面，单击目标集群名称，在集群详情页左侧导航栏，单击<b id="6359d39685o2z" data-tag="uicontrol" data-isbold="true" data-init-id="18d0b380bd0ho" class="uicontrol">组件管理</b>。</p>
+          </li>
+              <li id="bd231f10b09n0">
+                <p id="98bd7cecf3l4t">搜索并定位<span class="help-letter-space"></span>ack-policy-external-provider，按照页面提示完成配置。</p>
+                <ul id="ce92b6152exlr">
+                  <li id="e53859e3a2efv">
+                    <p id="189c271210e1b">ProviderPodNumber：组件的实例个数。</p>
+                  </li>
+                  <li id="3ac45d0578n4t">
+                    <p id="165a23d191436">ProtectedKinds：添加需要保护 CRD 对应的资源类型。</p>
+                    <blockquote id="202b40a1fbot2">CRD 删除保护需要检查集群中是否存在该资源类型的实例。遵循最小化权限原则，ack-policy-external-provider<span class="help-letter-space"></span>默认不具备该检查所需的查询权限，需手动配置。</blockquote>
+                    <p id="p-85868bd46885">设置 <b>ProviderPodNumber</b>（副本数量，默认为 <code data-tag="code" class="code">1</code>）。在 <b>ProtectedKinds</b> 区域，输入资源类型名称（如 <code data-tag="code" class="code">pods</code>、<code data-tag="code" class="code">policies</code>、<code data-tag="code" class="code">customresources</code>），单击<b>添加</b>可增加多个条目，单击<b>删除</b>可移除条目，完成后单击<b>确认</b>。</p>
+                  </li>
+                </ul>
+              </li>
+            </ol>
+          </section>
+          <section id="7def7534c8siz" class="section">
+            <h4 id="14388203605sf"><b>接口定义及参数说明</b></h4>
+            <p id="ce9b7b1e66sda">ack-policy-external-provider 实现了一个标准的 Gatekeeper&nbsp;外部数据 Provider。可在 Rego 策略模板中，通过调用&nbsp;<code data-tag="code" class="code blog-code" id="c5b9c84c1f4v8">external_data</code>&nbsp;函数并指定&nbsp;<code data-tag="code" class="code blog-code" id="73cacdb112zht">provider: ack-policy-external-data-provider</code>，来向该组件发起资源查询请求。</p>
+            <p id="16a6d1db50ofs">请求参数以 JSON 格式定义，示例如下。</p>
+<pre code-type="xCode" data-tag="codeblock" id="52401ff5398nx" index="0" outputclass="language-json" class="pre codeblock language-json"><code>// 示例 1
+{
+  "action": "ListK8sResource",
+  "namespaced": false,
+  "group": "",
+  "version": "v1",
+  "resource": "persistentvolumeclaims"
+  "requestID": review.uid,
+  "userInfo": review.userInfo,
+  "requestFrom": "PVCProtector",
+  "labelSelector": "protected",
+  "limit": 1
+}
+// 示例 2
+{
+  "action": "GetK8sResource",
+  "namespaced": true,
+  "namespace": "default",
+  "group": "apps",
+  "version": "v1",
+  "resource": "deployments",
+  "requestID": review.uid,
+  "userInfo": review.userInfo,
+  "requestFrom": "FinOpsPolicy",
+  "labelSelector": "protected",
+  "limit": 1
+}</code></pre>
+            <p id="f698a810555fw">核心参数说明：</p>
+            <table id="80a07499f5tr4" tablewidth="100" tablecolswidth="15.94 67.83 16.23" autofit="true" class="table">
+              <colgroup colwidth="0.48*" style="width:15.94%"></colgroup>
+              <colgroup colwidth="2.06*" style="width:67.83%"></colgroup>
+              <colgroup colwidth="0.49*" style="width:16.23%"></colgroup>
+              <tbody class="tbody">
+                <tr id="7c12fe39a06be">
+                  <td id="ece6b365d4qqj" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                    <p jc="left" id="13dd3ac00bubj" style="text-align:left"><b>参数</b></p>
+                  </td>
+                  <td id="cacb5c6f46fq7" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                    <p jc="left" id="38a8d01912l2o" style="text-align:left"><b>说明</b></p>
+                  </td>
+                  <td id="ed959a55ed51n" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                    <p jc="left" id="a70bd777caise" style="text-align:left"><b>是否必选</b></p>
+                  </td>
+                </tr>
+                <tr id="ec51c7b57adre">
+                  <td id="9785380314x52" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="f7531dcc3c3vc" style="text-align:left"><code data-tag="code" class="code blog-code" id="a02f97040408l">action</code></p>
+                  </td>
+                  <td id="87dced75canlk" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="7639159c8ca4h" style="text-align:left">操作类型，支持&nbsp;<code data-tag="code" class="code blog-code" id="2bb947b4a7kyf">ListK8sResource</code>和&nbsp;<code data-tag="code" class="code blog-code" id="79fc6f89c3hkx">GetK8sResource</code>。</p>
+                  </td>
+                  <td id="0d78898fba7wf" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="48d81decfcjsc" style="text-align:left">是</p>
+                  </td>
+                </tr>
+                <tr id="896d1129e3da0">
+                  <td id="18af14aab57wr" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="7d03f7a6dajm6" style="text-align:left"><code data-tag="code" class="code blog-code" id="f61f07582d6w1">group</code></p>
+                  </td>
+                  <td id="6203490a248mk" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="4a44683700h1s" style="text-align:left">目标资源的 API Group。</p>
+                  </td>
+                  <td id="2a39e2d6ce892" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="006fdfe529br6" style="text-align:left">是</p>
+                  </td>
+                </tr>
+                <tr id="c21f1735e5f3z">
+                  <td id="642b2e7629z7d" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="9490007453mgf" style="text-align:left"><code data-tag="code" class="code blog-code" id="b8e0ed7037id0">version</code></p>
+                  </td>
+                  <td id="a162eeec45uva" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="f8d09f06a15p8" style="text-align:left">目标资源的 API Version。</p>
+                  </td>
+                  <td id="1429d3aede0jq" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="374a60509bwkc" style="text-align:left">否</p>
+                  </td>
+                </tr>
+                <tr id="083db59024wbs">
+                  <td id="dceae6f90eo98" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="f24708c921rmz" style="text-align:left"><code data-tag="code" class="code blog-code" id="b1f44d4e73utb">resource</code></p>
+                  </td>
+                  <td id="cae0af9e540ji" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="e00ef441a05hq" style="text-align:left">目标资源的复数名称（例如&nbsp;<code data-tag="code" class="code blog-code" id="e934d227e7ji9">persistentvolumeclaims</code>）。</p>
+                  </td>
+                  <td id="4ec242abc95wf" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="9ddbfb82b93wx" style="text-align:left">是</p>
+                  </td>
+                </tr>
+                <tr id="ca6119559bdv6">
+                  <td id="32cf04d97cvk5" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="0c6ffa8791ozs" style="text-align:left"><code data-tag="code" class="code blog-code" id="651506a14awd2">namespaced</code></p>
+                  </td>
+                  <td id="1e7af15604nuw" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="3749f8222b4tt" style="text-align:left">目标资源是否位于命名空间内。<code data-tag="code" class="code blog-code" id="bc896340fchp1">true</code>&nbsp;或&nbsp;<code data-tag="code" class="code blog-code" id="14925bb931ur5">false</code>。</p>
+                    <blockquote id="48f35b2e4b4dh">集群范围内资源请使用<code data-tag="code" id="f293f5566djip" class="code">false</code>。</blockquote>
+                  </td>
+                  <td id="48f28d3c65371" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="ae5bd92d02j25" style="text-align:left">是</p>
+                  </td>
+                </tr>
+                <tr id="71fe465bd0oqv">
+                  <td id="eb70cb4e80bpn" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="9f3407fe10oh1" style="text-align:left"><code data-tag="code" class="code blog-code" id="e04d9b41ffrwr">namespace</code></p>
+                  </td>
+                  <td id="e9cb520d6ae9e" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="3f3993d92dgeb" style="text-align:left">当&nbsp;<code data-tag="code" class="code blog-code" id="900d234d288hi">namespaced</code>&nbsp;为&nbsp;<code data-tag="code" class="code blog-code" id="68f629afe4xrk">true</code>&nbsp;时，指定查询的命名空间。</p>
+                  </td>
+                  <td id="23de897e76t0b" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="d0bb54b2f5zqe" style="text-align:left">否</p>
+                  </td>
+                </tr>
+                <tr id="7a1442fb21v46">
+                  <td id="d3c4acc38528l" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="cecd43b4e7gy8" style="text-align:left"><code data-tag="code" class="code blog-code" id="1383835925shd">name</code></p>
+                  </td>
+                  <td id="3a05c444ff0bi" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="ae453929feawf" style="text-align:left">当&nbsp;<code data-tag="code" class="code blog-code" id="ed87a45c5dqft">action</code>&nbsp;为&nbsp;<code data-tag="code" class="code blog-code" id="f853d52982ffq">GetK8sResource</code>&nbsp;时，指定要获取的资源名称。</p>
+                  </td>
+                  <td id="d68e3481d8drv" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="1ba34676c01zc" style="text-align:left">否</p>
+                  </td>
+                </tr>
+                <tr id="8a15e606dfp4y">
+                  <td id="53b7ad3d498p8" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="27b344acedgmv" style="text-align:left"><code data-tag="code" class="code blog-code" id="f9fbeb7a5319g">labelSelector</code></p>
+                  </td>
+                  <td id="d096242a9d26v" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="f7e47ef70b1o2" style="text-align:left">基于标签筛选资源，遵循 Kubernetes&nbsp;<a href="https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/#label-selectors" id="8b264ba4de6pr" class="" target="_blank">Label Selector 规范</a>。</p>
+                  </td>
+                  <td id="5e01c19dc9nm5" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="0f091b62b32kw" style="text-align:left">否</p>
+                  </td>
+                </tr>
+                <tr id="27916774b3wiu">
+                  <td id="5e0f99a7733hh" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="6b9fd6a446egq" style="text-align:left"><code data-tag="code" class="code blog-code" id="44daca3c9dwlc">limit</code></p>
+                  </td>
+                  <td id="8899073b9bvgb" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="466a7a1fb0pa3" style="text-align:left"><code data-tag="code" class="code blog-code" id="2d5b244660z29">ListK8sResource</code>&nbsp;返回的资源数量上限。</p>
+                  </td>
+                  <td id="c677597ba4s14" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="57c8275c3965b" style="text-align:left">否</p>
+                  </td>
+                </tr>
+                <tr id="601d6ab206t9l">
+                  <td id="ac12fb8e92oyu" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="fff322a029z9s" style="text-align:left"><code data-tag="code" class="code blog-code" id="049d090f04y54">requestID</code></p>
+                  </td>
+                  <td id="eb10b0047d7q3" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="496cb7f108jat" style="text-align:left">请求的唯一<span class="help-letter-space"></span>ID，建议使用&nbsp;<code data-tag="code" class="code blog-code" id="bc572d736b8j3">review.uid</code>。</p>
+                  </td>
+                  <td id="e0fdeff48fot5" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="9da835013f09i" style="text-align:left">否</p>
+                  </td>
+                </tr>
+                <tr id="7204781c19z73">
+                  <td id="93bd9fdca7sp3" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="7a217565ce3e5" style="text-align:left"><code data-tag="code" class="code blog-code" id="ffb181658bxar">userInfo</code></p>
+                  </td>
+                  <td id="7be833681c7ar" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="10a67e2ca2322" style="text-align:left">发起请求的用户信息，建议使用&nbsp;<code data-tag="code" class="code blog-code" id="580359e1b62uk">review.userInfo</code>。</p>
+                  </td>
+                  <td id="9008120977qco" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="4db9294d38ao2" style="text-align:left">否</p>
+                  </td>
+                </tr>
+                <tr id="0dcf8c84b5zo6">
+                  <td id="88c891ee80ux7" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="b21e28d17adoo" style="text-align:left"><code data-tag="code" class="code blog-code" id="1c67e5d552vsy">requestFrom</code></p>
+                  </td>
+                  <td id="2c44b9fa6dnii" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="c2c8a5cecfemg" style="text-align:left">请求来源标识，通常为策略模板名称，用于日志追溯。</p>
+                  </td>
+                  <td id="d4e5c44dd256i" rowspan="1" style="vertical-align:middle" colspan="1">
+                    <p jc="left" id="33cc573ff5nnj" style="text-align:left">是</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section id="5e3e1e7808aol" class="section">
+            <h4 id="e130c2fa74syb"><b>场景示例：防止<span class="help-letter-space"></span>CRD<span class="help-letter-space"></span>被删除</b></h4>
+            <p id="433589b359jht">本示例展示利用 ack-policy-external-provider 实现一个常见的高级策略：当 CRD 仍然存在关联的 CR 实例时，禁止删除该 CRD。</p>
+            <blockquote id="4ed3ace6d6jnk">此策略已作为内置规则集成到策略库中，无需手动部署。仅作为原理说明。</blockquote>
+            <ul id="c67faddbb2514">
+              <li id="59e9306958rzi">
+                <p jc="left" id="dda627c701olr" style="text-align:left">策略逻辑</p>
+                <ul id="c82051010esfv">
+                  <li id="2d44acf165nav">
+                    <p id="2703c864e4rmr">触发：Gatekeeper 监听到&nbsp;<code data-tag="code" class="code blog-code" id="404b095f07429">DELETE</code>&nbsp;CRD 操作。</p>
+                  </li>
+                  <li id="eb8f8d6aaes0l">
+                    <p id="4c5095302629t">查询：Rego 策略通过&nbsp;<code data-tag="code" class="code blog-code" id="3d08756c65nzb">external_data</code>&nbsp;调用&nbsp;ack-policy-external-provider。</p>
+                  </li>
+                  <li id="4f3258e3713mr">
+                    <p id="0eda2dc0b3goh">判断：ack-policy-external-provider&nbsp;根据请求参数查询集群中是否存在对应的 CR 实例。</p>
+                  </li>
+                  <li id="8f22ff7fe6dhx">
+                    <p id="3af33ce8c1d8s">决策：如果查询结果返回了至少一个 CR 实例，ack-policy-external-provider&nbsp;会将结果返回给 Rego 策略，策略最终会&nbsp;<code data-tag="code" class="code blog-code" id="9d025ac6a5ra9">deny</code>&nbsp;(拒绝) 本次删除操作。</p>
+                  </li>
+                </ul>
+              </li>
+              <li id="c1708f0e202qz">
+                <p id="d7cfe73fd8j67">策略模板（ConstraintTemplate）</p>
+                <p id="2394f3eaa995w">定义策略的逻辑。</p><pre code-type="xCode" data-tag="codeblock" id="2be28c7bb9o6w" index="0" outputclass="language-yaml" class="pre codeblock language-yaml"><code>apiVersion: templates.gatekeeper.sh/v1beta1
+kind: ConstraintTemplate
+metadata:
+  name: blockcrddeletion
+  annotations:
+    meta.helm.sh/release-name: gatekeeper
+    meta.helm.sh/release-namespace: kube-system
+    metadata.gatekeeper.sh/version: 1.0.0
+  labels:
+    app.kubernetes.io/managed-by: Helm
+spec:
+  crd:
+    spec:
+      names:
+        kind: BlockCrdDeletion
+      validation:
+        legacySchema: true
+  targets:
+  - target: admission.k8s.gatekeeper.sh
+    rego: |
+      package block_crd_deletion
+      violation[{"msg": msg}] {
+        before(input.review.operation)
+        response := handle(input.review)
+        msg := after(response)
+      }
+
+      before(operation) {
+        operation == "DELETE"
+      }
+
+      handle(review) = response {
+        customrequest := {
+          "action": "ListK8sResource",
+          "namespaced": false,
+          "group": review.object.spec.group,
+          "version": "",
+          "resource": review.object.spec.names.plural,
+          "requestID": review.uid,
+          "userInfo": review.userInfo,
+          "requestFrom": "BlockCrdDeletion",
+          "labelSelector": "protected",
+          "limit": 1
+        }
+        request_keys := [json.marshal(customrequest)]
+        response := external_data({
+          "provider": "ack-policy-external-data-provider",
+          "keys": request_keys
+        })
+      }
+
+      after(response) = msg {
+        count(response.responses[0]) &gt; 0
+        msg := sprintf(
+          "The CRD %v is not allowed to be deleted. Reason: It is not allowed to delete a CRD object when it contains a collection of custom resources. Current existing custom resources: %v, etc.",
+          [input.review.name, response.responses[0][0]]
+        )
+      }</code></pre>
+              </li>
+              <li id="126437fa73vi3">
+                <p id="1444334e1dpm2">策略实例（Constraint）</p>
+                <p id="e8678b4beatqb">将模板应用到具体资源。本示例应用到所有<span class="help-letter-space"></span>CRD。</p><pre code-type="xCode" data-tag="codeblock" id="65b81fb69fdp2" index="0" outputclass="language-yaml" class="pre codeblock language-yaml"><code>apiVersion: constraints.gatekeeper.sh/v1beta1
+kind: BlockCrdDeletion
+metadata:
+  name: block-crd-deletion-rule
+spec:
+  enforcementAction: deny
+  match:
+    kinds:
+    - apiGroups:
+      - '*'
+      kinds:
+      - CustomResourceDefinition</code></pre>
+              </li>
+              <li id="ab46e7157d0m9">
+                <p id="6d32152175zir">效果验证</p>
+                <ol id="a342894c04nqr">
+                  <li id="6d60c31a25fjq">
+                    <p id="2c2685028ball">创建一个测试 CRD 和对应的 CR 实例：</p><pre code-type="xCode" data-tag="codeblock" id="3032a6c0a98sf" index="0" outputclass="language-yaml" class="pre codeblock language-yaml"><code># 创建 CRD
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: simplestthings.example.com
+spec:
+  group: example.com
+  scope: Namespaced
+  names:
+    plural: simplestthings
+    singular: simplestthing
+    kind: SimplestThing
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                message:
+                  type: string
+---
+# 创建 CR 实例
+apiVersion: example.com/v1
+kind: SimplestThing
+metadata:
+  name: my-simple-thing
+  namespace: default
+  labels:
+    protected: "false"
+spec:
+  message: "Hello"</code></pre>
+                  </li>
+                  <li id="035fcfca48opd">
+                    <p id="00243d5c4cfj6">尝试删除该 CRD。</p><pre code-type="xCode" data-tag="codeblock" id="74e3e3c206fkb" index="0" outputclass="language-bash" class="pre codeblock language-bash"><code>kubectl delete crd simplestthings.example.com</code></pre>
+                  </li>
+                  <li id="250ebf8517o43">
+                    <p id="4a5e8b2c0f425">查看删除操作是否被策略拦截，并返回明确的错误信息。</p>
+                    <p id="2fb4c808cdejq">预期输出：</p><pre code-type="xCode" data-tag="codeblock" id="91eb418a49fl6" index="0" outputclass="language-bash" class="pre codeblock language-bash"><code>Error from server (Forbidden): admission webhook "delete.validation.gatekeeper.sh" denied the request: [block-crd-deletion-rule] The CRD simplestthings.example.com is not allowed to be deleted. Reason: It is not allowed to delete a CRD object when it contains a collection of custom resources. Current existing custom resources: my-simple-thing, etc.</code></pre>
+                  </li>
+                </ol>
+              </li>
+            </ul>
+          </section>
+        </section>
+      </section>
+      <section id="4a6b1f5d470ih" class="section">
+        <h2 id="eb6341f943ioq"><b>相关文档</b></h2>
+        <p id="046fc6cd6dtv5">配置巡检功能可以扫描集群中工作负载配置的安全隐患。更多信息，请参见<span props="ack"><a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/use-the-inspection-feature-to-detect-security-risks-in-the-workloads-of-an-ack-cluster" id="4939f064dbila" title="" class="xref">配置巡检检查集群工作负载</a></span>。</p>
+      </section>
+</div>
+  </main>
+
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/container-security/" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：容器应用安全</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/use-validating-admission-policy-as-a-security-policy-engine" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：启用Validating Admission Policy作为安全策略引擎<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

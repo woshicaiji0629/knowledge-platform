@@ -1,0 +1,6 @@
+| 配置项 | 描述 |
+| --- | --- |
+| IPv6 双栈 | 公测中，请前往 [配额平台](https://quotas.console.aliyun.com/white-list-products/csk/quotas) 申请。 开启 IPv6 双栈后，将创建双栈集群。 重要 仅 1.20.11-aliyun.1 及以上版本的集群支持此功能。 集群使用的 VPC 已支持 IPv6 双栈。 |
+| 专有网络 | 集群的专有网络 VPC。为保障高可用，建议选择 2 个及以上不同可用区。 自动创建：ACK 在已选择的可用区下创建对应 vSwitch。 使用已有：选择 vSwitch，指定集群的可用区，可新建或使用已有 vSwitch。 推荐集群 VPC 使用标准私有地址（如 10.0.0.0/8、172.16.0.0/12 和 192.168.0.0/16）。如有特殊需求，请前往 [配额中心](https://quotas.console.aliyun.com/white-list-products/csk/quotas) 申请（ 使用公网网段 VPC 创建集群 ）。 云资源及计费说明： [VPC](../../../../vpc/documents/what-is-vpc.md) |
+| 为专有网络配置 SNAT | 使用共享 VPC 时请勿勾选 节点需访问公网（拉取公网镜像或访问外部服务）时勾选此项，ACK 将自动配置 NAT 网关和 SNAT 规则，确保集群内资源可以访问公网。 VPC 中没有 NAT 网关：ACK 自动创建 NAT 网关，新购 EIP，并为集群使用的 vSwitch 配置 SNAT 规则。 VPC 已有 NAT 网关：ACK 判断是否需要额外新购 EIP 以及配置 SNAT 规则。当无可用 EIP 时，将自动新购 EIP；当不存在 VPC 级别的 SNAT 规则时，将为集群使用的 vSwitch 配置 SNAT 规则。 若不勾选，也可在创建集群后自行配置 NAT 网关和 SNAT 规则，请参见 [公网 NAT 网关](../../../../nat-gateway/documents/user-guide/use-internet-nat-gateway-for-public-network-access.md) 。 云资源及计费说明： [NAT](../../../../nat-gateway/documents/nat-gateway-billing.md) [网关](../../../../nat-gateway/documents/nat-gateway-billing.md) 、 [EIP](../../../../eip/documents/billing-overview.md) |
+| 交换机 | 在列表中

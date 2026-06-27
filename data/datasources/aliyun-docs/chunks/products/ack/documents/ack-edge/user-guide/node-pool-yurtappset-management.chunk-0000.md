@@ -1,0 +1,2 @@
+# 通过YurtAppSet应用集管理ACK Edge应用
+在ACK Edge集群中，您可以使用应用集（YurtAppSet）将应用便捷地部署到多个节点池中。YurtAppSet提供了灵活的响应机制以感知节点池标签的变化，从而能够统一管理多个节点池的工作负载配置，如实例数量和软件版本等。本文将介绍如何使用YurtAppSet来高效地管理和部署ACK Edge集群的应用。

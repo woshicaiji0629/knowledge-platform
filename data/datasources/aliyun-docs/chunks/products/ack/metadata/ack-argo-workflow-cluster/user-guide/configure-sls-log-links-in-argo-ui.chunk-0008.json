@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-argo-workflow-cluster/user-guide/configure-sls-log-links-in-argo-ui:8",
+  "document_id": "ack:ack-argo-workflow-cluster/user-guide/configure-sls-log-links-in-argo-ui",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "通过配置workflow-controller-configmap，Argo UI可嵌入指向内部系统（如日志服务）的自定义链接，提升工作流和Pod的可观测性。-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/user-guide/configure-sls-log-links-in-argo-ui",
+  "chunk_index": 8,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-argo-workflow-cluster/user-guide/configure-sls-log-links-in-argo-ui.chunk-0008.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-argo-workflow-cluster/user-guide/configure-sls-log-links-in-argo-ui.md",
+  "heading_path": "在Argo UI配置日志链接 > 操作步骤 > 服务",
+  "char_count": 303
+}

@@ -1,0 +1,17 @@
+{
+  "id": "redis:user-guide/modify-the-values-of-parameters-for-an-instance",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "设置Tair实例的配置参数-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/modify-the-values-of-parameters-for-an-instance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/user-guide/modify-the-values-of-parameters-for-an-instance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/modify-the-values-of-parameters-for-an-instance.md",
+  "word_count": 659,
+  "text_units": 1602,
+  "local_links": 5,
+  "external_links": 70,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

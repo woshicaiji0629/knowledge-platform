@@ -1,0 +1,14 @@
+per-reference/parameters-for-configuring-features-for-domain-names.md)[IP](../developer-reference/parameters-for-configuring-features-for-domain-names.md)[黑名单](../developer-reference/parameters-for-configuring-features-for-domain-names.md)。
+重要
+接口的更新逻辑为：仅更新传入的参数。例如，若在请求中传入了ip_list参数而未传入ip_acl_xfwd，则ip_acl_xfwd不会被更新。
+该接口仅支持对IP列表、IP规则和规则条件进行更新，不允许更改配置类型。例如，无法通过该接口将IP黑名单配置更改为IP白名单配置。
+如果您需要更改配置类型（例如，将IP黑名单配置更改为IP白名单配置），需按照以下步骤操作：
+调用删除配置接口，移除现有的IP黑名单配置。
+调用添加配置接口，重新添加IP白名单配置。
+删除IP黑/白名单配置
+步骤一：查询ConfigId
+调用[查询域名配置](../developer-reference/api-cdn-2018-05-10-describecdndomainconfigs.md)接口，查询配置的ConfigId。如果您知道对应配置的ConfigId，请忽略此步骤，参考步骤二进行删除配置。
+步骤二：删除配置
+调用[DeleteSpecificConfig](../developer-reference/api-cdn-2018-05-10-deletespecificconfig.md)接口，使用ConfigId删除配置。
+该文章对您有帮助吗？
+反馈

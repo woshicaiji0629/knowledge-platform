@@ -1,0 +1,3 @@
+[{"name":"mark"}]}
+对应的ExternalSecret样例如下。
+apiVersion: 'alibabacloud.com/v1alpha1' kind: ExternalSecret metadata: name: extract-secret spec: provider: kms dataProcess: - extract: key: {KMS secret name} versionStage: ACSCurrent # KMS凭据版本。 secretStoreRef: name: {secret store name} namespace: {secret store namespace} replaceRule: # 替换规则。 - source: "^/.*d$" # 替换以“/“开头以”d“结尾的key为tom。 target: "tom" - source: "^n.*/$" # 替换以”n“开头以”/“结尾的key为mark。 target: "mark"

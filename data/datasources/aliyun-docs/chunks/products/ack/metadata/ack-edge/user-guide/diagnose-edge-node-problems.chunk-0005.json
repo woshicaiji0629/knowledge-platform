@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/user-guide/diagnose-edge-node-problems:5",
+  "document_id": "ack:ack-edge/user-guide/diagnose-edge-node-problems",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "排查并解决边缘节点接入与升级失败-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/user-guide/diagnose-edge-node-problems",
+  "chunk_index": 5,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/user-guide/diagnose-edge-node-problems.chunk-0005.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/user-guide/diagnose-edge-node-problems.md",
+  "heading_path": "诊断边缘节点问题 > 如何收集ACK Edge集群节点的诊断信息？",
+  "char_count": 727
+}

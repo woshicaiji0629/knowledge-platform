@@ -1,0 +1,14 @@
+{
+  "id": "vpc:shared-resource-discovery-for-multi-account-address-resource-conflict-management:7",
+  "document_id": "vpc:shared-resource-discovery-for-multi-account-address-resource-conflict-management",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "地址资源管理-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/shared-resource-discovery-for-multi-account-address-resource-conflict-management",
+  "chunk_index": 7,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/shared-resource-discovery-for-multi-account-address-resource-conflict-management.chunk-0007.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/shared-resource-discovery-for-multi-account-address-resource-conflict-management.md",
+  "heading_path": "地址资源管理 > 从规划的地址池中分配地址 > 限制从IPAM地址池为VPC分配网段",
+  "char_count": 411
+}

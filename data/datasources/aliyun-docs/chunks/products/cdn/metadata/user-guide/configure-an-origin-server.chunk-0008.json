@@ -1,0 +1,14 @@
+{
+  "id": "cdn:user-guide/configure-an-origin-server:8",
+  "document_id": "cdn:user-guide/configure-an-origin-server",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "CDN源站配置-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/user-guide/configure-an-origin-server",
+  "chunk_index": 8,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/cdn/documents/user-guide/configure-an-origin-server.chunk-0008.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/user-guide/configure-an-origin-server.md",
+  "heading_path": "配置源站 > 回源重试、回源超时、源站探测相关说明",
+  "char_count": 829
+}

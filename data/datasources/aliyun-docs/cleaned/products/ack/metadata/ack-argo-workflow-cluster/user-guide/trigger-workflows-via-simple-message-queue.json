@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-argo-workflow-cluster/user-guide/trigger-workflows-via-simple-message-queue",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "通过轻量消息队列（原 MNS）触发工作流-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/user-guide/trigger-workflows-via-simple-message-queue",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-argo-workflow-cluster/user-guide/trigger-workflows-via-simple-message-queue.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-argo-workflow-cluster/user-guide/trigger-workflows-via-simple-message-queue.md",
+  "word_count": 1643,
+  "text_units": 2775,
+  "local_links": 26,
+  "external_links": 88,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

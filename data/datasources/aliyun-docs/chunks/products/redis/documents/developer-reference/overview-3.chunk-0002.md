@@ -1,0 +1,3 @@
+TairVector 以外的所有数据结构。 [持久内存型](../product-overview/persistent-memory-optimized-instances-1.md) 兼容 [exString](tairsting-command.md) （包含 [Redis String](cas-cad-command.md) [命令增强](cas-cad-command.md) ）、 [exHash](the-tairhash-command.md) 和 [Cpc](taircpc-command.md) 。 |
+| [Tair（企业版）命令支持与限制](limits-on-commands-supported-by-apsaradb-for-redis-enhanced-edition.md) | Tair（企业版） 兼容大多数的 Redis 命令，为保障服务性能，部分命令的使用受到限制。 |
+| [阿里云自研的](in-house-commands-for-tair-instances-in-proxy-mode.md) [Proxy](in-house-commands-for-tair-instances-in-proxy-mode.md) [命令](in-house-commands-for-tair-instances-in-proxy-mode.md) | 在兼容 Redis 命令之外， 云数据库 Tair（兼容 Redis） 还支持多个自研命令，可以在集群架构或读写分离架构中使用，帮助您更方便地管理实例。 |

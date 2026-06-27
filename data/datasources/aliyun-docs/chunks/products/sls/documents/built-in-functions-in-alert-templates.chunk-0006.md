@@ -1,0 +1,6 @@
+| 函数 | 说明 | 过滤器 | 示例 |
+| --- | --- | --- | --- |
+| parse_date(value, fmt="%Y-%m-%d %H:%M:%S") | 将输入值转为 timestamp 类型的日期和时间表达式。 通过 fmt 参数，可指定日期和时间表达式的格式。 | 支持 | {{ parse_date(1629820800) }} 的结果为 2021-08-25 00:00:00。 {{ parse_date("2021|08|25|00|00|00", fmt="%Y|%m|%d|%H|%M|%S") }} 的结果为 2021-08-25 00:00:00。 |
+| format_date(value, tz=None, fmt="%Y-%m-%d %H:%M:%S") | 将输入值进行格式化。 通过 fmt 参数，可指定日期和时间表达式的格式。 如果输入值不是日期对象，则函数会将其转换为日期对象，再进行格式化。关于日期时间格式化指令的更多信息，请参见 [日期时间格式化指令](date-and-time-formatting-directives.md) 。关于时区列表的更多信息，请参见 [时区列表](time-zones.md) 。 | 不支持 | {{ format_date(1629820800) }} 的结果为 2021-08-25 00:00:00。 {{ format_date(1629820800, fmt="%Y/%m/%d %H:%M:%S") }} 的结果为 2021/08/25 00:00:00。 {{ format_date(1629820800, tz="UTC", fmt="%Y/%m/%d %H:%M:%S") }} 的结果为 2021/08/24 16:00:00。 |
+| timestamp(value) | 将时间和日期字符串转换为 Unix 时间戳。 如果输入值不是日期对象，则函数会将其转换为日期对象，再进行格式化。 | 支持 | {{ timestamp("2021-08-25 00:00:00") }} 的结果为 1629820800。 {{ timestamp(parse_date("2021-08-25 00:00:00")) }} 的结果为 1629820800。 |
+| format_duration(value, locale='en-US', sep='') | 格式化时间间隔。其中 value 的单位为秒。 通过 locale 参数，可指定文字的语言。 locale 参数的取值请参见 [告警业务函数](built-in-functions-in-alert-templates.md) [locale](built-in-functions-in-alert-t

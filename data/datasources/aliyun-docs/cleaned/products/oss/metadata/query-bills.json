@@ -1,0 +1,17 @@
+{
+  "id": "oss:query-bills",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "pricing",
+  "title": "账单查询-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/query-bills",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/oss/documents/query-bills.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/query-bills.md",
+  "word_count": 492,
+  "text_units": 1110,
+  "local_links": 0,
+  "external_links": 62,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

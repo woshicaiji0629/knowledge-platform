@@ -1,0 +1,1 @@
+paid_public_cn&request={%22instance_scene%22:%22professional%22,%22region%22:%22cn-beijing%22,%22kvstore_iz%22:%22cn-beijing-l%22,%22kvstore_engineversion_type%22:%226.0%22,%22shard_class%22:%22redis.shard.large.ce%22}) | 高可用性 ：通过主备复制和故障自动转移机制，确保数据的高可用性。 低成本 ：支持最小容量 256 MB，适合用于业务起步阶段。 |

@@ -1,0 +1,6 @@
+d_buffer_size" : 524288 |
+| oas_connect_timeout | long | Logtail 发起获取 Logtail 配置、访问密钥等请求时，连接阶段的超时时间。默认值：5，单位：秒。 网络条件较差，建立连接时间过长时可修改此参数。 | "oas_connect_timeout" : 5 |
+| oas_request_timeout | long | Logtail 发起获取 Logtail 配置、访问密钥等请求时，整个请求阶段的超时时间。默认值：10，单位：秒。 网络条件较差，建立连接时间过长时可修改此参数。 | "" : 10 |
+| data_server_port | long | 设置 data_server_port 为 443 后，Logtail 将通过 HTTPS 协议传输数据到日志服务。 仅 Linux Logtail 1.0.10 及以上版本或 Windows Logtail 1.0.10.0 及以上版本支持该参数。 | "data_server_port": 443 |
+| enable_log_time_auto_adjust | Boolean | 设置 enable_log_time_auto_adjust 为 true 后，日志时间可自适应服务器本地时间。 出于数据安全考虑，日志服务会对请求（包括 Logtail 发起的请求）所携带的时间进行校验，拒绝与日志服务端时间相差超过 15 分钟的请求。Logtail 发起请求时所携带的时间为服务器本地时间，当服务器本地时间被修改后（例如某些测试场景下需要调整本地时间为未来时间），Logtail 请求将被拒绝，导致写入数据失败。您可以使用该参数实现日志时间自适应服务器本地时间。 仅 Linux Logtail 1.0.19 及以上版本或 Windows Logtail 1.0.19.0 及以上版本支持该参数。 重要 开启该功能后，日志时间将被加上日志服务端的时间与服务器本地时间的偏移量。由于偏移量只在请求被日志服务端拒绝时更新，因此可能出现日志服务端所查询到的日志的时间和日志实际的写入时间不一致的情况。 Logtail 的部分逻辑依赖于系统时间的递增，建议在每次机器时间调整后重启 Logtail。 | "enable_log_time_auto_adjust": true |
+| accept_multi_config | Boolean | 是否允许多个 Logtail 配置采集同一个文件。默认值：false，表示不允许。 默认情况下，一个文件只能被一个 Logtail 配置采集，您可以通过该参数消除限制。每个 Logtail 配置的处理过程是独立的，当允许多个 Logtail 配置采集同一个文件时，需要消耗多倍的 CPU、内存开销。 仅 Lin

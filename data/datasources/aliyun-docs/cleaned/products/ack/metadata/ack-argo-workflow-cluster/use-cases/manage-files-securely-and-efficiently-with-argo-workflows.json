@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-argo-workflow-cluster/use-cases/manage-files-securely-and-efficiently-with-argo-workflows",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "如何使用Argo Workflow安全高效管理文件-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/use-cases/manage-files-securely-and-efficiently-with-argo-workflows",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-argo-workflow-cluster/use-cases/manage-files-securely-and-efficiently-with-argo-workflows.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-argo-workflow-cluster/use-cases/manage-files-securely-and-efficiently-with-argo-workflows.md",
+  "word_count": 828,
+  "text_units": 2734,
+  "local_links": 2,
+  "external_links": 62,
+  "has_tables": true,
+  "table_count": 3,
+  "quality": "accepted"
+}

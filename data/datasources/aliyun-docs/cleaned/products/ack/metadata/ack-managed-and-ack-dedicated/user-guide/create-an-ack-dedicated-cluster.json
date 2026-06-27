@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/user-guide/create-an-ack-dedicated-cluster",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "创建ACK专有集群-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/create-an-ack-dedicated-cluster",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/create-an-ack-dedicated-cluster.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/create-an-ack-dedicated-cluster.md",
+  "word_count": 5676,
+  "text_units": 14624,
+  "local_links": 122,
+  "external_links": 195,
+  "has_tables": true,
+  "table_count": 29,
+  "quality": "accepted"
+}

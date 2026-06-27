@@ -1,0 +1,1 @@
+ac-permissions-to-ram-users-or-ram-roles.md) [角色设置为权限管理员](grant-rbac-permissions-to-ram-users-or-ram-roles.md) 。 | [清除失效用户](clear-kubeconfig.md) [KubeConfig](clear-kubeconfig.md) [示例](clear-kubeconfig.md) |

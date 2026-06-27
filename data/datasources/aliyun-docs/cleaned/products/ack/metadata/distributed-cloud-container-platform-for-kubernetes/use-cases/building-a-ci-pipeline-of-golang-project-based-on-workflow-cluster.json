@@ -1,0 +1,17 @@
+{
+  "id": "ack:distributed-cloud-container-platform-for-kubernetes/use-cases/building-a-ci-pipeline-of-golang-project-based-on-workflow-cluster",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "基于工作流集群构建Golang项目的CI Pipeline-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/building-a-ci-pipeline-of-golang-project-based-on-workflow-cluster",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/distributed-cloud-container-platform-for-kubernetes/use-cases/building-a-ci-pipeline-of-golang-project-based-on-workflow-cluster.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/distributed-cloud-container-platform-for-kubernetes/use-cases/building-a-ci-pipeline-of-golang-project-based-on-workflow-cluster.md",
+  "word_count": 1846,
+  "text_units": 3254,
+  "local_links": 13,
+  "external_links": 92,
+  "has_tables": true,
+  "table_count": 3,
+  "quality": "accepted"
+}

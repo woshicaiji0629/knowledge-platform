@@ -1,0 +1,1 @@
+rue},"properties":{"product_id":{"type":"keyword","ignore_above":128},"product_name":{"type":"text"},"product_title":{"type":"text","analyzer":"jieba"}, "price":{"type":"double"}}}}' # 创建商品 ID（product_id）为 keyword 数据类型，并设置上限为 128 个字符。 # 创建商品名称（product_name）为 text 数据类型。 # 创建商品标题（product_title）为 text 数据类型，并设置分词器为中文。 # 创建价格（price）为 double 数据类型。 返回示例： OK |

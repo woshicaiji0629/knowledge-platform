@@ -1,0 +1,209 @@
+{
+  "source": "aliyun_docs",
+  "target_pages_per_product": 1000,
+  "concurrency": 1,
+  "max_depth": 4,
+  "request_delay_seconds": 5,
+  "anti_bot_delay_seconds": 60,
+  "retry_delay_seconds": 10,
+  "max_retries": 1,
+  "max_retry_urls_per_product": 50,
+  "max_requests_per_product": 50,
+  "exclude_url_patterns": [
+    "/api-",
+    "/developer-reference/api-"
+  ],
+  "crawl_products": [
+    "cdn",
+    "vpc",
+    "sls",
+    "ack"
+  ],
+  "products": [
+    {
+      "product": "ecs",
+      "urls": [
+        "https://help.aliyun.com/zh/ecs/"
+      ]
+    },
+    {
+      "product": "rds",
+      "urls": [
+        "https://help.aliyun.com/zh/rds/"
+      ]
+    },
+    {
+      "product": "redis",
+      "urls": [
+        "https://help.aliyun.com/zh/redis/"
+      ]
+    },
+    {
+      "product": "oss",
+      "urls": [
+        "https://help.aliyun.com/zh/oss/"
+      ]
+    },
+    {
+      "product": "model-studio",
+      "urls": [
+        "https://help.aliyun.com/zh/model-studio/"
+      ]
+    },
+    {
+      "product": "slb",
+      "urls": [
+        "https://help.aliyun.com/zh/slb/",
+        "https://help.aliyun.com/zh/slb/application-load-balancer/",
+        "https://help.aliyun.com/zh/slb/application-load-balancer/user-guide/",
+        "https://help.aliyun.com/zh/slb/application-load-balancer/product-overview/",
+        "https://help.aliyun.com/zh/slb/network-load-balancer/",
+        "https://help.aliyun.com/zh/slb/network-load-balancer/user-guide/",
+        "https://help.aliyun.com/zh/slb/network-load-balancer/product-overview/",
+        "https://help.aliyun.com/zh/slb/classic-load-balancer/",
+        "https://help.aliyun.com/zh/slb/classic-load-balancer/user-guide/",
+        "https://help.aliyun.com/zh/slb/classic-load-balancer/product-overview/"
+      ]
+    },
+    {
+      "product": "vpc",
+      "urls": [
+        "https://help.aliyun.com/zh/vpc/",
+        "https://help.aliyun.com/zh/vpc/vpc-user-guide/",
+        "https://help.aliyun.com/zh/vpc/network-interworking/",
+        "https://help.aliyun.com/zh/vpc/basic-network-design/",
+        "https://help.aliyun.com/zh/vpc/network-isolation/",
+        "https://help.aliyun.com/zh/vpc/operation-and-maintenance-monitoring/",
+        "https://help.aliyun.com/zh/vpc/product-billing/",
+        "https://help.aliyun.com/zh/vpc/troubleshooting/",
+        "https://help.aliyun.com/zh/vpc/developer-reference/",
+        "https://help.aliyun.com/zh/vpc/support/"
+      ]
+    },
+    {
+      "product": "cdn",
+      "urls": [
+        "https://help.aliyun.com/zh/cdn/",
+        "https://help.aliyun.com/zh/cdn/product-overview/",
+        "https://help.aliyun.com/zh/cdn/product-overview/billing",
+        "https://help.aliyun.com/zh/cdn/getting-started/",
+        "https://help.aliyun.com/zh/cdn/user-guide/",
+        "https://help.aliyun.com/zh/cdn/user-guide/domain-name-management",
+        "https://help.aliyun.com/zh/cdn/user-guide/cache-settings",
+        "https://help.aliyun.com/zh/cdn/user-guide/back-to-origin-settings",
+        "https://help.aliyun.com/zh/cdn/user-guide/security-and-protection",
+        "https://help.aliyun.com/zh/cdn/use-cases/"
+      ]
+    },
+    {
+      "product": "sls",
+      "urls": [
+        "https://help.aliyun.com/zh/sls/"
+      ]
+    },
+    {
+      "product": "ack",
+      "urls": [
+        "https://help.aliyun.com/zh/ack/",
+        "https://help.aliyun.com/zh/ack/product-overview/",
+        "https://help.aliyun.com/zh/ack/ack-user-guide/",
+        "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/",
+        "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/",
+        "https://help.aliyun.com/zh/ack/serverless-kubernetes/",
+        "https://help.aliyun.com/zh/ack/serverless-kubernetes/user-guide/",
+        "https://help.aliyun.com/zh/ack/ack-edge/",
+        "https://help.aliyun.com/zh/ack/ack-edge/user-guide/",
+        "https://help.aliyun.com/zh/ack/cloud-native-ai-suite/user-guide/",
+        "https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/"
+      ]
+    },
+    {
+      "product": "nat-gateway",
+      "urls": [
+        "https://help.aliyun.com/zh/nat-gateway/",
+        "https://help.aliyun.com/zh/nat-gateway/product-overview/",
+        "https://help.aliyun.com/zh/nat-gateway/getting-started/",
+        "https://help.aliyun.com/zh/nat-gateway/user-guide/",
+        "https://help.aliyun.com/zh/nat-gateway/product-billing/",
+        "https://help.aliyun.com/zh/nat-gateway/best-practices/"
+      ]
+    },
+    {
+      "product": "eip",
+      "urls": [
+        "https://help.aliyun.com/zh/eip/",
+        "https://help.aliyun.com/zh/eip/product-overview/",
+        "https://help.aliyun.com/zh/eip/get-started/",
+        "https://help.aliyun.com/zh/eip/user-guide/",
+        "https://help.aliyun.com/zh/eip/product-billing/",
+        "https://help.aliyun.com/zh/eip/troubleshooting/"
+      ]
+    },
+    {
+      "product": "cen",
+      "urls": [
+        "https://help.aliyun.com/zh/cen/",
+        "https://help.aliyun.com/zh/cen/product-overview/",
+        "https://help.aliyun.com/zh/cen/getting-started/",
+        "https://help.aliyun.com/zh/cen/user-guide/",
+        "https://help.aliyun.com/zh/cen/product-billing/",
+        "https://help.aliyun.com/zh/cen/troubleshooting/"
+      ]
+    },
+    {
+      "product": "vpn-gateway",
+      "urls": [
+        "https://help.aliyun.com/zh/vpn-gateway/",
+        "https://help.aliyun.com/zh/vpn-gateway/product-overview/",
+        "https://help.aliyun.com/zh/vpn-gateway/getting-started/",
+        "https://help.aliyun.com/zh/vpn-gateway/user-guide/",
+        "https://help.aliyun.com/zh/vpn-gateway/product-billing/",
+        "https://help.aliyun.com/zh/vpn-gateway/troubleshooting/"
+      ]
+    },
+    {
+      "product": "waf",
+      "urls": [
+        "https://help.aliyun.com/zh/waf/",
+        "https://help.aliyun.com/zh/waf/product-overview/",
+        "https://help.aliyun.com/zh/waf/getting-started/",
+        "https://help.aliyun.com/zh/waf/user-guide/",
+        "https://help.aliyun.com/zh/waf/product-billing/",
+        "https://help.aliyun.com/zh/waf/support/"
+      ]
+    },
+    {
+      "product": "ram",
+      "urls": [
+        "https://help.aliyun.com/zh/ram/",
+        "https://help.aliyun.com/zh/ram/product-overview/",
+        "https://help.aliyun.com/zh/ram/getting-started/",
+        "https://help.aliyun.com/zh/ram/user-guide/",
+        "https://help.aliyun.com/zh/ram/product-billing/",
+        "https://help.aliyun.com/zh/ram/security-reference/"
+      ]
+    },
+    {
+      "product": "cloudmonitor",
+      "urls": [
+        "https://help.aliyun.com/zh/cloudmonitor/",
+        "https://help.aliyun.com/zh/cloudmonitor/product-overview/",
+        "https://help.aliyun.com/zh/cloudmonitor/getting-started/",
+        "https://help.aliyun.com/zh/cloudmonitor/user-guide/",
+        "https://help.aliyun.com/zh/cloudmonitor/product-billing/",
+        "https://help.aliyun.com/zh/cloudmonitor/troubleshooting/"
+      ]
+    },
+    {
+      "product": "rocketmq",
+      "urls": [
+        "https://help.aliyun.com/zh/apsaramq-for-rocketmq/",
+        "https://help.aliyun.com/zh/apsaramq-for-rocketmq/product-overview/",
+        "https://help.aliyun.com/zh/apsaramq-for-rocketmq/getting-started/",
+        "https://help.aliyun.com/zh/apsaramq-for-rocketmq/user-guide/",
+        "https://help.aliyun.com/zh/apsaramq-for-rocketmq/product-billing/",
+        "https://help.aliyun.com/zh/apsaramq-for-rocketmq/troubleshooting/"
+      ]
+    }
+  ]
+}

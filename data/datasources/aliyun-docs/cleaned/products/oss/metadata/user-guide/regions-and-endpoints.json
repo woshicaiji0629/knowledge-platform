@@ -1,0 +1,17 @@
+{
+  "id": "oss:user-guide/regions-and-endpoints",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "features",
+  "title": "OSS各地域的外网、内网、双栈Endpoint访问地址-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/user-guide/regions-and-endpoints",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/oss/documents/user-guide/regions-and-endpoints.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/user-guide/regions-and-endpoints.md",
+  "word_count": 2178,
+  "text_units": 3552,
+  "local_links": 1,
+  "external_links": 89,
+  "has_tables": true,
+  "table_count": 40,
+  "quality": "accepted"
+}

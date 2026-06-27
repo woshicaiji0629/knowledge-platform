@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/restart-instances",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "重启实例-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/restart-instances",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/restart-instances.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/restart-instances.md",
+  "word_count": 712,
+  "text_units": 2030,
+  "local_links": 5,
+  "external_links": 72,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

@@ -1,0 +1,7 @@
+### 在创建集群时指定需要安装的组件
+您可以在创建集群时，指定集群需要安装的组件，创建集群涉及的Resource如下：
+Kubernetes托管版集群：alicloud_cs_managed_kubernetes
+Kubernetes专有版集群：alicloud_cs_kubernetes
+ACK Edge集群：alicloud_cs_edge_kubernetes
+ACK Serverless集群：alicloud_cs_serverless_kubernetes
+以上Resource均可以通过addons属性定义创建集群时需要安装的组件，addons属性定义如下：

@@ -1,0 +1,17 @@
+{
+  "id": "vpc:manage-vpc-tags",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "通过标签对专有网络、路由表和交换机进行标记和分类-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/manage-vpc-tags",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/manage-vpc-tags.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/manage-vpc-tags.md",
+  "word_count": 593,
+  "text_units": 1290,
+  "local_links": 0,
+  "external_links": 67,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

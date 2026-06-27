@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/user-guide/monitor-kube-apiserver",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "kube-apiserver组件监控指标及大盘使用说明-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/monitor-kube-apiserver",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/monitor-kube-apiserver.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/monitor-kube-apiserver.md",
+  "word_count": 2692,
+  "text_units": 6586,
+  "local_links": 6,
+  "external_links": 101,
+  "has_tables": true,
+  "table_count": 36,
+  "quality": "accepted"
+}

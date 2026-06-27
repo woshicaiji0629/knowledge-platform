@@ -1,0 +1,14 @@
+{
+  "id": "redis:user-guide/identify-and-handle-large-keys-and-hotkeys:8",
+  "document_id": "redis:user-guide/identify-and-handle-large-keys-and-hotkeys",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "大Key和热Key的找出优化与预防方法-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/identify-and-handle-large-keys-and-hotkeys/",
+  "chunk_index": 8,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/user-guide/identify-and-handle-large-keys-and-hotkeys.chunk-0008.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/identify-and-handle-large-keys-and-hotkeys.md",
+  "heading_path": "大Key和热Key > 步骤三：预防大Key和热Key影响业务 > 预防策略",
+  "char_count": 418
+}

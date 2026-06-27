@@ -1,0 +1,14 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/step-2-connect-to-an-apsaradb-rds-for-mysql-instance:16",
+  "document_id": "rds:apsaradb-rds-for-mysql/step-2-connect-to-an-apsaradb-rds-for-mysql-instance",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "deployment",
+  "title": "入门第二步：连接RDS MySQL实例-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/step-2-connect-to-an-apsaradb-rds-for-mysql-instance",
+  "chunk_index": 16,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/rds/documents/apsaradb-rds-for-mysql/step-2-connect-to-an-apsaradb-rds-for-mysql-instance.chunk-0016.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/step-2-connect-to-an-apsaradb-rds-for-mysql-instance.md",
+  "heading_path": "mysql连接命令模版 mysql -h 连接地址 -P 端口号 -u 用户名 -p # mysql连接命令示例 mysql -h rm-bp**************.mysql.rds.aliyuncs.com -P 3306 -u dbuser -p > 相关文档 > 产品和定价",
+  "char_count": 272
+}

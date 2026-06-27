@@ -1,0 +1,17 @@
+{
+  "id": "redis:getting-started/step-3-connect-to-an-apsaradb-for-redis-instance",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "deployment",
+  "title": "使用redis-cli代码DMS连接Tair实例-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/getting-started/step-3-connect-to-an-apsaradb-for-redis-instance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/getting-started/step-3-connect-to-an-apsaradb-for-redis-instance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/getting-started/step-3-connect-to-an-apsaradb-for-redis-instance.md",
+  "word_count": 1312,
+  "text_units": 2800,
+  "local_links": 19,
+  "external_links": 68,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

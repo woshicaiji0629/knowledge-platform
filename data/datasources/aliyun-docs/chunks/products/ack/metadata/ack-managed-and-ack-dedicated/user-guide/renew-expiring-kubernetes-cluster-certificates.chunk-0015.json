@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/user-guide/renew-expiring-kubernetes-cluster-certificates:15",
+  "document_id": "ack:ack-managed-and-ack-dedicated/user-guide/renew-expiring-kubernetes-cluster-certificates",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "更新ACK专有集群Master节点和Worker节点即将过期的证书-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/renew-expiring-kubernetes-cluster-certificates",
+  "chunk_index": 15,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/renew-expiring-kubernetes-cluster-certificates.chunk-0015.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/renew-expiring-kubernetes-cluster-certificates.md",
+  "heading_path": "更新ACK专有集群即将过期的证书 > 手动更新Worker节点证书 > 关注阿里云",
+  "char_count": 378
+}

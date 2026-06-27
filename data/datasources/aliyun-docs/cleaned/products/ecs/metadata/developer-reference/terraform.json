@@ -1,0 +1,17 @@
+{
+  "id": "ecs:developer-reference/terraform",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "deployment",
+  "title": "使用Terraform部署ECS-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/developer-reference/terraform",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/developer-reference/terraform.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/developer-reference/terraform.md",
+  "word_count": 2342,
+  "text_units": 5569,
+  "local_links": 0,
+  "external_links": 151,
+  "has_tables": true,
+  "table_count": 3,
+  "quality": "accepted"
+}

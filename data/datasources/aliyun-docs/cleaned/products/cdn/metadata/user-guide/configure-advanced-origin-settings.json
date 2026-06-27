@@ -1,0 +1,17 @@
+{
+  "id": "cdn:user-guide/configure-advanced-origin-settings",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "根据不同的参数回源到不同的源站-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/user-guide/configure-advanced-origin-settings",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/user-guide/configure-advanced-origin-settings.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/user-guide/configure-advanced-origin-settings.md",
+  "word_count": 569,
+  "text_units": 1416,
+  "local_links": 0,
+  "external_links": 64,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

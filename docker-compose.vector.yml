@@ -1,0 +1,9 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: knowledge-platform-vector-store
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - ./runtime-data/vector-store:/qdrant/storage

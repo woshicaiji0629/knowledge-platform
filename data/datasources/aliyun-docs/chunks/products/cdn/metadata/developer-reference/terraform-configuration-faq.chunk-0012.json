@@ -1,0 +1,14 @@
+{
+  "id": "cdn:developer-reference/terraform-configuration-faq:12",
+  "document_id": "cdn:developer-reference/terraform-configuration-faq",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "troubleshoot",
+  "title": "使用Terraform配置CDN证书的常见问题-CDN-阿里云",
+  "source_url": "https://help.aliyun.com/zh/cdn/developer-reference/terraform-configuration-faq",
+  "chunk_index": 12,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/cdn/documents/developer-reference/terraform-configuration-faq.chunk-0012.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/developer-reference/terraform-configuration-faq.md",
+  "heading_path": "Terraform配置常见问题 > cert_region参数有什么用？如何设置cert_region参数？ > 关注阿里云",
+  "char_count": 378
+}

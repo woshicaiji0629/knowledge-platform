@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    选择ECS远程连接方式-云服务器 ECS(ECS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/ecs/user-guide/connect-to-instance">
+  <meta name="keywords" content="远程连接,SSH,RDP,会话连接,端口转发,VNC,Workbench">
+  <meta name="description" content="阿里云提供多种连接方案，可根据操作系统、安全性、便捷性与网络环境，按需选择。">
+  <meta name="last-modified" content="2026-06-02T15:46:11+08:00">
+  <meta name="date" content="2018-05-02T09:26:05+08:00">
+  <meta property="og:title" content="选择ECS远程连接方式">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/ecs/user-guide/connect-to-instance">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="阿里云提供多种连接方案，可根据操作系统、安全性、便捷性与网络环境，按需选择。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/ecs/user-guide/connect-to-instance",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "71529",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/ecs/user-guide/connect-to-instance","nodeId":null,"data":{"lastModifiedTime":1780386371000,"keywords":"远程连接,SSH,RDP,会话连接,端口转发,VNC,Workbench","docTitle":"选择ECS远程连接方式","language":"zh","seoTitle":"选择ECS远程连接方式-云服务器 ECS(ECS)-阿里云帮助中心","title":"选择ECS远程连接方式","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"concept-tmr-pgx-wdb\">\n    \n    \n    <p id=\"shortdesc-jc8-dwb-h8d\" data-tag=\"shortdesc\" class=\"shortdesc\">阿里云提供多种连接方案，可根据操作系统、安全性、便捷性与网络环境，按需选择。</p>\n    <div data-tag=\"conbody\" id=\"conbody-s4h-2d0-x0t\" class=\"conbody\">\n      <section id=\"7c74ad5a31yep\" class=\"section\">\n        <h2 id=\"287128e2c8ou1\"><b>选择合适的工具连接实例</b></h2>\n        \n        <table id=\"d264167942hur\" tablewidth=\"100\" tablecolswidth=\"17.6 16.63 17.24 15.77 15.89 16.870000000000005\" autofit=\"true\" class=\"table\">\n          <colgroup colwidth=\"1.1*\" style=\"width:17.60%\"></colgroup>\n          <colgroup colwidth=\"1.04*\" style=\"width:16.63%\"></colgroup>\n          <colgroup colwidth=\"1.08*\" style=\"width:17.24%\"></colgroup>\n          <colgroup colwidth=\"0.99*\" style=\"width:15.77%\"></colgroup>\n          <colgroup colwidth=\"0.99*\" style=\"width:15.89%\"></colgroup>\n          <colgroup colwidth=\"1.05*\" style=\"width:16.87%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"385ae38a856hb\">\n              <td id=\"24377da080e5d\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7qsabhj7i65g\" id=\"b218e8955a9l9\" style=\"text-align:center\"><b>连接工具</b></p>\n              </td>\n              <td id=\"6c2e7fa06a7vy\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7qs7nhrotgtz\" id=\"a17cb27b4524x\" style=\"text-align:center\"><b>适用操作系统</b></p>\n              </td>\n              <td id=\"8bd660dce8pgs\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7q7clktlsdrnr\" id=\"deb011c253ooa\" style=\"text-align:center\" left=\"0\"><b>是否需本地安装软件</b></p>\n              </td>\n              <td id=\"8ea93b5948p2i\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p jc=\"center\" id=\"ac687299abde1\" style=\"text-align:center\"><b>是否必须</b><a href=\"https://help.aliyun.com/zh/ecs/user-guide/best-practices-for-configuring-public-bandwidth\" id=\"6d0d19996687q\" title=\"\" class=\"xref\">开通公网</a></p>\n              </td>\n              <td id=\"bfd28724f3xg9\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p jc=\"center\" id=\"a51d345138nwk\" style=\"text-align:center\"><b>是否支持免密登录</b></p>\n              </td>\n              <td id=\"6b04a4c817tmo\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p jc=\"center\" id=\"db7c72be4c0tn\" style=\"text-align:center\"><b>是否需要登录阿里云</b></p>\n              </td>\n            </tr>\n            <tr id=\"04f1a20fcc6s9\">\n              <td id=\"c0f4b03df7327\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7qqxhjpvnp9e\" id=\"bd661a5b590p8\" style=\"text-align:center\" left=\"0\">Workbench<b>（浏览器）</b></p>\n              </td>\n              <td id=\"a2962c4b4cbc3\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7qf7bxksh2biu\" id=\"949afe2e078fq\" style=\"text-align:center\">Windows、Linux</p>\n              </td>\n              <td id=\"0681ca219dw2n\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7qpdyg6st847\" id=\"279a0b2ab7dt6\" style=\"text-align:center\">否</p>\n              </td>\n              <td id=\"08860ec5dchph\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"center\" id=\"a4cba80a4aczn\" style=\"text-align:center\">否</p>\n              </td>\n              <td id=\"db349c7c2elcy\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"center\" id=\"640b4baa49o1e\" style=\"text-align:center\">是</p>\n              </td>\n              <td id=\"eb9f987a9ckux\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"center\" id=\"ee1639d7b0vwu\" style=\"text-align:center\">是</p>\n              </td>\n            </tr>\n            <tr id=\"ca8825ae5a7yn\">\n              <td id=\"b8b09b862d56w\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7qndcvcxla9mm\" id=\"6b5e5d4a6fzos\" style=\"text-align:center\" left=\"0\">会话管理<b>（浏览器）</b></p>\n              </td>\n              <td id=\"ab633889f4rcq\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7rnhsd0ff67fj\" id=\"7877b621f20uo\" style=\"text-align:center\">Windows、Linux</p>\n              </td>\n              <td id=\"2a6feec9babkj\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7rr6ctjv4em8\" id=\"78d44d5d99s1a\" style=\"text-align:center\">否</p>\n              </td>\n              <td id=\"81d021725b62i\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"center\" id=\"1644c4760fl8j\" style=\"text-align:center\">否</p>\n              </td>\n              <td id=\"8af0276754xoc\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"center\" id=\"99f6737ccf7dm\" style=\"text-align:center\">是</p>\n              </td>\n              <td id=\"f4f5db1a4abyo\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"center\" id=\"23cbe7ef9boeb\" style=\"text-align:center\">是</p>\n              </td>\n            </tr>\n            <tr id=\"2d800d6d820nl\">\n              <td id=\"98d3b307455yg\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7rywilnfktsqr\" id=\"2e4ef90356r2e\" style=\"text-align:center\" left=\"0\">VNC<b>（浏览器）</b></p>\n              </td>\n              <td id=\"e2cc20d70chgc\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7rv3omgt1wgp\" id=\"ed16979044r2d\" style=\"text-align:center\">Windows、Linux</p>\n              </td>\n              <td id=\"b36714f103777\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7rmpa4p1qxfo\" id=\"1b3e6b9873dfe\" style=\"text-align:center\">否</p>\n              </td>\n              <td id=\"24c36e16banov\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"center\" id=\"0f9103e1b2hfl\" style=\"text-align:center\">否</p>\n              </td>\n              <td id=\"f19b9d8c2cael\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"center\" id=\"ba40acf218tpw\" style=\"text-align:center\">否</p>\n              </td>\n              <td id=\"fca5a118d308a\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"center\" id=\"0671e0826b7k9\" style=\"text-align:center\">是</p>\n              </td>\n            </tr>\n            <tr id=\"c72180ccc2dp8\">\n              <td id=\"99a5bc1721eiv\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7qfbcpml8d32f\" id=\"5ee607841e8qc\" style=\"text-align:center\" left=\"0\">阿里云客户端</p>\n              </td>\n              <td id=\"64efc0e257t5g\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7qfxgrb7a73qg\" id=\"4df1ad88ce5cj\" style=\"text-align:center\">Windows、Linux</p>\n              </td>\n              <td id=\"251db45bbf61w\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7qwey60vrc739\" id=\"9de2b707f5gms\" style=\"text-align:center\">是</p>\n              </td>\n              <td id=\"166af321a097c\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"center\" id=\"34d049fa18u2c\" style=\"text-align:center\">否</p>\n              </td>\n              <td id=\"255da00b4d1tz\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"center\" id=\"d4591afbc084l\" style=\"text-align:center\">是</p>\n              </td>\n              <td id=\"b9becf3344od7\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"center\" id=\"f4fedf89dcpw7\" style=\"text-align:center\">是</p>\n              </td>\n            </tr>\n            <tr id=\"78bad54cc65fr\">\n              <td id=\"e959aec8db1dm\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7qm7j64y2xdcm\" id=\"215e061b14xlq\" style=\"text-align:center\" left=\"0\">SSH<span class=\"help-letter-space\"></span>客户端工具<b>（三方）</b></p>\n              </td>\n              <td id=\"ba84f932c0i54\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7qoe2yemq9x5a\" id=\"50e02789d3ju6\" style=\"text-align:center\">Linux</p>\n              </td>\n              <td id=\"42af3bcab4she\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7qvidlib5904d\" id=\"2660f23e65fdz\" style=\"text-align:center\">是</p>\n              </td>\n              <td id=\"0dfceb7154g6b\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"center\" id=\"00570d6ff58am\" style=\"text-align:center\">是</p>\n              </td>\n              <td id=\"850ba9c01d2x6\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"center\" id=\"b7f2209926uk1\" style=\"text-align:center\">否</p>\n              </td>\n              <td id=\"8b242662199e5\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"center\" id=\"49bf8c614doxr\" style=\"text-align:center\">否</p>\n              </td>\n            </tr>\n            <tr id=\"54918e7a258zw\">\n              <td id=\"e0ecc602bf8sh\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7q53yb0oucgeh\" id=\"0b87a8d2e2quh\" style=\"text-align:center\" left=\"0\">RDP<span class=\"help-letter-space\"></span>客户端工具<b>（三方）</b></p>\n              </td>\n              <td id=\"b1543581ebc03\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7qnwyi11hp10s\" id=\"916d145961kw6\" style=\"text-align:center\">Windows</p>\n              </td>\n              <td id=\"344f237d0165i\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"center\" uuid=\"m54ruu7qwr05jnok5ol\" id=\"6951e4a557fqs\" style=\"text-align:center\">是</p>\n              </td>\n              <td id=\"342df3c71exfm\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"center\" id=\"be3b4ea801i3i\" style=\"text-align:center\">是</p>\n              </td>\n              <td id=\"7f6ea6b2bab6m\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"center\" id=\"4b3e5431e5q2o\" style=\"text-align:center\">否</p>\n              </td>\n              <td id=\"1f676bb3c5wy8\" rowspan=\"1\" colspan=\"1\">\n                <p jc=\"center\" id=\"5f614ab86blne\" style=\"text-align:center\">否</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </section>\n      <section id=\"4da4b98528u2f\" class=\"section\">\n        <h2 id=\"d94eb82510qcy\"><b>连接工具介绍&amp;指引</b></h2>\n        <table bordertype=\"no-border\" id=\"b0ecc16051r45\" tablewidth=\"100\" tablecolswidth=\"50 50\" autofit=\"true\" class=\"table\">\n          <colgroup colwidth=\"1*\" style=\"width:50.00%\"></colgroup>\n          <colgroup colwidth=\"1*\" style=\"width:50.00%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"24761fc2f677p\">\n              <td id=\"3972b3ce215f9\" rowspan=\"1\" colspan=\"1\">\n                <h3 id=\"b09b7772fa649\"><b>Workbench</b></h3>\n                <p id=\"7152c176081d2\"><a href=\"https://help.aliyun.com/zh/ecs/user-guide/workbench-overview/\" id=\"072d1aaecchu7\" title=\"\" class=\"xref\">Workbench</a><span class=\"help-letter-space\"></span>是阿里云提供的免安装远程连接工具，同时支持文件传输、多屏终端等功能。</p>\n                <p id=\"02466874f82it\"><b>相关文档</b></p>\n                <ul id=\"cc8fc2be663iy\">\n                  <li id=\"310ec44cbcr0i\">\n                    <p id=\"fff2be64f09zy\"><a href=\"https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-linux-instance-by-using-a-password-or-key\" id=\"f6a7cc1f25cmr\" title=\"\" class=\"xref\">使用<span class=\"help-letter-space\"></span>Workbench<span class=\"help-letter-space\"></span>登录<span class=\"help-letter-space\"></span>Linux<span class=\"help-letter-space\"></span>实例</a></p>\n                  </li>\n                  <li id=\"b4272e55201wl\">\n                    <p id=\"3c2dfa3ea4ift\"><a href=\"https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-windows-instance-through-workbench\" id=\"b1fe142ffeb36\" title=\"\" class=\"xref\">使用<span class=\"help-letter-space\"></span>Workbench<span class=\"help-letter-space\"></span>登录<span class=\"help-letter-space\"></span>Windows<span class=\"help-letter-space\"></span>实例</a></p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"90e8b78721ixn\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n                <h3 id=\"3ccd43d06fvju\"><b>阿里云客户端</b></h3>\n                <p id=\"cfffb96aa2f9z\"><a href=\"https://help.aliyun.com/zh/ecs/user-guide/overview-of-alibaba-cloud-client\" id=\"0d9d0c43986hr\" title=\"\" class=\"xref\">阿里云客户端</a>是阿里云官方提供的管理资源的软件，安装后，可通过该软件连接<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例。</p>\n                <p id=\"0f5365503diu0\"><b>相关文档</b></p>\n                <ul id=\"381ae6c23dwdf\">\n                  <li id=\"7926af92d8ay0\">\n                    <p id=\"60c52ea457hf5\"><a href=\"https://help.aliyun.com/zh/ecs/user-guide/use-alibaba-cloud-client-to-manage-ecs-instances#p-roi-wbv-6an\" id=\"8b9ad9d68dbl8\" title=\"\" class=\"xref\">使用阿里云客户端远程连接（SSH）Linux<span class=\"help-letter-space\"></span>实例</a></p>\n                  </li>\n                  <li id=\"9716aad1dcs2g\">\n                    <p id=\"6d9fb11101bgc\"><a href=\"https://help.aliyun.com/zh/ecs/user-guide/use-alibaba-cloud-client-to-manage-ecs-instances#3e0f634facoan\" id=\"cb47f9d5e7vym\" title=\"\" class=\"xref\">使用阿里云客户端远程连接（RDP）Windows<span class=\"help-letter-space\"></span>实例</a></p>\n                  </li>\n                </ul>\n              </td>\n            </tr>\n            <tr id=\"82e648d833bb9\">\n              <td id=\"abb11ad3b8oa5\" rowspan=\"1\" colspan=\"1\">\n                <h3 id=\"8ff545ab0co43\"><b>会话管理</b></h3>\n                <p id=\"c65ecd7568ymk\"><a href=\"https://help.aliyun.com/zh/ecs/user-guide/connect-to-an-instance-by-using-session-manager-2/\" id=\"108e3df1b2f0e\" title=\"\" class=\"xref\">会话管理</a>是云助手提供的高安全级连接功能，通过免除公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>隔绝外部攻击，同时通过审计功能保证操作有据可查。</p>\n                <p id=\"f61d95cbbbgw1\"><b>相关文档</b></p>\n                <ul id=\"c061c08587815\">\n                  <li id=\"3445d6a332sps\">\n                    <p id=\"942c6169d2uo7\"><a href=\"https://help.aliyun.com/zh/ecs/user-guide/connect-to-an-instance-by-using-session-manager-1\" id=\"31188020f766b\" title=\"\" class=\"xref\">在控制台通过会话管理连接实例</a></p>\n                  </li>\n                  <li id=\"502e630620syx\">\n                    <p id=\"d69d2d741ejvf\"><a href=\"https://help.aliyun.com/zh/ecs/user-guide/connect-to-an-instance-by-using-ali-instance-cli/\" id=\"e6df4115f0mkj\" title=\"\" class=\"xref\">通过会话管理<span class=\"help-letter-space\"></span>CLI（ali-instance-cli）连接实例</a></p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"a383ef0331ehd\" rowspan=\"1\" colspan=\"1\">\n                <h3 id=\"94c408b3bc9fd\"><b>SSH<span class=\"help-letter-space\"></span>客户端工具（非阿里云官方）</b></h3>\n                <p id=\"84a88a99cduf7\">使用其他第三方<span class=\"help-letter-space\"></span>SSH<span class=\"help-letter-space\"></span>客户端工具连接<span class=\"help-letter-space\"></span>Linux<span class=\"help-letter-space\"></span>实例，实例需要分配公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>或<span class=\"help-letter-space\"></span>EIP。</p>\n                <p id=\"630849117bj1b\">常见的<span class=\"help-letter-space\"></span>SSH<span class=\"help-letter-space\"></span>工具有<span data-tag=\"ph\" id=\"48aec4f4f7nu9\" class=\"ph\"><span class=\"help-letter-space\"></span><b>OpenSSH</b><span class=\"help-letter-space\"></span></span>客户端、<span data-tag=\"ph\" id=\"157eba089de15\" class=\"ph\"><b>PuTTY</b></span>、<span data-tag=\"ph\" id=\"d2ac884a23cwk\" class=\"ph\"><b>XShell</b><span class=\"help-letter-space\"></span></span>等。</p>\n                <p id=\"3d58b48095el3\"><b>相关文档</b></p>\n                <p id=\"c7f9e0a668cbj\"><a href=\"https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair\" id=\"182d3c3779uen\" title=\"\" class=\"xref\">使用<span class=\"help-letter-space\"></span>OpenSSH/Xshell<span class=\"help-letter-space\"></span>远程连接<span class=\"help-letter-space\"></span>Linux<span class=\"help-letter-space\"></span>实例</a></p>\n                <p id=\"cfaba1cf4664r\"></p>\n              </td>\n            </tr>\n            <tr id=\"2388f0f398mip\">\n              <td id=\"de9afb08e1mtt\" rowspan=\"1\" colspan=\"1\">\n                <h3 id=\"d711128b9950r\"><b>VNC</b></h3>\n                <p id=\"770abfe36adev\">VNC<span class=\"help-letter-space\"></span>可直接查看实例中操作系统的实时界面。支持查看实例<b>启动阶段</b>或<b>停止中</b>的系统界面。由于不受安全组设置或实例中运行软件的限制，可以作为排查其他连接方式异常的手段。</p>\n                <p id=\"2d9e87ff97uns\"><b>相关文档</b></p>\n                <p id=\"f19ae45cc9tum\"><a href=\"https://help.aliyun.com/zh/ecs/user-guide/log-on-to-an-instance-by-using-vnc\" id=\"664154512dkz8\" title=\"\" class=\"xref\">通过<span class=\"help-letter-space\"></span>VNC<span class=\"help-letter-space\"></span>连接实例</a></p>\n              </td>\n              <td id=\"f0b4267951jgp\" rowspan=\"1\" colspan=\"1\">\n                <h3 id=\"89fab715f5cq4\"><b>RDP<span class=\"help-letter-space\"></span>客户端工具（非阿里云官方）</b></h3>\n                <p id=\"d0c9b3a502wyr\">使用其他第三方<span class=\"help-letter-space\"></span>RDP<span class=\"help-letter-space\"></span>客户端工具连接<span class=\"help-letter-space\"></span>Windows<span class=\"help-letter-space\"></span>实例，实例需要分配公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>或<span class=\"help-letter-space\"></span>EIP。</p>\n                <p id=\"60e520a3ca1pt\">常见的<span class=\"help-letter-space\"></span>RDP<span class=\"help-letter-space\"></span>客户端有<span data-tag=\"ph\" id=\"2a182b354e3bn\" class=\"ph\"><span class=\"help-letter-space\"></span><b>Microsoft Remote Desktop</b></span>、<b>Windows<span class=\"help-letter-space\"></span>远程桌面</b>、<span data-tag=\"ph\" id=\"38b6ff7bb05dx\" class=\"ph\"><b>Windows App</b><span class=\"help-letter-space\"></span></span>等。</p>\n                <p id=\"8f00f4c561s5q\"><b>相关文档</b></p>\n                <p id=\"b3756cf6bbo9p\"><a href=\"https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-windows-instance-by-using-a-username-and-password\" id=\"86668dab916zx\" title=\"\" class=\"xref\">使用远程桌面/Windows App<span class=\"help-letter-space\"></span>远程连接<span class=\"help-letter-space\"></span>Windows<span class=\"help-letter-space\"></span>实例</a></p>\n                <p id=\"d88f3e86c5d1z\"></p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </section>\n      <section id=\"7ea354f8673h8\" class=\"section\">\n        <h2 id=\"4b3964cd21zkn\"><b>常见问题</b></h2>\n        <ul id=\"d610bc0c92p36\">\n          <li id=\"3d76b1bfddq4i\">\n            <h4 id=\"95fb1ed1e706n\"><b>如何查看实例是否分配公网<span class=\"help-letter-space\"></span>IP？</b></h4>\n            <p id=\"a8838a059de2f\">可在实例列表页查看实例是否分配公网<span class=\"help-letter-space\"></span>IP，若未分配请<a href=\"https://help.aliyun.com/zh/ecs/user-guide/best-practices-for-configuring-public-bandwidth\" id=\"76cec8912f08c\" title=\"\" class=\"xref\">开通公网</a>。</p>\n            \n            <p id=\"p-6f947af8521d\">在实例列表的<span class=\"help-letter-space\"></span><b>IP<span class=\"help-letter-space\"></span>地址</b>列中，带有<b>(公)</b>标记的即为实例的公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址；若该列仅显示私有<span class=\"help-letter-space\"></span>IP，则表示未分配公网<span class=\"help-letter-space\"></span>IP。</p>\n          </li>\n          <li id=\"8c97ce49be6cq\">\n            <h4 id=\"0584afb000bbo\">如何查看<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例的操作系统？</h4>\n            <p id=\"d2216a5899jm4\">可在实例列表页查看实例的操作系统信息，Windows<span class=\"help-letter-space\"></span>系统以外的操作系统大多是<span class=\"help-letter-space\"></span>Linux<span class=\"help-letter-space\"></span>系统。</p>\n            <p id=\"3c7e8a0656czv\">如果发现安装了错误的操作系统，需要重装，请参见<a href=\"https://help.aliyun.com/zh/ecs/user-guide/replace-the-operating-system-of-an-instance\" id=\"b8af8cb2e0k42\" title=\"\" class=\"xref\">更换操作系统（更换系统盘）</a>。</p>\n          </li>\n        </ul>\n      </section>\n    </div>\n  </main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/ecs/user-guide/connect-to-instance","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云服务器 ECS","id":25365,"title":"云服务器 ECS","url":"/zh/ecs/"},"alias":"/ecs/user-guide/connect-to-instance","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":7,"developerUrl":"https://developer.aliyun.com/group/ecs/","nodeType":1,"version":47,"url":"/zh/ecs/user-guide/connect-to-instance","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":71529,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"选择ECS远程连接方式","id":71529,"title":"选择ECS远程连接方式","url":"/zh/ecs/user-guide/connect-to-instance"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"连接实例","id":48428,"title":"连接实例","url":"/zh/ecs/user-guide/connect-to-an-instance-overview/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"实例","id":108375,"title":"实例","url":"/zh/ecs/user-guide/instances-4/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云服务器 ECS","id":25365,"title":"云服务器 ECS","url":"/zh/ecs/"},"productUrl":"https://www.aliyun.com/product/ecs","nodeId":71529,"desc":"阿里云提供多种连接方案，可根据操作系统、安全性、便捷性与网络环境，按需选择。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云服务器 ECS","id":25365,"title":"云服务器 ECS","url":"/zh/ecs/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"实例","id":108375,"title":"实例","url":"/zh/ecs/user-guide/instances-4/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"连接实例","id":48428,"title":"连接实例","url":"/zh/ecs/user-guide/connect-to-an-instance-overview/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"选择ECS远程连接方式","id":71529,"title":"选择ECS远程连接方式","url":"/zh/ecs/user-guide/connect-to-instance"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=2150472417825332535477504e74b8&asid=AQAAAACFTD9qZv5fMAAAAAASKm4+UwGqrQ==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2399509" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">用户指南</span>
+</a>
+</li>
+ <li id="2399511" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="25396" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/billing-2/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品计费</span>
+</a>
+</li>
+ <li id="2983136" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/faqs/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+ <li id="117482" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/announcements-and-updates/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">动态与公告</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>选择ECS远程连接方式</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/ecs" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="concept-tmr-pgx-wdb">
+    
+    
+    <p id="shortdesc-jc8-dwb-h8d" data-tag="shortdesc" class="shortdesc">阿里云提供多种连接方案，可根据操作系统、安全性、便捷性与网络环境，按需选择。</p>
+    <div data-tag="conbody" id="conbody-s4h-2d0-x0t" class="conbody">
+      <section id="7c74ad5a31yep" class="section">
+        <h2 id="287128e2c8ou1"><b>选择合适的工具连接实例</b></h2>
+        
+        <table id="d264167942hur" tablewidth="100" tablecolswidth="17.6 16.63 17.24 15.77 15.89 16.870000000000005" autofit="true" class="table">
+          <colgroup colwidth="1.1*" style="width:17.60%"></colgroup>
+          <colgroup colwidth="1.04*" style="width:16.63%"></colgroup>
+          <colgroup colwidth="1.08*" style="width:17.24%"></colgroup>
+          <colgroup colwidth="0.99*" style="width:15.77%"></colgroup>
+          <colgroup colwidth="0.99*" style="width:15.89%"></colgroup>
+          <colgroup colwidth="1.05*" style="width:16.87%"></colgroup>
+          <tbody class="tbody">
+            <tr id="385ae38a856hb">
+              <td id="24377da080e5d" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7qsabhj7i65g" id="b218e8955a9l9" style="text-align:center"><b>连接工具</b></p>
+              </td>
+              <td id="6c2e7fa06a7vy" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7qs7nhrotgtz" id="a17cb27b4524x" style="text-align:center"><b>适用操作系统</b></p>
+              </td>
+              <td id="8bd660dce8pgs" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7q7clktlsdrnr" id="deb011c253ooa" style="text-align:center" left="0"><b>是否需本地安装软件</b></p>
+              </td>
+              <td id="8ea93b5948p2i" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p jc="center" id="ac687299abde1" style="text-align:center"><b>是否必须</b><a href="https://help.aliyun.com/zh/ecs/user-guide/best-practices-for-configuring-public-bandwidth" id="6d0d19996687q" title="" class="xref">开通公网</a></p>
+              </td>
+              <td id="bfd28724f3xg9" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p jc="center" id="a51d345138nwk" style="text-align:center"><b>是否支持免密登录</b></p>
+              </td>
+              <td id="6b04a4c817tmo" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p jc="center" id="db7c72be4c0tn" style="text-align:center"><b>是否需要登录阿里云</b></p>
+              </td>
+            </tr>
+            <tr id="04f1a20fcc6s9">
+              <td id="c0f4b03df7327" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7qqxhjpvnp9e" id="bd661a5b590p8" style="text-align:center" left="0">Workbench<b>（浏览器）</b></p>
+              </td>
+              <td id="a2962c4b4cbc3" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7qf7bxksh2biu" id="949afe2e078fq" style="text-align:center">Windows、Linux</p>
+              </td>
+              <td id="0681ca219dw2n" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7qpdyg6st847" id="279a0b2ab7dt6" style="text-align:center">否</p>
+              </td>
+              <td id="08860ec5dchph" rowspan="1" colspan="1">
+                <p jc="center" id="a4cba80a4aczn" style="text-align:center">否</p>
+              </td>
+              <td id="db349c7c2elcy" rowspan="1" colspan="1">
+                <p jc="center" id="640b4baa49o1e" style="text-align:center">是</p>
+              </td>
+              <td id="eb9f987a9ckux" rowspan="1" colspan="1">
+                <p jc="center" id="ee1639d7b0vwu" style="text-align:center">是</p>
+              </td>
+            </tr>
+            <tr id="ca8825ae5a7yn">
+              <td id="b8b09b862d56w" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7qndcvcxla9mm" id="6b5e5d4a6fzos" style="text-align:center" left="0">会话管理<b>（浏览器）</b></p>
+              </td>
+              <td id="ab633889f4rcq" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7rnhsd0ff67fj" id="7877b621f20uo" style="text-align:center">Windows、Linux</p>
+              </td>
+              <td id="2a6feec9babkj" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7rr6ctjv4em8" id="78d44d5d99s1a" style="text-align:center">否</p>
+              </td>
+              <td id="81d021725b62i" rowspan="1" colspan="1">
+                <p jc="center" id="1644c4760fl8j" style="text-align:center">否</p>
+              </td>
+              <td id="8af0276754xoc" rowspan="1" colspan="1">
+                <p jc="center" id="99f6737ccf7dm" style="text-align:center">是</p>
+              </td>
+              <td id="f4f5db1a4abyo" rowspan="1" colspan="1">
+                <p jc="center" id="23cbe7ef9boeb" style="text-align:center">是</p>
+              </td>
+            </tr>
+            <tr id="2d800d6d820nl">
+              <td id="98d3b307455yg" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7rywilnfktsqr" id="2e4ef90356r2e" style="text-align:center" left="0">VNC<b>（浏览器）</b></p>
+              </td>
+              <td id="e2cc20d70chgc" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7rv3omgt1wgp" id="ed16979044r2d" style="text-align:center">Windows、Linux</p>
+              </td>
+              <td id="b36714f103777" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7rmpa4p1qxfo" id="1b3e6b9873dfe" style="text-align:center">否</p>
+              </td>
+              <td id="24c36e16banov" rowspan="1" colspan="1">
+                <p jc="center" id="0f9103e1b2hfl" style="text-align:center">否</p>
+              </td>
+              <td id="f19b9d8c2cael" rowspan="1" colspan="1">
+                <p jc="center" id="ba40acf218tpw" style="text-align:center">否</p>
+              </td>
+              <td id="fca5a118d308a" rowspan="1" colspan="1">
+                <p jc="center" id="0671e0826b7k9" style="text-align:center">是</p>
+              </td>
+            </tr>
+            <tr id="c72180ccc2dp8">
+              <td id="99a5bc1721eiv" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7qfbcpml8d32f" id="5ee607841e8qc" style="text-align:center" left="0">阿里云客户端</p>
+              </td>
+              <td id="64efc0e257t5g" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7qfxgrb7a73qg" id="4df1ad88ce5cj" style="text-align:center">Windows、Linux</p>
+              </td>
+              <td id="251db45bbf61w" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7qwey60vrc739" id="9de2b707f5gms" style="text-align:center">是</p>
+              </td>
+              <td id="166af321a097c" rowspan="1" colspan="1">
+                <p jc="center" id="34d049fa18u2c" style="text-align:center">否</p>
+              </td>
+              <td id="255da00b4d1tz" rowspan="1" colspan="1">
+                <p jc="center" id="d4591afbc084l" style="text-align:center">是</p>
+              </td>
+              <td id="b9becf3344od7" rowspan="1" colspan="1">
+                <p jc="center" id="f4fedf89dcpw7" style="text-align:center">是</p>
+              </td>
+            </tr>
+            <tr id="78bad54cc65fr">
+              <td id="e959aec8db1dm" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7qm7j64y2xdcm" id="215e061b14xlq" style="text-align:center" left="0">SSH<span class="help-letter-space"></span>客户端工具<b>（三方）</b></p>
+              </td>
+              <td id="ba84f932c0i54" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7qoe2yemq9x5a" id="50e02789d3ju6" style="text-align:center">Linux</p>
+              </td>
+              <td id="42af3bcab4she" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7qvidlib5904d" id="2660f23e65fdz" style="text-align:center">是</p>
+              </td>
+              <td id="0dfceb7154g6b" rowspan="1" colspan="1">
+                <p jc="center" id="00570d6ff58am" style="text-align:center">是</p>
+              </td>
+              <td id="850ba9c01d2x6" rowspan="1" colspan="1">
+                <p jc="center" id="b7f2209926uk1" style="text-align:center">否</p>
+              </td>
+              <td id="8b242662199e5" rowspan="1" colspan="1">
+                <p jc="center" id="49bf8c614doxr" style="text-align:center">否</p>
+              </td>
+            </tr>
+            <tr id="54918e7a258zw">
+              <td id="e0ecc602bf8sh" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7q53yb0oucgeh" id="0b87a8d2e2quh" style="text-align:center" left="0">RDP<span class="help-letter-space"></span>客户端工具<b>（三方）</b></p>
+              </td>
+              <td id="b1543581ebc03" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7qnwyi11hp10s" id="916d145961kw6" style="text-align:center">Windows</p>
+              </td>
+              <td id="344f237d0165i" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="center" uuid="m54ruu7qwr05jnok5ol" id="6951e4a557fqs" style="text-align:center">是</p>
+              </td>
+              <td id="342df3c71exfm" rowspan="1" colspan="1">
+                <p jc="center" id="be3b4ea801i3i" style="text-align:center">是</p>
+              </td>
+              <td id="7f6ea6b2bab6m" rowspan="1" colspan="1">
+                <p jc="center" id="4b3e5431e5q2o" style="text-align:center">否</p>
+              </td>
+              <td id="1f676bb3c5wy8" rowspan="1" colspan="1">
+                <p jc="center" id="5f614ab86blne" style="text-align:center">否</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section id="4da4b98528u2f" class="section">
+        <h2 id="d94eb82510qcy"><b>连接工具介绍&amp;指引</b></h2>
+        <table bordertype="no-border" id="b0ecc16051r45" tablewidth="100" tablecolswidth="50 50" autofit="true" class="table">
+          <colgroup colwidth="1*" style="width:50.00%"></colgroup>
+          <colgroup colwidth="1*" style="width:50.00%"></colgroup>
+          <tbody class="tbody">
+            <tr id="24761fc2f677p">
+              <td id="3972b3ce215f9" rowspan="1" colspan="1">
+                <h3 id="b09b7772fa649"><b>Workbench</b></h3>
+                <p id="7152c176081d2"><a href="https://help.aliyun.com/zh/ecs/user-guide/workbench-overview/" id="072d1aaecchu7" title="" class="xref">Workbench</a><span class="help-letter-space"></span>是阿里云提供的免安装远程连接工具，同时支持文件传输、多屏终端等功能。</p>
+                <p id="02466874f82it"><b>相关文档</b></p>
+                <ul id="cc8fc2be663iy">
+                  <li id="310ec44cbcr0i">
+                    <p id="fff2be64f09zy"><a href="https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-linux-instance-by-using-a-password-or-key" id="f6a7cc1f25cmr" title="" class="xref">使用<span class="help-letter-space"></span>Workbench<span class="help-letter-space"></span>登录<span class="help-letter-space"></span>Linux<span class="help-letter-space"></span>实例</a></p>
+                  </li>
+                  <li id="b4272e55201wl">
+                    <p id="3c2dfa3ea4ift"><a href="https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-windows-instance-through-workbench" id="b1fe142ffeb36" title="" class="xref">使用<span class="help-letter-space"></span>Workbench<span class="help-letter-space"></span>登录<span class="help-letter-space"></span>Windows<span class="help-letter-space"></span>实例</a></p>
+                  </li>
+                </ul>
+              </td>
+              <td id="90e8b78721ixn" rowspan="1" style="vertical-align:top" colspan="1">
+                <h3 id="3ccd43d06fvju"><b>阿里云客户端</b></h3>
+                <p id="cfffb96aa2f9z"><a href="https://help.aliyun.com/zh/ecs/user-guide/overview-of-alibaba-cloud-client" id="0d9d0c43986hr" title="" class="xref">阿里云客户端</a>是阿里云官方提供的管理资源的软件，安装后，可通过该软件连接<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例。</p>
+                <p id="0f5365503diu0"><b>相关文档</b></p>
+                <ul id="381ae6c23dwdf">
+                  <li id="7926af92d8ay0">
+                    <p id="60c52ea457hf5"><a href="https://help.aliyun.com/zh/ecs/user-guide/use-alibaba-cloud-client-to-manage-ecs-instances#p-roi-wbv-6an" id="8b9ad9d68dbl8" title="" class="xref">使用阿里云客户端远程连接（SSH）Linux<span class="help-letter-space"></span>实例</a></p>
+                  </li>
+                  <li id="9716aad1dcs2g">
+                    <p id="6d9fb11101bgc"><a href="https://help.aliyun.com/zh/ecs/user-guide/use-alibaba-cloud-client-to-manage-ecs-instances#3e0f634facoan" id="cb47f9d5e7vym" title="" class="xref">使用阿里云客户端远程连接（RDP）Windows<span class="help-letter-space"></span>实例</a></p>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+            <tr id="82e648d833bb9">
+              <td id="abb11ad3b8oa5" rowspan="1" colspan="1">
+                <h3 id="8ff545ab0co43"><b>会话管理</b></h3>
+                <p id="c65ecd7568ymk"><a href="https://help.aliyun.com/zh/ecs/user-guide/connect-to-an-instance-by-using-session-manager-2/" id="108e3df1b2f0e" title="" class="xref">会话管理</a>是云助手提供的高安全级连接功能，通过免除公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>隔绝外部攻击，同时通过审计功能保证操作有据可查。</p>
+                <p id="f61d95cbbbgw1"><b>相关文档</b></p>
+                <ul id="c061c08587815">
+                  <li id="3445d6a332sps">
+                    <p id="942c6169d2uo7"><a href="https://help.aliyun.com/zh/ecs/user-guide/connect-to-an-instance-by-using-session-manager-1" id="31188020f766b" title="" class="xref">在控制台通过会话管理连接实例</a></p>
+                  </li>
+                  <li id="502e630620syx">
+                    <p id="d69d2d741ejvf"><a href="https://help.aliyun.com/zh/ecs/user-guide/connect-to-an-instance-by-using-ali-instance-cli/" id="e6df4115f0mkj" title="" class="xref">通过会话管理<span class="help-letter-space"></span>CLI（ali-instance-cli）连接实例</a></p>
+                  </li>
+                </ul>
+              </td>
+              <td id="a383ef0331ehd" rowspan="1" colspan="1">
+                <h3 id="94c408b3bc9fd"><b>SSH<span class="help-letter-space"></span>客户端工具（非阿里云官方）</b></h3>
+                <p id="84a88a99cduf7">使用其他第三方<span class="help-letter-space"></span>SSH<span class="help-letter-space"></span>客户端工具连接<span class="help-letter-space"></span>Linux<span class="help-letter-space"></span>实例，实例需要分配公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>或<span class="help-letter-space"></span>EIP。</p>
+                <p id="630849117bj1b">常见的<span class="help-letter-space"></span>SSH<span class="help-letter-space"></span>工具有<span data-tag="ph" id="48aec4f4f7nu9" class="ph"><span class="help-letter-space"></span><b>OpenSSH</b><span class="help-letter-space"></span></span>客户端、<span data-tag="ph" id="157eba089de15" class="ph"><b>PuTTY</b></span>、<span data-tag="ph" id="d2ac884a23cwk" class="ph"><b>XShell</b><span class="help-letter-space"></span></span>等。</p>
+                <p id="3d58b48095el3"><b>相关文档</b></p>
+                <p id="c7f9e0a668cbj"><a href="https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair" id="182d3c3779uen" title="" class="xref">使用<span class="help-letter-space"></span>OpenSSH/Xshell<span class="help-letter-space"></span>远程连接<span class="help-letter-space"></span>Linux<span class="help-letter-space"></span>实例</a></p>
+                <p id="cfaba1cf4664r"></p>
+              </td>
+            </tr>
+            <tr id="2388f0f398mip">
+              <td id="de9afb08e1mtt" rowspan="1" colspan="1">
+                <h3 id="d711128b9950r"><b>VNC</b></h3>
+                <p id="770abfe36adev">VNC<span class="help-letter-space"></span>可直接查看实例中操作系统的实时界面。支持查看实例<b>启动阶段</b>或<b>停止中</b>的系统界面。由于不受安全组设置或实例中运行软件的限制，可以作为排查其他连接方式异常的手段。</p>
+                <p id="2d9e87ff97uns"><b>相关文档</b></p>
+                <p id="f19ae45cc9tum"><a href="https://help.aliyun.com/zh/ecs/user-guide/log-on-to-an-instance-by-using-vnc" id="664154512dkz8" title="" class="xref">通过<span class="help-letter-space"></span>VNC<span class="help-letter-space"></span>连接实例</a></p>
+              </td>
+              <td id="f0b4267951jgp" rowspan="1" colspan="1">
+                <h3 id="89fab715f5cq4"><b>RDP<span class="help-letter-space"></span>客户端工具（非阿里云官方）</b></h3>
+                <p id="d0c9b3a502wyr">使用其他第三方<span class="help-letter-space"></span>RDP<span class="help-letter-space"></span>客户端工具连接<span class="help-letter-space"></span>Windows<span class="help-letter-space"></span>实例，实例需要分配公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>或<span class="help-letter-space"></span>EIP。</p>
+                <p id="60e520a3ca1pt">常见的<span class="help-letter-space"></span>RDP<span class="help-letter-space"></span>客户端有<span data-tag="ph" id="2a182b354e3bn" class="ph"><span class="help-letter-space"></span><b>Microsoft Remote Desktop</b></span>、<b>Windows<span class="help-letter-space"></span>远程桌面</b>、<span data-tag="ph" id="38b6ff7bb05dx" class="ph"><b>Windows App</b><span class="help-letter-space"></span></span>等。</p>
+                <p id="8f00f4c561s5q"><b>相关文档</b></p>
+                <p id="b3756cf6bbo9p"><a href="https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-windows-instance-by-using-a-username-and-password" id="86668dab916zx" title="" class="xref">使用远程桌面/Windows App<span class="help-letter-space"></span>远程连接<span class="help-letter-space"></span>Windows<span class="help-letter-space"></span>实例</a></p>
+                <p id="d88f3e86c5d1z"></p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section id="7ea354f8673h8" class="section">
+        <h2 id="4b3964cd21zkn"><b>常见问题</b></h2>
+        <ul id="d610bc0c92p36">
+          <li id="3d76b1bfddq4i">
+            <h4 id="95fb1ed1e706n"><b>如何查看实例是否分配公网<span class="help-letter-space"></span>IP？</b></h4>
+            <p id="a8838a059de2f">可在实例列表页查看实例是否分配公网<span class="help-letter-space"></span>IP，若未分配请<a href="https://help.aliyun.com/zh/ecs/user-guide/best-practices-for-configuring-public-bandwidth" id="76cec8912f08c" title="" class="xref">开通公网</a>。</p>
+            
+            <p id="p-6f947af8521d">在实例列表的<span class="help-letter-space"></span><b>IP<span class="help-letter-space"></span>地址</b>列中，带有<b>(公)</b>标记的即为实例的公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址；若该列仅显示私有<span class="help-letter-space"></span>IP，则表示未分配公网<span class="help-letter-space"></span>IP。</p>
+          </li>
+          <li id="8c97ce49be6cq">
+            <h4 id="0584afb000bbo">如何查看<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例的操作系统？</h4>
+            <p id="d2216a5899jm4">可在实例列表页查看实例的操作系统信息，Windows<span class="help-letter-space"></span>系统以外的操作系统大多是<span class="help-letter-space"></span>Linux<span class="help-letter-space"></span>系统。</p>
+            <p id="3c7e8a0656czv">如果发现安装了错误的操作系统，需要重装，请参见<a href="https://help.aliyun.com/zh/ecs/user-guide/replace-the-operating-system-of-an-instance" id="b8af8cb2e0k42" title="" class="xref">更换操作系统（更换系统盘）</a>。</p>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/ecs/user-guide/connect-to-an-instance-overview/" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：连接实例</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/ecs/user-guide/instance-logon-credential-management" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：实例登录凭证管理（登录名/密码/密钥对）<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

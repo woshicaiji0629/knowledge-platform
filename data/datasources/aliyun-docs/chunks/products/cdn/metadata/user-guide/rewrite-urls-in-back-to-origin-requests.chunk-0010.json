@@ -1,0 +1,14 @@
+{
+  "id": "cdn:user-guide/rewrite-urls-in-back-to-origin-requests:10",
+  "document_id": "cdn:user-guide/rewrite-urls-in-back-to-origin-requests",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "重写回源URI工作原理、注意事项及配置示例-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/user-guide/rewrite-urls-in-back-to-origin-requests",
+  "chunk_index": 10,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/cdn/documents/user-guide/rewrite-urls-in-back-to-origin-requests.chunk-0010.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/user-guide/rewrite-urls-in-back-to-origin-requests.md",
+  "heading_path": "重写回源路径 > 配置示例 > 示例五：在文件名是变量的情况下对指定目录添加URL前缀。",
+  "char_count": 470
+}

@@ -1,0 +1,14 @@
+{
+  "id": "ecs:user-guide/booster-extensions:9",
+  "document_id": "ecs:user-guide/booster-extensions",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "performance",
+  "title": "为ECS实例配置应用性能加速-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/booster-extensions",
+  "chunk_index": 9,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ecs/documents/user-guide/booster-extensions.chunk-0009.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/booster-extensions.md",
+  "heading_path": "为ECS实例配置应用性能加速 > 非GPU类型ECS实例 > 配置Spark性能加速扩展",
+  "char_count": 1001
+}

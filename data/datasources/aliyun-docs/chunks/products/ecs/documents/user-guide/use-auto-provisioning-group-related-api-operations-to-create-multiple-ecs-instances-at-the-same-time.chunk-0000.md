@@ -1,0 +1,2 @@
+# 使用弹性供应组API批量创建ECS实例
+在需要大量创建按量付费实例的情况下，您可以通过调用API接口完成创建操作更为高效。本文主要介绍如何通过编写调用CreateAutoProvisioningGroup API接口的Java代码批量创建ECS按量付费实例，以及对比RunInstances和CreateAutoProvisioningGroup接口的功能、优劣势。

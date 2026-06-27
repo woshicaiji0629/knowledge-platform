@@ -1,0 +1,1 @@
+插件类型与容器过滤方式等，请参见[AliyunLogConfigDetail](../../../../sls/documents/use-aliyunlogconfig-to-manage-collection-configurations.md)，完整的YAML参数详情请参见[CR](../../../../sls/documents/use-aliyunlogconfig-to-manage-collection-configurations.md)[参数说明](../../../../sls/documents/use-aliyunlogconfig-to-manage-collection-configurations.md)。

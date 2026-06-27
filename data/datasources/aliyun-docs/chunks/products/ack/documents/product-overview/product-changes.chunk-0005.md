@@ -1,0 +1,11 @@
+ersion.md)
+- [【产品变更】迁移低版本ACK集群监控端口至鉴权端口](product-updates-replace-the-monitoring-port-with-authentication-port-in-ack-clusters-of-earlier-versions.md)
+- [【产品变更】容器智能运维RAM角色收敛公告](product-change-container-intelligent-operation-and-maintenance-ram-role-convergence-announcement.md)
+- [【产品变更】托管版集群Worker RAM角色权限收敛公告](product-changes-permissions-of-the-worker-ram-role-of-ack-managed-clusters-are-revoked.md)
+- [【产品变更】云原生AI套件计量模式和定价方案升级公告](product-changes-cloud-native-ai-suite-metering-method-and-pricing-solution-updates.md)
+- [【产品变更】ASM关于ACK Addon部署的Istio支持变更公告](product-changes-ack-add-on-istio-discontinued-by-asm.md)
+- [【产品变更】关于ACK Pro集群落盘加密鉴权加固公告](product-changes-permissions-required-for-using-secret-encryption-in-ack-pro-clusters.md)
+- [【产品变更】关于变更aliyun-acr-credential-helper组件依赖权限的公告](product-changes-revoke-the-permissions-on-which-aliyun-acr-credential-helper-relies.md)
+- [【产品公告】关于ACK Serverless集群的SLB Ingress下线的公告](notice-slb-ingresses-for-ask-clusters-are-phased-out.md)
+- [【产品变更】从Docker Hub拉取镜像速度变慢的公告](product-changes-resolve-the-issue-that-image-pulling-from-docker-hub-is-time-consuming.md)
+- [【产品变更】ACK云原生AI套件商用收费与优惠活动公告](product-updates-cloud-native-ai-suite-going-commercial-and-promo

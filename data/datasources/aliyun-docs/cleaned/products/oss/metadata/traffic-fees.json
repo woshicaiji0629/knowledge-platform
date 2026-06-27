@@ -1,0 +1,17 @@
+{
+  "id": "oss:traffic-fees",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "pricing",
+  "title": "流量费用-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/traffic-fees",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/oss/documents/traffic-fees.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/traffic-fees.md",
+  "word_count": 1254,
+  "text_units": 3483,
+  "local_links": 0,
+  "external_links": 103,
+  "has_tables": true,
+  "table_count": 26,
+  "quality": "accepted"
+}

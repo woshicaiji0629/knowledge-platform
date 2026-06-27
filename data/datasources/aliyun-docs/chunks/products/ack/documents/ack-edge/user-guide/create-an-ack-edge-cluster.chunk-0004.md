@@ -1,0 +1,6 @@
+须大于或者等于 max{40, ImageSize}。 默认值： 120 。 |
+| container_cidr | String | 否 | 172.20.0.0 | Pod 网络地址段，不能和 VPC 网段冲突。当选择系统自动创建 VPC 时，默认使用 172.16.0.0/16 网段。 重要 当创建 Flannel 网络类型的集群时，该字段为必填。 当创建 Terway 网络类型的集群时，该字段不需要填写。 |
+| cloud_monitor_flags | Boolean | 否 | true | 【该字段已废弃】 集群是否安装云监控插件。取值： true ：安装云监控插件。 false ：不安装云监控插件。 默认值： false 。 |
+| endpoint_public_access | Boolean | 否 | true | 是否开启公网 API Server。取值： true ：表示开放公网 API Server。 false ：表示不会创建公网的 API Server，仅创建私网的 API Server。 默认值： true 。 重要 在 ACK Edge 集群 场景，边缘节点通过公网和云端管控交互；因此， ACK Edge 集群 需要开启公网访问。 |
+| service_cidr | String | 是 | 172.21.0.0 | Service 网络地址段，不能和 VPC 网段及 Pod 网络网段冲突。当选择系统自动创建 VPC 时，默认使用 172.19.0.0/20 网段。 |
+| addons | Array of [addon](../developer-reference/api-cs-2015-12-15-struct-addon-edge.md) | 否 | [{"name":"flannel","config":""},{"name":"logtail-ds-docker","config":""},{"name":"alibaba-log-controller","config":"{"IngressDashboardEnabled":"false"}"}] | Kubernetes 集群安装的组件列表。组件的结构包括： name ：必填，组件名称。 config ：可选，取值为空时表示无需配置。 disabled ：可选，是否禁止默认安装。 网络组件 ：必选，包含 Flannel 和 Terway 两种网络类型，创建集群时二选一： Flannel 网络：[{"name":"flannel","config":""}]。 Terway 网络：[{"name": "terway-eniip","config": ""}] 。 存储组件 ：可选，支持 csi 类型： csi ：[{"name":"csi-plug

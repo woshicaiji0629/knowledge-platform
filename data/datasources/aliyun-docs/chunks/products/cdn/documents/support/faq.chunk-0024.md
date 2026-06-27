@@ -1,0 +1,2 @@
+o-an-alibaba-cloud-origin-server-without-modifying-domain-name-resolution.md)[CDN](../point-a-domain-name-to-an-alibaba-cloud-origin-server-without-modifying-domain-name-resolution.md)[故障时如何将域名指向源站](../point-a-domain-name-to-an-alibaba-cloud-origin-server-without-modifying-domain-name-resolution.md)
+[阿里云](health-check-mechanism-for-origin-servers.md)[CDN](health-check-mechanism-for-origin-servers.md)[对源站的健康检查机制是什么？](health-check-mechanism-for-origin-servers.md)

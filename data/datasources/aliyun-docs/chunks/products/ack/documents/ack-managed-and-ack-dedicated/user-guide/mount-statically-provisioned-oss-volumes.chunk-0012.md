@@ -1,0 +1,3 @@
+## RRSA方式
+创建pv-oss-rrsa.yaml。
+apiVersion: v1 kind: PersistentVolume metadata: # PV名称 name: pv-oss # PV标签 labels: alicloud-pvname: pv-oss spec: capacity: # 定义存储卷容量 storage: 10Gi # 访问模式 accessModes: - ReadOnlyMany persistentVolumeReclaimPolicy: Retain csi: driver: ossplugin.csi.alibabacloud.com # 与PV名称（metadata.name）一致 volumeHandle: pv-oss volumeAttributes: # 替换为实际Bucket名称 bucket: "your-bucket-name" # 挂载Bucket的根目录或指定子目录 path: / # Bucket所在地域的Endpoint url: "http://oss-cn-hangzhou-internal.aliyuncs.com" otherOpts: "-o umask=022 -o max_stat_cache_size=100000 -o allow_other" authType: "rrsa" # 此前创建或修改的RAM角色 roleName: "demo-role-for-rrsa" # OSS请求签名版本 sigVersion: "v4"

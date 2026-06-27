@@ -1,0 +1,2 @@
+# 为Pod动态配置阿里云产品白名单
+在对权限要求相对较高的云上的场景中，您需要将Pod的IP地址动态地加入或移出指定的RDS白名单，以实现对权限最细粒度的控制。您可以通过ack-kubernetes-webhook-injector组件为Pod添加Annotation（注解），动态地将Pod的IP地址加入或移出指定的RDS白名单。本文介绍如何安装并使用ack-kubernetes-webhook-injector组件为Pod动态配置阿里云产品白名单，以及如何配置访问云产品内网Endpoint。

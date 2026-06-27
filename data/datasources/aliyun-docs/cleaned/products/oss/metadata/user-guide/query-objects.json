@@ -1,0 +1,17 @@
+{
+  "id": "oss:user-guide/query-objects",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "features",
+  "title": "查询文件-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/user-guide/query-objects",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/oss/documents/user-guide/query-objects.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/user-guide/query-objects.md",
+  "word_count": 2172,
+  "text_units": 4613,
+  "local_links": 6,
+  "external_links": 63,
+  "has_tables": true,
+  "table_count": 6,
+  "quality": "accepted"
+}

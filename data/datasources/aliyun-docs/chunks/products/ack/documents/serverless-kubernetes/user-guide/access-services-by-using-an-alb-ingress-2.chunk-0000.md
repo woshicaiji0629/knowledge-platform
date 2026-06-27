@@ -1,0 +1,2 @@
+# 通过ALB Ingress访问服务
+ALB Ingress支持HTTP、HTTPS和QUIC协议，满足云原生应用在需要高度弹性和大规模七层流量管理时的各种需求，与Nginx Ingress兼容。同时，支持复杂的业务路由配置和TLS证书的自动管理，提供灵活的流量管理机制。您可以通过配置转发规则，实现不同URL访问集群内不同的Service。

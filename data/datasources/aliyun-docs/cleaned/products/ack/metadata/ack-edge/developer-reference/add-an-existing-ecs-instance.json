@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-edge/developer-reference/add-an-existing-ecs-instance",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "使用CLI添加已有ECS实例到集群-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/add-an-existing-ecs-instance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-edge/developer-reference/add-an-existing-ecs-instance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/add-an-existing-ecs-instance.md",
+  "word_count": 517,
+  "text_units": 908,
+  "local_links": 1,
+  "external_links": 61,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

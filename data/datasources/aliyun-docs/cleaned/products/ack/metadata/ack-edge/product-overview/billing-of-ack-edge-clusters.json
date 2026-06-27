@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-edge/product-overview/billing-of-ack-edge-clusters",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "pricing",
+  "title": "ACK Edge集群如何收费-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/product-overview/billing-of-ack-edge-clusters",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-edge/product-overview/billing-of-ack-edge-clusters.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/product-overview/billing-of-ack-edge-clusters.md",
+  "word_count": 1894,
+  "text_units": 4627,
+  "local_links": 39,
+  "external_links": 101,
+  "has_tables": true,
+  "table_count": 18,
+  "quality": "accepted"
+}

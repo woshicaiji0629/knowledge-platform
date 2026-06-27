@@ -1,0 +1,6 @@
+| 功能名称 | 功能描述 | 发布时间 | 支持地域 | 相关文档 |
+| --- | --- | --- | --- | --- |
+| OSS 投递（新版） | 日志服务 推出 OSS 投递（新版）功能，支持投递历史数据和新增数据到 OSS Bucket 中。 | 2021-12-24 | [部分地域](create-oss-shipping-tasks-new-version.md) | [创建](create-oss-shipping-tasks-new-version.md) [OSS](create-oss-shipping-tasks-new-version.md) [投递任务（新版）](create-oss-shipping-tasks-new-version.md) |
+| Redis Lens | 日志服务 联合 云数据库 Tair（兼容 Redis） 推出 Redis Lens，用于集中管理 Redis 实例以及采集 Redis 运行日志、慢日志和审计日志。 | 2021-12-17 | [部分地域](cloudlens-for-redis-usage-notes.md) | [Redis Lens](cloudlens-for-redis-usage-notes.md) |
+| 接入阿里云 Prometheus 监控的告警 | 阿里云 Prometheus 监控全面对接开源 Prometheus 生态，支持类型丰富的组件监控，提供多种开箱即用的预置监控大盘，且提供全面托管的 Prometheus 服务。您通过简单的配置，即可将阿里云 Prometheus 监控的告警消息发送到 日志服务 告警系统中，由 日志服务 告警系统完成告警降噪、通知等处理。 | 2021-12-15 | [全部地域](sls-supported-regions1.md) | [接入阿里云](ingest-managed-service-for-prometheus-alerts-into-log-service.md) [Prometheus](ingest-managed-service-for-prometheus-alerts-into-log-service.md) [监控的告警](ingest-managed-service-for-prometheus-alerts-into-log-service.md) |
+| 全栈监控 | 全栈监控应用是 日志服务 提供的一站式 IT 系统监控方案，监控的目标包括主机监控、Kubernetes 监控、数据库监控、中间件监控等。 | 2021-12-08 | [全部地域](sls-supported-regions1.md) | [全栈监控概述](overview-of-full-stack-monitorin

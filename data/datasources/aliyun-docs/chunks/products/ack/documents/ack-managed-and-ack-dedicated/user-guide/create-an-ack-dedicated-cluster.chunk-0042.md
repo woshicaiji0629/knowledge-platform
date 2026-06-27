@@ -1,0 +1,2 @@
+### Terraform
+具体操作，请参见[通过](../developer-reference/use-terraform-to-create-an-ack-proprietary-cluster.md)[Terraform](../developer-reference/use-terraform-to-create-an-ack-proprietary-cluster.md)[创建](../developer-reference/use-terraform-to-create-an-ack-proprietary-cluster.md)[ACK](../developer-reference/use-terraform-to-create-an-ack-proprietary-cluster.md)[专有集群](../developer-reference/use-terraform-to-create-an-ack-proprietary-cluster.md)。

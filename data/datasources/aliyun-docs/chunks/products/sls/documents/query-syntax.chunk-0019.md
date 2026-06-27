@@ -1,0 +1,4 @@
+logsearch/nginx-access-log?encode%3Dbase64%26queryString%3DaHR0cF91c2VyX2FnZW50OkZpcmVmb3ggb3IgaHR0cF91c2VyX2FnZW50OkNocm9tZQ%3D%3D) |
+| 查询 request_uri 字段值包含 /request/path-2 的日志。 | request_uri:/request/path-2 | [调试](https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-demo-log/logsearch/nginx-access-log?encode%3Dbase64%26queryString%3DcmVxdWVzdF91cmk6L3JlcXVlc3QvcGF0aC0y) |
+| 查询 request_uri 字段值以 /request 开头，但不包含 /file-0 的日志。 | request_uri:/request* not request_uri:/file-0 | [调试](https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-demo-log/logsearch/nginx-access-log?encode%3Dbase64%26queryString%3DcmVxdWVzdF91cmk6L3JlcXVlc3QqIG5vdCByZXF1ZXN0X3VyaTovZmlsZS0w) |
+| 完全匹配包含短语 redo_index/1 的日志。 | #"redo_index/1" * | select * from log where key like 'redo_index/1' 说明 通过短语查询或者 Like 语法，可完全匹配目标短语。使用普通的精确查询，将匹配 redo_index 、 1 等词。 | 无 |

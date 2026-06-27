@@ -1,0 +1,4 @@
+## 背景信息
+目前Hadoop 3.0已经支持OSS在EMR上运行Spark、Hive、Presto等服务，同时阿里云MaxCompute以及Data Lake Analytics均支持从OSS直接处理数据。
+OSS提供的GetObject接口决定了大数据平台只能把OSS数据全部下载到本地然后进行分析过滤，在很多查询场景下浪费了大量带宽和客户端资源。
+SelectObject接口通过将条件和Projection下推到OSS层，只返回有用数据，减少带宽和处理量，节省CPU和内存资源，使基于OSS的数据分析更具吸引力。

@@ -1,0 +1,2 @@
+### 安装Logtail
+安装Logtail有一键安装与手动安装两种方式，当且仅当您使用的是ECS机器，且ECS与Project属于同账号同地域时，日志服务才支持一键安装Logtail。否则请使用手动方式安装Logtail。

@@ -1,0 +1,4 @@
+创建资源组 前往资源管理控制台即时创建资源组。创建完成后，返回 ECS 实例创建向导并单击 图标，查看资源组列表。具体操作，请参见 [创建资源组](https://help.aliyun.com/zh/resource-management/resource-group/user-guide/create-a-resource-group#task-xpl-kjm-4fb) 。 |
+| 部署集 | 部署集支持高可用策略，部署集内实例会严格分散在不同的物理服务器上，保证业务的高可用性和底层容灾能力。 选择已有的部署集，或者单击 管理部署集 即时创建部署集。创建完成后，返回 ECS 实例创建向导并单击 图标，查看部署集列表。具体操作，请参见 [部署集](overview-43.md) 。 |
+| 专有宿主机 | 专有宿主机是一台由单租户独享物理资源的云主机，具有满足严格的安全合规要求、允许自带许可证（BYOL）上云等优势。 选择已有的专有宿主机，或者单击 创建专有宿主机 即时创建专有宿主机。创建完成后，返回 ECS 实例创建向导并单击 图标，查看专有宿主机列表。具体操作，请参见 [创建](https://help.aliyun.com/zh/dedicated-host/getting-started/create-a-dedicated-host#task-fbz-5mn-tdb) [DDH](https://help.aliyun.com/zh/dedicated-host/getting-started/create-a-dedicated-host#task-fbz-5mn-tdb) 。 |
+| 私有池类型 | 创建弹性保障或容量预定后，系统会自动生成私有池，预留特定属性特定数量的实例。从关联的私有池中创建这一类实例，可以提供资源确定性保障。更多信息，请参见 [资源管家概述](overview-29.md) 。 说明 弹性保障和容量预定仅支持为按量付费实例保障资源供应确定性。 开放 ：优先使用开放类型私有池的容量，如果开放类型私有池无可用容量，则尝试使用公共池的容量。 不使用 ：不使用任何私有池的容量。 指定 ：继续指定一个专用或开放类型私有池的 ID，使用其容量创建实例。如果该私有池没有可用容量，则创建失败。 |

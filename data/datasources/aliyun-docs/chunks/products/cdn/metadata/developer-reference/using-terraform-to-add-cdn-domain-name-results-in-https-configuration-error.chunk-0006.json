@@ -1,0 +1,14 @@
+{
+  "id": "cdn:developer-reference/using-terraform-to-add-cdn-domain-name-results-in-https-configuration-error:6",
+  "document_id": "cdn:developer-reference/using-terraform-to-add-cdn-domain-name-results-in-https-configuration-error",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "troubleshoot",
+  "title": "解决Terraform添加CDN域名时的HTTPS配置报错-CDN-阿里云",
+  "source_url": "https://help.aliyun.com/zh/cdn/developer-reference/using-terraform-to-add-cdn-domain-name-results-in-https-configuration-error",
+  "chunk_index": 6,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/cdn/documents/developer-reference/using-terraform-to-add-cdn-domain-name-results-in-https-configuration-error.chunk-0006.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/developer-reference/using-terraform-to-add-cdn-domain-name-results-in-https-configuration-error.md",
+  "heading_path": "添加一个加速域名 resource \"alicloud_cdn_domain_new\" \"domain\" { domain_name = \"mycdndomain.alicloud-provider.cn\" cdn_type = \"download\" scope = \"overseas\" sources { content = \"myoss.oss-rg-china-mainland.aliyuncs.com\" type = \"oss\" priority = \"20\" port = 80 weight = \"15\" } # 证书配置 # cert_id 需现在阿里云证书中心购买或上传证书并记录其ID # cert_type=“cas” 表示使用阿里云证书中心的证书 # cert_regin = \"ap-southeast-1\" 表示使用国际站的阿里云证书中心 certificate_config { cert_id = \"1111111\" cert_name = \"cert-2987438279834\" cert_type = \"cas\" cert_region = \"ap-southeast-1\" } } > 为什么选择阿里云 > 技术内容",
+  "char_count": 201
+}

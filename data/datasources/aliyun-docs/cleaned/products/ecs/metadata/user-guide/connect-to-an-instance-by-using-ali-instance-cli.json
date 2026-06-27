@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/connect-to-an-instance-by-using-ali-instance-cli",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "deployment",
+  "title": "通过会话管理CLIali-instance-cli）连接实例-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/connect-to-an-instance-by-using-ali-instance-cli",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/connect-to-an-instance-by-using-ali-instance-cli.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/connect-to-an-instance-by-using-ali-instance-cli.md",
+  "word_count": 1765,
+  "text_units": 4897,
+  "local_links": 15,
+  "external_links": 92,
+  "has_tables": true,
+  "table_count": 12,
+  "quality": "accepted"
+}

@@ -1,0 +1,1 @@
+dknug30bXXXXXXXX] alicloud_security_group.default: Destruction complete after 1s alicloud_vswitch.vsw: Destruction complete after 8s alicloud_vpc.vpc: Destroying... [id=vpc-2vcsghlpznz74XXXXXXXX] alicloud_vpc.vpc: Destruction complete after 6s Destroy complete! Resources: 6 destroyed.

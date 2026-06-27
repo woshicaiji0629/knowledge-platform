@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/developer-reference/use-terraform-to-manage-components:21",
+  "document_id": "ack:ack-edge/developer-reference/use-terraform-to-manage-components",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "Terraform管理组件配置与生命周期-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/use-terraform-to-manage-components",
+  "chunk_index": 21,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/developer-reference/use-terraform-to-manage-components.chunk-0021.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/use-terraform-to-manage-components.md",
+  "heading_path": "使用自动创建SLS Project作为日志存储。 resource \"alicloud_cs_managed_kubernetes\" \"default\" { # 其它参数。 # ... addons { name = \"loongcollector\" } } # 使用自动创建SLS Project做日志存储。同时开启自动创建Ingress看板。 resource \"alicloud_cs_managed_kubernetes\" \"default\" { # 其它参数。 # ... addons { name = \"loongcollector\" config = \"{\\\"IngressDashboardEnabled\\\":\\\"true\\\"}\" } } # 使用已有SLS Project做日志存储。同时开启自动创建Ingress看板。 resource \"alicloud_cs_managed_kubernetes\" \"default\" { # 其它参数。 # ... addons { name = \"loongcollector\" config = \"{\\\"IngressDashboardEnabled\\\":\\\"true\\\",\\\"sls_project_name\\\":\\\"k8s-log-c55c35ff493df47b88783bea48827****\\\"}\" } } # 安装配置node-problem-detector事件中心。 # 使用自动创建SLS Project作为事件中心的日志存储。 resource \"alicloud_cs_managed_kubernetes\" \"default\" { # 其它参数。 # ... addons { name = \"ack-node-problem-detector\" config = \"{\\\"sls_project_name\\\":\\\"\\\"}\" } } # 安装配置node-problem-detector事件中心。 # 使用已有SLS Project作为事件中心的日志存储。可以和loongcollector共用同一个日志库。 resource \"alicloud_cs_managed_kubernetes\" \"default\" { # 其它参数。 # ... addons { name = \"ack-node-problem-detector\" config = \"{\\\"sls_project_name\\\":\\\"k8s-log-c55c35ff493df47b88783bea48827****\\\"}\" } } > 配置监控组件",
+  "char_count": 119
+}

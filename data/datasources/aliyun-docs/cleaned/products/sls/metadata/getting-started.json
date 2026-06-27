@@ -1,0 +1,17 @@
+{
+  "id": "sls:getting-started",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "日志服务SLS快速入门-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/getting-started",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/getting-started.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/getting-started.md",
+  "word_count": 1713,
+  "text_units": 4273,
+  "local_links": 6,
+  "external_links": 83,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

@@ -1,0 +1,2 @@
+## 步骤一：查看OpenAPI文档
+在调用OpenAPI前，建议您先阅读对应的接口文档[通过](../../create-an-ack-managed-cluster.md)[OpenAPI](../../create-an-ack-managed-cluster.md)[创建](../../create-an-ack-managed-cluster.md)[ACK](../../create-an-ack-managed-cluster.md)[托管集群](../../create-an-ack-managed-cluster.md)，了解、学习调用该接口所需要的参数及权限等，更多参数请参见[API](../../ack-managed-and-ack-dedicated/developer-reference/api-cs-2015-12-15-overview.md)[概览](../../ack-managed-and-ack-dedicated/developer-reference/api-cs-2015-12-15-overview.md)。

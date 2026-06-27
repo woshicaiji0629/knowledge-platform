@@ -1,0 +1,14 @@
+{
+  "id": "cdn:support/too-many-redirects-occur-after-my-domain-name-is-accelerated-by-alibaba-cloud-cdn:12",
+  "document_id": "cdn:support/too-many-redirects-occur-after-my-domain-name-is-accelerated-by-alibaba-cloud-cdn",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "解决CDN回源配置不当导致的重定向次数过多-CDN-阿里云",
+  "source_url": "https://help.aliyun.com/zh/cdn/support/too-many-redirects-occur-after-my-domain-name-is-accelerated-by-alibaba-cloud-cdn",
+  "chunk_index": 12,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/cdn/documents/support/too-many-redirects-occur-after-my-domain-name-is-accelerated-by-alibaba-cloud-cdn.chunk-0012.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/support/too-many-redirects-occur-after-my-domain-name-is-accelerated-by-alibaba-cloud-cdn.md",
+  "heading_path": "CDN加速后提示重定向的次数过多的解决方案 > 验证步骤 > 关注阿里云",
+  "char_count": 378
+}

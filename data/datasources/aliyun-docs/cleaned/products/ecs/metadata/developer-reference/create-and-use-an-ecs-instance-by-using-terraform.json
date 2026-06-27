@@ -1,0 +1,17 @@
+{
+  "id": "ecs:developer-reference/create-and-use-an-ecs-instance-by-using-terraform",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "使用Terraform创建ecs-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/developer-reference/create-and-use-an-ecs-instance-by-using-terraform",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/developer-reference/create-and-use-an-ecs-instance-by-using-terraform.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/developer-reference/create-and-use-an-ecs-instance-by-using-terraform.md",
+  "word_count": 2354,
+  "text_units": 4472,
+  "local_links": 6,
+  "external_links": 87,
+  "has_tables": true,
+  "table_count": 5,
+  "quality": "accepted"
+}

@@ -1,0 +1,15 @@
+配置完成后，单击页面下方的测试连接以进行下一步。
+请确保已将弹跳框中的DTS服务器IP地址加入到Azure平台的MySQL数据库的白名单安全设置中，然后单击测试连接。
+重要
+[添加](https://help.aliyun.com/zh/dts/user-guide/add-the-cidr-blocks-of-dts-servers-to-the-security-settings-of-on-premises-databases)[DTS](https://help.aliyun.com/zh/dts/user-guide/add-the-cidr-blocks-of-dts-servers-to-the-security-settings-of-on-premises-databases)[服务器](https://help.aliyun.com/zh/dts/user-guide/add-the-cidr-blocks-of-dts-servers-to-the-security-settings-of-on-premises-databases)[IP](https://help.aliyun.com/zh/dts/user-guide/add-the-cidr-blocks-of-dts-servers-to-the-security-settings-of-on-premises-databases)[地址白名单](https://help.aliyun.com/zh/dts/user-guide/add-the-cidr-blocks-of-dts-servers-to-the-security-settings-of-on-premises-databases)可能会存在安全风险，一旦使用本产品代表您已理解和确认其中可能存在的安全风险，并且需要您做好基本的安全防护，包括但不限于加强账号密码强度防范、限制各网段开放的端口号、内部各API使用鉴权方式通信、定期检查并限制不需要的网段。
+在配置任务对象及高级配置步骤，选择迁移类型。
+说明
+为保证迁移数据的一致性，建议选择库表结构迁移+全量数据迁移+增量数据迁移。
+在源库对象框中将想要迁移的数据库选中，单击，移动到已选择对象框。
+单击下一步高级配置，保持默认配置即可。
+单击下一步保存任务并预检查，等待预检查结束。
+说明
+如果检查失败，可以根据错误项的提示进行修复，然后重新启动任务。
+单击下一步购买，在购买页，勾选《数据传输（按量付费）服务条款》并单击购买并启动。
+该文章对您有帮助吗？
+反馈

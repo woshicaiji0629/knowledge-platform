@@ -1,0 +1,2 @@
+# GitOps概述
+GitOps是将Git仓库作为Kubernetes集群中部署应用的唯一来源，通过自动化配置基础设施实现应用的持续部署。Fleet实例托管了ArgoCD，并集成多集群能力，实现多集群的GitOps持续交付，满足应用的高可用部署、系统组件多集群分发等需求。本文介绍GitOps和ACK One GitOps的详细信息。

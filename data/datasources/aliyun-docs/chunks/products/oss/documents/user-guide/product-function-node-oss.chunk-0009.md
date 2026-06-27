@@ -1,0 +1,1 @@
+GetObject 等请求时自动触发函数计算服务，并将处理后的数据结果进行返回。OSS 对象 FC（Object FC）帮助用户在保持对象存储语义的情况下，无缝集成自定义的数据处理能力。 | [对象](create-object-fc-access-point.md) [FC](create-object-fc-access-point.md) [接入点](create-object-fc-access-point.md) |  |

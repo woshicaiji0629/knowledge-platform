@@ -1,0 +1,6 @@
+## 相关文档
+更多ACK Edge集群创建方式请参见：
+[通过](create-an-ack-edge-cluster.md)[OpenAPI](create-an-ack-edge-cluster.md)[创建](create-an-ack-edge-cluster.md)[ACK Edge](create-an-ack-edge-cluster.md)[集群](create-an-ack-edge-cluster.md)
+[通过](../developer-reference/use-terraform-to-create-an-ack-edge-cluster.md)[Terraform](../developer-reference/use-terraform-to-create-an-ack-edge-cluster.md)[创建](../developer-reference/use-terraform-to-create-an-ack-edge-cluster.md)[ACK Edge](../developer-reference/use-terraform-to-create-an-ack-edge-cluster.md)[集群](../developer-reference/use-terraform-to-create-an-ack-edge-cluster.md)
+[通过](../../ack-managed-and-ack-dedicated/developer-reference/java-sdk-call-example.md)[SDK](../../ack-managed-and-ack-dedicated/developer-reference/java-sdk-call-example.md)[创建](../../ack-managed-and-ack-dedicated/developer-reference/java-sdk-call-example.md)[ACK Edge](../../ack-managed-and-ack-dedicated/developer-reference/java-sdk-call-example.md)[集群](../../ack-managed-and-ack-dedicated/developer-reference/java-sdk-call-example.md)
+[通过](../../ack-managed-and-ack-dedicated/developer-reference/create-a-cluster-2.md)[CLI](../../ack-managed-and-ack-dedicated/developer-reference/create-a-clu

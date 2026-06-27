@@ -1,0 +1,3 @@
+### API
+调用[UpdateNetworkAclEntries](developer-reference/api-vpc-2016-04-28-updatenetworkaclentries.md)更新网络ACL规则。与控制台逻辑不同的是，该API将对ACL规则进行全量更新。如果只传入新增规则，将会删除原有规则，仅保留新传入的规则。因此，增加规则时必须传入所有需要保留的规则。
+调用[CopyNetworkAclEntries](developer-reference/api-vpc-2016-04-28-copynetworkaclentries.md)将网络ACL的规则完整复制到另一个网络ACL。为保证所有规则都能被目标网络ACL正确地识别和接收，您需确保两个网络ACL所属的VPC均只有IPv4网段或均开启了IPv6。未开启IPv6的VPC中的网络ACL无法配置IPv6类型的规则，若将规则完整复制到已开启IPv6的VPC的网络ACL时，系统不会自动添加允许所有IPv6流量的自定义规则，可能影响IPv6通信。

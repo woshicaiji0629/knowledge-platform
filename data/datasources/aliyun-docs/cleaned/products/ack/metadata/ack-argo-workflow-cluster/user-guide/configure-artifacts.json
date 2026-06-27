@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-argo-workflow-cluster/user-guide/configure-artifacts",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "配置OSS作为Artifacts存储实现工作流步骤间参数传递-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/user-guide/configure-artifacts",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-argo-workflow-cluster/user-guide/configure-artifacts.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-argo-workflow-cluster/user-guide/configure-artifacts.md",
+  "word_count": 651,
+  "text_units": 1072,
+  "local_links": 3,
+  "external_links": 62,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

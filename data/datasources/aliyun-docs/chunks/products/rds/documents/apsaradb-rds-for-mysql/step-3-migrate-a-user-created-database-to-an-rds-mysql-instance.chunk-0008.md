@@ -1,0 +1,2 @@
+## 方法二：使用全量备份恢复至RDS MySQL实例
+RDS MySQL支持全量备份导入与恢复功能。您可以使用[Percona XtraBackup](https://docs.percona.com/percona-xtrabackup/)与MySQL Backup Helper工具对自建数据库进行全量备份并上传至OSS，然后将全量备份文件从OSS导入RDS控制台，通过数据库恢复功能将其恢复至新实例中，实现自建数据库间接迁移至RDS MySQL实例。详细操作请参见[MySQL 5.7、8.0](migrate-the-data-of-a-self-managed-mysql-5-7-or-mysql-8-0-instance-to-an-apsaradb-rds-for-mysql-instance.md)[自建数据库全量上云](migrate-the-data-of-a-self-managed-mysql-5-7-or-mysql-8-0-instance-to-an-apsaradb-rds-for-mysql-instance.md)。

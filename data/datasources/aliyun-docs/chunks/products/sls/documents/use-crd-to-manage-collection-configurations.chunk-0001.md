@@ -1,0 +1,8 @@
+## 背景信息
+CRD全称为“[CustomResourceDefinition](https://kubernetes.io/docs/tasks/extend-kubernetes/custom-resources/custom-resource-definitions/)”，是Kubernetes（k8s）的一种API对象，允许用户定义自定义资源类型。通过CRD，用户可以扩展Kubernetes原生的API，以满足特定的应用场景需求。CR即“CustomResource”，是基于CRD定义的资源类型创建的具体的实例。
+日志服务定义了自己的CRD，并支持通过CR来管理Logtail采集配置。您需要连接Kubernetes集群，并额外使用Kubernetes鉴权。然后向kube-apiserver提交YAML配置文件来创建资源，从而创建相应的Logtail采集配置。
+警告
+通过CR创建的配置，在控制台上对其修改不会同步到CR中。因此，如需修改由CR创建的配置内容，只能修改CR实例，禁止直接在控制台操作，避免配置不一致。
+通过CR管理Logtail采集配置的工作原理
+日志服务通过Deployment部署了一个控制器alibaba-log-controller，该控制器负责监听AliyunLogConfig资源的变化。
+当用户通过kubectl或其他Kubernetes管理工具创建、更新或删除AliyunLogConfig资源时，alibaba-log-controller会监测到这些变化，然后根据资源配置文件中的内容和服务端Logtail采集配置的状态，自动向日志服务提交各种请求，如采集配置变更等。

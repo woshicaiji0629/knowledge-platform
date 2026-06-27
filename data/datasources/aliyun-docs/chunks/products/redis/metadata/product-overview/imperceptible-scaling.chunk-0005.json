@@ -1,0 +1,14 @@
+{
+  "id": "redis:product-overview/imperceptible-scaling:5",
+  "document_id": "redis:product-overview/imperceptible-scaling",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "无感扩缩容功能特性注意事项-云数据库Tair-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/imperceptible-scaling",
+  "chunk_index": 5,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/product-overview/imperceptible-scaling.chunk-0005.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/imperceptible-scaling.md",
+  "heading_path": "集群无感扩缩容介绍 > 注意事项 > 大模型",
+  "char_count": 197
+}

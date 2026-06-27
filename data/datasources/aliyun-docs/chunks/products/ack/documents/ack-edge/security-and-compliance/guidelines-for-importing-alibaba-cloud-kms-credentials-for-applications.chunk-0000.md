@@ -1,0 +1,2 @@
+# 为应用导入阿里云KMS服务凭据
+您可以在应用Pod中以文件系统、Secret挂载或本地HTTP接口读取内存的形式，将存储在阿里云KMS凭据管家中的密文引入到应用程序中使用，避免应用开发构建时泄露敏感数据。若应用依赖文件系统读取密钥，与KMS 凭据管家集成时可能存在兼容性问题，可通过ack-secret-manager或csi-secrets-store-provider-alibabacloud解决；若期望应用可以直接从内存中获取敏感KMS凭据，避免敏感凭据落盘，可通过ack-kms-agent-webhook-injector实现更安全的凭据导入与管理。

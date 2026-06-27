@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/developer-reference/use-terraform-to-manage-components:19",
+  "document_id": "ack:ack-edge/developer-reference/use-terraform-to-manage-components",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "Terraform管理组件配置与生命周期-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/use-terraform-to-manage-components",
+  "chunk_index": 19,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/developer-reference/use-terraform-to-manage-components.chunk-0019.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/use-terraform-to-manage-components.md",
+  "heading_path": "使用Terway作为网络组件，并且使用Pod独占弹性网卡模式，默认此方式。 # 该模式下，节点Pod数量将受到ECS弹性网卡配额限制。 resource \"alicloud_cs_managed_kubernetes\" \"default\" { # 其它参数。 # ... addons { name = \"terway-eni\" } } # 使用Terway作为网络组件，并且使用IPVlan模式。 # 采用IPVlan + ebpf作为网卡共享模式虚拟化技术，只能使用Alibaba Cloud Linux 2系统。 resource \"alicloud_cs_managed_kubernetes\" \"default\" { # 其它参数。 # ... addons { name = \"terway-eniip\", config = \"{\\\"IPVlan\\\":\\\"true\\\",\\\"NetworkPolicy\\\":\\\"false\\\"}\" } } # 使用Terway作为网络组件，并且IPVlan模式下启用NetworkPolicy策略支持。 # 采用IPVlan + ebpf作为网卡共享模式虚拟化技术，只能使用Alibaba Cloud Linux 2系统。 # IPVlan模式下，提供了基于策略的网络控制。 resource \"alicloud_cs_managed_kubernetes\" \"default\" { # 其它参数。 # ... addons { name = \"terway-eniip\", config = \"{\\\"IPVlan\\\":\\\"true\\\",\\\"NetworkPolicy\\\":\\\"true\\\"}\" } } > 配置存储组件",
+  "char_count": 145
+}

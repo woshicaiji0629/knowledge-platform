@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/user-guide/storage-overview:11",
+  "document_id": "ack:ack-edge/user-guide/storage-overview",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "为ACK Edge集群提供容器存储功能-ACK Edge存储-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/user-guide/storage-overview",
+  "chunk_index": 11,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/user-guide/storage-overview.chunk-0011.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/user-guide/storage-overview.md",
+  "heading_path": "ACK Edge存储概述 > 升级CSI相关组件 > 产品和定价",
+  "char_count": 272
+}

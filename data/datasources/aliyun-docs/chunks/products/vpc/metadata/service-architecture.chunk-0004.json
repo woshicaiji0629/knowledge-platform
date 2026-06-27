@@ -1,0 +1,14 @@
+{
+  "id": "vpc:service-architecture:4",
+  "document_id": "vpc:service-architecture",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "产品技术架构与核心功能组件-专有网络VPC-阿里云",
+  "source_url": "https://help.aliyun.com/zh/vpc/service-architecture",
+  "chunk_index": 4,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/service-architecture.chunk-0004.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/service-architecture.md",
+  "heading_path": "VPC技术原理 > 功能架构 > 大模型",
+  "char_count": 197
+}

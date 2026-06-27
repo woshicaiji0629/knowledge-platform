@@ -1,0 +1,14 @@
+{
+  "id": "cdn:user-guide/configure-an-ssl-certificate:21",
+  "document_id": "cdn:user-guide/configure-an-ssl-certificate",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "如何在CDN上配置SSL证书实现安全的HTTPS访问-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/user-guide/configure-an-ssl-certificate",
+  "chunk_index": 21,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/cdn/documents/user-guide/configure-an-ssl-certificate.chunk-0021.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/user-guide/configure-an-ssl-certificate.md",
+  "heading_path": "需要转换的私钥 -----BEGIN PRIVATE KEY----- [私钥内容] -----END PRIVATE KEY-----# 转换命令 openssl rsa -in old_server_key.pem -out new_server_key.pem > 相关API > 友情链接",
+  "char_count": 935
+}

@@ -1,0 +1,14 @@
+{
+  "id": "redis:product-overview:1",
+  "document_id": "redis:product-overview",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "产品概述-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/",
+  "chunk_index": 1,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/product-overview.chunk-0001.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview.md",
+  "heading_path": "产品概述 > 为什么选择阿里云",
+  "char_count": 328
+}

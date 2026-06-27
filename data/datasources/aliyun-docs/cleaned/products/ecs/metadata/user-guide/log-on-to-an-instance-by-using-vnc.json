@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/log-on-to-an-instance-by-using-vnc",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "deployment",
+  "title": "通过VNC连接实例-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/log-on-to-an-instance-by-using-vnc",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/log-on-to-an-instance-by-using-vnc.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/log-on-to-an-instance-by-using-vnc.md",
+  "word_count": 685,
+  "text_units": 1974,
+  "local_links": 5,
+  "external_links": 64,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

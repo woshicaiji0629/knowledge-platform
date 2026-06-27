@@ -1,0 +1,14 @@
+{
+  "id": "vpc:use-the-gateway-route-table-to-control-traffic-entering-the-vpc:9",
+  "document_id": "vpc:use-the-gateway-route-table-to-control-traffic-entering-the-vpc",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "使用网关路由表控制进入VPC的流量-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/use-the-gateway-route-table-to-control-traffic-entering-the-vpc",
+  "chunk_index": 9,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/use-the-gateway-route-table-to-control-traffic-entering-the-vpc.chunk-0009.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/use-the-gateway-route-table-to-control-traffic-entering-the-vpc.md",
+  "heading_path": "使用网关路由表控制进入VPC的流量 > 更多操作 > 调整公网入方向路由",
+  "char_count": 977
+}

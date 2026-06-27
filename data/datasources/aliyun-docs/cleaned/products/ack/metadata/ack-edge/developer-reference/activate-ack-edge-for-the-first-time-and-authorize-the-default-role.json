@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-edge/developer-reference/activate-ack-edge-for-the-first-time-and-authorize-the-default-role",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "deployment",
+  "title": "使用Terraform首次开通ACK Edge并授权默认角色-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/activate-ack-edge-for-the-first-time-and-authorize-the-default-role",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-edge/developer-reference/activate-ack-edge-for-the-first-time-and-authorize-the-default-role.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/activate-ack-edge-for-the-first-time-and-authorize-the-default-role.md",
+  "word_count": 2320,
+  "text_units": 5004,
+  "local_links": 33,
+  "external_links": 70,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

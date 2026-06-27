@@ -1,0 +1,17 @@
+{
+  "id": "redis:user-guide/supported-parameters",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "Redis开源版支持的参数及其说明-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/supported-parameters",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/user-guide/supported-parameters.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/supported-parameters.md",
+  "word_count": 2459,
+  "text_units": 6638,
+  "local_links": 12,
+  "external_links": 77,
+  "has_tables": true,
+  "table_count": 9,
+  "quality": "accepted"
+}

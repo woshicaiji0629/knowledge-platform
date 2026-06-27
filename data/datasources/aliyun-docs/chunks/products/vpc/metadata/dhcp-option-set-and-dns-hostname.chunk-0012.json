@@ -1,0 +1,14 @@
+{
+  "id": "vpc:dhcp-option-set-and-dns-hostname:12",
+  "document_id": "vpc:dhcp-option-set-and-dns-hostname",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "DHCP选项集与DNS主机名-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/dhcp-option-set-and-dns-hostname",
+  "chunk_index": 12,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/dhcp-option-set-and-dns-hostname.chunk-0012.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/dhcp-option-set-and-dns-hostname.md",
+  "heading_path": "DHCP选项集与DNS主机名 > 启用 DNS 主机名 > Terraform",
+  "char_count": 598
+}

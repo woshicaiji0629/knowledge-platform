@@ -1,0 +1,35 @@
+### Cluster management
+
+| 命令 | 是否支持 |
+| --- | --- |
+| CLUSTER ADDSLOTS ② | ✔️ |
+| CLUSTER ADDSLOTSRANGE | ❌ |
+| CLUSTER BUMPEPOCH | ❌ |
+| CLUSTER COUNT-FAILURE-REPORTS | ✔️ |
+| CLUSTER COUNTKEYSINSLOT | ✔️ |
+| CLUSTER DELSLOTS ② | ✔️ |
+| CLUSTER DELSLOTSRANGE | ❌ |
+| CLUSTER FAILOVER ② | ✔️ |
+| CLUSTER FLUSHSLOTS | ❌ |
+| CLUSTER FORGET ② | ✔️ |
+| CLUSTER GETKEYSINSLOT ② | ✔️ |
+| CLUSTER INFO | ✔️ |
+| CLUSTER KEYSLOT | ✔️ |
+| CLUSTER LINKS | ❌ |
+| CLUSTER MEET ② | ✔️ |
+| CLUSTER MYID | ❌ |
+| CLUSTER NODES | ✔️ |
+| CLUSTER REPLICAS | ❌ |
+| CLUSTER REPLICATE ② | ✔️ |
+| CLUSTER RESET ② | ✔️ |
+| CLUSTER SAVECONFIG ② | ✔️ |
+| CLUSTER SET-CONFIG-EPOCH ② | ✔️ |
+| CLUSTER SETSLOT ② | ✔️ |
+| CLUSTER SHARDS | ❌ |
+| CLUSTER SLAVES | ✔️ |
+| CLUSTER SLOTS | ✔️ |
+| READONLY ② | ✔️ |
+| READWRITE ② | ✔️ |
+
+该文章对您有帮助吗？
+反馈

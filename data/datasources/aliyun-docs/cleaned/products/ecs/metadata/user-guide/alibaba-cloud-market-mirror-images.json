@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/alibaba-cloud-market-mirror-images",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "使用云市场镜像创建ECS实例或更换实例操作系统-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/alibaba-cloud-market-mirror-images",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/alibaba-cloud-market-mirror-images.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/alibaba-cloud-market-mirror-images.md",
+  "word_count": 745,
+  "text_units": 1621,
+  "local_links": 3,
+  "external_links": 84,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

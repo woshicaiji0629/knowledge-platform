@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-edge/product-overview/ack-edge-overview",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "selection",
+  "title": "边缘计算场景云边一体化协同托管-ACK Edge集群-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/product-overview/ack-edge-overview",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-edge/product-overview/ack-edge-overview.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/product-overview/ack-edge-overview.md",
+  "word_count": 683,
+  "text_units": 1624,
+  "local_links": 1,
+  "external_links": 72,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

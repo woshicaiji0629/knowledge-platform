@@ -1,0 +1,14 @@
+{
+  "id": "rds:product-overview/primary-apsaradb-rds-instance-types:1",
+  "document_id": "rds:product-overview/primary-apsaradb-rds-instance-types",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "performance",
+  "title": "主实例规格与核心性能参数详解-云数据库 RDS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/rds/product-overview/primary-apsaradb-rds-instance-types",
+  "chunk_index": 1,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/rds/documents/product-overview/primary-apsaradb-rds-instance-types.chunk-0001.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/product-overview/primary-apsaradb-rds-instance-types.md",
+  "heading_path": "主实例规格列表 > 各引擎主实例规格表",
+  "char_count": 1200
+}

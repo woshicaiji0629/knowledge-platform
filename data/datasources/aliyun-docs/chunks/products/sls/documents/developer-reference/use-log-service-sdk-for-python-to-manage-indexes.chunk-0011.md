@@ -1,0 +1,1 @@
+, ')', '[', ']', '{', '}', '?', '@', '&', '<', '>', '/', ':', '\n', '\t', '\r'], 'caseSensitive': True, 'alias': '', 'doc_value': True, 'chn': False}, 'status': {'type': 'long', 'alias': '', 'doc_value': True}}, 'log_reduce': False, 'max_text_len': 2048} list index success

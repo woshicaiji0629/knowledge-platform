@@ -1,0 +1,17 @@
+{
+  "id": "oss:data-protection-faq",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "troubleshoot",
+  "title": "数据保护-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/data-protection-faq",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/oss/documents/data-protection-faq.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/data-protection-faq.md",
+  "word_count": 481,
+  "text_units": 778,
+  "local_links": 0,
+  "external_links": 68,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

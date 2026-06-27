@@ -1,0 +1,14 @@
+{
+  "id": "redis:product-overview/cluster-master-replica-instances:10",
+  "document_id": "redis:product-overview/cluster-master-replica-instances",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "deployment",
+  "title": "Tair,Redis集群架构的连接模式.组件介绍-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/cluster-master-replica-instances",
+  "chunk_index": 10,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/product-overview/cluster-master-replica-instances.chunk-0010.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/cluster-master-replica-instances.md",
+  "heading_path": "集群架构 > 常见问题 > 为什么选择阿里云",
+  "char_count": 328
+}

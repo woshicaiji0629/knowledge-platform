@@ -1,0 +1,19 @@
+## 操作步骤
+访问[实例列表](https://kvstore.console.aliyun.com/Redis/instance/cn-hangzhou)，在上方选择地域，然后单击目标实例ID。
+在左侧导航栏，单击TLS（SSL）设置。
+单击一键开通。
+在弹出的对话框中，选择TLS版本。
+参数说明：
+TLSv1.3（默认推荐）：RFC8446，2018年发布，相比较TLSv1.2，TLSv1.3具有更快、更安全的特性。要求Redis引擎版本5.5及以上，Proxy小版本7.0.1及以上。若控制台无法选择TLSv1.3，请先升级实例小版本。
+TLSv1.2：RFC5246，2008年发布，具有强大的加密技术，能提供更好的安全保护。
+TLSv1.1：RFC4346，2006年发布，修复TLSv1.0若干漏洞。
+TLSv1.0：RFC2246，1999年发布，基于SSLv3.0，该版本易受各种攻击（如BEAST和POODLE）。
+单击确定。
+警告
+本操作将触发重启实例，实例会出现秒级的连接闪断，请在业务低峰期执行该操作并确保应用具备重连机制。
+此时，您可以通过刷新控制台页面，更新TLS的开通状态。
+开通TLS后，您可以单击页面中的下载CA证书，将CA证书导入至客户端中。下载的文件为压缩包，包含如下三个文件：
+ApsaraDB-CA-Chain.p7b：用于Windows系统中导入CA证书。
+ApsaraDB-CA-Chain.pem：用于其他系统（如Linux）或应用中导入CA证书。
+ApsaraDB-CA-Chain.jks：Java中的truststore证书存储文件，用于Java程序中导入CA证书链。
+不同实例下载的CA证书均相同，且证书文件没有密码，可以用于连接账号下所有Tair实例。

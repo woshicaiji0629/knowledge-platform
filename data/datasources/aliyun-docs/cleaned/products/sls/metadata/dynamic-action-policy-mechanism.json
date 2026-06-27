@@ -1,0 +1,17 @@
+{
+  "id": "sls:dynamic-action-policy-mechanism",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "告警管理的动态行动策略机制及示例-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/dynamic-action-policy-mechanism",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/dynamic-action-policy-mechanism.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/dynamic-action-policy-mechanism.md",
+  "word_count": 467,
+  "text_units": 1092,
+  "local_links": 0,
+  "external_links": 61,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

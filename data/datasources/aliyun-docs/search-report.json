@@ -1,0 +1,327 @@
+[
+  {
+    "query": "ECS 怎么选择实例规格？",
+    "request_id": "3bd2252d-485b-97d9-a4b1-26ba3f28e677",
+    "usage": {
+      "prompt_tokens": 10,
+      "total_tokens": 10
+    },
+    "results": [
+      {
+        "score": 0.7813417,
+        "id": "ecs:index:2",
+        "product": "ecs",
+        "topic": "features",
+        "title": "云服务器 ECS-云服务器 ECS-阿里云",
+        "source_url": "https://help.aliyun.com/zh/ecs/",
+        "heading_path": "云服务器 ECS > 学习路径 > 创建",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ecs/documents/index.chunk-0002.md",
+        "preview": "### 创建 实例规格 - [实例规格族](user-guide/overview-of-instance-families.md) - [实例规格分类与命名](user-guide/instance-specification-naming-and-classification.md) - [选型指导](user-guide/best-practices-for-instance-type-selection.md) 创建实例 - ["
+      },
+      {
+        "score": 0.7749065,
+        "id": "ecs:developer-reference/use-sdk-for-java:11",
+        "product": "ecs",
+        "topic": "features",
+        "title": "安装和使用Java V2.0 SDK调用API-云服务器 ECS-阿里云",
+        "source_url": "https://help.aliyun.com/zh/ecs/developer-reference/use-sdk-for-java",
+        "heading_path": "ECS Java V2.0 SDK调用示例 > 场景化示例",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ecs/documents/developer-reference/use-sdk-for-java.chunk-0011.md",
+        "preview": "6ccacea-2cc5-431f-b6d5-5931c80c3968) [调整实例的实例规格和公网带宽](https://api.aliyun.com/api-tools/demo/Ecs/9e85058e-bb8e-4f30-ba85-83f6b5633e8f) [指定实例规格获取一个或多个备选的实例规格](https://api.aliyun.com/api-tools/demo/Ecs/bc152ba0-369e-4327-a7"
+      },
+      {
+        "score": 0.77324784,
+        "id": "ecs:user-guide/best-practices-for-instance-type-selection:7",
+        "product": "ecs",
+        "topic": "performance",
+        "title": "实例规格选型方法与场景推荐-云服务器 ECS-阿里云",
+        "source_url": "https://help.aliyun.com/zh/ecs/user-guide/best-practices-for-instance-type-selection",
+        "heading_path": "ECS实例规格选型指导 > 验证与调整",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ecs/documents/user-guide/best-practices-for-instance-type-selection.chunk-0007.md",
+        "preview": "## 验证与调整 当您完成选型并开始使用云服务器ECS实例后，建议您根据一段时间的性能监控信息，验证所选实例规格是否合适。 假设您选择了ecs.g8i.xlarge，通过监控发现实例CPU使用率一直较低，建议您检查是否是由于实例内存占用率较高所致。查询方法如下： [通过](view-the-monitoring-information-of-an-ecs-instance.md)[ECS](view-the-monitoring-inf"
+      },
+      {
+        "score": 0.7648031,
+        "id": "ecs:user-guide/instance-families-that-support-instance-type-changes:3",
+        "product": "ecs",
+        "topic": "performance",
+        "title": "哪些实例规格支持变配-云服务器 ECS(ECS)-阿里云帮助中心",
+        "source_url": "https://help.aliyun.com/zh/ecs/user-guide/instance-families-that-support-instance-type-changes",
+        "heading_path": "更改实例规格说明 > 可变配的实例规格",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ecs/documents/user-guide/instance-families-that-support-instance-type-changes.chunk-0003.md",
+        "preview": "## 可变配的实例规格 更改实例规格时，支持从以下源实例规格更改到目标实例规格： 说明 可通过调用API接口[DescribeResourcesModification](../developer-reference/api-ecs-2014-05-26-describeresourcesmodification.md)查询已有实例支持的更改情况。 表 1.入门级x86计算规格族 | 源实例规格族 | 可更改的目标实例规格族 | | -"
+      },
+      {
+        "score": 0.75837636,
+        "id": "ecs:user-guide/instance-specification-naming-and-classification:3",
+        "product": "ecs",
+        "topic": "performance",
+        "title": "实例规格分类命名与核心指标解读-云服务器 ECS-阿里云",
+        "source_url": "https://help.aliyun.com/zh/ecs/user-guide/instance-specification-naming-and-classification",
+        "heading_path": "实例规格分类与命名 > 实例规格命名说明",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ecs/documents/user-guide/instance-specification-naming-and-classification.chunk-0003.md",
+        "preview": "## 实例规格命名说明 实例规格族名称格式为ecs.<规格族>，实例规格名称为ecs.<规格族>.<规格大小>。具体命名规则说明如下所示： ecs：云服务器ECS的产品代号。 <规格族>：由规格族主体+规格族后缀组成。 <规格大小>：由small、large或<nx>large组成，表示vCPU核数。small表示1 vCPU，large表示2 vCPU，xlarge表示4 vCPU。<n>中的n越大，表示vCPU核数越多，如2xlar"
+      }
+    ]
+  },
+  {
+    "query": "RDS MySQL 如何备份？",
+    "request_id": "c49d9b9e-2a2d-964c-b10b-cc7c04c28ba0",
+    "usage": {
+      "prompt_tokens": 8,
+      "total_tokens": 8
+    },
+    "results": [
+      {
+        "score": 0.77699053,
+        "id": "rds:apsaradb-rds-for-mysql/full-backup:10",
+        "product": "rds",
+        "topic": "features",
+        "title": "数据库备份的自动配置与手动执行-云数据库 RDS-阿里云-云数据库 RDS(RDS)-阿里云帮助中心",
+        "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/full-backup",
+        "heading_path": "全量备份 > 相关操作",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/rds/documents/apsaradb-rds-for-mysql/full-backup.chunk-0010.md",
+        "preview": "en-default-rds-backups-and-data-disaster-recovery.md)。 除了本文介绍的RDS自动备份功能外，RDS还支持您[手动备份](manually-back-up-an-apsaradb-rds-for-mysql-instance.md)所有库或者特定库表。 您可以[下载备份](download-the-backup-files-of-an-apsaradb-rds-for-mysql-in"
+      },
+      {
+        "score": 0.77483606,
+        "id": "rds:apsaradb-rds-for-mysql/full-backup:7",
+        "product": "rds",
+        "topic": "features",
+        "title": "数据库备份的自动配置与手动执行-云数据库 RDS-阿里云-云数据库 RDS(RDS)-阿里云帮助中心",
+        "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/full-backup",
+        "heading_path": "全量备份 > 执行备份",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/rds/documents/apsaradb-rds-for-mysql/full-backup.chunk-0007.md",
+        "preview": "## 执行备份 访问[RDS](https://rdsnext.console.aliyun.com/rdsList/basic)[实例列表](https://rdsnext.console.aliyun.com/rdsList/basic)，在上方选择地域，然后单击目标实例ID。 在页面右上角，单击备份实例。 在备份实例对话框中，备份所有库或者特定库表，单击确定。 说明 备份方式的区别，请参见[逻辑备份、物理备份与快照](https:"
+      },
+      {
+        "score": 0.7709146,
+        "id": "rds:apsaradb-rds-for-mysql/full-backup:11",
+        "product": "rds",
+        "topic": "features",
+        "title": "数据库备份的自动配置与手动执行-云数据库 RDS-阿里云-云数据库 RDS(RDS)-阿里云帮助中心",
+        "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/full-backup",
+        "heading_path": "全量备份 > 相关操作",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/rds/documents/apsaradb-rds-for-mysql/full-backup.chunk-0011.md",
+        "preview": "| 分类 | API | 描述 | | --- | --- | --- | | RDS 默认备份 | [ModifyBackupPolicy](../api-modify-backup-settings.md) | 修改 RDS 实例备份设置。 | | [DescribeBackupPolicy](../api-query-backup-settings.md) | 查询实例备份设置。 | | | [DescribeBackups](."
+      },
+      {
+        "score": 0.7578418,
+        "id": "rds:apsaradb-rds-for-mysql/backup-guide:1",
+        "product": "rds",
+        "topic": "features",
+        "title": "备份指引-云数据库 RDS(RDS)-阿里云帮助中心",
+        "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/backup-guide",
+        "heading_path": "备份指引 > 备份功能介绍",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/rds/documents/apsaradb-rds-for-mysql/backup-guide.chunk-0001.md",
+        "preview": "| 实现地域级灾难恢复，保障业务的最高可用性。 | | 稀疏备份 | 灵活设置备份策略，保留最少的备份集。 | 在保证数据可用的前提下，降低备份存储成本。 | | | 设置实例释放后备份保留策略 | 实例被释放（删除）后，其备份数据仍可再保留一段时间。 | 防止因误操作导致数据永久丢失，提供最后的恢复机会。 | | 综上，通过对上述功能的组合运用，用户可以构建出一个多维度、可灵活配置的数据保护体系，以满足在日常运维、高级容灾、性能与成本"
+      },
+      {
+        "score": 0.741132,
+        "id": "rds:apsaradb-rds-for-mysql/backup-guide:15",
+        "product": "rds",
+        "topic": "features",
+        "title": "备份指引-云数据库 RDS(RDS)-阿里云帮助中心",
+        "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/backup-guide",
+        "heading_path": "备份指引 > 备份的数据保护",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/rds/documents/apsaradb-rds-for-mysql/backup-guide.chunk-0015.md",
+        "preview": "## 备份的数据保护 防篡改： RDS MySQL的全量物理备份和日志备份数据存储在OSS，全量快照备份存储在ESSD云盘快照服务，备份系统内部使用两种存储方式，都具备WORM（write once read many）不可篡改的特性。 防恶意/误删除： 用户手动删除：允许用户删除手动备份数据，但不允许用户删除自动备份的数据（参考文档：[删除或减少备份](delete-the-backup-files-or-reduce-the-siz"
+      }
+    ]
+  },
+  {
+    "query": "OSS 如何配合 CDN 使用？",
+    "request_id": "188c36ee-b647-9c67-85cb-be46e9cd1880",
+    "usage": {
+      "prompt_tokens": 9,
+      "total_tokens": 9
+    },
+    "results": [
+      {
+        "score": 0.7983958,
+        "id": "oss:common-scenarios:0",
+        "product": "oss",
+        "topic": "selection",
+        "title": "多样化应用场景全面解析-对象存储-阿里云",
+        "source_url": "https://help.aliyun.com/zh/oss/common-scenarios",
+        "heading_path": "应用场景 > 网页或者移动应用的静态和动态资源分离",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/oss/documents/common-scenarios.chunk-0000.md",
+        "preview": "## 网页或者移动应用的静态和动态资源分离 利用海量互联网带宽，OSS可以实现海量数据的互联网并发下载。OSS提供原生的[传输加速](user-guide/transfer-acceleration.md)功能，支持上传加速、下载加速，提升跨国、跨洋数据上传、下载的体验。同时，OSS也可以结合CDN产品，提供静态内容存储、分发到边缘节点的解决方案，利用CDN边缘节点缓存的数据，提升同一个文件被同一地区客户大量重复并发下载的体验。更多信息"
+      },
+      {
+        "score": 0.78207606,
+        "id": "oss:user-guide/cdn-acceleration:0",
+        "product": "oss",
+        "topic": "features",
+        "title": "通过CDN加速访问OSS提升静态资源分发速度-对象存储(OSS)-阿里云帮助中心",
+        "source_url": "https://help.aliyun.com/zh/oss/user-guide/cdn-acceleration",
+        "heading_path": "通过CDN加速访问OSS",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/oss/documents/user-guide/cdn-acceleration.chunk-0000.md",
+        "preview": "# 通过CDN加速访问OSS 一键部署 我的部署 CDN加速为OSS提供全球分布式缓存能力。当网站或应用需要向全球用户分发存储在OSS中的静态资源（如图片、音视频、文档）时，通过配置CDN加速，可以显著提升访问速度、降低网络延迟，并削减流量成本。"
+      },
+      {
+        "score": 0.76550764,
+        "id": "cdn:use-cases/accelerate-the-retrieval-of-resources-from-an-oss-bucket-in-the-alibaba-cloud-cdn-console:0",
+        "product": "cdn",
+        "topic": "features",
+        "title": "本文档详细说明了如何通过阿里云CDN加速OSS静态资源访问，包括技术架构、配置流程及优化建议，帮助用户提升访问速度并降低源站负载。-CDN(CDN)-阿里云帮助中心",
+        "source_url": "https://help.aliyun.com/zh/cdn/use-cases/accelerate-the-retrieval-of-resources-from-an-oss-bucket-in-the-alibaba-cloud-cdn-console",
+        "heading_path": "CDN 加速 OSS 资源",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/cdn/documents/use-cases/accelerate-the-retrieval-of-resources-from-an-oss-bucket-in-the-alibaba-cloud-cdn-console.chunk-0000.md",
+        "preview": "# CDN 加速 OSS 资源 将 OSS 作为 CDN 源站，利用全球边缘节点缓存静态内容，实现用户就近访问。该方案通过 CDN 分发 OSS 中存储的图片、视频、脚本等静态资源，显著提升访问速度并降低源站负载。 使用 OSS 默认域名的用户请注意：若当前使用 OSS 默认域名（如{bucket}.oss-cn-hangzhou.aliyuncs.com）访问资源，无法在不改变 URL 链接的情况下直接转变为 CDN 加速链接。必须使"
+      },
+      {
+        "score": 0.7619728,
+        "id": "oss:user-guide/what-is-oss:7",
+        "product": "oss",
+        "topic": "features",
+        "title": "海量任意类型数据的存储访问-对象存储-阿里云",
+        "source_url": "https://help.aliyun.com/zh/oss/user-guide/what-is-oss",
+        "heading_path": "什么是对象存储OSS > OSS使用方式",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/oss/documents/user-guide/what-is-oss.chunk-0007.md",
+        "preview": "## OSS使用方式 OSS提供多种灵活的上传、下载和管理方式。 通过控制台管理OSS OSS提供了Web服务页面，您可以登录[OSS](https://oss.console.aliyun.com/overview)[控制台](https://oss.console.aliyun.com/overview)管理您的OSS资源。更多信息，请参见[OSS](../overview-of-the-oss-console.md)[管理控制台概"
+      },
+      {
+        "score": 0.75516355,
+        "id": "oss:user-guide/cdn-acceleration:11",
+        "product": "oss",
+        "topic": "features",
+        "title": "通过CDN加速访问OSS提升静态资源分发速度-对象存储(OSS)-阿里云帮助中心",
+        "source_url": "https://help.aliyun.com/zh/oss/user-guide/cdn-acceleration",
+        "heading_path": "通过CDN加速访问OSS > 应用于生产环境 > 最佳实践",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/oss/documents/user-guide/cdn-acceleration.chunk-0011.md",
+        "preview": "### 最佳实践 安全传输：启用HTTPS 为加速域名[配置](access-oss-by-https-protocol.md)[HTTPS](access-oss-by-https-protocol.md)[证书](access-oss-by-https-protocol.md)，并启用强制HTTPS跳转，实现客户端到CDN节点间的数据加密传输。HTTPS不仅能有效防止数据在传输过程中被窃取或篡改，还能避免浏览器地址栏出现不安全警告，"
+      }
+    ]
+  },
+  {
+    "query": "Redis 连接数满了怎么办？",
+    "request_id": "bae31cfd-0943-9873-b325-794c0fa7ff74",
+    "usage": {
+      "prompt_tokens": 9,
+      "total_tokens": 9
+    },
+    "results": [
+      {
+        "score": 0.7229934,
+        "id": "redis:support/common-errors-and-troubleshooting:8",
+        "product": "redis",
+        "topic": "deployment",
+        "title": "连接Tair的常见报错与解决方案-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+        "source_url": "https://help.aliyun.com/zh/redis/support/common-errors-and-troubleshooting",
+        "heading_path": "常见报错 > Redis通用异常 > ERR max number of clients reached",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/support/common-errors-and-troubleshooting.chunk-0008.md",
+        "preview": "### ERR max number of clients reached 可能原因：客户端的连接数超过了Tair实例的最大连接数。 解决方法： 检查客户端是否出现连接泄露，例如在Jedis客户端中，使用连接池后未调用close函数。 通过[实例会话](../user-guide/instance-sessions.md)查看当前连接实例的会话是否符合预期，您可以根据业务需求终止异常会话，或者通过[升级实例配置](../user-gui"
+      },
+      {
+        "score": 0.70650417,
+        "id": "redis:support/common-errors-and-troubleshooting:34",
+        "product": "redis",
+        "topic": "deployment",
+        "title": "连接Tair的常见报错与解决方案-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+        "source_url": "https://help.aliyun.com/zh/redis/support/common-errors-and-troubleshooting",
+        "heading_path": "常见报错 > Lua脚本与事务（Transaction） > BUSY Redis is busy running a script. You can only call SCRIPT KILL or SHUTDOWN NOSAVE.",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/support/common-errors-and-troubleshooting.chunk-0034.md",
+        "preview": "### BUSY Redis is busy running a script. You can only call SCRIPT KILL or SHUTDOWN NOSAVE. 可能原因：处理Lua脚本超时。 解决方法：通过SCRIPT KILL命令终止Lua脚本或等待Lua脚本执行结束，更多信息请参见[Lua](usage-of-lua-scripts.md)[脚本超时错误](usage-of-lua-scripts.md)。"
+      },
+      {
+        "score": 0.6982186,
+        "id": "redis:support/what-do-i-do-if-the-cannot-assign-requested-address-error-is-returned-when-i-access-apsaradb-for-redis-over-short-lived-connections:0",
+        "product": "redis",
+        "topic": "deployment",
+        "title": "解决因短连接导致的“Cannot assign requested address”报错-云数据库 Tair（兼容 Redis®）-阿里云",
+        "source_url": "https://help.aliyun.com/zh/redis/support/what-do-i-do-if-the-cannot-assign-requested-address-error-is-returned-when-i-access-apsaradb-for-redis-over-short-lived-connections",
+        "heading_path": "Cannot assign requested address报错 > 问题原因",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/support/what-do-i-do-if-the-cannot-assign-requested-address-error-is-returned-when-i-access-apsaradb-for-redis-over-short-lived-connections.chunk-0000.md",
+        "preview": "## 问题原因 该报错通常出现在客户端使用PHP-FPM与PhpRedis组合的架构中，这种架构在高并发场景时，处于TIME-WAIT状态下的TCP连接数较多，客户端无法分配出新的端口，则会出现Cannot assign requested address报错。"
+      },
+      {
+        "score": 0.686861,
+        "id": "redis:product-overview/notice-suggestions-for-upgrading-stackexchange-redis-clients:2",
+        "product": "redis",
+        "topic": "features",
+        "title": "【通知】StackExchange.Redis客户端升级建议-云数据库 Tair（兼容 Redis®）-阿里云",
+        "source_url": "https://help.aliyun.com/zh/redis/product-overview/notice-suggestions-for-upgrading-stackexchange-redis-clients",
+        "heading_path": "【通知】StackExchange.Redis客户端升级建议 > 详细信息 > 报错示例",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/product-overview/notice-suggestions-for-upgrading-stackexchange-redis-clients.chunk-0002.md",
+        "preview": "### 报错示例 1. StackExchange.Redis.RedisTimeoutException: Timeout performing xxx (5000ms), inst: 0, qu: 0, qs: 0, aw: False, rs: ReadAsync, ws: Idle, in: 0, in-pipe: 0, out-pipe: 0, serverEndpoint: XX.XX.XX.XX:6379, mgr: 10"
+      },
+      {
+        "score": 0.68080986,
+        "id": "redis:support/what-do-i-do-if-the-cannot-assign-requested-address-error-is-returned-when-i-access-apsaradb-for-redis-over-short-lived-connections:1",
+        "product": "redis",
+        "topic": "deployment",
+        "title": "解决因短连接导致的“Cannot assign requested address”报错-云数据库 Tair（兼容 Redis®）-阿里云",
+        "source_url": "https://help.aliyun.com/zh/redis/support/what-do-i-do-if-the-cannot-assign-requested-address-error-is-returned-when-i-access-apsaradb-for-redis-over-short-lived-connections",
+        "heading_path": "Cannot assign requested address报错 > 解决方案 > 使用Pconnect替换Connect（推荐）",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/support/what-do-i-do-if-the-cannot-assign-requested-address-error-is-returned-when-i-access-apsaradb-for-redis-over-short-lived-connections.chunk-0001.md",
+        "preview": "### 使用Pconnect替换Connect（推荐） 用长连接替代短连接，该方案可减少TCP连接，同时可以避免每次请求都会重新建立连接的问题，减少延时。 例如Connect连接代码示例如下： $redis->connect('[$Hostname]', [$Port]); $redis->auth('[$Inst_Password]'); 参数说明：[$Hostname]、[$Port]和[$Inst_Password]分别为Redi"
+      }
+    ]
+  },
+  {
+    "query": "ACK 节点池怎么扩容？",
+    "request_id": "db60ef65-24bb-915a-8263-b4c8825ac5a3",
+    "usage": {
+      "prompt_tokens": 10,
+      "total_tokens": 10
+    },
+    "results": [
+      {
+        "score": 0.71507996,
+        "id": "ack:ack-managed-and-ack-dedicated/user-guide/node-pool-overview:10",
+        "product": "ack",
+        "topic": "features",
+        "title": "对节点进行统一的生命周期管理-节点池-容器服务 Kubernetes 版 ACK-阿里云",
+        "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/node-pool-overview",
+        "heading_path": "节点池概述 > 相关术语",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/node-pool-overview.chunk-0010.md",
+        "preview": "## 相关术语 首次使用节点池前，建议了解节点池相关的概念术语。 伸缩组：当对节点池进行扩容和缩容时，ACK通过[弹性伸缩](https://help.aliyun.com/zh/auto-scaling/product-overview/what-is-auto-scaling)[ESS](https://help.aliyun.com/zh/auto-scaling/product-overview/what-is-auto-sca"
+      },
+      {
+        "score": 0.69810355,
+        "id": "ack:ack-managed-and-ack-dedicated/user-guide/create-an-ack-dedicated-cluster:22",
+        "product": "ack",
+        "topic": "features",
+        "title": "创建ACK专有集群-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+        "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/create-an-ack-dedicated-cluster",
+        "heading_path": "创建ACK专有集群 > 创建集群 > 控制台",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/create-an-ack-dedicated-cluster.chunk-0022.md",
+        "preview": "实例数量配置 | 配置项 | 描述 | | --- | --- | | 期望节点数 | 节点池应该维持的总节点数量。建议至少配置 2 个节点，以确保集群组件正常运行。您可以通过调整期望节点数，达到扩容或缩容节点池的目的，请参见 [扩缩容节点池](../developer-reference/scale-a-node-pool-1.md) 。 如无需创建节点，可填写为 0，后续再手动调整或 [添加已有节点](add-existing-ec"
+      },
+      {
+        "score": 0.6928191,
+        "id": "ack:ack-managed-and-ack-dedicated/user-guide/auto-scaling-of-nodes:8",
+        "product": "ack",
+        "topic": "features",
+        "title": "启用节点自动伸缩以实现节点的自动扩缩容-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+        "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/auto-scaling-of-nodes",
+        "heading_path": "启用节点自动伸缩 > 步骤二：配置开启弹性的节点池",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/auto-scaling-of-nodes.chunk-0008.md",
+        "preview": "| 配置 | 说明 | | --- | --- | | 扩缩容模式 | 手动 ：ACK 会根据配置的 期望节点数 调整节点池中的节点数，将节点数始终维持在 期望节点数 。详见 [手动扩缩容节点池](scale-a-node-pool.md) 。 自动 ：当集群的容量规划无法满足应用 Pod 调度时，ACK 会根据配置的最小和最大实例数自动扩缩节点资源。1.24 及以上版本的集群默认启用 节点即时弹性 ；1.24 以下版本的集群默认启用 "
+      },
+      {
+        "score": 0.6889781,
+        "id": "ack:ack-edge/user-guide/create-an-ack-edge-cluster-1:22",
+        "product": "ack",
+        "topic": "features",
+        "title": "创建ACK Edge集群-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+        "source_url": "https://help.aliyun.com/zh/ack/ack-edge/user-guide/create-an-ack-edge-cluster-1",
+        "heading_path": "创建ACK Edge集群 > 步骤三：配置云端节点池 > 节点池高级配置",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/user-guide/create-an-ack-edge-cluster-1.chunk-0022.md",
+        "preview": "### 节点池高级配置 展开高级选项（选填），配置节点扩缩容策略。 | 配置项 | 描述 | | --- | --- | | 扩缩容策略 | 配置节点池在节点扩缩容时如何选择实例。 优先级策略 ：按集群配置的 vSwitch 优先级（vSwitch 顺序由上到下优先级递减）扩缩容。优先级较高的 vSwitch 所在可用区无法创建实例时，自动使用下一优先级 vSwitch。 成本优化策略 ：按 vCPU 单价从低到高扩缩容。 节点池使用 "
+      },
+      {
+        "score": 0.68115723,
+        "id": "ack:ack-managed-and-ack-dedicated/user-guide/node-pool-overview:1",
+        "product": "ack",
+        "topic": "features",
+        "title": "对节点进行统一的生命周期管理-节点池-容器服务 Kubernetes 版 ACK-阿里云",
+        "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/node-pool-overview",
+        "heading_path": "节点池概述 > 节点池介绍",
+        "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/node-pool-overview.chunk-0001.md",
+        "preview": "## 节点池介绍 简单来说，节点池是一个配置模板，后续节点池中扩容出的节点都将使用它的配置。一个集群中可以创建多个不同配置和类型的节点池。节点池的配置包含节点的属性，例如节点实例规格、计费类型、可用区（vSwitch）、[操作系统镜像](overview-of-os-images.md)、CPU架构、标签和污点等。这些属性可以在[创建节点池](create-a-node-pool.md)时指定，也可以在创建后[编辑](create-a-"
+      }
+    ]
+  }
+]

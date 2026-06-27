@@ -1,0 +1,17 @@
+{
+  "id": "redis:support/apsaradb-for-redis-proxy-nodes",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "Proxy小版本发布公告-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/support/apsaradb-for-redis-proxy-nodes",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/support/apsaradb-for-redis-proxy-nodes.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/support/apsaradb-for-redis-proxy-nodes.md",
+  "word_count": 2596,
+  "text_units": 6551,
+  "local_links": 21,
+  "external_links": 66,
+  "has_tables": true,
+  "table_count": 40,
+  "quality": "accepted"
+}

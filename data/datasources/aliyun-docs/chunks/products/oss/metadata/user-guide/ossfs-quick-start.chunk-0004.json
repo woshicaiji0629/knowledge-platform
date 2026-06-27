@@ -1,0 +1,14 @@
+{
+  "id": "oss:user-guide/ossfs-quick-start:4",
+  "document_id": "oss:user-guide/ossfs-quick-start",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "features",
+  "title": "使用ossfs将OSS的Bucket挂载到Linux系统中-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/user-guide/ossfs-quick-start?spm=a2c4g.11186623.help-menu-31815.d_1_4.50dd7166B93Yte",
+  "chunk_index": 4,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/oss/documents/user-guide/ossfs-quick-start.chunk-0004.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/user-guide/ossfs-quick-start.md",
+  "heading_path": "使用ossfs将OSS的Bucket挂载到Linux系统中 > 安装ossfs 2.0 > CentOS/Rocky Linux",
+  "char_count": 320
+}

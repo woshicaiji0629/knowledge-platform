@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-postgresql/general-workflow-to-use-apsaradb-rds-for-postgresql",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "使用流程-云数据库 RDS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/general-workflow-to-use-apsaradb-rds-for-postgresql",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-postgresql/general-workflow-to-use-apsaradb-rds-for-postgresql.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-postgresql/general-workflow-to-use-apsaradb-rds-for-postgresql.md",
+  "word_count": 592,
+  "text_units": 1013,
+  "local_links": 1,
+  "external_links": 73,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

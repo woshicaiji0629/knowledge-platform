@@ -1,0 +1,14 @@
+{
+  "id": "vpc:dhcp-option-set-and-dns-hostname:4",
+  "document_id": "vpc:dhcp-option-set-and-dns-hostname",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "DHCP选项集与DNS主机名-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/dhcp-option-set-and-dns-hostname",
+  "chunk_index": 4,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/dhcp-option-set-and-dns-hostname.chunk-0004.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/dhcp-option-set-and-dns-hostname.md",
+  "heading_path": "DHCP选项集与DNS主机名 > 创建/删除 DHCP 选项集",
+  "char_count": 224
+}

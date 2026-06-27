@@ -1,0 +1,24 @@
+### Scripting and Functions
+
+| 命令 | 2.8 版本 | 4.0 版本 | 5.0 版本 | 6.0 版本 | 7.0 版本 |
+| --- | --- | --- | --- | --- | --- |
+| EVAL | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| EVAL_RO | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| EVALSHA | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| EVALSHA_RO | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FCALL | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FCALL_RO | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FUNCTION DELETE | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FUNCTION DUMP | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FUNCTION FLUSH | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FUNCTION HELP | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FUNCTION KILL | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FUNCTION LIST | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FUNCTION LOAD | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FUNCTION RESTORE | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FUNCTION STATS | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| SCRIPT DEBUG | ➖ | ❌ | ❌ | ❌ | ❌ |
+| SCRIPT EXISTS | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SCRIPT FLUSH | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SCRIPT KILL | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SCRIPT LOAD | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |

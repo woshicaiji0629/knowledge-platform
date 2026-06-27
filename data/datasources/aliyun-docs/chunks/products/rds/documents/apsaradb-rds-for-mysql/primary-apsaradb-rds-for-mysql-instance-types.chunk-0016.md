@@ -1,0 +1,30 @@
+| 规格代码 | CPU 核数 | 内存 | 最大连接数 |
+| --- | --- | --- | --- |
+| rds.mys2.small | 2 | 240MB | 60 |
+| rds.mys2.mid | 4 | 600MB | 150 |
+| rds.mys2.standard | 6 | 1200MB | 300 |
+| rds.mys2.large | 8 | 2400MB | 600 |
+| rds.mys2.xlarge | 9 | 6000MB | 1500 |
+| rds.mys2.2xlarge | 10 | 12000MB | 2000 |
+| rds.mys2.4xlarge | 11 | 24000MB | 2000 |
+| rds.mys2.8xlarge | 13 | 48000MB | 2000 |
+| rds.mysql.st.d13 | 30 | 220GB | 64000 |
+| mysql.x8.medium.3 | 2 | 16GB | 2500 |
+| mysql.x4.large.3 | 4 | 16GB | 2500 |
+| mysql.x8.large.3 | 4 | 32GB | 5000 |
+| mysql.x4.xlarge.3 | 8 | 32GB | 5000 |
+| mysql.x8.xlarge.3 | 8 | 64GB | 10000 |
+| mysql.x4.2xlarge.3 | 16 | 64GB | 10000 |
+| mysql.x8.2xlarge.3 | 16 | 128GB | 20000 |
+| mysql.x4.4xlarge.3 | 32 | 128GB | 20000 |
+| mysql.x8.4xlarge.3 | 32 | 256GB | 40000 |
+| mysql.st.8xlarge.3 | 60 | 470GB | 100000 |
+| mysql.n2.2xlarge.1 | 16 | 32GB | 10000 |
+| mysql.n4.2xlarge.1 | 16 | 64GB | 15000 |
+| mysql.n8.2xlarge.1 | 16 | 128GB | 20000 |
+| mysql.x2.3xlarge2c | 24 | 48GB | 24000 |
+| mysql.n4.4xlarge.1 | 32 | 128GB | 20000 |
+| mysql.n8.4xlarge.1 | 32 | 256GB | 64000 |
+| mysql.n4.8xlarge.1 | 56 | 224GB | 64000 |
+| mysql.n8.8xlarge.1 | 56 | 480GB | 64000 |
+| mysql.n1.mic

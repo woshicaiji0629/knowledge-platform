@@ -1,0 +1,14 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/what-do-i-do-if-my-apsaradb-rds-instance-is-in-the-locking-state:17",
+  "document_id": "rds:apsaradb-rds-for-mysql/what-do-i-do-if-my-apsaradb-rds-instance-is-in-the-locking-state",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "troubleshoot",
+  "title": "阿里云RDS数据库被锁定，报错LOCK_WRITE_GROWTH或LOCK_READ或LOCK_WRITE-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/what-do-i-do-if-my-apsaradb-rds-instance-is-in-the-locking-state",
+  "chunk_index": 17,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/rds/documents/apsaradb-rds-for-mysql/what-do-i-do-if-my-apsaradb-rds-instance-is-in-the-locking-state.chunk-0017.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/what-do-i-do-if-my-apsaradb-rds-instance-is-in-the-locking-state.md",
+  "heading_path": "实例状态显示“锁定中”时如何解决？ > 实例处于“锁定中”，为何存储空间会有所增加？ > 产品和定价",
+  "char_count": 272
+}

@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-argo-workflow-cluster/user-guide/configure-log-service:1",
+  "document_id": "ack:ack-argo-workflow-cluster/user-guide/configure-log-service",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "如何在工作流集群中开启和访问日志服务-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/user-guide/configure-log-service",
+  "chunk_index": 1,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-argo-workflow-cluster/user-guide/configure-log-service.chunk-0001.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-argo-workflow-cluster/user-guide/configure-log-service.md",
+  "heading_path": "使用日志服务 > 使用说明",
+  "char_count": 443
+}

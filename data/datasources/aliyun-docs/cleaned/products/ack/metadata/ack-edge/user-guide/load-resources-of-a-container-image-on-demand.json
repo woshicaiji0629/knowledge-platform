@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-edge/user-guide/load-resources-of-a-container-image-on-demand",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "加速容器运行启动-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/user-guide/load-resources-of-a-container-image-on-demand",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-edge/user-guide/load-resources-of-a-container-image-on-demand.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/user-guide/load-resources-of-a-container-image-on-demand.md",
+  "word_count": 1178,
+  "text_units": 3948,
+  "local_links": 6,
+  "external_links": 78,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "ecs:change-the-billing-method-of-an-ecs-instance-from-pay-as-you-go-to-subscription-1",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "pricing",
+  "title": "将按量付费ECS转为包年包月-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/change-the-billing-method-of-an-ecs-instance-from-pay-as-you-go-to-subscription-1",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/change-the-billing-method-of-an-ecs-instance-from-pay-as-you-go-to-subscription-1.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/change-the-billing-method-of-an-ecs-instance-from-pay-as-you-go-to-subscription-1.md",
+  "word_count": 627,
+  "text_units": 1552,
+  "local_links": 3,
+  "external_links": 71,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

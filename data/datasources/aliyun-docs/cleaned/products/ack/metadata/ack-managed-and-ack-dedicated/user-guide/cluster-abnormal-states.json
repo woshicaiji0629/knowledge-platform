@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/user-guide/cluster-abnormal-states",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "ACK集群生命周期及异常状态说明-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/cluster-abnormal-states",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/cluster-abnormal-states.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/cluster-abnormal-states.md",
+  "word_count": 1023,
+  "text_units": 2459,
+  "local_links": 10,
+  "external_links": 78,
+  "has_tables": true,
+  "table_count": 9,
+  "quality": "accepted"
+}

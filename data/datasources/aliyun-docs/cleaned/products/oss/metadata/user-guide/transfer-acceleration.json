@@ -1,0 +1,17 @@
+{
+  "id": "oss:user-guide/transfer-acceleration",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "features",
+  "title": "通过传输加速访问OSS-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/user-guide/transfer-acceleration",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/oss/documents/user-guide/transfer-acceleration.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/user-guide/transfer-acceleration.md",
+  "word_count": 873,
+  "text_units": 3050,
+  "local_links": 4,
+  "external_links": 71,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

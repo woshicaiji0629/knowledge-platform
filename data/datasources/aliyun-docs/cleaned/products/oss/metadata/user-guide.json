@@ -1,0 +1,17 @@
+{
+  "id": "oss:user-guide",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "features",
+  "title": "用户指南-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/user-guide/",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/oss/documents/user-guide.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/user-guide.md",
+  "word_count": 608,
+  "text_units": 964,
+  "local_links": 0,
+  "external_links": 84,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

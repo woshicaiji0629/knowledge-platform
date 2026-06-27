@@ -1,0 +1,5 @@
+### 3. 执行Terraform代码
+运行terraform apply以完成ECS实例及其依赖资源的自动创建和Python的自动安装。在创建过程中，需要按照提示输入yes，以允许Terraform创建所有定义的资源。
+terraform apply
+如下所示的信息表示ECS及所依赖资源均已创建成功。
+... Do you want to perform these actions? Terraform will perform the actions described above. Only 'yes' will be accepted to approve. Enter a value: yes alicloud_vpc.vpc: Creating... alicloud_vpc.vpc: Creation complete after 6s [id=vpc-2vcsghlpznz74XXXXXXXX] alicloud_security_group.default: Creating... alicloud_vswitch.vsw: Creating... alicloud_security_group.default: Creation complete after 1s [id=sg-2vcdz6b8h9c3XXXXXXXX] alicloud_security_group_rule.allow_tcp_22: Creating... alicloud_security_group_rule.allow_tcp_22: Creation complete after 0s [id=sg-2vcdz6b8h9c3XXXXXXXX:ingress:tcp:22/22:intranet:0.0.0.0/0:accept:1] alicloud_vswitch.vsw: Creation complete after 4s [id=vsw-2vc50dknug30bXXXXXXXX] alicloud_instance.instance: Creating... alicloud_instance.instance: Still creating... [10s elapsed] alicloud_instance.instance: Creation complete after 15s [id=i-2vc3rf151bwcXXXXXXXX] Apply complete! Resources: 5 added, 0 changed, 0 destroyed. Outputs: public_ip = [ "4XX.XXX.XXX.XX7", ]

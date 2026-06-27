@@ -1,0 +1,9 @@
+ized-instance-families-1.md)
+[GPU](gpu-accelerated-compute-optimized-and-vgpu-accelerated-instance-families-1.md)[云服务器（gn/vgn/sgn](gpu-accelerated-compute-optimized-and-vgpu-accelerated-instance-families-1.md)[系列）](gpu-accelerated-compute-optimized-and-vgpu-accelerated-instance-families-1.md)
+[GPU](overview-of-instance-families.md)[计算型实例规格族](overview-of-instance-families.md)[gn9gc](overview-of-instance-families.md)
+[GPU](gpu-accelerated-compute-optimized-and-vgpu-accelerated-instance-families-1.md)[计算型实例规格族](gpu-accelerated-compute-optimized-and-vgpu-accelerated-instance-families-1.md)[gn8v/gn8v-tee](gpu-accelerated-compute-optimized-and-vgpu-accelerated-instance-families-1.md)
+[GPU](elastic-bare-metal-server-overview.md)[计算型弹性裸金属服务器实例规格族](elastic-bare-metal-server-overview.md)[ebmgn8v](elastic-bare-metal-server-overview.md)
+[GPU](elastic-bare-metal-server-overview.md)[计算型弹性裸金属服务器实例规格族](elastic-bare-metal-server-overview.md)[ebmgn8is](elastic-bare-metal-server-overview.md)
+[高性能计算优化型实例规格族](overview-of-hpc-optimized-instance-families.md)[hpc8i](overview-of-hpc-optimized-instance-families.md)
+[通用型实例规格族](overview-of-instance-families.md)[g9i](overview-of-instance-families.md)
+[计算型实例规格族

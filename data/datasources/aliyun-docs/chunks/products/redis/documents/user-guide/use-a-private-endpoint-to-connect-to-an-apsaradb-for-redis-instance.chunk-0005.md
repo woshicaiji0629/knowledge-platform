@@ -1,0 +1,6 @@
+## Jedis
+本示例的Jedis版本为4.3.0，更多信息请参见[Jedis](https://github.com/xetorthio/jedis/wiki/Getting-started)。
+使用自定义连接池（推荐）
+import redis.clients.jedis.*; import java.util.HashSet; import java.util.Set; public class DirectTest { private static final int DEFAULT_TIMEOUT = 2000; private static final int DEFAULT_REDIRECTIONS = 5; private static final ConnectionPoolConfig config = new ConnectionPoolConfig(); public static void main(String args[]) { // 最大连接数，由于直连模式为客户端直接连接某个数据库分片，需要保证：业务机器数 * MaxTotal < 单个数据库分片的最大连接数。 config.setMaxTotal(30); // 最大空闲连接数, 根据业务需要设置。 config.setMaxIdle(20); config.setMinIdle(15); // 开通直连访问时申请到的直连地址。 String host = "r-bp1xxxxxxxxxxxx.redis.rds.aliyuncs.com"; int port = 6379; // 实例的密码。 String password = "xxxxx"; Set<HostAndPort> jedisClusterNode = new HashSet<HostAndPort>(); jedisClusterNode.add(new HostAndPort(host, port)); JedisCluster jc = new JedisCluster(jedisClusterNode, DEFAULT_TIMEOUT, DEFAULT_TIMEOUT, DEFAULT_REDIRECTIONS, password, "clientName", config); jc.set("key", "value"); jc.get("key"); jc.close(); // 当应用退出，需销毁资源时，调用此方法。此方法会断开连接、释放资源。 } }
+使用默认连接池
+import redis.clients.jedis.ConnectionPoolConfig; import redis.clients.jedis.HostAndPort; import redis.clients.je

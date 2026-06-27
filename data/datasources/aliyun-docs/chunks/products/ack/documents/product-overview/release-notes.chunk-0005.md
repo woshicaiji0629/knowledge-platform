@@ -1,0 +1,6 @@
+| 产品 | 功能名称 | 功能描述 | 相关文档 |
+| --- | --- | --- | --- |
+| 容器服务 Kubernetes 版 | ACK AI 助手发布 Agent 模式 | AI 助手发布 Agent 模式，支持故障疑难根因分析、最佳实践推荐，简化集群运维。 | [授权使用容器服务计算](../ack-managed-and-ack-dedicated/user-guide/add-authorization.md) [AI](../ack-managed-and-ack-dedicated/user-guide/add-authorization.md) [助手](../ack-managed-and-ack-dedicated/user-guide/add-authorization.md) [Agent](../ack-managed-and-ack-dedicated/user-guide/add-authorization.md) [功能](../ack-managed-and-ack-dedicated/user-guide/add-authorization.md) |
+| 发布 ContainerOS v3.7 | ContainerOS v3.7 新增预装 GPU 驱动的 ContainerOS 镜像。 | [ContainerOS](../ack-managed-and-ack-dedicated/user-guide/containeros-release-record.md) [镜像发布记录](../ack-managed-and-ack-dedicated/user-guide/containeros-release-record.md) |  |
+| 发布 Kubernetes 1.35 | ACK 发布 Kubernetes 1.35 版本。自 1.35 版本起，不再支持 cgroup v1，对 cgroup v2 的支持已在 1.25 版本进入稳定阶段。节点操作系统必须升级以支持 cgroup v2，否则 kubelet 将无法启动。详细变更说明参见文档。 | [Kubernetes 1.35](../ack-managed-and-ack-dedicated/user-guide/kubernetes-1-35-release-notes.md) |  |
+| 在 Knative 中基于 AI 推理网关实现 LLM 服务部署与智能路由 | ACK Gateway with Inference Extension 组件基于 Kubernetes Gateway API 及 Inference Extension 规范实现。结合 Knative Serverless 架构，该方案能够简化生成式 AI 推理

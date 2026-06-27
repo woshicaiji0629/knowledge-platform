@@ -1,0 +1,11 @@
+## 常见问题
+检查Logtail是否加载Logtail配置。
+通常情况下，保存local_event.json文件后，Logtail会在1分钟内将文件内容加载到内存中，并将local_event.json文件中的内容清空。
+您可以通过以下方式检查Logtail是否已加载Logtail采集配置。
+local_event.json文件中的内容被清空，则说明Logtail已读取到事件信息。
+检查Logtail安装目录中的ilogtail.LOG文件中是否包含process local event参数。如果local_event.json文件被清空但未查询到process local event参数，可能是因为local_event.json文件内容不合法而被过滤。
+已加载Logtail采集配置但未采集到数据，是什么原因？
+Logtail采集配置不合法。
+local_event.json文件配置不合法。
+日志文件不在Logtail采集配置已设定的路径下。
+该日志文件已被Logtail采集过。

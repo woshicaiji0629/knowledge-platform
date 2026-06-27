@@ -1,0 +1,17 @@
+{
+  "id": "sls:billable-items",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "pricing",
+  "title": "日志服务费用的组成及付费方式-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/billable-items",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/billable-items.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/billable-items.md",
+  "word_count": 1570,
+  "text_units": 5657,
+  "local_links": 0,
+  "external_links": 74,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

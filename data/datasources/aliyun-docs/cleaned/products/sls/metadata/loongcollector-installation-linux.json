@@ -1,0 +1,17 @@
+{
+  "id": "sls:loongcollector-installation-linux",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "deployment",
+  "title": "如何在Linux系统安装LoongCollector-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/loongcollector-installation-linux",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/loongcollector-installation-linux.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/loongcollector-installation-linux.md",
+  "word_count": 2354,
+  "text_units": 7780,
+  "local_links": 3,
+  "external_links": 122,
+  "has_tables": true,
+  "table_count": 8,
+  "quality": "accepted"
+}

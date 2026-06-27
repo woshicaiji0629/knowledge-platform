@@ -1,0 +1,14 @@
+{
+  "id": "sls:how-do-i-query-logs-by-using-fuzzy-match:1",
+  "document_id": "sls:how-do-i-query-logs-by-using-fuzzy-match",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "使用查询语法、like和正则函数进行日志模糊查询-日志服务-阿里云",
+  "source_url": "https://help.aliyun.com/zh/sls/how-do-i-query-logs-by-using-fuzzy-match",
+  "chunk_index": 1,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/how-do-i-query-logs-by-using-fuzzy-match.chunk-0001.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/how-do-i-query-logs-by-using-fuzzy-match.md",
+  "heading_path": "如何模糊查询日志？ > 通过查询语法进行模糊查询 > 用法",
+  "char_count": 127
+}

@@ -1,0 +1,14 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/migrate-data-from-a-google-cloud-sql-for-mysql-instance-to-an-apsaradb-rds-for-mysql-instance:14",
+  "document_id": "rds:apsaradb-rds-for-mysql/migrate-data-from-a-google-cloud-sql-for-mysql-instance-to-an-apsaradb-rds-for-mysql-instance",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "谷歌云MySQL数据库迁移到阿里云的步骤-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/migrate-data-from-a-google-cloud-sql-for-mysql-instance-to-an-apsaradb-rds-for-mysql-instance",
+  "chunk_index": 14,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/rds/documents/apsaradb-rds-for-mysql/migrate-data-from-a-google-cloud-sql-for-mysql-instance-to-an-apsaradb-rds-for-mysql-instance.chunk-0014.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/migrate-data-from-a-google-cloud-sql-for-mysql-instance-to-an-apsaradb-rds-for-mysql-instance.md",
+  "heading_path": "Google Cloud SQL for MySQL数据库迁移到阿里云 > 操作步骤（新版控制台） > 通过DMS控制台进入",
+  "char_count": 528
+}

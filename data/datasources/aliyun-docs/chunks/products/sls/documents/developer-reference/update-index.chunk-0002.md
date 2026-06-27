@@ -1,0 +1,6 @@
+## 示例
+修改后的indexdetail.json文件。其内容示例如下：
+{ "keys": { "key1": { "caseSensitive": false, "token": [ ",", " ", "'", "\"", ";", "=", "(", ")", "[", "]", "{", "}", "?", "@", "&", "<", ">", "/", ":", "\n", "\t" ], "type": "text", "doc_value": true }, "key2": { "caseSensitive": false, "token": [ ",", " ", "'", "\"", ";", "=", "(", ")", "[", "]", "{", "}", "?", "@", "&", "<", ">", "/", ":", "\n", "\t" ], "type": "text", "doc_value": true }, "key3": { "caseSensitive": false, "token": [ ",", " ", "'", "\"", ";", "=", "(", ")", "[", "]", "{", "}", "?", "@", "&", "<", ">", "/", ":", "\n", "\t" ], "type": "text", "doc_value": true }, "key4": { "caseSensitive": false, "token": [ ",", " ", "'", "\"", ";", "=", "(", ")", "[", "]", "{", "}", "?", "@", "&", "<", ">", "/", ":", "\n", "\t" ], "type": "text", "doc_value": true } }, "storage": "pg", "ttl": 2, "index_mode": "v2", "line": { "caseSensitive": false, "token": [ ",", " ", "'", "\"", ";", "=", "(", ")", "[", "]", "{", "}", "?", "@", "&", "<", ">", "/", ":", "\n", "\t" ] } }
+使用默认账号修改logstore-a的索引配置。命令示例如下：
+aliyunlog log update_index --project_name="aliyun-test-project" --logstore_name="logstore-a" --index_detail="file://./indexdetail.json"
+查询已索引配置

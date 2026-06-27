@@ -1,0 +1,6 @@
+## 控制网络流量
+您可以使用以下方法来控制VPC中资源的网络流量：
+创建VPC类型的ECS实例时，可以使用系统提供的默认安全组规则，也可以选择VPC中已有的其他安全组来控制ECS实例的出站和入站流量。[安全组](../../ecs/documents/user-guide/overview-44.md)是VPC内的虚拟防火墙，能够控制进出ECS实例的流量。通过将具有相同安全需求并相互信任的ECS实例放入相同的安全组，可以划分安全域，保障云上资源的安全。此外，[网络](network-acl-overview.md)[ACL](network-acl-overview.md)能够控制进出交换机的流量，通过将多个交换机绑定相同的网络ACL，可统一控制进出多个交换机的流量。结合使用安全组和网络ACL，可以有效地保护VPC内的资源安全。
+[IPv4](ipv4-gateway-overview.md)[网关](ipv4-gateway-overview.md)是VPC边界上的公网IPv4流量控制组件。结合路由表配置，可以实现控制公网访问流量统一经过IPv4网关，降低分散接入带来的安全风险。
+[IPv6](https://help.aliyun.com/zh/ipv6-gateway/product-overview/what-is-an-ipv6-gateway/)[网关](https://help.aliyun.com/zh/ipv6-gateway/product-overview/what-is-an-ipv6-gateway/)是VPC的公网IPv6流量网关，通过[配置](https://help.aliyun.com/zh/ipv6-gateway/user-guide/enable-and-manage-ipv6-internet-bandwidth)[IPv6](https://help.aliyun.com/zh/ipv6-gateway/user-guide/enable-and-manage-ipv6-internet-bandwidth)[公网带宽](https://help.aliyun.com/zh/ipv6-gateway/user-guide/enable-and-manage-ipv6-internet-bandwidth)和[仅主动出规则](https://help.aliyun.com/zh/ipv6-gateway/user-guide/create-and-manage-an-egress-only-rule)，可以灵活定义IPv6的出流量和入流量。
+创建[自定义路由表](network-traffic-management-using-custom-routing-tables.md)并绑定交换机，添加自定义路由条目来控制

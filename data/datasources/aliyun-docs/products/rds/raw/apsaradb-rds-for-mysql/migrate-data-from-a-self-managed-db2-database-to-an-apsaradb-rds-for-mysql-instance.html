@@ -1,0 +1,711 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    如何将自建的Db2迁移至RDSMySQL-云数据库 RDS(RDS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/migrate-data-from-a-self-managed-db2-database-to-an-apsaradb-rds-for-mysql-instance">
+  <meta name="keywords" content="迁移Db2到RDS MySQL,配置DTS迁移任务,Db2迁移RDS MySQL方法,DTS迁移操作步骤">
+  <meta name="description" content="本文介绍如何使用数据传输服务DTS（Data Transmission Service），将自建的Db2数据库迁移至RDS MySQL或RDS MySQL Serverless实例。DTS支持结构迁移、全量数据迁移以及增量数据迁移，同时使用这三种迁移类型可以实现在自建应用不停服的情况下，平滑地完成Db2数据库的迁移。">
+  <meta name="last-modified" content="2026-05-22T15:36:49+08:00">
+  <meta name="date" content="2019-12-24T09:44:12+08:00">
+  <meta property="og:title" content="从自建Db2迁移至RDS MySQL">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/migrate-data-from-a-self-managed-db2-database-to-an-apsaradb-rds-for-mysql-instance">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="本文介绍如何使用数据传输服务DTS（Data Transmission Service），将自建的Db2数据库迁移至RDS MySQL或RDS MySQL Serverless实例。DTS支持结构迁移、全量数据迁移以及增量数据迁移，同时使用这三种迁移类型可以实现在自建应用不停服的情况下，平滑地完成Db2数据库的迁移。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/migrate-data-from-a-self-managed-db2-database-to-an-apsaradb-rds-for-mysql-instance",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "147334",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/rds/apsaradb-rds-for-mysql/migrate-data-from-a-self-managed-db2-database-to-an-apsaradb-rds-for-mysql-instance","nodeId":null,"data":{"lastModifiedTime":1779435409000,"keywords":"迁移Db2到RDS MySQL,配置DTS迁移任务,Db2迁移RDS MySQL方法,DTS迁移操作步骤","docTitle":"从自建Db2迁移至RDS MySQL","language":"zh","seoTitle":"如何将自建的Db2迁移至RDSMySQL-云数据库 RDS(RDS)-阿里云帮助中心","title":"从自建Db2迁移至RDS MySQL","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"concept-610089\">\n    \n    \n    <p id=\"shortdesc-sbk-9bq-fkc\" data-tag=\"shortdesc\" class=\"shortdesc\">本文介绍如何使用数据传输服务<span class=\"help-letter-space\"></span>DTS（Data Transmission Service），将自建的<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>数据库迁移至<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"ph-env-fjp-rq0\" is-conref=\"true\" class=\"ph\">RDS MySQL</span><span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"ph-bo3-pse-jzs\" props=\"china\" is-conref=\"true\" data-cond-props=\"china\" class=\"ph\">或<span class=\"help-letter-space\"></span>RDS MySQL Serverless</span><span class=\"help-letter-space\"></span>实例。DTS<span class=\"help-letter-space\"></span>支持结构迁移、全量数据迁移以及增量数据迁移，同时使用这三种迁移类型可以实现在自建应用不停服的情况下，平滑地完成<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>数据库的迁移。</p>\n    <div data-tag=\"conbody\" id=\"conbody-9ny-tje-htk\" class=\"conbody\">\n      <section data-tag=\"section\" id=\"section-830-ewm-05y\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-ep3-743-nev\" class=\"title\">前提条件</h2>\n        <ul data-tag=\"ul\" id=\"ul-ixd-hf1-vhb\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-74g-nuf-bup\" class=\"li\">\n            <p id=\"a72f51bf74alr\">Db2<span class=\"help-letter-space\"></span>数据库版本为<span class=\"help-letter-space\"></span>9.7~11.5<span class=\"help-letter-space\"></span>版本。</p>\n            <div data-tag=\"note\" id=\"note-rwu-2au-r0x\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n              <p id=\"1b5df212bb6gl\">DTS<span class=\"help-letter-space\"></span>也支持迁移<span class=\"help-letter-space\"></span>7.3、7.4<span class=\"help-letter-space\"></span>版本的<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>数据库至<span class=\"help-letter-space\"></span>RDS MySQL，配置方式与<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>数据库迁移至<span class=\"help-letter-space\"></span>RDS MySQL<span class=\"help-letter-space\"></span>类似，您可参考本文介绍的迁移任务配置方式进行配置。</p>\n            </div></div>\n          </li>\n          <li data-tag=\"li\" id=\"li-d1a-2z1-ah3\" class=\"li\">\n            <p id=\"58fa2a8bb28np\"><span data-tag=\"ph\" id=\"ph-7m2-20v-rw0\" is-conref=\"true\" class=\"ph\">RDS MySQL</span><span class=\"help-letter-space\"></span>的存储空间须大于<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>数据库占用的存储空间。</p>\n          </li>\n        </ul>\n      </section>\n      <section data-tag=\"section\" id=\"section-pw1-w3w-n0l\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-9eb-8ra-zu4\" class=\"title\">注意事项</h2>\n        <ul data-tag=\"ul\" id=\"ul-and-221-vhb\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-ssa-ov3-2pi\" class=\"li\">\n            <p id=\"58a6b048f6yen\">不支持<span class=\"help-letter-space\"></span>DDL<span class=\"help-letter-space\"></span>操作的同步。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-lyz-2yi-1vd\" class=\"li\">\n            <p id=\"0c557251f2s0u\">如果待迁移数据库名称不符合阿里云<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>的定义规范，您需要在配置迁移任务之前在阿里云<span class=\"help-letter-space\"></span>RDS MySQL<span class=\"help-letter-space\"></span>中创建数据库。 </p>\n            <div data-tag=\"note\" id=\"note-s01-0f5-dgc\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n              <p id=\"f1ed8d00e4gph\">关于阿里云<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>的定义规范和创建数据库的操作方法，请参见<span props=\"china\"><a href=\"https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/create-a-database-for-an-apsaradb-rds-for-mysql-instance\" id=\"xref-9tt-j6w-mk4\" class=\"\" target=\"_blank\">创建数据库</a></span>。</p>\n            </div></div>\n          </li>\n          <li data-tag=\"li\" id=\"li-owf-nw0-zl3\" is-conref=\"true\" class=\"li\">\n            <p id=\"3dea980466s4m\">DTS<span class=\"help-letter-space\"></span>在执行全量数据迁移时将占用源库和目标库一定的读写资源，可能会导致数据库的负载上升，在数据库性能较差、规格较低或业务量较大的情况下（例如源库有大量慢<span class=\"help-letter-space\"></span>SQL、存在无主键表或目标库存在死锁等），可能会加重数据库压力，甚至导致数据库服务不可用。因此您需要在执行数据迁移前评估源库和目标库的性能，同时建议您在业务低峰期执行数据迁移（例如源库和目标库的<span class=\"help-letter-space\"></span>CPU<span class=\"help-letter-space\"></span>负载在<span class=\"help-letter-space\"></span>30%以下）。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-ni3-ogw-nfz\" class=\"li\">\n            <p id=\"2c13bf88bd0ed\">对于迁移失败的任务，DTS<span class=\"help-letter-space\"></span>会触发自动恢复。在将业务切换至目标实例前，请务必先结束或释放该任务，避免该任务被自动恢复后，源端数据覆盖目标实例的数据。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-gkh-3oq-pmw\" class=\"li\">\n            <p id=\"a1ce2954b6ql1\">由于<span class=\"help-letter-space\"></span>DTS<span class=\"help-letter-space\"></span>基于<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>CDC<span class=\"help-letter-space\"></span>复制技术，将<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>数据库的增量更新数据同步到目标库中，但是<span class=\"help-letter-space\"></span>CDC<span class=\"help-letter-space\"></span>复制技术自身具有限制，请参见<span class=\"help-letter-space\"></span><a href=\"https://www.ibm.com/support/knowledgecenter/SSTRGZ_11.4.0/com.ibm.swg.im.iis.db.repl.sqlrepl.doc/topics/iiyrssubdatarestrict.html\" id=\"xref-1m8-5zy-5dm\" class=\"\" target=\"_blank\">CDC<span class=\"help-letter-space\"></span>复制技术所支持数据类型的限制</a>。 </p>\n          </li>\n        </ul>\n      </section>\n      <section data-tag=\"section\" id=\"section-stg-onv-5f6\" data-type=\"section\" is-conref=\"true\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-63u-ub1-od0\" class=\"title\">费用说明</h2>\n        <table id=\"table-zd1-2fx-roa\" tablewidth=\"100\" tablecolswidth=\"27.26 27.26 45.48\" autofit=\"true\" class=\"table\">\n          <colgroup colwidth=\"0.83*\" style=\"width:27.26%\"></colgroup>\n          <colgroup colwidth=\"0.83*\" style=\"width:27.26%\"></colgroup>\n          <colgroup colwidth=\"1.38*\" style=\"width:45.48%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-l6h-g39-nae\">\n              <td id=\"concept-267781-entry-3ii-k0x-ekf\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"4ec83eb0e40sr\"><b>迁移类型</b></p>\n              </td>\n              <td id=\"concept-267781-entry-3rx-uwn-63j\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"4ec83eb1e4ok5\"><b>链路配置费用</b></p>\n              </td>\n              <td id=\"concept-267781-entry-00b-vft-adn\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"4ec83eb2e4wmf\"><b>公网流量费用</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-vlc-9ok-1bx\">\n              <td id=\"entry-xny-mam-swt\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0)\" colspan=\"1\">\n                <p id=\"4ec83eb3e4vkg\">结构迁移和全量数据迁移</p>\n              </td>\n              <td id=\"entry-d4x-u2m-nbr\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0)\" colspan=\"1\">\n                <p id=\"4ec865c0e4mix\">不收费。</p>\n              </td>\n              <td id=\"entry-1l5-y74-y9x\" rowspan=\"2\" style=\"background-color:rgba(0, 0, 0, 0)\" colspan=\"1\">\n                <p id=\"4ec865c1e4w2j\">当目标库的<b id=\"uicontrol-e93-ps9-2i3\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">接入方式</b>为<b id=\"uicontrol-p1q-8sc-ing\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">公网<span class=\"help-letter-space\"></span>IP</b><span class=\"help-letter-space\"></span>时收取公网流量费用。更多信息，请参见<a href=\"https://help.aliyun.com/zh/dts/product-overview/billing-overview#concept-261679\" id=\"2b149ced504bo\" title=\"\" class=\"xref\">计费概述</a>。</p>\n              </td>\n            </tr>\n            <tr id=\"row-lam-paf-ff0\">\n              <td id=\"entry-y98-8rd-jce\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0)\" colspan=\"1\">\n                <p id=\"4ec865c2e4yt0\">增量数据迁移</p>\n              </td>\n              <td id=\"entry-tik-sef-jjl\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0)\" colspan=\"1\">\n                <p id=\"4ec865c3e4zdv\">收费，详情请参见<a href=\"https://help.aliyun.com/zh/dts/product-overview/billing-overview#concept-261679\" id=\"xref-own-5w9-opu\" title=\"\" class=\"xref\">计费概述</a>。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </section>\n      <section data-tag=\"section\" id=\"section-mjh-vxq-5hb\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-g8e-4on-i11\" class=\"title\">迁移类型说明</h2>\n        <ul data-tag=\"ul\" id=\"ul-smj-bd1-vhb\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-9uz-ntt-e2y\" class=\"li\">\n            <p id=\"8eb812d37bl0o\">结构迁移 </p>\n            <p data-tag=\"p\" id=\"p-kst-vgi-wqp\" class=\"p\">DTS<span class=\"help-letter-space\"></span>将迁移对象的结构定义迁移到目标实例，目前<span class=\"help-letter-space\"></span>DTS<span class=\"help-letter-space\"></span>支持结构迁移的对象为表、索引和外键。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-oeu-y1n-q1c\" class=\"li\">\n            <p id=\"04bd2e7003q4k\">全量数据迁移 </p>\n            <p data-tag=\"p\" id=\"p-iih-ebn-b5j\" class=\"p\">DTS<span class=\"help-letter-space\"></span>会将<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>数据库迁移对象的存量数据，全部迁移到目标<span class=\"help-letter-space\"></span>RDS MySQL<span class=\"help-letter-space\"></span>数据库中。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-f5b-ua4-btk\" class=\"li\">\n            <p id=\"f6aa46f0b2slm\">增量数据迁移 </p>\n            <p data-tag=\"p\" id=\"p-qoc-795-ctn\" class=\"p\">在全量迁移的基础上，DTS<span class=\"help-letter-space\"></span>将<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>数据库的增量更新数据同步到目标<span class=\"help-letter-space\"></span>RDS MySQL<span class=\"help-letter-space\"></span>中。通过增量数据迁移可以实现在自建应用不停服的情况下，平滑地完成<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>数据库的迁移。</p>\n          </li>\n        </ul>\n      </section>\n      <section data-tag=\"section\" id=\"section-bjn-5zq-5hb\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-fql-wwj-9ga\" class=\"title\">数据库账号的权限要求</h2>\n        <table id=\"table-vf1-k21-vhb\" tablewidth=\"708\" tablecolswidth=\"177 177 177 177\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"1*\" style=\"width:25.00%\"></colgroup>\n          <colgroup colwidth=\"1*\" style=\"width:25.00%\"></colgroup>\n          <colgroup colwidth=\"1*\" style=\"width:25.00%\"></colgroup>\n          <colgroup colwidth=\"1*\" style=\"width:25.00%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-xf1-1fc-krp\">\n              <td id=\"concept-610089-entry-zdt-16v-710\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"50cad7e72fesa\"><b>数据库</b></p>\n              </td>\n              <td id=\"concept-610089-entry-jvy-zuu-9zf\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"6b251e6525ff1\"><b>结构迁移</b></p>\n              </td>\n              <td id=\"concept-610089-entry-ik0-j89-xie\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"33f2bd21b9ylx\"><b>全量迁移</b></p>\n              </td>\n              <td id=\"concept-610089-entry-qk9-sot-pp3\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"6f37c82786g4g\"><b>增量迁移</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-xy5-oic-rh2\">\n              <td id=\"entry-l2v-v8d-b6h\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"84baf73504pu6\">Db2<span class=\"help-letter-space\"></span>数据库</p>\n              </td>\n              <td id=\"entry-392-9ed-21o\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cd53127741p78\">CONNECT、SELECT<span class=\"help-letter-space\"></span>权限</p>\n              </td>\n              <td id=\"entry-ueo-xmh-o8q\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"39811756872um\">CONNECT、SELECT<span class=\"help-letter-space\"></span>权限</p>\n              </td>\n              <td id=\"entry-9lx-2ni-anl\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"d1d6fce5963ku\">DBADM<span class=\"help-letter-space\"></span>权限</p>\n              </td>\n            </tr>\n            <tr id=\"row-0hq-40b-a76\">\n              <td id=\"entry-qir-14s-4mp\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"7110e5ca2acrq\"><span data-tag=\"ph\" id=\"ph-w77-uez-g90\" is-conref=\"true\" class=\"ph\">RDS MySQL</span><span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"ph-ct2-i2y-6ft\" props=\"china\" is-conref=\"true\" data-cond-props=\"china\" class=\"ph\">或<span class=\"help-letter-space\"></span>RDS MySQL Serverless</span><span class=\"help-letter-space\"></span>实例</p>\n              </td>\n              <td id=\"entry-wne-pbo-cmp\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"3bd7000b91zqr\">读写权限</p>\n              </td>\n              <td id=\"entry-mlo-5g6-01w\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"893c8b26bdpj3\">读写权限</p>\n              </td>\n              <td id=\"entry-77e-ykm-n33\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"28260882e4wnj\">读写权限</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <p data-tag=\"p\" id=\"p-l83-ky0-001\" class=\"p\">数据库账号创建及授权方法：</p>\n        <ul data-tag=\"ul\" id=\"ul-ul6-l2d-kjq\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-6hv-c6g-ql6\" class=\"li\">\n            <p id=\"c66f7cd3d6kmi\">Db2<span class=\"help-letter-space\"></span>数据库请参见<a href=\"https://www.ibm.com/support/knowledgecenter/zh/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0006742.html#t0006742\" id=\"xref-c4j-mux-4i1\" class=\"\" target=\"_blank\">创建用户</a>和<a href=\"https://www.ibm.com/support/knowledgecenter/zh/SSEPGG_11.1.0/com.ibm.db2.luw.admin.sec.doc/doc/c0055206.html\" id=\"xref-ioo-m1k-s2n\" class=\"\" target=\"_blank\">权限概述</a>。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-tf8-m3q-rvl\" class=\"li\">\n            <p id=\"05c579250bcb3\"><span data-tag=\"ph\" id=\"ph-68w-kun-7ah\" is-conref=\"true\" class=\"ph\">RDS MySQL</span><span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"ph-ssf-fnz-otx\" props=\"china\" is-conref=\"true\" data-cond-props=\"china\" class=\"ph\">或<span class=\"help-letter-space\"></span>RDS MySQL Serverless</span><span class=\"help-letter-space\"></span>请参见<span props=\"china\"><a href=\"https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/create-an-account-on-an-apsaradb-rds-for-mysql-instance\" id=\"xref-ch9-45n-qwf\" class=\"\" target=\"_blank\">创建账号</a></span>和<span props=\"china\"><a href=\"https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/modify-the-permissions-of-a-standard-account-on-an-apsaradb-rds-for-mysql-instance\" id=\"xref-1ru-ykh-m77\" class=\"\" target=\"_blank\">修改账号权限</a></span>。</p>\n          </li>\n        </ul>\n      </section>\n      <section data-tag=\"section\" id=\"section-hrh-2q5-13b\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-xc4-m7k-u2g\" class=\"title\">数据迁移流程</h2>\n        <div data-tag=\"p\" id=\"p-wp9-zh9-u5w\" class=\"p\">\n          <p id=\"44acab1e4b4yy\">为解决对象间的依赖，提高迁移成功率，DTS<span class=\"help-letter-space\"></span>对<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>数据库结构和数据的迁移流程如下： </p>\n          <ol data-tag=\"ol\" id=\"ol-m3d-hq5-13b\" class=\"ol\">\n            <li data-tag=\"li\" id=\"li-xc1-q6z-fcr\" class=\"li\">\n              <p id=\"46aa96ef6fs6d\">执行表结构和索引的迁移。</p>\n            </li>\n            <li data-tag=\"li\" id=\"li-aaf-w2o-j2d\" class=\"li\">\n              <p id=\"fa620f2646pkr\">执行全量数据迁移。</p>\n            </li>\n            <li data-tag=\"li\" id=\"li-alh-9e8-fwr\" class=\"li\">\n              <p id=\"5d5ba01ec30zk\">执行外键的结构迁移。</p>\n            </li>\n            <li data-tag=\"li\" id=\"li-0jh-a0n-dt8\" class=\"li\">\n              <p id=\"552a0888742cd\">执行增量数据迁移。</p>\n            </li>\n          </ol>\n        </div>\n      </section>\n      <section data-tag=\"section\" id=\"section-sg1-wp5-13b\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-lrh-njb-rb5\" class=\"title\">增量数据迁移前准备工作</h2>\n        <p data-tag=\"p\" id=\"p-p14-1uw-r3o\" class=\"p\">在配置增量数据迁移任务之前，您还需要打开<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>数据库的归档日志，详情请参见<span props=\"china\"><a href=\"https://www.ibm.com/support/knowledgecenter/zh/SSEPGG_10.5.0/com.ibm.db2.luw.admin.config.doc/doc/r0011448.html\" id=\"xref-rbk-y7p-49w\" class=\"\" target=\"_blank\">主日志归档方法</a></span>和<span props=\"china\"><a href=\"https://www.ibm.com/support/knowledgecenter/zh/SSEPGG_10.5.0/com.ibm.db2.luw.admin.config.doc/doc/r0011449.html\" id=\"xref-8c0-kqj-mkq\" class=\"\" target=\"_blank\">辅助日志归档方法</a></span>。 </p>\n        <div data-tag=\"note\" id=\"note-n4x-zpg-m5k\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n          <p id=\"d653a75f91cqe\">如您只需要全量数据迁移，可跳过本步骤。</p>\n        </div></div>\n      </section>\n      <section data-tag=\"section\" id=\"section-sff-dcr-5hb\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-kbr-n2p-inr\" class=\"title\">操作步骤</h2>\n        <ol data-tag=\"ol\" id=\"ol-b3j-3cr-5hb\" class=\"ol\">\n          <li data-tag=\"li\" id=\"li-z0f-xu8-xie\" is-conref=\"true\" class=\"li\">\n            <p id=\"4ec99e40e4r3w\">登录<span props=\"china\"><a href=\"https://dts.console.aliyun.com/\" id=\"xref-xnt-y3v-vra\" class=\"\" target=\"_blank\">数据传输控制台</a></span>。</p>\n            <div data-tag=\"note\" id=\"note-wp3-47y-41m\" is-conref=\"true\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                <p id=\"ef8e281566tli\">若数据传输控制台自动跳转至数据管理<span class=\"help-letter-space\"></span>DMS<span class=\"help-letter-space\"></span>控制台，您可以在右下角的<img data-tag=\"image\" id=\"image-whh-nrh-mpj\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/6420830761/p531331.png\" alt=\"jiqiren\" placement=\"inline\" class=\"image inline\">中单击<img data-tag=\"image\" id=\"image-x7k-d6t-g1s\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/6420830761/p531334.png\" alt=\"返回旧版\" placement=\"inline\" class=\"image inline\">，返回至旧版数据传输控制台。</p>\n              </div></div>\n          </li>\n          <li data-tag=\"li\" id=\"li-fg4-6qo-hz6\" is-conref=\"true\" class=\"li\">\n            <p id=\"4ec9c550e4dm4\">在左侧导航栏，单击<b id=\"uicontrol-ie0-b9d-u8c\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">数据迁移</b>。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-6kk-078-anu\" is-conref=\"true\" class=\"li\">\n            <p id=\"4ec9c551e4lkr\">在<b id=\"wintitle-c9q-rns-k9s\">迁移任务列表</b>页面顶部，选择迁移的目标实例所属地域。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-qdd-fy1-uf5\" is-conref=\"true\" class=\"li\">\n            <p id=\"4ec9c552e43z0\">单击页面右上角的<b id=\"uicontrol-viz-mjc-xhe\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建迁移任务</b>。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-fd7-d1z-9b5\" class=\"li\">\n            <p id=\"7b59bc5e93m9x\">配置迁移任务的<b id=\"uicontrol-6jh-1tg-lc4\">源库及目标库</b>信息。 </p>\n            <table id=\"table-tfz-jpr-5hb\" tablewidth=\"709\" tablecolswidth=\"97 125 487\" autofit=\"false\" class=\"table\">\n              <colgroup colwidth=\"0.41*\" style=\"width:13.68%\"></colgroup>\n              <colgroup colwidth=\"0.53*\" style=\"width:17.63%\"></colgroup>\n              <colgroup colwidth=\"2.06*\" style=\"width:68.69%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-s0s-h84-kuz\">\n                  <td id=\"concept-610089-entry-y7w-x33-xto\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"cc8574188cf7j\"><b>类别</b></p>\n                  </td>\n                  <td id=\"concept-610089-entry-z0o-xru-xpo\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"17fb2ebfee6lk\"><b>配置</b></p>\n                  </td>\n                  <td id=\"concept-610089-entry-nwd-g92-ms0\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"03ca66cbc7ieg\"><b>说明</b></p>\n                  </td>\n                </tr>\n                <tr id=\"row-v1r-nnx-gkk\">\n                  <td id=\"entry-l6d-xrg-pvs\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"5926d73ef6yrn\">无</p>\n                  </td>\n                  <td id=\"entry-o10-6nh-792\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"1d910255bci18\">任务名称</p>\n                  </td>\n                  <td id=\"entry-z9s-k7t-wl1\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"8734cc9e28uzn\">DTS<span class=\"help-letter-space\"></span>会自动生成一个任务名称，建议配置具有业务意义的名称（无唯一性要求），便于后续识别。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-akr-h0r-2hf\">\n                  <td id=\"entry-h1s-ui4-531\" rowspan=\"8\" colspan=\"1\">\n                    <p id=\"f314959e768ez\">源库信息</p>\n                  </td>\n                  <td id=\"entry-dw2-mt0-soz\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"67c5e33faeova\">实例类型</p>\n                  </td>\n                  <td id=\"entry-hek-mze-nkn\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"cf179f7836omo\">根据源库的部署位置进行选择，本文以<b id=\"uicontrol-u4j-su8-w7z\">有公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>的自建数据库</b>为例介绍配置流程。 </p>\n                    <div data-tag=\"note\" id=\"note-z4c-mww-p2p\" is-conref=\"true\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                      <p id=\"3deb826566t8w\">当自建数据库为其他实例类型时，您还需要执行相应的准备工作，详情请参见<a href=\"https://help.aliyun.com/zh/dts/user-guide/preparations/\" id=\"91be73f23d985\" title=\"\" class=\"xref\">准备工作</a>。</p>\n                    </div></div>\n                  </td>\n                </tr>\n                <tr id=\"row-r6v-849-vw5\">\n                  <td id=\"entry-i8u-1f8-d66\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"64369526b86nw\">实例地区</p>\n                  </td>\n                  <td id=\"entry-wqy-g10-1ya\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"62ca98001fjus\">当实例类型选择为<b id=\"uicontrol-64k-n7w-hhp\">有公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>的自建数据库</b>时，<b id=\"uicontrol-637-2zj-jv1\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">实例地区</b>无需设置。 </p>\n                    <div data-tag=\"note\" id=\"note-2dx-tp4-4tu\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                      <p id=\"ac903fffe3k6n\">如果您的<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>数据库具备白名单安全设置，您需要在<b id=\"uicontrol-lje-d86-1k4\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">实例地区</b>配置项后，单击<b id=\"uicontrol-ims-ne0-736\">获取<span class=\"help-letter-space\"></span>DTS IP<span class=\"help-letter-space\"></span>段</b>来获取到<span class=\"help-letter-space\"></span>DTS<span class=\"help-letter-space\"></span>服务器的<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址，并将获取到的<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址加入<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>数据库的白名单安全设置中。</p>\n                    </div></div>\n                  </td>\n                </tr>\n                <tr id=\"row-usw-19u-kol\">\n                  <td id=\"entry-uya-h6i-8oe\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"a8dfcd9c6f9x6\">数据库类型</p>\n                  </td>\n                  <td id=\"entry-lun-wu4-nvz\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"3ad5a09f40cou\">选择<span class=\"help-letter-space\"></span><b id=\"uicontrol-hc9-h9e-06l\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">DB2</b>。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-awi-25o-rgp\">\n                  <td id=\"entry-7es-qhx-ulb\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"0e45774f7fbq8\">主机名或<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址</p>\n                  </td>\n                  <td id=\"entry-wfb-p9l-xet\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"bc47a5729dara\">填入<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>数据库的访问地址，本案例中填入公网地址。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-fdc-idh-8lf\">\n                  <td id=\"entry-kfd-q6b-z17\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"1c24a4ec4c0l3\">端口</p>\n                  </td>\n                  <td id=\"entry-a7c-g7l-77h\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"a07d4835d23pv\">填入<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>数据库的服务端口，默认为<span class=\"help-letter-space\"></span><b id=\"uicontrol-lgx-ubd-2we\">50000</b>。 </p>\n                    <div data-tag=\"note\" id=\"note-c2r-x22-l03\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                      <p id=\"ad33a09653rrg\">本案例中，该服务端口须开放至公网。</p>\n                    </div></div>\n                  </td>\n                </tr>\n                <tr id=\"row-0e0-yoz-lu6\">\n                  <td id=\"entry-1v3-ktg-4tj\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"a4b379604e08b\">数据库名称</p>\n                  </td>\n                  <td id=\"entry-5dm-wxe-nz5\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"0220ec7cbepn5\">填入待迁移的数据库名。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-j7p-tyy-08a\">\n                  <td id=\"entry-vh1-89o-6ti\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"eda9f0180b738\">数据库账号</p>\n                  </td>\n                  <td id=\"entry-e8j-t9z-yax\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"6c094f214ao68\">填入<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>的数据库账号，权限要求请参见<a href=\"#section-bjn-5zq-5hb\" id=\"xref-7ol-fyn-ahr\" title=\"\" class=\"xref\">数据库账号的权限要求</a>。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-sst-err-9sd\">\n                  <td id=\"entry-5u2-7xw-0g7\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"7dd5b609dcv51\">数据库密码</p>\n                  </td>\n                  <td id=\"entry-4kf-rvh-oys\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"1867979c2do6i\">填入<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>数据库账号的密码。 </p>\n                    <div data-tag=\"note\" id=\"note-jhl-rvg-b12\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                      <p id=\"adfd363a9foi4\">源库信息填写完毕后，您可以单击<b id=\"uicontrol-60t-39s-2u0\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">数据库密码</b>后的<b id=\"uicontrol-m6a-dmg-azr\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">测试连接</b>来验证填入的源库信息是否正确。源库信息填写正确则提示<b id=\"uicontrol-67u-ue9-a39\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">测试通过</b>，如提示<b id=\"uicontrol-xvg-kwp-97s\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">测试失败</b>，单击<b id=\"uicontrol-81q-36z-a98\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">测试失败</b>后的<b id=\"uicontrol-qol-7et-5pn\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">诊断</b>，根据提示调整填写的源库信息。</p>\n                    </div></div>\n                  </td>\n                </tr>\n                <tr id=\"row-tnk-bnb-7un\">\n                  <td id=\"entry-opt-6v0-295\" rowspan=\"6\" colspan=\"1\">\n                    <p id=\"1e7ae85c6e8nu\">目标库信息</p>\n                  </td>\n                  <td id=\"entry-njm-xma-x2z\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"9aaa06ab93cbu\">实例类型</p>\n                  </td>\n                  <td id=\"entry-o6z-h81-bun\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"7d63d78999twa\">选择<span class=\"help-letter-space\"></span><b id=\"uicontrol-e49-kct-1n5\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">RDS<span class=\"help-letter-space\"></span>实例</b>。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-zxj-qke-5ia\">\n                  <td id=\"entry-a4u-qg8-2a9\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"54aadf4cb5j6a\">实例地区</p>\n                  </td>\n                  <td id=\"entry-yyu-bar-soy\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"76c4b9668e2w4\">选择目标<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例所属地域。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-ted-iy4-3df\">\n                  <td id=\"entry-lvd-0am-arx\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"3bbbe5f86452m\">RDS<span class=\"help-letter-space\"></span>实例<span class=\"help-letter-space\"></span>ID</p>\n                  </td>\n                  <td id=\"entry-t41-ebh-bqn\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"63387ee167vcg\">选择目标<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例<span class=\"help-letter-space\"></span>ID。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-trw-q12-r3g\">\n                  <td id=\"entry-tjy-moe-p1n\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"94071d63e6lsm\">数据库账号</p>\n                  </td>\n                  <td id=\"entry-y07-fnw-1ir\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"8a6620152ch1b\">填入目标<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例的数据库账号，权限要求请参见<a href=\"#section-bjn-5zq-5hb\" id=\"xref-vkq-6cz-5xd\" title=\"\" class=\"xref\">数据库账号的权限要求</a>。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-h3b-gh8-xr3\">\n                  <td id=\"entry-pqm-igv-hmp\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"9649d081dczw9\">数据库密码</p>\n                  </td>\n                  <td id=\"entry-fke-nyi-zwg\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"dab3593126b1j\">填入该数据库账号的密码。 </p>\n                    <div data-tag=\"note\" id=\"note-huu-uzu-pem\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                      <p id=\"770f29b7db7mg\">目标库信息填写完毕后，您可以单击<b id=\"uicontrol-bq9-1p8-uuc\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">数据库密码</b>后的<b id=\"uicontrol-46j-c6d-4xj\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">测试连接</b>来验证填入的目标库信息是否正确。目标库信息填写正确则提示<b id=\"uicontrol-93g-z9d-v9v\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">测试通过</b>，如提示<b id=\"uicontrol-g0f-oo9-hqx\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">测试失败</b>，单击<b id=\"uicontrol-a9y-4rn-lj4\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">测试失败</b>后的<b id=\"uicontrol-mlh-ggp-tpq\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">诊断</b>，根据提示调整填写的目标库信息。</p>\n                    </div></div>\n                  </td>\n                </tr>\n                <tr id=\"row-zlc-uif-gg6\">\n                  <td id=\"entry-7p6-6xm-fij\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"7199ed9ecbkg3\">连接方式</p>\n                  </td>\n                  <td id=\"entry-ra8-6rb-he8\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"01d36166fatvb\">根据需求选择<b id=\"uicontrol-lhp-xds-vgb\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">非加密连接</b>或<span class=\"help-letter-space\"></span><b id=\"uicontrol-k1r-8eh-1r8\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">SSL<span class=\"help-letter-space\"></span>安全连接</b>。如果设置为<span class=\"help-letter-space\"></span><b id=\"uicontrol-gtf-vm5-su7\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">SSL<span class=\"help-letter-space\"></span>安全连接</b>，您需要提前开启<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例的<span class=\"help-letter-space\"></span>SSL<span class=\"help-letter-space\"></span>加密功能，详情请参见<span props=\"china\"><a href=\"https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/configure-a-cloud-certificate-to-enable-ssl-encryption\" id=\"xref-tn2-zid-p72\" class=\"\" target=\"_blank\">设置<span class=\"help-letter-space\"></span>SSL<span class=\"help-letter-space\"></span>加密</a></span>。 </p>\n                    \n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </li>\n          <li data-tag=\"li\" id=\"li-wcv-zt0-7qk\" class=\"li\">\n            <p id=\"ed433d9dd7b3l\">配置完成后，单击页面右下角的<b id=\"uicontrol-rfe-eqo-lle\">授权白名单并进入下一步</b>。 </p>\n            <div data-tag=\"note\" id=\"note-3qq-soa-mnz\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n              <p id=\"738eea2df3wsy\">此步骤会将<span class=\"help-letter-space\"></span>DTS<span class=\"help-letter-space\"></span>服务器的<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址自动添加到目标<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例的白名单中，用于保障<span class=\"help-letter-space\"></span>DTS<span class=\"help-letter-space\"></span>服务器能够正常连接目标<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例。</p>\n            </div></div>\n          </li>\n          <li data-tag=\"li\" id=\"li-80p-kid-3kt\" class=\"li\">\n            <p id=\"033a7552d4j0v\">选择迁移对象及迁移类型。 </p>\n            <table id=\"table-ksz-xsr-5hb\" tablewidth=\"709\" tablecolswidth=\"85 624\" autofit=\"false\" class=\"table\">\n              <colgroup colwidth=\"0.24*\" style=\"width:11.99%\"></colgroup>\n              <colgroup colwidth=\"1.76*\" style=\"width:88.01%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-2zi-lks-2b7\">\n                  <td id=\"concept-610089-entry-xae-xnr-6vd\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"d7744948183gp\"><b>配置</b></p>\n                  </td>\n                  <td id=\"concept-610089-entry-6lu-tul-fmg\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"dd59b36c9fxnu\"><b>说明</b></p>\n                  </td>\n                </tr>\n                <tr id=\"row-p9s-na5-vl9\">\n                  <td id=\"entry-cd1-mxy-e84\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"d26e47d35bmbl\">迁移类型</p>\n                  </td>\n                  <td id=\"entry-lpt-es7-s86\" rowspan=\"1\" colspan=\"1\">\n                    <ul data-tag=\"ul\" id=\"ul-vmr-btr-5hb\" class=\"ul\">\n                      <li data-tag=\"li\" id=\"li-59c-yvc-tyh\" class=\"li\">\n                        <p id=\"1791cd75aa1vx\">如果只需要进行全量迁移，在迁移类型选择时勾选<b id=\"uicontrol-q1n-8iw-vmu\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">结构迁移</b>和<b id=\"uicontrol-pvr-csc-66l\">全量数据迁移</b>。 </p>\n                      </li>\n                      <li data-tag=\"li\" id=\"li-88j-sgp-d63\" class=\"li\">\n                        <p id=\"03dc4c94b1nlb\">如果需要进行不停机迁移，在迁移类型选择时勾选<b id=\"uicontrol-8m0-2dz-lmj\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">结构迁移</b>、<b id=\"uicontrol-1oc-fmm-3gs\">全量数据迁移</b>和<b id=\"uicontrol-y7d-w7o-fzj\">增量数据迁移</b>。</p>\n                      </li>\n                    </ul>\n                    <div data-tag=\"note\" id=\"note-ckb-sbh-msl\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                      <p id=\"24086b9db4ref\">如果未勾选<b id=\"uicontrol-0dx-lql-1fe\">增量数据迁移</b>，为保障数据一致性，数据迁移期间请勿在<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>数据库中写入新的数据。</p>\n                    </div></div>\n                  </td>\n                </tr>\n                <tr id=\"row-noa-b23-cbz\">\n                  <td id=\"entry-k04-fxm-jol\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"c31bbf6386a5e\">迁移对象</p>\n                  </td>\n                  <td id=\"entry-d9e-1ix-017\" rowspan=\"1\" colspan=\"1\">\n                    <p data-tag=\"p\" id=\"p-c4y-2fc-w06\" class=\"p\">在<b id=\"wintitle-v9w-81v-3lg\">迁移对象</b>框中单击待迁移的对象，然后单击<img data-tag=\"image\" id=\"image-vam-49o-pfo\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3927052271/p40698.png\" alt=\"向右小箭头\" placement=\"inline\" class=\"image inline\">图标将其移动到<b id=\"wintitle-5ct-bld-6sv\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">已选择对象</b>框。</p>\n                    <div data-tag=\"note\" id=\"note-x31-jmq-tgl\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                      <ul data-tag=\"ul\" id=\"ul-z35-ntr-5hb\" class=\"ul\">\n                        <li data-tag=\"li\" id=\"li-rv5-bh9-16w\" class=\"li\">\n                          <p id=\"60b93fa3ecd57\">迁移对象选择的粒度可以为库、表、列三个粒度。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-fuw-d3s-epy\" class=\"li\">\n                          <p id=\"752a50dfe456y\">默认情况下，迁移完成后，迁移对象名跟<span class=\"help-letter-space\"></span>Db2<span class=\"help-letter-space\"></span>数据库一致。如果您需要迁移对象在目标<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例上名称不同，那么需要使用<span class=\"help-letter-space\"></span>DTS<span class=\"help-letter-space\"></span>提供的对象名映射功能。使用方法请参见<a href=\"https://help.aliyun.com/zh/dts/user-guide/object-name-mapping#concept-610481\" id=\"xref-r2x-q6n-37p\" title=\"\" class=\"xref\">库表列映射</a>。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-b6h-eu0-855\" class=\"li\">\n                          <p id=\"67d6c09011je9\">如果使用了对象名映射功能，可能会导致依赖这个对象的其他对象迁移失败。</p>\n                        </li>\n                      </ul>\n                    </div></div>\n                  </td>\n                </tr>\n                <tr id=\"row-dgj-lzp-p4n\">\n                  <td id=\"entry-zrh-gw9-192\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"f70c9a68bepw7\">映射名称更改</p>\n                  </td>\n                  <td id=\"entry-o3m-s7y-jio\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"25db98506cf7w\">如需更改迁移对象在目标实例中的名称，请使用对象名映射功能，详情请参见<a href=\"https://help.aliyun.com/zh/dts/user-guide/object-name-mapping#concept-610481\" id=\"xref-nhy-or8-st3\" title=\"\" class=\"xref\">库表列映射</a>。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-rjz-041-osw\">\n                  <td id=\"entry-kaw-fil-ur4\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"1308c6cee39ob\">源、目标库无法连接重试时间</p>\n                  </td>\n                  <td id=\"entry-2nm-9cr-otw\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"57f425f52bmr3\">默认重试<span class=\"help-letter-space\"></span>12<span class=\"help-letter-space\"></span>小时，您也可以自定义重试时间。如果<span class=\"help-letter-space\"></span>DTS<span class=\"help-letter-space\"></span>在设置的时间内重新连接上源、目标库，迁移任务将自动恢复。否则，迁移任务将失败。</p>\n                    <div data-tag=\"note\" id=\"note-0i9-ccv-3pz\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                      <p id=\"877e22bed0td3\">由于连接重试期间，DTS<span class=\"help-letter-space\"></span>将收取任务运行费用，建议您根据业务需要自定义重试时间，或者在源和目标库实例释放后尽快释放<span class=\"help-letter-space\"></span>DTS<span class=\"help-letter-space\"></span>实例。</p>\n                    </div></div>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </li>\n          <li id=\"li-67p-3ba-xdi\" data-tag=\"li\" is-conref=\"true\" class=\"li\">\n            <p id=\"ce581ba766ceu\">上述配置完成后，单击页面右下角的<b id=\"uicontrol-lyr-rvm-imp\">预检查并启动</b>。 </p>\n            <div id=\"note-1hm-j9u-zxl\" data-tag=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n              <ul id=\"ul-8ha-hmq-169\" data-tag=\"ul\" class=\"ul\">\n                <li id=\"li-x9a-s5p-y2i\" data-tag=\"li\" class=\"li\">\n                  <p id=\"ce581ba866v1n\">在迁移任务正式启动之前，会先进行预检查。只有预检查通过后，才能成功启动迁移任务。</p>\n                </li>\n                <li id=\"li-cxf-g2d-cu0\" data-tag=\"li\" class=\"li\">\n                  <p id=\"ce581ba966zxb\">如果预检查失败，单击具体检查项后的<img data-tag=\"image\" id=\"image-ymd-87r-yz2\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8502659951/p47468.png\" alt=\"提示\" placement=\"inline\" class=\"image inline\">，查看失败详情。</p>\n                  <ul data-tag=\"ul\" id=\"ul-xy2-z6h-bm4\" class=\"ul\">\n                    <li data-tag=\"li\" id=\"li-hw6-3a4-kyc\" class=\"li\">\n                      <p id=\"ce5842b066w9k\">您可以根据提示修复后重新进行预检查。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-p7p-2st-ve9\" class=\"li\">\n                      <p id=\"ce5842b166x1l\">如无需修复告警检测项，您也可以选择<b id=\"uicontrol-4he-nqu-ge4\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确认屏蔽</b>、<b id=\"uicontrol-jkq-4bm-ybf\">忽略告警项并重新进行预检查</b>，跳过告警检测项重新进行预检查。</p>\n                    </li>\n                  </ul>\n                </li>\n              </ul>\n            </div></div>\n          </li>\n          <li data-tag=\"li\" id=\"li-o66-cmj-jcn\" is-conref=\"true\" class=\"li\">\n            <p id=\"4ecafdd3e41gj\">预检查通过后，单击<b id=\"uicontrol-z4t-20b-8xi\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">下一步</b>。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-igy-288-yph\" is-conref=\"true\" class=\"li\">\n            <p id=\"4ecafdd4e49fv\">在<b id=\"wintitle-lvw-pim-sku\">购买配置确认</b>页面，选择<b id=\"uicontrol-ryd-f4l-1pl\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">链路规格</b>并选中<b id=\"uicontrol-mje-jcj-w9g\">数据传输（按量付费）服务条款</b>。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-7ck-t5c-fpi\" is-conref=\"true\" class=\"li\">\n            <p id=\"4ecafdd5e45r9\">单击<b id=\"uicontrol-zl2-s4c-60j\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">购买并启动</b>，迁移任务正式开始。 </p>\n            <ul data-tag=\"ul\" id=\"ul-ozz-c5r-5hb\" class=\"ul\">\n              <li data-tag=\"li\" id=\"li-nmc-vr6-mel\" class=\"li\">\n                <p id=\"4ecafdd6e414a\">全量数据迁移 </p>\n                <p data-tag=\"p\" id=\"p-d3i-qa2-yhi\" class=\"p\">请勿手动结束迁移任务，否则可能导致数据不完整。您只需等待迁移任务完成即可，迁移任务会自动结束。</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-t2t-b3c-phh\" class=\"li\">\n                <p id=\"4ecafdd7e44nb\">增量数据迁移 </p>\n                <p data-tag=\"p\" id=\"p-shx-e6o-ijy\" class=\"p\">迁移任务不会自动结束，您需要手动结束迁移任务。</p>\n                <div data-tag=\"note\" id=\"note-q8j-83a-xyy\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                  <p id=\"4ecafdd8e45cv\">请选择合适的时间手动结束迁移任务，例如业务低峰期或准备将业务切换至目标实例时。</p>\n                </div></div>\n                <ol data-tag=\"ol\" type=\"a\" id=\"ol-hi8-qy1-p8t\" class=\"ol\">\n                  <li data-tag=\"li\" id=\"li-5kz-cgt-ajq\" class=\"li\">\n                    <p id=\"4ecafdd9e4it3\">观察迁移任务的进度变更为<b id=\"uicontrol-4b7-j7r-u09\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">增量迁移</b>，并显示为<b id=\"uicontrol-bx7-v72-hez\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">无延迟</b>时，将源库停写几分钟，此时<b id=\"uicontrol-yoh-vh0-qno\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">增量迁移</b>可能会显示延迟的时间。</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-j2s-4e2-8li\" class=\"li\">\n                    <p id=\"4ecb24e0e4ocl\">等待迁移任务的<b id=\"uicontrol-d7q-nqh-j1j\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">增量迁移</b>再次进入<b id=\"uicontrol-wq7-uvo-mu9\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">无延迟</b>后，手动结束迁移任务。<img data-tag=\"image\" id=\"image-fja-4i8-m5e\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/6368913461/p47604.png\" alt=\"无延迟\" placement=\"break\" class=\"image break\"></p>\n                  </li>\n                </ol>\n              </li>\n            </ul>\n          </li>\n          <li data-tag=\"li\" id=\"li-zmj-lo8-to9\" class=\"li\">\n            <p id=\"5cd896569e1y1\">将业务切换至<span class=\"help-letter-space\"></span>RDS MySQL。</p>\n          </li>\n        </ol>\n      </section>\n    </div>\n  </main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/migrate-data-from-a-self-managed-db2-database-to-an-apsaradb-rds-for-mysql-instance","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云数据库 RDS","id":26090,"title":"云数据库 RDS","url":"/zh/rds/"},"alias":"/rds/apsaradb-rds-for-mysql/migrate-data-from-a-self-managed-db2-database-to-an-apsaradb-rds-for-mysql-instance","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":9,"developerUrl":"https://developer.aliyun.com/database/","nodeType":1,"version":16,"url":"/zh/rds/apsaradb-rds-for-mysql/migrate-data-from-a-self-managed-db2-database-to-an-apsaradb-rds-for-mysql-instance","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":147334,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":9,"validDocument":true,"headNavEnable":false,"docTitle":"从自建Db2迁移至RDS MySQL","id":147334,"title":"从自建Db2迁移至RDS MySQL","url":"/zh/rds/apsaradb-rds-for-mysql/migrate-data-from-a-self-managed-db2-database-to-an-apsaradb-rds-for-mysql-instance"}],"emptyNode":false,"level":8,"validDocument":true,"headNavEnable":false,"docTitle":"从自建数据库迁移至RDS","id":147327,"title":"从自建数据库迁移至RDS","url":"/zh/rds/apsaradb-rds-for-mysql/data-migration-from-a-user-created-database-to-an-apsaradb-rds-mysql-instance/"}],"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"数据迁移","id":147262,"title":"数据迁移","url":"/zh/rds/apsaradb-rds-for-mysql/data-migration-1/"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"数据集成","id":460249,"title":"数据集成","url":"/zh/rds/apsaradb-rds-for-mysql/data-migration-and-synchronization/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"操作指南","id":2630175,"title":"操作指南","url":"/zh/rds/apsaradb-rds-for-mysql/user-guide/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"RDS MySQL数据库","id":95798,"title":"RDS MySQL数据库","url":"/zh/rds/apsaradb-rds-for-mysql/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云数据库 RDS","id":26090,"title":"云数据库 RDS","url":"/zh/rds/"},"productUrl":"https://www.aliyun.com/product/rds","nodeId":147334,"desc":"本文介绍如何使用数据传输服务DTS（Data Transmission Service），将自建的Db2数据库迁移至RDS MySQL或RDS MySQL Serverless实例。DTS支持结构迁移、全量数据迁移以及增量数据迁移，同时使用这三种迁移类型可以实现在自建应用不停服的情况下，平滑地完成Db2数据库的迁移。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云数据库 RDS","id":26090,"title":"云数据库 RDS","url":"/zh/rds/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"RDS MySQL数据库","id":95798,"title":"RDS MySQL数据库","url":"/zh/rds/apsaradb-rds-for-mysql/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"操作指南","id":2630175,"title":"操作指南","url":"/zh/rds/apsaradb-rds-for-mysql/user-guide/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"数据集成","id":460249,"title":"数据集成","url":"/zh/rds/apsaradb-rds-for-mysql/data-migration-and-synchronization/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"数据迁移","id":147262,"title":"数据迁移","url":"/zh/rds/apsaradb-rds-for-mysql/data-migration-1/"},{"emptyNode":false,"level":8,"validDocument":true,"headNavEnable":false,"docTitle":"从自建数据库迁移至RDS","id":147327,"title":"从自建数据库迁移至RDS","url":"/zh/rds/apsaradb-rds-for-mysql/data-migration-from-a-user-created-database-to-an-apsaradb-rds-mysql-instance/"},{"emptyNode":false,"level":9,"validDocument":true,"headNavEnable":false,"docTitle":"从自建Db2迁移至RDS MySQL","id":147334,"title":"从自建Db2迁移至RDS MySQL","url":"/zh/rds/apsaradb-rds-for-mysql/migrate-data-from-a-self-managed-db2-database-to-an-apsaradb-rds-for-mysql-instance"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=213e067917825364310161491eac3e&asid=AQAAAADvWD9qnxnwVAAAAACRvNC7pHD1cQ==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"><div class="help-subproduct-container"></div></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2630174" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-mysql/product-overview/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品概述</span>
+</a>
+</li>
+ <li id="96036" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-mysql/getting-started/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">快速入门</span>
+</a>
+</li>
+ <li id="3040400" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-mysql/ai-capability-center/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">AI能力中心</span>
+</a>
+</li>
+ <li id="129973" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-mysql/proprietary-alisql/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">自研内核AliSQL</span>
+</a>
+</li>
+ <li id="2630175" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-mysql/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">操作指南</span>
+</a>
+</li>
+ <li id="2630176" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-mysql/use-cases/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">实践教程</span>
+</a>
+</li>
+ <li id="2630177" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-mysql/security-and-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="2630178" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-mysql/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2630181" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-mysql/support/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">服务支持</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>从自建Db2迁移至RDS MySQL</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/rds" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="concept-610089">
+    
+    
+    <p id="shortdesc-sbk-9bq-fkc" data-tag="shortdesc" class="shortdesc">本文介绍如何使用数据传输服务<span class="help-letter-space"></span>DTS（Data Transmission Service），将自建的<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>数据库迁移至<span class="help-letter-space"></span><span data-tag="ph" id="ph-env-fjp-rq0" is-conref="true" class="ph">RDS MySQL</span><span class="help-letter-space"></span><span data-tag="ph" id="ph-bo3-pse-jzs" props="china" is-conref="true" data-cond-props="china" class="ph">或<span class="help-letter-space"></span>RDS MySQL Serverless</span><span class="help-letter-space"></span>实例。DTS<span class="help-letter-space"></span>支持结构迁移、全量数据迁移以及增量数据迁移，同时使用这三种迁移类型可以实现在自建应用不停服的情况下，平滑地完成<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>数据库的迁移。</p>
+    <div data-tag="conbody" id="conbody-9ny-tje-htk" class="conbody">
+      <section data-tag="section" id="section-830-ewm-05y" data-type="section" class="section">
+        <h2 data-tag="title" id="title-ep3-743-nev" class="title">前提条件</h2>
+        <ul data-tag="ul" id="ul-ixd-hf1-vhb" class="ul">
+          <li data-tag="li" id="li-74g-nuf-bup" class="li">
+            <p id="a72f51bf74alr">Db2<span class="help-letter-space"></span>数据库版本为<span class="help-letter-space"></span>9.7~11.5<span class="help-letter-space"></span>版本。</p>
+            <div data-tag="note" id="note-rwu-2au-r0x" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+              <p id="1b5df212bb6gl">DTS<span class="help-letter-space"></span>也支持迁移<span class="help-letter-space"></span>7.3、7.4<span class="help-letter-space"></span>版本的<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>数据库至<span class="help-letter-space"></span>RDS MySQL，配置方式与<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>数据库迁移至<span class="help-letter-space"></span>RDS MySQL<span class="help-letter-space"></span>类似，您可参考本文介绍的迁移任务配置方式进行配置。</p>
+            </div></div>
+          </li>
+          <li data-tag="li" id="li-d1a-2z1-ah3" class="li">
+            <p id="58fa2a8bb28np"><span data-tag="ph" id="ph-7m2-20v-rw0" is-conref="true" class="ph">RDS MySQL</span><span class="help-letter-space"></span>的存储空间须大于<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>数据库占用的存储空间。</p>
+          </li>
+        </ul>
+      </section>
+      <section data-tag="section" id="section-pw1-w3w-n0l" data-type="section" class="section">
+        <h2 data-tag="title" id="title-9eb-8ra-zu4" class="title">注意事项</h2>
+        <ul data-tag="ul" id="ul-and-221-vhb" class="ul">
+          <li data-tag="li" id="li-ssa-ov3-2pi" class="li">
+            <p id="58a6b048f6yen">不支持<span class="help-letter-space"></span>DDL<span class="help-letter-space"></span>操作的同步。</p>
+          </li>
+          <li data-tag="li" id="li-lyz-2yi-1vd" class="li">
+            <p id="0c557251f2s0u">如果待迁移数据库名称不符合阿里云<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>的定义规范，您需要在配置迁移任务之前在阿里云<span class="help-letter-space"></span>RDS MySQL<span class="help-letter-space"></span>中创建数据库。 </p>
+            <div data-tag="note" id="note-s01-0f5-dgc" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+              <p id="f1ed8d00e4gph">关于阿里云<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>的定义规范和创建数据库的操作方法，请参见<span props="china"><a href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/create-a-database-for-an-apsaradb-rds-for-mysql-instance" id="xref-9tt-j6w-mk4" class="" target="_blank">创建数据库</a></span>。</p>
+            </div></div>
+          </li>
+          <li data-tag="li" id="li-owf-nw0-zl3" is-conref="true" class="li">
+            <p id="3dea980466s4m">DTS<span class="help-letter-space"></span>在执行全量数据迁移时将占用源库和目标库一定的读写资源，可能会导致数据库的负载上升，在数据库性能较差、规格较低或业务量较大的情况下（例如源库有大量慢<span class="help-letter-space"></span>SQL、存在无主键表或目标库存在死锁等），可能会加重数据库压力，甚至导致数据库服务不可用。因此您需要在执行数据迁移前评估源库和目标库的性能，同时建议您在业务低峰期执行数据迁移（例如源库和目标库的<span class="help-letter-space"></span>CPU<span class="help-letter-space"></span>负载在<span class="help-letter-space"></span>30%以下）。</p>
+          </li>
+          <li data-tag="li" id="li-ni3-ogw-nfz" class="li">
+            <p id="2c13bf88bd0ed">对于迁移失败的任务，DTS<span class="help-letter-space"></span>会触发自动恢复。在将业务切换至目标实例前，请务必先结束或释放该任务，避免该任务被自动恢复后，源端数据覆盖目标实例的数据。</p>
+          </li>
+          <li data-tag="li" id="li-gkh-3oq-pmw" class="li">
+            <p id="a1ce2954b6ql1">由于<span class="help-letter-space"></span>DTS<span class="help-letter-space"></span>基于<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>的<span class="help-letter-space"></span>CDC<span class="help-letter-space"></span>复制技术，将<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>数据库的增量更新数据同步到目标库中，但是<span class="help-letter-space"></span>CDC<span class="help-letter-space"></span>复制技术自身具有限制，请参见<span class="help-letter-space"></span><a href="https://www.ibm.com/support/knowledgecenter/SSTRGZ_11.4.0/com.ibm.swg.im.iis.db.repl.sqlrepl.doc/topics/iiyrssubdatarestrict.html" id="xref-1m8-5zy-5dm" class="" target="_blank">CDC<span class="help-letter-space"></span>复制技术所支持数据类型的限制</a>。 </p>
+          </li>
+        </ul>
+      </section>
+      <section data-tag="section" id="section-stg-onv-5f6" data-type="section" is-conref="true" class="section">
+        <h2 data-tag="title" id="title-63u-ub1-od0" class="title">费用说明</h2>
+        <table id="table-zd1-2fx-roa" tablewidth="100" tablecolswidth="27.26 27.26 45.48" autofit="true" class="table">
+          <colgroup colwidth="0.83*" style="width:27.26%"></colgroup>
+          <colgroup colwidth="0.83*" style="width:27.26%"></colgroup>
+          <colgroup colwidth="1.38*" style="width:45.48%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-l6h-g39-nae">
+              <td id="concept-267781-entry-3ii-k0x-ekf" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="4ec83eb0e40sr"><b>迁移类型</b></p>
+              </td>
+              <td id="concept-267781-entry-3rx-uwn-63j" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="4ec83eb1e4ok5"><b>链路配置费用</b></p>
+              </td>
+              <td id="concept-267781-entry-00b-vft-adn" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="4ec83eb2e4wmf"><b>公网流量费用</b></p>
+              </td>
+            </tr>
+            <tr id="row-vlc-9ok-1bx">
+              <td id="entry-xny-mam-swt" rowspan="1" style="background-color:rgba(0, 0, 0, 0)" colspan="1">
+                <p id="4ec83eb3e4vkg">结构迁移和全量数据迁移</p>
+              </td>
+              <td id="entry-d4x-u2m-nbr" rowspan="1" style="background-color:rgba(0, 0, 0, 0)" colspan="1">
+                <p id="4ec865c0e4mix">不收费。</p>
+              </td>
+              <td id="entry-1l5-y74-y9x" rowspan="2" style="background-color:rgba(0, 0, 0, 0)" colspan="1">
+                <p id="4ec865c1e4w2j">当目标库的<b id="uicontrol-e93-ps9-2i3" data-tag="uicontrol" data-isbold="true" class="uicontrol">接入方式</b>为<b id="uicontrol-p1q-8sc-ing" data-tag="uicontrol" data-isbold="true" class="uicontrol">公网<span class="help-letter-space"></span>IP</b><span class="help-letter-space"></span>时收取公网流量费用。更多信息，请参见<a href="https://help.aliyun.com/zh/dts/product-overview/billing-overview#concept-261679" id="2b149ced504bo" title="" class="xref">计费概述</a>。</p>
+              </td>
+            </tr>
+            <tr id="row-lam-paf-ff0">
+              <td id="entry-y98-8rd-jce" rowspan="1" style="background-color:rgba(0, 0, 0, 0)" colspan="1">
+                <p id="4ec865c2e4yt0">增量数据迁移</p>
+              </td>
+              <td id="entry-tik-sef-jjl" rowspan="1" style="background-color:rgba(0, 0, 0, 0)" colspan="1">
+                <p id="4ec865c3e4zdv">收费，详情请参见<a href="https://help.aliyun.com/zh/dts/product-overview/billing-overview#concept-261679" id="xref-own-5w9-opu" title="" class="xref">计费概述</a>。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section data-tag="section" id="section-mjh-vxq-5hb" data-type="section" class="section">
+        <h2 data-tag="title" id="title-g8e-4on-i11" class="title">迁移类型说明</h2>
+        <ul data-tag="ul" id="ul-smj-bd1-vhb" class="ul">
+          <li data-tag="li" id="li-9uz-ntt-e2y" class="li">
+            <p id="8eb812d37bl0o">结构迁移 </p>
+            <p data-tag="p" id="p-kst-vgi-wqp" class="p">DTS<span class="help-letter-space"></span>将迁移对象的结构定义迁移到目标实例，目前<span class="help-letter-space"></span>DTS<span class="help-letter-space"></span>支持结构迁移的对象为表、索引和外键。</p>
+          </li>
+          <li data-tag="li" id="li-oeu-y1n-q1c" class="li">
+            <p id="04bd2e7003q4k">全量数据迁移 </p>
+            <p data-tag="p" id="p-iih-ebn-b5j" class="p">DTS<span class="help-letter-space"></span>会将<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>数据库迁移对象的存量数据，全部迁移到目标<span class="help-letter-space"></span>RDS MySQL<span class="help-letter-space"></span>数据库中。</p>
+          </li>
+          <li data-tag="li" id="li-f5b-ua4-btk" class="li">
+            <p id="f6aa46f0b2slm">增量数据迁移 </p>
+            <p data-tag="p" id="p-qoc-795-ctn" class="p">在全量迁移的基础上，DTS<span class="help-letter-space"></span>将<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>数据库的增量更新数据同步到目标<span class="help-letter-space"></span>RDS MySQL<span class="help-letter-space"></span>中。通过增量数据迁移可以实现在自建应用不停服的情况下，平滑地完成<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>数据库的迁移。</p>
+          </li>
+        </ul>
+      </section>
+      <section data-tag="section" id="section-bjn-5zq-5hb" data-type="section" class="section">
+        <h2 data-tag="title" id="title-fql-wwj-9ga" class="title">数据库账号的权限要求</h2>
+        <table id="table-vf1-k21-vhb" tablewidth="708" tablecolswidth="177 177 177 177" autofit="false" class="table">
+          <colgroup colwidth="1*" style="width:25.00%"></colgroup>
+          <colgroup colwidth="1*" style="width:25.00%"></colgroup>
+          <colgroup colwidth="1*" style="width:25.00%"></colgroup>
+          <colgroup colwidth="1*" style="width:25.00%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-xf1-1fc-krp">
+              <td id="concept-610089-entry-zdt-16v-710" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="50cad7e72fesa"><b>数据库</b></p>
+              </td>
+              <td id="concept-610089-entry-jvy-zuu-9zf" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="6b251e6525ff1"><b>结构迁移</b></p>
+              </td>
+              <td id="concept-610089-entry-ik0-j89-xie" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="33f2bd21b9ylx"><b>全量迁移</b></p>
+              </td>
+              <td id="concept-610089-entry-qk9-sot-pp3" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="6f37c82786g4g"><b>增量迁移</b></p>
+              </td>
+            </tr>
+            <tr id="row-xy5-oic-rh2">
+              <td id="entry-l2v-v8d-b6h" rowspan="1" colspan="1">
+                <p id="84baf73504pu6">Db2<span class="help-letter-space"></span>数据库</p>
+              </td>
+              <td id="entry-392-9ed-21o" rowspan="1" colspan="1">
+                <p id="cd53127741p78">CONNECT、SELECT<span class="help-letter-space"></span>权限</p>
+              </td>
+              <td id="entry-ueo-xmh-o8q" rowspan="1" colspan="1">
+                <p id="39811756872um">CONNECT、SELECT<span class="help-letter-space"></span>权限</p>
+              </td>
+              <td id="entry-9lx-2ni-anl" rowspan="1" colspan="1">
+                <p id="d1d6fce5963ku">DBADM<span class="help-letter-space"></span>权限</p>
+              </td>
+            </tr>
+            <tr id="row-0hq-40b-a76">
+              <td id="entry-qir-14s-4mp" rowspan="1" colspan="1">
+                <p id="7110e5ca2acrq"><span data-tag="ph" id="ph-w77-uez-g90" is-conref="true" class="ph">RDS MySQL</span><span class="help-letter-space"></span><span data-tag="ph" id="ph-ct2-i2y-6ft" props="china" is-conref="true" data-cond-props="china" class="ph">或<span class="help-letter-space"></span>RDS MySQL Serverless</span><span class="help-letter-space"></span>实例</p>
+              </td>
+              <td id="entry-wne-pbo-cmp" rowspan="1" colspan="1">
+                <p id="3bd7000b91zqr">读写权限</p>
+              </td>
+              <td id="entry-mlo-5g6-01w" rowspan="1" colspan="1">
+                <p id="893c8b26bdpj3">读写权限</p>
+              </td>
+              <td id="entry-77e-ykm-n33" rowspan="1" colspan="1">
+                <p id="28260882e4wnj">读写权限</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p data-tag="p" id="p-l83-ky0-001" class="p">数据库账号创建及授权方法：</p>
+        <ul data-tag="ul" id="ul-ul6-l2d-kjq" class="ul">
+          <li data-tag="li" id="li-6hv-c6g-ql6" class="li">
+            <p id="c66f7cd3d6kmi">Db2<span class="help-letter-space"></span>数据库请参见<a href="https://www.ibm.com/support/knowledgecenter/zh/SSEPGG_11.1.0/com.ibm.db2.luw.qb.server.doc/doc/t0006742.html#t0006742" id="xref-c4j-mux-4i1" class="" target="_blank">创建用户</a>和<a href="https://www.ibm.com/support/knowledgecenter/zh/SSEPGG_11.1.0/com.ibm.db2.luw.admin.sec.doc/doc/c0055206.html" id="xref-ioo-m1k-s2n" class="" target="_blank">权限概述</a>。</p>
+          </li>
+          <li data-tag="li" id="li-tf8-m3q-rvl" class="li">
+            <p id="05c579250bcb3"><span data-tag="ph" id="ph-68w-kun-7ah" is-conref="true" class="ph">RDS MySQL</span><span class="help-letter-space"></span><span data-tag="ph" id="ph-ssf-fnz-otx" props="china" is-conref="true" data-cond-props="china" class="ph">或<span class="help-letter-space"></span>RDS MySQL Serverless</span><span class="help-letter-space"></span>请参见<span props="china"><a href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/create-an-account-on-an-apsaradb-rds-for-mysql-instance" id="xref-ch9-45n-qwf" class="" target="_blank">创建账号</a></span>和<span props="china"><a href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/modify-the-permissions-of-a-standard-account-on-an-apsaradb-rds-for-mysql-instance" id="xref-1ru-ykh-m77" class="" target="_blank">修改账号权限</a></span>。</p>
+          </li>
+        </ul>
+      </section>
+      <section data-tag="section" id="section-hrh-2q5-13b" data-type="section" class="section">
+        <h2 data-tag="title" id="title-xc4-m7k-u2g" class="title">数据迁移流程</h2>
+        <div data-tag="p" id="p-wp9-zh9-u5w" class="p">
+          <p id="44acab1e4b4yy">为解决对象间的依赖，提高迁移成功率，DTS<span class="help-letter-space"></span>对<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>数据库结构和数据的迁移流程如下： </p>
+          <ol data-tag="ol" id="ol-m3d-hq5-13b" class="ol">
+            <li data-tag="li" id="li-xc1-q6z-fcr" class="li">
+              <p id="46aa96ef6fs6d">执行表结构和索引的迁移。</p>
+            </li>
+            <li data-tag="li" id="li-aaf-w2o-j2d" class="li">
+              <p id="fa620f2646pkr">执行全量数据迁移。</p>
+            </li>
+            <li data-tag="li" id="li-alh-9e8-fwr" class="li">
+              <p id="5d5ba01ec30zk">执行外键的结构迁移。</p>
+            </li>
+            <li data-tag="li" id="li-0jh-a0n-dt8" class="li">
+              <p id="552a0888742cd">执行增量数据迁移。</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+      <section data-tag="section" id="section-sg1-wp5-13b" data-type="section" class="section">
+        <h2 data-tag="title" id="title-lrh-njb-rb5" class="title">增量数据迁移前准备工作</h2>
+        <p data-tag="p" id="p-p14-1uw-r3o" class="p">在配置增量数据迁移任务之前，您还需要打开<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>数据库的归档日志，详情请参见<span props="china"><a href="https://www.ibm.com/support/knowledgecenter/zh/SSEPGG_10.5.0/com.ibm.db2.luw.admin.config.doc/doc/r0011448.html" id="xref-rbk-y7p-49w" class="" target="_blank">主日志归档方法</a></span>和<span props="china"><a href="https://www.ibm.com/support/knowledgecenter/zh/SSEPGG_10.5.0/com.ibm.db2.luw.admin.config.doc/doc/r0011449.html" id="xref-8c0-kqj-mkq" class="" target="_blank">辅助日志归档方法</a></span>。 </p>
+        <div data-tag="note" id="note-n4x-zpg-m5k" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+          <p id="d653a75f91cqe">如您只需要全量数据迁移，可跳过本步骤。</p>
+        </div></div>
+      </section>
+      <section data-tag="section" id="section-sff-dcr-5hb" data-type="section" class="section">
+        <h2 data-tag="title" id="title-kbr-n2p-inr" class="title">操作步骤</h2>
+        <ol data-tag="ol" id="ol-b3j-3cr-5hb" class="ol">
+          <li data-tag="li" id="li-z0f-xu8-xie" is-conref="true" class="li">
+            <p id="4ec99e40e4r3w">登录<span props="china"><a href="https://dts.console.aliyun.com/" id="xref-xnt-y3v-vra" class="" target="_blank">数据传输控制台</a></span>。</p>
+            <div data-tag="note" id="note-wp3-47y-41m" is-conref="true" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                <p id="ef8e281566tli">若数据传输控制台自动跳转至数据管理<span class="help-letter-space"></span>DMS<span class="help-letter-space"></span>控制台，您可以在右下角的<img data-tag="image" id="image-whh-nrh-mpj" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/6420830761/p531331.png" alt="jiqiren" placement="inline" class="image inline">中单击<img data-tag="image" id="image-x7k-d6t-g1s" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/6420830761/p531334.png" alt="返回旧版" placement="inline" class="image inline">，返回至旧版数据传输控制台。</p>
+              </div></div>
+          </li>
+          <li data-tag="li" id="li-fg4-6qo-hz6" is-conref="true" class="li">
+            <p id="4ec9c550e4dm4">在左侧导航栏，单击<b id="uicontrol-ie0-b9d-u8c" data-tag="uicontrol" data-isbold="true" class="uicontrol">数据迁移</b>。</p>
+          </li>
+          <li data-tag="li" id="li-6kk-078-anu" is-conref="true" class="li">
+            <p id="4ec9c551e4lkr">在<b id="wintitle-c9q-rns-k9s">迁移任务列表</b>页面顶部，选择迁移的目标实例所属地域。</p>
+          </li>
+          <li data-tag="li" id="li-qdd-fy1-uf5" is-conref="true" class="li">
+            <p id="4ec9c552e43z0">单击页面右上角的<b id="uicontrol-viz-mjc-xhe" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建迁移任务</b>。</p>
+          </li>
+          <li data-tag="li" id="li-fd7-d1z-9b5" class="li">
+            <p id="7b59bc5e93m9x">配置迁移任务的<b id="uicontrol-6jh-1tg-lc4">源库及目标库</b>信息。 </p>
+            <table id="table-tfz-jpr-5hb" tablewidth="709" tablecolswidth="97 125 487" autofit="false" class="table">
+              <colgroup colwidth="0.41*" style="width:13.68%"></colgroup>
+              <colgroup colwidth="0.53*" style="width:17.63%"></colgroup>
+              <colgroup colwidth="2.06*" style="width:68.69%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-s0s-h84-kuz">
+                  <td id="concept-610089-entry-y7w-x33-xto" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="cc8574188cf7j"><b>类别</b></p>
+                  </td>
+                  <td id="concept-610089-entry-z0o-xru-xpo" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="17fb2ebfee6lk"><b>配置</b></p>
+                  </td>
+                  <td id="concept-610089-entry-nwd-g92-ms0" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="03ca66cbc7ieg"><b>说明</b></p>
+                  </td>
+                </tr>
+                <tr id="row-v1r-nnx-gkk">
+                  <td id="entry-l6d-xrg-pvs" rowspan="1" colspan="1">
+                    <p id="5926d73ef6yrn">无</p>
+                  </td>
+                  <td id="entry-o10-6nh-792" rowspan="1" colspan="1">
+                    <p id="1d910255bci18">任务名称</p>
+                  </td>
+                  <td id="entry-z9s-k7t-wl1" rowspan="1" colspan="1">
+                    <p id="8734cc9e28uzn">DTS<span class="help-letter-space"></span>会自动生成一个任务名称，建议配置具有业务意义的名称（无唯一性要求），便于后续识别。</p>
+                  </td>
+                </tr>
+                <tr id="row-akr-h0r-2hf">
+                  <td id="entry-h1s-ui4-531" rowspan="8" colspan="1">
+                    <p id="f314959e768ez">源库信息</p>
+                  </td>
+                  <td id="entry-dw2-mt0-soz" rowspan="1" colspan="1">
+                    <p id="67c5e33faeova">实例类型</p>
+                  </td>
+                  <td id="entry-hek-mze-nkn" rowspan="1" colspan="1">
+                    <p id="cf179f7836omo">根据源库的部署位置进行选择，本文以<b id="uicontrol-u4j-su8-w7z">有公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>的自建数据库</b>为例介绍配置流程。 </p>
+                    <div data-tag="note" id="note-z4c-mww-p2p" is-conref="true" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                      <p id="3deb826566t8w">当自建数据库为其他实例类型时，您还需要执行相应的准备工作，详情请参见<a href="https://help.aliyun.com/zh/dts/user-guide/preparations/" id="91be73f23d985" title="" class="xref">准备工作</a>。</p>
+                    </div></div>
+                  </td>
+                </tr>
+                <tr id="row-r6v-849-vw5">
+                  <td id="entry-i8u-1f8-d66" rowspan="1" colspan="1">
+                    <p id="64369526b86nw">实例地区</p>
+                  </td>
+                  <td id="entry-wqy-g10-1ya" rowspan="1" colspan="1">
+                    <p id="62ca98001fjus">当实例类型选择为<b id="uicontrol-64k-n7w-hhp">有公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>的自建数据库</b>时，<b id="uicontrol-637-2zj-jv1" data-tag="uicontrol" data-isbold="true" class="uicontrol">实例地区</b>无需设置。 </p>
+                    <div data-tag="note" id="note-2dx-tp4-4tu" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                      <p id="ac903fffe3k6n">如果您的<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>数据库具备白名单安全设置，您需要在<b id="uicontrol-lje-d86-1k4" data-tag="uicontrol" data-isbold="true" class="uicontrol">实例地区</b>配置项后，单击<b id="uicontrol-ims-ne0-736">获取<span class="help-letter-space"></span>DTS IP<span class="help-letter-space"></span>段</b>来获取到<span class="help-letter-space"></span>DTS<span class="help-letter-space"></span>服务器的<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址，并将获取到的<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址加入<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>数据库的白名单安全设置中。</p>
+                    </div></div>
+                  </td>
+                </tr>
+                <tr id="row-usw-19u-kol">
+                  <td id="entry-uya-h6i-8oe" rowspan="1" colspan="1">
+                    <p id="a8dfcd9c6f9x6">数据库类型</p>
+                  </td>
+                  <td id="entry-lun-wu4-nvz" rowspan="1" colspan="1">
+                    <p id="3ad5a09f40cou">选择<span class="help-letter-space"></span><b id="uicontrol-hc9-h9e-06l" data-tag="uicontrol" data-isbold="true" class="uicontrol">DB2</b>。</p>
+                  </td>
+                </tr>
+                <tr id="row-awi-25o-rgp">
+                  <td id="entry-7es-qhx-ulb" rowspan="1" colspan="1">
+                    <p id="0e45774f7fbq8">主机名或<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址</p>
+                  </td>
+                  <td id="entry-wfb-p9l-xet" rowspan="1" colspan="1">
+                    <p id="bc47a5729dara">填入<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>数据库的访问地址，本案例中填入公网地址。</p>
+                  </td>
+                </tr>
+                <tr id="row-fdc-idh-8lf">
+                  <td id="entry-kfd-q6b-z17" rowspan="1" colspan="1">
+                    <p id="1c24a4ec4c0l3">端口</p>
+                  </td>
+                  <td id="entry-a7c-g7l-77h" rowspan="1" colspan="1">
+                    <p id="a07d4835d23pv">填入<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>数据库的服务端口，默认为<span class="help-letter-space"></span><b id="uicontrol-lgx-ubd-2we">50000</b>。 </p>
+                    <div data-tag="note" id="note-c2r-x22-l03" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                      <p id="ad33a09653rrg">本案例中，该服务端口须开放至公网。</p>
+                    </div></div>
+                  </td>
+                </tr>
+                <tr id="row-0e0-yoz-lu6">
+                  <td id="entry-1v3-ktg-4tj" rowspan="1" colspan="1">
+                    <p id="a4b379604e08b">数据库名称</p>
+                  </td>
+                  <td id="entry-5dm-wxe-nz5" rowspan="1" colspan="1">
+                    <p id="0220ec7cbepn5">填入待迁移的数据库名。</p>
+                  </td>
+                </tr>
+                <tr id="row-j7p-tyy-08a">
+                  <td id="entry-vh1-89o-6ti" rowspan="1" colspan="1">
+                    <p id="eda9f0180b738">数据库账号</p>
+                  </td>
+                  <td id="entry-e8j-t9z-yax" rowspan="1" colspan="1">
+                    <p id="6c094f214ao68">填入<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>的数据库账号，权限要求请参见<a href="#section-bjn-5zq-5hb" id="xref-7ol-fyn-ahr" title="" class="xref">数据库账号的权限要求</a>。</p>
+                  </td>
+                </tr>
+                <tr id="row-sst-err-9sd">
+                  <td id="entry-5u2-7xw-0g7" rowspan="1" colspan="1">
+                    <p id="7dd5b609dcv51">数据库密码</p>
+                  </td>
+                  <td id="entry-4kf-rvh-oys" rowspan="1" colspan="1">
+                    <p id="1867979c2do6i">填入<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>数据库账号的密码。 </p>
+                    <div data-tag="note" id="note-jhl-rvg-b12" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                      <p id="adfd363a9foi4">源库信息填写完毕后，您可以单击<b id="uicontrol-60t-39s-2u0" data-tag="uicontrol" data-isbold="true" class="uicontrol">数据库密码</b>后的<b id="uicontrol-m6a-dmg-azr" data-tag="uicontrol" data-isbold="true" class="uicontrol">测试连接</b>来验证填入的源库信息是否正确。源库信息填写正确则提示<b id="uicontrol-67u-ue9-a39" data-tag="uicontrol" data-isbold="true" class="uicontrol">测试通过</b>，如提示<b id="uicontrol-xvg-kwp-97s" data-tag="uicontrol" data-isbold="true" class="uicontrol">测试失败</b>，单击<b id="uicontrol-81q-36z-a98" data-tag="uicontrol" data-isbold="true" class="uicontrol">测试失败</b>后的<b id="uicontrol-qol-7et-5pn" data-tag="uicontrol" data-isbold="true" class="uicontrol">诊断</b>，根据提示调整填写的源库信息。</p>
+                    </div></div>
+                  </td>
+                </tr>
+                <tr id="row-tnk-bnb-7un">
+                  <td id="entry-opt-6v0-295" rowspan="6" colspan="1">
+                    <p id="1e7ae85c6e8nu">目标库信息</p>
+                  </td>
+                  <td id="entry-njm-xma-x2z" rowspan="1" colspan="1">
+                    <p id="9aaa06ab93cbu">实例类型</p>
+                  </td>
+                  <td id="entry-o6z-h81-bun" rowspan="1" colspan="1">
+                    <p id="7d63d78999twa">选择<span class="help-letter-space"></span><b id="uicontrol-e49-kct-1n5" data-tag="uicontrol" data-isbold="true" class="uicontrol">RDS<span class="help-letter-space"></span>实例</b>。</p>
+                  </td>
+                </tr>
+                <tr id="row-zxj-qke-5ia">
+                  <td id="entry-a4u-qg8-2a9" rowspan="1" colspan="1">
+                    <p id="54aadf4cb5j6a">实例地区</p>
+                  </td>
+                  <td id="entry-yyu-bar-soy" rowspan="1" colspan="1">
+                    <p id="76c4b9668e2w4">选择目标<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例所属地域。</p>
+                  </td>
+                </tr>
+                <tr id="row-ted-iy4-3df">
+                  <td id="entry-lvd-0am-arx" rowspan="1" colspan="1">
+                    <p id="3bbbe5f86452m">RDS<span class="help-letter-space"></span>实例<span class="help-letter-space"></span>ID</p>
+                  </td>
+                  <td id="entry-t41-ebh-bqn" rowspan="1" colspan="1">
+                    <p id="63387ee167vcg">选择目标<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例<span class="help-letter-space"></span>ID。</p>
+                  </td>
+                </tr>
+                <tr id="row-trw-q12-r3g">
+                  <td id="entry-tjy-moe-p1n" rowspan="1" colspan="1">
+                    <p id="94071d63e6lsm">数据库账号</p>
+                  </td>
+                  <td id="entry-y07-fnw-1ir" rowspan="1" colspan="1">
+                    <p id="8a6620152ch1b">填入目标<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例的数据库账号，权限要求请参见<a href="#section-bjn-5zq-5hb" id="xref-vkq-6cz-5xd" title="" class="xref">数据库账号的权限要求</a>。</p>
+                  </td>
+                </tr>
+                <tr id="row-h3b-gh8-xr3">
+                  <td id="entry-pqm-igv-hmp" rowspan="1" colspan="1">
+                    <p id="9649d081dczw9">数据库密码</p>
+                  </td>
+                  <td id="entry-fke-nyi-zwg" rowspan="1" colspan="1">
+                    <p id="dab3593126b1j">填入该数据库账号的密码。 </p>
+                    <div data-tag="note" id="note-huu-uzu-pem" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                      <p id="770f29b7db7mg">目标库信息填写完毕后，您可以单击<b id="uicontrol-bq9-1p8-uuc" data-tag="uicontrol" data-isbold="true" class="uicontrol">数据库密码</b>后的<b id="uicontrol-46j-c6d-4xj" data-tag="uicontrol" data-isbold="true" class="uicontrol">测试连接</b>来验证填入的目标库信息是否正确。目标库信息填写正确则提示<b id="uicontrol-93g-z9d-v9v" data-tag="uicontrol" data-isbold="true" class="uicontrol">测试通过</b>，如提示<b id="uicontrol-g0f-oo9-hqx" data-tag="uicontrol" data-isbold="true" class="uicontrol">测试失败</b>，单击<b id="uicontrol-a9y-4rn-lj4" data-tag="uicontrol" data-isbold="true" class="uicontrol">测试失败</b>后的<b id="uicontrol-mlh-ggp-tpq" data-tag="uicontrol" data-isbold="true" class="uicontrol">诊断</b>，根据提示调整填写的目标库信息。</p>
+                    </div></div>
+                  </td>
+                </tr>
+                <tr id="row-zlc-uif-gg6">
+                  <td id="entry-7p6-6xm-fij" rowspan="1" colspan="1">
+                    <p id="7199ed9ecbkg3">连接方式</p>
+                  </td>
+                  <td id="entry-ra8-6rb-he8" rowspan="1" colspan="1">
+                    <p id="01d36166fatvb">根据需求选择<b id="uicontrol-lhp-xds-vgb" data-tag="uicontrol" data-isbold="true" class="uicontrol">非加密连接</b>或<span class="help-letter-space"></span><b id="uicontrol-k1r-8eh-1r8" data-tag="uicontrol" data-isbold="true" class="uicontrol">SSL<span class="help-letter-space"></span>安全连接</b>。如果设置为<span class="help-letter-space"></span><b id="uicontrol-gtf-vm5-su7" data-tag="uicontrol" data-isbold="true" class="uicontrol">SSL<span class="help-letter-space"></span>安全连接</b>，您需要提前开启<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例的<span class="help-letter-space"></span>SSL<span class="help-letter-space"></span>加密功能，详情请参见<span props="china"><a href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/configure-a-cloud-certificate-to-enable-ssl-encryption" id="xref-tn2-zid-p72" class="" target="_blank">设置<span class="help-letter-space"></span>SSL<span class="help-letter-space"></span>加密</a></span>。 </p>
+                    
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li data-tag="li" id="li-wcv-zt0-7qk" class="li">
+            <p id="ed433d9dd7b3l">配置完成后，单击页面右下角的<b id="uicontrol-rfe-eqo-lle">授权白名单并进入下一步</b>。 </p>
+            <div data-tag="note" id="note-3qq-soa-mnz" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+              <p id="738eea2df3wsy">此步骤会将<span class="help-letter-space"></span>DTS<span class="help-letter-space"></span>服务器的<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址自动添加到目标<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例的白名单中，用于保障<span class="help-letter-space"></span>DTS<span class="help-letter-space"></span>服务器能够正常连接目标<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例。</p>
+            </div></div>
+          </li>
+          <li data-tag="li" id="li-80p-kid-3kt" class="li">
+            <p id="033a7552d4j0v">选择迁移对象及迁移类型。 </p>
+            <table id="table-ksz-xsr-5hb" tablewidth="709" tablecolswidth="85 624" autofit="false" class="table">
+              <colgroup colwidth="0.24*" style="width:11.99%"></colgroup>
+              <colgroup colwidth="1.76*" style="width:88.01%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-2zi-lks-2b7">
+                  <td id="concept-610089-entry-xae-xnr-6vd" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="d7744948183gp"><b>配置</b></p>
+                  </td>
+                  <td id="concept-610089-entry-6lu-tul-fmg" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="dd59b36c9fxnu"><b>说明</b></p>
+                  </td>
+                </tr>
+                <tr id="row-p9s-na5-vl9">
+                  <td id="entry-cd1-mxy-e84" rowspan="1" colspan="1">
+                    <p id="d26e47d35bmbl">迁移类型</p>
+                  </td>
+                  <td id="entry-lpt-es7-s86" rowspan="1" colspan="1">
+                    <ul data-tag="ul" id="ul-vmr-btr-5hb" class="ul">
+                      <li data-tag="li" id="li-59c-yvc-tyh" class="li">
+                        <p id="1791cd75aa1vx">如果只需要进行全量迁移，在迁移类型选择时勾选<b id="uicontrol-q1n-8iw-vmu" data-tag="uicontrol" data-isbold="true" class="uicontrol">结构迁移</b>和<b id="uicontrol-pvr-csc-66l">全量数据迁移</b>。 </p>
+                      </li>
+                      <li data-tag="li" id="li-88j-sgp-d63" class="li">
+                        <p id="03dc4c94b1nlb">如果需要进行不停机迁移，在迁移类型选择时勾选<b id="uicontrol-8m0-2dz-lmj" data-tag="uicontrol" data-isbold="true" class="uicontrol">结构迁移</b>、<b id="uicontrol-1oc-fmm-3gs">全量数据迁移</b>和<b id="uicontrol-y7d-w7o-fzj">增量数据迁移</b>。</p>
+                      </li>
+                    </ul>
+                    <div data-tag="note" id="note-ckb-sbh-msl" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                      <p id="24086b9db4ref">如果未勾选<b id="uicontrol-0dx-lql-1fe">增量数据迁移</b>，为保障数据一致性，数据迁移期间请勿在<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>数据库中写入新的数据。</p>
+                    </div></div>
+                  </td>
+                </tr>
+                <tr id="row-noa-b23-cbz">
+                  <td id="entry-k04-fxm-jol" rowspan="1" colspan="1">
+                    <p id="c31bbf6386a5e">迁移对象</p>
+                  </td>
+                  <td id="entry-d9e-1ix-017" rowspan="1" colspan="1">
+                    <p data-tag="p" id="p-c4y-2fc-w06" class="p">在<b id="wintitle-v9w-81v-3lg">迁移对象</b>框中单击待迁移的对象，然后单击<img data-tag="image" id="image-vam-49o-pfo" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3927052271/p40698.png" alt="向右小箭头" placement="inline" class="image inline">图标将其移动到<b id="wintitle-5ct-bld-6sv" data-tag="uicontrol" data-isbold="true" class="uicontrol">已选择对象</b>框。</p>
+                    <div data-tag="note" id="note-x31-jmq-tgl" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                      <ul data-tag="ul" id="ul-z35-ntr-5hb" class="ul">
+                        <li data-tag="li" id="li-rv5-bh9-16w" class="li">
+                          <p id="60b93fa3ecd57">迁移对象选择的粒度可以为库、表、列三个粒度。</p>
+                        </li>
+                        <li data-tag="li" id="li-fuw-d3s-epy" class="li">
+                          <p id="752a50dfe456y">默认情况下，迁移完成后，迁移对象名跟<span class="help-letter-space"></span>Db2<span class="help-letter-space"></span>数据库一致。如果您需要迁移对象在目标<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例上名称不同，那么需要使用<span class="help-letter-space"></span>DTS<span class="help-letter-space"></span>提供的对象名映射功能。使用方法请参见<a href="https://help.aliyun.com/zh/dts/user-guide/object-name-mapping#concept-610481" id="xref-r2x-q6n-37p" title="" class="xref">库表列映射</a>。</p>
+                        </li>
+                        <li data-tag="li" id="li-b6h-eu0-855" class="li">
+                          <p id="67d6c09011je9">如果使用了对象名映射功能，可能会导致依赖这个对象的其他对象迁移失败。</p>
+                        </li>
+                      </ul>
+                    </div></div>
+                  </td>
+                </tr>
+                <tr id="row-dgj-lzp-p4n">
+                  <td id="entry-zrh-gw9-192" rowspan="1" colspan="1">
+                    <p id="f70c9a68bepw7">映射名称更改</p>
+                  </td>
+                  <td id="entry-o3m-s7y-jio" rowspan="1" colspan="1">
+                    <p id="25db98506cf7w">如需更改迁移对象在目标实例中的名称，请使用对象名映射功能，详情请参见<a href="https://help.aliyun.com/zh/dts/user-guide/object-name-mapping#concept-610481" id="xref-nhy-or8-st3" title="" class="xref">库表列映射</a>。</p>
+                  </td>
+                </tr>
+                <tr id="row-rjz-041-osw">
+                  <td id="entry-kaw-fil-ur4" rowspan="1" colspan="1">
+                    <p id="1308c6cee39ob">源、目标库无法连接重试时间</p>
+                  </td>
+                  <td id="entry-2nm-9cr-otw" rowspan="1" colspan="1">
+                    <p id="57f425f52bmr3">默认重试<span class="help-letter-space"></span>12<span class="help-letter-space"></span>小时，您也可以自定义重试时间。如果<span class="help-letter-space"></span>DTS<span class="help-letter-space"></span>在设置的时间内重新连接上源、目标库，迁移任务将自动恢复。否则，迁移任务将失败。</p>
+                    <div data-tag="note" id="note-0i9-ccv-3pz" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                      <p id="877e22bed0td3">由于连接重试期间，DTS<span class="help-letter-space"></span>将收取任务运行费用，建议您根据业务需要自定义重试时间，或者在源和目标库实例释放后尽快释放<span class="help-letter-space"></span>DTS<span class="help-letter-space"></span>实例。</p>
+                    </div></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li id="li-67p-3ba-xdi" data-tag="li" is-conref="true" class="li">
+            <p id="ce581ba766ceu">上述配置完成后，单击页面右下角的<b id="uicontrol-lyr-rvm-imp">预检查并启动</b>。 </p>
+            <div id="note-1hm-j9u-zxl" data-tag="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+              <ul id="ul-8ha-hmq-169" data-tag="ul" class="ul">
+                <li id="li-x9a-s5p-y2i" data-tag="li" class="li">
+                  <p id="ce581ba866v1n">在迁移任务正式启动之前，会先进行预检查。只有预检查通过后，才能成功启动迁移任务。</p>
+                </li>
+                <li id="li-cxf-g2d-cu0" data-tag="li" class="li">
+                  <p id="ce581ba966zxb">如果预检查失败，单击具体检查项后的<img data-tag="image" id="image-ymd-87r-yz2" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8502659951/p47468.png" alt="提示" placement="inline" class="image inline">，查看失败详情。</p>
+                  <ul data-tag="ul" id="ul-xy2-z6h-bm4" class="ul">
+                    <li data-tag="li" id="li-hw6-3a4-kyc" class="li">
+                      <p id="ce5842b066w9k">您可以根据提示修复后重新进行预检查。</p>
+                    </li>
+                    <li data-tag="li" id="li-p7p-2st-ve9" class="li">
+                      <p id="ce5842b166x1l">如无需修复告警检测项，您也可以选择<b id="uicontrol-4he-nqu-ge4" data-tag="uicontrol" data-isbold="true" class="uicontrol">确认屏蔽</b>、<b id="uicontrol-jkq-4bm-ybf">忽略告警项并重新进行预检查</b>，跳过告警检测项重新进行预检查。</p>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div></div>
+          </li>
+          <li data-tag="li" id="li-o66-cmj-jcn" is-conref="true" class="li">
+            <p id="4ecafdd3e41gj">预检查通过后，单击<b id="uicontrol-z4t-20b-8xi" data-tag="uicontrol" data-isbold="true" class="uicontrol">下一步</b>。</p>
+          </li>
+          <li data-tag="li" id="li-igy-288-yph" is-conref="true" class="li">
+            <p id="4ecafdd4e49fv">在<b id="wintitle-lvw-pim-sku">购买配置确认</b>页面，选择<b id="uicontrol-ryd-f4l-1pl" data-tag="uicontrol" data-isbold="true" class="uicontrol">链路规格</b>并选中<b id="uicontrol-mje-jcj-w9g">数据传输（按量付费）服务条款</b>。</p>
+          </li>
+          <li data-tag="li" id="li-7ck-t5c-fpi" is-conref="true" class="li">
+            <p id="4ecafdd5e45r9">单击<b id="uicontrol-zl2-s4c-60j" data-tag="uicontrol" data-isbold="true" class="uicontrol">购买并启动</b>，迁移任务正式开始。 </p>
+            <ul data-tag="ul" id="ul-ozz-c5r-5hb" class="ul">
+              <li data-tag="li" id="li-nmc-vr6-mel" class="li">
+                <p id="4ecafdd6e414a">全量数据迁移 </p>
+                <p data-tag="p" id="p-d3i-qa2-yhi" class="p">请勿手动结束迁移任务，否则可能导致数据不完整。您只需等待迁移任务完成即可，迁移任务会自动结束。</p>
+              </li>
+              <li data-tag="li" id="li-t2t-b3c-phh" class="li">
+                <p id="4ecafdd7e44nb">增量数据迁移 </p>
+                <p data-tag="p" id="p-shx-e6o-ijy" class="p">迁移任务不会自动结束，您需要手动结束迁移任务。</p>
+                <div data-tag="note" id="note-q8j-83a-xyy" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                  <p id="4ecafdd8e45cv">请选择合适的时间手动结束迁移任务，例如业务低峰期或准备将业务切换至目标实例时。</p>
+                </div></div>
+                <ol data-tag="ol" type="a" id="ol-hi8-qy1-p8t" class="ol">
+                  <li data-tag="li" id="li-5kz-cgt-ajq" class="li">
+                    <p id="4ecafdd9e4it3">观察迁移任务的进度变更为<b id="uicontrol-4b7-j7r-u09" data-tag="uicontrol" data-isbold="true" class="uicontrol">增量迁移</b>，并显示为<b id="uicontrol-bx7-v72-hez" data-tag="uicontrol" data-isbold="true" class="uicontrol">无延迟</b>时，将源库停写几分钟，此时<b id="uicontrol-yoh-vh0-qno" data-tag="uicontrol" data-isbold="true" class="uicontrol">增量迁移</b>可能会显示延迟的时间。</p>
+                  </li>
+                  <li data-tag="li" id="li-j2s-4e2-8li" class="li">
+                    <p id="4ecb24e0e4ocl">等待迁移任务的<b id="uicontrol-d7q-nqh-j1j" data-tag="uicontrol" data-isbold="true" class="uicontrol">增量迁移</b>再次进入<b id="uicontrol-wq7-uvo-mu9" data-tag="uicontrol" data-isbold="true" class="uicontrol">无延迟</b>后，手动结束迁移任务。<img data-tag="image" id="image-fja-4i8-m5e" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/6368913461/p47604.png" alt="无延迟" placement="break" class="image break"></p>
+                  </li>
+                </ol>
+              </li>
+            </ul>
+          </li>
+          <li data-tag="li" id="li-zmj-lo8-to9" class="li">
+            <p id="5cd896569e1y1">将业务切换至<span class="help-letter-space"></span>RDS MySQL。</p>
+          </li>
+        </ol>
+      </section>
+    </div>
+  </main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/rds/apsaradb-rds-for-mysql/migrate-data-to-an-apsaradb-rds-for-mysql-instance-across-alibaba-cloud-accounts" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：通过专线、VPN网关或智能接入网关接入的自建MySQL迁移至其他账号下的RDS实例</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/rds/apsaradb-rds-for-mysql/use-the-mysqldump-extension-to-migrate-data-from-a-self-managed-mysql-instance-to-an-apsaradb-rds-for-mysql-instance" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：使用mysqldump迁移MySQL数据<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

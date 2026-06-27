@@ -1,0 +1,17 @@
+{
+  "id": "redis:developer-reference/extended-data-structures-of-apsaradb-for-redis-enhanced-edition",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "selection",
+  "title": "Tair拓展数据结构及与Redis stack的功能对比-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/developer-reference/extended-data-structures-of-apsaradb-for-redis-enhanced-edition",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/developer-reference/extended-data-structures-of-apsaradb-for-redis-enhanced-edition.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/extended-data-structures-of-apsaradb-for-redis-enhanced-edition.md",
+  "word_count": 1980,
+  "text_units": 3577,
+  "local_links": 68,
+  "external_links": 119,
+  "has_tables": true,
+  "table_count": 7,
+  "quality": "accepted"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "ack:distributed-cloud-container-platform-for-kubernetes/user-guide/use-cluster-auditing-in-registered-clusters:11",
+  "document_id": "ack:distributed-cloud-container-platform-for-kubernetes/user-guide/use-cluster-auditing-in-registered-clusters",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "启用注册集群的API Server审计-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/use-cluster-auditing-in-registered-clusters",
+  "chunk_index": 11,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/distributed-cloud-container-platform-for-kubernetes/user-guide/use-cluster-auditing-in-registered-clusters.chunk-0011.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/distributed-cloud-container-platform-for-kubernetes/user-guide/use-cluster-auditing-in-registered-clusters.md",
+  "heading_path": "在注册集群中启用集群API Server审计功能 > 后续步骤 > 产品和定价",
+  "char_count": 272
+}

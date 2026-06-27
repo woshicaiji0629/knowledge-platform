@@ -1,0 +1,851 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    日志服务如何设置时序图-日志服务(SLS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/sls/time-series-chart">
+  <meta name="keywords" content="了解时序图,配置时序图,时序图功能介绍,时序图配置参数">
+  <meta name="description" content="时序图是为MetricStore定制的可视化图表，支持Prometheus查询数据结果的可视化，并支持多个查询结果同时显示。本文介绍设置时序图的操作步骤。">
+  <meta name="last-modified" content="2026-06-04T19:53:47+08:00">
+  <meta name="date" content="2020-06-24T11:32:30+08:00">
+  <meta property="og:title" content="时序图">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/sls/time-series-chart">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="时序图是为MetricStore定制的可视化图表，支持Prometheus查询数据结果的可视化，并支持多个查询结果同时显示。本文介绍设置时序图的操作步骤。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/sls/time-series-chart",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "171784",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/sls/time-series-chart","nodeId":null,"data":{"lastModifiedTime":1780574027000,"keywords":"了解时序图,配置时序图,时序图功能介绍,时序图配置参数","docTitle":"时序图","language":"zh","seoTitle":"日志服务如何设置时序图-日志服务(SLS)-阿里云帮助中心","title":"时序图","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"task-2445068\">\n    \n    \n    <p id=\"shortdesc-yuc-lih-yty\" data-tag=\"shortdesc\" class=\"shortdesc\">时序图是为<span class=\"help-letter-space\"></span>MetricStore<span class=\"help-letter-space\"></span>定制的可视化图表，支持<span class=\"help-letter-space\"></span>Prometheus<span class=\"help-letter-space\"></span>查询数据结果的可视化，并支持多个查询结果同时显示。本文介绍设置时序图的操作步骤。</p>\n    <div data-tag=\"taskbody\" id=\"taskbody-lnb-rin-67a\" class=\"taskbody\">\n      <section data-tag=\"section\" id=\"section-hck-ok6-cnt\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-xwd-l3v-hcf\" class=\"title\">简介</h2>\n        <div data-tag=\"p\" id=\"p-gdc-dxf-b40\" class=\"p\">\n          <p id=\"e0018c5d85kuq\">时序图属于趋势类分析图表，一般用于展示一组数据在一个连续时间间隔上的变化情况，即直观地展示数据变化趋势。在时序图中，您可以清晰地观测到数据在某一个周期内的变化，例如：</p>\n          <ul data-tag=\"ul\" id=\"ul-svc-qie-8av\" class=\"ul\">\n            <li data-tag=\"li\" id=\"li-y30-3fo-9ii\" class=\"li\">\n              <p id=\"279a7d733fbeg\">递增性或递减性</p>\n            </li>\n            <li data-tag=\"li\" id=\"li-qrp-u1q-2f4\" class=\"li\">\n              <p id=\"68dd987e95qi6\">增减的速率情况</p>\n            </li>\n            <li data-tag=\"li\" id=\"li-r0f-5m6-r04\" class=\"li\">\n              <p id=\"8a6a042010zbv\">增减的规律（如周期变化）</p>\n            </li>\n            <li data-tag=\"li\" id=\"li-62x-9hq-ls3\" class=\"li\">\n              <p id=\"d57c068b09rji\">峰值和谷值</p>\n            </li>\n          </ul>\n        </div>\n        <p data-tag=\"p\" id=\"p-sgk-08j-24x\" class=\"p\">时序图是用于分析数据随时间变化趋势的最佳选择。您也可以绘制多条线用于分析多组数据在同一时间周期的变化趋势，进而分析数据之间的相互作用和影响（如同增同减，成反比等）。同时，日志服务时序图还支持数据的同环比，便于您查看数据在其他时间和当前时间的对比情况。</p>\n      </section>\n      <section data-tag=\"section\" id=\"section-8vp-sw7-ww2\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-jvo-98z-w24\" class=\"title\">通用配置</h2>\n        <p data-tag=\"p\" id=\"p-boi-vdr-e58\" class=\"p\">通用配置用于对时序图进行全局配置。</p>\n        <ul data-tag=\"ul\" id=\"ul-4c7-isj-dtd\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-vad-43d-u4i\" class=\"li\">\n            <p id=\"6ad116b399d23\">基本配置</p>\n            <table id=\"table-qe6-ocm-mqe\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n              <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n              <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-qjw-etk-2la\">\n                  <td id=\"task-2445068-entry-bg6-iy4-ksp\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"b27c2a065a08j\"><b>参数</b></p>\n                  </td>\n                  <td id=\"task-2445068-entry-v9z-l1s-qop\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"0d7d0924d0rzq\"><b>说明</b></p>\n                  </td>\n                </tr>\n                <tr id=\"row-vss-x8s-7sv\">\n                  <td id=\"entry-v0d-dpp-0yi\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"31c69d36danrj\"><b id=\"uicontrol-6tq-8tu-b9f\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">标题</b></p>\n                  </td>\n                  <td id=\"entry-u9r-lzz-tia\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"705dbf1ca6psn\">设置时序图的标题。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-mkr-f1v-sy2\">\n                  <td id=\"entry-3m7-34t-f4l\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"9ea17b79f8m4o\"><b id=\"uicontrol-s8v-a77-09n\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">显示标题</b></p>\n                  </td>\n                  <td id=\"entry-s77-vq3-yp5\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"0d6569e0a6q17\">打开<b id=\"uicontrol-cyq-dvr-jf2\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">显示标题</b>开关后，将在时序图中显示标题。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-g9q-x4j-q7o\">\n                  <td id=\"entry-yzv-awq-v9j\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b4eaa653d0ge1\"><b id=\"uicontrol-b7f-bdh-h4l\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">显示边框</b></p>\n                  </td>\n                  <td id=\"entry-tub-keg-80i\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"f4c0a9e5f8w9w\">打开<b id=\"uicontrol-3jy-cj3-0xh\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">显示边框</b>开关后，将在时序图中显示边框。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-grt-ai3-riy\">\n                  <td id=\"entry-g5z-b12-3rd\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"25fd007863vkj\"><b id=\"uicontrol-qa0-lpi-3r3\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">显示背景</b></p>\n                  </td>\n                  <td id=\"entry-f2y-912-vnf\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"6d147ea54br4j\">打开<b id=\"uicontrol-eux-ufp-cev\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">显示背景</b>开关后，将在时序图中显示背景颜色。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-hbn-wu4-fjt\">\n                  <td id=\"entry-58u-c2g-zft\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"d8ec03598bbn5\"><b id=\"uicontrol-mxf-osj-luh\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">显示时间</b></p>\n                  </td>\n                  <td id=\"entry-jzr-9eg-2tq\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"c597f7eec5pth\">打开<b id=\"uicontrol-xhf-ltn-1xr\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">显示时间</b>开关后，将在时序图中显示查询时间。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-vh2-ngt-gzc\">\n                  <td id=\"entry-u47-3ti-p5w\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"5e2c89eb6ffb6\"><b id=\"uicontrol-fp4-ep8-hea\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">固定时间&nbsp;</b></p>\n                  </td>\n                  <td id=\"entry-91e-hcr-0rp\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"a51584aadb4oc\">打开<b id=\"uicontrol-mv2-rwp-jgo\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">固定时间&nbsp;</b>开关后，将固定查询分析的时间，不受仪表盘全局时间的影响。</p>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </li>\n          <li data-tag=\"li\" id=\"li-ufa-89i-75t\" class=\"li\">\n            <p id=\"a71bc394c8dws\">标准配置</p>\n            <table id=\"table-r1a-16h-mbg\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n              <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n              <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-y5l-z6c-k3q\">\n                  <td id=\"task-2445068-entry-494-hlx-9ff\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"1ca9ae046f0rl\"><b>参数</b></p>\n                  </td>\n                  <td id=\"task-2445068-entry-27l-r5g-kix\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"d08d521d60jqp\"><b>说明</b></p>\n                  </td>\n                </tr>\n                <tr id=\"row-61z-6p4-llj\">\n                  <td id=\"entry-io5-j69-j5l\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"ed8e6cf5aar0o\"><b id=\"uicontrol-hiz-x05-e06\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">格式化</b></p>\n                  </td>\n                  <td id=\"entry-k2z-xoj-wk1\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"57693fc2a5evs\">设置数字的显示格式。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-cza-8oc-7vc\">\n                  <td id=\"entry-yvz-gyk-jqq\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"f32cae805088m\"><b id=\"uicontrol-u29-vu4-s3y\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">单位</b></p>\n                  </td>\n                  <td id=\"entry-qym-w9m-oy7\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"f49976db6e2az\">设置数字的单位。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-y8i-hed-80i\">\n                  <td id=\"entry-e8s-38l-kfv\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"fafa1c0a33j7u\"><b id=\"uicontrol-emc-xmt-soe\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">小数点后位数</b></p>\n                  </td>\n                  <td id=\"entry-q1d-i7c-a8a\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"4e7dedeb69cqy\">设置数字的小数点后的位数。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-et8-5bi-806\">\n                  <td id=\"entry-0qo-mxy-ypi\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"fa16b7b8ff4v0\"><b id=\"uicontrol-155-690-rac\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">显示名</b></p>\n                  </td>\n                  <td id=\"entry-4we-llr-ved\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"47c29df5b7xce\">修改图例的名称。</p>\n                    <p data-tag=\"p\" id=\"p-ou4-iut-zo3\" class=\"p\">设置显示名后，该时序图中的所有图例名称都将变更为该值。如果您要修改某个图例的名称，可以使用字段配置。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-aww-3um-bej\">\n                  <td id=\"entry-0ci-f5u-zm6\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"1c5dbda7dchm3\"><b id=\"uicontrol-xwo-6hv-we9\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">颜色方案</b></p>\n                  </td>\n                  <td id=\"entry-6hs-w2c-q7b\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"716beaa172qwl\">选择时序图的颜色方案，用于设置时序图背景以及图例的颜色。</p>\n                    <ul data-tag=\"ul\" id=\"ul-5uw-ini-rzt\" class=\"ul\">\n                      <li data-tag=\"li\" id=\"li-cdg-ipv-ojx\" class=\"li\">\n                        <p id=\"2640d74c7ek0z\"><b id=\"uicontrol-98g-me1-icq\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">内置</b>：使用内置颜色。</p>\n                      </li>\n                      <li data-tag=\"li\" id=\"li-cov-2wi-w3h\" class=\"li\">\n                        <p id=\"191930ffe1pd9\"><b id=\"uicontrol-s66-9ej-tly\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">单色</b>：使用您所选择的某个颜色。</p>\n                      </li>\n                    </ul>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </li>\n          <li data-tag=\"li\" id=\"li-06x-tpv-w1u\" class=\"li\">\n            <p id=\"a7aff57cbdfxt\">数据配置</p>\n            <table id=\"table-yhl-48u-0on\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n              <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n              <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-jrw-c1w-hum\">\n                  <td id=\"task-2445068-entry-rkj-ien-sng\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"0e9208bfe91f6\"><b>参数</b></p>\n                  </td>\n                  <td id=\"task-2445068-entry-v3x-3xl-q37\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"6862fc7db8h1z\"><b>说明</b></p>\n                  </td>\n                </tr>\n                <tr id=\"row-arb-nko-qcl\">\n                  <td id=\"entry-1ht-g5x-8nq\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"20a715e2e1653\"><b id=\"uicontrol-et0-3yv-ues\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">数据补全</b></p>\n                  </td>\n                  <td id=\"entry-rd6-mxm-p0q\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"2c995c050bhsj\">打开<b id=\"uicontrol-k4h-avj-et4\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">数据补全</b>开关后，日志服务会从第一个数据开始，按照补全窗口进行数据补全。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-f9v-jza-fkk\">\n                  <td id=\"entry-361-1oo-rfb\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"35a743a87caws\"><b id=\"uicontrol-zhc-8o4-b0n\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">补全窗口</b></p>\n                  </td>\n                  <td id=\"entry-y3o-vn5-hor\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"a401f0f55ba4r\">设置补全窗口。最小值为<span class=\"help-letter-space\"></span>0，单位：秒。</p>\n                    <p data-tag=\"p\" id=\"p-xkn-fph-oyf\" class=\"p\">默认情况下，日志服务会自动定义补全窗口。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-m8x-i8q-soj\">\n                  <td id=\"entry-nyz-xs3-rt7\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"7926da3757brb\"><b id=\"uicontrol-bnh-9rm-mkd\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">补全值</b></p>\n                  </td>\n                  <td id=\"entry-1wx-jzm-nod\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"013a2f25d92hu\">设置补全的内容。默认值为<span class=\"help-letter-space\"></span>0，表示将缺失的值设置为<span class=\"help-letter-space\"></span>0。</p>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </li>\n          <li data-tag=\"li\" id=\"li-6bp-a0s-iid\" class=\"li\">\n            <p id=\"aefd9e164efjr\">图例配置</p>\n            <table id=\"table-o7q-vbx-vcu\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n              <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n              <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-t71-itn-9pj\">\n                  <td id=\"task-2445068-entry-fzc-krd-3nv\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"c67322f78179c\"><b>参数</b></p>\n                  </td>\n                  <td id=\"task-2445068-entry-yoh-9ou-q7u\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"a26543cf9ctus\"><b>说明</b></p>\n                  </td>\n                </tr>\n                <tr id=\"row-mgt-asv-gwx\">\n                  <td id=\"entry-wki-f7m-kum\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"80b0a9cbbdkej\"><b id=\"uicontrol-uwi-cy0-h8s\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">显示图例</b></p>\n                  </td>\n                  <td id=\"entry-qhi-pj9-von\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"093c1a0db79j2\">打开<b id=\"uicontrol-5tc-m5z-xse\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">显示图例</b>开关后，将在时序图中显示图例。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-egg-js9-vul\">\n                  <td id=\"entry-pcy-kh0-ugr\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"19a74b29861my\"><b id=\"uicontrol-w64-awr-uxh\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">图例位置</b></p>\n                  </td>\n                  <td id=\"entry-npy-te3-epb\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"56bd12f4eewev\">设置图例的位置。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-8kz-ynu-nfl\">\n                  <td id=\"entry-aq5-45i-2wv\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"dea9821455ep9\"><b id=\"uicontrol-aju-ksj-104\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">动作行为</b></p>\n                  </td>\n                  <td id=\"entry-a27-a8f-pqg\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"47b55e46f5axw\">设置图例的动作行为。</p>\n                    <ul data-tag=\"ul\" id=\"ul-19q-1r9-5qi\" class=\"ul\">\n                      <li data-tag=\"li\" id=\"li-yfy-fus-4pk\" class=\"li\">\n                        <p id=\"77dd99da6922e\"><b id=\"uicontrol-169-bmq-yjb\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">单选</b>：单击某个图例时，时序图上只显示该图例对应的数据。</p>\n                      </li>\n                      <li data-tag=\"li\" id=\"li-bnv-vgm-mor\" class=\"li\">\n                        <p id=\"763c3dfefdvni\"><b id=\"uicontrol-j5i-jj6-4xv\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">切换</b>：单击某个图例时，时序图上隐藏该图例对应的数据，再次单击可取消隐藏。</p>\n                      </li>\n                    </ul>\n                  </td>\n                </tr>\n                <tr id=\"row-neo-4i8-0t9\">\n                  <td id=\"entry-19d-lsg-mjq\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"6a0983501cn8y\"><b data-tag=\"uicontrol\" id=\"uicontrol-h36-8gf-4uj\" class=\"uicontrol\">最大宽度（高度）%</b></p>\n                  </td>\n                  <td id=\"entry-liv-odq-t3r\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"730203632f0y0\">设置图例的最大宽度和高度。</p>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </li>\n          <li data-tag=\"li\" id=\"li-j2x-dxu-yjr\" class=\"li\">\n            <p id=\"89e27e67b87v0\">Tooltip<span class=\"help-letter-space\"></span>配置</p>\n            <table id=\"table-vl1-08g-y28\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n              <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n              <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-kye-hyz-m9l\">\n                  <td id=\"task-2445068-entry-o4v-yf3-s7q\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"6c498791d8xth\"><b>参数</b></p>\n                  </td>\n                  <td id=\"task-2445068-entry-4l7-1li-k67\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"5e9d070d33a55\"><b>说明</b></p>\n                  </td>\n                </tr>\n                <tr id=\"row-ni5-adp-78b\">\n                  <td id=\"entry-2fz-2vz-si1\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"45a4c7dd74y63\"><b id=\"uicontrol-b10-nme-bva\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">排序方式</b></p>\n                  </td>\n                  <td id=\"entry-gsm-5gn-1cb\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"cd0645db808zu\">设置数据的排序方式。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-bjw-okg-9mq\">\n                  <td id=\"entry-ngt-bkb-36x\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"586db63580fm0\"><b id=\"uicontrol-yqd-w9e-dxj\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">显示模式</b></p>\n                  </td>\n                  <td id=\"entry-9da-w7i-im7\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"9ffaa6124eyhv\">设置数据的显示模式。</p>\n                    <p data-tag=\"p\" id=\"p-t0m-25l-4un\" class=\"p\">当您将鼠标悬浮在时序图上时，将根据您所设置的显示方式显示数据。</p>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </li>\n          <li data-tag=\"li\" id=\"li-q86-hc9-lan\" class=\"li\">\n            <p id=\"96350c9254e9k\">X<span class=\"help-letter-space\"></span>轴配置</p>\n            <table id=\"table-ih2-ze5-c9y\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n              <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n              <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-h6a-l97-brd\">\n                  <td id=\"task-2445068-entry-5pj-j62-4ud\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"5523ddc101a29\"><b>参数</b></p>\n                  </td>\n                  <td id=\"task-2445068-entry-adr-039-yw0\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"598aba53b4jwo\"><b>说明</b></p>\n                  </td>\n                </tr>\n                <tr id=\"row-eqb-1oi-5dx\">\n                  <td id=\"entry-7p5-5vf-60d\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"664af8fb11ao2\"><b id=\"uicontrol-w0e-slq-li7\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">显示<span class=\"help-letter-space\"></span>x<span class=\"help-letter-space\"></span>轴</b></p>\n                  </td>\n                  <td id=\"entry-fg6-6c4-m1z\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"32335d9a78g6t\">打开<b id=\"uicontrol-wwq-d7d-37s\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">显示<span class=\"help-letter-space\"></span>x<span class=\"help-letter-space\"></span>轴</b>开关后，将在时序图中显示<span class=\"help-letter-space\"></span>X<span class=\"help-letter-space\"></span>轴。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-zjt-ty0-8yq\">\n                  <td id=\"entry-30f-12r-3w2\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"400954b88brq9\"><b id=\"uicontrol-k81-95p-efl\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">x<span class=\"help-letter-space\"></span>轴标题</b></p>\n                  </td>\n                  <td id=\"entry-ani-uqk-fmj\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"fbc367a62fufe\">设置<span class=\"help-letter-space\"></span>X<span class=\"help-letter-space\"></span>轴的标题。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-bhz-pyx-bq8\">\n                  <td id=\"entry-xub-ccd-0rc\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"48b0c5103dvjz\"><b id=\"uicontrol-8v7-9ye-jav\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">格式化</b></p>\n                  </td>\n                  <td id=\"entry-9oa-j7s-u32\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"20205156aagw8\">选择对应的格式，对<span class=\"help-letter-space\"></span>X<span class=\"help-letter-space\"></span>轴上的时间进行格式化处理。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-26u-apy-4i6\">\n                  <td id=\"entry-or2-klq-04o\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"f46df6a0aacvd\"><b id=\"uicontrol-lad-bir-4zz\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">x<span class=\"help-letter-space\"></span>轴高度</b></p>\n                  </td>\n                  <td id=\"entry-y3k-8r5-xlw\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"63168bb2e8mg6\">设置<span class=\"help-letter-space\"></span>X<span class=\"help-letter-space\"></span>轴的高度。</p>\n                    <p data-tag=\"p\" id=\"p-ctu-dzq-ugc\" class=\"p\">默认情况下，日志服务会自动设置<span class=\"help-letter-space\"></span>X<span class=\"help-letter-space\"></span>轴的高度。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-hx5-rtc-dqz\">\n                  <td id=\"entry-7zn-7jt-pm5\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"68ecde9b49l2m\"><b id=\"uicontrol-d6i-zab-uet\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">拖拽缩放目标</b></p>\n                  </td>\n                  <td id=\"entry-gk4-9ev-4le\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"0a3d294959a4h\">拖拽缩放目标后，支持刷新全局时间或当前单个图表时间。</p>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </li>\n          <li data-tag=\"li\" id=\"li-xum-2uh-znm\" class=\"li\">\n            <p id=\"5c6e9b2887xb4\">Y<span class=\"help-letter-space\"></span>轴配置</p>\n            <table id=\"table-75a-tlh-ngi\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n              <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n              <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-dlc-w0s-5pu\">\n                  <td id=\"task-2445068-entry-74g-ipm-tbq\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"4d7f2915fb8vr\"><b>参数</b></p>\n                  </td>\n                  <td id=\"task-2445068-entry-eoz-6od-i1e\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"eef5aff02a8pc\"><b>说明</b></p>\n                  </td>\n                </tr>\n                <tr id=\"row-dah-w3y-e3b\">\n                  <td id=\"entry-6j5-n2c-5kq\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"7eda4e008783v\"><b id=\"uicontrol-64n-muk-i5r\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">显示<span class=\"help-letter-space\"></span>y<span class=\"help-letter-space\"></span>轴</b></p>\n                  </td>\n                  <td id=\"entry-ton-oj5-9jb\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"6165aa907egcz\">打开<b id=\"uicontrol-8xq-03q-h9a\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">显示<span class=\"help-letter-space\"></span>y<span class=\"help-letter-space\"></span>轴</b>开关后，将在时序图中显示<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-i03-wu9-352\">\n                  <td id=\"entry-x8q-yox-hhm\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"849d85c1c8ntw\"><b id=\"uicontrol-zfh-8pf-dfu\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">y<span class=\"help-letter-space\"></span>轴标题</b></p>\n                  </td>\n                  <td id=\"entry-b42-18x-oxl\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"4caa76aee9fk5\">设置<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴的标题。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-tuf-tw4-tni\">\n                  <td id=\"entry-sxe-wl6-rpc\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"4f266b9d897dg\"><b id=\"uicontrol-gt1-wkk-6ty\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">y<span class=\"help-letter-space\"></span>轴位置</b></p>\n                  </td>\n                  <td id=\"entry-axy-n5h-g40\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"7d08fcf2d5gk7\">设置<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴的位置。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-dwk-dc6-hc9\">\n                  <td id=\"entry-hf1-uo2-bes\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"1b6b8c40d3ysk\"><b id=\"uicontrol-sh2-yx8-vnx\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">是否堆叠</b></p>\n                  </td>\n                  <td id=\"entry-5gf-lo2-qax\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"67667ab2dbolj\">开启该功能后，将堆叠显示<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴数据。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-4de-c2d-ymd\">\n                  <td id=\"entry-rzf-vqa-ezz\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"60fa8bfb116pa\"><b id=\"uicontrol-jdx-4dq-3bd\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">y<span class=\"help-letter-space\"></span>轴宽度</b></p>\n                  </td>\n                  <td id=\"entry-ic0-xx8-6wt\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"35db96fa5ci5s\">设置<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴的宽度。</p>\n                    <p data-tag=\"p\" id=\"p-agn-zgt-fry\" class=\"p\">默认情况下，日志服务会自动设置<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴的宽度。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-vtg-9q0-msi\">\n                  <td id=\"entry-zr0-830-eiz\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"02b34775eb8b4\"><b id=\"uicontrol-khw-pnd-go0\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">最大值</b></p>\n                  </td>\n                  <td id=\"entry-88m-07o-h35\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"75b1512594zx6\">设置<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴的最大值。</p>\n                    <p data-tag=\"p\" id=\"p-j44-a7i-a5s\" class=\"p\">默认情况下，日志服务会自动设置<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴的最大值。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-ffx-6fi-xbh\">\n                  <td id=\"entry-skn-24e-7fk\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"7c3955795f3ob\"><b id=\"uicontrol-tqj-g88-q6e\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">最小值</b></p>\n                  </td>\n                  <td id=\"entry-ya1-528-h3h\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"2015b04207gg6\">设置<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴的最小值。</p>\n                    <p data-tag=\"p\" id=\"p-ybv-3b4-4yz\" class=\"p\">默认情况下，日志服务会自动设置<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴的最小值。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-i3v-ukv-1xy\">\n                  <td id=\"entry-f5x-oar-t37\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"fa9692b4affjf\"><b id=\"uicontrol-0s5-jy2-jfd\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">弹性最小值</b></p>\n                  </td>\n                  <td id=\"entry-h3w-qtu-dpy\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b2ae0aee49vfr\">设置<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴的弹性最小值。当所有值都大于弹性最小值时，弹性最小值才会生效。</p>\n                    <p data-tag=\"p\" id=\"p-4p9-r3c-m1o\" class=\"p\">默认情况下，日志服务会自动设置<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴的弹性最小值。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-0e6-2vk-81c\">\n                  <td id=\"entry-4vh-w4o-x3z\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"f9dc445886kai\"><b id=\"uicontrol-gnw-9o1-pyi\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">弹性最大值</b></p>\n                  </td>\n                  <td id=\"entry-02p-yef-8zz\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"013bd438ddee6\">设置<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴的弹性最大值。当所有值都小于弹性最大值时，弹性最大值才会生效。</p>\n                    <p data-tag=\"p\" id=\"p-he8-7yx-m4t\" class=\"p\">默认情况下，日志服务会自动设置<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴的弹性最大值。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-g63-uvn-7dm\">\n                  <td id=\"entry-ahp-sfy-431\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"650daa90bdw14\"><b id=\"uicontrol-dns-zuh-uqd\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">y<span class=\"help-letter-space\"></span>轴<span class=\"help-letter-space\"></span>id</b></p>\n                  </td>\n                  <td id=\"entry-ebh-cdo-e94\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"ca3a2e1a84hn4\">设置<span class=\"help-letter-space\"></span>y<span class=\"help-letter-space\"></span>轴<span class=\"help-letter-space\"></span>ID。一般情况下该字段在<b id=\"uicontrol-8lh-61t-itr\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">通用配置</b>中无意义，如果您要定义多个<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴，需要在<b id=\"uicontrol-h37-mbw-yb6\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">字段配置</b>中进行配置。Y<span class=\"help-letter-space\"></span>轴<span class=\"help-letter-space\"></span>ID<span class=\"help-letter-space\"></span>可以为任意字符串。不同<span class=\"help-letter-space\"></span>ID<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴在时序图上会显示不同的<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/create-a-line-chart-with-multiple-y-axes#task-2138953\" id=\"xref-xbt-70k-f96\" title=\"\" class=\"xref\">添加多<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴线图</a>。</p>\n                    <p data-tag=\"p\" id=\"p-wzb-ws6-ejt\" class=\"p\">Y<span class=\"help-letter-space\"></span>轴<span class=\"help-letter-space\"></span>ID<span class=\"help-letter-space\"></span>的优先级高于<b id=\"uicontrol-cwn-40t-n3m\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">标准配置</b>中单位的配置。例如两个<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴的单位相同时，会合并为一个<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴。当两个<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴的单位相同但<span class=\"help-letter-space\"></span>ID<span class=\"help-letter-space\"></span>不同时，会显示为两个<span class=\"help-letter-space\"></span>Y<span class=\"help-letter-space\"></span>轴。</p>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </li>\n          <li data-tag=\"li\" id=\"li-ley-t81-i3c\" class=\"li\">\n            <p id=\"4a32cc9944bix\">图形配置</p>\n            <table id=\"table-ekb-wnv-d5q\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n              <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n              <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-2pn-4xo-bya\">\n                  <td id=\"task-2445068-entry-gry-3t6-rbz\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"b9eb24b3c6rpr\"><b>参数</b></p>\n                  </td>\n                  <td id=\"task-2445068-entry-cyt-jnk-rt1\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"97716d48e1mwj\"><b>说明</b></p>\n                  </td>\n                </tr>\n                <tr id=\"row-jhg-lku-4sr\">\n                  <td id=\"entry-m3o-wzj-m2y\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b035a815f7g32\"><b id=\"uicontrol-w9e-hmo-od0\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">图形类型</b></p>\n                  </td>\n                  <td id=\"entry-zs8-sc0-rcm\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"00ae59cbd3tk2\">选择时序图的类型。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-1aq-xk4-7js\">\n                  <td id=\"entry-b7n-efy-6l3\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"c70891d72each\"><b id=\"uicontrol-gq6-i59-qck\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">连线方式</b></p>\n                  </td>\n                  <td id=\"entry-m5q-5m6-ajp\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"51647d279cpcc\">选择时序图的连线方式。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-gnc-ze6-03x\">\n                  <td id=\"entry-uss-5cp-ewx\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"afaad20ac4swc\"><b id=\"uicontrol-hvm-zry-4tu\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">线宽</b></p>\n                  </td>\n                  <td id=\"entry-2ak-yf9-cna\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"867fc81569i8r\">设置线的宽度。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-5lw-qze-tbg\">\n                  <td id=\"entry-yaj-ei3-2sd\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"fbd76d5182o0t\"><b id=\"uicontrol-1cs-0bn-5ur\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">显示点</b></p>\n                  </td>\n                  <td id=\"entry-hv6-jha-6gw\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"95ee0288c022e\">设置显示点。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-cmc-v5v-xx6\">\n                  <td id=\"entry-wyg-ujd-yqu\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"e7ab5c2ac64pr\"><b id=\"uicontrol-gvv-k5p-v0l\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">透明度</b></p>\n                  </td>\n                  <td id=\"entry-3uo-jav-i7g\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b5165effc1ewa\">设置时序图的透明度。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-k8u-69i-ism\">\n                  <td id=\"entry-5wh-ddv-cyg\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"f1b5fe3f20lvy\"><b id=\"uicontrol-nfq-41e-dn7\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">点大小</b></p>\n                  </td>\n                  <td id=\"entry-g5m-cdn-hjf\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"03df8e0215n1k\">设置时序图上点的大小。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-edp-s9y-4j1\">\n                  <td id=\"entry-cs8-rnb-9sj\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"e5e54283fbpg2\"><b id=\"uicontrol-zwt-ilj-09q\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">渐变方式</b></p>\n                  </td>\n                  <td id=\"entry-d35-wow-qe9\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"2bad500750iod\">设置时序图的渐变方式。</p>\n                    <ul data-tag=\"ul\" id=\"ul-jd2-orv-q6d\" class=\"ul\">\n                      <li data-tag=\"li\" id=\"li-vz7-rc2-qm8\" class=\"li\">\n                        <p id=\"857d270ce82qo\"><b id=\"uicontrol-rlg-52w-ksd\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">透明度</b>：基于线条颜色，并受到<b id=\"uicontrol-i9j-dg7-u2b\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">透明度</b>的影响。</p>\n                      </li>\n                      <li data-tag=\"li\" id=\"li-jx7-oqs-zv0\" class=\"li\">\n                        <p id=\"d6df9722c856r\"><b id=\"uicontrol-z37-egg-cuw\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">不渐变</b>：无渐变，使用线条颜色填充。</p>\n                      </li>\n                    </ul>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </li>\n          <li data-tag=\"li\" id=\"li-hpz-4q1-kza\" class=\"li\">\n            <p id=\"92d0bbbdc8coz\">阈值</p>\n            <table id=\"table-ui4-eog-5v6\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n              <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n              <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-o5g-8zl-280\">\n                  <td id=\"task-2445068-entry-rrm-lbr-i9v\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"5e4383cf081x6\"><b>参数</b></p>\n                  </td>\n                  <td id=\"task-2445068-entry-01k-0it-aar\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"96aa286bc0zpi\"><b>说明</b></p>\n                  </td>\n                </tr>\n                <tr id=\"row-2ya-q4v-nr3\">\n                  <td id=\"entry-1jn-e6x-ndd\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"b8da217fc18br\"><b id=\"uicontrol-zcd-1nz-bul\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">上界线</b></p>\n                  </td>\n                  <td id=\"entry-hjr-gzh-0o7\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"f144f3c188chk\">选择上界线。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-qtc-d3c-y0i\">\n                  <td id=\"entry-zid-kcq-u4u\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"a4a1b026f72ze\"><b id=\"uicontrol-pz2-oed-8cc\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">下界线</b></p>\n                  </td>\n                  <td id=\"entry-jzc-a67-lmb\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"3dcbd726ddgw6\">选择下界线。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-8z0-qtx-lib\">\n                  <td id=\"entry-27y-wfc-vk0\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"037a918483gd9\"><b id=\"uicontrol-9r3-t6k-tbv\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">界线填充颜色</b></p>\n                  </td>\n                  <td id=\"entry-ay8-akg-ahw\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"15e8f14870nvs\">设置填充颜色。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-w0r-i0y-jcp\">\n                  <td id=\"entry-g1s-z5y-o6q\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"d77b00f99et4f\"><b data-tag=\"uicontrol\" id=\"uicontrol-98h-aex-3ng\" class=\"uicontrol\">界限填充透明度</b></p>\n                  </td>\n                  <td id=\"entry-tw6-ujp-d4m\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"a5e56114b30fs\">选择颜色的透明度。</p>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </li>\n          <li data-tag=\"li\" id=\"li-ekn-y0e-qmg\" is-conref=\"true\" class=\"li\"><p id=\"bb93668e32rlp\">变量替换</p><table id=\"table-mrs-3ai-kic\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\"><colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup><colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup><tbody class=\"tbody\"><tr id=\"row-046-mlt-7tx\"><td id=\"task-2133734-entry-14x-y00-626\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\"><p id=\"915e41f946ycv\"><b>参数</b></p></td><td id=\"task-2133734-entry-xqq-ov9-bio\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\"><p id=\"7709b58e0815o\"><b>说明</b></p></td></tr><tr id=\"row-nq9-k3y-az6\"><td id=\"entry-5vv-ap6-e2s\" rowspan=\"1\" colspan=\"1\"><p id=\"d279c5a97avvj\"><b data-tag=\"uicontrol\" id=\"uicontrol-8vs-7hq-3mq\" class=\"uicontrol\">变量替换</b></p></td><td id=\"entry-tbt-542-8mo\" rowspan=\"1\" colspan=\"1\"><p id=\"9f45be48a03e1\">变量替换相当于为单个统计图表添加变量类型的过滤器。您在<b data-tag=\"uicontrol\" id=\"wintitle-xn6-08i-f4r\" class=\"uicontrol\">通用配置</b>中设置了变量替换后，日志服务将在当前统计图表的左上边添加一个过滤器。您可以在过滤器中选择对应的值，日志服务会自动将查询和分析语句中的变量替换为您所选择的变量值，执行一次查询和分析操作。配置示例，请参见<a href=\"https://help.aliyun.com/zh/sls/user-guide/variables#section-kpb-7oz-0v8\" id=\"558db23b684bn\" title=\"\" class=\"xref\">示例<span class=\"help-letter-space\"></span>2：设置变量替换</a>。</p></td></tr></tbody></table></li>\n          <li data-tag=\"li\" id=\"li-x6b-a6v-89o\" class=\"li\">\n            <p id=\"70342e7394zgt\">文档链接</p>\n            <table id=\"table-lm1-vef-9ub\" tablewidth=\"709\" tablecolswidth=\"236 473\" autofit=\"false\" class=\"table\">\n              <colgroup colwidth=\"0.67*\" style=\"width:33.29%\"></colgroup>\n              <colgroup colwidth=\"1.34*\" style=\"width:66.71%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-h28-yfh-bzf\">\n                  <td id=\"task-2445068-entry-qne-fra-rmv\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"00dda6f476z6m\"><b>参数</b></p>\n                  </td>\n                  <td id=\"task-2445068-entry-pyr-uo9-czf\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"04f92306e2nx3\"><b>说明</b></p>\n                  </td>\n                </tr>\n                <tr id=\"row-yaa-yn6-b30\">\n                  <td id=\"entry-r3l-u98-ovz\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"3741ffbc06gr6\"><b id=\"uicontrol-rqu-syx-zs8\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">添加文档链接</b></p>\n                  </td>\n                  <td id=\"entry-0s8-uhv-dn5\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"fec1cb040eiik\">支持自定义设置文档链接或描述信息。设置后，相关信息将被展示在时序图的右上角。</p>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </li>\n        </ul>\n      </section>\n      <section data-tag=\"section\" id=\"section-m6t-myv-8sa\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-ppt-rgk-zpd\" class=\"title\">字段配置</h2>\n        <p data-tag=\"p\" id=\"p-e62-yh7-cvc\" class=\"p\">字段配置用于对单个查询分析的结果或单个查询分析结果中的单列数据进行个性化的可视化设置。字段配置中的配置项说明请参见<a href=\"#section-8vp-sw7-ww2\" id=\"xref-yl9-t6t-0pi\" title=\"\" class=\"xref\">通用配置</a>。</p>\n        <div data-tag=\"p\" id=\"p-hkl-gbk-87d\" class=\"p\">\n          <p id=\"026ed1e597kgn\">例如下述时序图展示不同主机的<span class=\"help-letter-space\"></span>CPU<span class=\"help-letter-space\"></span>使用率随时间的变化情况，每条线代表一台主机。如果您要为每条线自定义颜色，可使用字段配置。<img data-tag=\"image\" id=\"image-bdb-vpu-s52\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9507079661/p525663.png\" width=\"720\" alt=\"时序图\" placement=\"break\" class=\"image break\"></p>\n        </div>\n      </section>\n      <section data-tag=\"section\" id=\"section-0jd-3b6-67n\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-uuw-49j-lei\" class=\"title\">交互事件</h2>\n        <p data-tag=\"p\" id=\"p-yts-klk-myq\" class=\"p\">交互事件用于对单个字段或单个查询分析进行下钻分析，加深数据分析的维度。交互事件包括打开日志库、打开快速查询、打开仪表盘、打开<span class=\"help-letter-space\"></span>Trace<span class=\"help-letter-space\"></span>分析、打开<span class=\"help-letter-space\"></span>Trace<span class=\"help-letter-space\"></span>详情和自定义<span class=\"help-letter-space\"></span>HTTP<span class=\"help-letter-space\"></span>链接。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/drill-down-events#concept-v5f-zk4-x2b\" id=\"xref-1pi-pqd-e8s\" title=\"\" class=\"xref\">为仪表盘添加交互事件实现下钻分析</a>。</p>\n        <p data-tag=\"p\" id=\"p-491-oeb-hjl\" class=\"p\">例如<span class=\"help-letter-space\"></span><b data-tag=\"uicontrol\" id=\"uicontrol-9pt-28e-1w6\" class=\"uicontrol\">A</b><span class=\"help-letter-space\"></span>表示对查询分析<span class=\"help-letter-space\"></span>A<span class=\"help-letter-space\"></span>设置交互事件。将查询分析<span class=\"help-letter-space\"></span>A<span class=\"help-letter-space\"></span>的交互事件设置为<b id=\"uicontrol-kjs-sd9-bzf\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">打开日志库</b>，则您单击线上的任意点，然后单击<b id=\"uicontrol-mr8-qql-nkz\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">打开日志库</b>，将跳转到您所设置的日志库中。</p>\n      </section>\n      <section data-tag=\"section\" id=\"section-5jv-y1k-qfe\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-w7i-n0t-czi\" class=\"title\">同比环比</h2>\n        <div data-tag=\"p\" id=\"p-mjo-zxv-7dh\" class=\"p\">\n          <p id=\"9ecbb8fcearvu\">日志服务时序图支持时序数据的同环比。例如在查询当前<span class=\"help-letter-space\"></span>192.168.XX.XX<span class=\"help-letter-space\"></span>主机的<span class=\"help-letter-space\"></span>CPU<span class=\"help-letter-space\"></span>使用率变化情况时，您要对比前一天同时段的<span class=\"help-letter-space\"></span>CPU<span class=\"help-letter-space\"></span>使用率变化情况，可单击<img data-tag=\"image\" id=\"image-ye3-oip-y8c\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8507079661/p525820.png\" alt=\"时序图\" placement=\"inline\" class=\"image inline\">图标，设置对应的时间。设置完成后，日志服务将自动展示对比结果。<img data-tag=\"image\" id=\"image-4p8-acu-duw\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8507079661/p525800.png\" width=\"720\" alt=\"时序图\" placement=\"break\" class=\"image break\"></p>\n        </div>\n      </section>\n    </div>\n  </main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/sls/time-series-chart","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"alias":"/sls/time-series-chart","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":7,"developerUrl":"https://developer.aliyun.com/group/sls/","nodeType":1,"version":10,"url":"/zh/sls/time-series-chart","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":171784,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"时序图","id":171784,"title":"时序图","url":"/zh/sls/time-series-chart"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"统计图表","id":347681,"title":"统计图表","url":"/zh/sls/statistical-charts/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"可视化","id":252810,"title":"可视化","url":"/zh/sls/visualization-2/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据监控","id":2928734,"title":"数据监控","url":"/zh/sls/data-monitoring/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"productUrl":"https://www.aliyun.com/product/sls","nodeId":171784,"desc":"时序图是为MetricStore定制的可视化图表，支持Prometheus查询数据结果的可视化，并支持多个查询结果同时显示。本文介绍设置时序图的操作步骤。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据监控","id":2928734,"title":"数据监控","url":"/zh/sls/data-monitoring/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"可视化","id":252810,"title":"可视化","url":"/zh/sls/visualization-2/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"统计图表","id":347681,"title":"统计图表","url":"/zh/sls/statistical-charts/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"时序图","id":171784,"title":"时序图","url":"/zh/sls/time-series-chart"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=215041d917825497632388233e50bd&asid=AQAAAAADjT9qp7ZZDwAAAACKZx7iSpa6pg==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2929180" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/start-using-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开始使用</span>
+</a>
+</li>
+ <li id="128096" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/resource-management/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">资源管理</span>
+</a>
+</li>
+ <li id="128134" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-collection-1/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据采集</span>
+</a>
+</li>
+ <li id="2842370" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-processing-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据处理</span>
+</a>
+</li>
+ <li id="270795" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-storage/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据存储</span>
+</a>
+</li>
+ <li id="128135" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/index-and-query/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">查询与分析</span>
+</a>
+</li>
+ <li id="2928734" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-monitoring/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据监控</span>
+</a>
+</li>
+ <li id="2928732" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-log-output-and-integration/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据输出与集成</span>
+</a>
+</li>
+ <li id="2928739" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-technical-solutions/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">技术解决方案</span>
+</a>
+</li>
+ <li id="154068" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2528763" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/security-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="169976" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/faq-15">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>时序图</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/sls" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="task-2445068">
+    
+    
+    <p id="shortdesc-yuc-lih-yty" data-tag="shortdesc" class="shortdesc">时序图是为<span class="help-letter-space"></span>MetricStore<span class="help-letter-space"></span>定制的可视化图表，支持<span class="help-letter-space"></span>Prometheus<span class="help-letter-space"></span>查询数据结果的可视化，并支持多个查询结果同时显示。本文介绍设置时序图的操作步骤。</p>
+    <div data-tag="taskbody" id="taskbody-lnb-rin-67a" class="taskbody">
+      <section data-tag="section" id="section-hck-ok6-cnt" data-type="section" class="section">
+        <h2 data-tag="title" id="title-xwd-l3v-hcf" class="title">简介</h2>
+        <div data-tag="p" id="p-gdc-dxf-b40" class="p">
+          <p id="e0018c5d85kuq">时序图属于趋势类分析图表，一般用于展示一组数据在一个连续时间间隔上的变化情况，即直观地展示数据变化趋势。在时序图中，您可以清晰地观测到数据在某一个周期内的变化，例如：</p>
+          <ul data-tag="ul" id="ul-svc-qie-8av" class="ul">
+            <li data-tag="li" id="li-y30-3fo-9ii" class="li">
+              <p id="279a7d733fbeg">递增性或递减性</p>
+            </li>
+            <li data-tag="li" id="li-qrp-u1q-2f4" class="li">
+              <p id="68dd987e95qi6">增减的速率情况</p>
+            </li>
+            <li data-tag="li" id="li-r0f-5m6-r04" class="li">
+              <p id="8a6a042010zbv">增减的规律（如周期变化）</p>
+            </li>
+            <li data-tag="li" id="li-62x-9hq-ls3" class="li">
+              <p id="d57c068b09rji">峰值和谷值</p>
+            </li>
+          </ul>
+        </div>
+        <p data-tag="p" id="p-sgk-08j-24x" class="p">时序图是用于分析数据随时间变化趋势的最佳选择。您也可以绘制多条线用于分析多组数据在同一时间周期的变化趋势，进而分析数据之间的相互作用和影响（如同增同减，成反比等）。同时，日志服务时序图还支持数据的同环比，便于您查看数据在其他时间和当前时间的对比情况。</p>
+      </section>
+      <section data-tag="section" id="section-8vp-sw7-ww2" data-type="section" class="section">
+        <h2 data-tag="title" id="title-jvo-98z-w24" class="title">通用配置</h2>
+        <p data-tag="p" id="p-boi-vdr-e58" class="p">通用配置用于对时序图进行全局配置。</p>
+        <ul data-tag="ul" id="ul-4c7-isj-dtd" class="ul">
+          <li data-tag="li" id="li-vad-43d-u4i" class="li">
+            <p id="6ad116b399d23">基本配置</p>
+            <table id="table-qe6-ocm-mqe" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+              <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+              <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-qjw-etk-2la">
+                  <td id="task-2445068-entry-bg6-iy4-ksp" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="b27c2a065a08j"><b>参数</b></p>
+                  </td>
+                  <td id="task-2445068-entry-v9z-l1s-qop" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="0d7d0924d0rzq"><b>说明</b></p>
+                  </td>
+                </tr>
+                <tr id="row-vss-x8s-7sv">
+                  <td id="entry-v0d-dpp-0yi" rowspan="1" colspan="1">
+                    <p id="31c69d36danrj"><b id="uicontrol-6tq-8tu-b9f" data-tag="uicontrol" data-isbold="true" class="uicontrol">标题</b></p>
+                  </td>
+                  <td id="entry-u9r-lzz-tia" rowspan="1" colspan="1">
+                    <p id="705dbf1ca6psn">设置时序图的标题。</p>
+                  </td>
+                </tr>
+                <tr id="row-mkr-f1v-sy2">
+                  <td id="entry-3m7-34t-f4l" rowspan="1" colspan="1">
+                    <p id="9ea17b79f8m4o"><b id="uicontrol-s8v-a77-09n" data-tag="uicontrol" data-isbold="true" class="uicontrol">显示标题</b></p>
+                  </td>
+                  <td id="entry-s77-vq3-yp5" rowspan="1" colspan="1">
+                    <p id="0d6569e0a6q17">打开<b id="uicontrol-cyq-dvr-jf2" data-tag="uicontrol" data-isbold="true" class="uicontrol">显示标题</b>开关后，将在时序图中显示标题。</p>
+                  </td>
+                </tr>
+                <tr id="row-g9q-x4j-q7o">
+                  <td id="entry-yzv-awq-v9j" rowspan="1" colspan="1">
+                    <p id="b4eaa653d0ge1"><b id="uicontrol-b7f-bdh-h4l" data-tag="uicontrol" data-isbold="true" class="uicontrol">显示边框</b></p>
+                  </td>
+                  <td id="entry-tub-keg-80i" rowspan="1" colspan="1">
+                    <p id="f4c0a9e5f8w9w">打开<b id="uicontrol-3jy-cj3-0xh" data-tag="uicontrol" data-isbold="true" class="uicontrol">显示边框</b>开关后，将在时序图中显示边框。</p>
+                  </td>
+                </tr>
+                <tr id="row-grt-ai3-riy">
+                  <td id="entry-g5z-b12-3rd" rowspan="1" colspan="1">
+                    <p id="25fd007863vkj"><b id="uicontrol-qa0-lpi-3r3" data-tag="uicontrol" data-isbold="true" class="uicontrol">显示背景</b></p>
+                  </td>
+                  <td id="entry-f2y-912-vnf" rowspan="1" colspan="1">
+                    <p id="6d147ea54br4j">打开<b id="uicontrol-eux-ufp-cev" data-tag="uicontrol" data-isbold="true" class="uicontrol">显示背景</b>开关后，将在时序图中显示背景颜色。</p>
+                  </td>
+                </tr>
+                <tr id="row-hbn-wu4-fjt">
+                  <td id="entry-58u-c2g-zft" rowspan="1" colspan="1">
+                    <p id="d8ec03598bbn5"><b id="uicontrol-mxf-osj-luh" data-tag="uicontrol" data-isbold="true" class="uicontrol">显示时间</b></p>
+                  </td>
+                  <td id="entry-jzr-9eg-2tq" rowspan="1" colspan="1">
+                    <p id="c597f7eec5pth">打开<b id="uicontrol-xhf-ltn-1xr" data-tag="uicontrol" data-isbold="true" class="uicontrol">显示时间</b>开关后，将在时序图中显示查询时间。</p>
+                  </td>
+                </tr>
+                <tr id="row-vh2-ngt-gzc">
+                  <td id="entry-u47-3ti-p5w" rowspan="1" colspan="1">
+                    <p id="5e2c89eb6ffb6"><b id="uicontrol-fp4-ep8-hea" data-tag="uicontrol" data-isbold="true" class="uicontrol">固定时间&nbsp;</b></p>
+                  </td>
+                  <td id="entry-91e-hcr-0rp" rowspan="1" colspan="1">
+                    <p id="a51584aadb4oc">打开<b id="uicontrol-mv2-rwp-jgo" data-tag="uicontrol" data-isbold="true" class="uicontrol">固定时间&nbsp;</b>开关后，将固定查询分析的时间，不受仪表盘全局时间的影响。</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li data-tag="li" id="li-ufa-89i-75t" class="li">
+            <p id="a71bc394c8dws">标准配置</p>
+            <table id="table-r1a-16h-mbg" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+              <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+              <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-y5l-z6c-k3q">
+                  <td id="task-2445068-entry-494-hlx-9ff" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="1ca9ae046f0rl"><b>参数</b></p>
+                  </td>
+                  <td id="task-2445068-entry-27l-r5g-kix" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="d08d521d60jqp"><b>说明</b></p>
+                  </td>
+                </tr>
+                <tr id="row-61z-6p4-llj">
+                  <td id="entry-io5-j69-j5l" rowspan="1" colspan="1">
+                    <p id="ed8e6cf5aar0o"><b id="uicontrol-hiz-x05-e06" data-tag="uicontrol" data-isbold="true" class="uicontrol">格式化</b></p>
+                  </td>
+                  <td id="entry-k2z-xoj-wk1" rowspan="1" colspan="1">
+                    <p id="57693fc2a5evs">设置数字的显示格式。</p>
+                  </td>
+                </tr>
+                <tr id="row-cza-8oc-7vc">
+                  <td id="entry-yvz-gyk-jqq" rowspan="1" colspan="1">
+                    <p id="f32cae805088m"><b id="uicontrol-u29-vu4-s3y" data-tag="uicontrol" data-isbold="true" class="uicontrol">单位</b></p>
+                  </td>
+                  <td id="entry-qym-w9m-oy7" rowspan="1" colspan="1">
+                    <p id="f49976db6e2az">设置数字的单位。</p>
+                  </td>
+                </tr>
+                <tr id="row-y8i-hed-80i">
+                  <td id="entry-e8s-38l-kfv" rowspan="1" colspan="1">
+                    <p id="fafa1c0a33j7u"><b id="uicontrol-emc-xmt-soe" data-tag="uicontrol" data-isbold="true" class="uicontrol">小数点后位数</b></p>
+                  </td>
+                  <td id="entry-q1d-i7c-a8a" rowspan="1" colspan="1">
+                    <p id="4e7dedeb69cqy">设置数字的小数点后的位数。</p>
+                  </td>
+                </tr>
+                <tr id="row-et8-5bi-806">
+                  <td id="entry-0qo-mxy-ypi" rowspan="1" colspan="1">
+                    <p id="fa16b7b8ff4v0"><b id="uicontrol-155-690-rac" data-tag="uicontrol" data-isbold="true" class="uicontrol">显示名</b></p>
+                  </td>
+                  <td id="entry-4we-llr-ved" rowspan="1" colspan="1">
+                    <p id="47c29df5b7xce">修改图例的名称。</p>
+                    <p data-tag="p" id="p-ou4-iut-zo3" class="p">设置显示名后，该时序图中的所有图例名称都将变更为该值。如果您要修改某个图例的名称，可以使用字段配置。</p>
+                  </td>
+                </tr>
+                <tr id="row-aww-3um-bej">
+                  <td id="entry-0ci-f5u-zm6" rowspan="1" colspan="1">
+                    <p id="1c5dbda7dchm3"><b id="uicontrol-xwo-6hv-we9" data-tag="uicontrol" data-isbold="true" class="uicontrol">颜色方案</b></p>
+                  </td>
+                  <td id="entry-6hs-w2c-q7b" rowspan="1" colspan="1">
+                    <p id="716beaa172qwl">选择时序图的颜色方案，用于设置时序图背景以及图例的颜色。</p>
+                    <ul data-tag="ul" id="ul-5uw-ini-rzt" class="ul">
+                      <li data-tag="li" id="li-cdg-ipv-ojx" class="li">
+                        <p id="2640d74c7ek0z"><b id="uicontrol-98g-me1-icq" data-tag="uicontrol" data-isbold="true" class="uicontrol">内置</b>：使用内置颜色。</p>
+                      </li>
+                      <li data-tag="li" id="li-cov-2wi-w3h" class="li">
+                        <p id="191930ffe1pd9"><b id="uicontrol-s66-9ej-tly" data-tag="uicontrol" data-isbold="true" class="uicontrol">单色</b>：使用您所选择的某个颜色。</p>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li data-tag="li" id="li-06x-tpv-w1u" class="li">
+            <p id="a7aff57cbdfxt">数据配置</p>
+            <table id="table-yhl-48u-0on" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+              <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+              <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-jrw-c1w-hum">
+                  <td id="task-2445068-entry-rkj-ien-sng" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="0e9208bfe91f6"><b>参数</b></p>
+                  </td>
+                  <td id="task-2445068-entry-v3x-3xl-q37" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="6862fc7db8h1z"><b>说明</b></p>
+                  </td>
+                </tr>
+                <tr id="row-arb-nko-qcl">
+                  <td id="entry-1ht-g5x-8nq" rowspan="1" colspan="1">
+                    <p id="20a715e2e1653"><b id="uicontrol-et0-3yv-ues" data-tag="uicontrol" data-isbold="true" class="uicontrol">数据补全</b></p>
+                  </td>
+                  <td id="entry-rd6-mxm-p0q" rowspan="1" colspan="1">
+                    <p id="2c995c050bhsj">打开<b id="uicontrol-k4h-avj-et4" data-tag="uicontrol" data-isbold="true" class="uicontrol">数据补全</b>开关后，日志服务会从第一个数据开始，按照补全窗口进行数据补全。</p>
+                  </td>
+                </tr>
+                <tr id="row-f9v-jza-fkk">
+                  <td id="entry-361-1oo-rfb" rowspan="1" colspan="1">
+                    <p id="35a743a87caws"><b id="uicontrol-zhc-8o4-b0n" data-tag="uicontrol" data-isbold="true" class="uicontrol">补全窗口</b></p>
+                  </td>
+                  <td id="entry-y3o-vn5-hor" rowspan="1" colspan="1">
+                    <p id="a401f0f55ba4r">设置补全窗口。最小值为<span class="help-letter-space"></span>0，单位：秒。</p>
+                    <p data-tag="p" id="p-xkn-fph-oyf" class="p">默认情况下，日志服务会自动定义补全窗口。</p>
+                  </td>
+                </tr>
+                <tr id="row-m8x-i8q-soj">
+                  <td id="entry-nyz-xs3-rt7" rowspan="1" colspan="1">
+                    <p id="7926da3757brb"><b id="uicontrol-bnh-9rm-mkd" data-tag="uicontrol" data-isbold="true" class="uicontrol">补全值</b></p>
+                  </td>
+                  <td id="entry-1wx-jzm-nod" rowspan="1" colspan="1">
+                    <p id="013a2f25d92hu">设置补全的内容。默认值为<span class="help-letter-space"></span>0，表示将缺失的值设置为<span class="help-letter-space"></span>0。</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li data-tag="li" id="li-6bp-a0s-iid" class="li">
+            <p id="aefd9e164efjr">图例配置</p>
+            <table id="table-o7q-vbx-vcu" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+              <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+              <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-t71-itn-9pj">
+                  <td id="task-2445068-entry-fzc-krd-3nv" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="c67322f78179c"><b>参数</b></p>
+                  </td>
+                  <td id="task-2445068-entry-yoh-9ou-q7u" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="a26543cf9ctus"><b>说明</b></p>
+                  </td>
+                </tr>
+                <tr id="row-mgt-asv-gwx">
+                  <td id="entry-wki-f7m-kum" rowspan="1" colspan="1">
+                    <p id="80b0a9cbbdkej"><b id="uicontrol-uwi-cy0-h8s" data-tag="uicontrol" data-isbold="true" class="uicontrol">显示图例</b></p>
+                  </td>
+                  <td id="entry-qhi-pj9-von" rowspan="1" colspan="1">
+                    <p id="093c1a0db79j2">打开<b id="uicontrol-5tc-m5z-xse" data-tag="uicontrol" data-isbold="true" class="uicontrol">显示图例</b>开关后，将在时序图中显示图例。</p>
+                  </td>
+                </tr>
+                <tr id="row-egg-js9-vul">
+                  <td id="entry-pcy-kh0-ugr" rowspan="1" colspan="1">
+                    <p id="19a74b29861my"><b id="uicontrol-w64-awr-uxh" data-tag="uicontrol" data-isbold="true" class="uicontrol">图例位置</b></p>
+                  </td>
+                  <td id="entry-npy-te3-epb" rowspan="1" colspan="1">
+                    <p id="56bd12f4eewev">设置图例的位置。</p>
+                  </td>
+                </tr>
+                <tr id="row-8kz-ynu-nfl">
+                  <td id="entry-aq5-45i-2wv" rowspan="1" colspan="1">
+                    <p id="dea9821455ep9"><b id="uicontrol-aju-ksj-104" data-tag="uicontrol" data-isbold="true" class="uicontrol">动作行为</b></p>
+                  </td>
+                  <td id="entry-a27-a8f-pqg" rowspan="1" colspan="1">
+                    <p id="47b55e46f5axw">设置图例的动作行为。</p>
+                    <ul data-tag="ul" id="ul-19q-1r9-5qi" class="ul">
+                      <li data-tag="li" id="li-yfy-fus-4pk" class="li">
+                        <p id="77dd99da6922e"><b id="uicontrol-169-bmq-yjb" data-tag="uicontrol" data-isbold="true" class="uicontrol">单选</b>：单击某个图例时，时序图上只显示该图例对应的数据。</p>
+                      </li>
+                      <li data-tag="li" id="li-bnv-vgm-mor" class="li">
+                        <p id="763c3dfefdvni"><b id="uicontrol-j5i-jj6-4xv" data-tag="uicontrol" data-isbold="true" class="uicontrol">切换</b>：单击某个图例时，时序图上隐藏该图例对应的数据，再次单击可取消隐藏。</p>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+                <tr id="row-neo-4i8-0t9">
+                  <td id="entry-19d-lsg-mjq" rowspan="1" colspan="1">
+                    <p id="6a0983501cn8y"><b data-tag="uicontrol" id="uicontrol-h36-8gf-4uj" class="uicontrol">最大宽度（高度）%</b></p>
+                  </td>
+                  <td id="entry-liv-odq-t3r" rowspan="1" colspan="1">
+                    <p id="730203632f0y0">设置图例的最大宽度和高度。</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li data-tag="li" id="li-j2x-dxu-yjr" class="li">
+            <p id="89e27e67b87v0">Tooltip<span class="help-letter-space"></span>配置</p>
+            <table id="table-vl1-08g-y28" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+              <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+              <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-kye-hyz-m9l">
+                  <td id="task-2445068-entry-o4v-yf3-s7q" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="6c498791d8xth"><b>参数</b></p>
+                  </td>
+                  <td id="task-2445068-entry-4l7-1li-k67" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="5e9d070d33a55"><b>说明</b></p>
+                  </td>
+                </tr>
+                <tr id="row-ni5-adp-78b">
+                  <td id="entry-2fz-2vz-si1" rowspan="1" colspan="1">
+                    <p id="45a4c7dd74y63"><b id="uicontrol-b10-nme-bva" data-tag="uicontrol" data-isbold="true" class="uicontrol">排序方式</b></p>
+                  </td>
+                  <td id="entry-gsm-5gn-1cb" rowspan="1" colspan="1">
+                    <p id="cd0645db808zu">设置数据的排序方式。</p>
+                  </td>
+                </tr>
+                <tr id="row-bjw-okg-9mq">
+                  <td id="entry-ngt-bkb-36x" rowspan="1" colspan="1">
+                    <p id="586db63580fm0"><b id="uicontrol-yqd-w9e-dxj" data-tag="uicontrol" data-isbold="true" class="uicontrol">显示模式</b></p>
+                  </td>
+                  <td id="entry-9da-w7i-im7" rowspan="1" colspan="1">
+                    <p id="9ffaa6124eyhv">设置数据的显示模式。</p>
+                    <p data-tag="p" id="p-t0m-25l-4un" class="p">当您将鼠标悬浮在时序图上时，将根据您所设置的显示方式显示数据。</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li data-tag="li" id="li-q86-hc9-lan" class="li">
+            <p id="96350c9254e9k">X<span class="help-letter-space"></span>轴配置</p>
+            <table id="table-ih2-ze5-c9y" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+              <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+              <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-h6a-l97-brd">
+                  <td id="task-2445068-entry-5pj-j62-4ud" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="5523ddc101a29"><b>参数</b></p>
+                  </td>
+                  <td id="task-2445068-entry-adr-039-yw0" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="598aba53b4jwo"><b>说明</b></p>
+                  </td>
+                </tr>
+                <tr id="row-eqb-1oi-5dx">
+                  <td id="entry-7p5-5vf-60d" rowspan="1" colspan="1">
+                    <p id="664af8fb11ao2"><b id="uicontrol-w0e-slq-li7" data-tag="uicontrol" data-isbold="true" class="uicontrol">显示<span class="help-letter-space"></span>x<span class="help-letter-space"></span>轴</b></p>
+                  </td>
+                  <td id="entry-fg6-6c4-m1z" rowspan="1" colspan="1">
+                    <p id="32335d9a78g6t">打开<b id="uicontrol-wwq-d7d-37s" data-tag="uicontrol" data-isbold="true" class="uicontrol">显示<span class="help-letter-space"></span>x<span class="help-letter-space"></span>轴</b>开关后，将在时序图中显示<span class="help-letter-space"></span>X<span class="help-letter-space"></span>轴。</p>
+                  </td>
+                </tr>
+                <tr id="row-zjt-ty0-8yq">
+                  <td id="entry-30f-12r-3w2" rowspan="1" colspan="1">
+                    <p id="400954b88brq9"><b id="uicontrol-k81-95p-efl" data-tag="uicontrol" data-isbold="true" class="uicontrol">x<span class="help-letter-space"></span>轴标题</b></p>
+                  </td>
+                  <td id="entry-ani-uqk-fmj" rowspan="1" colspan="1">
+                    <p id="fbc367a62fufe">设置<span class="help-letter-space"></span>X<span class="help-letter-space"></span>轴的标题。</p>
+                  </td>
+                </tr>
+                <tr id="row-bhz-pyx-bq8">
+                  <td id="entry-xub-ccd-0rc" rowspan="1" colspan="1">
+                    <p id="48b0c5103dvjz"><b id="uicontrol-8v7-9ye-jav" data-tag="uicontrol" data-isbold="true" class="uicontrol">格式化</b></p>
+                  </td>
+                  <td id="entry-9oa-j7s-u32" rowspan="1" colspan="1">
+                    <p id="20205156aagw8">选择对应的格式，对<span class="help-letter-space"></span>X<span class="help-letter-space"></span>轴上的时间进行格式化处理。</p>
+                  </td>
+                </tr>
+                <tr id="row-26u-apy-4i6">
+                  <td id="entry-or2-klq-04o" rowspan="1" colspan="1">
+                    <p id="f46df6a0aacvd"><b id="uicontrol-lad-bir-4zz" data-tag="uicontrol" data-isbold="true" class="uicontrol">x<span class="help-letter-space"></span>轴高度</b></p>
+                  </td>
+                  <td id="entry-y3k-8r5-xlw" rowspan="1" colspan="1">
+                    <p id="63168bb2e8mg6">设置<span class="help-letter-space"></span>X<span class="help-letter-space"></span>轴的高度。</p>
+                    <p data-tag="p" id="p-ctu-dzq-ugc" class="p">默认情况下，日志服务会自动设置<span class="help-letter-space"></span>X<span class="help-letter-space"></span>轴的高度。</p>
+                  </td>
+                </tr>
+                <tr id="row-hx5-rtc-dqz">
+                  <td id="entry-7zn-7jt-pm5" rowspan="1" colspan="1">
+                    <p id="68ecde9b49l2m"><b id="uicontrol-d6i-zab-uet" data-tag="uicontrol" data-isbold="true" class="uicontrol">拖拽缩放目标</b></p>
+                  </td>
+                  <td id="entry-gk4-9ev-4le" rowspan="1" colspan="1">
+                    <p id="0a3d294959a4h">拖拽缩放目标后，支持刷新全局时间或当前单个图表时间。</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li data-tag="li" id="li-xum-2uh-znm" class="li">
+            <p id="5c6e9b2887xb4">Y<span class="help-letter-space"></span>轴配置</p>
+            <table id="table-75a-tlh-ngi" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+              <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+              <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-dlc-w0s-5pu">
+                  <td id="task-2445068-entry-74g-ipm-tbq" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="4d7f2915fb8vr"><b>参数</b></p>
+                  </td>
+                  <td id="task-2445068-entry-eoz-6od-i1e" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="eef5aff02a8pc"><b>说明</b></p>
+                  </td>
+                </tr>
+                <tr id="row-dah-w3y-e3b">
+                  <td id="entry-6j5-n2c-5kq" rowspan="1" colspan="1">
+                    <p id="7eda4e008783v"><b id="uicontrol-64n-muk-i5r" data-tag="uicontrol" data-isbold="true" class="uicontrol">显示<span class="help-letter-space"></span>y<span class="help-letter-space"></span>轴</b></p>
+                  </td>
+                  <td id="entry-ton-oj5-9jb" rowspan="1" colspan="1">
+                    <p id="6165aa907egcz">打开<b id="uicontrol-8xq-03q-h9a" data-tag="uicontrol" data-isbold="true" class="uicontrol">显示<span class="help-letter-space"></span>y<span class="help-letter-space"></span>轴</b>开关后，将在时序图中显示<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴。</p>
+                  </td>
+                </tr>
+                <tr id="row-i03-wu9-352">
+                  <td id="entry-x8q-yox-hhm" rowspan="1" colspan="1">
+                    <p id="849d85c1c8ntw"><b id="uicontrol-zfh-8pf-dfu" data-tag="uicontrol" data-isbold="true" class="uicontrol">y<span class="help-letter-space"></span>轴标题</b></p>
+                  </td>
+                  <td id="entry-b42-18x-oxl" rowspan="1" colspan="1">
+                    <p id="4caa76aee9fk5">设置<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴的标题。</p>
+                  </td>
+                </tr>
+                <tr id="row-tuf-tw4-tni">
+                  <td id="entry-sxe-wl6-rpc" rowspan="1" colspan="1">
+                    <p id="4f266b9d897dg"><b id="uicontrol-gt1-wkk-6ty" data-tag="uicontrol" data-isbold="true" class="uicontrol">y<span class="help-letter-space"></span>轴位置</b></p>
+                  </td>
+                  <td id="entry-axy-n5h-g40" rowspan="1" colspan="1">
+                    <p id="7d08fcf2d5gk7">设置<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴的位置。</p>
+                  </td>
+                </tr>
+                <tr id="row-dwk-dc6-hc9">
+                  <td id="entry-hf1-uo2-bes" rowspan="1" colspan="1">
+                    <p id="1b6b8c40d3ysk"><b id="uicontrol-sh2-yx8-vnx" data-tag="uicontrol" data-isbold="true" class="uicontrol">是否堆叠</b></p>
+                  </td>
+                  <td id="entry-5gf-lo2-qax" rowspan="1" colspan="1">
+                    <p id="67667ab2dbolj">开启该功能后，将堆叠显示<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴数据。</p>
+                  </td>
+                </tr>
+                <tr id="row-4de-c2d-ymd">
+                  <td id="entry-rzf-vqa-ezz" rowspan="1" colspan="1">
+                    <p id="60fa8bfb116pa"><b id="uicontrol-jdx-4dq-3bd" data-tag="uicontrol" data-isbold="true" class="uicontrol">y<span class="help-letter-space"></span>轴宽度</b></p>
+                  </td>
+                  <td id="entry-ic0-xx8-6wt" rowspan="1" colspan="1">
+                    <p id="35db96fa5ci5s">设置<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴的宽度。</p>
+                    <p data-tag="p" id="p-agn-zgt-fry" class="p">默认情况下，日志服务会自动设置<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴的宽度。</p>
+                  </td>
+                </tr>
+                <tr id="row-vtg-9q0-msi">
+                  <td id="entry-zr0-830-eiz" rowspan="1" colspan="1">
+                    <p id="02b34775eb8b4"><b id="uicontrol-khw-pnd-go0" data-tag="uicontrol" data-isbold="true" class="uicontrol">最大值</b></p>
+                  </td>
+                  <td id="entry-88m-07o-h35" rowspan="1" colspan="1">
+                    <p id="75b1512594zx6">设置<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴的最大值。</p>
+                    <p data-tag="p" id="p-j44-a7i-a5s" class="p">默认情况下，日志服务会自动设置<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴的最大值。</p>
+                  </td>
+                </tr>
+                <tr id="row-ffx-6fi-xbh">
+                  <td id="entry-skn-24e-7fk" rowspan="1" colspan="1">
+                    <p id="7c3955795f3ob"><b id="uicontrol-tqj-g88-q6e" data-tag="uicontrol" data-isbold="true" class="uicontrol">最小值</b></p>
+                  </td>
+                  <td id="entry-ya1-528-h3h" rowspan="1" colspan="1">
+                    <p id="2015b04207gg6">设置<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴的最小值。</p>
+                    <p data-tag="p" id="p-ybv-3b4-4yz" class="p">默认情况下，日志服务会自动设置<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴的最小值。</p>
+                  </td>
+                </tr>
+                <tr id="row-i3v-ukv-1xy">
+                  <td id="entry-f5x-oar-t37" rowspan="1" colspan="1">
+                    <p id="fa9692b4affjf"><b id="uicontrol-0s5-jy2-jfd" data-tag="uicontrol" data-isbold="true" class="uicontrol">弹性最小值</b></p>
+                  </td>
+                  <td id="entry-h3w-qtu-dpy" rowspan="1" colspan="1">
+                    <p id="b2ae0aee49vfr">设置<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴的弹性最小值。当所有值都大于弹性最小值时，弹性最小值才会生效。</p>
+                    <p data-tag="p" id="p-4p9-r3c-m1o" class="p">默认情况下，日志服务会自动设置<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴的弹性最小值。</p>
+                  </td>
+                </tr>
+                <tr id="row-0e6-2vk-81c">
+                  <td id="entry-4vh-w4o-x3z" rowspan="1" colspan="1">
+                    <p id="f9dc445886kai"><b id="uicontrol-gnw-9o1-pyi" data-tag="uicontrol" data-isbold="true" class="uicontrol">弹性最大值</b></p>
+                  </td>
+                  <td id="entry-02p-yef-8zz" rowspan="1" colspan="1">
+                    <p id="013bd438ddee6">设置<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴的弹性最大值。当所有值都小于弹性最大值时，弹性最大值才会生效。</p>
+                    <p data-tag="p" id="p-he8-7yx-m4t" class="p">默认情况下，日志服务会自动设置<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴的弹性最大值。</p>
+                  </td>
+                </tr>
+                <tr id="row-g63-uvn-7dm">
+                  <td id="entry-ahp-sfy-431" rowspan="1" colspan="1">
+                    <p id="650daa90bdw14"><b id="uicontrol-dns-zuh-uqd" data-tag="uicontrol" data-isbold="true" class="uicontrol">y<span class="help-letter-space"></span>轴<span class="help-letter-space"></span>id</b></p>
+                  </td>
+                  <td id="entry-ebh-cdo-e94" rowspan="1" colspan="1">
+                    <p id="ca3a2e1a84hn4">设置<span class="help-letter-space"></span>y<span class="help-letter-space"></span>轴<span class="help-letter-space"></span>ID。一般情况下该字段在<b id="uicontrol-8lh-61t-itr" data-tag="uicontrol" data-isbold="true" class="uicontrol">通用配置</b>中无意义，如果您要定义多个<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴，需要在<b id="uicontrol-h37-mbw-yb6" data-tag="uicontrol" data-isbold="true" class="uicontrol">字段配置</b>中进行配置。Y<span class="help-letter-space"></span>轴<span class="help-letter-space"></span>ID<span class="help-letter-space"></span>可以为任意字符串。不同<span class="help-letter-space"></span>ID<span class="help-letter-space"></span>的<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴在时序图上会显示不同的<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/create-a-line-chart-with-multiple-y-axes#task-2138953" id="xref-xbt-70k-f96" title="" class="xref">添加多<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴线图</a>。</p>
+                    <p data-tag="p" id="p-wzb-ws6-ejt" class="p">Y<span class="help-letter-space"></span>轴<span class="help-letter-space"></span>ID<span class="help-letter-space"></span>的优先级高于<b id="uicontrol-cwn-40t-n3m" data-tag="uicontrol" data-isbold="true" class="uicontrol">标准配置</b>中单位的配置。例如两个<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴的单位相同时，会合并为一个<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴。当两个<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴的单位相同但<span class="help-letter-space"></span>ID<span class="help-letter-space"></span>不同时，会显示为两个<span class="help-letter-space"></span>Y<span class="help-letter-space"></span>轴。</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li data-tag="li" id="li-ley-t81-i3c" class="li">
+            <p id="4a32cc9944bix">图形配置</p>
+            <table id="table-ekb-wnv-d5q" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+              <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+              <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-2pn-4xo-bya">
+                  <td id="task-2445068-entry-gry-3t6-rbz" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="b9eb24b3c6rpr"><b>参数</b></p>
+                  </td>
+                  <td id="task-2445068-entry-cyt-jnk-rt1" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="97716d48e1mwj"><b>说明</b></p>
+                  </td>
+                </tr>
+                <tr id="row-jhg-lku-4sr">
+                  <td id="entry-m3o-wzj-m2y" rowspan="1" colspan="1">
+                    <p id="b035a815f7g32"><b id="uicontrol-w9e-hmo-od0" data-tag="uicontrol" data-isbold="true" class="uicontrol">图形类型</b></p>
+                  </td>
+                  <td id="entry-zs8-sc0-rcm" rowspan="1" colspan="1">
+                    <p id="00ae59cbd3tk2">选择时序图的类型。</p>
+                  </td>
+                </tr>
+                <tr id="row-1aq-xk4-7js">
+                  <td id="entry-b7n-efy-6l3" rowspan="1" colspan="1">
+                    <p id="c70891d72each"><b id="uicontrol-gq6-i59-qck" data-tag="uicontrol" data-isbold="true" class="uicontrol">连线方式</b></p>
+                  </td>
+                  <td id="entry-m5q-5m6-ajp" rowspan="1" colspan="1">
+                    <p id="51647d279cpcc">选择时序图的连线方式。</p>
+                  </td>
+                </tr>
+                <tr id="row-gnc-ze6-03x">
+                  <td id="entry-uss-5cp-ewx" rowspan="1" colspan="1">
+                    <p id="afaad20ac4swc"><b id="uicontrol-hvm-zry-4tu" data-tag="uicontrol" data-isbold="true" class="uicontrol">线宽</b></p>
+                  </td>
+                  <td id="entry-2ak-yf9-cna" rowspan="1" colspan="1">
+                    <p id="867fc81569i8r">设置线的宽度。</p>
+                  </td>
+                </tr>
+                <tr id="row-5lw-qze-tbg">
+                  <td id="entry-yaj-ei3-2sd" rowspan="1" colspan="1">
+                    <p id="fbd76d5182o0t"><b id="uicontrol-1cs-0bn-5ur" data-tag="uicontrol" data-isbold="true" class="uicontrol">显示点</b></p>
+                  </td>
+                  <td id="entry-hv6-jha-6gw" rowspan="1" colspan="1">
+                    <p id="95ee0288c022e">设置显示点。</p>
+                  </td>
+                </tr>
+                <tr id="row-cmc-v5v-xx6">
+                  <td id="entry-wyg-ujd-yqu" rowspan="1" colspan="1">
+                    <p id="e7ab5c2ac64pr"><b id="uicontrol-gvv-k5p-v0l" data-tag="uicontrol" data-isbold="true" class="uicontrol">透明度</b></p>
+                  </td>
+                  <td id="entry-3uo-jav-i7g" rowspan="1" colspan="1">
+                    <p id="b5165effc1ewa">设置时序图的透明度。</p>
+                  </td>
+                </tr>
+                <tr id="row-k8u-69i-ism">
+                  <td id="entry-5wh-ddv-cyg" rowspan="1" colspan="1">
+                    <p id="f1b5fe3f20lvy"><b id="uicontrol-nfq-41e-dn7" data-tag="uicontrol" data-isbold="true" class="uicontrol">点大小</b></p>
+                  </td>
+                  <td id="entry-g5m-cdn-hjf" rowspan="1" colspan="1">
+                    <p id="03df8e0215n1k">设置时序图上点的大小。</p>
+                  </td>
+                </tr>
+                <tr id="row-edp-s9y-4j1">
+                  <td id="entry-cs8-rnb-9sj" rowspan="1" colspan="1">
+                    <p id="e5e54283fbpg2"><b id="uicontrol-zwt-ilj-09q" data-tag="uicontrol" data-isbold="true" class="uicontrol">渐变方式</b></p>
+                  </td>
+                  <td id="entry-d35-wow-qe9" rowspan="1" colspan="1">
+                    <p id="2bad500750iod">设置时序图的渐变方式。</p>
+                    <ul data-tag="ul" id="ul-jd2-orv-q6d" class="ul">
+                      <li data-tag="li" id="li-vz7-rc2-qm8" class="li">
+                        <p id="857d270ce82qo"><b id="uicontrol-rlg-52w-ksd" data-tag="uicontrol" data-isbold="true" class="uicontrol">透明度</b>：基于线条颜色，并受到<b id="uicontrol-i9j-dg7-u2b" data-tag="uicontrol" data-isbold="true" class="uicontrol">透明度</b>的影响。</p>
+                      </li>
+                      <li data-tag="li" id="li-jx7-oqs-zv0" class="li">
+                        <p id="d6df9722c856r"><b id="uicontrol-z37-egg-cuw" data-tag="uicontrol" data-isbold="true" class="uicontrol">不渐变</b>：无渐变，使用线条颜色填充。</p>
+                      </li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li data-tag="li" id="li-hpz-4q1-kza" class="li">
+            <p id="92d0bbbdc8coz">阈值</p>
+            <table id="table-ui4-eog-5v6" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+              <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+              <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-o5g-8zl-280">
+                  <td id="task-2445068-entry-rrm-lbr-i9v" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="5e4383cf081x6"><b>参数</b></p>
+                  </td>
+                  <td id="task-2445068-entry-01k-0it-aar" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="96aa286bc0zpi"><b>说明</b></p>
+                  </td>
+                </tr>
+                <tr id="row-2ya-q4v-nr3">
+                  <td id="entry-1jn-e6x-ndd" rowspan="1" colspan="1">
+                    <p id="b8da217fc18br"><b id="uicontrol-zcd-1nz-bul" data-tag="uicontrol" data-isbold="true" class="uicontrol">上界线</b></p>
+                  </td>
+                  <td id="entry-hjr-gzh-0o7" rowspan="1" colspan="1">
+                    <p id="f144f3c188chk">选择上界线。</p>
+                  </td>
+                </tr>
+                <tr id="row-qtc-d3c-y0i">
+                  <td id="entry-zid-kcq-u4u" rowspan="1" colspan="1">
+                    <p id="a4a1b026f72ze"><b id="uicontrol-pz2-oed-8cc" data-tag="uicontrol" data-isbold="true" class="uicontrol">下界线</b></p>
+                  </td>
+                  <td id="entry-jzc-a67-lmb" rowspan="1" colspan="1">
+                    <p id="3dcbd726ddgw6">选择下界线。</p>
+                  </td>
+                </tr>
+                <tr id="row-8z0-qtx-lib">
+                  <td id="entry-27y-wfc-vk0" rowspan="1" colspan="1">
+                    <p id="037a918483gd9"><b id="uicontrol-9r3-t6k-tbv" data-tag="uicontrol" data-isbold="true" class="uicontrol">界线填充颜色</b></p>
+                  </td>
+                  <td id="entry-ay8-akg-ahw" rowspan="1" colspan="1">
+                    <p id="15e8f14870nvs">设置填充颜色。</p>
+                  </td>
+                </tr>
+                <tr id="row-w0r-i0y-jcp">
+                  <td id="entry-g1s-z5y-o6q" rowspan="1" colspan="1">
+                    <p id="d77b00f99et4f"><b data-tag="uicontrol" id="uicontrol-98h-aex-3ng" class="uicontrol">界限填充透明度</b></p>
+                  </td>
+                  <td id="entry-tw6-ujp-d4m" rowspan="1" colspan="1">
+                    <p id="a5e56114b30fs">选择颜色的透明度。</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li data-tag="li" id="li-ekn-y0e-qmg" is-conref="true" class="li"><p id="bb93668e32rlp">变量替换</p><table id="table-mrs-3ai-kic" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table"><colgroup colwidth="0.67*" style="width:33.29%"></colgroup><colgroup colwidth="1.34*" style="width:66.71%"></colgroup><tbody class="tbody"><tr id="row-046-mlt-7tx"><td id="task-2133734-entry-14x-y00-626" rowspan="1" style="background-color:#e5e5e5" colspan="1"><p id="915e41f946ycv"><b>参数</b></p></td><td id="task-2133734-entry-xqq-ov9-bio" rowspan="1" style="background-color:#e5e5e5" colspan="1"><p id="7709b58e0815o"><b>说明</b></p></td></tr><tr id="row-nq9-k3y-az6"><td id="entry-5vv-ap6-e2s" rowspan="1" colspan="1"><p id="d279c5a97avvj"><b data-tag="uicontrol" id="uicontrol-8vs-7hq-3mq" class="uicontrol">变量替换</b></p></td><td id="entry-tbt-542-8mo" rowspan="1" colspan="1"><p id="9f45be48a03e1">变量替换相当于为单个统计图表添加变量类型的过滤器。您在<b data-tag="uicontrol" id="wintitle-xn6-08i-f4r" class="uicontrol">通用配置</b>中设置了变量替换后，日志服务将在当前统计图表的左上边添加一个过滤器。您可以在过滤器中选择对应的值，日志服务会自动将查询和分析语句中的变量替换为您所选择的变量值，执行一次查询和分析操作。配置示例，请参见<a href="https://help.aliyun.com/zh/sls/user-guide/variables#section-kpb-7oz-0v8" id="558db23b684bn" title="" class="xref">示例<span class="help-letter-space"></span>2：设置变量替换</a>。</p></td></tr></tbody></table></li>
+          <li data-tag="li" id="li-x6b-a6v-89o" class="li">
+            <p id="70342e7394zgt">文档链接</p>
+            <table id="table-lm1-vef-9ub" tablewidth="709" tablecolswidth="236 473" autofit="false" class="table">
+              <colgroup colwidth="0.67*" style="width:33.29%"></colgroup>
+              <colgroup colwidth="1.34*" style="width:66.71%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-h28-yfh-bzf">
+                  <td id="task-2445068-entry-qne-fra-rmv" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="00dda6f476z6m"><b>参数</b></p>
+                  </td>
+                  <td id="task-2445068-entry-pyr-uo9-czf" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="04f92306e2nx3"><b>说明</b></p>
+                  </td>
+                </tr>
+                <tr id="row-yaa-yn6-b30">
+                  <td id="entry-r3l-u98-ovz" rowspan="1" colspan="1">
+                    <p id="3741ffbc06gr6"><b id="uicontrol-rqu-syx-zs8" data-tag="uicontrol" data-isbold="true" class="uicontrol">添加文档链接</b></p>
+                  </td>
+                  <td id="entry-0s8-uhv-dn5" rowspan="1" colspan="1">
+                    <p id="fec1cb040eiik">支持自定义设置文档链接或描述信息。设置后，相关信息将被展示在时序图的右上角。</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+        </ul>
+      </section>
+      <section data-tag="section" id="section-m6t-myv-8sa" data-type="section" class="section">
+        <h2 data-tag="title" id="title-ppt-rgk-zpd" class="title">字段配置</h2>
+        <p data-tag="p" id="p-e62-yh7-cvc" class="p">字段配置用于对单个查询分析的结果或单个查询分析结果中的单列数据进行个性化的可视化设置。字段配置中的配置项说明请参见<a href="#section-8vp-sw7-ww2" id="xref-yl9-t6t-0pi" title="" class="xref">通用配置</a>。</p>
+        <div data-tag="p" id="p-hkl-gbk-87d" class="p">
+          <p id="026ed1e597kgn">例如下述时序图展示不同主机的<span class="help-letter-space"></span>CPU<span class="help-letter-space"></span>使用率随时间的变化情况，每条线代表一台主机。如果您要为每条线自定义颜色，可使用字段配置。<img data-tag="image" id="image-bdb-vpu-s52" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9507079661/p525663.png" width="720" alt="时序图" placement="break" class="image break"></p>
+        </div>
+      </section>
+      <section data-tag="section" id="section-0jd-3b6-67n" data-type="section" class="section">
+        <h2 data-tag="title" id="title-uuw-49j-lei" class="title">交互事件</h2>
+        <p data-tag="p" id="p-yts-klk-myq" class="p">交互事件用于对单个字段或单个查询分析进行下钻分析，加深数据分析的维度。交互事件包括打开日志库、打开快速查询、打开仪表盘、打开<span class="help-letter-space"></span>Trace<span class="help-letter-space"></span>分析、打开<span class="help-letter-space"></span>Trace<span class="help-letter-space"></span>详情和自定义<span class="help-letter-space"></span>HTTP<span class="help-letter-space"></span>链接。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/drill-down-events#concept-v5f-zk4-x2b" id="xref-1pi-pqd-e8s" title="" class="xref">为仪表盘添加交互事件实现下钻分析</a>。</p>
+        <p data-tag="p" id="p-491-oeb-hjl" class="p">例如<span class="help-letter-space"></span><b data-tag="uicontrol" id="uicontrol-9pt-28e-1w6" class="uicontrol">A</b><span class="help-letter-space"></span>表示对查询分析<span class="help-letter-space"></span>A<span class="help-letter-space"></span>设置交互事件。将查询分析<span class="help-letter-space"></span>A<span class="help-letter-space"></span>的交互事件设置为<b id="uicontrol-kjs-sd9-bzf" data-tag="uicontrol" data-isbold="true" class="uicontrol">打开日志库</b>，则您单击线上的任意点，然后单击<b id="uicontrol-mr8-qql-nkz" data-tag="uicontrol" data-isbold="true" class="uicontrol">打开日志库</b>，将跳转到您所设置的日志库中。</p>
+      </section>
+      <section data-tag="section" id="section-5jv-y1k-qfe" data-type="section" class="section">
+        <h2 data-tag="title" id="title-w7i-n0t-czi" class="title">同比环比</h2>
+        <div data-tag="p" id="p-mjo-zxv-7dh" class="p">
+          <p id="9ecbb8fcearvu">日志服务时序图支持时序数据的同环比。例如在查询当前<span class="help-letter-space"></span>192.168.XX.XX<span class="help-letter-space"></span>主机的<span class="help-letter-space"></span>CPU<span class="help-letter-space"></span>使用率变化情况时，您要对比前一天同时段的<span class="help-letter-space"></span>CPU<span class="help-letter-space"></span>使用率变化情况，可单击<img data-tag="image" id="image-ye3-oip-y8c" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8507079661/p525820.png" alt="时序图" placement="inline" class="image inline">图标，设置对应的时间。设置完成后，日志服务将自动展示对比结果。<img data-tag="image" id="image-4p8-acu-duw" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8507079661/p525800.png" width="720" alt="时序图" placement="break" class="image break"></p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/sls/display-query-results-on-a-timeline-chart" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：时间轴</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/sls/timing-state-diagram" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：时序状态图<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

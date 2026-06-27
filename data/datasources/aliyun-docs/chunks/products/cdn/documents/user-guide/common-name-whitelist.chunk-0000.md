@@ -1,0 +1,2 @@
+# Common Name白名单
+CDN节点以HTTPS协议回源时，会对回源请求的SNI和源站返回证书的CommonName进行校验，不一致时无法成功回源。将证书的Common Name加入白名单后，即使SNI和CommonName不一致也可成功回源。

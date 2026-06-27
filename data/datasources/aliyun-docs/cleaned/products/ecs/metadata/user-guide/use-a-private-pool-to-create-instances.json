@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/use-a-private-pool-to-create-instances",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "使用私有池容量创建ECS实例-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/use-a-private-pool-to-create-instances",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/use-a-private-pool-to-create-instances.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/use-a-private-pool-to-create-instances.md",
+  "word_count": 602,
+  "text_units": 1883,
+  "local_links": 1,
+  "external_links": 64,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

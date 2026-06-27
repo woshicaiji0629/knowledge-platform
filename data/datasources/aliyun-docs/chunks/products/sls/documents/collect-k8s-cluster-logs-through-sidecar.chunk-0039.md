@@ -1,0 +1,1 @@
+tc/localtime readOnly: true # 卷定义 volumes: - name: nginx-logs emptyDir: {} - name: tasksite emptyDir: medium: Memory sizeLimit: "50Mi" - name: tz-config hostPath: path: /usr/share/zoneinfo/Asia/Shanghai

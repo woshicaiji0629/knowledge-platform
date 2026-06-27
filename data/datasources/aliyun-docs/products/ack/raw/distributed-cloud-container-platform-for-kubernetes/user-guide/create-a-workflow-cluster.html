@@ -1,0 +1,471 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    创建工作流集群用于管理多个工作流任务-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/create-a-workflow-cluster">
+  <meta name="keywords" content="Argo集群,Argo Server, Argo工作流">
+  <meta name="description" content="工作流集群采用无服务器模式，使用阿里云弹性容器实例ECI运行工作流，通过优化Kubernetes集群参数，实现大规模工作流的高效弹性调度，同时配合抢占式ECI实例，优化成本。本文介绍如何创建工作流集群。">
+  <meta name="last-modified" content="2026-03-23T15:48:38+08:00">
+  <meta name="date" content="2023-04-28T06:50:48+08:00">
+  <meta property="og:title" content="创建工作流集群">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/create-a-workflow-cluster">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="工作流集群采用无服务器模式，使用阿里云弹性容器实例ECI运行工作流，通过优化Kubernetes集群参数，实现大规模工作流的高效弹性调度，同时配合抢占式ECI实例，优化成本。本文介绍如何创建工作流集群。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/create-a-workflow-cluster",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "2252085",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/create-a-workflow-cluster","nodeId":null,"data":{"lastModifiedTime":1774252118000,"keywords":"Argo集群,Argo Server, Argo工作流","docTitle":"创建工作流集群","language":"zh","seoTitle":"创建工作流集群用于管理多个工作流任务-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心","title":"创建工作流集群","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n<main id=\"task-2322674\">\n\n\n<p data-tag=\"shortdesc\" id=\"shortdesc-fzi-bmz-1jg\" class=\"shortdesc\"><span data-tag=\"ph\" id=\"ph-gnl-07s-xbw\" is-conref=\"true\" class=\"ph\">工作流集群</span>采用无服务器模式，使用阿里云弹性容器实例<span class=\"help-letter-space\"></span>ECI<span class=\"help-letter-space\"></span>运行工作流，通过优化<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>集群参数，实现大规模工作流的高效弹性调度，同时配合抢占式<span class=\"help-letter-space\"></span>ECI<span class=\"help-letter-space\"></span>实例，优化成本。本文介绍如何创建<span data-tag=\"ph\" id=\"ph-ucc-3mo-350\" is-conref=\"true\" class=\"ph\">工作流集群</span>。</p>\n<div data-tag=\"taskbody\" id=\"taskbody-lhv-x1l-uzj\" class=\"taskbody\">\n<section data-tag=\"section\" data-type=\"section\" id=\"section-cuc-5nd-vqh\" class=\"section\">\n<h2 data-tag=\"title\" id=\"title-cms-dil-46h\" class=\"title\">前提条件</h2>\n<ul id=\"612c49312bde4\">\n<li data-tag=\"li\" id=\"li-v1c-ygn-z15\" class=\"li\">\n<p id=\"79ba4900f5uo6\"><span data-tag=\"ph\" id=\"fb8e89000a2mn\" props=\"china\" data-cond-props=\"china\" class=\"ph\"><a href=\"https://www.aliyun.com/product/aliware/adcp\" id=\"xref-hv1-emt-h8c\" class=\"\" target=\"_blank\">已开通分布式云容器平台<span class=\"help-letter-space\"></span>ACK One</a>。</span></p>\n</li>\n<li data-tag=\"li\" id=\"li-h5k-few-wq2\" class=\"li\">\n<p id=\"79ba4901f5kg9\"><span data-tag=\"ph\" id=\"5403cc800axn2\" props=\"china\" data-cond-props=\"china\" class=\"ph\"><a href=\"https://www.aliyun.com/product/eci\" id=\"xref-kqi-nb9-8e9\" class=\"\" target=\"_blank\">已开通阿里云弹性容器实例<span class=\"help-letter-space\"></span>ECI</a>。</span></p>\n</li>\n<li id=\"862af8632cgv6\">\n<p id=\"f64fff7fc6e0q\"><a href=\"https://help.aliyun.com/zh/vpc/user-guide/create-and-manage-a-vpc#section-znz-rbv-vrx\" id=\"7250d08153b4w\" title=\"\" class=\"xref\">已创建专有网络和交换机</a></p>\n</li>\n<li data-tag=\"li\" id=\"li-1nz-sdp-jjp\" class=\"li\">\n<p id=\"79ba4902f5qjy\">已安装阿里云<span class=\"help-letter-space\"></span>CLI<span class=\"help-letter-space\"></span>并配置凭证，且<span class=\"help-letter-space\"></span>CLI<span class=\"help-letter-space\"></span>版本为<span class=\"help-letter-space\"></span>3.0.159<span class=\"help-letter-space\"></span>及以上。具体操作，请参见<a class=\"\" href=\"https://help.aliyun.com/zh/cli/installation-guide/\" id=\"xref-7ur-21n-y8y\">安装阿里云<span class=\"help-letter-space\"></span>CLI</a><span class=\"help-letter-space\"></span>和<a class=\"\" href=\"https://help.aliyun.com/zh/cli/configure-credentials/\" id=\"xref-31w-vux-vo0\">配置凭证</a>。</p>\n</li>\n<li data-tag=\"li\" id=\"li-ypd-rv1-kry\" class=\"li\">\n<p id=\"79ba4903f5h7i\">已授予<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>用户<span class=\"help-letter-space\"></span>AliyunAdcpFullAccess<span class=\"help-letter-space\"></span>权限。具体操作，请参见<a href=\"https://help.aliyun.com/zh/ack/grant-permissions-to-a-ram-user-1#section-7ls-hxr-q81\" id=\"xref-605-mxs-eai\" title=\"\" class=\"xref\">为<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>用户授权</a>。</p>\n</li>\n</ul>\n</section>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-9a6-77w-gid\" class=\"section\">\n<h2 data-tag=\"title\" id=\"title-7hx-5o4-cc4\" class=\"title\">创建工作流集群</h2>\n<section id=\"4a6068ce53q00\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n<section id=\"0ed3d2a6e7ifm\" class=\"section\">\n<h2 id=\"7a1bfb2c1flr1\">通过控制台创建集群</h2>\n<ol id=\"541d18fab8i51\">\n<li id=\"7384729a811ky\" docid=\"3350185\" is-conref=\"true\"><p id=\"f8fba60d22yjp\">登录<span class=\"help-letter-space\"></span><a class=\"\" href=\"https://cs.console.aliyun.com/one#/argowf/cluster/detail\" id=\"d77c5ed4dfx0a\">ACK One<span class=\"help-letter-space\"></span>工作流集群控制台</a>。</p></li>\n<li id=\"9fcafd6de9ae5\">\n<p id=\"4f0d3a10ea3h5\">在<b id=\"dfcb444a3azat\" data-status=\"unpublished\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">工作流集群</b>页面右上角单击<b id=\"d873def19edyo\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建工作流集群</b>，在弹出的面板中填写相关参数，然后单击<b id=\"e819b6b0c66fs\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建</b>。</p>\n<table autofit=\"true\" id=\"190f234cafjmj\" tablecolswidth=\"191 522\" tablewidth=\"100\" class=\"table\">\n<colgroup colwidth=\"3.82*\" style=\"width:191.00%\"></colgroup>\n<colgroup colwidth=\"10.44*\" style=\"width:522.00%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"41182e6716e0n\">\n<td id=\"8bf4373c565uv\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"405dafb2c8ju2\"><b>参数</b></p>\n</td>\n<td id=\"2087fa24315o8\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"4850b9b5dd1of\"><b>描述</b></p>\n</td>\n</tr>\n<tr id=\"e135aa14a8cqe\">\n<td id=\"a054940d5dbyr\" rowspan=\"1\" colspan=\"1\">\n<p id=\"69ebfcd7217a4\"><b id=\"d974af2a0e36x\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群名称</b></p>\n</td>\n<td id=\"f31becb771wed\" rowspan=\"1\" colspan=\"1\">\n<p id=\"e6c02d4ea92yn\">填写集群的名称。</p>\n<div id=\"d949f734a9ahg\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n<p id=\"0b407c1492c3b\">长度为<span class=\"help-letter-space\"></span>1~63<span class=\"help-letter-space\"></span>个字符，可包含字母、数字、下划线（_）或中划线（-），且仅允许以字母开头。</p>\n</div></div>\n</td>\n</tr>\n<tr id=\"6a1487cea1imn\">\n<td id=\"fe9f720572r8z\" rowspan=\"1\" colspan=\"1\">\n<p id=\"f381bce39bs1y\"><b id=\"28215939fd2fo\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">地域</b></p>\n</td>\n<td id=\"6055e32ba7p9o\" rowspan=\"1\" colspan=\"1\">\n<p id=\"582b452f47fu8\">选择集群所在的地域。</p>\n</td>\n</tr>\n<tr id=\"c56118fe673za\">\n<td id=\"2511aadc6clo0\" rowspan=\"1\" colspan=\"1\">\n<p id=\"5bed3c9779nh3\"><b id=\"53d3920069znc\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">专有网络</b></p>\n</td>\n<td id=\"07962aa00b3r9\" rowspan=\"1\" colspan=\"1\">\n<p id=\"e4469240f0wqx\">设置集群的专有网络<span class=\"help-letter-space\"></span>VPC，在下拉列表中选择已创建的<span class=\"help-letter-space\"></span>VPC。</p>\n</td>\n</tr>\n<tr id=\"3f9cf7ecc7569\" style=\"height:42px\">\n<td id=\"82bdd8cffft7m\" rowspan=\"1\" colspan=\"1\">\n<p id=\"499c32e0112yn\"><b id=\"2e75619e69hk4\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">虚拟交换机</b></p>\n</td>\n<td id=\"fec759c1d8zbo\" rowspan=\"1\" colspan=\"1\">\n<p id=\"b0eed1a4fbgfa\">在下拉列表中选择已创建的交换机。</p>\n</td>\n</tr>\n<tr id=\"865a0fdfaeiml\">\n<td id=\"e27f1c28cadmj\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fc4c078d907lm\"><b id=\"7730c36279q14\" data-status=\"unpublished\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">APIServer<span class=\"help-letter-space\"></span>负载均衡（SLB）</b></p>\n</td>\n<td id=\"e8ecf52418npr\" rowspan=\"1\" colspan=\"1\">\n<p id=\"cb96c9a9ad7dv\">无需设置，创建<span data-tag=\"ph\" id=\"7a31521a71i2h\" is-conref=\"true\" class=\"ph\">工作流集群</span>时会默认为<span class=\"help-letter-space\"></span>API Server 创建一个规格为<b>标准型<span class=\"help-letter-space\"></span>I（slb.s2.small）</b>的<span class=\"help-letter-space\"></span>SLB<span class=\"help-letter-space\"></span>实例，若删除该实例会导致<span class=\"help-letter-space\"></span>API Server 无法访问。</p>\n<p id=\"b3eab88957m5i\" props=\"china\" data-cond-props=\"china\">如<span class=\"help-letter-space\"></span>SLB<span class=\"help-letter-space\"></span>实例规格不满足要求，您可以前往<span class=\"help-letter-space\"></span>SLB<span class=\"help-letter-space\"></span>控制台修改，具体操作，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/slb/classic-load-balancer/product-overview/change-the-configurations-of-subscription-instances#section-hoa-bjb-70h\" id=\"3639f601f3n5s\" title=\"\" class=\"xref\">SLB<span class=\"help-letter-space\"></span>实例升配</a>。</p>\n<p id=\"ad6ddf8761yxo\">SLB<span class=\"help-letter-space\"></span>实例计费信息，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/slb/classic-load-balancer/product-overview/billing-overview/\" id=\"8901ffe803wff\" title=\"\" class=\"xref\">SLB<span class=\"help-letter-space\"></span>计费说明</a>。</p>\n</td>\n</tr>\n<tr id=\"d1d8499ea6r42\">\n<td id=\"a6c9de4e3f7lf\" rowspan=\"1\" colspan=\"1\">\n<p id=\"8286662b75tz5\"><b id=\"15b11aad76653\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建并绑定 EIP</b></p>\n</td>\n<td id=\"16af484dc48yo\" rowspan=\"1\" colspan=\"1\">\n<p id=\"472705611702r\">选择是否为集群绑定<span class=\"help-letter-space\"></span>EIP。</p>\n<ul id=\"a1ff73d3dfv1n\">\n<li id=\"4b65bcc1787ol\">\n<p id=\"4e7d23f1e4kh9\">开启后，系统将为内网<span class=\"help-letter-space\"></span>SLB<span class=\"help-letter-space\"></span>实例创建并绑定一个<span class=\"help-letter-space\"></span>EIP（弹性公网<span class=\"help-letter-space\"></span>IP），获得从公网访问集群<span class=\"help-letter-space\"></span>API Server<span class=\"help-letter-space\"></span>的能力。EIP<span class=\"help-letter-space\"></span>绑定后不支持解绑，因为可能有子集群已经使用舰队的公网访问链接。</p>\n</li>\n<li id=\"fdb4bc83794dv\">\n<p id=\"fe55487664qff\">若选择不开启，则无法通过外网访问集群<span class=\"help-letter-space\"></span>API Server。</p>\n</li>\n</ul>\n<p id=\"7dfbc96a38i08\">EIP<span class=\"help-letter-space\"></span>计费信息，请参见<a href=\"https://help.aliyun.com/zh/eip/billing-overview\" id=\"cc16487190o55\" title=\"\" class=\"xref\">弹性公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>计费说明</a>。</p>\n</td>\n</tr>\n<tr id=\"ce5eaf71592su\">\n<td id=\"14a095063bsxn\" rowspan=\"1\" colspan=\"1\">\n<p id=\"2f00dd1f43t3j\"><b id=\"613050eb0btt2\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">开启组件及审计日志</b></p>\n</td>\n<td id=\"8239685974w32\" rowspan=\"1\" colspan=\"1\">\n<p id=\"6a59b52a69sxg\">选择是否开启日志服务功能。</p>\n<p id=\"8c0291bec5zy7\">开启后，系统将自动创建一个名称为<span class=\"help-letter-space\"></span><b>k8s-log-{ClusterID}</b>的日志服务，并收集托管侧控制平面组件（包括<span class=\"help-letter-space\"></span>kube-apiserver、kube-controller-manager<span class=\"help-letter-space\"></span>等）的日志到日志服务中。以便您后续对<span data-tag=\"ph\" id=\"5ea8af0b9cref\" is-conref=\"true\" class=\"ph\">工作流集群</span>的日志进行审计。</p>\n<p id=\"6f20a5660007o\">日志服务计费信息，请参见<a href=\"https://help.aliyun.com/zh/sls/billing-overview\" id=\"b531d92cb9axc\" title=\"\" class=\"xref\">日志服务计费说明</a>。</p>\n</td>\n</tr>\n</tbody>\n</table>\n</li>\n</ol>\n</section>\n<section id=\"05823e4ec3j1k\" class=\"section\">\n<h2 id=\"845fc9f40aaeo\">通过阿里云<span class=\"help-letter-space\"></span>CLI<span class=\"help-letter-space\"></span>创建集群</h2>\n<ol data-tag=\"steps\" id=\"cfe58edf67qpx\" class=\"steps\">\n<li data-tag=\"step\" id=\"f6823fe971831\" class=\"step\">\n<p id=\"79ba4904f5iue\"><span data-tag=\"cmd\" id=\"cmd-y11-2yh-0ui\" class=\"cmd\">执行以下命令，创建<span data-tag=\"ph\" id=\"b23aa9acfcm0s\" is-conref=\"true\" class=\"ph\">工作流集群</span>。</span></p>\n<div data-tag=\"info\" id=\"info-ied-dbh-uc5\" class=\"info\"><pre data-tag=\"codeblock\" id=\"codeblock-1bx-ize-wbd\" outputclass=\"language-plaintext\" class=\"pre codeblock language-plaintext\"><code>aliyun configure set --region cn-zhangjiakou\naliyun adcp CreateHubCluster --Profile XFlow --RegionId cn-zhangjiakou --VpcId vpc-xxx --VSwitches \"[\\\"vsw-xxx\\\",\\\"vsw-xxx\\\"]\" --Name workflow1 --ApiServerPublicEip true --IsEnterpriseSecurityGroup true</code></pre>\n<table autofit=\"false\" id=\"table-zw3-mw0-ext\" tablecolswidth=\"177 531\" tablewidth=\"708\" class=\"table\">\n<colgroup colwidth=\"0.5*\" style=\"width:25.00%\"></colgroup>\n<colgroup colwidth=\"1.5*\" style=\"width:75.00%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"row-ute-sh5-mef\">\n<td id=\"task-2322674-entry-1uo-6c1-zy8\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"79ba4905f5b0b\"><b>参数</b></p>\n</td>\n<td id=\"task-2322674-entry-p5r-i8r-72a\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"79ba4906f5fjk\"><b>说明</b></p>\n</td>\n</tr>\n<tr id=\"row-aqx-8rg-yhl\">\n<td id=\"entry-9s5-9d6-z6d\" rowspan=\"1\" colspan=\"1\">\n<p id=\"79ba7010f50vc\"><span data-tag=\"parmname\" id=\"parmname-7nt-bh1-054\" class=\"parmname\">Profile</span></p>\n</td>\n<td id=\"entry-lov-wdu-21l\" rowspan=\"1\" colspan=\"1\">\n<p id=\"79ba7011f51hu\">必选，输入<span data-tag=\"ph\" id=\"codeph-11w-5xz-1cq\" class=\"ph\"><code data-tag=\"code\" class=\"code\">XFlow</code></span>。</p>\n</td>\n</tr>\n<tr id=\"row-hff-3gu-gmq\">\n<td id=\"entry-60h-g17-zw5\" rowspan=\"1\" colspan=\"1\">\n<p id=\"79ba7012f5cqd\"><span data-tag=\"parmname\" id=\"parmname-gti-w2l-28b\" class=\"parmname\">RegionId</span></p>\n</td>\n<td id=\"entry-zea-o6e-908\" rowspan=\"1\" colspan=\"1\">\n<p id=\"79ba7013f5qzf\">必选，<span data-tag=\"ph\" id=\"6794170bcbacy\" is-conref=\"true\" class=\"ph\">工作流集群</span>所在地域。本示例选择<span data-tag=\"ph\" id=\"codeph-uzz-p8k-sy8\" class=\"ph\"><code data-tag=\"code\" class=\"code\">cn-zhangjiakou</code></span>。</p>\n</td>\n</tr>\n<tr id=\"row-g9k-nxs-9og\">\n<td id=\"entry-l12-47w-xcg\" rowspan=\"1\" colspan=\"1\">\n<p id=\"79ba7014f5vcr\"><span data-tag=\"parmname\" id=\"parmname-345-sz7-x5i\" class=\"parmname\">VpcId</span></p>\n</td>\n<td id=\"entry-g92-5ui-45l\" rowspan=\"1\" colspan=\"1\">\n<p id=\"79ba7015f58vv\">必选，<span data-tag=\"ph\" id=\"3b8597f9c9wxl\" is-conref=\"true\" class=\"ph\">工作流集群</span>所在专有网络<span class=\"help-letter-space\"></span>VPC ID。</p>\n</td>\n</tr>\n<tr id=\"row-3kx-5wd-yw8\">\n<td id=\"entry-xg6-tpu-pyq\" rowspan=\"1\" colspan=\"1\">\n<p id=\"79ba9720f54v9\"><span data-tag=\"parmname\" id=\"parmname-k1r-dyb-cir\" class=\"parmname\">VSwitches</span></p>\n</td>\n<td id=\"entry-t4k-xar-jsq\" rowspan=\"1\" colspan=\"1\">\n<p id=\"79ba9721f5i8i\">必选，工作流运行<span class=\"help-letter-space\"></span>ECI<span class=\"help-letter-space\"></span>所在的交换机<span class=\"help-letter-space\"></span>vSwtich ID，格式为数组。请输入多可用区的交换机<span class=\"help-letter-space\"></span>ID。</p>\n</td>\n</tr>\n<tr id=\"row-u8i-vkt-j1z\">\n<td id=\"entry-v6h-k96-rva\" rowspan=\"1\" colspan=\"1\">\n<p id=\"79ba9722f5g9b\"><span data-tag=\"parmname\" id=\"parmname-zgf-3a5-moz\" class=\"parmname\">Name</span></p>\n</td>\n<td id=\"entry-rk8-rdq-qim\" rowspan=\"1\" colspan=\"1\">\n<p id=\"79ba9723f5i1z\">可选，<span data-tag=\"ph\" id=\"a4aa5d6d60efi\" is-conref=\"true\" class=\"ph\">工作流集群</span>名称。</p>\n</td>\n</tr>\n<tr id=\"row-n6z-uz5-2wb\">\n<td id=\"entry-1bi-53r-1we\" rowspan=\"1\" colspan=\"1\">\n<p id=\"79ba9724f59hq\"><span data-tag=\"parmname\" id=\"parmname-f4h-4qo-ciu\" class=\"parmname\">IsEnterpriseSecurityGroup</span></p>\n</td>\n<td id=\"entry-wtk-k0v-dnd\" rowspan=\"1\" colspan=\"1\">\n<p id=\"79ba9725f53rt\">必选，使用企业安全组，输入<span data-tag=\"ph\" id=\"codeph-khg-rdp-et2\" class=\"ph\"><code data-tag=\"code\" class=\"code\">true</code></span>。</p>\n</td>\n</tr>\n<tr id=\"row-an3-yv4-fxx\">\n<td id=\"entry-pc4-1ur-ypj\" rowspan=\"1\" colspan=\"1\">\n<p id=\"79ba9726f5trs\"><span data-tag=\"parmname\" id=\"parmname-2e4-ays-m59\" class=\"parmname\">ApiServerPublicEip</span></p>\n</td>\n<td id=\"entry-ixl-xje-a1o\" rowspan=\"1\" colspan=\"1\">\n<p id=\"79ba9727f559h\">可选，是否使用公网<span class=\"help-letter-space\"></span>EIP<span class=\"help-letter-space\"></span>暴露工作流引擎实例<span class=\"help-letter-space\"></span>APIServer<span class=\"help-letter-space\"></span>地址。</p>\n</td>\n</tr>\n</tbody>\n</table>\n<p data-tag=\"p\" id=\"p-6rd-xuu-d6k\" class=\"p\">预期输出如下，并记录<span data-tag=\"ph\" id=\"codeph-7a7-4pa-kqp\" class=\"ph\"><code data-tag=\"code\" class=\"code\">ClusterId</code></span>。</p><pre data-tag=\"codeblock\" id=\"codeblock-qn4-vkh-ijv\" outputclass=\"language-plaintext\" class=\"pre codeblock language-plaintext\"><code>{\n    \"ClusterId\": \"xxx\",\n    \"RequestId\": \"xxx\",\n    \"TaskId\": \"xxx\"\n}</code></pre>\n</div>\n</li>\n<li data-tag=\"step\" id=\"step-gp8-ynz-ds2\" class=\"step\">\n<p id=\"79babe30f5iz6\"><span data-tag=\"cmd\" id=\"cmd-mk2-8kw-cqk\" class=\"cmd\">执行以下命令，查看<span data-tag=\"ph\" id=\"f9cc0b2401t12\" is-conref=\"true\" class=\"ph\">工作流集群</span>的状态。</span></p>\n<div data-tag=\"info\" id=\"info-60z-iqp-p8g\" class=\"info\">\n<p id=\"79babe31f573p\">替换以下<span data-tag=\"ph\" id=\"codeph-d2h-q8c-xr8\" class=\"ph\"><code data-tag=\"code\" class=\"code\">XXX</code></span>为您上一步获取的<span data-tag=\"ph\" id=\"codeph-5b3-6n5-bod\" class=\"ph\"><code data-tag=\"code\" class=\"code\">ClusterId</code></span>。</p><pre data-tag=\"codeblock\" id=\"codeblock-j9v-kwz-mnl\" outputclass=\"language-plaintext\" class=\"pre codeblock language-plaintext\"><code>aliyun adcp DescribeHubClusterDetails --ClusterId XXX | jq .Cluster.ClusterInfo</code></pre>\n</div>\n<div data-tag=\"stepresult\" id=\"stepresult-t50-13u-s4c\" class=\"stepresult\">\n<p id=\"79babe32f5hfe\">等待直到预期输出的<span data-tag=\"ph\" id=\"codeph-aug-khb-iv5\" class=\"ph\"><code data-tag=\"code\" class=\"code\">State</code></span>为<span data-tag=\"ph\" id=\"codeph-vtl-7x0-zcy\" class=\"ph\"><code data-tag=\"code\" class=\"code\">running</code></span>状态。</p>\n</div>\n</li>\n<li data-tag=\"step\" id=\"step-r2d-55c-uo9\" class=\"step\">\n<p id=\"79bb0c50f5bvx\"><span data-tag=\"cmd\" id=\"cmd-5zq-bt2-fgx\" class=\"cmd\">执行以下命令，安装<span class=\"help-letter-space\"></span>jq。</span></p>\n<div data-tag=\"info\" id=\"info-zhc-xsk-2rj\" class=\"info\">\n<ul data-tag=\"ul\" id=\"ul-ier-q9w-off\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-t3p-6jf-4m2\" class=\"li\">\n<p id=\"79bb0c51f5jig\"><span data-tag=\"ph\" id=\"b-xw8-vp1-196\" class=\"ph\"><b>macOS</b></span>：</p><pre data-tag=\"codeblock\" id=\"codeblock-04i-u6z-v4y\" outputclass=\"language-plaintext\" class=\"pre codeblock language-plaintext\"><code>brew install jq</code></pre>\n</li>\n<li data-tag=\"li\" id=\"li-bep-rfd-tso\" class=\"li\">\n<p id=\"79bb0c52f5wgw\"><span data-tag=\"ph\" id=\"b-g8c-msn-5sx\" class=\"ph\"><b>CentOS</b></span>：</p><pre data-tag=\"codeblock\" id=\"codeblock-l0c-yur-puo\" outputclass=\"language-plaintext\" class=\"pre codeblock language-plaintext\"><code>yum install jq </code></pre>\n</li>\n<li data-tag=\"li\" id=\"li-vea-7ym-i43\" class=\"li\">\n<p id=\"79bb3360f5aoa\"><span data-tag=\"ph\" id=\"b-qq4-a9p-jd5\" class=\"ph\"><b>Ubuntu</b></span>：</p><pre data-tag=\"codeblock\" id=\"codeblock-3gb-q5b-00b\" outputclass=\"language-plaintext\" class=\"pre codeblock language-plaintext\"><code>apt-get install jq</code></pre>\n</li>\n</ul>\n</div>\n</li>\n<li data-tag=\"step\" id=\"step-n50-82a-zte\" class=\"step\">\n<p id=\"79bb3361f5s7d\"><span data-tag=\"cmd\" id=\"cmd-ezp-pp2-4rv\" class=\"cmd\">执行以下命令，自动解析文本并生成<span class=\"help-letter-space\"></span>KubeConfig。</span></p>\n<div data-tag=\"info\" id=\"info-xw6-od7-seg\" class=\"info\"><pre data-tag=\"codeblock\" id=\"codeblock-efa-vy8-xsi\" outputclass=\"language-plaintext\" class=\"pre codeblock language-plaintext\"><code>aliyun adcp DescribeHubClusterKubeconfig --ClusterId &lt;cluster id&gt; | jq -r .Kubeconfig | tee ack-argo-workflow-kubeconfig\n# 设置<span class=\"help-letter-space\"></span>KUBECONFIG<span class=\"help-letter-space\"></span>环境变量准备运行<span class=\"help-letter-space\"></span>kubectl<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>Argo CLI。\nexport KUBECONFIG=ack-argo-workflow-kubeconfig</code></pre></div>\n</li>\n</ol>\n</section>\n</section>\n</section>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-0lj-9xh-3is\" class=\"section\">\n<h2 data-tag=\"title\" id=\"title-q80-nb5-end\" class=\"title\">删除工作流集群</h2>\n<div id=\"1f77d15031til\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n<p id=\"79bb8187f50ez\">删除<span data-tag=\"ph\" id=\"1b9e22ceeayh8\" is-conref=\"true\" class=\"ph\">工作流集群</span>前，请先删除集群上的工作流，以触发删除<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>以及<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>相关的<span class=\"help-letter-space\"></span>ECI<span class=\"help-letter-space\"></span>资源。</p>\n</div></div>\n<section id=\"16fb5d380fpkq\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n<section id=\"f8a411f122tof\" class=\"section\">\n<h2 id=\"80bb783c3ek6i\">通过控制台删除集群</h2>\n<ol id=\"0922812688boi\">\n<li id=\"6d39ae596c7di\" docid=\"3350185\" is-conref=\"true\"><p id=\"f8fba60d22yjp\">登录<span class=\"help-letter-space\"></span><a class=\"\" href=\"https://cs.console.aliyun.com/one#/argowf/cluster/detail\" id=\"d77c5ed4dfx0a\">ACK One<span class=\"help-letter-space\"></span>工作流集群控制台</a>。</p></li>\n<li id=\"b95b5474218kz\">\n<p id=\"086cd2798ecb7\">在页面左上角单击集群名称后的下拉列表，选择需要删除的集群。</p>\n</li>\n<li id=\"712bda1e9a5ts\">\n<p id=\"5935bca87f647\">在<b id=\"1a3d4ce4553kp\" data-status=\"unpublished\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">工作流集群</b>页面右上角单击<b id=\"77b94575fd8aq\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">删除工作流集群</b>，然后在弹出的提示框中单击<b id=\"5c47af23b4env\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>。</p>\n</li>\n</ol>\n</section>\n<section id=\"08255e5e44wvr\" class=\"section\">\n<h2 id=\"ab4bda0fb3j4x\">通过阿里云<span class=\"help-letter-space\"></span>CLI<span class=\"help-letter-space\"></span>删除集群</h2>\n<ol data-tag=\"steps\" id=\"e11af932b5yhu\" class=\"steps\">\n<li data-tag=\"step\" id=\"0dcf4b5e40dol\" class=\"step\">\n<p id=\"79bb8188f5zk4\"><span data-tag=\"cmd\" id=\"cmd-k87-tmc-zcc\" class=\"cmd\">使用以下命令关闭<span class=\"help-letter-space\"></span>Argo Server<span class=\"help-letter-space\"></span>同时删除相关<span class=\"help-letter-space\"></span>SLB<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>ECI<span class=\"help-letter-space\"></span>等资源。</span></p>\n<div data-tag=\"info\" id=\"info-orm-ikp-p4g\" class=\"info\"><pre data-tag=\"codeblock\" id=\"codeblock-vqf-yf4-0x7\" outputclass=\"language-plaintext\" class=\"pre codeblock language-plaintext\"><code>aliyun adcp UpdateHubClusterFeature --ArgoServerEnabled false --ClusterId &lt;cluster id&gt;</code></pre></div>\n</li>\n<li data-tag=\"step\" id=\"step-ezt-21j-uva\" class=\"step\">\n<p id=\"79bb8189f5y5g\"><span data-tag=\"cmd\" id=\"cmd-5ty-oti-vp2\" class=\"cmd\">使用以下命令删除<span data-tag=\"ph\" id=\"4bfaffa4f44x7\" is-conref=\"true\" class=\"ph\">工作流集群</span>。</span></p>\n<div data-tag=\"info\" id=\"info-56c-ffs-7d5\" class=\"info\"><pre data-tag=\"codeblock\" id=\"codeblock-5r2-en3-bd8\" outputclass=\"language-plaintext\" class=\"pre codeblock language-plaintext\"><code> aliyun adcp DeleteHubCluster --ClusterId &lt;cluster id&gt;</code></pre></div>\n</li>\n</ol>\n</section>\n</section>\n</section>\n<section id=\"12d1733c6drdl\" class=\"section\">\n<h2 id=\"a0c29007ed1fu\">相关文档</h2>\n<ul id=\"5c12540922mh6\">\n<li id=\"15e8c47a2ezxo\">\n<p id=\"68f544e69485t\">如需修改<span data-tag=\"ph\" id=\"392636a94aepw\" is-conref=\"true\" class=\"ph\">工作流集群</span>的配置，请参见<a href=\"https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/modify-the-configuration-of-a-workflow-cluster\" id=\"d959ecf1cfyxt\" title=\"\" class=\"xref\">修改工作流集群配置</a>。</p>\n</li>\n<li id=\"9993f73bcb9hz\">\n<p id=\"889ac454bfd3e\">工作流集群创建完成后，您可以<a href=\"https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/create-a-workflow\" id=\"6e50884658vyz\" title=\"\" class=\"xref\">创建工作流</a>。</p>\n</li>\n</ul>\n</section>\n<p id=\"356de7600ae33\"></p>\n</div>\n</main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/create-a-workflow-cluster","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"alias":"/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/create-a-workflow-cluster","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":8,"developerUrl":"https://developer.aliyun.com/group/kubernetes/","nodeType":1,"version":14,"url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/create-a-workflow-cluster","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":2252085,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":8,"validDocument":true,"headNavEnable":false,"docTitle":"创建工作流集群","id":2252085,"title":"创建工作流集群","url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/create-a-workflow-cluster"}],"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"管理工作流集群","id":2642868,"title":"管理工作流集群","url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/managing-workflow-clusters/"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"分布式工作流Argo集群","id":2252083,"title":"分布式工作流Argo集群","url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/kubernetes-clusters-for-distributed-argo-workflows/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"操作指南","id":2391733,"title":"操作指南","url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"分布式云容器平台ACK One","id":358832,"title":"分布式云容器平台ACK One","url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"productUrl":"https://www.aliyun.com/product/kubernetes","nodeId":2252085,"desc":"工作流集群采用无服务器模式，使用阿里云弹性容器实例ECI运行工作流，通过优化Kubernetes集群参数，实现大规模工作流的高效弹性调度，同时配合抢占式ECI实例，优化成本。本文介绍如何创建工作流集群。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"分布式云容器平台ACK One","id":358832,"title":"分布式云容器平台ACK One","url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"操作指南","id":2391733,"title":"操作指南","url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"分布式工作流Argo集群","id":2252083,"title":"分布式工作流Argo集群","url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/kubernetes-clusters-for-distributed-argo-workflows/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"管理工作流集群","id":2642868,"title":"管理工作流集群","url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/managing-workflow-clusters/"},{"emptyNode":false,"level":8,"validDocument":true,"headNavEnable":false,"docTitle":"创建工作流集群","id":2252085,"title":"创建工作流集群","url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/create-a-workflow-cluster"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=213e057417825486760258000e4ad7&asid=AQAAAADEiD9qx9PHTwAAAAAsO9krMoDABg==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"><div class="help-subproduct-container"></div></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2391721" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/distributed-cloud-container-platform-for-kubernetes/product-overview/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品概述</span>
+</a>
+</li>
+ <li id="423344" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/distributed-cloud-container-platform-for-kubernetes/getting-started">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">快速入门</span>
+</a>
+</li>
+ <li id="2391733" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">操作指南</span>
+</a>
+</li>
+ <li id="2391743" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">实践教程</span>
+</a>
+</li>
+ <li id="2391753" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/distributed-cloud-container-platform-for-kubernetes/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2391754" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/distributed-cloud-container-platform-for-kubernetes/support/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">服务支持</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>创建工作流集群</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/kubernetes" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+<main id="task-2322674">
+
+
+<p data-tag="shortdesc" id="shortdesc-fzi-bmz-1jg" class="shortdesc"><span data-tag="ph" id="ph-gnl-07s-xbw" is-conref="true" class="ph">工作流集群</span>采用无服务器模式，使用阿里云弹性容器实例<span class="help-letter-space"></span>ECI<span class="help-letter-space"></span>运行工作流，通过优化<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>集群参数，实现大规模工作流的高效弹性调度，同时配合抢占式<span class="help-letter-space"></span>ECI<span class="help-letter-space"></span>实例，优化成本。本文介绍如何创建<span data-tag="ph" id="ph-ucc-3mo-350" is-conref="true" class="ph">工作流集群</span>。</p>
+<div data-tag="taskbody" id="taskbody-lhv-x1l-uzj" class="taskbody">
+<section data-tag="section" data-type="section" id="section-cuc-5nd-vqh" class="section">
+<h2 data-tag="title" id="title-cms-dil-46h" class="title">前提条件</h2>
+<ul id="612c49312bde4">
+<li data-tag="li" id="li-v1c-ygn-z15" class="li">
+<p id="79ba4900f5uo6"><span data-tag="ph" id="fb8e89000a2mn" props="china" data-cond-props="china" class="ph"><a href="https://www.aliyun.com/product/aliware/adcp" id="xref-hv1-emt-h8c" class="" target="_blank">已开通分布式云容器平台<span class="help-letter-space"></span>ACK One</a>。</span></p>
+</li>
+<li data-tag="li" id="li-h5k-few-wq2" class="li">
+<p id="79ba4901f5kg9"><span data-tag="ph" id="5403cc800axn2" props="china" data-cond-props="china" class="ph"><a href="https://www.aliyun.com/product/eci" id="xref-kqi-nb9-8e9" class="" target="_blank">已开通阿里云弹性容器实例<span class="help-letter-space"></span>ECI</a>。</span></p>
+</li>
+<li id="862af8632cgv6">
+<p id="f64fff7fc6e0q"><a href="https://help.aliyun.com/zh/vpc/user-guide/create-and-manage-a-vpc#section-znz-rbv-vrx" id="7250d08153b4w" title="" class="xref">已创建专有网络和交换机</a></p>
+</li>
+<li data-tag="li" id="li-1nz-sdp-jjp" class="li">
+<p id="79ba4902f5qjy">已安装阿里云<span class="help-letter-space"></span>CLI<span class="help-letter-space"></span>并配置凭证，且<span class="help-letter-space"></span>CLI<span class="help-letter-space"></span>版本为<span class="help-letter-space"></span>3.0.159<span class="help-letter-space"></span>及以上。具体操作，请参见<a class="" href="https://help.aliyun.com/zh/cli/installation-guide/" id="xref-7ur-21n-y8y">安装阿里云<span class="help-letter-space"></span>CLI</a><span class="help-letter-space"></span>和<a class="" href="https://help.aliyun.com/zh/cli/configure-credentials/" id="xref-31w-vux-vo0">配置凭证</a>。</p>
+</li>
+<li data-tag="li" id="li-ypd-rv1-kry" class="li">
+<p id="79ba4903f5h7i">已授予<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>用户<span class="help-letter-space"></span>AliyunAdcpFullAccess<span class="help-letter-space"></span>权限。具体操作，请参见<a href="https://help.aliyun.com/zh/ack/grant-permissions-to-a-ram-user-1#section-7ls-hxr-q81" id="xref-605-mxs-eai" title="" class="xref">为<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>用户授权</a>。</p>
+</li>
+</ul>
+</section>
+<section data-tag="section" data-type="section" id="section-9a6-77w-gid" class="section">
+<h2 data-tag="title" id="title-7hx-5o4-cc4" class="title">创建工作流集群</h2>
+<section id="4a6068ce53q00" outputclass="tabbed-content-box" class="tabbed-content-box section">
+<section id="0ed3d2a6e7ifm" class="section">
+<h2 id="7a1bfb2c1flr1">通过控制台创建集群</h2>
+<ol id="541d18fab8i51">
+<li id="7384729a811ky" docid="3350185" is-conref="true"><p id="f8fba60d22yjp">登录<span class="help-letter-space"></span><a class="" href="https://cs.console.aliyun.com/one#/argowf/cluster/detail" id="d77c5ed4dfx0a">ACK One<span class="help-letter-space"></span>工作流集群控制台</a>。</p></li>
+<li id="9fcafd6de9ae5">
+<p id="4f0d3a10ea3h5">在<b id="dfcb444a3azat" data-status="unpublished" data-tag="uicontrol" data-isbold="true" class="uicontrol">工作流集群</b>页面右上角单击<b id="d873def19edyo" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建工作流集群</b>，在弹出的面板中填写相关参数，然后单击<b id="e819b6b0c66fs" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建</b>。</p>
+<table autofit="true" id="190f234cafjmj" tablecolswidth="191 522" tablewidth="100" class="table">
+<colgroup colwidth="3.82*" style="width:191.00%"></colgroup>
+<colgroup colwidth="10.44*" style="width:522.00%"></colgroup>
+<tbody class="tbody">
+<tr id="41182e6716e0n">
+<td id="8bf4373c565uv" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="405dafb2c8ju2"><b>参数</b></p>
+</td>
+<td id="2087fa24315o8" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="4850b9b5dd1of"><b>描述</b></p>
+</td>
+</tr>
+<tr id="e135aa14a8cqe">
+<td id="a054940d5dbyr" rowspan="1" colspan="1">
+<p id="69ebfcd7217a4"><b id="d974af2a0e36x" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群名称</b></p>
+</td>
+<td id="f31becb771wed" rowspan="1" colspan="1">
+<p id="e6c02d4ea92yn">填写集群的名称。</p>
+<div id="d949f734a9ahg" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+<p id="0b407c1492c3b">长度为<span class="help-letter-space"></span>1~63<span class="help-letter-space"></span>个字符，可包含字母、数字、下划线（_）或中划线（-），且仅允许以字母开头。</p>
+</div></div>
+</td>
+</tr>
+<tr id="6a1487cea1imn">
+<td id="fe9f720572r8z" rowspan="1" colspan="1">
+<p id="f381bce39bs1y"><b id="28215939fd2fo" data-tag="uicontrol" data-isbold="true" class="uicontrol">地域</b></p>
+</td>
+<td id="6055e32ba7p9o" rowspan="1" colspan="1">
+<p id="582b452f47fu8">选择集群所在的地域。</p>
+</td>
+</tr>
+<tr id="c56118fe673za">
+<td id="2511aadc6clo0" rowspan="1" colspan="1">
+<p id="5bed3c9779nh3"><b id="53d3920069znc" data-tag="uicontrol" data-isbold="true" class="uicontrol">专有网络</b></p>
+</td>
+<td id="07962aa00b3r9" rowspan="1" colspan="1">
+<p id="e4469240f0wqx">设置集群的专有网络<span class="help-letter-space"></span>VPC，在下拉列表中选择已创建的<span class="help-letter-space"></span>VPC。</p>
+</td>
+</tr>
+<tr id="3f9cf7ecc7569" style="height:42px">
+<td id="82bdd8cffft7m" rowspan="1" colspan="1">
+<p id="499c32e0112yn"><b id="2e75619e69hk4" data-tag="uicontrol" data-isbold="true" class="uicontrol">虚拟交换机</b></p>
+</td>
+<td id="fec759c1d8zbo" rowspan="1" colspan="1">
+<p id="b0eed1a4fbgfa">在下拉列表中选择已创建的交换机。</p>
+</td>
+</tr>
+<tr id="865a0fdfaeiml">
+<td id="e27f1c28cadmj" rowspan="1" colspan="1">
+<p id="fc4c078d907lm"><b id="7730c36279q14" data-status="unpublished" data-tag="uicontrol" data-isbold="true" class="uicontrol">APIServer<span class="help-letter-space"></span>负载均衡（SLB）</b></p>
+</td>
+<td id="e8ecf52418npr" rowspan="1" colspan="1">
+<p id="cb96c9a9ad7dv">无需设置，创建<span data-tag="ph" id="7a31521a71i2h" is-conref="true" class="ph">工作流集群</span>时会默认为<span class="help-letter-space"></span>API Server 创建一个规格为<b>标准型<span class="help-letter-space"></span>I（slb.s2.small）</b>的<span class="help-letter-space"></span>SLB<span class="help-letter-space"></span>实例，若删除该实例会导致<span class="help-letter-space"></span>API Server 无法访问。</p>
+<p id="b3eab88957m5i" props="china" data-cond-props="china">如<span class="help-letter-space"></span>SLB<span class="help-letter-space"></span>实例规格不满足要求，您可以前往<span class="help-letter-space"></span>SLB<span class="help-letter-space"></span>控制台修改，具体操作，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/slb/classic-load-balancer/product-overview/change-the-configurations-of-subscription-instances#section-hoa-bjb-70h" id="3639f601f3n5s" title="" class="xref">SLB<span class="help-letter-space"></span>实例升配</a>。</p>
+<p id="ad6ddf8761yxo">SLB<span class="help-letter-space"></span>实例计费信息，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/slb/classic-load-balancer/product-overview/billing-overview/" id="8901ffe803wff" title="" class="xref">SLB<span class="help-letter-space"></span>计费说明</a>。</p>
+</td>
+</tr>
+<tr id="d1d8499ea6r42">
+<td id="a6c9de4e3f7lf" rowspan="1" colspan="1">
+<p id="8286662b75tz5"><b id="15b11aad76653" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建并绑定 EIP</b></p>
+</td>
+<td id="16af484dc48yo" rowspan="1" colspan="1">
+<p id="472705611702r">选择是否为集群绑定<span class="help-letter-space"></span>EIP。</p>
+<ul id="a1ff73d3dfv1n">
+<li id="4b65bcc1787ol">
+<p id="4e7d23f1e4kh9">开启后，系统将为内网<span class="help-letter-space"></span>SLB<span class="help-letter-space"></span>实例创建并绑定一个<span class="help-letter-space"></span>EIP（弹性公网<span class="help-letter-space"></span>IP），获得从公网访问集群<span class="help-letter-space"></span>API Server<span class="help-letter-space"></span>的能力。EIP<span class="help-letter-space"></span>绑定后不支持解绑，因为可能有子集群已经使用舰队的公网访问链接。</p>
+</li>
+<li id="fdb4bc83794dv">
+<p id="fe55487664qff">若选择不开启，则无法通过外网访问集群<span class="help-letter-space"></span>API Server。</p>
+</li>
+</ul>
+<p id="7dfbc96a38i08">EIP<span class="help-letter-space"></span>计费信息，请参见<a href="https://help.aliyun.com/zh/eip/billing-overview" id="cc16487190o55" title="" class="xref">弹性公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>计费说明</a>。</p>
+</td>
+</tr>
+<tr id="ce5eaf71592su">
+<td id="14a095063bsxn" rowspan="1" colspan="1">
+<p id="2f00dd1f43t3j"><b id="613050eb0btt2" data-tag="uicontrol" data-isbold="true" class="uicontrol">开启组件及审计日志</b></p>
+</td>
+<td id="8239685974w32" rowspan="1" colspan="1">
+<p id="6a59b52a69sxg">选择是否开启日志服务功能。</p>
+<p id="8c0291bec5zy7">开启后，系统将自动创建一个名称为<span class="help-letter-space"></span><b>k8s-log-{ClusterID}</b>的日志服务，并收集托管侧控制平面组件（包括<span class="help-letter-space"></span>kube-apiserver、kube-controller-manager<span class="help-letter-space"></span>等）的日志到日志服务中。以便您后续对<span data-tag="ph" id="5ea8af0b9cref" is-conref="true" class="ph">工作流集群</span>的日志进行审计。</p>
+<p id="6f20a5660007o">日志服务计费信息，请参见<a href="https://help.aliyun.com/zh/sls/billing-overview" id="b531d92cb9axc" title="" class="xref">日志服务计费说明</a>。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</li>
+</ol>
+</section>
+<section id="05823e4ec3j1k" class="section">
+<h2 id="845fc9f40aaeo">通过阿里云<span class="help-letter-space"></span>CLI<span class="help-letter-space"></span>创建集群</h2>
+<ol data-tag="steps" id="cfe58edf67qpx" class="steps">
+<li data-tag="step" id="f6823fe971831" class="step">
+<p id="79ba4904f5iue"><span data-tag="cmd" id="cmd-y11-2yh-0ui" class="cmd">执行以下命令，创建<span data-tag="ph" id="b23aa9acfcm0s" is-conref="true" class="ph">工作流集群</span>。</span></p>
+<div data-tag="info" id="info-ied-dbh-uc5" class="info"><pre data-tag="codeblock" id="codeblock-1bx-ize-wbd" outputclass="language-plaintext" class="pre codeblock language-plaintext"><code>aliyun configure set --region cn-zhangjiakou
+aliyun adcp CreateHubCluster --Profile XFlow --RegionId cn-zhangjiakou --VpcId vpc-xxx --VSwitches "[\"vsw-xxx\",\"vsw-xxx\"]" --Name workflow1 --ApiServerPublicEip true --IsEnterpriseSecurityGroup true</code></pre>
+<table autofit="false" id="table-zw3-mw0-ext" tablecolswidth="177 531" tablewidth="708" class="table">
+<colgroup colwidth="0.5*" style="width:25.00%"></colgroup>
+<colgroup colwidth="1.5*" style="width:75.00%"></colgroup>
+<tbody class="tbody">
+<tr id="row-ute-sh5-mef">
+<td id="task-2322674-entry-1uo-6c1-zy8" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="79ba4905f5b0b"><b>参数</b></p>
+</td>
+<td id="task-2322674-entry-p5r-i8r-72a" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="79ba4906f5fjk"><b>说明</b></p>
+</td>
+</tr>
+<tr id="row-aqx-8rg-yhl">
+<td id="entry-9s5-9d6-z6d" rowspan="1" colspan="1">
+<p id="79ba7010f50vc"><span data-tag="parmname" id="parmname-7nt-bh1-054" class="parmname">Profile</span></p>
+</td>
+<td id="entry-lov-wdu-21l" rowspan="1" colspan="1">
+<p id="79ba7011f51hu">必选，输入<span data-tag="ph" id="codeph-11w-5xz-1cq" class="ph"><code data-tag="code" class="code">XFlow</code></span>。</p>
+</td>
+</tr>
+<tr id="row-hff-3gu-gmq">
+<td id="entry-60h-g17-zw5" rowspan="1" colspan="1">
+<p id="79ba7012f5cqd"><span data-tag="parmname" id="parmname-gti-w2l-28b" class="parmname">RegionId</span></p>
+</td>
+<td id="entry-zea-o6e-908" rowspan="1" colspan="1">
+<p id="79ba7013f5qzf">必选，<span data-tag="ph" id="6794170bcbacy" is-conref="true" class="ph">工作流集群</span>所在地域。本示例选择<span data-tag="ph" id="codeph-uzz-p8k-sy8" class="ph"><code data-tag="code" class="code">cn-zhangjiakou</code></span>。</p>
+</td>
+</tr>
+<tr id="row-g9k-nxs-9og">
+<td id="entry-l12-47w-xcg" rowspan="1" colspan="1">
+<p id="79ba7014f5vcr"><span data-tag="parmname" id="parmname-345-sz7-x5i" class="parmname">VpcId</span></p>
+</td>
+<td id="entry-g92-5ui-45l" rowspan="1" colspan="1">
+<p id="79ba7015f58vv">必选，<span data-tag="ph" id="3b8597f9c9wxl" is-conref="true" class="ph">工作流集群</span>所在专有网络<span class="help-letter-space"></span>VPC ID。</p>
+</td>
+</tr>
+<tr id="row-3kx-5wd-yw8">
+<td id="entry-xg6-tpu-pyq" rowspan="1" colspan="1">
+<p id="79ba9720f54v9"><span data-tag="parmname" id="parmname-k1r-dyb-cir" class="parmname">VSwitches</span></p>
+</td>
+<td id="entry-t4k-xar-jsq" rowspan="1" colspan="1">
+<p id="79ba9721f5i8i">必选，工作流运行<span class="help-letter-space"></span>ECI<span class="help-letter-space"></span>所在的交换机<span class="help-letter-space"></span>vSwtich ID，格式为数组。请输入多可用区的交换机<span class="help-letter-space"></span>ID。</p>
+</td>
+</tr>
+<tr id="row-u8i-vkt-j1z">
+<td id="entry-v6h-k96-rva" rowspan="1" colspan="1">
+<p id="79ba9722f5g9b"><span data-tag="parmname" id="parmname-zgf-3a5-moz" class="parmname">Name</span></p>
+</td>
+<td id="entry-rk8-rdq-qim" rowspan="1" colspan="1">
+<p id="79ba9723f5i1z">可选，<span data-tag="ph" id="a4aa5d6d60efi" is-conref="true" class="ph">工作流集群</span>名称。</p>
+</td>
+</tr>
+<tr id="row-n6z-uz5-2wb">
+<td id="entry-1bi-53r-1we" rowspan="1" colspan="1">
+<p id="79ba9724f59hq"><span data-tag="parmname" id="parmname-f4h-4qo-ciu" class="parmname">IsEnterpriseSecurityGroup</span></p>
+</td>
+<td id="entry-wtk-k0v-dnd" rowspan="1" colspan="1">
+<p id="79ba9725f53rt">必选，使用企业安全组，输入<span data-tag="ph" id="codeph-khg-rdp-et2" class="ph"><code data-tag="code" class="code">true</code></span>。</p>
+</td>
+</tr>
+<tr id="row-an3-yv4-fxx">
+<td id="entry-pc4-1ur-ypj" rowspan="1" colspan="1">
+<p id="79ba9726f5trs"><span data-tag="parmname" id="parmname-2e4-ays-m59" class="parmname">ApiServerPublicEip</span></p>
+</td>
+<td id="entry-ixl-xje-a1o" rowspan="1" colspan="1">
+<p id="79ba9727f559h">可选，是否使用公网<span class="help-letter-space"></span>EIP<span class="help-letter-space"></span>暴露工作流引擎实例<span class="help-letter-space"></span>APIServer<span class="help-letter-space"></span>地址。</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p data-tag="p" id="p-6rd-xuu-d6k" class="p">预期输出如下，并记录<span data-tag="ph" id="codeph-7a7-4pa-kqp" class="ph"><code data-tag="code" class="code">ClusterId</code></span>。</p><pre data-tag="codeblock" id="codeblock-qn4-vkh-ijv" outputclass="language-plaintext" class="pre codeblock language-plaintext"><code>{
+    "ClusterId": "xxx",
+    "RequestId": "xxx",
+    "TaskId": "xxx"
+}</code></pre>
+</div>
+</li>
+<li data-tag="step" id="step-gp8-ynz-ds2" class="step">
+<p id="79babe30f5iz6"><span data-tag="cmd" id="cmd-mk2-8kw-cqk" class="cmd">执行以下命令，查看<span data-tag="ph" id="f9cc0b2401t12" is-conref="true" class="ph">工作流集群</span>的状态。</span></p>
+<div data-tag="info" id="info-60z-iqp-p8g" class="info">
+<p id="79babe31f573p">替换以下<span data-tag="ph" id="codeph-d2h-q8c-xr8" class="ph"><code data-tag="code" class="code">XXX</code></span>为您上一步获取的<span data-tag="ph" id="codeph-5b3-6n5-bod" class="ph"><code data-tag="code" class="code">ClusterId</code></span>。</p><pre data-tag="codeblock" id="codeblock-j9v-kwz-mnl" outputclass="language-plaintext" class="pre codeblock language-plaintext"><code>aliyun adcp DescribeHubClusterDetails --ClusterId XXX | jq .Cluster.ClusterInfo</code></pre>
+</div>
+<div data-tag="stepresult" id="stepresult-t50-13u-s4c" class="stepresult">
+<p id="79babe32f5hfe">等待直到预期输出的<span data-tag="ph" id="codeph-aug-khb-iv5" class="ph"><code data-tag="code" class="code">State</code></span>为<span data-tag="ph" id="codeph-vtl-7x0-zcy" class="ph"><code data-tag="code" class="code">running</code></span>状态。</p>
+</div>
+</li>
+<li data-tag="step" id="step-r2d-55c-uo9" class="step">
+<p id="79bb0c50f5bvx"><span data-tag="cmd" id="cmd-5zq-bt2-fgx" class="cmd">执行以下命令，安装<span class="help-letter-space"></span>jq。</span></p>
+<div data-tag="info" id="info-zhc-xsk-2rj" class="info">
+<ul data-tag="ul" id="ul-ier-q9w-off" class="ul">
+<li data-tag="li" id="li-t3p-6jf-4m2" class="li">
+<p id="79bb0c51f5jig"><span data-tag="ph" id="b-xw8-vp1-196" class="ph"><b>macOS</b></span>：</p><pre data-tag="codeblock" id="codeblock-04i-u6z-v4y" outputclass="language-plaintext" class="pre codeblock language-plaintext"><code>brew install jq</code></pre>
+</li>
+<li data-tag="li" id="li-bep-rfd-tso" class="li">
+<p id="79bb0c52f5wgw"><span data-tag="ph" id="b-g8c-msn-5sx" class="ph"><b>CentOS</b></span>：</p><pre data-tag="codeblock" id="codeblock-l0c-yur-puo" outputclass="language-plaintext" class="pre codeblock language-plaintext"><code>yum install jq </code></pre>
+</li>
+<li data-tag="li" id="li-vea-7ym-i43" class="li">
+<p id="79bb3360f5aoa"><span data-tag="ph" id="b-qq4-a9p-jd5" class="ph"><b>Ubuntu</b></span>：</p><pre data-tag="codeblock" id="codeblock-3gb-q5b-00b" outputclass="language-plaintext" class="pre codeblock language-plaintext"><code>apt-get install jq</code></pre>
+</li>
+</ul>
+</div>
+</li>
+<li data-tag="step" id="step-n50-82a-zte" class="step">
+<p id="79bb3361f5s7d"><span data-tag="cmd" id="cmd-ezp-pp2-4rv" class="cmd">执行以下命令，自动解析文本并生成<span class="help-letter-space"></span>KubeConfig。</span></p>
+<div data-tag="info" id="info-xw6-od7-seg" class="info"><pre data-tag="codeblock" id="codeblock-efa-vy8-xsi" outputclass="language-plaintext" class="pre codeblock language-plaintext"><code>aliyun adcp DescribeHubClusterKubeconfig --ClusterId &lt;cluster id&gt; | jq -r .Kubeconfig | tee ack-argo-workflow-kubeconfig
+# 设置<span class="help-letter-space"></span>KUBECONFIG<span class="help-letter-space"></span>环境变量准备运行<span class="help-letter-space"></span>kubectl<span class="help-letter-space"></span>和<span class="help-letter-space"></span>Argo CLI。
+export KUBECONFIG=ack-argo-workflow-kubeconfig</code></pre></div>
+</li>
+</ol>
+</section>
+</section>
+</section>
+<section data-tag="section" data-type="section" id="section-0lj-9xh-3is" class="section">
+<h2 data-tag="title" id="title-q80-nb5-end" class="title">删除工作流集群</h2>
+<div id="1f77d15031til" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+<p id="79bb8187f50ez">删除<span data-tag="ph" id="1b9e22ceeayh8" is-conref="true" class="ph">工作流集群</span>前，请先删除集群上的工作流，以触发删除<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>以及<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>相关的<span class="help-letter-space"></span>ECI<span class="help-letter-space"></span>资源。</p>
+</div></div>
+<section id="16fb5d380fpkq" outputclass="tabbed-content-box" class="tabbed-content-box section">
+<section id="f8a411f122tof" class="section">
+<h2 id="80bb783c3ek6i">通过控制台删除集群</h2>
+<ol id="0922812688boi">
+<li id="6d39ae596c7di" docid="3350185" is-conref="true"><p id="f8fba60d22yjp">登录<span class="help-letter-space"></span><a class="" href="https://cs.console.aliyun.com/one#/argowf/cluster/detail" id="d77c5ed4dfx0a">ACK One<span class="help-letter-space"></span>工作流集群控制台</a>。</p></li>
+<li id="b95b5474218kz">
+<p id="086cd2798ecb7">在页面左上角单击集群名称后的下拉列表，选择需要删除的集群。</p>
+</li>
+<li id="712bda1e9a5ts">
+<p id="5935bca87f647">在<b id="1a3d4ce4553kp" data-status="unpublished" data-tag="uicontrol" data-isbold="true" class="uicontrol">工作流集群</b>页面右上角单击<b id="77b94575fd8aq" data-tag="uicontrol" data-isbold="true" class="uicontrol">删除工作流集群</b>，然后在弹出的提示框中单击<b id="5c47af23b4env" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>。</p>
+</li>
+</ol>
+</section>
+<section id="08255e5e44wvr" class="section">
+<h2 id="ab4bda0fb3j4x">通过阿里云<span class="help-letter-space"></span>CLI<span class="help-letter-space"></span>删除集群</h2>
+<ol data-tag="steps" id="e11af932b5yhu" class="steps">
+<li data-tag="step" id="0dcf4b5e40dol" class="step">
+<p id="79bb8188f5zk4"><span data-tag="cmd" id="cmd-k87-tmc-zcc" class="cmd">使用以下命令关闭<span class="help-letter-space"></span>Argo Server<span class="help-letter-space"></span>同时删除相关<span class="help-letter-space"></span>SLB<span class="help-letter-space"></span>和<span class="help-letter-space"></span>ECI<span class="help-letter-space"></span>等资源。</span></p>
+<div data-tag="info" id="info-orm-ikp-p4g" class="info"><pre data-tag="codeblock" id="codeblock-vqf-yf4-0x7" outputclass="language-plaintext" class="pre codeblock language-plaintext"><code>aliyun adcp UpdateHubClusterFeature --ArgoServerEnabled false --ClusterId &lt;cluster id&gt;</code></pre></div>
+</li>
+<li data-tag="step" id="step-ezt-21j-uva" class="step">
+<p id="79bb8189f5y5g"><span data-tag="cmd" id="cmd-5ty-oti-vp2" class="cmd">使用以下命令删除<span data-tag="ph" id="4bfaffa4f44x7" is-conref="true" class="ph">工作流集群</span>。</span></p>
+<div data-tag="info" id="info-56c-ffs-7d5" class="info"><pre data-tag="codeblock" id="codeblock-5r2-en3-bd8" outputclass="language-plaintext" class="pre codeblock language-plaintext"><code> aliyun adcp DeleteHubCluster --ClusterId &lt;cluster id&gt;</code></pre></div>
+</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="12d1733c6drdl" class="section">
+<h2 id="a0c29007ed1fu">相关文档</h2>
+<ul id="5c12540922mh6">
+<li id="15e8c47a2ezxo">
+<p id="68f544e69485t">如需修改<span data-tag="ph" id="392636a94aepw" is-conref="true" class="ph">工作流集群</span>的配置，请参见<a href="https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/modify-the-configuration-of-a-workflow-cluster" id="d959ecf1cfyxt" title="" class="xref">修改工作流集群配置</a>。</p>
+</li>
+<li id="9993f73bcb9hz">
+<p id="889ac454bfd3e">工作流集群创建完成后，您可以<a href="https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/create-a-workflow" id="6e50884658vyz" title="" class="xref">创建工作流</a>。</p>
+</li>
+</ul>
+</section>
+<p id="356de7600ae33"></p>
+</div>
+</main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/managing-workflow-clusters/" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：管理工作流集群</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/enable-argo-server-for-a-workflow-cluster" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：开启Argo Server访问工作流集群<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

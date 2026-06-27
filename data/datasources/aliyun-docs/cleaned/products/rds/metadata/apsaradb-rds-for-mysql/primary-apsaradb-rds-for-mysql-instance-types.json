@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/primary-apsaradb-rds-for-mysql-instance-types",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "deployment",
+  "title": "RDS MySQL标准版主实例规格型号、CPU核数、内存、连接数、IOPS、磁盘空间等-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/primary-apsaradb-rds-for-mysql-instance-types",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-mysql/primary-apsaradb-rds-for-mysql-instance-types.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/primary-apsaradb-rds-for-mysql-instance-types.md",
+  "word_count": 2482,
+  "text_units": 3798,
+  "local_links": 13,
+  "external_links": 79,
+  "has_tables": true,
+  "table_count": 32,
+  "quality": "accepted"
+}

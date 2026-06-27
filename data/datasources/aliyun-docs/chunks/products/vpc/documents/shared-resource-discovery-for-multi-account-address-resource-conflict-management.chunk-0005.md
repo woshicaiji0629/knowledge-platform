@@ -1,0 +1,1 @@
+pam_ipam_pool_allocation" "example_ipam_pool_allocation" { ipam_pool_allocation_name = "example_ipam_pool_allocation_name" ipam_pool_id = var.ipam_pool_id # 指定IPAM地址池的ID cidr = "10.0.160.0/22" #预留指定的CIDR }

@@ -1,0 +1,17 @@
+{
+  "id": "oss:1-0-manual-for-c-sdk-v1",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "features",
+  "title": "服务公告-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/1-0-manual-for-c-sdk-v1",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/oss/documents/1-0-manual-for-c-sdk-v1.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/1-0-manual-for-c-sdk-v1.md",
+  "word_count": 472,
+  "text_units": 757,
+  "local_links": 0,
+  "external_links": 65,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

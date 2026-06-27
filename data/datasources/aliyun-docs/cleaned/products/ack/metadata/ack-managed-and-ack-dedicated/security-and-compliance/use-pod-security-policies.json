@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/security-and-compliance/use-pod-security-policies",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "troubleshoot",
+  "title": "管理默认Pod安全策略与解决Pod创建失败问题-容器服务Kubernetes版ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/use-pod-security-policies",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-managed-and-ack-dedicated/security-and-compliance/use-pod-security-policies.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/security-and-compliance/use-pod-security-policies.md",
+  "word_count": 1549,
+  "text_units": 2750,
+  "local_links": 11,
+  "external_links": 67,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

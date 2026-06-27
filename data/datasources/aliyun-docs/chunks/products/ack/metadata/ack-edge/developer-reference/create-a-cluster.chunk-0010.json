@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/developer-reference/create-a-cluster:10",
+  "document_id": "ack:ack-edge/developer-reference/create-a-cluster",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "如何通过CLI创建ACK集群-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/create-a-cluster",
+  "chunk_index": 10,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/developer-reference/create-a-cluster.chunk-0010.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/create-a-cluster.md",
+  "heading_path": "创建集群 > API请求响应 > 技术内容",
+  "char_count": 201
+}

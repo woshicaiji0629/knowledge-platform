@@ -1,0 +1,17 @@
+{
+  "id": "redis:product-overview/comparison-between-apsaradb-for-redis-enhanced-edition-and-apsaradb-for-redis-community-edition",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "selection",
+  "title": "Tair与Redis开源版的选型参考与特性对比-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/comparison-between-apsaradb-for-redis-enhanced-edition-and-apsaradb-for-redis-community-edition",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/product-overview/comparison-between-apsaradb-for-redis-enhanced-edition-and-apsaradb-for-redis-community-edition.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/comparison-between-apsaradb-for-redis-enhanced-edition-and-apsaradb-for-redis-community-edition.md",
+  "word_count": 1428,
+  "text_units": 2676,
+  "local_links": 64,
+  "external_links": 72,
+  "has_tables": true,
+  "table_count": 13,
+  "quality": "accepted"
+}

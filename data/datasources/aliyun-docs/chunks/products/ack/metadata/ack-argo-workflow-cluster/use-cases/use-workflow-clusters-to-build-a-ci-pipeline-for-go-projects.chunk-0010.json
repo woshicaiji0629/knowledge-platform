@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-argo-workflow-cluster/use-cases/use-workflow-clusters-to-build-a-ci-pipeline-for-go-projects:10",
+  "document_id": "ack:ack-argo-workflow-cluster/use-cases/use-workflow-clusters-to-build-a-ci-pipeline-for-go-projects",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "基于工作流集群构建Golang项目的CI Pipeline-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/use-cases/use-workflow-clusters-to-build-a-ci-pipeline-for-go-projects",
+  "chunk_index": 10,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-argo-workflow-cluster/use-cases/use-workflow-clusters-to-build-a-ci-pipeline-for-go-projects.chunk-0010.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-argo-workflow-cluster/use-cases/use-workflow-clusters-to-build-a-ci-pipeline-for-go-projects.md",
+  "heading_path": "基于工作流集群构建Golang项目的CI Pipeline > 步骤一：在工作流集群中创建ACR企业版实例访问凭证",
+  "char_count": 1200
+}

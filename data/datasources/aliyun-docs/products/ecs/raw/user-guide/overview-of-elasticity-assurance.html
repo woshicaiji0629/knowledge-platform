@@ -1,0 +1,770 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    什么是弹性保障（EA）-云服务器 ECS(ECS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/ecs/user-guide/overview-of-elasticity-assurance">
+  <meta name="keywords" content="资源预定,弹性保障,私有资源池,私有池,按量付费,EA">
+  <meta name="description" content="当业务面临资源需求高峰需要创建按量付费实例时，可能因库存不足而创建失败。弹性保障（Elasticity Assurance, EA）通过预留专属私有池资源，为按量付费实例提供容量保障。">
+  <meta name="last-modified" content="2026-06-04T20:12:08+08:00">
+  <meta name="date" content="2020-12-03T06:06:31+08:00">
+  <meta property="og:title" content="弹性保障">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/ecs/user-guide/overview-of-elasticity-assurance">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="当业务面临资源需求高峰需要创建按量付费实例时，可能因库存不足而创建失败。弹性保障（Elasticity Assurance, EA）通过预留专属私有池资源，为按量付费实例提供容量保障。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/ecs/user-guide/overview-of-elasticity-assurance",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "193630",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/ecs/user-guide/overview-of-elasticity-assurance","nodeId":null,"data":{"lastModifiedTime":1780575128000,"keywords":"资源预定,弹性保障,私有资源池,私有池,按量付费,EA","docTitle":"弹性保障概述","language":"zh","seoTitle":"什么是弹性保障（EA）-云服务器 ECS(ECS)-阿里云帮助中心","title":"弹性保障","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"concept-1999478\">\n    \n    \n    <p id=\"shortdesc-8vd-vw0-gz9\" data-tag=\"shortdesc\" class=\"shortdesc\">当业务面临资源需求高峰需要创建按量付费实例时，可能因库存不足而创建失败。弹性保障（Elasticity Assurance, EA）通过预留专属私有池资源，为按量付费实例提供容量保障。</p>\n    <div data-tag=\"conbody\" id=\"conbody-bgg-a2a-7cg\" class=\"conbody\">\n      <section data-tag=\"section\" id=\"section-z1t-mei-ghy\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-qn0-h31-u30\" class=\"title\">应用场景</h2>\n        <table id=\"f65cbfd11bwvh\" tablewidth=\"100\" tablecolswidth=\"9.13 30.32 30.32 30.229999999999986\" autofit=\"true\" class=\"table\">\n          <colgroup colwidth=\"0.37*\" style=\"width:9.13%\"></colgroup>\n          <colgroup colwidth=\"1.21*\" style=\"width:30.32%\"></colgroup>\n          <colgroup colwidth=\"1.21*\" style=\"width:30.32%\"></colgroup>\n          <colgroup colwidth=\"1.21*\" style=\"width:30.23%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"eac9cf05c38al\">\n              <td id=\"be6e9b4f39k63\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p id=\"50d3c125fbury\"><b>需求场景</b></p>\n              </td>\n              <td id=\"7ac3f6fdfa5gf\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p id=\"7f9d1e8ba7j0e\"><b>周期性资源需求</b></p>\n              </td>\n              <td id=\"87035082b8vio\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p id=\"ca69e39e3ftah\"><b>偶发性资源需求</b></p>\n              </td>\n              <td id=\"acac5c3b00e9c\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p id=\"fd68c288ec075\"><b>高峰期资源需求</b></p>\n              </td>\n            </tr>\n            <tr id=\"2d27e08c3104n\">\n              <td id=\"cf873515b99qn\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"1c3ff69e2dlc4\"><b>示意图</b></p>\n              </td>\n              <td id=\"d564ff66a3s84\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <hetu type=\"flowchart\" id=\"84caebd1817e9\" versionid=\"CAEQYhiBgID_uPmCyxkiIDM0YWJmMzBkMjI0YjQ0NmVhYWY0NmUwY2U0MDA4NjRk\" uuid=\"5725218_20250919111249.237\" hetuid=\"b176e565-f22b-46b3-9311-a085cedd6ea3\"><img src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7215750871/CAEQYhiBgID_uPmCyxkiIDM0YWJmMzBkMjI0YjQ0NmVhYWY0NmUwY2U0MDA4NjRk5725218_20250919111249.237.svg\" alt=\"image\" class=\"image break flowchart hetu\"></hetu>\n              </td>\n              <td id=\"57971f163ceuu\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <hetu type=\"flowchart\" id=\"d7c4599c6buo0\" versionid=\"CAEQYhiBgMCOt4upyxkiIDdjNWExYmQxMjMwMzQyOGJiNGYwZDRjZmZjODZlODQ3\" uuid=\"5725218_20250919111249.237\" hetuid=\"4c150d1d-016b-4b3a-8d94-bf50ab0937ac\"><img src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7215750871/CAEQYhiBgMCOt4upyxkiIDdjNWExYmQxMjMwMzQyOGJiNGYwZDRjZmZjODZlODQ35725218_20250919111249.237.svg\" alt=\"image\" class=\"image break flowchart hetu\"></hetu>\n              </td>\n              <td id=\"67aa5f66eauek\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <hetu type=\"flowchart\" id=\"8e40fe61d3ktc\" versionid=\"CAEQYhiBgMDz.IqpyxkiIDliZjhhYzAyNjkyMTQ0OTU4MzJiNTlhNzA0MjIyMjgx\" uuid=\"5725218_20250919111249.237\" hetuid=\"0a6a979c-bc12-4a56-95be-1a331317fd11\"><img src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7215750871/CAEQYhiBgMDz.IqpyxkiIDliZjhhYzAyNjkyMTQ0OTU4MzJiNTlhNzA0MjIyMjgx5725218_20250919111249.237.svg\" alt=\"image\" class=\"image break flowchart hetu\"></hetu>\n              </td>\n            </tr>\n            <tr id=\"0510170597dvw\">\n              <td id=\"3ee1478f31osg\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"828ab1d77fmb4\"><b>补充说明</b></p>\n              </td>\n              <td id=\"f70b0ad98byax\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n                <p id=\"a93d49e69f2w9\">适用于可预测的、周期性资源高峰。保障任务按时启动，平谷期不浪费资源。</p>\n              </td>\n              <td id=\"d1ab772b51jz0\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n                <p id=\"7503db1a58n99\">为应对突发事件或流量洪峰预留资源，确保业务的快速响应和高可用性。</p>\n              </td>\n              <td id=\"5c01a4e331lru\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n                <p id=\"c7ff3f3dfe87n\">在双十一、春节等全网资源紧张期间，为核心业务提前预留资源，避免因资源争抢导致业务受损。</p>\n              </td>\n            </tr>\n            <tr id=\"5378cd1cebqly\">\n              <td id=\"6f1f02005e7t9\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"6b3f75e4c2ss5\"><b>场景示例</b></p>\n              </td>\n              <td id=\"4401edd541ypj\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n                <p id=\"a177d33f40la7\">月末财务对账、周末批量渲染、每日定时数据分析。</p>\n              </td>\n              <td id=\"5aeff03549n16\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n                <p id=\"fd129ed826gg6\">突发热点事件响应、应用扩容、在线业务容灾切换。</p>\n              </td>\n              <td id=\"0315accc78wzs\" rowspan=\"1\" style=\"vertical-align:top\" colspan=\"1\">\n                <p id=\"f1e549ce08s4p\">视频直播、电商大促、在线游戏开服、票务秒杀。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </section>\n      <section id=\"b9e4f33bf3xxv\" class=\"section\">\n        <h2 id=\"fa7f2d3d6a9u9\"><b>核心概念</b></h2>\n        <p id=\"afaeb3985er3r\">购买弹性保障后，系统会在指定的可用区，预留匹配实例规格与数量的资源，形成一个<a href=\"https://help.aliyun.com/zh/ecs/user-guide/private-pools/\" id=\"f33f9541b4zv4\" title=\"\" class=\"xref\">私有池</a>。</p>\n        <blockquote id=\"e750a5b00dwvx\">公共池指所有用户共享的资源池。创建实例时，如果没有指定私有池，系统会默认从公共池中分配资源。</blockquote>\n        <table id=\"2cb2060fc2zp2\" tablewidth=\"701\" tablecolswidth=\"99 301 301\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.42*\" style=\"width:14.12%\"></colgroup>\n          <colgroup colwidth=\"1.29*\" style=\"width:42.94%\"></colgroup>\n          <colgroup colwidth=\"1.29*\" style=\"width:42.94%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"ff0de61443l4m\">\n              <td id=\"83da9d1f74wby\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"91ac890a2a5lp\"><b>特性</b></p>\n              </td>\n              <td id=\"63229c57ba1ma\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"d93adeefc4mue\"><b>专有私有池</b></p>\n              </td>\n              <td id=\"5017564a3duyq\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"9bc7c823e6iy4\"><b>开放私有池</b></p>\n              </td>\n            </tr>\n            <tr id=\"d32b5d7b89c58\">\n              <td id=\"c5cfc62f3b8we\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"8b334896c7rqz\"><b>访问策略</b></p>\n              </td>\n              <td id=\"fe7794adfess0\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"98c93ca2770gu\"><b>严格绑定（强保障）</b>：仅使用专有私有池，若容量不足则创建失败。</p>\n              </td>\n              <td id=\"b41795c64afrg\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"622d799690fon\"><b>优先 + 回退</b>：优先使用开放私有池，若容量不足则自动尝试使用公共资源池。</p>\n              </td>\n            </tr>\n            <tr id=\"11088df4d3qgp\">\n              <td id=\"c9f0cb8b41tnf\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"6d27d639360yn\"><b>资源隔离</b></p>\n              </td>\n              <td id=\"0ce77afa58u5u\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"55a7e59550f3i\">为特定业务或场景预留，隔离性强。</p>\n              </td>\n              <td id=\"2232326a11k4j\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"0fd00e5be2i0x\">可作为通用容量池，供多个业务场景共享使用。</p>\n              </td>\n            </tr>\n            <tr id=\"10cfc38d14v0o\">\n              <td id=\"f0d90447346du\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"44adb0eb9cf6b\"><b>使用方式</b></p>\n              </td>\n              <td id=\"3893b1d7739kp\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"3ddf9d65dfpd7\">创建实例时使用<b>指定模式，</b>指定一个专有私有池。</p>\n              </td>\n              <td id=\"179930352b1f6\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <ul id=\"37cf619356kse\">\n                  <li id=\"68686e2fb6oc6\">\n                    <p id=\"6dc9ce9a8d387\">创建实例时使用<b>指定模式，</b>指定一个开放私有池<b>。</b></p>\n                  </li>\n                  <li id=\"7e221f4e46p5b\">\n                    <p id=\"9e49243124hl5\">创建实例时使用<b>开放模式</b>。</p>\n                  </li>\n                </ul>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <p id=\"0e0db6c395ujo\"><b>弹性保障-分时保障</b>：在指定周期内（如<span class=\"help-letter-space\"></span>30<span class=\"help-letter-space\"></span>天）按预设时段（如每天<span class=\"help-letter-space\"></span>18:00~24:00）预留资源。</p>\n        <p id=\"011e263ed6r3l\"><b>弹性保障</b>：在整个指定周期内（如<span class=\"help-letter-space\"></span>3<span class=\"help-letter-space\"></span>个月）持续、不间断地预留资源。</p>\n      </section>\n      <div data-tag=\"p\" id=\"p-4c3-0qj-zkq\" class=\"p\">\n        <h2 uuid=\"mfe6em1kdxy1uerdoon\" id=\"cebe38775986n\">操作步骤</h2>\n        <section id=\"1ebe72fd17nva\" class=\"section\">\n          <h3 uuid=\"mfe6em1kmg5whsh1ve\" id=\"2541663c9b19u\"><b>流程概述</b></h3>\n          <ol id=\"676dbf184btas\">\n            <li id=\"af8bd99e1d9hw\">\n              <p id=\"3087aecef1e68\"><b>购买弹性保障</b>：购买弹性保障，获得一个私有池。</p>\n            </li>\n            <li id=\"0c6f36ed6f6qm\">\n              <p id=\"3c00a695e8kt9\"><b>创建 ECS 实例</b>：创建实例时，指定已购弹性保障的私有池。</p>\n            </li>\n            <li id=\"403659acd2a3b\">\n              <p id=\"e767c2f4bad85\"><b>验证与管理</b>：查看私有池使用情况及关联实例。</p>\n            </li>\n          </ol>\n        </section>\n        <section id=\"d486b7c1c2aar\" data-tag=\"tabbed-content-box\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n          <section id=\"922282636a6nn\" class=\"section\">\n            <h3 id=\"833bba4678xo7\"><b>弹性保障-分时保障</b></h3>\n            <section id=\"efbcea7b80dc6\" class=\"section\">\n              <h4 id=\"3ed2aac1cbtmx\"><b>步骤一：购买弹性保障</b></h4>\n              <ol id=\"b695524e005qi\">\n                <li id=\"861f4cca647j8\">\n                  <p id=\"7de67bb65cf7o\">访问<span class=\"help-letter-space\"></span><a class=\"\" href=\"https://ecs.console.aliyun.com/elasticity-assurance/region/cn-hangzhou\" id=\"a22026f5064ks\">ECS<span class=\"help-letter-space\"></span>控制台-弹性保障</a>。</p>\n                </li>\n                <li id=\"aff590896cp8o\">\n                  <p id=\"b940d7471fcq6\">单击<b id=\"uicontrol-mxj-lbn-kgs\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建弹性保障</b>。</p>\n                  <ul id=\"2c0078fda6seu\">\n                    <li id=\"1817e0c8eax5x\">\n                      <p id=\"4455457a2b21h\"><b id=\"68d6cf053d9f7\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">开始时间</b>和<b id=\"f780b5996bw2y\" data-tag=\"uicontrol\" data-isbold=\"true\" data-params-value=\"end\" data-format-type=\"icu\" class=\"uicontrol\">结束时间</b>间隔至少<span class=\"help-letter-space\"></span>7<span class=\"help-letter-space\"></span>天，最多<span class=\"help-letter-space\"></span>365<span class=\"help-letter-space\"></span>天。</p>\n                    </li>\n                    <li id=\"b68a3850645j9\">\n                      <p id=\"8a47dd8624r4v\"><b data-tag=\"uicontrol\" id=\"4c174ad55cqqg\" class=\"uicontrol\">重复规则</b>：支持配置多条，最多<span class=\"help-letter-space\"></span>10<span class=\"help-letter-space\"></span>条。</p>\n                      <p id=\"b3e0df56adayo\">支持按日/周/月重复周期设定保障时段，<b id=\"276e7215b9lpo\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">时间段</b>最低<span class=\"help-letter-space\"></span>4<span class=\"help-letter-space\"></span>小时，累计保障时长不得低于整个周期总时长的<span class=\"help-letter-space\"></span>10%。</p>\n                      <blockquote id=\"19d4bf2bfcv52\">鼠标悬浮<b data-tag=\"uicontrol\" id=\"f47efee8965oz\" class=\"uicontrol\">保障时段(UTC)预览</b>可查看保障时段详情。</blockquote>\n                    </li>\n                    <li id=\"2b8e6b4cdb2by\">\n                      <p id=\"7a01bd64d8egb\"><b id=\"cb3f1aff40zta\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">资源池类型</b>：</p>\n                      <ul id=\"e9dbd1bcf8af2\">\n                        <li id=\"5c6ac2e3d4l7k\">\n                          <p id=\"e825d96634218\"><b id=\"050658f869xfv\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">开放模式</b>：开放私有池。</p>\n                        </li>\n                        <li id=\"53bf5782ccw31\">\n                          <p id=\"c6ced3428390t\"><b id=\"5401c6c4a6his\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">专有模式</b>：为特定场景或业务预留的专有私有池。</p>\n                        </li>\n                      </ul>\n                    </li>\n                  </ul>\n                </li>\n                <li id=\"218e1cf69eczt\">\n                  <p id=\"e40330acd28e6\">勾选<b id=\"88c68a25d6k4q\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">我已知悉</b>，单击<b id=\"50dbcafe72711\" data-status=\"unpublished\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">立即购买</b>。</p>\n                  <p id=\"33d2dbd74fo3i\">返回<span class=\"help-letter-space\"></span><a class=\"\" href=\"https://ecs.console.aliyun.com/elasticity-assurance/region/cn-hangzhou\" id=\"b5890ef239oec\">ECS<span class=\"help-letter-space\"></span>控制台-弹性保障</a>，当状态为<b>资源已锁定</b>或<b id=\"cfb5f5b600jhf\" data-tag=\"uicontrol\" data-isbold=\"true\" data-init-id=\"uicontrol_ofi_opg_xob\" data-params-value=\"Active\" data-format-type=\"icu\" class=\"uicontrol\">预定生效中</b>时，表示购买成功。</p>\n                </li>\n              </ol>\n            </section>\n            <section id=\"5c91975100e97\" class=\"section\">\n              <h4 uuid=\"mfe6em1nbjh8rhsu2as\" id=\"6210975bb3vj3\"><b>步骤二：使用弹性保障创建实例</b></h4>\n              <ol id=\"78f6b9ba17a28\">\n                <li id=\"4c77acb29bbgd\">\n                  <p id=\"2b34edcf45phi\">访问<span class=\"help-letter-space\"></span><a class=\"\" href=\"https://ecs.console.aliyun.com/elasticity-assurance/region/cn-hangzhou\" id=\"b2da53439d8t0\">ECS<span class=\"help-letter-space\"></span>控制台-弹性保障</a>。</p>\n                </li>\n                <li id=\"94a3b07f71fl5\">\n                  <p id=\"5dfeb02f24muy\">在<b id=\"745617da2bouo\" data-tag=\"uicontrol\" data-isbold=\"true\" data-init-id=\"c24b1542d48jr\" data-params-value=\"CapacityReservation\" data-format-type=\"icu\" class=\"uicontrol\">资源预定</b>页面，单击目标弹性保障<b id=\"5bca3e371b844\" data-tag=\"uicontrol\" data-isbold=\"true\" data-init-id=\"90d222fc82h7t\" data-params-value=\"setting\" data-format-type=\"icu\" class=\"uicontrol\">操作</b>列的<b id=\"a11bdef84fbh1\" data-tag=\"uicontrol\" data-isbold=\"true\" data-init-id=\"b6c9a7f348ymk\" data-params-btn=\"instance\" data-format-type=\"icu\" class=\"uicontrol\">购买实例</b>。</p>\n                </li>\n                <li id=\"4a229dde4e5jr\">\n                  <p id=\"ed4368d758hgp\"><b id=\"f2cc0ddf92o6y\" data-status=\"unpublished\" data-tag=\"uicontrol\" data-isbold=\"true\" data-init-id=\"uicontrol_6bq_iz9_lki\" class=\"uicontrol\">付费类型</b>选择<b id=\"29d4fb813aree\" data-tag=\"uicontrol\" data-isbold=\"true\" data-init-id=\"uicontrol_zuj_ru9_9ws\" data-params-value=\"PostPaid\" data-format-type=\"icu\" class=\"uicontrol\">按量付费</b>，其他配置参考<a href=\"https://help.aliyun.com/zh/ecs/user-guide/create-an-instance-by-using-the-wizard#task-vwq-5g4-r2b\" id=\"bc33dd46d9cvk\" title=\"\" class=\"xref\">自定义购买实例</a>完成。</p>\n                </li>\n                <li id=\"a5b88d1e44rbu\">\n                  <p id=\"cc0bc9dca2src\">展开页面底部的<b id=\"048350a7b2to2\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">高级选项</b>，选择<b id=\"471eec1dd8c0u\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">私有池类型</b>。</p>\n                  <ul id=\"2afb444cc143c\">\n                    <li id=\"9bee01fcd9akk\">\n                      <p id=\"8cfbb43d24tsl\"><b id=\"98d83a8e8emd5\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">开放</b>：系统优先匹配开放私有池，若容量不足，则尝试使用公共池。</p>\n                    </li>\n                    <li id=\"d0f478765bp4p\">\n                      <p id=\"9c51fe68a3508\"><b id=\"5ae215874fxjt\" data-tag=\"uicontrol\" data-isbold=\"true\" data-init-id=\"902f0b73d1v63\" class=\"uicontrol\">不使用 </b>：不使用私有池，仅使用公共池。</p>\n                    </li>\n                    <li id=\"5f083d6905ibo\">\n                      <p id=\"65ce254c09039\"><b id=\"f5942333d0qu9\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">指定</b>：指定一个匹配的开放或专有<b id=\"4b05629cc61x4\">私有池</b>。</p>\n                    </li>\n                  </ul>\n                </li>\n                <li id=\"2d504760e4rpc\">\n                  <p id=\"04a891e1eb37j\">单击<b id=\"aed12e8021ic4\" data-tag=\"uicontrol\" data-isbold=\"true\" comment_06d7474e-60d2-4fd7-83eb-79c05bc52a32=\"comment\" class=\"uicontrol\">确认下单</b>。</p>\n                </li>\n              </ol>\n            </section>\n            <section id=\"aa1a1afc393c3\" class=\"section\">\n              <h4 id=\"3131813f53kth\"><b>步骤三：查看弹性保障信息</b></h4>\n              <ol id=\"64fea38a8ch6i\">\n                <li id=\"418dbf7f6dxl9\">\n                  <p id=\"2d0f91e490ws6\">访问<span class=\"help-letter-space\"></span><a class=\"\" href=\"https://ecs.console.aliyun.com/elasticity-assurance/region/cn-hangzhou\" id=\"e632c66660gla\">ECS<span class=\"help-letter-space\"></span>控制台-弹性保障</a>。</p>\n                </li>\n                <li id=\"9a47fa255emgt\">\n                  <p id=\"6816b1620d1jn\">在<b id=\"uicontrol-pwk-u71-cuf\" data-tag=\"uicontrol\" data-isbold=\"true\" data-params-value=\"ElasticsAssuarance\" data-format-type=\"icu\" class=\"uicontrol\">弹性保障</b>页面，单击弹性保障的<span class=\"help-letter-space\"></span>ID，进入资源详情页查看私有池容量使用情况等信息。</p>\n                  <p id=\"9057b38d94j6q\">在<b id=\"uicontrol-8jj-jo1-e4m\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">关联实例</b>区域可查看使用该弹性保障创建的实例。</p>\n                </li>\n              </ol>\n            </section>\n          </section>\n          <section id=\"7b39037919fe3\" class=\"section\">\n            <h3 id=\"7b2d332c4dx4f\"><b>弹性保障</b></h3>\n            <section id=\"ba466c2430crh\" class=\"section\">\n              <h4 id=\"714eb66df28g4\"><b>步骤一：购买弹性保障</b></h4>\n              <ol id=\"486abf7dc0mw7\">\n                <li id=\"803bb4e6293ar\">\n                  <p id=\"53e370aa4bzr6\">访问<span data-tag=\"ph\" id=\"00d61db7ee09q\" class=\"ph\"><span props=\"china\"><a class=\"\" href=\"https://ecs.console.aliyun.com/resourceAssuranceV2/region\" id=\"e7f89fb40dqmi\">ECS<span class=\"help-letter-space\"></span>控制台-资源管家</a></span></span>，选择<span data-tag=\"menucascade\" id=\"menucascade-lx1-bci-nym\" class=\"menucascade\"><b id=\"uicontrol-73g-ero-dv6\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">购中确定性保障</b> &gt; <b id=\"uicontrol-e9q-o7d-hbr\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">资源预定</b></span>。</p>\n                </li>\n                <li id=\"3e4ab42707xg1\">\n                  <p id=\"9fe11938fbfo6\">在<b id=\"uicontrol-1vh-smx-8fi\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">资源预定</b>页签，单击<b id=\"e9a58a6400lhj\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建资源预定</b>，进入配置页面。</p>\n                  <ul id=\"43c9844875luw\">\n                    <li id=\"9736c143ce886\">\n                      <p id=\"0c6d01ead6qn1\"><b id=\"uicontrol-6l5-eqg-0uu\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">所需资源信息</b>：选择需要预留资源的<b id=\"6afa4c4d5flbl\">地域/可用区</b>、<b id=\"uicontrol-sv0-tn0-oe2\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">资源规格</b>和<b id=\"uicontrol-kkl-u01-rsp\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">预留数量</b>。</p>\n                    </li>\n                    <li id=\"e22765735ffag\">\n                      <p id=\"0a460e90bej3i\"><b id=\"uicontrol-5dc-qqb-hv6\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">预定资源方式</b>：</p>\n                      <ul id=\"6ee84026fdnqr\">\n                        <li id=\"90d9d3f45cgxw\">\n                          <p id=\"f2750aeab12zq\"><b id=\"uicontrol-8nz-u75-b3s\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">预定方式</b>：选择<b id=\"uicontrol-gbf-rr5-x8p\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">弹性保障-立即生效/指定时间生效</b>。</p>\n                        </li>\n                        <li id=\"823c3f549cywc\">\n                          <p id=\"1185acad35qb2\"><b id=\"uicontrol-vr1-9zu-v6k\" data-status=\"unpublished\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">购买时长</b>：支持按月或按年购买，时长从<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>个月到<span class=\"help-letter-space\"></span>5<span class=\"help-letter-space\"></span>年不等。</p>\n                        </li>\n                      </ul>\n                    </li>\n                    <li id=\"b72385f509ld4\">\n                      <p id=\"4b52e088b8xot\"><b id=\"uicontrol-56z-593-kl5\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">私有资源池信息</b>：</p>\n                      <ul id=\"a7375831b0m8n\">\n                        <li id=\"b635c05508idq\">\n                          <p id=\"7aaaccbb43zge\"><b id=\"uicontrol-4q3-96m-il3\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">开放</b>：开放私有池。</p>\n                        </li>\n                        <li id=\"d3a54da81fb40\">\n                          <p id=\"1a844ad70acr9\"><b id=\"uicontrol-sm8-oh2-wvq\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">专有</b>：为特定场景或业务预留的专有私有池。</p>\n                        </li>\n                      </ul>\n                    </li>\n                    <li data-tag=\"substep\" id=\"60bb2b8d8eggk\" class=\"substep\">\n                      <p id=\"70c152ca29ncp\"><b data-tag=\"uicontrol\" id=\"uicontrol-gn4-l0d-oi3\" class=\"uicontrol\">资源方案推荐</b>：</p>\n                      <blockquote id=\"076f959207s9u\">系统会基于库存优先、多可用区容灾、性能优先等维度提供更多推荐方案，最终以选定方案预留资源。</blockquote>\n                      <p id=\"p-29b80c9ea598\">对比表格列出<b>原方案</b>、<b>库存优先/性能优先</b>和<b>多可用区冗灾</b>三行方案，各列包括规格名称、地域/可用区、台数、参考价格、vCPU、内存、内网带宽等指标，单击目标方案前的单选按钮即可选定。</p>\n                    </li>\n                  </ul>\n                </li>\n                <li id=\"f7eeb2fa64lt1\">\n                  <p id=\"33b6a2401c5ta\"><span data-tag=\"cmd\" id=\"cmd-9hk-70w-9dp\" class=\"cmd\">单击<b id=\"uicontrol-5p5-gel-vmm\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">下一步：确认信息</b>，</span>核对配置。</p>\n                </li>\n                <li id=\"572f1b0a6et2o\">\n                  <p id=\"797c02c6aeskx\">阅读<b id=\"uicontrol-71x-w4t-t5l\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">预定须知</b>，勾选<b data-tag=\"uicontrol\" id=\"uicontrol-f9o-y3k-vzi\" class=\"uicontrol\">我已确认</b>，单击<b id=\"uicontrol-t63-t1x-c47\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建预定单</b>。</p>\n                  <p id=\"84399451e2ds2\">返回列表页，当状态显示为<b id=\"uicontrol-ofi-opg-xob\" data-tag=\"uicontrol\" data-isbold=\"true\" data-params-value=\"Active\" data-format-type=\"icu\" class=\"uicontrol\">预定生效中</b>时，表示已购买成功。</p>\n                </li>\n              </ol>\n            </section>\n            <section id=\"9680c693a7xja\" class=\"section\">\n              <h4 id=\"8c012cde79ufr\"><b>步骤二：使用弹性保障创建实例</b></h4>\n              <ol id=\"36462edee48ze\">\n                <li id=\"9a73b46617fye\">\n                  <p id=\"310b6e25c70s8\">访问<span data-tag=\"ph\" id=\"768ba5c6c8lsp\" class=\"ph\"><span props=\"china\"><a class=\"\" href=\"https://ecs.console.aliyun.com/resourceAssuranceV2/region\" id=\"8eec3efafehaw\">ECS<span class=\"help-letter-space\"></span>控制台-资源管家</a></span></span>，<span data-tag=\"cmd\" id=\"b9576246f7dnh\" data-init-id=\"cmd_xrv_itw_zpj\" class=\"cmd\">选择<span data-tag=\"menucascade\" id=\"97305f9529sat\" data-init-id=\"menucascade_lx1_bci_nym\" class=\"menucascade\"><b id=\"b9b97689242r3\" data-tag=\"uicontrol\" data-isbold=\"true\" data-init-id=\"uicontrol_73g_ero_dv6\" class=\"uicontrol\">购中确定性保障</b> &gt; <b id=\"1a2045b3f4e9u\" data-tag=\"uicontrol\" data-isbold=\"true\" data-init-id=\"uicontrol_e9q_o7d_hbr\" class=\"uicontrol\">资源预定</b></span>。</span></p>\n                </li>\n                <li id=\"db76fbdcd6nnf\">\n                  <p id=\"09aa170e02q5j\">在<b id=\"c24b1542d48jr\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">资源预定</b>页面，单击目标资源预定<b id=\"90d222fc82h7t\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">操作</b>列的<b id=\"b6c9a7f348ymk\" data-tag=\"uicontrol\" data-isbold=\"true\" data-params-btn=\"instance\" data-format-type=\"icu\" class=\"uicontrol\">购买实例</b>。</p>\n                </li>\n                <li id=\"e9e519e70agnn\">\n                  <p id=\"5c3836ade1h0v\"><b id=\"uicontrol-6bq-iz9-lki\" data-status=\"unpublished\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">付费类型</b>选择<b id=\"uicontrol-zuj-ru9-9ws\" data-tag=\"uicontrol\" data-isbold=\"true\" data-params-value=\"PostPaid\" data-format-type=\"icu\" class=\"uicontrol\">按量付费</b>，其余配置参考<a href=\"https://help.aliyun.com/zh/ecs/user-guide/create-an-instance-by-using-the-wizard#task-vwq-5g4-r2b\" id=\"23db2728584p3\" title=\"\" class=\"xref\">自定义购买实例</a>完成。</p>\n                </li>\n                <li id=\"0c25ec8223hf5\">\n                  <p id=\"8a50cd8bb04tg\">在<b data-tag=\"uicontrol\" id=\"uicontrol-cvn-b31-24y\" class=\"uicontrol\">高级选项（选填）</b>区域，选择<b id=\"uicontrol-ar8-9v8-4ni\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">私有池类型</b>。</p>\n                  <ul id=\"ul-uxq-n6c-7ka\" data-tag=\"ul\" class=\"ul\">\n                    <li data-tag=\"li\" id=\"li-oud-8am-eob\" class=\"li\">\n                      <p id=\"46ac225045h97\"><b id=\"38467e6724rbd\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">开放</b>：系统优先匹配开放私有池，若容量不足，则尝试使用公共池。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-s76-5c9-8rv\" class=\"li\">\n                      <p id=\"2c818a20ddrmm\"><b id=\"902f0b73d1v63\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">不使用</b>：不使用任何私有池，仅使用公共池。</p>\n                    </li>\n                    <li id=\"308d2e5641fzr\">\n                      <p id=\"9ca5f0a7b2lzs\"><b id=\"d3ac1b2ad62c8\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">指定</b>：指定一个开放私有池或者专有私有池。</p>\n                    </li>\n                  </ul>\n                </li>\n              </ol>\n            </section>\n            <section id=\"1a07b22c60njd\" class=\"section\">\n              <h4 id=\"0b7d7a8f20mft\"><b>步骤三：查看弹性保障信息</b></h4>\n              <ol data-tag=\"steps\" id=\"steps-jj4-b4u-j1f\" class=\"steps\">\n                <li id=\"f5b701ac4dx46\">\n                  <p id=\"0f34c5d351t4g\" data-init-id=\"e4fcb8808co15\">访问<span data-tag=\"ph\" id=\"5d6465f5a4u61\" class=\"ph\"><span props=\"china\"><a class=\"\" href=\"https://ecs.console.aliyun.com/resourceAssuranceV2/region\" id=\"fd5f52a2a90qv\">ECS<span class=\"help-letter-space\"></span>控制台-资源管家</a></span></span>。</p>\n                </li>\n                <li data-tag=\"step\" id=\"step-ukg-5rb-tkg\" is-conref=\"true\" class=\"step\"><p id=\"cc0dfc4237gix\"><span data-tag=\"cmd\" id=\"cmd-acu-560-w33\" class=\"cmd\">在页面左侧顶部，选择目标资源所在的资源组和地域。<img alt=\"地域\" data-tag=\"image\" id=\"image-3wz-243-ym2\" placement=\"break\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5587314271/p680076.png\" width=\"500\" class=\"image break\"> </span></p></li>\n                <li data-tag=\"step\" id=\"step-0ai-wdl-aad\" class=\"step\">\n                  <p id=\"effa75570eg13\"><span data-tag=\"cmd\" id=\"cmd-k3x-xhe-4xw\" class=\"cmd\">在资源管家左侧导航栏，选择<span data-tag=\"menucascade\" id=\"menucascade-n4c-ik3-8s6\" class=\"menucascade\"><b id=\"uicontrol-avc-hk5-gnt\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">购中确定性保障</b> &gt; <b id=\"uicontrol-n0m-595-2iw\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">资源预定</b></span>。</span></p>\n                </li>\n                <li data-tag=\"step\" id=\"step-yis-wsa-ws0\" class=\"step\">\n                  <p id=\"c031d24f199kh\"><span data-tag=\"cmd\" id=\"cmd-sfo-tff-wyr\" class=\"cmd\">在<b id=\"uicontrol-9ly-l1q-w02\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">资源预定</b>页签下，筛选<b id=\"uicontrol-wmg-7ok-qsg\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">预定方式</b>为<b id=\"uicontrol-y15-n0d-7f2\" data-tag=\"uicontrol\" data-isbold=\"true\" data-params-value=\"ElasticsAssuarance\" data-format-type=\"icu\" class=\"uicontrol\">弹性保障</b>。</span></p>\n                </li>\n                <li data-tag=\"step\" id=\"step-114-kfz-fg1\" class=\"step\">\n                  <p id=\"e64b1a718092z\"><span data-tag=\"cmd\" id=\"cmd-um3-oyc-skc\" class=\"cmd\">在筛选出的<b id=\"bc3884fd41j5t\" data-tag=\"uicontrol\" data-isbold=\"true\" data-init-id=\"uicontrol_pwk_u71_cuf\" data-params-value=\"ElasticsAssuarance\" data-format-type=\"icu\" class=\"uicontrol\">弹性保障</b>列表中，单击弹性保障的<span class=\"help-letter-space\"></span>ID，进入资源详情页查看私有池容量使用情况等信息。</span></p>\n                  <p id=\"d334f5552fw7c\">在<b id=\"6f9e7535a9og7\" data-tag=\"uicontrol\" data-isbold=\"true\" data-init-id=\"uicontrol_8jj_jo1_e4m\" class=\"uicontrol\">关联实例</b>区域可查看使用该弹性保障创建的实例。</p>\n                </li>\n              </ol>\n            </section>\n          </section>\n          <section id=\"873fdf9840wz3\" class=\"section\">\n            <h3 id=\"4b72d8bb9dfx3\"><b>API</b></h3>\n            <section id=\"27e100267finu\" class=\"section\">\n              <h4 id=\"34cd12e174998\"><b>步骤一：创建和购买弹性保障</b></h4>\n              <ol id=\"5f9851ea58y1c\">\n                <li id=\"43f35e3f274xc\">\n                  <p id=\"05e767d6499rf\">调用<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-createelasticityassurance\" id=\"3c23c3e73aobv\" title=\"\" class=\"xref\">CreateElasticityAssurance</a><span class=\"help-letter-space\"></span>接口创建弹性保障或者弹性保障-分时保障。</p>\n                </li>\n                <li id=\"2f75a95213qpz\">\n                  <p id=\"208fe37385z0c\">调用<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-purchaseelasticityassurance\" id=\"968e7fc746zt8\" title=\"\" class=\"xref\">PurchaseElasticityAssurance</a><span class=\"help-letter-space\"></span>接口购买一个准备完毕且处于未激活状态的弹性保障服务。</p>\n                </li>\n              </ol>\n            </section>\n            <section id=\"662e37b6d8dzs\" class=\"section\">\n              <h4 id=\"728b368089t0y\"><b>步骤二：使用弹性保障创建实例</b></h4>\n              <p id=\"6f1e9a381cq5f\">调用<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-runinstances\" id=\"1fe25aad3cijc\" title=\"\" class=\"xref\">RunInstances</a><span class=\"help-letter-space\"></span>接口创建实例。</p>\n              <p id=\"d7815f0eb2xmd\">通过<code data-tag=\"code\" id=\"48bc47d8d685w\" class=\"code\">PrivatePoolOptions.MatchCriteria</code>指定私有池类型。若私有池类型选择指定模式（<code data-tag=\"code\" id=\"85581e864ex0m\" class=\"code\">Target</code>），必须通过<code data-tag=\"code\" id=\"b387d5ed53d9l\" class=\"code\">PrivatePoolOptions.Id</code>设置目标私有池<span class=\"help-letter-space\"></span>ID。</p>\n            </section>\n            <section id=\"9770e8cc2bhxt\" class=\"section\">\n              <h4 id=\"7b8fdd5ab4vdh\"><b>步骤三：查看和修改弹性保障</b></h4>\n              <section id=\"0be2706f80tay\" class=\"section\">\n                <h4 id=\"312ed670700al\"><b>查询</b></h4>\n                <ul id=\"e39b309b02qrv\">\n                  <li id=\"a3ef2a22f89h5\">\n                    <p id=\"cc0ff30975sbj\">调用<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-describeelasticityassurances\" id=\"6c1bca61daf99\" title=\"\" class=\"xref\">DescribeElasticityAssurances</a><span class=\"help-letter-space\"></span>接口查询弹性保障服务的详细信息。</p>\n                  </li>\n                  <li id=\"82ca7c6b1eul7\">\n                    <p id=\"59348cd9475v9\">调用<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-describeelasticityassuranceinstances\" id=\"c0be168022ro5\" title=\"\" class=\"xref\">DescribeElasticityAssuranceInstances</a><span class=\"help-letter-space\"></span>接口查询弹性保障服务已匹配实例列表。</p>\n                  </li>\n                </ul>\n              </section>\n              <section id=\"0599a5d7e3v9q\" class=\"section\">\n                <h4 id=\"462db6d9849xz\"><b>修改</b></h4>\n                <ul id=\"b5fb5260fe8rd\">\n                  <li id=\"b6196c40a30j9\">\n                    <p id=\"5de989e8977e8\">调用<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-modifyelasticityassurance\" id=\"6fd9a4da4dr69\" title=\"\" class=\"xref\">ModifyElasticityAssurance</a><span class=\"help-letter-space\"></span>接口修改一个弹性保障服务的部分信息，包含名称、描述、容量。</p>\n                  </li>\n                  <li id=\"f2c5293571c41\">\n                    <p id=\"0a7e3aaa3b88t\">调用<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-modifyinstanceattachmentattributes\" id=\"075fb55596ow5\" title=\"\" class=\"xref\">ModifyInstanceAttachmentAttributes</a><span class=\"help-letter-space\"></span>接口修改实例的私有池匹配模式。</p>\n                  </li>\n                </ul>\n              </section>\n            </section>\n          </section>\n        </section>\n      </div>\n      <section id=\"71ca181980k1s\" class=\"section\">\n        <h2 jc=\"left\" _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"39d8a92ca27go\" style=\"text-align:left\"><b>使用场景与策略推荐</b></h2>\n        <p jc=\"left\" id=\"5137033c3esdt\" style=\"text-align:left\"><b>场景一：核心业务 - 保障资源确定性</b></p>\n        <ul _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"c683af6c9bp0u\">\n          <li _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"f4f04d8bcbl66\">\n            <p id=\"5e05e2a3ff45j\"><b>适用业务：</b>&nbsp;电商大促、游戏开服、金融结算等核心应用。</p>\n          </li>\n          <li _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"0e5a997b243n7\">\n            <p id=\"91d8e1e4c26il\"><b>推荐策略：</b>&nbsp;购买<b>专有私有池</b>，并在创建实例时使用<b>指定模式</b>。</p>\n          </li>\n          <li _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"f791f78cf7cwi\">\n            <p id=\"7782868a4dwfk\"><b>使用效果：</b>&nbsp;只要私有池容量未用尽，实例即可创建成功，避免因公共资源不足导致的失败风险。</p>\n          </li>\n        </ul>\n        <p jc=\"left\" id=\"d5bf963b70ym7\" style=\"text-align:left\"><b>场景二：高优先级业务 - 兼顾保障与弹性</b></p>\n        <ul _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"15730a0434d5b\">\n          <li _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"d71ba5852f5bz\">\n            <p id=\"bf9f84763espr\"><b>适用业务：</b>&nbsp;数据分析、批量计算、在线业务的常规扩容等，希望能<b>优先保障</b>，但也接受公共资源作为补充的场景。</p>\n          </li>\n          <li _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"cdbe33fb75xqi\">\n            <p id=\"cc95c56194f0x\"><b>推荐策略：</b>&nbsp;购买<b>开放私有池</b>，并在创建实例时使用<b>开放模式</b>。</p>\n          </li>\n          <li _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"2b0e15801fsdk\">\n            <p id=\"c4ac2fd4eb6jq\"><b>使用效果：</b>&nbsp;优先使用预留的保障容量。若保障容量耗尽，系统自动尝试使用公共资源池。</p>\n          </li>\n        </ul>\n        <p jc=\"left\" id=\"ec7aca06b783a\" style=\"text-align:left\"><b>场景三：非核心或开发测试 - 成本优先</b></p>\n        <ul _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"25b4115037iav\">\n          <li _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"c14736bb1arai\">\n            <p id=\"7d96f024460uh\"><b>适用业务：</b>&nbsp;开发、测试环境，或能容忍偶发性创建失败的非核心业务。</p>\n          </li>\n          <li _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"ccf5efb7b4mkl\">\n            <p id=\"da5aba0967gk5\"><b>推荐策略：</b>&nbsp;在创建实例时选择<b>不使用</b>私有池。</p>\n          </li>\n          <li _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"45823349628v4\">\n            <p id=\"67e4ec40b3vv8\"><b>使用效果：</b>&nbsp;使用公共资源池，但需接受因公共资源池库存波动可能导致的创建失败。</p>\n          </li>\n        </ul>\n      </section>\n      <section id=\"a22e79df215n1\" class=\"section\">\n        <h2 id=\"d4c3d2f83dzom\"><b>计费说明</b></h2>\n        <p uuid=\"mfe6em1umtwv1tizteq\" id=\"e3bea0ce36fq3\">弹性保障的费用由两部分构成：</p>\n        <ol id=\"59331de6d3zu5\">\n          <li id=\"f3dfad85a2n6z\">\n            <p id=\"0e0d9366d5hdy\"><b>保障费用（预付费）</b>：购买弹性保障时需一次性支付的保障服务费。</p>\n          </li>\n          <li id=\"5009d4fcf3oaw\">\n            <p id=\"44021e092co77\"><b>实例费用（按量计费）</b>：从私有池中成功创建的按量付费实例，按标准价格计费。</p>\n          </li>\n        </ol>\n        <table id=\"4165e9097cpcd\" tablewidth=\"1177\" tablecolswidth=\"103 537 537\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.26*\" style=\"width:8.75%\"></colgroup>\n          <colgroup colwidth=\"1.37*\" style=\"width:45.62%\"></colgroup>\n          <colgroup colwidth=\"1.37*\" style=\"width:45.62%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"d0f846eb0eu2c\">\n              <td id=\"47d2800872cf1\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p jc=\"left\" id=\"de5473079dwao\" style=\"text-align:left\"><b>保障方式</b></p>\n              </td>\n              <td id=\"b4f28d0d18s5h\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p jc=\"left\" id=\"46d217125ao4p\" style=\"text-align:left\"><b>弹性保障（分时）</b></p>\n              </td>\n              <td id=\"7897cc2475i6k\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p id=\"d39a6871b01g7\"><b>弹性保障</b></p>\n              </td>\n            </tr>\n            <tr id=\"fdd32f1e16g3k\" style=\"height:119px\">\n              <td id=\"f403632c2dgip\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"0ed77186164md\"><b>示意图</b></p>\n              </td>\n              <td id=\"858da77bd6ywk\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <hetu type=\"flowchart\" id=\"c5d72c0fb1k3d\" versionid=\"CAEQYhiBgMCzlqyEyxkiIDYzODM3ZDUyNjViNDQwMTVhZTkzOWE1NmMzMTUxNjcw\" uuid=\"5725218_20250919111249.237\" hetuid=\"bb9e8ae6-58cd-43d2-8417-d1f8c68ce35e\"><img src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7215750871/CAEQYhiBgMCzlqyEyxkiIDYzODM3ZDUyNjViNDQwMTVhZTkzOWE1NmMzMTUxNjcw5725218_20250919111249.237.svg\" alt=\"image\" class=\"image break flowchart hetu\"></hetu>\n              </td>\n              <td id=\"2376bba996plp\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <hetu type=\"flowchart\" id=\"9c0df0104dxtg\" versionid=\"CAEQYhiBgIC2oa6EyxkiIGEzODRlZTJmYzFmZDQ3ZTRhYjJhNjcxZDUxM2FjN2U0\" uuid=\"5725218_20250919111249.237\" hetuid=\"cdd33b29-51fa-4627-b530-df00a24e7529\"><img src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=\" data-src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7215750871/CAEQYhiBgIC2oa6EyxkiIGEzODRlZTJmYzFmZDQ3ZTRhYjJhNjcxZDUxM2FjN2U05725218_20250919111249.237.svg\" alt=\"image\" class=\"image break flowchart hetu lazy-media lazy-loading\"></hetu>\n              </td>\n            </tr>\n            <tr id=\"1a7b211b68b87\">\n              <td id=\"a2d2c4858fvpb\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"e9d2320f4e6ej\"><b>保障费用计算方式</b></p>\n              </td>\n              <td id=\"8bf486f21e2wh\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"dbf69f17a2jb4\">\n                  <hetu id=\"285590b9a21g1\" type=\"xFormula\" formula=\"预留容量&nbsp;×&nbsp;\\frac{实例规格包月价格}{30天 \\times 24小时} \\times 10\\%\\times 保障时长（小时）\" hetuid=\"ec6d99cc-26c4-4cf0-be09-efc78f2d45bf\" style=\"display:inline-block;max-width:100%;overflow:auto;vertical-align:middle\"><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.7667em;vertical-align:-0.0833em;\"></span><span class=\"mord cjk_fallback\">预留容量</span><span class=\"mord\">&nbsp;</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:2.1297em;vertical-align:-0.7693em;\"></span><span class=\"mord\">&nbsp;</span><span class=\"mord\"><span class=\"mopen nulldelimiter\"></span><span class=\"mfrac\"><span class=\"vlist-t vlist-t2\"><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:1.3603em;\"><span style=\"top:-2.314em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord\">30</span><span class=\"help-letter-space\"></span><span class=\"mord cjk_fallback\">天</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mord\">24</span><span class=\"help-letter-space\"></span><span class=\"mord cjk_fallback\">小时</span></span></span><span style=\"top:-3.23em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"frac-line\" style=\"border-bottom-width:0.04em;\"></span></span><span style=\"top:-3.677em;\"><span class=\"pstrut\" style=\"height:3em;\"></span><span class=\"mord\"><span class=\"mord cjk_fallback\">实例规格包月价格</span></span></span></span><span class=\"vlist-s\">​</span></span><span class=\"vlist-r\"><span class=\"vlist\" style=\"height:0.7693em;\"><span></span></span></span></span></span><span class=\"mclose nulldelimiter\"></span></span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.8333em;vertical-align:-0.0833em;\"></span><span class=\"mord\">10%</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.6833em;\"></span><span class=\"mord cjk_fallback\">保障时长（小时）</span></span></span></span></span></hetu>\n                </p>\n                <blockquote id=\"fc2a943e655b8\">保障时长为非连续时间段的累加时长。</blockquote>\n              </td>\n              <td id=\"8e7106e0465jk\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"44bc7ddf9af6x\">\n                  <hetu id=\"f30140d8d2q2e\" type=\"xFormula\" formula=\"预留容量&nbsp;×&nbsp;实例规格包月价格&nbsp;×&nbsp;40\\%&nbsp;×&nbsp; 保障时长（月）\" hetuid=\"3dd1c0bb-7237-4482-a555-a70b7bde9da4\" style=\"display:inline-block;max-width:100%;overflow:auto;vertical-align:middle\"><span class=\"katex-display\"><span class=\"katex\"><span class=\"katex-html\" aria-hidden=\"true\"><span class=\"base\"><span class=\"strut\" style=\"height:0.7667em;vertical-align:-0.0833em;\"></span><span class=\"mord cjk_fallback\">预留容量</span><span class=\"mord\">&nbsp;</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.7667em;vertical-align:-0.0833em;\"></span><span class=\"mord\">&nbsp;</span><span class=\"mord cjk_fallback\">实例规格包月价格</span><span class=\"mord\">&nbsp;</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.8333em;vertical-align:-0.0833em;\"></span><span class=\"mord\">&nbsp;40%&nbsp;</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span><span class=\"mbin\">×</span><span class=\"mspace\" style=\"margin-right:0.2222em;\"></span></span><span class=\"base\"><span class=\"strut\" style=\"height:0.6833em;\"></span><span class=\"mord\">&nbsp;</span><span class=\"mord cjk_fallback\">保障时长（月）</span></span></span></span></span></hetu>\n                </p>\n              </td>\n            </tr>\n            <tr id=\"eacb94dbd1ty3\">\n              <td id=\"5daede7a8d35s\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"left\" id=\"56ecfbfa04j8a\" style=\"text-align:left\"><b>总费用</b></p>\n              </td>\n              <td id=\"754e27faafqoy\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"2\">\n                <p jc=\"center\" id=\"453c5b6d7e4zm\" style=\"text-align:center\"><code data-tag=\"code\" class=\"code blog-code\" id=\"0dba099726992\">保障费用</code>&nbsp;+&nbsp;<code data-tag=\"code\" class=\"code blog-code\" id=\"d4e1daebeerzt\">实例费用</code></p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <p uuid=\"mfe6em1vj0of0phw41\" id=\"ad258abac7bfk\"><b>实例费用抵扣顺序</b>： 对于由弹性保障创建的按量付费实例，其小时账单按以下顺序匹配优惠进行抵扣：</p>\n        <ol id=\"c545be77b5x14\">\n          <li id=\"b234e43c9dz69\">\n            <p id=\"5587b700abf5l\"><a href=\"https://help.aliyun.com/zh/ecs/savings-plans\" id=\"f7a1f10348izo\" title=\"\" class=\"xref\"><b>节省计划</b></a></p>\n          </li>\n          <li id=\"b31020e473g3l\">\n            <p id=\"3764dd0f77wyn\"><a href=\"https://help.aliyun.com/zh/ecs/reserved-instances#f1be5c541axq7\" id=\"419369bbaejqa\" title=\"\" class=\"xref\"><b>地域级预留实例券</b></a></p>\n            <blockquote id=\"25f6e4ec30pry\">不支持可用区级预留实例券。</blockquote>\n          </li>\n          <li id=\"7af1431b7f96c\">\n            <p id=\"d1abee3d3f5f1\">若无适用优惠，则按标准按量付费价格出账。</p>\n          </li>\n        </ol>\n      </section>\n      <section id=\"3e4cf2f1ffrys\" class=\"section\">\n        <h2 uuid=\"mfe6em1rs10giv1vcv\" id=\"0c7268e33adfu\">使用限制</h2>\n        <ul id=\"af2adebcbdez9\">\n          <li id=\"766f2e1201ego\">\n            <p id=\"3e27a0a5b966d\"><b>支持范围</b>：仅部分地域、可用区和实例规格支持弹性保障，实际以控制台购买页面为准。</p>\n          </li>\n          <li id=\"cd7646408bqoc\">\n            <p id=\"6e43e1b094a6n\"><b>不可变更与释放</b>：弹性保障购买后不支持修改容量、取消订单或提前释放。到期后自动失效。</p>\n          </li>\n          <li id=\"9ccd09570918f\">\n            <p id=\"ef72cc963d6yn\"><b>资源属性匹配</b>：创建实例时，所选的地域、可用区、实例规格必须与弹性保障的属性严格匹配。</p>\n          </li>\n          <li id=\"5ce5d33211daa\">\n            <p id=\"e3206ea1f0rub\"><b>保障范围</b>：仅保障 ECS 实例规格容量可用性，不保障云盘、公网 IP、弹性网卡等关联资源的库存。</p>\n          </li>\n          <li id=\"5836879ba2w1p\">\n            <p id=\"f80e6340a2xzt\"><b>实例操作影响</b>：对已创建的实例执行升降配操作，会使其脱离弹性保障的私有池，不再享受资源确定性保障。</p>\n          </li>\n        </ul>\n      </section>\n      <section id=\"285ff2bcc39q1\" class=\"section\">\n        <h2 uuid=\"mfe6em1w5fklmxy5yb8\" id=\"6f94900711nr7\">应用于生产环境的建议</h2>\n        <ul id=\"07f0eda3f5obz\">\n          <li id=\"8b45b92463tws\">\n            <p id=\"0535a470fajy4\"><b>与弹性伸缩集成：</b>建议将弹性保障与弹性伸缩（ESS）结合使用，实现自动化资源调度。</p>\n            <p id=\"d158f8739evw3\">在<a href=\"https://help.aliyun.com/zh/auto-scaling/user-guide/create-an-ecs-scaling-group\" id=\"12dfac6157ldj\" title=\"\" class=\"xref\">创建</a>或<a href=\"https://help.aliyun.com/zh/auto-scaling/modify-a-scaling-group#concept-qkz-nkx-rfb\" id=\"9289dbb97dx2p\" title=\"\" class=\"xref\">修改伸缩组</a>时，设置的<b id=\"c4c7c8039cyr6\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">资源池策略</b>以优先使用弹性保障的私有池容量。</p>\n            <ul id=\"ed8f1939c9cp2\">\n              <li id=\"999ef94bccksa\">\n                <p id=\"57963365746w6\"><b>资源池策略选项</b>：</p>\n                <ul id=\"f4f0d53d99xf5\" data-init-id=\"ed8f1939c9cp2\">\n                  <li data-spm-anchor-id=\"a2c4g.11186623.aillm.i7.4c4e2975akuwnK\" id=\"6e50ae5f4dyr1\">\n                    <p id=\"317802279fz4w\"><b>私有池优先</b>：优先使用指定的私有池，如果私有池容量不足，则自动匹配开放类型的私有池或公共池。</p>\n                  </li>\n                  <li id=\"542f9943438ev\">\n                    <p id=\"4786ab460bk0m\"><b>仅限私有池</b>：必须使用私有池容量，否则实例启动失败。</p>\n                  </li>\n                </ul>\n              </li>\n              <li id=\"15e7262d4dqx7\">\n                <p id=\"7f05b6d7ebgxa\"><b>配置步骤</b>：</p>\n                <ol id=\"0bad9a25bei91\">\n                  <li id=\"5b2db1b70f73t\">\n                    <p id=\"9c69bfa2e2x6t\" tagname=\"p\">登录<span data-tag=\"ph\" id=\"356c44766dwor\" props=\"china\" data-init-id=\"508ad1ed50eoo\" data-cond-props=\"china\" class=\"ph\"><a href=\"https://essnew.console.aliyun.com/\" id=\"86d29a78dfdtv\" class=\"\" target=\"_blank\">弹性伸缩控制台</a></span>。</p>\n                  </li>\n                  <li id=\"6e044f1420lbi\">\n                    <p id=\"dcf50b2e97ego\">创建或修改伸缩组。</p>\n                  </li>\n                  <li id=\"f6c69de5288b1\">\n                    <p id=\"9f28ed74fboxq\">在<a href=\"https://help.aliyun.com/zh/auto-scaling/user-guide/manage-scaling-configurations#9f06c1bc759oq\" id=\"68c65aff95o7u\" title=\"\" class=\"xref\">伸缩配置</a>的<b id=\"3ca4bdc563t6z\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">高级设置</b>中选择资源池策略，并指定一个弹性保障的私有池。</p>\n                  </li>\n                </ol>\n              </li>\n            </ul>\n          </li>\n          <li id=\"c3003feb76xml\">\n            <p id=\"b769975a2752q\"><b>监控与告警</b>：建议通过云监控（CloudMonitor）<a href=\"https://help.aliyun.com/zh/cms/cloudmonitor-1-0/user-guide/create-an-alert-rule\" id=\"436b1f1ec2oj1\" title=\"\" class=\"xref\">创建报警规则</a>对关键指标设置告警，及时掌握容量使用情况。例如当可用容量低于总容量的 20% 时触发告警：</p>\n            <ul id=\"2b3f397ab80mw\">\n              <li id=\"f7c59ae1ffaem\">\n                <p id=\"e680c38a01inf\">产品选择<span class=\"help-letter-space\"></span><b id=\"481ce227denr4\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">ECS<span class=\"help-letter-space\"></span>私有资源池</b>。</p>\n              </li>\n              <li id=\"937f5d5b1bzqw\">\n                <p id=\"801c17b86fv31\">指标选择<b id=\"31cddc67f21lk\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">实例个数使用率</b>，报警级别选择<b id=\"1ffdbceaf8wpn\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">警告（Warn）</b>，阈值设置<span class=\"help-letter-space\"></span>20%。</p>\n              </li>\n            </ul>\n          </li>\n        </ul>\n      </section>\n      <section id=\"bc05edca6fhsx\" class=\"section\">\n        <h2 id=\"0fb63074522x7\"><b>相关文档</b></h2>\n        <p id=\"dba26fe90csr3\"><a href=\"https://help.aliyun.com/zh/ecs/user-guide/overview-29#table-3u7-qya-ewf\" id=\"c1923a0b40xbo\" title=\"\" class=\"xref\">弹性保障和容量预定比对</a></p>\n      </section>\n      <section id=\"864bf094f22i9\" class=\"section\">\n        <h2 id=\"936e7286b4zlr\"><b>常见问题</b></h2>\n        <p id=\"0365bb44073ev\"><b>Q：实例释放后，弹性保障的容量为什么没有立即更新？</b></p>\n        <p id=\"907c06cd8dmn0\">A：实例释放需要耗时，建议避免频繁创建和释放操作，以防容量未及时更新导致后续创建失败。</p>\n        <p id=\"1f646dfbc2cw1\"><b>Q：单个弹性保障可以跨可用区使用吗？</b></p>\n        <p id=\"d82154229bmei\">A：不能。如有跨可用区保障需求，可在不同可用区创建多个弹性保障。</p>\n        <p id=\"ba6829f9db3z8\"><b>Q：弹性保障是否支持变更实例规格？</b></p>\n        <p id=\"67511f5870dtj\">A：不支持。弹性保障绑定的实例规格在购买后不可更改。</p>\n        <p id=\"c6de9e1c832vu\"><b>Q：如何查看私有池剩余容量？</b></p>\n        <p id=\"2e318c6247b1a\">A：在弹性保障列表页，单击弹性保障<span class=\"help-letter-space\"></span>ID，在<b id=\"082c786a9czup\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">资源详情</b>可查看容量使用情况。</p>\n        <p id=\"09c60fe5487jo\"><b>Q：弹性保障的标签有什么作用？</b></p>\n        <p id=\"31a7a74f5dj0a\">A：创建实例时，开放私有池支持通过实例标签匹配。</p>\n        <ul id=\"c901306715xyl\" data-init-id=\"a7375831b0m8n\">\n          <li data-tag=\"li\" id=\"d36602a436hws\" class=\"li\">\n            <p id=\"957249b1e9xuw\">绑定<b id=\"445f7612c81c5\" data-tag=\"uicontrol\" data-isbold=\"true\" data-params-value=\"Tag\" data-format-type=\"icu\" class=\"uicontrol\">标签</b>：为实例绑定相同的标签，可自动匹配对应开放私有池。</p>\n            <blockquote id=\"021d7234cc32d\">弹性保障生效后，始终以购买时绑定的标签匹配私有池。</blockquote>\n          </li>\n          <li data-tag=\"li\" id=\"8e0315730cb6x\" class=\"li\">\n            <p id=\"84586b8b9c1n2\">未绑定<b id=\"eac2bd8ab1qdl\" data-tag=\"uicontrol\" data-isbold=\"true\" data-params-value=\"Tag\" data-format-type=\"icu\" class=\"uicontrol\">标签</b>：系统自动匹配一个开放私有池。</p>\n          </li>\n        </ul>\n      </section>\n    </div>\n  </main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/ecs/user-guide/overview-of-elasticity-assurance","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云服务器 ECS","id":25365,"title":"云服务器 ECS","url":"/zh/ecs/"},"alias":"/ecs/user-guide/overview-of-elasticity-assurance","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":9,"developerUrl":"https://developer.aliyun.com/group/ecs/","nodeType":1,"version":15,"url":"/zh/ecs/user-guide/overview-of-elasticity-assurance","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":193630,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":9,"validDocument":true,"headNavEnable":false,"docTitle":"弹性保障","id":193630,"title":"弹性保障","url":"/zh/ecs/user-guide/overview-of-elasticity-assurance"}],"emptyNode":false,"level":8,"validDocument":true,"headNavEnable":false,"docTitle":"资源预定","id":193342,"title":"资源预定","url":"/zh/ecs/user-guide/resource-reservations/"}],"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"资源管家","id":190091,"title":"资源管家","url":"/zh/ecs/user-guide/resource-advisor/"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"容量保障与预定","id":2986639,"title":"容量保障与预定","url":"/zh/ecs/user-guide/capacity-assurance-and-reservation/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"部署与弹性","id":124307,"title":"部署与弹性","url":"/zh/ecs/user-guide/elasticity/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云服务器 ECS","id":25365,"title":"云服务器 ECS","url":"/zh/ecs/"},"productUrl":"https://www.aliyun.com/product/ecs","nodeId":193630,"desc":"当业务面临资源需求高峰需要创建按量付费实例时，可能因库存不足而创建失败。弹性保障（Elasticity Assurance, EA）通过预留专属私有池资源，为按量付费实例提供容量保障。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云服务器 ECS","id":25365,"title":"云服务器 ECS","url":"/zh/ecs/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"部署与弹性","id":124307,"title":"部署与弹性","url":"/zh/ecs/user-guide/elasticity/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"容量保障与预定","id":2986639,"title":"容量保障与预定","url":"/zh/ecs/user-guide/capacity-assurance-and-reservation/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"资源管家","id":190091,"title":"资源管家","url":"/zh/ecs/user-guide/resource-advisor/"},{"emptyNode":false,"level":8,"validDocument":true,"headNavEnable":false,"docTitle":"资源预定","id":193342,"title":"资源预定","url":"/zh/ecs/user-guide/resource-reservations/"},{"emptyNode":false,"level":9,"validDocument":true,"headNavEnable":false,"docTitle":"弹性保障","id":193630,"title":"弹性保障","url":"/zh/ecs/user-guide/overview-of-elasticity-assurance"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=2150420117825359996027954e9fef&asid=AQAAAAA/Vz9qLiSNcQAAAAAya9kL+hGuxA==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2399509" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">用户指南</span>
+</a>
+</li>
+ <li id="2399511" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="25396" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/billing-2/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品计费</span>
+</a>
+</li>
+ <li id="2983136" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/faqs/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+ <li id="117482" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/announcements-and-updates/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">动态与公告</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>弹性保障概述</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/ecs" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="concept-1999478">
+    
+    
+    <p id="shortdesc-8vd-vw0-gz9" data-tag="shortdesc" class="shortdesc">当业务面临资源需求高峰需要创建按量付费实例时，可能因库存不足而创建失败。弹性保障（Elasticity Assurance, EA）通过预留专属私有池资源，为按量付费实例提供容量保障。</p>
+    <div data-tag="conbody" id="conbody-bgg-a2a-7cg" class="conbody">
+      <section data-tag="section" id="section-z1t-mei-ghy" data-type="section" class="section">
+        <h2 data-tag="title" id="title-qn0-h31-u30" class="title">应用场景</h2>
+        <table id="f65cbfd11bwvh" tablewidth="100" tablecolswidth="9.13 30.32 30.32 30.229999999999986" autofit="true" class="table">
+          <colgroup colwidth="0.37*" style="width:9.13%"></colgroup>
+          <colgroup colwidth="1.21*" style="width:30.32%"></colgroup>
+          <colgroup colwidth="1.21*" style="width:30.32%"></colgroup>
+          <colgroup colwidth="1.21*" style="width:30.23%"></colgroup>
+          <tbody class="tbody">
+            <tr id="eac9cf05c38al">
+              <td id="be6e9b4f39k63" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p id="50d3c125fbury"><b>需求场景</b></p>
+              </td>
+              <td id="7ac3f6fdfa5gf" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p id="7f9d1e8ba7j0e"><b>周期性资源需求</b></p>
+              </td>
+              <td id="87035082b8vio" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p id="ca69e39e3ftah"><b>偶发性资源需求</b></p>
+              </td>
+              <td id="acac5c3b00e9c" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p id="fd68c288ec075"><b>高峰期资源需求</b></p>
+              </td>
+            </tr>
+            <tr id="2d27e08c3104n">
+              <td id="cf873515b99qn" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="1c3ff69e2dlc4"><b>示意图</b></p>
+              </td>
+              <td id="d564ff66a3s84" rowspan="1" style="vertical-align:middle" colspan="1">
+                <hetu type="flowchart" id="84caebd1817e9" versionid="CAEQYhiBgID_uPmCyxkiIDM0YWJmMzBkMjI0YjQ0NmVhYWY0NmUwY2U0MDA4NjRk" uuid="5725218_20250919111249.237" hetuid="b176e565-f22b-46b3-9311-a085cedd6ea3"><img src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7215750871/CAEQYhiBgID_uPmCyxkiIDM0YWJmMzBkMjI0YjQ0NmVhYWY0NmUwY2U0MDA4NjRk5725218_20250919111249.237.svg" alt="image" class="image break flowchart hetu"></hetu>
+              </td>
+              <td id="57971f163ceuu" rowspan="1" style="vertical-align:middle" colspan="1">
+                <hetu type="flowchart" id="d7c4599c6buo0" versionid="CAEQYhiBgMCOt4upyxkiIDdjNWExYmQxMjMwMzQyOGJiNGYwZDRjZmZjODZlODQ3" uuid="5725218_20250919111249.237" hetuid="4c150d1d-016b-4b3a-8d94-bf50ab0937ac"><img src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7215750871/CAEQYhiBgMCOt4upyxkiIDdjNWExYmQxMjMwMzQyOGJiNGYwZDRjZmZjODZlODQ35725218_20250919111249.237.svg" alt="image" class="image break flowchart hetu"></hetu>
+              </td>
+              <td id="67aa5f66eauek" rowspan="1" style="vertical-align:middle" colspan="1">
+                <hetu type="flowchart" id="8e40fe61d3ktc" versionid="CAEQYhiBgMDz.IqpyxkiIDliZjhhYzAyNjkyMTQ0OTU4MzJiNTlhNzA0MjIyMjgx" uuid="5725218_20250919111249.237" hetuid="0a6a979c-bc12-4a56-95be-1a331317fd11"><img src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7215750871/CAEQYhiBgMDz.IqpyxkiIDliZjhhYzAyNjkyMTQ0OTU4MzJiNTlhNzA0MjIyMjgx5725218_20250919111249.237.svg" alt="image" class="image break flowchart hetu"></hetu>
+              </td>
+            </tr>
+            <tr id="0510170597dvw">
+              <td id="3ee1478f31osg" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="828ab1d77fmb4"><b>补充说明</b></p>
+              </td>
+              <td id="f70b0ad98byax" rowspan="1" style="vertical-align:top" colspan="1">
+                <p id="a93d49e69f2w9">适用于可预测的、周期性资源高峰。保障任务按时启动，平谷期不浪费资源。</p>
+              </td>
+              <td id="d1ab772b51jz0" rowspan="1" style="vertical-align:top" colspan="1">
+                <p id="7503db1a58n99">为应对突发事件或流量洪峰预留资源，确保业务的快速响应和高可用性。</p>
+              </td>
+              <td id="5c01a4e331lru" rowspan="1" style="vertical-align:top" colspan="1">
+                <p id="c7ff3f3dfe87n">在双十一、春节等全网资源紧张期间，为核心业务提前预留资源，避免因资源争抢导致业务受损。</p>
+              </td>
+            </tr>
+            <tr id="5378cd1cebqly">
+              <td id="6f1f02005e7t9" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="6b3f75e4c2ss5"><b>场景示例</b></p>
+              </td>
+              <td id="4401edd541ypj" rowspan="1" style="vertical-align:top" colspan="1">
+                <p id="a177d33f40la7">月末财务对账、周末批量渲染、每日定时数据分析。</p>
+              </td>
+              <td id="5aeff03549n16" rowspan="1" style="vertical-align:top" colspan="1">
+                <p id="fd129ed826gg6">突发热点事件响应、应用扩容、在线业务容灾切换。</p>
+              </td>
+              <td id="0315accc78wzs" rowspan="1" style="vertical-align:top" colspan="1">
+                <p id="f1e549ce08s4p">视频直播、电商大促、在线游戏开服、票务秒杀。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section id="b9e4f33bf3xxv" class="section">
+        <h2 id="fa7f2d3d6a9u9"><b>核心概念</b></h2>
+        <p id="afaeb3985er3r">购买弹性保障后，系统会在指定的可用区，预留匹配实例规格与数量的资源，形成一个<a href="https://help.aliyun.com/zh/ecs/user-guide/private-pools/" id="f33f9541b4zv4" title="" class="xref">私有池</a>。</p>
+        <blockquote id="e750a5b00dwvx">公共池指所有用户共享的资源池。创建实例时，如果没有指定私有池，系统会默认从公共池中分配资源。</blockquote>
+        <table id="2cb2060fc2zp2" tablewidth="701" tablecolswidth="99 301 301" autofit="false" class="table">
+          <colgroup colwidth="0.42*" style="width:14.12%"></colgroup>
+          <colgroup colwidth="1.29*" style="width:42.94%"></colgroup>
+          <colgroup colwidth="1.29*" style="width:42.94%"></colgroup>
+          <tbody class="tbody">
+            <tr id="ff0de61443l4m">
+              <td id="83da9d1f74wby" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="91ac890a2a5lp"><b>特性</b></p>
+              </td>
+              <td id="63229c57ba1ma" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="d93adeefc4mue"><b>专有私有池</b></p>
+              </td>
+              <td id="5017564a3duyq" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="9bc7c823e6iy4"><b>开放私有池</b></p>
+              </td>
+            </tr>
+            <tr id="d32b5d7b89c58">
+              <td id="c5cfc62f3b8we" rowspan="1" colspan="1">
+                <p id="8b334896c7rqz"><b>访问策略</b></p>
+              </td>
+              <td id="fe7794adfess0" rowspan="1" colspan="1">
+                <p id="98c93ca2770gu"><b>严格绑定（强保障）</b>：仅使用专有私有池，若容量不足则创建失败。</p>
+              </td>
+              <td id="b41795c64afrg" rowspan="1" colspan="1">
+                <p id="622d799690fon"><b>优先 + 回退</b>：优先使用开放私有池，若容量不足则自动尝试使用公共资源池。</p>
+              </td>
+            </tr>
+            <tr id="11088df4d3qgp">
+              <td id="c9f0cb8b41tnf" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="6d27d639360yn"><b>资源隔离</b></p>
+              </td>
+              <td id="0ce77afa58u5u" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="55a7e59550f3i">为特定业务或场景预留，隔离性强。</p>
+              </td>
+              <td id="2232326a11k4j" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="0fd00e5be2i0x">可作为通用容量池，供多个业务场景共享使用。</p>
+              </td>
+            </tr>
+            <tr id="10cfc38d14v0o">
+              <td id="f0d90447346du" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="44adb0eb9cf6b"><b>使用方式</b></p>
+              </td>
+              <td id="3893b1d7739kp" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="3ddf9d65dfpd7">创建实例时使用<b>指定模式，</b>指定一个专有私有池。</p>
+              </td>
+              <td id="179930352b1f6" rowspan="1" style="vertical-align:middle" colspan="1">
+                <ul id="37cf619356kse">
+                  <li id="68686e2fb6oc6">
+                    <p id="6dc9ce9a8d387">创建实例时使用<b>指定模式，</b>指定一个开放私有池<b>。</b></p>
+                  </li>
+                  <li id="7e221f4e46p5b">
+                    <p id="9e49243124hl5">创建实例时使用<b>开放模式</b>。</p>
+                  </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p id="0e0db6c395ujo"><b>弹性保障-分时保障</b>：在指定周期内（如<span class="help-letter-space"></span>30<span class="help-letter-space"></span>天）按预设时段（如每天<span class="help-letter-space"></span>18:00~24:00）预留资源。</p>
+        <p id="011e263ed6r3l"><b>弹性保障</b>：在整个指定周期内（如<span class="help-letter-space"></span>3<span class="help-letter-space"></span>个月）持续、不间断地预留资源。</p>
+      </section>
+      <div data-tag="p" id="p-4c3-0qj-zkq" class="p">
+        <h2 uuid="mfe6em1kdxy1uerdoon" id="cebe38775986n">操作步骤</h2>
+        <section id="1ebe72fd17nva" class="section">
+          <h3 uuid="mfe6em1kmg5whsh1ve" id="2541663c9b19u"><b>流程概述</b></h3>
+          <ol id="676dbf184btas">
+            <li id="af8bd99e1d9hw">
+              <p id="3087aecef1e68"><b>购买弹性保障</b>：购买弹性保障，获得一个私有池。</p>
+            </li>
+            <li id="0c6f36ed6f6qm">
+              <p id="3c00a695e8kt9"><b>创建 ECS 实例</b>：创建实例时，指定已购弹性保障的私有池。</p>
+            </li>
+            <li id="403659acd2a3b">
+              <p id="e767c2f4bad85"><b>验证与管理</b>：查看私有池使用情况及关联实例。</p>
+            </li>
+          </ol>
+        </section>
+        <section id="d486b7c1c2aar" data-tag="tabbed-content-box" outputclass="tabbed-content-box" class="tabbed-content-box section">
+          <section id="922282636a6nn" class="section">
+            <h3 id="833bba4678xo7"><b>弹性保障-分时保障</b></h3>
+            <section id="efbcea7b80dc6" class="section">
+              <h4 id="3ed2aac1cbtmx"><b>步骤一：购买弹性保障</b></h4>
+              <ol id="b695524e005qi">
+                <li id="861f4cca647j8">
+                  <p id="7de67bb65cf7o">访问<span class="help-letter-space"></span><a class="" href="https://ecs.console.aliyun.com/elasticity-assurance/region/cn-hangzhou" id="a22026f5064ks">ECS<span class="help-letter-space"></span>控制台-弹性保障</a>。</p>
+                </li>
+                <li id="aff590896cp8o">
+                  <p id="b940d7471fcq6">单击<b id="uicontrol-mxj-lbn-kgs" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建弹性保障</b>。</p>
+                  <ul id="2c0078fda6seu">
+                    <li id="1817e0c8eax5x">
+                      <p id="4455457a2b21h"><b id="68d6cf053d9f7" data-tag="uicontrol" data-isbold="true" class="uicontrol">开始时间</b>和<b id="f780b5996bw2y" data-tag="uicontrol" data-isbold="true" data-params-value="end" data-format-type="icu" class="uicontrol">结束时间</b>间隔至少<span class="help-letter-space"></span>7<span class="help-letter-space"></span>天，最多<span class="help-letter-space"></span>365<span class="help-letter-space"></span>天。</p>
+                    </li>
+                    <li id="b68a3850645j9">
+                      <p id="8a47dd8624r4v"><b data-tag="uicontrol" id="4c174ad55cqqg" class="uicontrol">重复规则</b>：支持配置多条，最多<span class="help-letter-space"></span>10<span class="help-letter-space"></span>条。</p>
+                      <p id="b3e0df56adayo">支持按日/周/月重复周期设定保障时段，<b id="276e7215b9lpo" data-tag="uicontrol" data-isbold="true" class="uicontrol">时间段</b>最低<span class="help-letter-space"></span>4<span class="help-letter-space"></span>小时，累计保障时长不得低于整个周期总时长的<span class="help-letter-space"></span>10%。</p>
+                      <blockquote id="19d4bf2bfcv52">鼠标悬浮<b data-tag="uicontrol" id="f47efee8965oz" class="uicontrol">保障时段(UTC)预览</b>可查看保障时段详情。</blockquote>
+                    </li>
+                    <li id="2b8e6b4cdb2by">
+                      <p id="7a01bd64d8egb"><b id="cb3f1aff40zta" data-tag="uicontrol" data-isbold="true" class="uicontrol">资源池类型</b>：</p>
+                      <ul id="e9dbd1bcf8af2">
+                        <li id="5c6ac2e3d4l7k">
+                          <p id="e825d96634218"><b id="050658f869xfv" data-tag="uicontrol" data-isbold="true" class="uicontrol">开放模式</b>：开放私有池。</p>
+                        </li>
+                        <li id="53bf5782ccw31">
+                          <p id="c6ced3428390t"><b id="5401c6c4a6his" data-tag="uicontrol" data-isbold="true" class="uicontrol">专有模式</b>：为特定场景或业务预留的专有私有池。</p>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li id="218e1cf69eczt">
+                  <p id="e40330acd28e6">勾选<b id="88c68a25d6k4q" data-tag="uicontrol" data-isbold="true" class="uicontrol">我已知悉</b>，单击<b id="50dbcafe72711" data-status="unpublished" data-tag="uicontrol" data-isbold="true" class="uicontrol">立即购买</b>。</p>
+                  <p id="33d2dbd74fo3i">返回<span class="help-letter-space"></span><a class="" href="https://ecs.console.aliyun.com/elasticity-assurance/region/cn-hangzhou" id="b5890ef239oec">ECS<span class="help-letter-space"></span>控制台-弹性保障</a>，当状态为<b>资源已锁定</b>或<b id="cfb5f5b600jhf" data-tag="uicontrol" data-isbold="true" data-init-id="uicontrol_ofi_opg_xob" data-params-value="Active" data-format-type="icu" class="uicontrol">预定生效中</b>时，表示购买成功。</p>
+                </li>
+              </ol>
+            </section>
+            <section id="5c91975100e97" class="section">
+              <h4 uuid="mfe6em1nbjh8rhsu2as" id="6210975bb3vj3"><b>步骤二：使用弹性保障创建实例</b></h4>
+              <ol id="78f6b9ba17a28">
+                <li id="4c77acb29bbgd">
+                  <p id="2b34edcf45phi">访问<span class="help-letter-space"></span><a class="" href="https://ecs.console.aliyun.com/elasticity-assurance/region/cn-hangzhou" id="b2da53439d8t0">ECS<span class="help-letter-space"></span>控制台-弹性保障</a>。</p>
+                </li>
+                <li id="94a3b07f71fl5">
+                  <p id="5dfeb02f24muy">在<b id="745617da2bouo" data-tag="uicontrol" data-isbold="true" data-init-id="c24b1542d48jr" data-params-value="CapacityReservation" data-format-type="icu" class="uicontrol">资源预定</b>页面，单击目标弹性保障<b id="5bca3e371b844" data-tag="uicontrol" data-isbold="true" data-init-id="90d222fc82h7t" data-params-value="setting" data-format-type="icu" class="uicontrol">操作</b>列的<b id="a11bdef84fbh1" data-tag="uicontrol" data-isbold="true" data-init-id="b6c9a7f348ymk" data-params-btn="instance" data-format-type="icu" class="uicontrol">购买实例</b>。</p>
+                </li>
+                <li id="4a229dde4e5jr">
+                  <p id="ed4368d758hgp"><b id="f2cc0ddf92o6y" data-status="unpublished" data-tag="uicontrol" data-isbold="true" data-init-id="uicontrol_6bq_iz9_lki" class="uicontrol">付费类型</b>选择<b id="29d4fb813aree" data-tag="uicontrol" data-isbold="true" data-init-id="uicontrol_zuj_ru9_9ws" data-params-value="PostPaid" data-format-type="icu" class="uicontrol">按量付费</b>，其他配置参考<a href="https://help.aliyun.com/zh/ecs/user-guide/create-an-instance-by-using-the-wizard#task-vwq-5g4-r2b" id="bc33dd46d9cvk" title="" class="xref">自定义购买实例</a>完成。</p>
+                </li>
+                <li id="a5b88d1e44rbu">
+                  <p id="cc0bc9dca2src">展开页面底部的<b id="048350a7b2to2" data-tag="uicontrol" data-isbold="true" class="uicontrol">高级选项</b>，选择<b id="471eec1dd8c0u" data-tag="uicontrol" data-isbold="true" class="uicontrol">私有池类型</b>。</p>
+                  <ul id="2afb444cc143c">
+                    <li id="9bee01fcd9akk">
+                      <p id="8cfbb43d24tsl"><b id="98d83a8e8emd5" data-tag="uicontrol" data-isbold="true" class="uicontrol">开放</b>：系统优先匹配开放私有池，若容量不足，则尝试使用公共池。</p>
+                    </li>
+                    <li id="d0f478765bp4p">
+                      <p id="9c51fe68a3508"><b id="5ae215874fxjt" data-tag="uicontrol" data-isbold="true" data-init-id="902f0b73d1v63" class="uicontrol">不使用 </b>：不使用私有池，仅使用公共池。</p>
+                    </li>
+                    <li id="5f083d6905ibo">
+                      <p id="65ce254c09039"><b id="f5942333d0qu9" data-tag="uicontrol" data-isbold="true" class="uicontrol">指定</b>：指定一个匹配的开放或专有<b id="4b05629cc61x4">私有池</b>。</p>
+                    </li>
+                  </ul>
+                </li>
+                <li id="2d504760e4rpc">
+                  <p id="04a891e1eb37j">单击<b id="aed12e8021ic4" data-tag="uicontrol" data-isbold="true" comment_06d7474e-60d2-4fd7-83eb-79c05bc52a32="comment" class="uicontrol">确认下单</b>。</p>
+                </li>
+              </ol>
+            </section>
+            <section id="aa1a1afc393c3" class="section">
+              <h4 id="3131813f53kth"><b>步骤三：查看弹性保障信息</b></h4>
+              <ol id="64fea38a8ch6i">
+                <li id="418dbf7f6dxl9">
+                  <p id="2d0f91e490ws6">访问<span class="help-letter-space"></span><a class="" href="https://ecs.console.aliyun.com/elasticity-assurance/region/cn-hangzhou" id="e632c66660gla">ECS<span class="help-letter-space"></span>控制台-弹性保障</a>。</p>
+                </li>
+                <li id="9a47fa255emgt">
+                  <p id="6816b1620d1jn">在<b id="uicontrol-pwk-u71-cuf" data-tag="uicontrol" data-isbold="true" data-params-value="ElasticsAssuarance" data-format-type="icu" class="uicontrol">弹性保障</b>页面，单击弹性保障的<span class="help-letter-space"></span>ID，进入资源详情页查看私有池容量使用情况等信息。</p>
+                  <p id="9057b38d94j6q">在<b id="uicontrol-8jj-jo1-e4m" data-tag="uicontrol" data-isbold="true" class="uicontrol">关联实例</b>区域可查看使用该弹性保障创建的实例。</p>
+                </li>
+              </ol>
+            </section>
+          </section>
+          <section id="7b39037919fe3" class="section">
+            <h3 id="7b2d332c4dx4f"><b>弹性保障</b></h3>
+            <section id="ba466c2430crh" class="section">
+              <h4 id="714eb66df28g4"><b>步骤一：购买弹性保障</b></h4>
+              <ol id="486abf7dc0mw7">
+                <li id="803bb4e6293ar">
+                  <p id="53e370aa4bzr6">访问<span data-tag="ph" id="00d61db7ee09q" class="ph"><span props="china"><a class="" href="https://ecs.console.aliyun.com/resourceAssuranceV2/region" id="e7f89fb40dqmi">ECS<span class="help-letter-space"></span>控制台-资源管家</a></span></span>，选择<span data-tag="menucascade" id="menucascade-lx1-bci-nym" class="menucascade"><b id="uicontrol-73g-ero-dv6" data-tag="uicontrol" data-isbold="true" class="uicontrol">购中确定性保障</b> &gt; <b id="uicontrol-e9q-o7d-hbr" data-tag="uicontrol" data-isbold="true" class="uicontrol">资源预定</b></span>。</p>
+                </li>
+                <li id="3e4ab42707xg1">
+                  <p id="9fe11938fbfo6">在<b id="uicontrol-1vh-smx-8fi" data-tag="uicontrol" data-isbold="true" class="uicontrol">资源预定</b>页签，单击<b id="e9a58a6400lhj" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建资源预定</b>，进入配置页面。</p>
+                  <ul id="43c9844875luw">
+                    <li id="9736c143ce886">
+                      <p id="0c6d01ead6qn1"><b id="uicontrol-6l5-eqg-0uu" data-tag="uicontrol" data-isbold="true" class="uicontrol">所需资源信息</b>：选择需要预留资源的<b id="6afa4c4d5flbl">地域/可用区</b>、<b id="uicontrol-sv0-tn0-oe2" data-tag="uicontrol" data-isbold="true" class="uicontrol">资源规格</b>和<b id="uicontrol-kkl-u01-rsp" data-tag="uicontrol" data-isbold="true" class="uicontrol">预留数量</b>。</p>
+                    </li>
+                    <li id="e22765735ffag">
+                      <p id="0a460e90bej3i"><b id="uicontrol-5dc-qqb-hv6" data-tag="uicontrol" data-isbold="true" class="uicontrol">预定资源方式</b>：</p>
+                      <ul id="6ee84026fdnqr">
+                        <li id="90d9d3f45cgxw">
+                          <p id="f2750aeab12zq"><b id="uicontrol-8nz-u75-b3s" data-tag="uicontrol" data-isbold="true" class="uicontrol">预定方式</b>：选择<b id="uicontrol-gbf-rr5-x8p" data-tag="uicontrol" data-isbold="true" class="uicontrol">弹性保障-立即生效/指定时间生效</b>。</p>
+                        </li>
+                        <li id="823c3f549cywc">
+                          <p id="1185acad35qb2"><b id="uicontrol-vr1-9zu-v6k" data-status="unpublished" data-tag="uicontrol" data-isbold="true" class="uicontrol">购买时长</b>：支持按月或按年购买，时长从<span class="help-letter-space"></span>1<span class="help-letter-space"></span>个月到<span class="help-letter-space"></span>5<span class="help-letter-space"></span>年不等。</p>
+                        </li>
+                      </ul>
+                    </li>
+                    <li id="b72385f509ld4">
+                      <p id="4b52e088b8xot"><b id="uicontrol-56z-593-kl5" data-tag="uicontrol" data-isbold="true" class="uicontrol">私有资源池信息</b>：</p>
+                      <ul id="a7375831b0m8n">
+                        <li id="b635c05508idq">
+                          <p id="7aaaccbb43zge"><b id="uicontrol-4q3-96m-il3" data-tag="uicontrol" data-isbold="true" class="uicontrol">开放</b>：开放私有池。</p>
+                        </li>
+                        <li id="d3a54da81fb40">
+                          <p id="1a844ad70acr9"><b id="uicontrol-sm8-oh2-wvq" data-tag="uicontrol" data-isbold="true" class="uicontrol">专有</b>：为特定场景或业务预留的专有私有池。</p>
+                        </li>
+                      </ul>
+                    </li>
+                    <li data-tag="substep" id="60bb2b8d8eggk" class="substep">
+                      <p id="70c152ca29ncp"><b data-tag="uicontrol" id="uicontrol-gn4-l0d-oi3" class="uicontrol">资源方案推荐</b>：</p>
+                      <blockquote id="076f959207s9u">系统会基于库存优先、多可用区容灾、性能优先等维度提供更多推荐方案，最终以选定方案预留资源。</blockquote>
+                      <p id="p-29b80c9ea598">对比表格列出<b>原方案</b>、<b>库存优先/性能优先</b>和<b>多可用区冗灾</b>三行方案，各列包括规格名称、地域/可用区、台数、参考价格、vCPU、内存、内网带宽等指标，单击目标方案前的单选按钮即可选定。</p>
+                    </li>
+                  </ul>
+                </li>
+                <li id="f7eeb2fa64lt1">
+                  <p id="33b6a2401c5ta"><span data-tag="cmd" id="cmd-9hk-70w-9dp" class="cmd">单击<b id="uicontrol-5p5-gel-vmm" data-tag="uicontrol" data-isbold="true" class="uicontrol">下一步：确认信息</b>，</span>核对配置。</p>
+                </li>
+                <li id="572f1b0a6et2o">
+                  <p id="797c02c6aeskx">阅读<b id="uicontrol-71x-w4t-t5l" data-tag="uicontrol" data-isbold="true" class="uicontrol">预定须知</b>，勾选<b data-tag="uicontrol" id="uicontrol-f9o-y3k-vzi" class="uicontrol">我已确认</b>，单击<b id="uicontrol-t63-t1x-c47" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建预定单</b>。</p>
+                  <p id="84399451e2ds2">返回列表页，当状态显示为<b id="uicontrol-ofi-opg-xob" data-tag="uicontrol" data-isbold="true" data-params-value="Active" data-format-type="icu" class="uicontrol">预定生效中</b>时，表示已购买成功。</p>
+                </li>
+              </ol>
+            </section>
+            <section id="9680c693a7xja" class="section">
+              <h4 id="8c012cde79ufr"><b>步骤二：使用弹性保障创建实例</b></h4>
+              <ol id="36462edee48ze">
+                <li id="9a73b46617fye">
+                  <p id="310b6e25c70s8">访问<span data-tag="ph" id="768ba5c6c8lsp" class="ph"><span props="china"><a class="" href="https://ecs.console.aliyun.com/resourceAssuranceV2/region" id="8eec3efafehaw">ECS<span class="help-letter-space"></span>控制台-资源管家</a></span></span>，<span data-tag="cmd" id="b9576246f7dnh" data-init-id="cmd_xrv_itw_zpj" class="cmd">选择<span data-tag="menucascade" id="97305f9529sat" data-init-id="menucascade_lx1_bci_nym" class="menucascade"><b id="b9b97689242r3" data-tag="uicontrol" data-isbold="true" data-init-id="uicontrol_73g_ero_dv6" class="uicontrol">购中确定性保障</b> &gt; <b id="1a2045b3f4e9u" data-tag="uicontrol" data-isbold="true" data-init-id="uicontrol_e9q_o7d_hbr" class="uicontrol">资源预定</b></span>。</span></p>
+                </li>
+                <li id="db76fbdcd6nnf">
+                  <p id="09aa170e02q5j">在<b id="c24b1542d48jr" data-tag="uicontrol" data-isbold="true" class="uicontrol">资源预定</b>页面，单击目标资源预定<b id="90d222fc82h7t" data-tag="uicontrol" data-isbold="true" class="uicontrol">操作</b>列的<b id="b6c9a7f348ymk" data-tag="uicontrol" data-isbold="true" data-params-btn="instance" data-format-type="icu" class="uicontrol">购买实例</b>。</p>
+                </li>
+                <li id="e9e519e70agnn">
+                  <p id="5c3836ade1h0v"><b id="uicontrol-6bq-iz9-lki" data-status="unpublished" data-tag="uicontrol" data-isbold="true" class="uicontrol">付费类型</b>选择<b id="uicontrol-zuj-ru9-9ws" data-tag="uicontrol" data-isbold="true" data-params-value="PostPaid" data-format-type="icu" class="uicontrol">按量付费</b>，其余配置参考<a href="https://help.aliyun.com/zh/ecs/user-guide/create-an-instance-by-using-the-wizard#task-vwq-5g4-r2b" id="23db2728584p3" title="" class="xref">自定义购买实例</a>完成。</p>
+                </li>
+                <li id="0c25ec8223hf5">
+                  <p id="8a50cd8bb04tg">在<b data-tag="uicontrol" id="uicontrol-cvn-b31-24y" class="uicontrol">高级选项（选填）</b>区域，选择<b id="uicontrol-ar8-9v8-4ni" data-tag="uicontrol" data-isbold="true" class="uicontrol">私有池类型</b>。</p>
+                  <ul id="ul-uxq-n6c-7ka" data-tag="ul" class="ul">
+                    <li data-tag="li" id="li-oud-8am-eob" class="li">
+                      <p id="46ac225045h97"><b id="38467e6724rbd" data-tag="uicontrol" data-isbold="true" class="uicontrol">开放</b>：系统优先匹配开放私有池，若容量不足，则尝试使用公共池。</p>
+                    </li>
+                    <li data-tag="li" id="li-s76-5c9-8rv" class="li">
+                      <p id="2c818a20ddrmm"><b id="902f0b73d1v63" data-tag="uicontrol" data-isbold="true" class="uicontrol">不使用</b>：不使用任何私有池，仅使用公共池。</p>
+                    </li>
+                    <li id="308d2e5641fzr">
+                      <p id="9ca5f0a7b2lzs"><b id="d3ac1b2ad62c8" data-tag="uicontrol" data-isbold="true" class="uicontrol">指定</b>：指定一个开放私有池或者专有私有池。</p>
+                    </li>
+                  </ul>
+                </li>
+              </ol>
+            </section>
+            <section id="1a07b22c60njd" class="section">
+              <h4 id="0b7d7a8f20mft"><b>步骤三：查看弹性保障信息</b></h4>
+              <ol data-tag="steps" id="steps-jj4-b4u-j1f" class="steps">
+                <li id="f5b701ac4dx46">
+                  <p id="0f34c5d351t4g" data-init-id="e4fcb8808co15">访问<span data-tag="ph" id="5d6465f5a4u61" class="ph"><span props="china"><a class="" href="https://ecs.console.aliyun.com/resourceAssuranceV2/region" id="fd5f52a2a90qv">ECS<span class="help-letter-space"></span>控制台-资源管家</a></span></span>。</p>
+                </li>
+                <li data-tag="step" id="step-ukg-5rb-tkg" is-conref="true" class="step"><p id="cc0dfc4237gix"><span data-tag="cmd" id="cmd-acu-560-w33" class="cmd">在页面左侧顶部，选择目标资源所在的资源组和地域。<img alt="地域" data-tag="image" id="image-3wz-243-ym2" placement="break" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5587314271/p680076.png" width="500" class="image break"> </span></p></li>
+                <li data-tag="step" id="step-0ai-wdl-aad" class="step">
+                  <p id="effa75570eg13"><span data-tag="cmd" id="cmd-k3x-xhe-4xw" class="cmd">在资源管家左侧导航栏，选择<span data-tag="menucascade" id="menucascade-n4c-ik3-8s6" class="menucascade"><b id="uicontrol-avc-hk5-gnt" data-tag="uicontrol" data-isbold="true" class="uicontrol">购中确定性保障</b> &gt; <b id="uicontrol-n0m-595-2iw" data-tag="uicontrol" data-isbold="true" class="uicontrol">资源预定</b></span>。</span></p>
+                </li>
+                <li data-tag="step" id="step-yis-wsa-ws0" class="step">
+                  <p id="c031d24f199kh"><span data-tag="cmd" id="cmd-sfo-tff-wyr" class="cmd">在<b id="uicontrol-9ly-l1q-w02" data-tag="uicontrol" data-isbold="true" class="uicontrol">资源预定</b>页签下，筛选<b id="uicontrol-wmg-7ok-qsg" data-tag="uicontrol" data-isbold="true" class="uicontrol">预定方式</b>为<b id="uicontrol-y15-n0d-7f2" data-tag="uicontrol" data-isbold="true" data-params-value="ElasticsAssuarance" data-format-type="icu" class="uicontrol">弹性保障</b>。</span></p>
+                </li>
+                <li data-tag="step" id="step-114-kfz-fg1" class="step">
+                  <p id="e64b1a718092z"><span data-tag="cmd" id="cmd-um3-oyc-skc" class="cmd">在筛选出的<b id="bc3884fd41j5t" data-tag="uicontrol" data-isbold="true" data-init-id="uicontrol_pwk_u71_cuf" data-params-value="ElasticsAssuarance" data-format-type="icu" class="uicontrol">弹性保障</b>列表中，单击弹性保障的<span class="help-letter-space"></span>ID，进入资源详情页查看私有池容量使用情况等信息。</span></p>
+                  <p id="d334f5552fw7c">在<b id="6f9e7535a9og7" data-tag="uicontrol" data-isbold="true" data-init-id="uicontrol_8jj_jo1_e4m" class="uicontrol">关联实例</b>区域可查看使用该弹性保障创建的实例。</p>
+                </li>
+              </ol>
+            </section>
+          </section>
+          <section id="873fdf9840wz3" class="section">
+            <h3 id="4b72d8bb9dfx3"><b>API</b></h3>
+            <section id="27e100267finu" class="section">
+              <h4 id="34cd12e174998"><b>步骤一：创建和购买弹性保障</b></h4>
+              <ol id="5f9851ea58y1c">
+                <li id="43f35e3f274xc">
+                  <p id="05e767d6499rf">调用<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-createelasticityassurance" id="3c23c3e73aobv" title="" class="xref">CreateElasticityAssurance</a><span class="help-letter-space"></span>接口创建弹性保障或者弹性保障-分时保障。</p>
+                </li>
+                <li id="2f75a95213qpz">
+                  <p id="208fe37385z0c">调用<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-purchaseelasticityassurance" id="968e7fc746zt8" title="" class="xref">PurchaseElasticityAssurance</a><span class="help-letter-space"></span>接口购买一个准备完毕且处于未激活状态的弹性保障服务。</p>
+                </li>
+              </ol>
+            </section>
+            <section id="662e37b6d8dzs" class="section">
+              <h4 id="728b368089t0y"><b>步骤二：使用弹性保障创建实例</b></h4>
+              <p id="6f1e9a381cq5f">调用<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-runinstances" id="1fe25aad3cijc" title="" class="xref">RunInstances</a><span class="help-letter-space"></span>接口创建实例。</p>
+              <p id="d7815f0eb2xmd">通过<code data-tag="code" id="48bc47d8d685w" class="code">PrivatePoolOptions.MatchCriteria</code>指定私有池类型。若私有池类型选择指定模式（<code data-tag="code" id="85581e864ex0m" class="code">Target</code>），必须通过<code data-tag="code" id="b387d5ed53d9l" class="code">PrivatePoolOptions.Id</code>设置目标私有池<span class="help-letter-space"></span>ID。</p>
+            </section>
+            <section id="9770e8cc2bhxt" class="section">
+              <h4 id="7b8fdd5ab4vdh"><b>步骤三：查看和修改弹性保障</b></h4>
+              <section id="0be2706f80tay" class="section">
+                <h4 id="312ed670700al"><b>查询</b></h4>
+                <ul id="e39b309b02qrv">
+                  <li id="a3ef2a22f89h5">
+                    <p id="cc0ff30975sbj">调用<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-describeelasticityassurances" id="6c1bca61daf99" title="" class="xref">DescribeElasticityAssurances</a><span class="help-letter-space"></span>接口查询弹性保障服务的详细信息。</p>
+                  </li>
+                  <li id="82ca7c6b1eul7">
+                    <p id="59348cd9475v9">调用<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-describeelasticityassuranceinstances" id="c0be168022ro5" title="" class="xref">DescribeElasticityAssuranceInstances</a><span class="help-letter-space"></span>接口查询弹性保障服务已匹配实例列表。</p>
+                  </li>
+                </ul>
+              </section>
+              <section id="0599a5d7e3v9q" class="section">
+                <h4 id="462db6d9849xz"><b>修改</b></h4>
+                <ul id="b5fb5260fe8rd">
+                  <li id="b6196c40a30j9">
+                    <p id="5de989e8977e8">调用<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-modifyelasticityassurance" id="6fd9a4da4dr69" title="" class="xref">ModifyElasticityAssurance</a><span class="help-letter-space"></span>接口修改一个弹性保障服务的部分信息，包含名称、描述、容量。</p>
+                  </li>
+                  <li id="f2c5293571c41">
+                    <p id="0a7e3aaa3b88t">调用<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-modifyinstanceattachmentattributes" id="075fb55596ow5" title="" class="xref">ModifyInstanceAttachmentAttributes</a><span class="help-letter-space"></span>接口修改实例的私有池匹配模式。</p>
+                  </li>
+                </ul>
+              </section>
+            </section>
+          </section>
+        </section>
+      </div>
+      <section id="71ca181980k1s" class="section">
+        <h2 jc="left" _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="39d8a92ca27go" style="text-align:left"><b>使用场景与策略推荐</b></h2>
+        <p jc="left" id="5137033c3esdt" style="text-align:left"><b>场景一：核心业务 - 保障资源确定性</b></p>
+        <ul _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="c683af6c9bp0u">
+          <li _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="f4f04d8bcbl66">
+            <p id="5e05e2a3ff45j"><b>适用业务：</b>&nbsp;电商大促、游戏开服、金融结算等核心应用。</p>
+          </li>
+          <li _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="0e5a997b243n7">
+            <p id="91d8e1e4c26il"><b>推荐策略：</b>&nbsp;购买<b>专有私有池</b>，并在创建实例时使用<b>指定模式</b>。</p>
+          </li>
+          <li _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="f791f78cf7cwi">
+            <p id="7782868a4dwfk"><b>使用效果：</b>&nbsp;只要私有池容量未用尽，实例即可创建成功，避免因公共资源不足导致的失败风险。</p>
+          </li>
+        </ul>
+        <p jc="left" id="d5bf963b70ym7" style="text-align:left"><b>场景二：高优先级业务 - 兼顾保障与弹性</b></p>
+        <ul _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="15730a0434d5b">
+          <li _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="d71ba5852f5bz">
+            <p id="bf9f84763espr"><b>适用业务：</b>&nbsp;数据分析、批量计算、在线业务的常规扩容等，希望能<b>优先保障</b>，但也接受公共资源作为补充的场景。</p>
+          </li>
+          <li _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="cdbe33fb75xqi">
+            <p id="cc95c56194f0x"><b>推荐策略：</b>&nbsp;购买<b>开放私有池</b>，并在创建实例时使用<b>开放模式</b>。</p>
+          </li>
+          <li _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="2b0e15801fsdk">
+            <p id="c4ac2fd4eb6jq"><b>使用效果：</b>&nbsp;优先使用预留的保障容量。若保障容量耗尽，系统自动尝试使用公共资源池。</p>
+          </li>
+        </ul>
+        <p jc="left" id="ec7aca06b783a" style="text-align:left"><b>场景三：非核心或开发测试 - 成本优先</b></p>
+        <ul _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="25b4115037iav">
+          <li _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="c14736bb1arai">
+            <p id="7d96f024460uh"><b>适用业务：</b>&nbsp;开发、测试环境，或能容忍偶发性创建失败的非核心业务。</p>
+          </li>
+          <li _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="ccf5efb7b4mkl">
+            <p id="da5aba0967gk5"><b>推荐策略：</b>&nbsp;在创建实例时选择<b>不使用</b>私有池。</p>
+          </li>
+          <li _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="45823349628v4">
+            <p id="67e4ec40b3vv8"><b>使用效果：</b>&nbsp;使用公共资源池，但需接受因公共资源池库存波动可能导致的创建失败。</p>
+          </li>
+        </ul>
+      </section>
+      <section id="a22e79df215n1" class="section">
+        <h2 id="d4c3d2f83dzom"><b>计费说明</b></h2>
+        <p uuid="mfe6em1umtwv1tizteq" id="e3bea0ce36fq3">弹性保障的费用由两部分构成：</p>
+        <ol id="59331de6d3zu5">
+          <li id="f3dfad85a2n6z">
+            <p id="0e0d9366d5hdy"><b>保障费用（预付费）</b>：购买弹性保障时需一次性支付的保障服务费。</p>
+          </li>
+          <li id="5009d4fcf3oaw">
+            <p id="44021e092co77"><b>实例费用（按量计费）</b>：从私有池中成功创建的按量付费实例，按标准价格计费。</p>
+          </li>
+        </ol>
+        <table id="4165e9097cpcd" tablewidth="1177" tablecolswidth="103 537 537" autofit="false" class="table">
+          <colgroup colwidth="0.26*" style="width:8.75%"></colgroup>
+          <colgroup colwidth="1.37*" style="width:45.62%"></colgroup>
+          <colgroup colwidth="1.37*" style="width:45.62%"></colgroup>
+          <tbody class="tbody">
+            <tr id="d0f846eb0eu2c">
+              <td id="47d2800872cf1" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p jc="left" id="de5473079dwao" style="text-align:left"><b>保障方式</b></p>
+              </td>
+              <td id="b4f28d0d18s5h" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p jc="left" id="46d217125ao4p" style="text-align:left"><b>弹性保障（分时）</b></p>
+              </td>
+              <td id="7897cc2475i6k" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p id="d39a6871b01g7"><b>弹性保障</b></p>
+              </td>
+            </tr>
+            <tr id="fdd32f1e16g3k" style="height:119px">
+              <td id="f403632c2dgip" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="0ed77186164md"><b>示意图</b></p>
+              </td>
+              <td id="858da77bd6ywk" rowspan="1" style="vertical-align:middle" colspan="1">
+                <hetu type="flowchart" id="c5d72c0fb1k3d" versionid="CAEQYhiBgMCzlqyEyxkiIDYzODM3ZDUyNjViNDQwMTVhZTkzOWE1NmMzMTUxNjcw" uuid="5725218_20250919111249.237" hetuid="bb9e8ae6-58cd-43d2-8417-d1f8c68ce35e"><img src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7215750871/CAEQYhiBgMCzlqyEyxkiIDYzODM3ZDUyNjViNDQwMTVhZTkzOWE1NmMzMTUxNjcw5725218_20250919111249.237.svg" alt="image" class="image break flowchart hetu"></hetu>
+              </td>
+              <td id="2376bba996plp" rowspan="1" style="vertical-align:middle" colspan="1">
+                <hetu type="flowchart" id="9c0df0104dxtg" versionid="CAEQYhiBgIC2oa6EyxkiIGEzODRlZTJmYzFmZDQ3ZTRhYjJhNjcxZDUxM2FjN2U0" uuid="5725218_20250919111249.237" hetuid="cdd33b29-51fa-4627-b530-df00a24e7529"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7215750871/CAEQYhiBgIC2oa6EyxkiIGEzODRlZTJmYzFmZDQ3ZTRhYjJhNjcxZDUxM2FjN2U05725218_20250919111249.237.svg" alt="image" class="image break flowchart hetu lazy-media lazy-loading"></hetu>
+              </td>
+            </tr>
+            <tr id="1a7b211b68b87">
+              <td id="a2d2c4858fvpb" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="e9d2320f4e6ej"><b>保障费用计算方式</b></p>
+              </td>
+              <td id="8bf486f21e2wh" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="dbf69f17a2jb4">
+                  <hetu id="285590b9a21g1" type="xFormula" formula="预留容量&nbsp;×&nbsp;\frac{实例规格包月价格}{30天 \times 24小时} \times 10\%\times 保障时长（小时）" hetuid="ec6d99cc-26c4-4cf0-be09-efc78f2d45bf" style="display:inline-block;max-width:100%;overflow:auto;vertical-align:middle"><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord cjk_fallback">预留容量</span><span class="mord">&nbsp;</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:2.1297em;vertical-align:-0.7693em;"></span><span class="mord">&nbsp;</span><span class="mord"><span class="mopen nulldelimiter"></span><span class="mfrac"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:1.3603em;"><span style="top:-2.314em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord">30</span><span class="help-letter-space"></span><span class="mord cjk_fallback">天</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mord">24</span><span class="help-letter-space"></span><span class="mord cjk_fallback">小时</span></span></span><span style="top:-3.23em;"><span class="pstrut" style="height:3em;"></span><span class="frac-line" style="border-bottom-width:0.04em;"></span></span><span style="top:-3.677em;"><span class="pstrut" style="height:3em;"></span><span class="mord"><span class="mord cjk_fallback">实例规格包月价格</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.7693em;"><span></span></span></span></span></span><span class="mclose nulldelimiter"></span></span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.0833em;"></span><span class="mord">10%</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord cjk_fallback">保障时长（小时）</span></span></span></span></span></hetu>
+                </p>
+                <blockquote id="fc2a943e655b8">保障时长为非连续时间段的累加时长。</blockquote>
+              </td>
+              <td id="8e7106e0465jk" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="44bc7ddf9af6x">
+                  <hetu id="f30140d8d2q2e" type="xFormula" formula="预留容量&nbsp;×&nbsp;实例规格包月价格&nbsp;×&nbsp;40\%&nbsp;×&nbsp; 保障时长（月）" hetuid="3dd1c0bb-7237-4482-a555-a70b7bde9da4" style="display:inline-block;max-width:100%;overflow:auto;vertical-align:middle"><span class="katex-display"><span class="katex"><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord cjk_fallback">预留容量</span><span class="mord">&nbsp;</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.7667em;vertical-align:-0.0833em;"></span><span class="mord">&nbsp;</span><span class="mord cjk_fallback">实例规格包月价格</span><span class="mord">&nbsp;</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.8333em;vertical-align:-0.0833em;"></span><span class="mord">&nbsp;40%&nbsp;</span><span class="mspace" style="margin-right:0.2222em;"></span><span class="mbin">×</span><span class="mspace" style="margin-right:0.2222em;"></span></span><span class="base"><span class="strut" style="height:0.6833em;"></span><span class="mord">&nbsp;</span><span class="mord cjk_fallback">保障时长（月）</span></span></span></span></span></hetu>
+                </p>
+              </td>
+            </tr>
+            <tr id="eacb94dbd1ty3">
+              <td id="5daede7a8d35s" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="left" id="56ecfbfa04j8a" style="text-align:left"><b>总费用</b></p>
+              </td>
+              <td id="754e27faafqoy" rowspan="1" style="vertical-align:middle" colspan="2">
+                <p jc="center" id="453c5b6d7e4zm" style="text-align:center"><code data-tag="code" class="code blog-code" id="0dba099726992">保障费用</code>&nbsp;+&nbsp;<code data-tag="code" class="code blog-code" id="d4e1daebeerzt">实例费用</code></p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <p uuid="mfe6em1vj0of0phw41" id="ad258abac7bfk"><b>实例费用抵扣顺序</b>： 对于由弹性保障创建的按量付费实例，其小时账单按以下顺序匹配优惠进行抵扣：</p>
+        <ol id="c545be77b5x14">
+          <li id="b234e43c9dz69">
+            <p id="5587b700abf5l"><a href="https://help.aliyun.com/zh/ecs/savings-plans" id="f7a1f10348izo" title="" class="xref"><b>节省计划</b></a></p>
+          </li>
+          <li id="b31020e473g3l">
+            <p id="3764dd0f77wyn"><a href="https://help.aliyun.com/zh/ecs/reserved-instances#f1be5c541axq7" id="419369bbaejqa" title="" class="xref"><b>地域级预留实例券</b></a></p>
+            <blockquote id="25f6e4ec30pry">不支持可用区级预留实例券。</blockquote>
+          </li>
+          <li id="7af1431b7f96c">
+            <p id="d1abee3d3f5f1">若无适用优惠，则按标准按量付费价格出账。</p>
+          </li>
+        </ol>
+      </section>
+      <section id="3e4cf2f1ffrys" class="section">
+        <h2 uuid="mfe6em1rs10giv1vcv" id="0c7268e33adfu">使用限制</h2>
+        <ul id="af2adebcbdez9">
+          <li id="766f2e1201ego">
+            <p id="3e27a0a5b966d"><b>支持范围</b>：仅部分地域、可用区和实例规格支持弹性保障，实际以控制台购买页面为准。</p>
+          </li>
+          <li id="cd7646408bqoc">
+            <p id="6e43e1b094a6n"><b>不可变更与释放</b>：弹性保障购买后不支持修改容量、取消订单或提前释放。到期后自动失效。</p>
+          </li>
+          <li id="9ccd09570918f">
+            <p id="ef72cc963d6yn"><b>资源属性匹配</b>：创建实例时，所选的地域、可用区、实例规格必须与弹性保障的属性严格匹配。</p>
+          </li>
+          <li id="5ce5d33211daa">
+            <p id="e3206ea1f0rub"><b>保障范围</b>：仅保障 ECS 实例规格容量可用性，不保障云盘、公网 IP、弹性网卡等关联资源的库存。</p>
+          </li>
+          <li id="5836879ba2w1p">
+            <p id="f80e6340a2xzt"><b>实例操作影响</b>：对已创建的实例执行升降配操作，会使其脱离弹性保障的私有池，不再享受资源确定性保障。</p>
+          </li>
+        </ul>
+      </section>
+      <section id="285ff2bcc39q1" class="section">
+        <h2 uuid="mfe6em1w5fklmxy5yb8" id="6f94900711nr7">应用于生产环境的建议</h2>
+        <ul id="07f0eda3f5obz">
+          <li id="8b45b92463tws">
+            <p id="0535a470fajy4"><b>与弹性伸缩集成：</b>建议将弹性保障与弹性伸缩（ESS）结合使用，实现自动化资源调度。</p>
+            <p id="d158f8739evw3">在<a href="https://help.aliyun.com/zh/auto-scaling/user-guide/create-an-ecs-scaling-group" id="12dfac6157ldj" title="" class="xref">创建</a>或<a href="https://help.aliyun.com/zh/auto-scaling/modify-a-scaling-group#concept-qkz-nkx-rfb" id="9289dbb97dx2p" title="" class="xref">修改伸缩组</a>时，设置的<b id="c4c7c8039cyr6" data-tag="uicontrol" data-isbold="true" class="uicontrol">资源池策略</b>以优先使用弹性保障的私有池容量。</p>
+            <ul id="ed8f1939c9cp2">
+              <li id="999ef94bccksa">
+                <p id="57963365746w6"><b>资源池策略选项</b>：</p>
+                <ul id="f4f0d53d99xf5" data-init-id="ed8f1939c9cp2">
+                  <li data-spm-anchor-id="a2c4g.11186623.aillm.i7.4c4e2975akuwnK" id="6e50ae5f4dyr1">
+                    <p id="317802279fz4w"><b>私有池优先</b>：优先使用指定的私有池，如果私有池容量不足，则自动匹配开放类型的私有池或公共池。</p>
+                  </li>
+                  <li id="542f9943438ev">
+                    <p id="4786ab460bk0m"><b>仅限私有池</b>：必须使用私有池容量，否则实例启动失败。</p>
+                  </li>
+                </ul>
+              </li>
+              <li id="15e7262d4dqx7">
+                <p id="7f05b6d7ebgxa"><b>配置步骤</b>：</p>
+                <ol id="0bad9a25bei91">
+                  <li id="5b2db1b70f73t">
+                    <p id="9c69bfa2e2x6t" tagname="p">登录<span data-tag="ph" id="356c44766dwor" props="china" data-init-id="508ad1ed50eoo" data-cond-props="china" class="ph"><a href="https://essnew.console.aliyun.com/" id="86d29a78dfdtv" class="" target="_blank">弹性伸缩控制台</a></span>。</p>
+                  </li>
+                  <li id="6e044f1420lbi">
+                    <p id="dcf50b2e97ego">创建或修改伸缩组。</p>
+                  </li>
+                  <li id="f6c69de5288b1">
+                    <p id="9f28ed74fboxq">在<a href="https://help.aliyun.com/zh/auto-scaling/user-guide/manage-scaling-configurations#9f06c1bc759oq" id="68c65aff95o7u" title="" class="xref">伸缩配置</a>的<b id="3ca4bdc563t6z" data-tag="uicontrol" data-isbold="true" class="uicontrol">高级设置</b>中选择资源池策略，并指定一个弹性保障的私有池。</p>
+                  </li>
+                </ol>
+              </li>
+            </ul>
+          </li>
+          <li id="c3003feb76xml">
+            <p id="b769975a2752q"><b>监控与告警</b>：建议通过云监控（CloudMonitor）<a href="https://help.aliyun.com/zh/cms/cloudmonitor-1-0/user-guide/create-an-alert-rule" id="436b1f1ec2oj1" title="" class="xref">创建报警规则</a>对关键指标设置告警，及时掌握容量使用情况。例如当可用容量低于总容量的 20% 时触发告警：</p>
+            <ul id="2b3f397ab80mw">
+              <li id="f7c59ae1ffaem">
+                <p id="e680c38a01inf">产品选择<span class="help-letter-space"></span><b id="481ce227denr4" data-tag="uicontrol" data-isbold="true" class="uicontrol">ECS<span class="help-letter-space"></span>私有资源池</b>。</p>
+              </li>
+              <li id="937f5d5b1bzqw">
+                <p id="801c17b86fv31">指标选择<b id="31cddc67f21lk" data-tag="uicontrol" data-isbold="true" class="uicontrol">实例个数使用率</b>，报警级别选择<b id="1ffdbceaf8wpn" data-tag="uicontrol" data-isbold="true" class="uicontrol">警告（Warn）</b>，阈值设置<span class="help-letter-space"></span>20%。</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section id="bc05edca6fhsx" class="section">
+        <h2 id="0fb63074522x7"><b>相关文档</b></h2>
+        <p id="dba26fe90csr3"><a href="https://help.aliyun.com/zh/ecs/user-guide/overview-29#table-3u7-qya-ewf" id="c1923a0b40xbo" title="" class="xref">弹性保障和容量预定比对</a></p>
+      </section>
+      <section id="864bf094f22i9" class="section">
+        <h2 id="936e7286b4zlr"><b>常见问题</b></h2>
+        <p id="0365bb44073ev"><b>Q：实例释放后，弹性保障的容量为什么没有立即更新？</b></p>
+        <p id="907c06cd8dmn0">A：实例释放需要耗时，建议避免频繁创建和释放操作，以防容量未及时更新导致后续创建失败。</p>
+        <p id="1f646dfbc2cw1"><b>Q：单个弹性保障可以跨可用区使用吗？</b></p>
+        <p id="d82154229bmei">A：不能。如有跨可用区保障需求，可在不同可用区创建多个弹性保障。</p>
+        <p id="ba6829f9db3z8"><b>Q：弹性保障是否支持变更实例规格？</b></p>
+        <p id="67511f5870dtj">A：不支持。弹性保障绑定的实例规格在购买后不可更改。</p>
+        <p id="c6de9e1c832vu"><b>Q：如何查看私有池剩余容量？</b></p>
+        <p id="2e318c6247b1a">A：在弹性保障列表页，单击弹性保障<span class="help-letter-space"></span>ID，在<b id="082c786a9czup" data-tag="uicontrol" data-isbold="true" class="uicontrol">资源详情</b>可查看容量使用情况。</p>
+        <p id="09c60fe5487jo"><b>Q：弹性保障的标签有什么作用？</b></p>
+        <p id="31a7a74f5dj0a">A：创建实例时，开放私有池支持通过实例标签匹配。</p>
+        <ul id="c901306715xyl" data-init-id="a7375831b0m8n">
+          <li data-tag="li" id="d36602a436hws" class="li">
+            <p id="957249b1e9xuw">绑定<b id="445f7612c81c5" data-tag="uicontrol" data-isbold="true" data-params-value="Tag" data-format-type="icu" class="uicontrol">标签</b>：为实例绑定相同的标签，可自动匹配对应开放私有池。</p>
+            <blockquote id="021d7234cc32d">弹性保障生效后，始终以购买时绑定的标签匹配私有池。</blockquote>
+          </li>
+          <li data-tag="li" id="8e0315730cb6x" class="li">
+            <p id="84586b8b9c1n2">未绑定<b id="eac2bd8ab1qdl" data-tag="uicontrol" data-isbold="true" data-params-value="Tag" data-format-type="icu" class="uicontrol">标签</b>：系统自动匹配一个开放私有池。</p>
+          </li>
+        </ul>
+      </section>
+    </div>
+  </main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/ecs/user-guide/resource-reservations/" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：资源预定</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/ecs/user-guide/overview-of-immediate-capacity-reservation" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：立即生效容量预定概述<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

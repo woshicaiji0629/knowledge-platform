@@ -1,0 +1,9 @@
+020-01-10-createresourceshare)创建共享单元，并确保将AllowExternalTargets参数设为False。
+管理共享前缀列表和使用者
+前缀列表所有者，查看已被共享的共享前缀列表及使用者：
+调用[ListSharedResources](https://help.aliyun.com/zh/resource-management/resource-sharing/developer-reference/api-resourcesharing-2020-01-10-listsharedresources)查看共享前缀列表。
+调用[ListSharedTargets](https://help.aliyun.com/zh/resource-management/resource-sharing/developer-reference/api-resourcesharing-2020-01-10-listsharedtargets)查看共享前缀列表的使用者列表。
+前缀列表所有者，在共享单元内管理共享前缀列表及使用者：
+调用[ListResourceShareAssociations](https://help.aliyun.com/zh/resource-management/resource-sharing/developer-reference/api-resourcesharing-2020-01-10-listresourceshareassociations)查看共享单元内的前缀列表或使用者。
+调用[AssociateResourceShare](https://help.aliyun.com/zh/resource-management/resource-sharing/developer-reference/api-resourcesharing-2020-01-10-associateresourceshare)在共享单元内增加共享前缀列表或使用者。
+调用[DisassociateResourceShare](https://help.aliyun.com/zh/resource-management/resource-sharing/developer-reference/api-resourcesharing-2020-01-10-disassociateresourceshare)在共享单元内删除共享前缀列表或使用者。

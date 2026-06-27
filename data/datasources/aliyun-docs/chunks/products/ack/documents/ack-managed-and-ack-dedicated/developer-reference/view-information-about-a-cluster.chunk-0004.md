@@ -1,0 +1,3 @@
+": "LastKnownError", "OutputValue": null }, { "Description": "Error msg of ess scaling instance", "OutputKey": "NodesScalingErrorInfo", "OutputValue": null }, { "Description": "The mode we use in kube-proxy.", "OutputKey": "ProxyMode", "OutputValue": "ipvs" }, { "Description": "ScalingGroup ID", "OutputKey": "ScalingGroupID", "OutputValue": "asg-2zebrr08gt5uluh7u5ar" }, { "Description": "Ids of worker node", "OutputKey": "NodeInstanceIDs", "OutputValue": [ "i-2ze4ymrjuocpbc0cftdj", "i-2ze4ymrjuocpbc0cftdk", "i-2ze4ymrjuocpbc0cftdl" ] }, { "Description": "Count of ess scaling instance", "OutputKey": "NodesScalingAddedInstances", "OutputValue": 3 } ] }
+该文章对您有帮助吗？
+反馈

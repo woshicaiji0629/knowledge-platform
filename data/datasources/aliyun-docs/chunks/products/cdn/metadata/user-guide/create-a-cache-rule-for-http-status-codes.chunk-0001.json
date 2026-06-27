@@ -1,0 +1,14 @@
+{
+  "id": "cdn:user-guide/create-a-cache-rule-for-http-status-codes:1",
+  "document_id": "cdn:user-guide/create-a-cache-rule-for-http-status-codes",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "状态码缓存过期时间配置与规则-CDN-阿里云",
+  "source_url": "https://help.aliyun.com/zh/cdn/user-guide/create-a-cache-rule-for-http-status-codes",
+  "chunk_index": 1,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/cdn/documents/user-guide/create-a-cache-rule-for-http-status-codes.chunk-0001.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/user-guide/create-a-cache-rule-for-http-status-codes.md",
+  "heading_path": "配置状态码过期时间 > 适用场景",
+  "char_count": 517
+}

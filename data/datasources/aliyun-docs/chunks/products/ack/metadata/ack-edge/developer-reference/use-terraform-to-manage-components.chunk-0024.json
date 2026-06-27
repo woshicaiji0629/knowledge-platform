@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/developer-reference/use-terraform-to-manage-components:24",
+  "document_id": "ack:ack-edge/developer-reference/use-terraform-to-manage-components",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "Terraform管理组件配置与生命周期-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/use-terraform-to-manage-components",
+  "chunk_index": 24,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/developer-reference/use-terraform-to-manage-components.chunk-0024.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/use-terraform-to-manage-components.md",
+  "heading_path": "禁止安装nginx-ingress-controller组件。 resource \"alicloud_cs_managed_kubernetes\" \"default\" { # 其它参数。 # ... addons { name = \"nginx-ingress-controller\", disabled = true } } > 未指定Addons的情况下默认安装的组件",
+  "char_count": 1200
+}

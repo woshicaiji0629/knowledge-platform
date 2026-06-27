@@ -1,0 +1,14 @@
+{
+  "id": "sls:collect-k8s-cluster-logs-through-sidecar:25",
+  "document_id": "sls:collect-k8s-cluster-logs-through-sidecar",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "通过Sidecar方式采集集群日志（阿里云ACK集群和自建Kubernetes集群）-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/collect-k8s-cluster-logs-through-sidecar",
+  "chunk_index": 25,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/collect-k8s-cluster-logs-through-sidecar.chunk-0025.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/collect-k8s-cluster-logs-through-sidecar.md",
+  "heading_path": "定义信号处理函数 _term_handler() { echo \"[$(date)] [nginx-demo] Caught SIGTERM, starting graceful shutdown...\" # 发送QUIT信号给Nginx进行优雅停止 if [ -n \"$NGINX_PID\" ]; then kill -QUIT \"$NGINX_PID\" 2>/dev/null || true echo \"[$(date)] [nginx-demo] Sent SIGQUIT to Nginx PID: $NGINX_PID\" # 等待Nginx优雅停止 wait \"$NGINX_PID\" EXIT_CODE=$? echo \"[$(date)] [nginx-demo] Nginx stopped with exit code: $EXIT_CODE\" fi # 通知LoongCollector业务容器已停止 echo \"[$(date)] [nginx-demo] Writing tombstone file\" touch /tasksite/tombstone exit $EXIT_CODE } # 注册信号处理 trap _term_handler SIGTERM SIGINT SIGQUIT # 等待LoongCollector准备就绪 echo \"[$(date)] [nginx-demo]: Waiting for LoongCollector to be ready...\" until [[ -f /tasksite/cornerstone ]]; do sleep 1 done echo \"[$(date)] [nginx-demo]: LoongCollector is ready, starting business logic\" # 启动Nginx echo \"[$(date)] [nginx-demo] Starting Nginx...\" nginx -g 'daemon off;' & NGINX_PID=$! echo \"[$(date)] [nginx-demo] Nginx started with PID: $NGINX_PID\" # 等待Nginx进程 wait $NGINX_PID EXIT_CODE=$? # 非信号导致的退出也要通知LoongCollector if [ ! -f /tasksite/tombstone ]; then echo \"[$(date)] [nginx-demo] Unexpected exit, writing tombstone\" touch /tasksite/tombstone fi exit $EXIT_CODE > 步骤四：查询与分析配置",
+  "char_count": 202
+}

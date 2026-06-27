@@ -1,0 +1,5 @@
+### DaemonSet模式原理
+在集群的每个Node节点上部署一个 LoongCollector，负责采集该节点上所有容器的日志；特点：运维简单、资源占用少、配置方式灵活；但是隔离性较弱。
+DaemonSet模式工作原理
+在DaemonSet模式中，Kubernetes集群确保每个节点（Node）只运行一个LoongCollector容器，用于采集当前节点内所有容器（Containers）的日志。
+当新节点加入集群时，Kubernetes集群会自动在新节点上创建LoongCollector容器；当节点退出集群时，Kubernetes集群会自动销毁当前节点上的LoongCollector容器。通过DaemonSet的自动扩缩容机制以及标识型机器组，无需手动管理LoongCollector实例。

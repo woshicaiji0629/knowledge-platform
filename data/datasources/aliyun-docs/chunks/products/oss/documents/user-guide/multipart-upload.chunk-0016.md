@@ -1,0 +1,1 @@
+(uploadId), CompleteMultipartUpload: &oss.CompleteMultipartUpload{ Parts: parts, }, }) if err != nil { fmt.Printf("错误: %v\n", err) return } fmt.Printf("完成分片上传，Bucket: %s, Key: %s, Location: %s, ETag: %s\n", *completeResult.Bucket, *completeResult.Key, *completeResult.Location, *completeResult.ETag) }

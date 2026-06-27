@@ -1,0 +1,6 @@
+licy 容器的 CPU 上限为 1 核，内存无限制。 在 DataPath V2 模式下，容器网络的连接跟踪（conntrack）信息通过 eBPF map 进行存储。与 Linux 系统原生的 conntrack 机制类似，eBPF conntrack 基于 LRU（最近最少使用）算法实现，当 map 容量达到上限时，会自动淘汰最旧的连接记录以存储新连接，您需要根据实际业务规模合理配置相关参数，以防连接数超出限制。请参考 [优化](optimize-conntrack-configuration-in-terway-mode.md) [Terway](optimize-conntrack-configuration-in-terway-mode.md) [模式下](optimize-conntrack-configuration-in-terway-mode.md) [conntrack](optimize-conntrack-configuration-in-terway-mode.md) [配置](optimize-conntrack-configuration-in-terway-mode.md) 。 |
+| NetworkPolicy 支持 | 勾选后，则会支持 Kubernetes 原生的 NetworkPolicy 。 说明 从 Terway v1.9.2 开始，新建集群 NetworkPolicy 由 eBPF 的实现提供，数据面会开启 DataPathv2 功能。 通过控制台管理 NetworkPolicy 的功能正在公测中，如果您希望使用，请在 [配额平台](https://quotas.console.aliyun.com/white-list-products/csk/quotas) 提交申请。 |
+| Trunk ENI 支持 | 勾选后，会启用 Trunk ENI 模式，可以为每个 Pod 配置固定 IP、独立的虚拟交换机、安全组。 说明 ACK 托管集群 无需申请即可选择 Trunk ENI 选项。如果您希望在 ACK 专有集群 中开启 Trunk ENI，请先在 [配额平台](https://quotas.console.aliyun.com/white-list-products/csk/quotas) 提交申请。 从 Kubernetes 1.31 开始，新建的 ACK 托管集群 会自动启用 Trunk ENI 功能，无需手动进行选择。 |
+| 交换机 | 集群中节点所使用的虚拟交换机网段。建议选择来自 3 个及以上不同可用区的交换机，以达到更高集群可用性等级。 |
+| Pod 交换机 | Pod 所使用的虚拟交换机网段，可以与节点虚拟交换机网段重合。 |
+| 服务网段 | Service 所使用的网段，不能与节点及 P

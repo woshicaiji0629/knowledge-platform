@@ -1,0 +1,19 @@
+09:00 |
+| America/St_Barthelemy | -04:00 |
+| America/St_Johns | -03:30 |
+| America/St_Kitts | -04:00 |
+| America/St_Lucia | -04:00 |
+| America/St_Thomas | -04:00 |
+| America/St_Vincent | -04:00 |
+| America/Swift_Current | -06:00 |
+| America/Tegucigalpa | -06:00 |
+| America/Thule | -04:00 |
+| America/Thunder_Bay | -05:00 |
+| America/Tijuana | -08:00 |
+| America/Toronto | -05:00 |
+| America/Tortola | -04:00 |
+| America/Vancouver | -08:00 |
+| America/Whitehorse | -07:00 |
+| America/Winnipeg | -06:00 |
+| America/Yakutat | -09:00 |
+| America/Yellowknife | -07:00 |

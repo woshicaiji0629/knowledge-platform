@@ -1,0 +1,17 @@
+{
+  "id": "sls:use-sdks-to-collect-logs",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "各开发语言SDK采集日志总览-日志服务-阿里云",
+  "source_url": "https://help.aliyun.com/zh/sls/use-sdks-to-collect-logs",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/use-sdks-to-collect-logs.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/use-sdks-to-collect-logs.md",
+  "word_count": 978,
+  "text_units": 1761,
+  "local_links": 0,
+  "external_links": 106,
+  "has_tables": true,
+  "table_count": 3,
+  "quality": "accepted"
+}

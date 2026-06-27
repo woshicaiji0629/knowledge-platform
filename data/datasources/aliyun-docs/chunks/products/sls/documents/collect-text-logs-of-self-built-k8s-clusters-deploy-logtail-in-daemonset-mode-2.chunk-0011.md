@@ -1,0 +1,12 @@
+## 创建LogStore
+若您已提前创建好LogStore，可直接跳过此步骤，进行[采集配置](collect-text-logs-of-self-built-k8s-clusters-deploy-logtail-in-daemonset-mode-2.md)。
+登录[日志服务控制台](https://sls.console.aliyun.com)，单击目标Project名称。
+在左侧导航栏，选择日志存储，单击+。
+在创建LogStore页面，完成以下核心配置：
+Logstore名称：设置一个在Project内唯一的名称。该名称创建后不可修改。
+Logstore类型：根据规格对比选择标准型或查询型。
+计费模式：
+按使用功能计费：按存储、索引、读写次数等各项资源独立计费。适合小规模或功能使用不确定的场景。
+按写入数据量计费：仅按原始写入数据量计费，并提供30天的免费存储周期及免费的数据加工、投递等功能。成本模型简单，适合存储周期接近30天或数据处理链路复杂的场景。
+数据保存时间：设置日志的保留天数，取值范围为1~3650天（3650天表示永久保存）。默认为30天。
+其他配置保持默认，单击确定。如需了解其他配置信息，请参考[管理](manage-a-logstore.md)[LogStore](manage-a-logstore.md)。

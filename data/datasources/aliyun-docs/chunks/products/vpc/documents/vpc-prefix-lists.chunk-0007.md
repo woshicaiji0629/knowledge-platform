@@ -1,0 +1,22 @@
+### TR路由表引用
+您可以在企业版TR的路由表中引用前缀列表，引用后，系统将在企业版TR路由表中自动添加前缀列表中所有网段的路由。引用时需注意：
+如果TR已开启路由同步功能，那么在引用前缀列表之后，系统会自动将前缀列表对应的路由条目[传播到其他网络实例](../../cen/documents/user-guide/prefix-lists.md)。
+前缀列表对应的路由条目，不能和TR路由表中已有的路由条目发生冲突。请参考[路由兼容性说明](../../cen/documents/user-guide/prefix-lists.md)，判断是否会发生路由冲突（不兼容即为冲突），如有冲突，则无法引用。如果引用后发生了冲突，请参考[处理引用后出现的条目冲突](vpc-prefix-lists.md)。
+前缀列表中的实际条目数，会占用TR路由表路由条目数配额。建议通过合并相邻IP段、清理无用条目等方式来降低配额超限风险。
+控制台
+绑定前缀
+前往目标TR路由表的基本信息页面，切换到路由前缀页签，单击绑定路由前缀：
+路由前缀ID：选择要引用的前缀列表。
+是否为黑洞路由：
+是：系统将匹配前缀列表的流量直接丢弃。
+否：系统将匹配前缀列表的流量，引导至下一跳连接。
+筛选前缀列表对应的路由条目
+前往目标TR路由表的基本信息页面，切换到路由条目页签，通过路由前缀ID来过滤，筛选出属于通过前缀列表添加的路由条目明细。
+解绑前缀
+警告
+解绑前缀列表后，系统将自动撤销已添加在企业版TR路由表中前缀列表相关的所有路由条目。因此解绑前缀列表前，请确保您已经迁移业务流量，否则会造成网络中断。
+前往目标TR路由表的基本信息页面，切换到路由前缀页签，在目标前缀列表的操作列，单击删除。
+API
+绑定前缀：调用[CreateTransitRouterPrefixListAssociation](../../cen/documents/developer-reference/api-cbn-2017-09-12-createtransitrouterprefixlistassociation.md)，在企业版转发路由器路由表中引用前缀列表。
+筛选前缀列表对应的路由条目：调用[ListTransitRouterPrefixListAssociation](../../cen/documents/developer-reference/api-cbn-2017-09-12-listtransitrouterprefixlistassociation.md)，在返回的结果中通过PrefixListId过滤通过前缀列表添加的路由条目。
+删除前缀：调用[DeleteTransitRouterPrefixListAssociation](../../cen/documents/developer-refer

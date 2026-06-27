@@ -1,0 +1,4 @@
+## 前提条件
+已创建CLB实例。具体操作，请参见[创建实例](../../slb/documents/classic-load-balancer/getting-started/create-a-clb-instance.md)。
+已为CLB实例配置7层监听，即配置HTTP监听或HTTPS监听。具体操作，请参见[添加](../../slb/documents/classic-load-balancer/user-guide/add-an-http-listener-1.md)[HTTP](../../slb/documents/classic-load-balancer/user-guide/add-an-http-listener-1.md)[监听](../../slb/documents/classic-load-balancer/user-guide/add-an-http-listener-1.md)或[添加](../../slb/documents/classic-load-balancer/user-guide/add-an-https-listener-1.md)[HTTPS](../../slb/documents/classic-load-balancer/user-guide/add-an-https-listener-1.md)[监听](../../slb/documents/classic-load-balancer/user-guide/add-an-https-listener-1.md)。
+在CLB实例所在地域，已创建日志服务Project和LogStore。具体操作，请参见[创建](getting-started.md)[Project](getting-started.md)[和](getting-started.md)[LogStore](getting-started.md)。

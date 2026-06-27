@@ -1,0 +1,7 @@
+## 注意事项
+如果源站文件配置了MD5校验机制，请不要开启页面优化功能。
+开启页面优化功能，CDN进行页面优化时，会改变文件的MD5值，导致优化后文件的MD5值和源站文件的MD5值不一致。
+如果源站开启了Gzip压缩或Brotli压缩，CDN的页面优化功能将会失效，CDN会将源站压缩后的文件透传给客户端。
+在不关闭源站的Gzip或Brotli压缩的情况下，如果想使用CDN的页面优化功能，您可以在CDN的回源HTTP头中进行配置，删除Accept-Encoding头。CDN回源删除Accept-Encoding后，CDN页面优化功能即可正常执行。删除Accept-Encoding头，请参见[修改出站请求头](configure-custom-request-headers.md)。
+如果您同时开启了页面优化和压缩功能（Gzip压缩或者Brotli压缩），页面优化功能将会失效，CDN只会对文件进行压缩。
+在某些特殊情况下，开启页面优化功能，改写网站页面中的HTML文件、CSS文件、JS文件可能会影响到网站的业务逻辑，客户端访问改写以后的网站页面可能会出现类似Hydration completed but contains mismatches.这样的报错，这个时候关闭页面优化功能即可解决问题。

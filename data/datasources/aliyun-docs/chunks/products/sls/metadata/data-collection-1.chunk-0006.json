@@ -1,0 +1,14 @@
+{
+  "id": "sls:data-collection-1:6",
+  "document_id": "sls:data-collection-1",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "数据采集-日志服务-阿里云",
+  "source_url": "https://help.aliyun.com/zh/sls/data-collection-1",
+  "chunk_index": 6,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/data-collection-1.chunk-0006.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/data-collection-1.md",
+  "heading_path": "数据采集 > 为什么选择阿里云 > 服务",
+  "char_count": 303
+}

@@ -1,0 +1,17 @@
+{
+  "id": "ecs:overview-of-billing-methods",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "pricing",
+  "title": "ECS如何计费及包年包月和按量付费方式对比-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/overview-of-billing-methods",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/overview-of-billing-methods.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/overview-of-billing-methods.md",
+  "word_count": 804,
+  "text_units": 2380,
+  "local_links": 0,
+  "external_links": 79,
+  "has_tables": true,
+  "table_count": 15,
+  "quality": "accepted"
+}

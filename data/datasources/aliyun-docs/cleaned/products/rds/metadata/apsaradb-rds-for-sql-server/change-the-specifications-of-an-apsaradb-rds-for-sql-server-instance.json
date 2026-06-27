@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-sql-server/change-the-specifications-of-an-apsaradb-rds-for-sql-server-instance",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "performance",
+  "title": "RDS SQL Server配置变更-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-sql-server/change-the-specifications-of-an-apsaradb-rds-for-sql-server-instance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-sql-server/change-the-specifications-of-an-apsaradb-rds-for-sql-server-instance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-sql-server/change-the-specifications-of-an-apsaradb-rds-for-sql-server-instance.md",
+  "word_count": 1168,
+  "text_units": 3635,
+  "local_links": 3,
+  "external_links": 91,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

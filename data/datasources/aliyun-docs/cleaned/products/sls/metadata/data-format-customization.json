@@ -1,0 +1,17 @@
+{
+  "id": "sls:data-format-customization",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "数据格式定制化处理-日志服务-阿里云",
+  "source_url": "https://help.aliyun.com/zh/sls/data-format-customization",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/data-format-customization.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/data-format-customization.md",
+  "word_count": 517,
+  "text_units": 864,
+  "local_links": 0,
+  "external_links": 70,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

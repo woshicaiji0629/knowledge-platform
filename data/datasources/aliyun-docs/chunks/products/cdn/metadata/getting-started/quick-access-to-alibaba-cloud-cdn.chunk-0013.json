@@ -1,0 +1,14 @@
+{
+  "id": "cdn:getting-started/quick-access-to-alibaba-cloud-cdn:13",
+  "document_id": "cdn:getting-started/quick-access-to-alibaba-cloud-cdn",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "快速接入阿里云CDN-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/getting-started/quick-access-to-alibaba-cloud-cdn",
+  "chunk_index": 13,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/cdn/documents/getting-started/quick-access-to-alibaba-cloud-cdn.chunk-0013.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/getting-started/quick-access-to-alibaba-cloud-cdn.md",
+  "heading_path": "localhost name resolution is handled within DNS itself. # 127.0.0.1 localhost # ::1 localhost > # Host Database # # localhost is used to configure the loopback interface # when the system is booting. Do not change this entry. ## 127.0.0.1 localhost 255.255.255.255 broadcasthost ::1 localhost > 二、推荐配置",
+  "char_count": 492
+}

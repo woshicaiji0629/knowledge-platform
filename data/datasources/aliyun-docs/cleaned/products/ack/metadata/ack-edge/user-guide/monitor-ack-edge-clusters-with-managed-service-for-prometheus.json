@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-edge/user-guide/monitor-ack-edge-clusters-with-managed-service-for-prometheus",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "为ACK Edge集群配置Prometheus监控与告警规则-容器服务Kubernetes版ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/user-guide/monitor-ack-edge-clusters-with-managed-service-for-prometheus",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-edge/user-guide/monitor-ack-edge-clusters-with-managed-service-for-prometheus.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/user-guide/monitor-ack-edge-clusters-with-managed-service-for-prometheus.md",
+  "word_count": 1548,
+  "text_units": 5345,
+  "local_links": 9,
+  "external_links": 76,
+  "has_tables": true,
+  "table_count": 8,
+  "quality": "accepted"
+}

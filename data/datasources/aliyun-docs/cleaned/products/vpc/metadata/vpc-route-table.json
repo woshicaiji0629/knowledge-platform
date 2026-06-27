@@ -1,0 +1,17 @@
+{
+  "id": "vpc:vpc-route-table",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "VPC路由表-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/vpc-route-table/",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/vpc-route-table.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/vpc-route-table.md",
+  "word_count": 3276,
+  "text_units": 12164,
+  "local_links": 17,
+  "external_links": 173,
+  "has_tables": true,
+  "table_count": 31,
+  "quality": "accepted"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/developer-reference/use-terraform-to-create-an-ack-edge-cluster:10",
+  "document_id": "ack:ack-edge/developer-reference/use-terraform-to-create-an-ack-edge-cluster",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "使用Terraform创建ACK Edge集群-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/use-terraform-to-create-an-ack-edge-cluster",
+  "chunk_index": 10,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/developer-reference/use-terraform-to-create-an-ack-edge-cluster.chunk-0010.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/use-terraform-to-create-an-ack-edge-cluster.md",
+  "heading_path": "alicloud_cs_edge_kubernetes.edge: resource \"alicloud_cs_edge_kubernetes\" \"edge\" { certificate_authority = {} cluster_spec = \"ack.pro.small\" connections = { \"api_server_internet\" = \"https://121.43.224.65:6443\" \"api_server_intranet\" = \"https://172.16.143.180:6443\" \"master_public_ip\" = \"12xxx5\" } deletion_protection = false force_update = false id = \"c8cfixxx691\" install_cloud_monitor = true load_balancer_spec = \"slb.s2.small\" name = \"edge-example-edge\" name_prefix = \"Terraform-Creation\" nat_gateway_id = \"ngw-bp1xxxoy\" new_nat_gateway = true node_cidr_mask = 24 password = (sensitive value) pod_cidr = \"10.10.0.0/16\" proxy_mode = \"ipvs\" resource_group_id = \"rg-aekzxxxxxxxx\" runtime = { \"name\" = \"containerd\" \"version\" = \"1.6.28\" } }resource_group_id = \"rg-acxxxdy\" runtime = { \"name\" = \"containerd\" \"version\" = \"1.5.13\" } }` > 登录ACK控制台",
+  "char_count": 352
+}

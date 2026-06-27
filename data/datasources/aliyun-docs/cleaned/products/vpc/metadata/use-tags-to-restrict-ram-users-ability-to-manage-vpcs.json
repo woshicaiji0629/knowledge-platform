@@ -1,0 +1,17 @@
+{
+  "id": "vpc:use-tags-to-restrict-ram-users-ability-to-manage-vpcs",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "performance",
+  "title": "使用标签限制 RAM 用户管理 VPC-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/use-tags-to-restrict-ram-users-ability-to-manage-vpcs",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/use-tags-to-restrict-ram-users-ability-to-manage-vpcs.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/use-tags-to-restrict-ram-users-ability-to-manage-vpcs.md",
+  "word_count": 1170,
+  "text_units": 2628,
+  "local_links": 10,
+  "external_links": 71,
+  "has_tables": true,
+  "table_count": 6,
+  "quality": "accepted"
+}

@@ -1,0 +1,6 @@
+| OS 名称 | OS 版本 | 内核版本 | 发布时间 | 发布内容 |
+| --- | --- | --- | --- | --- |
+| ContainerOS GPU 3.7.2 | lifsea_3_x64_10G_alibase_nvidia_570_20260507.qcow2 | 5.10.134-19.4.1.lifsea8.x86_64 | 2026 年 05 月 08 日 | 详情请参见 [ContainerOS](../ack-managed-and-ack-dedicated/user-guide/containeros-release-record.md) [镜像发布记录](../ack-managed-and-ack-dedicated/user-guide/containeros-release-record.md) 。 |
+| ContainerOS 3.7.2 | lifsea_3_x64_5G_alibase_20260507.qcow2 | 5.10.134-19.4.1.lifsea8.x86_64 | 2026 年 05 月 08 日 | 详情请参见 [ContainerOS](../ack-managed-and-ack-dedicated/user-guide/containeros-release-record.md) [镜像发布记录](../ack-managed-and-ack-dedicated/user-guide/containeros-release-record.md) 。 |
+| Alibaba Cloud Linux 4 LTS 64-bit Container-Optimized ARM Edition | aliyun_4_arm64_20G_container_optimized_alibase_20260430.vhd | 6.6.102-5.3.1.alnx4.aarch64 | 2026 年 05 月 08 日 | 详情请参见 [Alibaba Cloud Linux 4](https://help.aliyun.com/zh/alinux/product-overview/alibaba-cloud-linux-4-image-release-notes) [镜像发布记录](https://help.aliyun.com/zh/alinux/product-overview/alibaba-cloud-linux-4-image-release-notes) 。 |
+| Alibaba Cloud Linux 3.2104 Container-Optimized ARM 版 | aliyun_3_arm64_20G_container_optimized_alibase_20

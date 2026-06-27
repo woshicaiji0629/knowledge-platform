@@ -1,0 +1,14 @@
+{
+  "id": "sls:loongcollector-installation-kubernetes-1:14",
+  "document_id": "sls:loongcollector-installation-kubernetes-1",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "deployment",
+  "title": "如何在容器安装与配置LoongCollector-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/loongcollector-installation-kubernetes-1",
+  "chunk_index": 14,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/loongcollector-installation-kubernetes-1.chunk-0014.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/loongcollector-installation-kubernetes-1.md",
+  "heading_path": "检查Pod状态 kubectl get po -n kube-system | grep loongcollector-ds > Sidecar模式安装 > 2. 改造业务容器生命周期逻辑",
+  "char_count": 1199
+}

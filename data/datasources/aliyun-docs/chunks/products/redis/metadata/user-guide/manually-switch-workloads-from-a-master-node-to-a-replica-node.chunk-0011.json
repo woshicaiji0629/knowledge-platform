@@ -1,0 +1,14 @@
+{
+  "id": "redis:user-guide/manually-switch-workloads-from-a-master-node-to-a-replica-node:11",
+  "document_id": "redis:user-guide/manually-switch-workloads-from-a-master-node-to-a-replica-node",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "手动执行主备切换实现容灾演练与优化访问延迟-云数据库Tair-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/manually-switch-workloads-from-a-master-node-to-a-replica-node",
+  "chunk_index": 11,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/user-guide/manually-switch-workloads-from-a-master-node-to-a-replica-node.chunk-0011.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/manually-switch-workloads-from-a-master-node-to-a-replica-node.md",
+  "heading_path": "手动执行主备切换 > 相关文档 > 权益",
+  "char_count": 257
+}

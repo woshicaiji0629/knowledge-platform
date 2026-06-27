@@ -1,0 +1,17 @@
+{
+  "id": "redis:support/common-errors-and-troubleshooting",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "deployment",
+  "title": "连接Tair的常见报错与解决方案-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/support/common-errors-and-troubleshooting",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/support/common-errors-and-troubleshooting.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/support/common-errors-and-troubleshooting.md",
+  "word_count": 3938,
+  "text_units": 8957,
+  "local_links": 56,
+  "external_links": 163,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

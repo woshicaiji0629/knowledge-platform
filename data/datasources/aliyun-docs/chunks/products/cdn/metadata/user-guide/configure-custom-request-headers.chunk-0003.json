@@ -1,0 +1,14 @@
+{
+  "id": "cdn:user-guide/configure-custom-request-headers:3",
+  "document_id": "cdn:user-guide/configure-custom-request-headers",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "修改出站请求头-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/user-guide/configure-custom-request-headers",
+  "chunk_index": 3,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/cdn/documents/user-guide/configure-custom-request-headers.chunk-0003.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/user-guide/configure-custom-request-headers.md",
+  "heading_path": "修改出站请求头 > 常见问题 > 安全扫描发现缺失 Required HTTP Header Fields，如何在 CDN 侧直接配置修复该漏洞？",
+  "char_count": 308
+}

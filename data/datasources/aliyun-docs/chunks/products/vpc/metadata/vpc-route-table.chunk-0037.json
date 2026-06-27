@@ -1,0 +1,14 @@
+{
+  "id": "vpc:vpc-route-table:37",
+  "document_id": "vpc:vpc-route-table",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "VPC路由表-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/vpc-route-table/",
+  "chunk_index": 37,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/vpc-route-table.chunk-0037.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/vpc-route-table.md",
+  "heading_path": "VPC路由表 > 更多信息 > 使用限制",
+  "char_count": 696
+}

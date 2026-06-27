@@ -1,0 +1,6 @@
+| 配置项 | 分析 VPC 内部的 ECS 互访流量 | 分析 VPC 之间的 ECS 互访流量 |
+| --- | --- | --- |
+| 示意图 |  |  |
+| 示例说明 | 如图所示，假设已在 1 个 VPC 中部署了 3 台 ECS，且 ECS 之间有互访流量。 此时，可以使用流日志功能分析 ECS 之间互访的流量速率和变化趋势。 | 如图所示，假设已有两个位于不同地域的 VPC，每个 VPC 内均部署有多台 ECS 实例。两个 VPC 已通过对等连接实现内网互通，对等连接使用 CDT 按量计费。 最近发现，跨地域流量费用较以往突增，此时可以使用流日志定位高流量 ECS 实例，从而优化流量成本。 |
+| 创建流日志配置 | 资源实例 选择 ECS1 的 弹性网卡 分析和投递配置 选择 投递至日志服务 ，并 开启流日志分析报表功能 其他选项保持默认 | 资源实例 选择 专有网络 VPC1 分析和投递配置 选择 投递至日志服务 ，并 开启流日志分析报表功能 其他选项保持默认 |
+| 查询分析语句 | 统计 ECS1 和其他 ECS 之间的流量速率趋势： (srcaddr:10.0.0.1 AND dstaddr:10.0.0.*) OR (srcaddr:10.0.0.* AND dstaddr:10.0.0.1 ) | select --过滤 ECS1 和其他 ECS 之间的流量趋势 date_format(from_unixtime(__time__ - __time__% 60), '%H:%i:%S') as time, -- 将 Unix 时间戳转换为可读的时间格式 concat(srcaddr,'->', dstaddr) as src_to_dst, -- 拼接 IP 会话对，格式为“源 ip->目的 ip” sum(bytes*8/60) as bandwidth -- 将字节转换为比特，并除以采集窗口时间 1 分钟 group by time,srcaddr,dstaddr -- 根据时间、源 ip、目的 ip 分组 order by time asc -- 按时间升序 limit 100 -- 显示前 100 条结果 | 统计 2 个 VPC 之间的会话流量速率趋势： (srcaddr:10.0.* AND dstaddr:172.16.*) OR (srcaddr:172.16.* AND dstaddr:10.0.*) | select --过滤 2 个 VPC 之间的会话 date_format(from_unixtime(__time__ - __time__% 60), '%H:%i:%S') as time, -- 将 Unix 时间戳转换为可读的时间格式 concat(srcaddr,'->', dstaddr

@@ -1,0 +1,6 @@
+。若指定 key 不存在，则自动创建目标 key，并以空 Roaring Bitmap 对指定区间的 bit 值执行位反转。 | V2 新增 |  |
+| [TR.APPENDINTARRAY](tairroaring-command.md) | TR.APPENDINTARRAY key value [value1 value2 ... valueN] | 设置 Roaring Bitmap 中指定偏移量（offset）的 bit 值为 1，支持传入多个值。 说明 在 TairRoaring V2 版本中，建议使用 [TR.SETBITS](tairroaring-command.md) 代替该命令。 | - |  |
+| [TR.SETINTARRAY](tairroaring-command.md) | TR.SETINTARRAY key value [value1 value2 ... valueN] | 根据传入的整型数组，创建对应的 Roaring Bitmap，该命令会重置（覆盖）已存在的 Roaring Bitmap 对象。 说明 在 TairRoaring V2 版本中，建议使用 [TR.SETBITS](tairroaring-command.md) 代替该命令。 | - |  |
+| [TR.SETBITARRAY](tairroaring-command.md) | TR.SETBITARRAY key value | 根据传入的 bit（由 0 和 1 组成的字符串），创建对应的 Roaring Bitmap。若目标 Key 已存在则会重置（覆盖）原有数据。 说明 在 TairRoaring V2 版本中，建议使用 [TR.APPENDBITARRAY](tairroaring-command.md) 代替该命令。 | - |  |
+| [TR.BITOP](tairroaring-command.md) | TR.BITOP destkey operation key [key1 key2 ... keyN] | 对 Roaring Bitmap 执行集合运算操作，计算结果存储在 destkey 中，支持 AND 、 OR 、 XOR 、 NOT 和 DIFF 集合运算类型。 说明 该命令在集群架构实例中不支持执行跨 Slot 的 Key。 | - |  |
+| [TR.BITOPCARD](tairroaring-command.md) | TR.BITOPCARD operation key [key1 key2 ... keyN] | 对 Roaring Bitmap 执行集合运算操作，支持 AND 、 OR 、 XOR 、 NOT 和 DIFF 集合运算类型。 说明 该命令在集群架构实例中不支持执行跨 Slot 的 Ke

@@ -1,0 +1,17 @@
+{
+  "id": "vpc:what-is-vpc",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "什么是专有网络VPC-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/what-is-vpc",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/what-is-vpc.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/what-is-vpc.md",
+  "word_count": 548,
+  "text_units": 1405,
+  "local_links": 0,
+  "external_links": 64,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

@@ -1,0 +1,511 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    节省停机模式（原停机不收费）-云服务器 ECS(ECS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/ecs/user-guide/economical-mode">
+  <meta name="keywords" content="停机不扣费,停止模式,节省停机,关机不扣费">
+  <meta name="description" content="针对非连续运行的按量付费ECS实例，节省停机模式通过释放vCPU、内存、固定公网IP等资源，在保留云盘数据和实例配置的同时，最大限度地降低成本。">
+  <meta name="last-modified" content="2026-06-23T15:58:35+08:00">
+  <meta name="date" content="2017-12-01T11:23:09+08:00">
+  <meta property="og:title" content="节省停机模式">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/ecs/user-guide/economical-mode">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="针对非连续运行的按量付费ECS实例，节省停机模式通过释放vCPU、内存、固定公网IP等资源，在保留云盘数据和实例配置的同时，最大限度地降低成本。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/ecs/user-guide/economical-mode",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "63353",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/ecs/user-guide/economical-mode","nodeId":null,"data":{"lastModifiedTime":1782201515000,"keywords":"停机不扣费,停止模式,节省停机,关机不扣费","docTitle":"按量付费实例（含抢占式实例）的节省停机模式","language":"zh","seoTitle":"节省停机模式（原停机不收费）-云服务器 ECS(ECS)-阿里云帮助中心","title":"节省停机模式","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n<main id=\"concept-js1-1fd-5db\">\n\n\n<p data-tag=\"shortdesc\" id=\"05799d7982zor\" class=\"shortdesc\">针对非连续运行的按量付费<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例，节省停机模式通过释放<span class=\"help-letter-space\"></span>vCPU、内存、固定公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>等资源，在保留云盘数据和实例配置的同时，最大限度地降低成本。</p>\n<div data-tag=\"taskbody\" id=\"taskbody-dq5-yt9-ete\" class=\"taskbody\">\n<section id=\"4b013903c8s1b\" class=\"section\">\n<p id=\"7e6b513fbe4r3\">在实例开启节省停机模式时，会执行以下动作：</p>\n<ul id=\"11cfc43e4dub8\">\n<li id=\"e09e2fa4e9o69\">\n<p id=\"d259f3f3f00tm\"><b>释放以下资源</b>：实例的<span class=\"help-letter-space\"></span>vCPU、内存、GPU、FPGA、固定公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>等资源，这些资源以及镜像<span class=\"help-letter-space\"></span>License<span class=\"help-letter-space\"></span>将会停止计费。</p>\n</li>\n<li _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"ec7e10c4b9nhl\">\n<p id=\"4583a56a3fq1v\"><b>保留以下资源</b>：实例的云盘（系统盘和数据盘）、云盘关联的快照、私网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>等资源。</p>\n</li>\n</ul>\n<blockquote id=\"4c1e22fa18oz4\">详情查看节省停机模式<a href=\"#4b7e68819fiec\" id=\"a4ce0abff6wz0\" title=\"\" class=\"xref\">与普通停机模式的区别</a>。</blockquote>\n</section>\n<section id=\"78f555c8cb345\" class=\"section\">\n<h2 id=\"d624141fbcehf\"><b>影响与风险</b></h2>\n<p id=\"34ba4a558aa04\">节省停机模式的成本优势源于其特殊的资源回收机制，但也引入了风险，请仔细评估是否可接受：</p>\n<section id=\"e25cf592c5fzl\" class=\"section\">\n<ul id=\"d37ea49ed2b94\">\n<li id=\"fcc9659f9bxr6\">\n<h4 id=\"1da04d0893gns\"><b>启动不确定性（不能<span class=\"help-letter-space\"></span>100%启动成功）</b></h4>\n<p id=\"84df153c3es60\">由于节省停机模式会释放计算资源，再次启动实例相当于重新申请资源，如果所在可用区的资源库存不足，实例将无法启动。此风险在资源热门地域和时段更高。<b>对于需要保证高可用性的生产环境，请谨慎使用此模式。</b></p>\n</li>\n<li id=\"6546de49e4d5x\">\n<h4 id=\"5c048f347a8e3\"><b>实例固定公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>必然变更</b></h4>\n<p id=\"ccbef97145c2i\">如果服务依赖此实例的固定公网<span class=\"help-letter-space\"></span>IP（非弹性公网<span class=\"help-letter-space\"></span>IP），该<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>将在停机后被释放。实例再次启动时，系统会为其分配一个新的固定公网<span class=\"help-letter-space\"></span>IP。如需保留公网<span class=\"help-letter-space\"></span>IP，请在启用节省停机模式前，<a href=\"https://help.aliyun.com/zh/ecs/user-guide/convert-the-public-ip-address-of-an-instance-in-a-vpc-to-an-eip\" id=\"2769df2ff904f\" title=\"\" class=\"xref\">将固定公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>转为弹性公网<span class=\"help-letter-space\"></span>IP</a>。</p>\n</li>\n<li id=\"1882faddb6iz5\">\n<h4 _ngcontent-ng-c4139270029=\"\" class=\"ng-star-inserted\" id=\"6fcb344a1d0zw\" jc=\"left\" style=\"text-align:left\"><b>突发性能实例<span class=\"help-letter-space\"></span>CPU<span class=\"help-letter-space\"></span>积分清零</b></h4>\n<p id=\"5a540e3872huf\">对于<a href=\"https://help.aliyun.com/zh/ecs/user-guide/burst-performance-instance-overview\" id=\"bc01b3db87dx7\" title=\"\" class=\"xref\">突发性能实例</a>（如<span class=\"help-letter-space\"></span>t5、t6<span class=\"help-letter-space\"></span>等规格族），进入节省停机模式后，当前累积的所有<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ecs/user-guide/burst-performance-instance-overview#section-h4n-jgr-6b4\" id=\"614dd4cb67t2c\" title=\"\" class=\"xref\">CPU<span class=\"help-letter-space\"></span>积分</a>将<b>全部清零</b>，将影响实例的突发能力。</p>\n</li>\n</ul>\n</section>\n</section>\n<section id=\"89bb28fce7x9s\" class=\"section\">\n<h2 id=\"5a3ba7e6eelyf\"><b>适用范围</b></h2>\n<p id=\"66017db7564io\" uuid=\"mfajd92ta6fzwz1s1yd\">要使用节省停机模式，ECS 实例必须同时满足以下所有条件：</p>\n<ul id=\"be4ad67a3af5z\">\n<li id=\"bed6aa5abcuzl\">\n<p id=\"fd3d48a93a9a6\"><b>计费方式</b>：按量付费（包括抢占式实例）。</p>\n</li>\n<li id=\"6c74a92ca7oyg\">\n<p id=\"b49d0e95f3xuy\"><b>网络类型</b>：仅支持专有网络实例。</p>\n</li>\n<li id=\"95a97ba5eatbq\">\n<p id=\"77c42f7e777ak\"><b>实例规格</b>： </p>\n<ul id=\"b9c6c63a30oai\">\n<li id=\"b57e7a5944hdx\">\n<p id=\"9ba753aa1825u\"><b>不包含本地盘。</b>例如，<a href=\"https://help.aliyun.com/zh/ecs/user-guide/big-data-instance-families\" id=\"5b62af93aaf7r\" title=\"\" class=\"xref\">大数据型（d<span class=\"help-letter-space\"></span>系列）</a>、<a href=\"https://help.aliyun.com/zh/ecs/user-guide/instance-families-with-local-ssds\" id=\"e936c7900besl\" title=\"\" class=\"xref\">本地<span class=\"help-letter-space\"></span>SSD<span class=\"help-letter-space\"></span>型（i<span class=\"help-letter-space\"></span>系列）</a>等规格族不支持。可在<a href=\"https://help.aliyun.com/zh/ecs/user-guide/overview-of-instance-families#concept-sx4-lxv-tdb\" id=\"6f97a75c10bw9\" title=\"\" class=\"xref\">实例规格族</a>中的<b>本地存储</b>列查询是否包含本地盘。</p>\n</li>\n<li id=\"9c42216ef8j67\">\n<p id=\"e608551ff4jjf\"><b>不包含持久内存。</b>例如，re6p、re6p-redis 等规格族不支持。可在<a href=\"https://help.aliyun.com/zh/ecs/user-guide/overview-of-instance-families#concept-sx4-lxv-tdb\" id=\"35d6ecf03cke2\" title=\"\" class=\"xref\">实例规格族</a>中的<b>持久内存</b>列查询是否包含持久内存。</p>\n</li>\n</ul>\n</li>\n</ul>\n</section>\n<section id=\"399e96de37ynq\" class=\"section\">\n<h2 id=\"a92af7c450h9e\"><b>为实例开启节省停机模式</b></h2>\n<div id=\"b40aea9596u7c\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n<p id=\"a92f248c31egq\">在实例内部操作系统中，通过<code data-tag=\"code\" id=\"6164254ef9xz7\" class=\"code\">shutdown</code>、<code data-tag=\"code\" id=\"d1772b176b202\" class=\"code\">poweroff</code>、<code data-tag=\"code\" id=\"b819658456sik\" class=\"code\">halt</code>等命令或其他手动方式执行关机操作，<b>不会进入节省停机模式</b>。请在控制台或通过<span class=\"help-letter-space\"></span>API/CLI<span class=\"help-letter-space\"></span>操作。</p>\n</div></div>\n<section data-tag=\"tabbed-content-box\" id=\"7bf72eda5dpnb\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n<section id=\"78dcbdd759zvr\" class=\"section\">\n<h2 id=\"7e1fdd1638jkd\">控制台</h2>\n<ol id=\"62658b3ee04np\" start=\"1\">\n<li id=\"8a14527a4d7mn\">\n<p id=\"e752f5e96dvhq\">进入<span data-tag=\"ph\" id=\"c3be4cdd99gfm\" docid=\"5602530\" is-conref=\"true\" class=\"ph\"><span props=\"china\"><a class=\"\" href=\"https://ecs.console.aliyun.com/server/region\" id=\"f4e5a2e258w9y\">ECS<span class=\"help-letter-space\"></span>控制台-实例</a></span></span>，选择地域与资源组。</p>\n</li>\n<li id=\"0e2dd851b0xdq\">\n<p id=\"dae212d791ojf\">在实例列表找到待操作实例后，单击<b id=\"7d6f474aa0cyu\" data-tag=\"uicontrol\" data-isbold=\"true\" data-format-type=\"icu\" data-params-value=\"setting\" class=\"uicontrol\">操作</b>列下的<b id=\"3705c61446lk3\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">停止</b>。</p>\n</li>\n<li id=\"263c58a2bfl3m\">\n<p id=\"7768a7031cxy3\">在弹出的对话框中，设置<b id=\"89c302b25fjl4\" data-tag=\"uicontrol\" data-isbold=\"true\" data-format-type=\"icu\" data-params-value=\"StoppedMode\" class=\"uicontrol\">停止模式</b>为<b id=\"48f16c02353ah\" data-tag=\"uicontrol\" data-isbold=\"true\" data-format-type=\"icu\" data-params-value=\"StopCharging\" class=\"uicontrol\">节省停机模式</b>，然后单击<b id=\"7e48b64615fhc\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>。</p>\n</li>\n</ol>\n<p id=\"b83093e8d512p\"><b>预期结果</b></p>\n<p id=\"0474aa663fluh\">实例会首先进入<b id=\"5bb1495b745da\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">停止中</b>状态，在实例停止完成后，<b id=\"5dfd40f4c0c32\" data-tag=\"uicontrol\" data-isbold=\"true\" data-format-type=\"icu\" data-params-value=\"status\" class=\"uicontrol\">状态</b>列会显示<b id=\"3b0f6fa88d8ub\" data-tag=\"uicontrol\" data-isbold=\"true\" data-format-type=\"icu\" data-params-value=\"Stopped\" class=\"uicontrol\">已停止</b>和<b id=\"1b9673e8eb927\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">节省停机模式</b>的标签。</p>\n</section>\n<section id=\"e9e42545d7uig\" class=\"section\">\n<h2 id=\"6fcd9bdb086bj\">CLI</h2>\n<p id=\"ab932bec2duyd\" jc=\"left\" style=\"text-align:left\">可以调用<a href=\"https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-stopinstance#doc-api-Ecs-StopInstance\" id=\"e3a67955d4sc0\" title=\"\" class=\"xref\">停止实例</a>操作，并将<code class=\"code\" data-tag=\"code\" id=\"fbed0c2f78aiy\">StoppedMode</code>参数设置为<code class=\"code\" data-tag=\"code\" id=\"4a9581105dqjb\">StopCharging</code>。</p>\n<p id=\"8117a00ccffxe\" jc=\"left\" style=\"text-align:left\">示例：使用节省停机模式停止杭州地域实例<span class=\"help-letter-space\"></span>ID<span class=\"help-letter-space\"></span>为<code data-tag=\"code\" id=\"263b88de33ulf\" class=\"code\">i-t4n5xxxxxxxxxxx</code>的实例。</p>\n<pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"da8bfd7d45ymy\" outputclass=\"language-json\" class=\"pre codeblock language-json\"><code>aliyun ecs StopInstance \\\n--RegionId cn-hangzhou \\\n--InstanceId i-t4n5xxxxxxxxxxx \\\n--StoppedMode StopCharging \\\n--ForceStop false \\\n--DryRun false</code></pre>\n</section>\n<section id=\"1f1df1ba1dfxg\" class=\"section\">\n<h2 id=\"c7b91aa8eevob\">API</h2>\n<ul id=\"c7b85cce90wbt\">\n<li id=\"a853cb8322afl\">\n<p id=\"6372d4237b6kh\">调用<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ecs/api-stopinstance#doc-api-Ecs-StopInstance\" id=\"b6dee147047al\" title=\"\" class=\"xref\">StopInstance</a><span class=\"help-letter-space\"></span>停止按量付费（含抢占式）ECS<span class=\"help-letter-space\"></span>实例时，将<code data-tag=\"code\" id=\"50962c8a3c4h0\" class=\"code\">StoppedMode</code>设置为<code data-tag=\"code\" id=\"d8df3ba62abpe\" class=\"code\">StopCharging</code>，即可使<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例进入节省停机模式。</p>\n<div id=\"31057cfa8frit\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n<p id=\"d39bb76da4yua\">对于不满足节省停机模式条件的实例，调用该接口并设置<code data-tag=\"code\" id=\"7a584f796bhik\" class=\"code\">StoppedMode=StopCharging</code>不会报错，实例会以普通模式正常停机。要确认实例是否成功进入节省停机模式，请通过<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-describeinstances\" id=\"532755a119c6x\" title=\"\" class=\"xref\">DescribeInstances</a><span class=\"help-letter-space\"></span>接口查询实例状态。</p>\n</div></div>\n</li>\n<li id=\"00284afa1d5ee\">\n<p id=\"45607da36c0kg\">调用<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-runinstances\" id=\"d1f9c22d23acj\" title=\"\" class=\"xref\">RunInstances</a><span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-createinstance\" id=\"a4cc12afc6weg\" title=\"\" class=\"xref\">CreateInstance</a><span class=\"help-letter-space\"></span>创建抢占式实例时，将<code data-tag=\"code\" id=\"53f1b101c8w3b\" class=\"code\">SpotInterruptionBehavior</code>设置为<code data-tag=\"code\" id=\"8456e3a1bbriq\" class=\"code\">Stop</code>，实例中断时，将进入节省停机模式。</p>\n</li>\n</ul>\n</section>\n</section>\n</section>\n<section id=\"ad0363ccff0v2\" class=\"section\">\n<h2 id=\"4e54cdf13eytb\"><b>在停止实例时默认选择节省停机</b></h2>\n<p id=\"a6b14ce99d0sd\">默认情况下，在控制台停止实例时默认选择<b id=\"59fe3db6dez88\" data-tag=\"uicontrol\" data-isbold=\"true\" data-format-type=\"icu\" data-params-value=\"KeepCharging\" class=\"uicontrol\">普通停机模式</b>，可通过设置该选项，调整控制台默认选择<b id=\"f29af7122dr3e\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">节省停机模式</b>。</p>\n<blockquote id=\"3827b3d424bfz\">该配置仅调整控制台的默认选项，在实际停止实例时，依然可选择使用<b id=\"f5398fe8af40h\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">普通停机模式</b>停止实例。</blockquote>\n<ol data-tag=\"steps\" id=\"0e17a38edbcm8\" class=\"steps\">\n<li id=\"fda519aab35ew\">\n<p id=\"83ba3d9c1bnqa\">进入<span data-tag=\"ph\" id=\"a32f6e155abb7\" docid=\"5062427\" is-conref=\"true\" class=\"ph\"><span props=\"china\"><a class=\"\" href=\"https://ecs.console.aliyun.com/home\" id=\"79563425bb18v\">ECS<span class=\"help-letter-space\"></span>控制台-概览</a></span></span>页面。</p>\n<section id=\"65420e8f20de0\" props=\"china\" data-cond-props=\"china\" class=\"section\">\n              <blockquote id=\"24ee48a265yxz\">请将<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>控制台切换为标准版进行设置。</blockquote>\n            </section>\n</li>\n<li data-tag=\"step\" id=\"3aa7120e89tf5\" class=\"step\">\n<p id=\"6c11b0feeev3f\">在页面右侧的<b id=\"uicontrol-8eh-vqh-vbp\" data-tag=\"uicontrol\" data-isbold=\"true\" data-format-type=\"icu\" data-params-value=\"common\" class=\"uicontrol\">常用功能</b>区域，单击<b id=\"uicontrol-fhs-2br-k9f\" data-tag=\"uicontrol\" data-isbold=\"true\" data-format-type=\"icu\" data-params-value=\"CommonSetting\" class=\"uicontrol\">用户设置</b>。</p>\n</li>\n<li data-tag=\"step\" id=\"dff8167eee4f7\" class=\"step\">\n<p id=\"24e7895a94fco\">打开<b id=\"eae4806681ji7\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">节省停机模式</b>开关。</p>\n</li>\n<li data-tag=\"step\" id=\"ece3956caau02\" class=\"step\">\n<p id=\"ed2d6abb7dx7y\">阅读提醒信息，确认后在底部单击<b id=\"uicontrol-bdi-qgl-i04\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">开启默认 VPC 内实例节省停机模式</b>。</p>\n</li>\n</ol>\n</section>\n<section id=\"bfabae40d1480\" class=\"section\">\n<h2 id=\"d10bae8310cmh\"><b>应用于生产环境</b></h2>\n<p id=\"e4b682b35601x\">对于需要大规模或周期性管理实例开关机的集群环境，可以结合阿里云的系统运维管理（OOS）服务，实现定时自动进入节省停机模式，从而实现无人值守的成本优化。</p>\n<ul id=\"789383e54efzu\">\n<li id=\"11348ca6c0bkv\">\n<p id=\"c22a04b2bbnei\"><b>场景举例：</b>有一批<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例作为开发测试环境，通常只在工作日的白天（例如 9:00 - 18:00）被使用。在夜间和周末，这些实例虽然闲置，但仍在持续产生费用。</p>\n</li>\n<li id=\"33db61264ercl\">\n<p id=\"a5b00f5670wrl\"><b>解决方案：</b>可通过阿里云的&nbsp;<b>运维编排服务（OOS）</b>，&nbsp;创建<a href=\"https://help.aliyun.com/zh/oos/use-cases/scheduled-startup-and-shutdown\" id=\"46fa8441c47e8\" title=\"\" class=\"xref\">定时开关机</a>任务，确保资源在不被使用时自动进入最经济的状态，从而节省成本。关键配置如下：</p>\n<ul id=\"36e713d2f1a0d\">\n<li id=\"99cc2b74908eg\">\n<p id=\"bcb771b4158re\"><b>执行周期：</b>周一～周五</p>\n</li>\n<li id=\"3c7be99db2wz1\">\n<p id=\"58b3e123b1cfz\"><b>开机时间：</b>09:00</p>\n</li>\n<li id=\"407250bcb8ujj\">\n<p id=\"5bf09adca77po\"><b>关机时间：</b>18:00</p>\n</li>\n<li id=\"31a3ff9646omg\">\n<p id=\"7a3bce7ec0sw0\"><b>停机模式：</b>节省停机模式</p>\n</li>\n</ul>\n</li>\n</ul>\n</section>\n<section id=\"ff336b84f1avn\" class=\"section\">\n<h2 id=\"4b7e68819fiec\"><b>与普通停机模式的区别</b></h2>\n<p id=\"ba9d0f6b9fczw\">节省停机模式与普通停机模式的主要差异如下：</p>\n<table autofit=\"true\" id=\"1a080a6f24oe8\" tablecolswidth=\"13.25 43.45 43.3\" tablewidth=\"100\" class=\"table\">\n<colgroup colwidth=\"0.4*\" style=\"width:13.25%\"></colgroup>\n<colgroup colwidth=\"1.32*\" style=\"width:43.45%\"></colgroup>\n<colgroup colwidth=\"1.31*\" style=\"width:43.30%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"5e9a65b119wio\">\n<td id=\"84d7a6afcfsra\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"af04d6c8c9q0o\"><b>功能特性</b></p>\n</td>\n<td id=\"47fbac364drnl\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"1aca653bad3mc\"><b>节省停机模式</b></p>\n</td>\n<td id=\"657c9f46a9ewc\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"f44348f008944\"><b>普通停机模式</b></p>\n</td>\n</tr>\n<tr id=\"a32f9a3cffpef\">\n<td id=\"dd2838612eqgm\" rowspan=\"1\" colspan=\"1\">\n<p id=\"408852aaf1pj9\"><b>资源保留</b></p>\n</td>\n<td id=\"8f895e3b7f8b1\" rowspan=\"1\" colspan=\"1\">\n<p id=\"9eff7546f60kv\">仅保留云盘和实例元数据，<b>释放<span class=\"help-letter-space\"></span>vCPU、内存、GPU、FPGA、固定公网<span class=\"help-letter-space\"></span>IP、本地盘等资源</b>。</p>\n</td>\n<td id=\"279fa3ede2jyi\" rowspan=\"1\" colspan=\"1\">\n<p id=\"df89d70174184\">保留所有资源。</p>\n</td>\n</tr>\n<tr id=\"180e626930w1g\">\n<td id=\"e9bf19685f3a6\" rowspan=\"1\" colspan=\"1\">\n<p id=\"19e00709f2hf7\"><b>主要计费项</b></p>\n</td>\n<td id=\"9d054d4633d9b\" rowspan=\"1\" colspan=\"1\">\n<p id=\"66cd5024e232b\">vCPU、内存、GPU、FPGA、固定公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>等资源<b>停止计费</b>。镜像<span class=\"help-letter-space\"></span>License、云盘、弹性公网<span class=\"help-letter-space\"></span>IP（EIP）、快照等资源<b>继续计费</b>。</p>\n</td>\n<td id=\"8ffba414e4c71\" rowspan=\"1\" colspan=\"1\">\n<p id=\"2345ed176cfg7\"><b>继续计费</b>。</p>\n</td>\n</tr>\n<tr id=\"a4d5261452sba\">\n<td id=\"8a0b47573aktn\" rowspan=\"1\" colspan=\"1\">\n<p id=\"5531b1d1a8cny\"><b>重启速度</b></p>\n</td>\n<td id=\"5c1fa79fdfehv\" rowspan=\"1\" colspan=\"1\">\n<p id=\"51b07f3db33w9\">相对较慢，因为需要重新申请和分配计算资源。</p>\n</td>\n<td id=\"2514d5683292y\" rowspan=\"1\" colspan=\"1\">\n<p id=\"ad9753756boy8\">较快，因为计算资源未被释放。</p>\n</td>\n</tr>\n<tr id=\"ab60a2b3faz47\">\n<td id=\"9a8aa17c30kdt\" rowspan=\"1\" colspan=\"1\">\n<p id=\"a317ef095fqoh\"><b>重启成功率</b></p>\n</td>\n<td id=\"fee3a6cd9arat\" rowspan=\"1\" colspan=\"1\">\n<p id=\"ebfb8fe6aakqc\"><b>不保证成功</b>。在资源紧张的地域可能因库存不足而启动失败。</p>\n</td>\n<td id=\"25a5552c02m4b\" rowspan=\"1\" colspan=\"1\">\n<p id=\"4fdc01199cjuf\">不会因资源库存不足导致重启失败。</p>\n</td>\n</tr>\n<tr id=\"1b388b5b1a86g\">\n<td id=\"0789c206bcwxs\" rowspan=\"1\" colspan=\"1\">\n<p id=\"653ce41405lur\"><b>固定公网<span class=\"help-letter-space\"></span>IP</b></p>\n</td>\n<td id=\"fa0bcaf7aa8g8\" rowspan=\"1\" colspan=\"1\">\n<p id=\"190663c98fhb6\">实例的固定公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>会被释放，重启后将分配一个新的公网<span class=\"help-letter-space\"></span>IP。</p>\n</td>\n<td id=\"5dce30788fbla\" rowspan=\"1\" colspan=\"1\">\n<p id=\"febf459914p25\">固定公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>保持不变。</p>\n</td>\n</tr>\n</tbody>\n</table>\n</section>\n<section id=\"8000acc8dala7\" outputclass=\"test\" class=\"test section\">\n<h2 id=\"37b31b940fezc\"><b>常见问题</b></h2>\n<section id=\"14db09aafc1uu\" class=\"section\">\n<ul id=\"7591fd1815tu2\">\n<li id=\"463e7c90c1z23\">\n<h4 data-tag=\"title\" id=\"title-23o-35o-d77\" class=\"title\"><b>打开默认启用节省停机模式后，是否支持单台<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例关机时不释放计算资源和网络资源？</b></h4>\n<p id=\"40596f654axg1\">打开默认启用节省停机模式后，在停止单台实例时仍然需要设置单台实例的停止模式，ECS<span class=\"help-letter-space\"></span>实例不触发节省停机效果就不会释放计算资源和网络资源。</p>\n<p id=\"cf6a9122e49dm\">如果需要在短时间内停机再开机，建议您在调用<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ecs/api-stopinstance#doc-api-Ecs-StopInstance\" id=\"433ae85892vcv\" title=\"\" class=\"xref\">StopInstance</a><span class=\"help-letter-space\"></span>时将<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-nab-h7c-wvr\" class=\"parmname\">StoppedMode</span><span class=\"help-letter-space\"></span>设置为<span class=\"help-letter-space\"></span><span data-tag=\"option\" id=\"option-0nw-xj5-7ub\" class=\"option\">KeepCharging</span>，或者在控制台上停止<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例时选择<b id=\"uicontrol-xep-5o5-m8h\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">普通停机模式</b>。</p>\n</li>\n</ul>\n</section>\n<section id=\"be107fd2abkip\" class=\"section\">\n<ul id=\"c806c0e4a345f\">\n<li id=\"ac37601571yqh\">\n<h4 data-tag=\"title\" id=\"title-pkl-65c-3oo\" class=\"title\"><b>在<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例操作系统内关机能否触发节省停机效果？</b></h4>\n<div data-tag=\"p\" id=\"p-fey-4tt-9j6\" class=\"p\">\n<p id=\"6d947d3e5e0yr\">不能。</p>\n<p id=\"5109c193edqqg\">在实例内部操作系统中，通过<code data-init-id=\"6164254ef9xz7\" data-tag=\"code\" id=\"936be3ef426m3\" class=\"code\">shutdown</code>、<code data-init-id=\"d1772b176b202\" data-tag=\"code\" id=\"3a66e8c9c2nr4\" class=\"code\">poweroff</code>、<code data-init-id=\"b819658456sik\" data-tag=\"code\" id=\"5bb54f41bd8id\" class=\"code\">halt</code>等命令或其他手动方式执行关机操作，<b>不会进入节省停机模式</b>。实例通过以下方式停机时才能触发节省停机效果。 </p>\n<ul data-tag=\"ul\" id=\"ul-dca-g9n-f6q\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-9w7-j0s-to1\" class=\"li\">\n<p id=\"10844d1540zdy\">ECS<span class=\"help-letter-space\"></span>管理控制台。</p>\n</li>\n<li data-tag=\"li\" id=\"li-hmp-dki-2t7\" class=\"li\">\n<p id=\"9723a7d08ab21\">通过阿里云<span class=\"help-letter-space\"></span>CLI<span class=\"help-letter-space\"></span>或<span class=\"help-letter-space\"></span>SDK<span class=\"help-letter-space\"></span>发起的<span class=\"help-letter-space\"></span>API<span class=\"help-letter-space\"></span>请求。</p>\n</li>\n<li data-tag=\"li\" id=\"li-86m-3w5-fei\" class=\"li\">\n<p id=\"2dda411f13jxz\">账号欠费自动停机。</p>\n</li>\n</ul>\n</div>\n</li>\n</ul>\n</section>\n<section id=\"d86d4d319c0es\" class=\"section\">\n<ul id=\"ece8b7af10u5u\">\n<li id=\"62605122e6b0b\">\n<h4 data-tag=\"title\" id=\"title-y73-rky-9yg\" class=\"title\"><b>本地盘实例是否支持自动触发节省停机效果？</b></h4>\n<p id=\"1a7c7933c3tor\">本地盘实例不支持触发节省停机效果。</p>\n</li>\n</ul>\n</section>\n<section id=\"888ddb1030otu\" class=\"section\">\n<ul id=\"b9dde18188xti\">\n<li id=\"b2a7bbc4815hd\">\n<h4 id=\"9d34d30d72ppc\"><b>为什么开启实例的节省停机模式后，实例启动失败？</b></h4>\n<p id=\"7bf024ec93ej4\">可能原因如下：</p>\n<ul data-init-id=\"b9dde18188xti\" id=\"a1e57b6b36u60\">\n<li id=\"ba2fd6d72bzws\">\n<p id=\"dd04c7581esnm\"><b>部分资源库存不足：</b>可能因为部分资源库存不足导致启动失败，可以稍后尝试再次启动，或者尝试<a href=\"https://help.aliyun.com/zh/ecs/user-guide/change-the-instance-type-of-a-pay-as-you-go-instance#concept-fzw-gbf-5db\" id=\"28b027c8cfm5i\" title=\"\" class=\"xref\">更改实例规格</a>。</p>\n</li>\n<li id=\"f19da64f78dua\">\n<p id=\"e5d828f5affu6\"><b>账户欠费。</b></p>\n</li>\n<li id=\"7904dfcb6a0ue\">\n<p id=\"56a694a2f7p2r\"><b>抢占式实例价格超过价格上限：</b>创建抢占式实例时如果设置了价格上限，重启实例时可能会因市场价超过价格上限，导致重启失败。</p>\n</li>\n</ul>\n</li>\n</ul>\n</section>\n<section id=\"7ea026bbe3vgk\" class=\"section\">\n<ul id=\"c389480606ne2\">\n<li id=\"6c2364d580j3c\">\n<h4 data-tag=\"title\" id=\"title-p17-mva-fai\" class=\"title\"><b>ECS<span class=\"help-letter-space\"></span>实例触发节省停机效果后，为什么<span class=\"help-letter-space\"></span>StartInstance<span class=\"help-letter-space\"></span>时会报错</b><span data-tag=\"ph\" id=\"3669f9dac2edb\" class=\"ph\"><b>OperationDenied.NoStock</b></span><b>？</b></h4>\n<p id=\"99ae882a8biyh\">节省停机模式会释放计算资源。当再次启动实例时，系统需要重新申请资源。如果此时资源池库存不足，启动就会失败并返回<code data-tag=\"code\" id=\"edea465fe1adk\" class=\"code\">OperationDenied.NoStock</code>错误。建议稍后重试，或尝试更换实例规格。</p>\n</li>\n</ul>\n</section>\n<section id=\"45c7d451e40zn\" class=\"section\">\n<ul id=\"afc49fd62foul\">\n<li id=\"2b601c5e0drvy\">\n<h4 data-tag=\"title\" id=\"title-jkh-fyr-zfa\" class=\"title\"><b>启用了节省停机模式后，停机再开机时公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>会变化，怎么保持公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>不变？</b></h4>\n<p id=\"fe11574f41h59\">ECS<span class=\"help-letter-space\"></span>实例触发节省停机效果后，固定公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>会被回收，下次启动时自动分配新的固定公网<span class=\"help-letter-space\"></span>IP，因此会发生变化。</p>\n<div data-tag=\"p\" id=\"p-szb-y6h-n7j\" class=\"p\">\n<p id=\"113f6239b5va0\">如需保持公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>不变，您可以将<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例的固定公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>转为弹性公网<span class=\"help-letter-space\"></span>IP，因为<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例触发节省停机效果后不会释放弹性公网<span class=\"help-letter-space\"></span>IP，可以保证公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>不变。更多信息，请参见<a href=\"https://help.aliyun.com/zh/ecs/user-guide/convert-the-public-ip-address-of-an-instance-in-a-vpc-to-an-eip#concept-l2l-jgn-xdb\" id=\"787357338c745\" title=\"\" class=\"xref\">固定公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>转为弹性公网<span class=\"help-letter-space\"></span>IP</a><span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ecs/api-convertnatpubliciptoeip#doc-api-Ecs-ConvertNatPublicIpToEip\" id=\"5a3002d8099d4\" title=\"\" class=\"xref\">ConvertNatPublicIpToEip</a>。</p>\n<div data-tag=\"note\" id=\"note-is8-pyw-y5e\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n<p id=\"37e332a0b0ysp\">固定公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>转成弹性公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>后，使用弹性公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>访问公网会收取公网出网带宽费用、EIP<span class=\"help-letter-space\"></span>配置费（满足特定条件时不收取）和<span class=\"help-letter-space\"></span>EIP<span class=\"help-letter-space\"></span>绑定费（满足特定条件时不收取）。具体收费细则，请参见<a href=\"https://help.aliyun.com/zh/eip/billing-overview#concept-645525\" id=\"0590165c31cdh\" title=\"\" class=\"xref\">弹性公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>计费概述</a>。</p>\n</div></div>\n</div>\n</li>\n</ul>\n</section>\n<section id=\"31ae933772l5k\" class=\"section\">\n<ul id=\"956bae10268jz\">\n<li id=\"16c1efe3f40aa\">\n<h4 id=\"b19900b6139nz\"><b>调用<span class=\"help-letter-space\"></span>StopInstance<span class=\"help-letter-space\"></span>并指定</b><code data-init-id=\"50962c8a3c4h0\" data-tag=\"code\" id=\"262955a179usn\" class=\"code\"><b>StoppedMode=StopCharging</b></code><b>后，实例没有进入节省停机模式？</b></h4>\n<p id=\"861881a0d1dp0\" jc=\"left\" style=\"text-align:left\">对于不满足节省停机模式条件的实例，调用<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ecs/api-stopinstance#doc-api-Ecs-StopInstance\" id=\"220b6d8e06cqe\" title=\"\" class=\"xref\">StopInstance</a><span class=\"help-letter-space\"></span>接口并设置<code data-init-id=\"7a584f796bhik\" data-tag=\"code\" id=\"032dcdf85f63n\" class=\"code\">StoppedMode=StopCharging</code>时，系统不会拦截该操作，系统将优先确保实例正常停机。要确认实例是否成功进入节省停机模式，请通过<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-describeinstances\" id=\"e5549ad744hjc\" title=\"\" class=\"xref\">DescribeInstances</a><span class=\"help-letter-space\"></span>接口查询实例状态。</p>\n</li>\n</ul>\n</section>\n<section id=\"225377e654a1e\" class=\"section\">\n<ul id=\"980edb7413ckm\">\n<li id=\"7cc8d69cc4yrv\">\n<h4 id=\"d3042676eflfp\"><b>如何将普通停机模式切换到节省停机模式？</b></h4>\n<p id=\"62ce6988b2l85\">无法直接切换，需先启动实例至<b>运行中</b>状态，再启用节省停机模式。</p>\n</li>\n</ul>\n</section>\n</section>\n</div>\n</main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/ecs/user-guide/economical-mode","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云服务器 ECS","id":25365,"title":"云服务器 ECS","url":"/zh/ecs/"},"alias":"/ecs/user-guide/economical-mode","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":7,"developerUrl":"https://developer.aliyun.com/group/ecs/","nodeType":1,"version":72,"url":"/zh/ecs/user-guide/economical-mode","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":63353,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"节省停机模式","id":63353,"title":"节省停机模式","url":"/zh/ecs/user-guide/economical-mode"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"管理与配置实例","id":108403,"title":"管理与配置实例","url":"/zh/ecs/user-guide/manage-instance-status/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"实例","id":108375,"title":"实例","url":"/zh/ecs/user-guide/instances-4/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云服务器 ECS","id":25365,"title":"云服务器 ECS","url":"/zh/ecs/"},"productUrl":"https://www.aliyun.com/product/ecs","nodeId":63353,"desc":"针对非连续运行的按量付费ECS实例，节省停机模式通过释放vCPU、内存、固定公网IP等资源，在保留云盘数据和实例配置的同时，最大限度地降低成本。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云服务器 ECS","id":25365,"title":"云服务器 ECS","url":"/zh/ecs/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"实例","id":108375,"title":"实例","url":"/zh/ecs/user-guide/instances-4/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"管理与配置实例","id":108403,"title":"管理与配置实例","url":"/zh/ecs/user-guide/manage-instance-status/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"节省停机模式","id":63353,"title":"节省停机模式","url":"/zh/ecs/user-guide/economical-mode"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=215041b217825359880411258e2acb&asid=AQAAAAA0Vz9qkpzsbwAAAAAPJNPweCdd4Q==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2399509" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">用户指南</span>
+</a>
+</li>
+ <li id="2399511" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="25396" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/billing-2/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品计费</span>
+</a>
+</li>
+ <li id="2983136" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/faqs/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+ <li id="117482" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/announcements-and-updates/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">动态与公告</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>按量付费实例（含抢占式实例）的节省停机模式</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/ecs" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+<main id="concept-js1-1fd-5db">
+
+
+<p data-tag="shortdesc" id="05799d7982zor" class="shortdesc">针对非连续运行的按量付费<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例，节省停机模式通过释放<span class="help-letter-space"></span>vCPU、内存、固定公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>等资源，在保留云盘数据和实例配置的同时，最大限度地降低成本。</p>
+<div data-tag="taskbody" id="taskbody-dq5-yt9-ete" class="taskbody">
+<section id="4b013903c8s1b" class="section">
+<p id="7e6b513fbe4r3">在实例开启节省停机模式时，会执行以下动作：</p>
+<ul id="11cfc43e4dub8">
+<li id="e09e2fa4e9o69">
+<p id="d259f3f3f00tm"><b>释放以下资源</b>：实例的<span class="help-letter-space"></span>vCPU、内存、GPU、FPGA、固定公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>等资源，这些资源以及镜像<span class="help-letter-space"></span>License<span class="help-letter-space"></span>将会停止计费。</p>
+</li>
+<li _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="ec7e10c4b9nhl">
+<p id="4583a56a3fq1v"><b>保留以下资源</b>：实例的云盘（系统盘和数据盘）、云盘关联的快照、私网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>等资源。</p>
+</li>
+</ul>
+<blockquote id="4c1e22fa18oz4">详情查看节省停机模式<a href="#4b7e68819fiec" id="a4ce0abff6wz0" title="" class="xref">与普通停机模式的区别</a>。</blockquote>
+</section>
+<section id="78f555c8cb345" class="section">
+<h2 id="d624141fbcehf"><b>影响与风险</b></h2>
+<p id="34ba4a558aa04">节省停机模式的成本优势源于其特殊的资源回收机制，但也引入了风险，请仔细评估是否可接受：</p>
+<section id="e25cf592c5fzl" class="section">
+<ul id="d37ea49ed2b94">
+<li id="fcc9659f9bxr6">
+<h4 id="1da04d0893gns"><b>启动不确定性（不能<span class="help-letter-space"></span>100%启动成功）</b></h4>
+<p id="84df153c3es60">由于节省停机模式会释放计算资源，再次启动实例相当于重新申请资源，如果所在可用区的资源库存不足，实例将无法启动。此风险在资源热门地域和时段更高。<b>对于需要保证高可用性的生产环境，请谨慎使用此模式。</b></p>
+</li>
+<li id="6546de49e4d5x">
+<h4 id="5c048f347a8e3"><b>实例固定公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>必然变更</b></h4>
+<p id="ccbef97145c2i">如果服务依赖此实例的固定公网<span class="help-letter-space"></span>IP（非弹性公网<span class="help-letter-space"></span>IP），该<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>将在停机后被释放。实例再次启动时，系统会为其分配一个新的固定公网<span class="help-letter-space"></span>IP。如需保留公网<span class="help-letter-space"></span>IP，请在启用节省停机模式前，<a href="https://help.aliyun.com/zh/ecs/user-guide/convert-the-public-ip-address-of-an-instance-in-a-vpc-to-an-eip" id="2769df2ff904f" title="" class="xref">将固定公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>转为弹性公网<span class="help-letter-space"></span>IP</a>。</p>
+</li>
+<li id="1882faddb6iz5">
+<h4 _ngcontent-ng-c4139270029="" class="ng-star-inserted" id="6fcb344a1d0zw" jc="left" style="text-align:left"><b>突发性能实例<span class="help-letter-space"></span>CPU<span class="help-letter-space"></span>积分清零</b></h4>
+<p id="5a540e3872huf">对于<a href="https://help.aliyun.com/zh/ecs/user-guide/burst-performance-instance-overview" id="bc01b3db87dx7" title="" class="xref">突发性能实例</a>（如<span class="help-letter-space"></span>t5、t6<span class="help-letter-space"></span>等规格族），进入节省停机模式后，当前累积的所有<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ecs/user-guide/burst-performance-instance-overview#section-h4n-jgr-6b4" id="614dd4cb67t2c" title="" class="xref">CPU<span class="help-letter-space"></span>积分</a>将<b>全部清零</b>，将影响实例的突发能力。</p>
+</li>
+</ul>
+</section>
+</section>
+<section id="89bb28fce7x9s" class="section">
+<h2 id="5a3ba7e6eelyf"><b>适用范围</b></h2>
+<p id="66017db7564io" uuid="mfajd92ta6fzwz1s1yd">要使用节省停机模式，ECS 实例必须同时满足以下所有条件：</p>
+<ul id="be4ad67a3af5z">
+<li id="bed6aa5abcuzl">
+<p id="fd3d48a93a9a6"><b>计费方式</b>：按量付费（包括抢占式实例）。</p>
+</li>
+<li id="6c74a92ca7oyg">
+<p id="b49d0e95f3xuy"><b>网络类型</b>：仅支持专有网络实例。</p>
+</li>
+<li id="95a97ba5eatbq">
+<p id="77c42f7e777ak"><b>实例规格</b>： </p>
+<ul id="b9c6c63a30oai">
+<li id="b57e7a5944hdx">
+<p id="9ba753aa1825u"><b>不包含本地盘。</b>例如，<a href="https://help.aliyun.com/zh/ecs/user-guide/big-data-instance-families" id="5b62af93aaf7r" title="" class="xref">大数据型（d<span class="help-letter-space"></span>系列）</a>、<a href="https://help.aliyun.com/zh/ecs/user-guide/instance-families-with-local-ssds" id="e936c7900besl" title="" class="xref">本地<span class="help-letter-space"></span>SSD<span class="help-letter-space"></span>型（i<span class="help-letter-space"></span>系列）</a>等规格族不支持。可在<a href="https://help.aliyun.com/zh/ecs/user-guide/overview-of-instance-families#concept-sx4-lxv-tdb" id="6f97a75c10bw9" title="" class="xref">实例规格族</a>中的<b>本地存储</b>列查询是否包含本地盘。</p>
+</li>
+<li id="9c42216ef8j67">
+<p id="e608551ff4jjf"><b>不包含持久内存。</b>例如，re6p、re6p-redis 等规格族不支持。可在<a href="https://help.aliyun.com/zh/ecs/user-guide/overview-of-instance-families#concept-sx4-lxv-tdb" id="35d6ecf03cke2" title="" class="xref">实例规格族</a>中的<b>持久内存</b>列查询是否包含持久内存。</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="399e96de37ynq" class="section">
+<h2 id="a92af7c450h9e"><b>为实例开启节省停机模式</b></h2>
+<div id="b40aea9596u7c" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+<p id="a92f248c31egq">在实例内部操作系统中，通过<code data-tag="code" id="6164254ef9xz7" class="code">shutdown</code>、<code data-tag="code" id="d1772b176b202" class="code">poweroff</code>、<code data-tag="code" id="b819658456sik" class="code">halt</code>等命令或其他手动方式执行关机操作，<b>不会进入节省停机模式</b>。请在控制台或通过<span class="help-letter-space"></span>API/CLI<span class="help-letter-space"></span>操作。</p>
+</div></div>
+<section data-tag="tabbed-content-box" id="7bf72eda5dpnb" outputclass="tabbed-content-box" class="tabbed-content-box section">
+<section id="78dcbdd759zvr" class="section">
+<h2 id="7e1fdd1638jkd">控制台</h2>
+<ol id="62658b3ee04np" start="1">
+<li id="8a14527a4d7mn">
+<p id="e752f5e96dvhq">进入<span data-tag="ph" id="c3be4cdd99gfm" docid="5602530" is-conref="true" class="ph"><span props="china"><a class="" href="https://ecs.console.aliyun.com/server/region" id="f4e5a2e258w9y">ECS<span class="help-letter-space"></span>控制台-实例</a></span></span>，选择地域与资源组。</p>
+</li>
+<li id="0e2dd851b0xdq">
+<p id="dae212d791ojf">在实例列表找到待操作实例后，单击<b id="7d6f474aa0cyu" data-tag="uicontrol" data-isbold="true" data-format-type="icu" data-params-value="setting" class="uicontrol">操作</b>列下的<b id="3705c61446lk3" data-tag="uicontrol" data-isbold="true" class="uicontrol">停止</b>。</p>
+</li>
+<li id="263c58a2bfl3m">
+<p id="7768a7031cxy3">在弹出的对话框中，设置<b id="89c302b25fjl4" data-tag="uicontrol" data-isbold="true" data-format-type="icu" data-params-value="StoppedMode" class="uicontrol">停止模式</b>为<b id="48f16c02353ah" data-tag="uicontrol" data-isbold="true" data-format-type="icu" data-params-value="StopCharging" class="uicontrol">节省停机模式</b>，然后单击<b id="7e48b64615fhc" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>。</p>
+</li>
+</ol>
+<p id="b83093e8d512p"><b>预期结果</b></p>
+<p id="0474aa663fluh">实例会首先进入<b id="5bb1495b745da" data-tag="uicontrol" data-isbold="true" class="uicontrol">停止中</b>状态，在实例停止完成后，<b id="5dfd40f4c0c32" data-tag="uicontrol" data-isbold="true" data-format-type="icu" data-params-value="status" class="uicontrol">状态</b>列会显示<b id="3b0f6fa88d8ub" data-tag="uicontrol" data-isbold="true" data-format-type="icu" data-params-value="Stopped" class="uicontrol">已停止</b>和<b id="1b9673e8eb927" data-tag="uicontrol" data-isbold="true" class="uicontrol">节省停机模式</b>的标签。</p>
+</section>
+<section id="e9e42545d7uig" class="section">
+<h2 id="6fcd9bdb086bj">CLI</h2>
+<p id="ab932bec2duyd" jc="left" style="text-align:left">可以调用<a href="https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-stopinstance#doc-api-Ecs-StopInstance" id="e3a67955d4sc0" title="" class="xref">停止实例</a>操作，并将<code class="code" data-tag="code" id="fbed0c2f78aiy">StoppedMode</code>参数设置为<code class="code" data-tag="code" id="4a9581105dqjb">StopCharging</code>。</p>
+<p id="8117a00ccffxe" jc="left" style="text-align:left">示例：使用节省停机模式停止杭州地域实例<span class="help-letter-space"></span>ID<span class="help-letter-space"></span>为<code data-tag="code" id="263b88de33ulf" class="code">i-t4n5xxxxxxxxxxx</code>的实例。</p>
+<pre code-type="xCode" data-tag="codeblock" id="da8bfd7d45ymy" outputclass="language-json" class="pre codeblock language-json"><code>aliyun ecs StopInstance \
+--RegionId cn-hangzhou \
+--InstanceId i-t4n5xxxxxxxxxxx \
+--StoppedMode StopCharging \
+--ForceStop false \
+--DryRun false</code></pre>
+</section>
+<section id="1f1df1ba1dfxg" class="section">
+<h2 id="c7b91aa8eevob">API</h2>
+<ul id="c7b85cce90wbt">
+<li id="a853cb8322afl">
+<p id="6372d4237b6kh">调用<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ecs/api-stopinstance#doc-api-Ecs-StopInstance" id="b6dee147047al" title="" class="xref">StopInstance</a><span class="help-letter-space"></span>停止按量付费（含抢占式）ECS<span class="help-letter-space"></span>实例时，将<code data-tag="code" id="50962c8a3c4h0" class="code">StoppedMode</code>设置为<code data-tag="code" id="d8df3ba62abpe" class="code">StopCharging</code>，即可使<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例进入节省停机模式。</p>
+<div id="31057cfa8frit" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+<p id="d39bb76da4yua">对于不满足节省停机模式条件的实例，调用该接口并设置<code data-tag="code" id="7a584f796bhik" class="code">StoppedMode=StopCharging</code>不会报错，实例会以普通模式正常停机。要确认实例是否成功进入节省停机模式，请通过<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-describeinstances" id="532755a119c6x" title="" class="xref">DescribeInstances</a><span class="help-letter-space"></span>接口查询实例状态。</p>
+</div></div>
+</li>
+<li id="00284afa1d5ee">
+<p id="45607da36c0kg">调用<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-runinstances" id="d1f9c22d23acj" title="" class="xref">RunInstances</a><span class="help-letter-space"></span>和<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-createinstance" id="a4cc12afc6weg" title="" class="xref">CreateInstance</a><span class="help-letter-space"></span>创建抢占式实例时，将<code data-tag="code" id="53f1b101c8w3b" class="code">SpotInterruptionBehavior</code>设置为<code data-tag="code" id="8456e3a1bbriq" class="code">Stop</code>，实例中断时，将进入节省停机模式。</p>
+</li>
+</ul>
+</section>
+</section>
+</section>
+<section id="ad0363ccff0v2" class="section">
+<h2 id="4e54cdf13eytb"><b>在停止实例时默认选择节省停机</b></h2>
+<p id="a6b14ce99d0sd">默认情况下，在控制台停止实例时默认选择<b id="59fe3db6dez88" data-tag="uicontrol" data-isbold="true" data-format-type="icu" data-params-value="KeepCharging" class="uicontrol">普通停机模式</b>，可通过设置该选项，调整控制台默认选择<b id="f29af7122dr3e" data-tag="uicontrol" data-isbold="true" class="uicontrol">节省停机模式</b>。</p>
+<blockquote id="3827b3d424bfz">该配置仅调整控制台的默认选项，在实际停止实例时，依然可选择使用<b id="f5398fe8af40h" data-tag="uicontrol" data-isbold="true" class="uicontrol">普通停机模式</b>停止实例。</blockquote>
+<ol data-tag="steps" id="0e17a38edbcm8" class="steps">
+<li id="fda519aab35ew">
+<p id="83ba3d9c1bnqa">进入<span data-tag="ph" id="a32f6e155abb7" docid="5062427" is-conref="true" class="ph"><span props="china"><a class="" href="https://ecs.console.aliyun.com/home" id="79563425bb18v">ECS<span class="help-letter-space"></span>控制台-概览</a></span></span>页面。</p>
+<section id="65420e8f20de0" props="china" data-cond-props="china" class="section">
+              <blockquote id="24ee48a265yxz">请将<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>控制台切换为标准版进行设置。</blockquote>
+            </section>
+</li>
+<li data-tag="step" id="3aa7120e89tf5" class="step">
+<p id="6c11b0feeev3f">在页面右侧的<b id="uicontrol-8eh-vqh-vbp" data-tag="uicontrol" data-isbold="true" data-format-type="icu" data-params-value="common" class="uicontrol">常用功能</b>区域，单击<b id="uicontrol-fhs-2br-k9f" data-tag="uicontrol" data-isbold="true" data-format-type="icu" data-params-value="CommonSetting" class="uicontrol">用户设置</b>。</p>
+</li>
+<li data-tag="step" id="dff8167eee4f7" class="step">
+<p id="24e7895a94fco">打开<b id="eae4806681ji7" data-tag="uicontrol" data-isbold="true" class="uicontrol">节省停机模式</b>开关。</p>
+</li>
+<li data-tag="step" id="ece3956caau02" class="step">
+<p id="ed2d6abb7dx7y">阅读提醒信息，确认后在底部单击<b id="uicontrol-bdi-qgl-i04" data-tag="uicontrol" data-isbold="true" class="uicontrol">开启默认 VPC 内实例节省停机模式</b>。</p>
+</li>
+</ol>
+</section>
+<section id="bfabae40d1480" class="section">
+<h2 id="d10bae8310cmh"><b>应用于生产环境</b></h2>
+<p id="e4b682b35601x">对于需要大规模或周期性管理实例开关机的集群环境，可以结合阿里云的系统运维管理（OOS）服务，实现定时自动进入节省停机模式，从而实现无人值守的成本优化。</p>
+<ul id="789383e54efzu">
+<li id="11348ca6c0bkv">
+<p id="c22a04b2bbnei"><b>场景举例：</b>有一批<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例作为开发测试环境，通常只在工作日的白天（例如 9:00 - 18:00）被使用。在夜间和周末，这些实例虽然闲置，但仍在持续产生费用。</p>
+</li>
+<li id="33db61264ercl">
+<p id="a5b00f5670wrl"><b>解决方案：</b>可通过阿里云的&nbsp;<b>运维编排服务（OOS）</b>，&nbsp;创建<a href="https://help.aliyun.com/zh/oos/use-cases/scheduled-startup-and-shutdown" id="46fa8441c47e8" title="" class="xref">定时开关机</a>任务，确保资源在不被使用时自动进入最经济的状态，从而节省成本。关键配置如下：</p>
+<ul id="36e713d2f1a0d">
+<li id="99cc2b74908eg">
+<p id="bcb771b4158re"><b>执行周期：</b>周一～周五</p>
+</li>
+<li id="3c7be99db2wz1">
+<p id="58b3e123b1cfz"><b>开机时间：</b>09:00</p>
+</li>
+<li id="407250bcb8ujj">
+<p id="5bf09adca77po"><b>关机时间：</b>18:00</p>
+</li>
+<li id="31a3ff9646omg">
+<p id="7a3bce7ec0sw0"><b>停机模式：</b>节省停机模式</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="ff336b84f1avn" class="section">
+<h2 id="4b7e68819fiec"><b>与普通停机模式的区别</b></h2>
+<p id="ba9d0f6b9fczw">节省停机模式与普通停机模式的主要差异如下：</p>
+<table autofit="true" id="1a080a6f24oe8" tablecolswidth="13.25 43.45 43.3" tablewidth="100" class="table">
+<colgroup colwidth="0.4*" style="width:13.25%"></colgroup>
+<colgroup colwidth="1.32*" style="width:43.45%"></colgroup>
+<colgroup colwidth="1.31*" style="width:43.30%"></colgroup>
+<tbody class="tbody">
+<tr id="5e9a65b119wio">
+<td id="84d7a6afcfsra" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="af04d6c8c9q0o"><b>功能特性</b></p>
+</td>
+<td id="47fbac364drnl" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="1aca653bad3mc"><b>节省停机模式</b></p>
+</td>
+<td id="657c9f46a9ewc" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="f44348f008944"><b>普通停机模式</b></p>
+</td>
+</tr>
+<tr id="a32f9a3cffpef">
+<td id="dd2838612eqgm" rowspan="1" colspan="1">
+<p id="408852aaf1pj9"><b>资源保留</b></p>
+</td>
+<td id="8f895e3b7f8b1" rowspan="1" colspan="1">
+<p id="9eff7546f60kv">仅保留云盘和实例元数据，<b>释放<span class="help-letter-space"></span>vCPU、内存、GPU、FPGA、固定公网<span class="help-letter-space"></span>IP、本地盘等资源</b>。</p>
+</td>
+<td id="279fa3ede2jyi" rowspan="1" colspan="1">
+<p id="df89d70174184">保留所有资源。</p>
+</td>
+</tr>
+<tr id="180e626930w1g">
+<td id="e9bf19685f3a6" rowspan="1" colspan="1">
+<p id="19e00709f2hf7"><b>主要计费项</b></p>
+</td>
+<td id="9d054d4633d9b" rowspan="1" colspan="1">
+<p id="66cd5024e232b">vCPU、内存、GPU、FPGA、固定公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>等资源<b>停止计费</b>。镜像<span class="help-letter-space"></span>License、云盘、弹性公网<span class="help-letter-space"></span>IP（EIP）、快照等资源<b>继续计费</b>。</p>
+</td>
+<td id="8ffba414e4c71" rowspan="1" colspan="1">
+<p id="2345ed176cfg7"><b>继续计费</b>。</p>
+</td>
+</tr>
+<tr id="a4d5261452sba">
+<td id="8a0b47573aktn" rowspan="1" colspan="1">
+<p id="5531b1d1a8cny"><b>重启速度</b></p>
+</td>
+<td id="5c1fa79fdfehv" rowspan="1" colspan="1">
+<p id="51b07f3db33w9">相对较慢，因为需要重新申请和分配计算资源。</p>
+</td>
+<td id="2514d5683292y" rowspan="1" colspan="1">
+<p id="ad9753756boy8">较快，因为计算资源未被释放。</p>
+</td>
+</tr>
+<tr id="ab60a2b3faz47">
+<td id="9a8aa17c30kdt" rowspan="1" colspan="1">
+<p id="a317ef095fqoh"><b>重启成功率</b></p>
+</td>
+<td id="fee3a6cd9arat" rowspan="1" colspan="1">
+<p id="ebfb8fe6aakqc"><b>不保证成功</b>。在资源紧张的地域可能因库存不足而启动失败。</p>
+</td>
+<td id="25a5552c02m4b" rowspan="1" colspan="1">
+<p id="4fdc01199cjuf">不会因资源库存不足导致重启失败。</p>
+</td>
+</tr>
+<tr id="1b388b5b1a86g">
+<td id="0789c206bcwxs" rowspan="1" colspan="1">
+<p id="653ce41405lur"><b>固定公网<span class="help-letter-space"></span>IP</b></p>
+</td>
+<td id="fa0bcaf7aa8g8" rowspan="1" colspan="1">
+<p id="190663c98fhb6">实例的固定公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>会被释放，重启后将分配一个新的公网<span class="help-letter-space"></span>IP。</p>
+</td>
+<td id="5dce30788fbla" rowspan="1" colspan="1">
+<p id="febf459914p25">固定公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>保持不变。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="8000acc8dala7" outputclass="test" class="test section">
+<h2 id="37b31b940fezc"><b>常见问题</b></h2>
+<section id="14db09aafc1uu" class="section">
+<ul id="7591fd1815tu2">
+<li id="463e7c90c1z23">
+<h4 data-tag="title" id="title-23o-35o-d77" class="title"><b>打开默认启用节省停机模式后，是否支持单台<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例关机时不释放计算资源和网络资源？</b></h4>
+<p id="40596f654axg1">打开默认启用节省停机模式后，在停止单台实例时仍然需要设置单台实例的停止模式，ECS<span class="help-letter-space"></span>实例不触发节省停机效果就不会释放计算资源和网络资源。</p>
+<p id="cf6a9122e49dm">如果需要在短时间内停机再开机，建议您在调用<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ecs/api-stopinstance#doc-api-Ecs-StopInstance" id="433ae85892vcv" title="" class="xref">StopInstance</a><span class="help-letter-space"></span>时将<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-nab-h7c-wvr" class="parmname">StoppedMode</span><span class="help-letter-space"></span>设置为<span class="help-letter-space"></span><span data-tag="option" id="option-0nw-xj5-7ub" class="option">KeepCharging</span>，或者在控制台上停止<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例时选择<b id="uicontrol-xep-5o5-m8h" data-tag="uicontrol" data-isbold="true" class="uicontrol">普通停机模式</b>。</p>
+</li>
+</ul>
+</section>
+<section id="be107fd2abkip" class="section">
+<ul id="c806c0e4a345f">
+<li id="ac37601571yqh">
+<h4 data-tag="title" id="title-pkl-65c-3oo" class="title"><b>在<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例操作系统内关机能否触发节省停机效果？</b></h4>
+<div data-tag="p" id="p-fey-4tt-9j6" class="p">
+<p id="6d947d3e5e0yr">不能。</p>
+<p id="5109c193edqqg">在实例内部操作系统中，通过<code data-init-id="6164254ef9xz7" data-tag="code" id="936be3ef426m3" class="code">shutdown</code>、<code data-init-id="d1772b176b202" data-tag="code" id="3a66e8c9c2nr4" class="code">poweroff</code>、<code data-init-id="b819658456sik" data-tag="code" id="5bb54f41bd8id" class="code">halt</code>等命令或其他手动方式执行关机操作，<b>不会进入节省停机模式</b>。实例通过以下方式停机时才能触发节省停机效果。 </p>
+<ul data-tag="ul" id="ul-dca-g9n-f6q" class="ul">
+<li data-tag="li" id="li-9w7-j0s-to1" class="li">
+<p id="10844d1540zdy">ECS<span class="help-letter-space"></span>管理控制台。</p>
+</li>
+<li data-tag="li" id="li-hmp-dki-2t7" class="li">
+<p id="9723a7d08ab21">通过阿里云<span class="help-letter-space"></span>CLI<span class="help-letter-space"></span>或<span class="help-letter-space"></span>SDK<span class="help-letter-space"></span>发起的<span class="help-letter-space"></span>API<span class="help-letter-space"></span>请求。</p>
+</li>
+<li data-tag="li" id="li-86m-3w5-fei" class="li">
+<p id="2dda411f13jxz">账号欠费自动停机。</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</section>
+<section id="d86d4d319c0es" class="section">
+<ul id="ece8b7af10u5u">
+<li id="62605122e6b0b">
+<h4 data-tag="title" id="title-y73-rky-9yg" class="title"><b>本地盘实例是否支持自动触发节省停机效果？</b></h4>
+<p id="1a7c7933c3tor">本地盘实例不支持触发节省停机效果。</p>
+</li>
+</ul>
+</section>
+<section id="888ddb1030otu" class="section">
+<ul id="b9dde18188xti">
+<li id="b2a7bbc4815hd">
+<h4 id="9d34d30d72ppc"><b>为什么开启实例的节省停机模式后，实例启动失败？</b></h4>
+<p id="7bf024ec93ej4">可能原因如下：</p>
+<ul data-init-id="b9dde18188xti" id="a1e57b6b36u60">
+<li id="ba2fd6d72bzws">
+<p id="dd04c7581esnm"><b>部分资源库存不足：</b>可能因为部分资源库存不足导致启动失败，可以稍后尝试再次启动，或者尝试<a href="https://help.aliyun.com/zh/ecs/user-guide/change-the-instance-type-of-a-pay-as-you-go-instance#concept-fzw-gbf-5db" id="28b027c8cfm5i" title="" class="xref">更改实例规格</a>。</p>
+</li>
+<li id="f19da64f78dua">
+<p id="e5d828f5affu6"><b>账户欠费。</b></p>
+</li>
+<li id="7904dfcb6a0ue">
+<p id="56a694a2f7p2r"><b>抢占式实例价格超过价格上限：</b>创建抢占式实例时如果设置了价格上限，重启实例时可能会因市场价超过价格上限，导致重启失败。</p>
+</li>
+</ul>
+</li>
+</ul>
+</section>
+<section id="7ea026bbe3vgk" class="section">
+<ul id="c389480606ne2">
+<li id="6c2364d580j3c">
+<h4 data-tag="title" id="title-p17-mva-fai" class="title"><b>ECS<span class="help-letter-space"></span>实例触发节省停机效果后，为什么<span class="help-letter-space"></span>StartInstance<span class="help-letter-space"></span>时会报错</b><span data-tag="ph" id="3669f9dac2edb" class="ph"><b>OperationDenied.NoStock</b></span><b>？</b></h4>
+<p id="99ae882a8biyh">节省停机模式会释放计算资源。当再次启动实例时，系统需要重新申请资源。如果此时资源池库存不足，启动就会失败并返回<code data-tag="code" id="edea465fe1adk" class="code">OperationDenied.NoStock</code>错误。建议稍后重试，或尝试更换实例规格。</p>
+</li>
+</ul>
+</section>
+<section id="45c7d451e40zn" class="section">
+<ul id="afc49fd62foul">
+<li id="2b601c5e0drvy">
+<h4 data-tag="title" id="title-jkh-fyr-zfa" class="title"><b>启用了节省停机模式后，停机再开机时公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>会变化，怎么保持公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>不变？</b></h4>
+<p id="fe11574f41h59">ECS<span class="help-letter-space"></span>实例触发节省停机效果后，固定公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>会被回收，下次启动时自动分配新的固定公网<span class="help-letter-space"></span>IP，因此会发生变化。</p>
+<div data-tag="p" id="p-szb-y6h-n7j" class="p">
+<p id="113f6239b5va0">如需保持公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>不变，您可以将<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例的固定公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>转为弹性公网<span class="help-letter-space"></span>IP，因为<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例触发节省停机效果后不会释放弹性公网<span class="help-letter-space"></span>IP，可以保证公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>不变。更多信息，请参见<a href="https://help.aliyun.com/zh/ecs/user-guide/convert-the-public-ip-address-of-an-instance-in-a-vpc-to-an-eip#concept-l2l-jgn-xdb" id="787357338c745" title="" class="xref">固定公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>转为弹性公网<span class="help-letter-space"></span>IP</a><span class="help-letter-space"></span>和<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ecs/api-convertnatpubliciptoeip#doc-api-Ecs-ConvertNatPublicIpToEip" id="5a3002d8099d4" title="" class="xref">ConvertNatPublicIpToEip</a>。</p>
+<div data-tag="note" id="note-is8-pyw-y5e" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+<p id="37e332a0b0ysp">固定公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>转成弹性公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>后，使用弹性公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>访问公网会收取公网出网带宽费用、EIP<span class="help-letter-space"></span>配置费（满足特定条件时不收取）和<span class="help-letter-space"></span>EIP<span class="help-letter-space"></span>绑定费（满足特定条件时不收取）。具体收费细则，请参见<a href="https://help.aliyun.com/zh/eip/billing-overview#concept-645525" id="0590165c31cdh" title="" class="xref">弹性公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>计费概述</a>。</p>
+</div></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="31ae933772l5k" class="section">
+<ul id="956bae10268jz">
+<li id="16c1efe3f40aa">
+<h4 id="b19900b6139nz"><b>调用<span class="help-letter-space"></span>StopInstance<span class="help-letter-space"></span>并指定</b><code data-init-id="50962c8a3c4h0" data-tag="code" id="262955a179usn" class="code"><b>StoppedMode=StopCharging</b></code><b>后，实例没有进入节省停机模式？</b></h4>
+<p id="861881a0d1dp0" jc="left" style="text-align:left">对于不满足节省停机模式条件的实例，调用<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ecs/api-stopinstance#doc-api-Ecs-StopInstance" id="220b6d8e06cqe" title="" class="xref">StopInstance</a><span class="help-letter-space"></span>接口并设置<code data-init-id="7a584f796bhik" data-tag="code" id="032dcdf85f63n" class="code">StoppedMode=StopCharging</code>时，系统不会拦截该操作，系统将优先确保实例正常停机。要确认实例是否成功进入节省停机模式，请通过<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-describeinstances" id="e5549ad744hjc" title="" class="xref">DescribeInstances</a><span class="help-letter-space"></span>接口查询实例状态。</p>
+</li>
+</ul>
+</section>
+<section id="225377e654a1e" class="section">
+<ul id="980edb7413ckm">
+<li id="7cc8d69cc4yrv">
+<h4 id="d3042676eflfp"><b>如何将普通停机模式切换到节省停机模式？</b></h4>
+<p id="62ce6988b2l85">无法直接切换，需先启动实例至<b>运行中</b>状态，再启用节省停机模式。</p>
+</li>
+</ul>
+</section>
+</section>
+</div>
+</main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/ecs/user-guide/stop-an-instance" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：停止实例</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/ecs/user-guide/management-and-operation-and-maintenance/" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：管理实例<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

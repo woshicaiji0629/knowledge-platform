@@ -1,0 +1,14 @@
+{
+  "id": "redis:user-guide/disable-high-risk-commands:11",
+  "document_id": "redis:user-guide/disable-high-risk-commands",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "通过参数设置禁用高风险命令-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/disable-high-risk-commands",
+  "chunk_index": 11,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/user-guide/disable-high-risk-commands.chunk-0011.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/disable-high-risk-commands.md",
+  "heading_path": "禁用高风险命令 > 相关API > 服务",
+  "char_count": 303
+}

@@ -1,0 +1,14 @@
+{
+  "id": "sls:reindex-logs-for-a-logstore:11",
+  "document_id": "sls:reindex-logs-for-a-logstore",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "如何在控制台上重建索引-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/reindex-logs-for-a-logstore",
+  "chunk_index": 11,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/reindex-logs-for-a-logstore.chunk-0011.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/reindex-logs-for-a-logstore.md",
+  "heading_path": "重建索引 > 相关操作 > 友情链接",
+  "char_count": 935
+}

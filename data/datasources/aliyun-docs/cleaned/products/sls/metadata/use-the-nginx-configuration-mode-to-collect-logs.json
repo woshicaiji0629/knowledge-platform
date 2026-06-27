@@ -1,0 +1,17 @@
+{
+  "id": "sls:use-the-nginx-configuration-mode-to-collect-logs",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "如何创建Nginx模式的Logtail配置采集日志-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/use-the-nginx-configuration-mode-to-collect-logs",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/use-the-nginx-configuration-mode-to-collect-logs.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/use-the-nginx-configuration-mode-to-collect-logs.md",
+  "word_count": 895,
+  "text_units": 2341,
+  "local_links": 0,
+  "external_links": 84,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

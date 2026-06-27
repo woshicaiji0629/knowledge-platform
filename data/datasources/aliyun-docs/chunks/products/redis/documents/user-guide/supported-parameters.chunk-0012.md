@@ -1,0 +1,6 @@
+分离✔️ | 标准️️✔️ 集群✔️️️️️ 读写分离✔️ | 标准️️✔️ 集群✔️ 读写分离✔️ | ❌ | ❌ |
+| tracking-table-max-keys | 设置 Tracking Table 中存储 Key 数量的上限，取值为[0-1000000000]，默认为 1000000。 说明 仅 Redis 7.0 支持该参数。 | 标准️️✔️ 集群✔️️️️️ 读写分离✔️ | ❌ | ❌ | ❌ | ❌ |
+| timeout | 当客户端的空闲时间达到指定秒数后，实例会关闭该连接，单位为秒，取值范围为[0,100000]，默认为 0（表示不断开任何连接）。 | 标准️️✔️ 集群✔️️️️️ 读写分离✔️ | 标准️️✔️ 集群✔️️️️️ 读写分离✔️ | 标准️️✔️ 集群✔️️️️️ 读写分离✔️ | 标准️️✔️ 集群✔️️️️️ 读写分离✔️ | ❌ |
+| zset-max-ziplist-entries zset-max-ziplist-value | 兼容 Redis 6.0 及以下版本默认使用 ziplist 作为 Zset 的编码方式。当 Zset 同时满足以下两个条件时， 使用 ziplist 编码。 Zset 的键值对数量小于 zset-max-ziplist-entries 的值。 Zset 的键值对的键和值的字符串长度都小于 zset-max-ziplist-value 。 | ❌ | 标准️️✔️ 集群✔️️️️️ 读写分离✔️ | 标准️️✔️ 集群✔️️️️️ 读写分离✔️ | 标准️️✔️ 集群✔️️️️️ 读写分离✔️ | 标准️️✔️ 集群✔️️️️️ 读写分离✔️ |
+| zset-max-listpack-entries zset-max-listpack-value | 兼容 Redis 7.0 版本起默认使用 listpack 作为 Zset 的编码方式。当 Zset 同时满足以下两个条件时， 使用 listpack 编码。 Zset 的键值对数量小于 zset-max-listpack-entries 的值。 Zset 的键值对的键和值的字符串长度都小于 zset-max-listpack-value 。 | 标准️️✔️ 集群✔️️️️️ 读写分离✔️ | ❌ | ❌ | ❌ | ❌ |
+| bigkey-threshold | [Top Key](use-the-real-time-key-statistics-feature.md) [统计](use-the-real-time-key-statistics-feature.md) 中大 Key（元素数量多的 Key）的元素数量阈值。默认 2000 个，取值范围为[500-100000]。 说明 若参数设置未显示此参数，请 [升级

@@ -1,0 +1,6 @@
+liyun.com/luban/api/classic/region-id\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)" time="2023-05-23T00:04:57+08:00" level=info msg="https://cn-shenzhen.axt.aliyun.com/luban/api/classic/region-id Get \"https://cn-shenzhen.axt.aliyun.com/luban/api/classic/region-id\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)" time="2023-05-23T00:05:02+08:00" level=info msg="https://cn-hongkong.axt.aliyun.com/luban/api/classic/region-id Get \"https://cn-hongkong.axt.aliyun.com/luban/api/classic/region-id\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)" time="2023-05-23T00:05:07+08:00" level=info msg="https://eu-west-1.axt.aliyun.com/luban/api/classic/region-id Get \"https://eu-west-1.axt.aliyun.com/luban/api/classic/region-id\": context deadline exceeded (Client.Timeout exceeded while awaiting headers)" time="2023-05-23T00:05:07+08:00" level=info msg=GET_HOST_ERROR
+出现该错误一般是ECS实例与云助手服务器间的网络连通异常，您可以运行以下命令，查看网络连通性。
+说明
+请将<region-id>替换为地域的ID。更多信息，请参见[地域和可用区](regions-and-zones.md)。
+ping <region-id>.axt.aliyun.com curl https://<region-id>.axt.aliyun.com/luban/api/instance/instance-id
+正常情况下域名能够正常解析并且连通，且接口能够返回正常的

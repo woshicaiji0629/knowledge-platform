@@ -1,0 +1,6 @@
+| 分类 | 二级分类 | 跳转链接 |
+| --- | --- | --- |
+| 节点即时弹性 的扩缩容行为 | [已知限制](faq-about-node-instant-scaling.md) |  |
+| [扩容行为相关](faq-about-node-instant-scaling.md) | [节点即时弹性可模拟判断的资源类型有哪些？](faq-about-node-instant-scaling.md) [节点即时弹性是否支持根据](faq-about-node-instant-scaling.md) [Pod Request](faq-about-node-instant-scaling.md) [资源在节点池中扩容合适资源的实例规格？](faq-about-node-instant-scaling.md) [节点池配了多个实例规格，节点即时弹性默认如何选择？](faq-about-node-instant-scaling.md) [使用节点即时弹性时，如何实时感知节点池中的实例规格库存变化？](faq-about-node-instant-scaling.md) [如何优化节点池配置，尽量避免库存不足而导致扩容失败？](faq-about-node-instant-scaling.md) [为什么节点即时弹性无法弹出节点？](faq-about-node-instant-scaling.md) [开启节点即时弹性的节点池如何配置自定义资源？](faq-about-node-instant-scaling.md) |  |
+| [缩容行为相关](faq-about-node-instant-scaling.md) | [为什么节点即时弹性无法缩容节点？](faq-about-node-instant-scaling.md) [什么类型的](faq-about-node-instant-scaling.md) [Pod](faq-about-node-instant-scaling.md) [可以阻止节点即时弹性移除节点？](faq-about-node-instant-scaling.md) |  |
+| 自定义的扩缩容行为 | [通过](faq-about-node-instant-scaling.md) [Pod](faq-about-node-instant-scaling.md) [控制扩缩容行为](faq-about-node-instant-scaling.md) | [如何通过](faq-about-node-instant-scaling.md) [Pod](faq-about-node-instant-scaling.md) [控制节点即时弹性的节点缩容？](faq-about-node-instant-scaling.m

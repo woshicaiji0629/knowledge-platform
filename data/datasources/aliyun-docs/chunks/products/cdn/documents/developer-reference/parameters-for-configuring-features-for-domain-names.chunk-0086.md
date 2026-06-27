@@ -1,0 +1,8 @@
+## 流量限制
+limit_rate
+功能说明：配置单请求限速。
+功能ID（FunctionID/FuncId）：72。
+参数说明：
+可以仅配置ali_limit_rate，也可以根据用户请求URL中携带的参数来限速，还可以设定限速开始和结束时间。
+根据用户请求URL中携带的参数来限速：通过traffic_limit_arg和traffic_limit_unit这两个参数的组合来实现。
+设定限速开始和结束时间：通过ali_limit_start_hour和ali_limit_end_hour这两个参数的组合来实现。

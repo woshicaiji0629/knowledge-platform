@@ -1,0 +1,3 @@
+eus](enable-prometheus-service.md) [监控](enable-prometheus-service.md) 。 您可以同时勾选 安装 metrics-server 集群基础监控组件 ， [metrics-server](../../product-overview/metrics-server.md) [组件](../../product-overview/metrics-server.md) 是基于社区开源监控组件进行改造和增强的离线监控数据组件，提供查看集群离线监控数据功能。 |
+| 日志服务 | 设置是否 使用日志服务 ，您可使用已有 Project 或新建一个 Project。 不开启时，将无法使用集群审计功能。关于日志服务详情，请参见 [使用](../../../../sls/documents/getting-started.md) [LoongCollector](../../../../sls/documents/getting-started.md) [采集并分析](../../../../sls/documents/getting-started.md) [ECS](../../../../sls/documents/getting-started.md) [文本日志](../../../../sls/documents/getting-started.md) 。 |
+| Knative | 设置是否 开启 Knative 。 [Knative](knative-overview.md) 是一款基于 Kubernetes 的 Serverless 框架，支持基于请求的自动弹性、在没有流量时将实例数量自动缩容至零、版本管理与灰度发布等能力。 |

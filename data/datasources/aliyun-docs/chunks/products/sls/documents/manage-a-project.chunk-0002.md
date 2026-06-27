@@ -1,0 +1,2 @@
+t log:ListLogStores log:ListSavedSearch log:ListDashboard log:ListDomains log:GetSqlInstance log:ListTagResources log:CreateDomain |
+| Project 资源监控 | log:ListProject log:GetProject log:ListLogStores log:ListSavedSearch log:ListDashboard log:ListDomains log:GetSqlInstance log:ListTagResources log:GetLogging log:CreateLogStore log:CreateIndex log:UpdateIndex log:CreateDashboard log:UpdateDashboard log:GetLogStore log:UpdateLogStore log:UpdateLogging log:GetLogStoreLogs |

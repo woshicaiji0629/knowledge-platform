@@ -1,0 +1,17 @@
+{
+  "id": "sls:download-logs",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "下载日志方式及操作步骤-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/download-logs",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/download-logs.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/download-logs.md",
+  "word_count": 1274,
+  "text_units": 3833,
+  "local_links": 0,
+  "external_links": 83,
+  "has_tables": true,
+  "table_count": 8,
+  "quality": "accepted"
+}

@@ -1,0 +1,10 @@
+edicated-clusters.md)
+- [【产品变更】关于托管节点池安全漏洞修复和自动升级的变更公告](announcement-on-security-vulnerabilithy-fixes-and-automatic-upgrades-for-managed-node-pools.md)
+- [【产品变更】关于新建Service与Nginx Ingress Controller默认负载均衡类型与计费方式变更的公告](product-change-announcement-on-new-service-and-nginx-ingress-controller.md)
+- [【产品变更】关于ACK集群管理相关的OpenAPI出入参变化及OpenAPI下线的公告](announcement-on-ack-openapi-parameter-changes-and-deprecation.md)
+- [【产品公告】关于 Ubuntu 节点 systemd 升级后容器网络异常的公告](announcement-on-container-network-anomaly-after-ubuntu-node-systemd-upgrade.md)
+- [【产品公告】关于中国电信号码手机用户无法接收部分告警短信的公告](announcement-on-china-telecom-mobile-subscribers-unable-to-receive-specific-sms-alerts.md)
+- [【产品公告】关于ACK托管集群自1.33版本起默认安装ack-ram-authenticator组件的公告](announcement-on-default-installation-of-ack-ram-authenticator-for-ack-managed-clusters-v1-33-and-later.md)
+- [【产品公告】关于停止维护CoreDNS v1.6.7及以下版本的公告](product-announcement-announcement-on-end-of-maintenance-for-coredns-v1-6-7-and-earlier-versions.md)
+- [【产品变更】关于默认关闭ACK集群内新建ECS实例源/目的IP检查的公告](announcement-on-default-disabling-of-source-destination-ip-verification-for-new-ecs-instances-in-clusters.md)
+- [【产品公告】关于停止维护ACK NodeLocal DNSCache v1.4.0及以下版本的公告](product-announcement-end-of-suppo

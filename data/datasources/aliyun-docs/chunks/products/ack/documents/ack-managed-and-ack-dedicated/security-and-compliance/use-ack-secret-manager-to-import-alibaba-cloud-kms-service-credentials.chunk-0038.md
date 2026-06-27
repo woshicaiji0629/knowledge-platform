@@ -1,0 +1,10 @@
+ableCrossNamespaceSecretStore和command.enableCrossNamespaceAuthRef设置为false。
+优先使用命名空间级别的资源（SecretStore 和 ExternalSecret）。
+访问控制配置：
+使用 ClusterSecretStore 时，明确配置spec.conditions来限制可访问的命名空间。
+避免创建无访问限制的 ClusterSecretStore。
+认证方式选择：
+优先使用 RRSA 或 ServiceAccount 方式进行认证，避免在配置中直接暴露AccessKey。
+将认证配置与数据配置分离，提高安全性。
+非必要不使用 ClusterExternalSecret，以减少Secrets在不同命名空间中的泄露风险：
+如果业务需要在多个命名空间中同步Secrets实例，可以利用spec.namespaceSelectors精确控制 ExternalSecret 的创建范围。

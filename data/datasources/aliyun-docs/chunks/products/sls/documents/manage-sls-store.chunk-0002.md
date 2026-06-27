@@ -1,0 +1,6 @@
+### 日志库（LogStore）
+LogStore是日志服务中日志数据存储和查询的单元。每个LogStore隶属于一个Project，每个Project中可创建多个LogStore。可以根据实际需求在目标Project中创建多个LogStore，一般是为同一个应用中不同类型的日志创建独立的LogStore。例如采集App A所涉及的操作日志（operation_log）、应用程序日志（application_log）以及访问日志（access_log），可以创建一个名为app-a的Project，并在该Project下创建名为operation_log、application_log和access_log的LogStore，用于分别存储操作日志、应用程序日志和访问日志。
+在执行写入日志、查询和分析日志、加工日志、消费日志、投递日志等操作时，都需要指定LogStore。具体说明如下：
+以LogStore为采集单元采集日志。
+以LogStore为存储单元存储日志以及执行加工、消费、投递等操作。
+在LogStore中建立索引用于查询和分析日志。

@@ -1,0 +1,4 @@
+### 跨账号私有回源配置
+当业务需要跨账号回源私有Bucket时，如使用A账号的CDN加速域名回源B账号的Bucket，可在CDN加速域名中开启阿里云OSS私有Bucket回源时选择跨账号回源实现。
+添加跨账号Bucket源站：新建CDN加速域名添加源站信息时，域名选择OSS自定义源站，并输入需要回源的Bucket域名。
+开启跨账号私有Bucket回源：在CDN加速域名的回源配置中，开启阿里云OSS私有Bucket回源，回源类型选择跨账号回源或同账号回源，并输入具有目标Bucket访问权限的AccessKey ID和AccessKey Secret。

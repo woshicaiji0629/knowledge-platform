@@ -1,0 +1,5 @@
+### [快速学会使用OSS控制台](https://developer.aliyun.com/adc/scenario/99c5e8e7f0dd423996989d499bd8ccad?spm=a2c4g.11186623.0.0.2e3a6aae5d4zwg)
+[上传文件](https://developer.aliyun.com/adc/scenario/99c5e8e7f0dd423996989d499bd8ccad?spm=a2c4g.11186623.0.0.2e3a6aae5d4zwg)
+[下载文件](https://developer.aliyun.com/adc/scenario/99c5e8e7f0dd423996989d499bd8ccad?spm=a2c4g.11186623.0.0.2e3a6aae5d4zwg)
+[分享文件](https://developer.aliyun.com/adc/scenario/99c5e8e7f0dd423996989d499bd8ccad?spm=a2c4g.11186623.0.0.2e3a6aae5d4zwg)
+[删除文件](https://developer.aliyun.com/adc/scenario/99c5e8e7f0dd423996989d499bd8ccad?spm=a2c4g.11186623.0.0.2e3a6aae5d4zwg)

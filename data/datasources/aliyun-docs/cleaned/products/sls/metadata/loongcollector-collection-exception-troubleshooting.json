@@ -1,0 +1,17 @@
+{
+  "id": "sls:loongcollector-collection-exception-troubleshooting",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "troubleshoot",
+  "title": "LoongCollector采集异常问题汇总排查-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/loongcollector-collection-exception-troubleshooting",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/loongcollector-collection-exception-troubleshooting.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/loongcollector-collection-exception-troubleshooting.md",
+  "word_count": 2399,
+  "text_units": 8858,
+  "local_links": 0,
+  "external_links": 141,
+  "has_tables": true,
+  "table_count": 3,
+  "quality": "accepted"
+}

@@ -1,0 +1,1 @@
+//help.aliyun.com/zh/dts/user-guide/configure-the-oracle-database-and-create-an-account)[数据库的限制和准备工作](https://help.aliyun.com/zh/dts/user-guide/configure-the-oracle-database-and-create-an-account)和[数据库评估概览](https://help.aliyun.com/zh/dts/user-guide/overview)。

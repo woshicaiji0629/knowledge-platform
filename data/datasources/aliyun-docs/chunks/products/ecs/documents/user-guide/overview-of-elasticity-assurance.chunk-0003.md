@@ -1,0 +1,26 @@
+### 弹性保障-分时保障
+步骤一：购买弹性保障
+访问[ECS](https://ecs.console.aliyun.com/elasticity-assurance/region/cn-hangzhou)[控制台-弹性保障](https://ecs.console.aliyun.com/elasticity-assurance/region/cn-hangzhou)。
+单击创建弹性保障。
+开始时间和结束时间间隔至少7天，最多365天。
+重复规则：支持配置多条，最多10条。
+支持按日/周/月重复周期设定保障时段，时间段最低4小时，累计保障时长不得低于整个周期总时长的10%。
+鼠标悬浮保障时段(UTC)预览可查看保障时段详情。
+资源池类型：
+开放模式：开放私有池。
+专有模式：为特定场景或业务预留的专有私有池。
+勾选我已知悉，单击立即购买。
+返回[ECS](https://ecs.console.aliyun.com/elasticity-assurance/region/cn-hangzhou)[控制台-弹性保障](https://ecs.console.aliyun.com/elasticity-assurance/region/cn-hangzhou)，当状态为资源已锁定或预定生效中时，表示购买成功。
+步骤二：使用弹性保障创建实例
+访问[ECS](https://ecs.console.aliyun.com/elasticity-assurance/region/cn-hangzhou)[控制台-弹性保障](https://ecs.console.aliyun.com/elasticity-assurance/region/cn-hangzhou)。
+在资源预定页面，单击目标弹性保障操作列的购买实例。
+付费类型选择按量付费，其他配置参考[自定义购买实例](create-an-instance-by-using-the-wizard.md)完成。
+展开页面底部的高级选项，选择私有池类型。
+开放：系统优先匹配开放私有池，若容量不足，则尝试使用公共池。
+不使用：不使用私有池，仅使用公共池。
+指定：指定一个匹配的开放或专有私有池。
+单击确认下单。
+步骤三：查看弹性保障信息
+访问[ECS](https://ecs.console.aliyun.com/elasticity-assurance/region/cn-hangzhou)[控制台-弹性保障](https://ecs.console.aliyun.com/elasticity-assurance/region/cn-hangzhou)。
+在弹性保障页面，单击弹性保障的ID，进入资源详情页查看私有池容量使用情况等信息。
+在关联实例区域可查看使用该弹性保障创建的实例。

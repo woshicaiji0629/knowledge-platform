@@ -1,0 +1,640 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    使用应用集YurtAppSet将应用部署至多个节点池-容器服务Kubernetes版ACK-阿里云-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/ack/ack-edge/user-guide/node-pool-yurtappset-management">
+  <meta name="keywords" content="yurtappset, 边缘节点池管理, 应用集">
+  <meta name="description" content="在ACK Edge集群中，您可以使用应用集（YurtAppSet）将应用便捷地部署到多个节点池中。YurtAppSet提供了灵活的响应机制以感知节点池标签的变化，从而能够统一管理多个节点池的工作负载配置，如实例数量和软件版本等。本文将介绍如何使用YurtAppSet来高效地管理和部署ACK Edge集群的应用。">
+  <meta name="last-modified" content="2026-03-06T18:50:41+08:00">
+  <meta name="date" content="2021-01-26T04:37:39+08:00">
+  <meta property="og:title" content="节点池应用集管理">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/ack/ack-edge/user-guide/node-pool-yurtappset-management">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="在ACK Edge集群中，您可以使用应用集（YurtAppSet）将应用便捷地部署到多个节点池中。YurtAppSet提供了灵活的响应机制以感知节点池标签的变化，从而能够统一管理多个节点池的工作负载配置，如实例数量和软件版本等。本文将介绍如何使用YurtAppSet来高效地管理和部署ACK Edge集群的应用。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/ack/ack-edge/user-guide/node-pool-yurtappset-management",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "201460",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/ack/ack-edge/user-guide/node-pool-yurtappset-management","nodeId":null,"data":{"lastModifiedTime":1772794241000,"keywords":"yurtappset, 边缘节点池管理, 应用集","docTitle":"通过YurtAppSet应用集管理ACK Edge应用","language":"zh","seoTitle":"使用应用集YurtAppSet将应用部署至多个节点池-容器服务Kubernetes版ACK-阿里云-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心","title":"节点池应用集管理","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n<main id=\"task-2035381\">\n\n\n<p data-tag=\"shortdesc\" id=\"2d3246a4abpil\" class=\"shortdesc\">在<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"900eb2c44d4hl\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>中，您可以使用应用集（YurtAppSet）将应用便捷地部署到多个节点池中。YurtAppSet<span class=\"help-letter-space\"></span>提供了灵活的响应机制以感知节点池标签的变化，从而能够统一管理多个节点池的工作负载配置，如实例数量和软件版本等。本文将介绍如何使用<span class=\"help-letter-space\"></span>YurtAppSet<span class=\"help-letter-space\"></span>来高效地管理和部署<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"fe0f338980vtn\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>的应用。</p>\n<div data-tag=\"taskbody\" id=\"taskbody-knx-5h9-r1r\" class=\"taskbody\">\n<section data-tag=\"context\" data-type=\"context\" id=\"context-u3x-s8h-jvc\" class=\"context section\">\n<h2 id=\"d41e21\">背景信息</h2>\n<h4 data-tag=\"p\" id=\"p-vqz-wkg-xna\" class=\"p\"><b>传统方案</b></h4>\n<p id=\"7daec01a19q0p\">在边缘计算场景下，计算节点具有很明显的地域分布属性，相同的应用可能需要部署在不同地域下的计算节点上。以<span class=\"help-letter-space\"></span>Deployment<span class=\"help-letter-space\"></span>为例，传统的做法是先将相同地域的计算节点设置成相同的标签，然后创建多个<span class=\"help-letter-space\"></span>Deployment，不同<span class=\"help-letter-space\"></span>Deployment<span class=\"help-letter-space\"></span>通过<span class=\"help-letter-space\"></span>NodeSelectors<span class=\"help-letter-space\"></span>选定不同的标签，从而实现将相同的应用部署到不同地域的需求。</p>\n<hetu hetuid=\"ebee4c43-4730-466a-bd38-e3b3e1bc1625\" id=\"249b4b74c48ub\" translate=\"yes\" type=\"flowchart\" uuid=\"4196494_20240130165603.746\" versionid=\"CAEQOhiBgMDGh8v66hgiIGY0MTM2ZDZlYWMxMTRjM2NiOTE4YWY0MGFlYTkzNzYw\"><img src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1424972771/CAEQOhiBgMDGh8v66hgiIGY0MTM2ZDZlYWMxMTRjM2NiOTE4YWY0MGFlYTkzNzYw4196494_20240130165603.746.svg\" alt=\"image\" class=\"image break flowchart hetu\"></hetu>\n<p data-tag=\"p\" id=\"p-5p3-eu9-lzn\" class=\"p\">随着地域分布越来越多，以及不同地域对应用的差异化需求，运维变得越来越复杂，具体表现在以下几个方面：</p>\n<ul data-tag=\"ul\" id=\"ul-p1a-11g-hmr\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-exw-df1-zaf\" class=\"li\">\n<p id=\"8fb6a364feg92\">更新繁琐：当应用版本更新时，需要手动修改所有<span class=\"help-letter-space\"></span>Deployment<span class=\"help-letter-space\"></span>以保持应用在各地域的一致性，降低了更新效率。 </p>\n</li>\n</ul>\n<ul id=\"943f7484a1e8j\">\n<li id=\"ed30f115a2xlv\">\n<p id=\"33bf182dfcn1r\"> 管理复杂：随着管理地域的增多，需要人工地对不同地域的<span class=\"help-letter-space\"></span>Deployment<span class=\"help-letter-space\"></span>进行区分和维护，增加了运维工作量。 </p>\n</li>\n</ul>\n<ul class=\"ne-ol\" id=\"91906f3ac1gul\">\n<li data-lake-index-type=\"0\" id=\"u05c0c84b\">\n<p id=\"cb37c3cc308or\"> 配置冗余：多个地域的<span class=\"help-letter-space\"></span>Deployment<span class=\"help-letter-space\"></span>配置高度相似，导致配置管理繁琐且易出错。 </p>\n</li>\n</ul>\n<h4 id=\"840192a990y77\"><b>应用集管理方案</b></h4>\n<p id=\"2f28eb0dfd8su\">应用集（YurtAppSet）是<span data-tag=\"ph\" id=\"c63691906d7l0\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">容器服务 Edge 版</span>提供的功能，旨在简化边缘计算场景下分散部署的复杂性。通过更上层的抽象，对多个工作负载（Workload<span class=\"help-letter-space\"></span>资源，如<span class=\"help-letter-space\"></span>Deployment）进行统一管理，比如创建、更新和删除等操作。</p>\n<p id=\"ccf3350ebay0f\">YurtAppSet<span class=\"help-letter-space\"></span>提供以下能力，可以帮助您有效解决传统方案的更新效率低、管理复杂和配置冗余等问题，提高运维效率和应用部署的灵活性。</p>\n<ul id=\"53c9f73c7fs56\">\n<li id=\"465783e6a1env\">\n<p id=\"e28d701f4ab1e\">workloadTemplate：统一模板定义</p>\n<p id=\"b0ebcd75b6xrk\">YurtAppSet<span class=\"help-letter-space\"></span>允许您通过单一的<span class=\"help-letter-space\"></span>workloadTemplate<span class=\"help-letter-space\"></span>定义来统一管理位于多个地域的工作负载。这种方式不仅减少了重复的部署配置，还可以让批量操作如创建、更新和删除变得更加高效和一致。</p>\n</li>\n<li id=\"436361cc6atus\">\n<p id=\"3d6f73771687r\">nodepoolSelector：自动化部署</p>\n<p id=\"5514b0c5bcuhj\">YurtAppSet<span class=\"help-letter-space\"></span>通过<span class=\"help-letter-space\"></span>nodepoolSelector<span class=\"help-letter-space\"></span>机制灵活选择目标节点池，实现了与节点池动态变化的同步。随着新节点池的创建或现有节点池的移除，nodepoolSelector<span class=\"help-letter-space\"></span>将自动识别并匹配最新的合适节点池进行<span class=\"help-letter-space\"></span>Workload<span class=\"help-letter-space\"></span>分发部署，帮助您减轻运维负担。</p>\n</li>\n<li id=\"56a10f457ff6v\">\n<p id=\"aeae33ed8dirz\">workloadTweaks：地域差异化定制配置</p>\n<p id=\"fa79d995b43fr\">当地域间的应用需求存在差异时，YurtAppSet<span class=\"help-letter-space\"></span>提供了<span class=\"help-letter-space\"></span>workloadTweaks<span class=\"help-letter-space\"></span>功能，允许对特定区域的<span class=\"help-letter-space\"></span>Workload<span class=\"help-letter-space\"></span>进行定制化调整，从而满足各地域的特定要求，您无需独立管理或更新每个<span class=\"help-letter-space\"></span>Workload。</p>\n</li>\n</ul>\n<hetu hetuid=\"7810280b-6e55-4c8e-8345-082f697e77fd\" id=\"1df48928e2c0l\" translate=\"yes\" type=\"flowchart\" uuid=\"4196494_20240130165603.746\" versionid=\"CAEQTRiBgMC5l9GziBkiIGEwZWJiYzlmMzYwNzRjOWQ4NmZhZDlhMDkxZTM3M2Y4\"><img src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1424972771/CAEQTRiBgMC5l9GziBkiIGEwZWJiYzlmMzYwNzRjOWQ4NmZhZDlhMDkxZTM3M2Y44196494_20240130165603.746.svg\" alt=\"image\" class=\"image break flowchart hetu\"></hetu>\n</section>\n<section id=\"8b9a97b8f1y4x\" class=\"section\">\n<h2 id=\"19fbcc0059if7\">创建应用集实例</h2>\n<ul id=\"456b1ace24rzx\">\n<li id=\"3da57f903azqk\">\n<p id=\"89401445ebork\"><span data-tag=\"ph\" id=\"b92ab363a5s88\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>为<span class=\"help-letter-space\"></span>1.26<span class=\"help-letter-space\"></span>及之后版本时，使用<span class=\"help-letter-space\"></span>YurtAppSet<span class=\"help-letter-space\"></span>部署。</p>\n</li>\n<li id=\"5ff5bb91916a9\">\n<p id=\"d1a132400css0\"><span data-tag=\"ph\" id=\"471467b942bhu\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>为<span class=\"help-letter-space\"></span>1.26<span class=\"help-letter-space\"></span>之前版本时，使用<span class=\"help-letter-space\"></span>UnitedDeployment<span class=\"help-letter-space\"></span>部署。</p>\n</li>\n</ul>\n<section data-tag=\"tabbed-content-box\" id=\"e76d04daffa2k\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n<section id=\"1ec4db68897rf\" class=\"section\">\n<h2 id=\"e17b951b54hk6\">1.26<span class=\"help-letter-space\"></span>及之后版本</h2>\n<p id=\"8fcabb0d669w1\">创建一个<span class=\"help-letter-space\"></span>Workload<span class=\"help-letter-space\"></span>模板为<span class=\"help-letter-space\"></span>Deployment<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>YurtAppSet<span class=\"help-letter-space\"></span>应用集实例。</p>\n<p id=\"86f4c7f105way\">完整的<span class=\"help-letter-space\"></span>YAML<span class=\"help-letter-space\"></span>示例模板如下：</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"180782ebd5ae8\" outputclass=\"language-yaml\" class=\"pre codeblock language-yaml\"><code>apiVersion: apps.openyurt.io/v1beta1\nkind: YurtAppSet\nmetadata:\n  name: example\n  namespace: default\nspec:\n  revisionHistoryLimit: 5\n  pools:\n  - np1xxxxxx\n  - np2xxxxxx\n  nodepoolSelector:\n    matchLabels:\n      yurtappset.openyurt.io/type: \"nginx\"\n  workload:\n    workloadTemplate:\n      deploymentTemplate:\n        metadata:\n          labels:\n            app: example\n        spec:\n          replicas: 2\n          selector:\n            matchLabels:\n              app: example\n          template:\n            metadata:\n              labels:\n                app: example\n            spec:\n              containers:\n              - image: nginx:1.19.1\n                imagePullPolicy: Always\n                name: nginx\n    workloadTweaks:\n    - pools:\n      - np2xxxxxx\n      tweaks:\n        replicas: 3\n        containerImages:\n        - name: nginx\n          targetImage: nginx:1.20.1\n        patches:\n        - path: /metadata/labels/test\n          operation: add\n          value: test</code></pre>\n<p id=\"f15aa31e21uyr\">相关字段的解释如下表所示：</p>\n<table autofit=\"false\" id=\"yG2qA\" tablecolswidth=\"234 343 112\" tablewidth=\"689\" class=\"table\">\n<colgroup colwidth=\"1.02*\" style=\"width:33.96%\"></colgroup>\n<colgroup colwidth=\"1.5*\" style=\"width:49.78%\"></colgroup>\n<colgroup colwidth=\"0.49*\" style=\"width:16.26%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"8bb584efa1wun\">\n<td id=\"7b9c1acffa1ez\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"9f34e5183favd\" jc=\"left\" style=\"text-align:left\"><b>字段</b></p>\n</td>\n<td id=\"0afee61b91dj6\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"01527dbe8294c\" jc=\"left\" style=\"text-align:left\"><b>含义</b></p>\n</td>\n<td id=\"2160b5566142h\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"d07f28de0cn4o\"><b>是否必选</b></p>\n</td>\n</tr>\n<tr id=\"22b2765227sre\">\n<td id=\"292f0be318r42\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fa950fc7d3ztn\" jc=\"left\" style=\"text-align:left\">spec.pools</p>\n</td>\n<td id=\"dce0fbbe5273v\" rowspan=\"1\" colspan=\"1\">\n<p id=\"8f9d0e765a9uh\" jc=\"left\" style=\"text-align:left\">指定需要部署应用的节点池名称列表（slice<span class=\"help-letter-space\"></span>类型，推荐优先使用<span class=\"help-letter-space\"></span>nodepoolSelector<span class=\"help-letter-space\"></span>指定<span class=\"help-letter-space\"></span>nodepool）。</p>\n</td>\n<td id=\"0cffff5629ji0\" rowspan=\"1\" colspan=\"1\">\n<p id=\"9ab6e2c562hi8\">否</p>\n</td>\n</tr>\n<tr id=\"4843744139qjn\">\n<td id=\"008b9a8581cs5\" rowspan=\"1\" colspan=\"1\">\n<p id=\"0e1790eeaa0vs\">spec.nodepoolSelector</p>\n</td>\n<td id=\"22592a0b6a8bp\" rowspan=\"1\" colspan=\"1\">\n<p id=\"122701ad2bm7y\">通过<span class=\"help-letter-space\"></span>labelSelector<span class=\"help-letter-space\"></span>选择需要部署应用的节点池（当与<span class=\"help-letter-space\"></span>pools<span class=\"help-letter-space\"></span>同时指定时，取并集）。</p>\n<blockquote id=\"61b6f5f434mao\"><code class=\"code blog-code\" data-tag=\"code\" id=\"bbbb605125cxe\">nodepoolSelector</code>&nbsp;通过匹配&nbsp;<code class=\"code blog-code\" data-tag=\"code\" id=\"7a34baadeczp7\">NodePool</code>&nbsp;资源的标签（metadata.Labels）来选择节点池。如需修改这些标签，请在集群控制台的自定义资源页面，找到并编辑相应&nbsp;<code class=\"code blog-code\" data-tag=\"code\" id=\"d237f10f3ep6x\">NodePool</code>&nbsp;的<span class=\"help-letter-space\"></span>YAML。</blockquote>\n</td>\n<td id=\"ce64e1010ewgh\" rowspan=\"1\" colspan=\"1\">\n<p id=\"ea38040c31rgf\">否</p>\n</td>\n</tr>\n<tr id=\"a163f85c7d3w8\">\n<td id=\"f26dd1ca08lds\" rowspan=\"1\" colspan=\"1\">\n<p id=\"51ba2016c9m7n\" jc=\"left\" style=\"text-align:left\">spec.workload.workloadTemplate</p>\n</td>\n<td id=\"16d9ac6d79bnw\" rowspan=\"1\" colspan=\"1\">\n<p id=\"3bdde0fe72ox6\" jc=\"left\" style=\"text-align:left\">指定管理的<span class=\"help-letter-space\"></span>Workload<span class=\"help-letter-space\"></span>模板，目前支持<code code-type=\"xCode\" data-tag=\"code\" id=\"e1e7820cdc6ix\" class=\"code\">deploymentTemplate</code>和<code code-type=\"xCode\" data-tag=\"code\" id=\"f3c14f4c1cdty\" class=\"code\">statefulSetTemplate</code>模板。</p>\n</td>\n<td id=\"bb079c64bevd0\" rowspan=\"1\" colspan=\"1\">\n<p id=\"300b23aab68tg\">是</p>\n</td>\n</tr>\n<tr id=\"5271a012a4let\">\n<td id=\"204fbc977c2yy\" rowspan=\"1\" colspan=\"1\">\n<p id=\"40b1d896e7r2z\" jc=\"left\" style=\"text-align:left\">spec.workload.workloadTweaks</p>\n</td>\n<td id=\"3692d881ectzn\" rowspan=\"1\" colspan=\"1\">\n<p id=\"729341cdfdpi4\" jc=\"left\" style=\"text-align:left\">指定对<span class=\"help-letter-space\"></span>Workload<span class=\"help-letter-space\"></span>的定制修改。</p>\n</td>\n<td id=\"337a25b0bfjy2\" rowspan=\"1\" colspan=\"1\">\n<p id=\"42993e64a5qhr\">否</p>\n</td>\n</tr>\n<tr id=\"14582d7a45dkp\">\n<td id=\"d5df116be60w3\" rowspan=\"1\" colspan=\"1\">\n<p id=\"4d29141f61pj0\">spec.workload.workloadTweaks[*].pools</p>\n</td>\n<td id=\"df3a40dea4atj\" rowspan=\"1\" colspan=\"1\">\n<p id=\"323d5703f812p\">指定该项修改应用在哪些节点池上（slice<span class=\"help-letter-space\"></span>类型）。</p>\n</td>\n<td id=\"83d9acbb8eocz\" rowspan=\"1\" colspan=\"1\">\n<p id=\"79677dbe1efwj\">否</p>\n</td>\n</tr>\n<tr id=\"130e726b4e1va\">\n<td id=\"74772303634zl\" rowspan=\"1\" colspan=\"1\">\n<p id=\"79ba429eba303\">spec.workload.workloadTweaks[*].nodepoolSelector</p>\n</td>\n<td id=\"0d9ac9d491xcm\" rowspan=\"1\" colspan=\"1\">\n<p id=\"ad816dd675b4u\" jc=\"left\" style=\"text-align:left\">通过<span class=\"help-letter-space\"></span>labelSelector<span class=\"help-letter-space\"></span>选择哪些节点池将会被修改。</p>\n</td>\n<td id=\"12c804fd1dkix\" rowspan=\"1\" colspan=\"1\">\n<p id=\"612cdcf824it7\">否</p>\n</td>\n</tr>\n<tr id=\"e2adbeb951cgy\">\n<td id=\"f5b41ae5fctca\" rowspan=\"1\" colspan=\"1\">\n<p id=\"3fdadf1d09xej\" jc=\"left\" style=\"text-align:left\">spec.workload.workloadTweaks[*].tweaks.replicas</p>\n</td>\n<td id=\"7fc266b9e3wf3\" rowspan=\"1\" colspan=\"1\">\n<p id=\"97c3bcb4d7cfr\" jc=\"left\" style=\"text-align:left\">指定被修改的<span class=\"help-letter-space\"></span>workload<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>replicas<span class=\"help-letter-space\"></span>数。</p>\n</td>\n<td id=\"350e91c24f0sd\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c4c20e93a4h5s\">否</p>\n</td>\n</tr>\n<tr id=\"2a33e7b75fckc\">\n<td id=\"7cc617761arvx\" rowspan=\"1\" colspan=\"1\">\n<p id=\"3953af9cffp5z\">spec.workload.workloadTweaks[*].tweaks.containerImages</p>\n</td>\n<td id=\"c5b4cedae8ikb\" rowspan=\"1\" colspan=\"1\">\n<p id=\"12b8a511c7o3p\">指定被修改的<span class=\"help-letter-space\"></span>workload<span class=\"help-letter-space\"></span>的容器镜像。</p>\n</td>\n<td id=\"f31c15e3ebdqv\" rowspan=\"1\" colspan=\"1\">\n<p id=\"88b7b0201as7v\">否</p>\n</td>\n</tr>\n<tr id=\"cd348a94d8tee\">\n<td id=\"9495f1c37f03s\" rowspan=\"1\" colspan=\"1\">\n<p id=\"61f286268dnsm\">spec.workload.workloadTweaks[*].tweaks.patches</p>\n</td>\n<td id=\"ed3332744cvko\" rowspan=\"1\" colspan=\"1\">\n<p id=\"a2edddb4f13j2\">通过<span class=\"help-letter-space\"></span>patch<span class=\"help-letter-space\"></span>字段可以修改<span class=\"help-letter-space\"></span>workloadTemplate<span class=\"help-letter-space\"></span>的任意字段。</p>\n</td>\n<td id=\"3aad32d5ecim9\" rowspan=\"1\" colspan=\"1\">\n<p id=\"43301ccfe5w90\">否</p>\n</td>\n</tr>\n<tr id=\"944c4edc7a795\">\n<td id=\"0b1f11323fof6\" rowspan=\"1\" colspan=\"1\">\n<p id=\"537afaa3771ly\">spec.workload.workloadTweaks[*].tweaks.patches[*].path</p>\n</td>\n<td id=\"355501c8701kk\" rowspan=\"1\" colspan=\"1\">\n<p id=\"820e3a03c3yw6\">指定需要修改的字段在<span class=\"help-letter-space\"></span>workloadTemplate<span class=\"help-letter-space\"></span>中的路径。</p>\n</td>\n<td id=\"efe3bf57f329w\" rowspan=\"1\" colspan=\"1\">\n<p id=\"7bdf048efdl6m\">否</p>\n</td>\n</tr>\n<tr id=\"f0c83f49d18hu\">\n<td id=\"39fdbffb37axd\" rowspan=\"1\" colspan=\"1\">\n<p id=\"b310a9331bawl\">spec.workload.workloadTweaks[*].tweaks.patches[*].operation</p>\n</td>\n<td id=\"9f9a07a0f5leb\" rowspan=\"1\" colspan=\"1\">\n<p id=\"153b40601a75b\">指定需要在<span class=\"help-letter-space\"></span>path<span class=\"help-letter-space\"></span>上执行的操作（目前支持：add/remove/replace）。</p>\n</td>\n<td id=\"8a1235a08ahd2\" rowspan=\"1\" colspan=\"1\">\n<p id=\"967561d690kqo\">否</p>\n</td>\n</tr>\n<tr id=\"0dece4b5c3yud\">\n<td id=\"2f69641075tin\" rowspan=\"1\" colspan=\"1\">\n<p id=\"6dbb23dbc8oeh\">spec.workload.workloadTweaks[*].tweaks.patches[*].value</p>\n</td>\n<td id=\"9bf5538a121nm\" rowspan=\"1\" colspan=\"1\">\n<p id=\"460e7c42f1y1w\">指定修改后的最新取值（只对<span class=\"help-letter-space\"></span>add/replace<span class=\"help-letter-space\"></span>操作生效）。</p>\n</td>\n<td id=\"b7bfe936f4zbn\" rowspan=\"1\" colspan=\"1\">\n<p id=\"93578310948mn\">否</p>\n</td>\n</tr>\n<tr id=\"8989c61ef9msv\">\n<td id=\"93f5717a61uat\" rowspan=\"1\" colspan=\"1\">\n<p id=\"cae9d9f223dwf\">status.conditions</p>\n</td>\n<td id=\"5aef106f42h3l\" rowspan=\"1\" colspan=\"1\">\n<p id=\"2bfc76c4e6hta\">表示<span class=\"help-letter-space\"></span>YurtAppSet<span class=\"help-letter-space\"></span>当前状态，包括节点池选中状态、workload<span class=\"help-letter-space\"></span>状态等。</p>\n</td>\n<td id=\"d1fa789cefko6\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c9a30b15c5808\"></p>\n</td>\n</tr>\n<tr id=\"54cb687048c11\">\n<td id=\"2f6d0ca1b6p99\" rowspan=\"1\" colspan=\"1\">\n<p id=\"8a28b12296vdw\">status.readyWorkloads</p>\n</td>\n<td id=\"ddbdb1a59979f\" rowspan=\"1\" colspan=\"1\">\n<p id=\"0656c78aeb9oj\">表示<span class=\"help-letter-space\"></span>YurtAppSet<span class=\"help-letter-space\"></span>当前管理的<span class=\"help-letter-space\"></span>workload<span class=\"help-letter-space\"></span>中，所有副本都<span class=\"help-letter-space\"></span>ready<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>workload<span class=\"help-letter-space\"></span>数量。</p>\n</td>\n<td id=\"2672ea30211p0\" rowspan=\"1\" colspan=\"1\">\n<p id=\"b1d095a5c2j1c\"></p>\n</td>\n</tr>\n<tr id=\"b25e9f4779cwj\">\n<td id=\"c50a24b7ce7b5\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c70e380c30ln1\">status.updatedWorkloads</p>\n</td>\n<td id=\"2ed03f5daevhi\" rowspan=\"1\" colspan=\"1\">\n<p id=\"09f7369056ncg\">表示<span class=\"help-letter-space\"></span>YurtAppSet<span class=\"help-letter-space\"></span>当前管理的<span class=\"help-letter-space\"></span>workload<span class=\"help-letter-space\"></span>中，所有副本都已经更新到最新版本的<span class=\"help-letter-space\"></span>workload<span class=\"help-letter-space\"></span>数量。</p>\n</td>\n<td id=\"c88ee231b0hwa\" rowspan=\"1\" colspan=\"1\">\n<p id=\"6e316a771b51s\"></p>\n</td>\n</tr>\n<tr id=\"f6e41543d2hoa\">\n<td id=\"f39c75415558v\" rowspan=\"1\" colspan=\"1\">\n<p id=\"73f8f9ee8f9mx\">status.totalWorkloads</p>\n</td>\n<td id=\"f6e26244561r8\" rowspan=\"1\" colspan=\"1\">\n<p id=\"f267a6c90eq1t\">表示<span class=\"help-letter-space\"></span>YurtAppSet<span class=\"help-letter-space\"></span>当前管理的<span class=\"help-letter-space\"></span>workload<span class=\"help-letter-space\"></span>数量。</p>\n</td>\n<td id=\"0f07b360307ev\" rowspan=\"1\" colspan=\"1\">\n<p id=\"4a87de12dahos\"></p>\n</td>\n</tr>\n</tbody>\n</table>\n</section>\n<section id=\"6c84b9e75b0ou\" class=\"section\">\n<h2 id=\"cbe56ea20e1dk\">1.26<span class=\"help-letter-space\"></span>之前版本</h2>\n<p id=\"b595ff2cb4e6y\">创建一个<span class=\"help-letter-space\"></span>Workload<span class=\"help-letter-space\"></span>模板为<span class=\"help-letter-space\"></span>Deployment<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>UnitedDeployment<span class=\"help-letter-space\"></span>部署实例。</p>\n<div data-tag=\"p\" id=\"p-pah-knb-r9i\" class=\"p\">\n<p id=\"81479bb7e1xre\">完整的<span class=\"help-letter-space\"></span>YAML<span class=\"help-letter-space\"></span>示例模板如下：</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"codeblock-cpt-6p7-e5w\" outputclass=\"language-yaml\" class=\"pre codeblock language-yaml\"><code>apiVersion: apps.kruise.io/v1alpha1\nkind: UnitedDeployment\nmetadata:\n  name: example\n  namespace: default\nspec:\n  revisionHistoryLimit: 5\n  selector:\n    matchLabels:\n      app: example\n  template:\n    deploymentTemplate:\n      metadata:\n        creationTimestamp: null\n        labels:\n          app: example\n      spec:  \n        selector:\n          matchLabels:\n            app: example\n        template:\n          metadata:\n            creationTimestamp: null\n            labels:\n              app: example\n          spec:\n            containers:\n            - image: nginx:1.19.3\n              imagePullPolicy: Always\n              name: nginx\n            dnsPolicy: ClusterFirst\n            restartPolicy: Always\n  topology:\n    subsets:\n    - name: cloud\n      nodeSelectorTerm:\n        matchExpressions:\n        - key: alibabacloud.com/nodepool-id\n          operator: In\n          values:\n          - np4b9781c40f0e46c581b2cf2b6160****\n      replicas: 2\n    - name: edge\n      nodeSelectorTerm:\n        matchExpressions:\n        - key: alibabacloud.com/nodepool-id\n          operator: In\n          values:\n          - np47832359db2e4843aa13e8b76f83****\n      replicas: 2\n      tolerations:\n      - effect: NoSchedule\n        key: apps.openyurt.io/taints\n        operator: Exists</code></pre>\n<p id=\"2e62b7a1ad71f\">相关字段的解释如下表所示：</p>\n<table autofit=\"false\" id=\"table-hoj-fe5-edp\" tablecolswidth=\"355 355\" tablewidth=\"710\" class=\"table\">\n<colgroup colwidth=\"1*\" style=\"width:50.00%\"></colgroup>\n<colgroup colwidth=\"1*\" style=\"width:50.00%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"row-cyj-3c5-0cg\">\n<td id=\"task-2035381-entry-988-f3o-fdd\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"25b3b3efc5hkm\"><b>字段</b></p>\n</td>\n<td id=\"task-2035381-entry-7al-wf8-m69\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"6000fe3afed4n\"><b>含义</b></p>\n</td>\n</tr>\n<tr id=\"row-tyy-7k8-y2s\">\n<td id=\"entry-ndz-fhu-zdf\" rowspan=\"1\" colspan=\"1\">\n<p id=\"7a3a4ef8cb18i\">spec.workloadTemplate</p>\n</td>\n<td id=\"entry-5vg-rav-vzx\" rowspan=\"1\" colspan=\"1\">\n<p id=\"2b4709776fgwl\">代表支持的<span class=\"help-letter-space\"></span>Workload<span class=\"help-letter-space\"></span>模板，目前节点池支持<span data-tag=\"ph\" id=\"codeph-4az-jkk-pj7\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" id=\"530e0a448a6n8\" class=\"code\">deploymentTemplate/statefulSetTemplate</code></span>两种模板。</p>\n</td>\n</tr>\n<tr id=\"row-xcg-pzz-k7o\">\n<td id=\"entry-05q-a64-cjb\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d8d52a070d3dt\">spec.topology.subsets</p>\n</td>\n<td id=\"entry-4m5-vy4-a1q\" rowspan=\"1\" colspan=\"1\">\n<p id=\"e3569f3fd720e\">指定多个节点池。</p>\n</td>\n</tr>\n<tr id=\"row-w9m-o3j-052\">\n<td id=\"entry-xqm-ssa-2o1\" rowspan=\"1\" colspan=\"1\">\n<p id=\"3bf0272faabnf\">spec.topology.subsets[*].name</p>\n</td>\n<td id=\"entry-kuh-f5e-5bw\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c1bdb1ab2ds6z\">节点池的名称。</p>\n</td>\n</tr>\n<tr id=\"row-jd6-532-mpv\">\n<td id=\"entry-4xc-7p2-q8h\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c8e9f146e2qsf\">spec.topology.pools[*].nodeSelectorTerm</p>\n</td>\n<td id=\"entry-snf-pbn-qv4\" rowspan=\"1\" colspan=\"1\">\n<p id=\"ad6e62c62cido\">节点池的主机亲和性配置若需与节点池<span class=\"help-letter-space\"></span>NodePool<span class=\"help-letter-space\"></span>相对应，Key<span class=\"help-letter-space\"></span>使用<span data-tag=\"ph\" id=\"codeph-zlz-6t5-9rh\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" id=\"826672105ex2n\" class=\"code\">apps.openyurt.io/nodepool</code></span>，Values<span class=\"help-letter-space\"></span>使用节点池<span class=\"help-letter-space\"></span>ID。</p>\n<div data-tag=\"note\" id=\"note-nfn-wbs-mxr\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n<p id=\"5dc8183206vk0\">您可以在<b id=\"uicontrol-dgp-t49-bqn\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">节点池</b>页面，在对应云端和边缘侧的节点池<b id=\"uicontrol-6cc-6s6-o3z\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">名称</b>的下方查看节点池<span class=\"help-letter-space\"></span>ID。</p>\n</div></div>\n</td>\n</tr>\n<tr id=\"row-kcc-1m0-q95\">\n<td id=\"entry-kdm-63a-oo3\" rowspan=\"1\" colspan=\"1\">\n<p id=\"6d637f0eeeud8\">spec.topology.pools[*].tolerations</p>\n</td>\n<td id=\"entry-xa1-695-d05\" rowspan=\"1\" colspan=\"1\">\n<p id=\"2c95bee93biiv\">节点池的主机容忍性配置。</p>\n</td>\n</tr>\n<tr id=\"row-tmz-3c1-5ev\">\n<td id=\"entry-wlf-7h2-w5z\" rowspan=\"1\" colspan=\"1\">\n<p id=\"6f84bdf76eg10\">spec.topology.pools[*].replicas</p>\n</td>\n<td id=\"entry-a5r-nnw-0ld\" rowspan=\"1\" colspan=\"1\">\n<p id=\"90e08b0660pr9\">每个节点池下<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>的实例数。</p>\n</td>\n</tr>\n</tbody>\n</table>\n</div>\n</section>\n</section>\n</section>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-kg7-cp1-aue\" class=\"section\">\n<h2 data-tag=\"title\" id=\"title-glj-gb8-b2w\" class=\"title\">如何使用应用集管理边缘应用</h2>\n<ul data-tag=\"ul\" id=\"ul-0a2-069-6sf\" class=\"ul\">\n<li id=\"6c3b3053640nq\">\n<p id=\"6aaf92c2d55cz\">应用版本升级：通过修改<code data-tag=\"code\" id=\"deed1e077a8x4\" class=\"code\">spec.workload.workloadTemplate</code>中的字段触发升级流程，控制器把新的模板更新到各个节点池下的<span class=\"help-letter-space\"></span>Workload<span class=\"help-letter-space\"></span>中以触发节点池控制器升级<span class=\"help-letter-space\"></span>Pod。</p>\n</li>\n<li id=\"bf2867f1eaqty\">\n<p id=\"7d20b86e2b2oz\">应用在某地域灰度更新：通过修改<code code-type=\"xCode\" data-tag=\"code\" id=\"0def4ee5f82sm\" class=\"code\">spec.workload.workloadTweak[*].containerImages</code>配置，触发相应节点池下应用<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>的镜像更新。</p>\n</li>\n<li data-lake-index-type=\"0\" id=\"ae53c4bb4cwzm\">\n<p id=\"383e83a85ckir\">应用在某地域扩缩容：通过修改<code code-type=\"xCode\" data-tag=\"code\" id=\"14a075fabfuw7\" class=\"code\">spec.workload.workloadTweak[*].replicas</code>配置，触发相应节点池下应用<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>的扩缩容操作。</p>\n</li>\n<li data-lake-index-type=\"0\" id=\"udf281db3\">\n<p id=\"96396c60b1rs9\">应用需要部署到一个新的地域：新创建一个匹配<span class=\"help-letter-space\"></span>spec.nodepoolSelector<span class=\"help-letter-space\"></span>标签的节点池，YurtAppSet<span class=\"help-letter-space\"></span>会感知到节点池资源的变化，自动为该节点池创建一个<span class=\"help-letter-space\"></span>Workload。之后将该地域的节点加入该节点池即可。</p>\n</li>\n<li data-lake-index-type=\"0\" id=\"uf882ba4c\">\n<p id=\"eee9864d915o5\">应用需要在某个地域下线：删除对应地域的节点池，YurtAppSet<span class=\"help-letter-space\"></span>会自动删除该地域对应的<span class=\"help-letter-space\"></span>Workload。</p>\n</li>\n</ul>\n</section>\n<p id=\"4678c0964996d\"></p>\n</div>\n</main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/ack/ack-edge/user-guide/node-pool-yurtappset-management","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"alias":"/ack/ack-edge/user-guide/node-pool-yurtappset-management","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":7,"developerUrl":"https://developer.aliyun.com/group/kubernetes/","nodeType":1,"version":15,"url":"/zh/ack/ack-edge/user-guide/node-pool-yurtappset-management","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":201460,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"节点池应用集管理","id":201460,"title":"节点池应用集管理","url":"/zh/ack/ack-edge/user-guide/node-pool-yurtappset-management"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"应用管理","id":2854007,"title":"应用管理","url":"/zh/ack/ack-edge/user-guide/application-management-overview/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"操作指南","id":2391816,"title":"操作指南","url":"/zh/ack/ack-edge/user-guide/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"ACK Edge集群","id":181471,"title":"ACK Edge集群","url":"/zh/ack/ack-edge/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"productUrl":"https://www.aliyun.com/product/kubernetes","nodeId":201460,"desc":"在ACK Edge集群中，您可以使用应用集（YurtAppSet）将应用便捷地部署到多个节点池中。YurtAppSet提供了灵活的响应机制以感知节点池标签的变化，从而能够统一管理多个节点池的工作负载配置，如实例数量和软件版本等。本文将介绍如何使用YurtAppSet来高效地管理和部署ACK Edge集群的应用。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"ACK Edge集群","id":181471,"title":"ACK Edge集群","url":"/zh/ack/ack-edge/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"操作指南","id":2391816,"title":"操作指南","url":"/zh/ack/ack-edge/user-guide/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"应用管理","id":2854007,"title":"应用管理","url":"/zh/ack/ack-edge/user-guide/application-management-overview/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"节点池应用集管理","id":201460,"title":"节点池应用集管理","url":"/zh/ack/ack-edge/user-guide/node-pool-yurtappset-management"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=2150420217825423986634617ec10e&asid=AQAAAAA+cD9qreH2ZwAAAACCczegwQWo5w==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"><div class="help-subproduct-container"></div></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2391815" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/product-overview/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品概述</span>
+</a>
+</li>
+ <li id="2870142" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/quick-start">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">快速入门</span>
+</a>
+</li>
+ <li id="2391816" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">操作指南</span>
+</a>
+</li>
+ <li id="2865114" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/use-cases/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">实践教程</span>
+</a>
+</li>
+ <li id="2852069" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/security-and-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="2391824" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2391859" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/support/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">服务支持</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>通过YurtAppSet应用集管理ACK Edge应用</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/kubernetes" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+<main id="task-2035381">
+
+
+<p data-tag="shortdesc" id="2d3246a4abpil" class="shortdesc">在<span class="help-letter-space"></span><span data-tag="ph" id="900eb2c44d4hl" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群</span>中，您可以使用应用集（YurtAppSet）将应用便捷地部署到多个节点池中。YurtAppSet<span class="help-letter-space"></span>提供了灵活的响应机制以感知节点池标签的变化，从而能够统一管理多个节点池的工作负载配置，如实例数量和软件版本等。本文将介绍如何使用<span class="help-letter-space"></span>YurtAppSet<span class="help-letter-space"></span>来高效地管理和部署<span class="help-letter-space"></span><span data-tag="ph" id="fe0f338980vtn" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群</span>的应用。</p>
+<div data-tag="taskbody" id="taskbody-knx-5h9-r1r" class="taskbody">
+<section data-tag="context" data-type="context" id="context-u3x-s8h-jvc" class="context section">
+<h2 id="d41e21">背景信息</h2>
+<h4 data-tag="p" id="p-vqz-wkg-xna" class="p"><b>传统方案</b></h4>
+<p id="7daec01a19q0p">在边缘计算场景下，计算节点具有很明显的地域分布属性，相同的应用可能需要部署在不同地域下的计算节点上。以<span class="help-letter-space"></span>Deployment<span class="help-letter-space"></span>为例，传统的做法是先将相同地域的计算节点设置成相同的标签，然后创建多个<span class="help-letter-space"></span>Deployment，不同<span class="help-letter-space"></span>Deployment<span class="help-letter-space"></span>通过<span class="help-letter-space"></span>NodeSelectors<span class="help-letter-space"></span>选定不同的标签，从而实现将相同的应用部署到不同地域的需求。</p>
+<hetu hetuid="ebee4c43-4730-466a-bd38-e3b3e1bc1625" id="249b4b74c48ub" translate="yes" type="flowchart" uuid="4196494_20240130165603.746" versionid="CAEQOhiBgMDGh8v66hgiIGY0MTM2ZDZlYWMxMTRjM2NiOTE4YWY0MGFlYTkzNzYw"><img src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1424972771/CAEQOhiBgMDGh8v66hgiIGY0MTM2ZDZlYWMxMTRjM2NiOTE4YWY0MGFlYTkzNzYw4196494_20240130165603.746.svg" alt="image" class="image break flowchart hetu"></hetu>
+<p data-tag="p" id="p-5p3-eu9-lzn" class="p">随着地域分布越来越多，以及不同地域对应用的差异化需求，运维变得越来越复杂，具体表现在以下几个方面：</p>
+<ul data-tag="ul" id="ul-p1a-11g-hmr" class="ul">
+<li data-tag="li" id="li-exw-df1-zaf" class="li">
+<p id="8fb6a364feg92">更新繁琐：当应用版本更新时，需要手动修改所有<span class="help-letter-space"></span>Deployment<span class="help-letter-space"></span>以保持应用在各地域的一致性，降低了更新效率。 </p>
+</li>
+</ul>
+<ul id="943f7484a1e8j">
+<li id="ed30f115a2xlv">
+<p id="33bf182dfcn1r"> 管理复杂：随着管理地域的增多，需要人工地对不同地域的<span class="help-letter-space"></span>Deployment<span class="help-letter-space"></span>进行区分和维护，增加了运维工作量。 </p>
+</li>
+</ul>
+<ul class="ne-ol" id="91906f3ac1gul">
+<li data-lake-index-type="0" id="u05c0c84b">
+<p id="cb37c3cc308or"> 配置冗余：多个地域的<span class="help-letter-space"></span>Deployment<span class="help-letter-space"></span>配置高度相似，导致配置管理繁琐且易出错。 </p>
+</li>
+</ul>
+<h4 id="840192a990y77"><b>应用集管理方案</b></h4>
+<p id="2f28eb0dfd8su">应用集（YurtAppSet）是<span data-tag="ph" id="c63691906d7l0" docid="4431993" is-conref="true" class="ph">容器服务 Edge 版</span>提供的功能，旨在简化边缘计算场景下分散部署的复杂性。通过更上层的抽象，对多个工作负载（Workload<span class="help-letter-space"></span>资源，如<span class="help-letter-space"></span>Deployment）进行统一管理，比如创建、更新和删除等操作。</p>
+<p id="ccf3350ebay0f">YurtAppSet<span class="help-letter-space"></span>提供以下能力，可以帮助您有效解决传统方案的更新效率低、管理复杂和配置冗余等问题，提高运维效率和应用部署的灵活性。</p>
+<ul id="53c9f73c7fs56">
+<li id="465783e6a1env">
+<p id="e28d701f4ab1e">workloadTemplate：统一模板定义</p>
+<p id="b0ebcd75b6xrk">YurtAppSet<span class="help-letter-space"></span>允许您通过单一的<span class="help-letter-space"></span>workloadTemplate<span class="help-letter-space"></span>定义来统一管理位于多个地域的工作负载。这种方式不仅减少了重复的部署配置，还可以让批量操作如创建、更新和删除变得更加高效和一致。</p>
+</li>
+<li id="436361cc6atus">
+<p id="3d6f73771687r">nodepoolSelector：自动化部署</p>
+<p id="5514b0c5bcuhj">YurtAppSet<span class="help-letter-space"></span>通过<span class="help-letter-space"></span>nodepoolSelector<span class="help-letter-space"></span>机制灵活选择目标节点池，实现了与节点池动态变化的同步。随着新节点池的创建或现有节点池的移除，nodepoolSelector<span class="help-letter-space"></span>将自动识别并匹配最新的合适节点池进行<span class="help-letter-space"></span>Workload<span class="help-letter-space"></span>分发部署，帮助您减轻运维负担。</p>
+</li>
+<li id="56a10f457ff6v">
+<p id="aeae33ed8dirz">workloadTweaks：地域差异化定制配置</p>
+<p id="fa79d995b43fr">当地域间的应用需求存在差异时，YurtAppSet<span class="help-letter-space"></span>提供了<span class="help-letter-space"></span>workloadTweaks<span class="help-letter-space"></span>功能，允许对特定区域的<span class="help-letter-space"></span>Workload<span class="help-letter-space"></span>进行定制化调整，从而满足各地域的特定要求，您无需独立管理或更新每个<span class="help-letter-space"></span>Workload。</p>
+</li>
+</ul>
+<hetu hetuid="7810280b-6e55-4c8e-8345-082f697e77fd" id="1df48928e2c0l" translate="yes" type="flowchart" uuid="4196494_20240130165603.746" versionid="CAEQTRiBgMC5l9GziBkiIGEwZWJiYzlmMzYwNzRjOWQ4NmZhZDlhMDkxZTM3M2Y4"><img src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1424972771/CAEQTRiBgMC5l9GziBkiIGEwZWJiYzlmMzYwNzRjOWQ4NmZhZDlhMDkxZTM3M2Y44196494_20240130165603.746.svg" alt="image" class="image break flowchart hetu"></hetu>
+</section>
+<section id="8b9a97b8f1y4x" class="section">
+<h2 id="19fbcc0059if7">创建应用集实例</h2>
+<ul id="456b1ace24rzx">
+<li id="3da57f903azqk">
+<p id="89401445ebork"><span data-tag="ph" id="b92ab363a5s88" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群</span>为<span class="help-letter-space"></span>1.26<span class="help-letter-space"></span>及之后版本时，使用<span class="help-letter-space"></span>YurtAppSet<span class="help-letter-space"></span>部署。</p>
+</li>
+<li id="5ff5bb91916a9">
+<p id="d1a132400css0"><span data-tag="ph" id="471467b942bhu" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群</span>为<span class="help-letter-space"></span>1.26<span class="help-letter-space"></span>之前版本时，使用<span class="help-letter-space"></span>UnitedDeployment<span class="help-letter-space"></span>部署。</p>
+</li>
+</ul>
+<section data-tag="tabbed-content-box" id="e76d04daffa2k" outputclass="tabbed-content-box" class="tabbed-content-box section">
+<section id="1ec4db68897rf" class="section">
+<h2 id="e17b951b54hk6">1.26<span class="help-letter-space"></span>及之后版本</h2>
+<p id="8fcabb0d669w1">创建一个<span class="help-letter-space"></span>Workload<span class="help-letter-space"></span>模板为<span class="help-letter-space"></span>Deployment<span class="help-letter-space"></span>的<span class="help-letter-space"></span>YurtAppSet<span class="help-letter-space"></span>应用集实例。</p>
+<p id="86f4c7f105way">完整的<span class="help-letter-space"></span>YAML<span class="help-letter-space"></span>示例模板如下：</p><pre code-type="xCode" data-tag="codeblock" id="180782ebd5ae8" outputclass="language-yaml" class="pre codeblock language-yaml"><code>apiVersion: apps.openyurt.io/v1beta1
+kind: YurtAppSet
+metadata:
+  name: example
+  namespace: default
+spec:
+  revisionHistoryLimit: 5
+  pools:
+  - np1xxxxxx
+  - np2xxxxxx
+  nodepoolSelector:
+    matchLabels:
+      yurtappset.openyurt.io/type: "nginx"
+  workload:
+    workloadTemplate:
+      deploymentTemplate:
+        metadata:
+          labels:
+            app: example
+        spec:
+          replicas: 2
+          selector:
+            matchLabels:
+              app: example
+          template:
+            metadata:
+              labels:
+                app: example
+            spec:
+              containers:
+              - image: nginx:1.19.1
+                imagePullPolicy: Always
+                name: nginx
+    workloadTweaks:
+    - pools:
+      - np2xxxxxx
+      tweaks:
+        replicas: 3
+        containerImages:
+        - name: nginx
+          targetImage: nginx:1.20.1
+        patches:
+        - path: /metadata/labels/test
+          operation: add
+          value: test</code></pre>
+<p id="f15aa31e21uyr">相关字段的解释如下表所示：</p>
+<table autofit="false" id="yG2qA" tablecolswidth="234 343 112" tablewidth="689" class="table">
+<colgroup colwidth="1.02*" style="width:33.96%"></colgroup>
+<colgroup colwidth="1.5*" style="width:49.78%"></colgroup>
+<colgroup colwidth="0.49*" style="width:16.26%"></colgroup>
+<tbody class="tbody">
+<tr id="8bb584efa1wun">
+<td id="7b9c1acffa1ez" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="9f34e5183favd" jc="left" style="text-align:left"><b>字段</b></p>
+</td>
+<td id="0afee61b91dj6" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="01527dbe8294c" jc="left" style="text-align:left"><b>含义</b></p>
+</td>
+<td id="2160b5566142h" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="d07f28de0cn4o"><b>是否必选</b></p>
+</td>
+</tr>
+<tr id="22b2765227sre">
+<td id="292f0be318r42" rowspan="1" colspan="1">
+<p id="fa950fc7d3ztn" jc="left" style="text-align:left">spec.pools</p>
+</td>
+<td id="dce0fbbe5273v" rowspan="1" colspan="1">
+<p id="8f9d0e765a9uh" jc="left" style="text-align:left">指定需要部署应用的节点池名称列表（slice<span class="help-letter-space"></span>类型，推荐优先使用<span class="help-letter-space"></span>nodepoolSelector<span class="help-letter-space"></span>指定<span class="help-letter-space"></span>nodepool）。</p>
+</td>
+<td id="0cffff5629ji0" rowspan="1" colspan="1">
+<p id="9ab6e2c562hi8">否</p>
+</td>
+</tr>
+<tr id="4843744139qjn">
+<td id="008b9a8581cs5" rowspan="1" colspan="1">
+<p id="0e1790eeaa0vs">spec.nodepoolSelector</p>
+</td>
+<td id="22592a0b6a8bp" rowspan="1" colspan="1">
+<p id="122701ad2bm7y">通过<span class="help-letter-space"></span>labelSelector<span class="help-letter-space"></span>选择需要部署应用的节点池（当与<span class="help-letter-space"></span>pools<span class="help-letter-space"></span>同时指定时，取并集）。</p>
+<blockquote id="61b6f5f434mao"><code class="code blog-code" data-tag="code" id="bbbb605125cxe">nodepoolSelector</code>&nbsp;通过匹配&nbsp;<code class="code blog-code" data-tag="code" id="7a34baadeczp7">NodePool</code>&nbsp;资源的标签（metadata.Labels）来选择节点池。如需修改这些标签，请在集群控制台的自定义资源页面，找到并编辑相应&nbsp;<code class="code blog-code" data-tag="code" id="d237f10f3ep6x">NodePool</code>&nbsp;的<span class="help-letter-space"></span>YAML。</blockquote>
+</td>
+<td id="ce64e1010ewgh" rowspan="1" colspan="1">
+<p id="ea38040c31rgf">否</p>
+</td>
+</tr>
+<tr id="a163f85c7d3w8">
+<td id="f26dd1ca08lds" rowspan="1" colspan="1">
+<p id="51ba2016c9m7n" jc="left" style="text-align:left">spec.workload.workloadTemplate</p>
+</td>
+<td id="16d9ac6d79bnw" rowspan="1" colspan="1">
+<p id="3bdde0fe72ox6" jc="left" style="text-align:left">指定管理的<span class="help-letter-space"></span>Workload<span class="help-letter-space"></span>模板，目前支持<code code-type="xCode" data-tag="code" id="e1e7820cdc6ix" class="code">deploymentTemplate</code>和<code code-type="xCode" data-tag="code" id="f3c14f4c1cdty" class="code">statefulSetTemplate</code>模板。</p>
+</td>
+<td id="bb079c64bevd0" rowspan="1" colspan="1">
+<p id="300b23aab68tg">是</p>
+</td>
+</tr>
+<tr id="5271a012a4let">
+<td id="204fbc977c2yy" rowspan="1" colspan="1">
+<p id="40b1d896e7r2z" jc="left" style="text-align:left">spec.workload.workloadTweaks</p>
+</td>
+<td id="3692d881ectzn" rowspan="1" colspan="1">
+<p id="729341cdfdpi4" jc="left" style="text-align:left">指定对<span class="help-letter-space"></span>Workload<span class="help-letter-space"></span>的定制修改。</p>
+</td>
+<td id="337a25b0bfjy2" rowspan="1" colspan="1">
+<p id="42993e64a5qhr">否</p>
+</td>
+</tr>
+<tr id="14582d7a45dkp">
+<td id="d5df116be60w3" rowspan="1" colspan="1">
+<p id="4d29141f61pj0">spec.workload.workloadTweaks[*].pools</p>
+</td>
+<td id="df3a40dea4atj" rowspan="1" colspan="1">
+<p id="323d5703f812p">指定该项修改应用在哪些节点池上（slice<span class="help-letter-space"></span>类型）。</p>
+</td>
+<td id="83d9acbb8eocz" rowspan="1" colspan="1">
+<p id="79677dbe1efwj">否</p>
+</td>
+</tr>
+<tr id="130e726b4e1va">
+<td id="74772303634zl" rowspan="1" colspan="1">
+<p id="79ba429eba303">spec.workload.workloadTweaks[*].nodepoolSelector</p>
+</td>
+<td id="0d9ac9d491xcm" rowspan="1" colspan="1">
+<p id="ad816dd675b4u" jc="left" style="text-align:left">通过<span class="help-letter-space"></span>labelSelector<span class="help-letter-space"></span>选择哪些节点池将会被修改。</p>
+</td>
+<td id="12c804fd1dkix" rowspan="1" colspan="1">
+<p id="612cdcf824it7">否</p>
+</td>
+</tr>
+<tr id="e2adbeb951cgy">
+<td id="f5b41ae5fctca" rowspan="1" colspan="1">
+<p id="3fdadf1d09xej" jc="left" style="text-align:left">spec.workload.workloadTweaks[*].tweaks.replicas</p>
+</td>
+<td id="7fc266b9e3wf3" rowspan="1" colspan="1">
+<p id="97c3bcb4d7cfr" jc="left" style="text-align:left">指定被修改的<span class="help-letter-space"></span>workload<span class="help-letter-space"></span>的<span class="help-letter-space"></span>replicas<span class="help-letter-space"></span>数。</p>
+</td>
+<td id="350e91c24f0sd" rowspan="1" colspan="1">
+<p id="c4c20e93a4h5s">否</p>
+</td>
+</tr>
+<tr id="2a33e7b75fckc">
+<td id="7cc617761arvx" rowspan="1" colspan="1">
+<p id="3953af9cffp5z">spec.workload.workloadTweaks[*].tweaks.containerImages</p>
+</td>
+<td id="c5b4cedae8ikb" rowspan="1" colspan="1">
+<p id="12b8a511c7o3p">指定被修改的<span class="help-letter-space"></span>workload<span class="help-letter-space"></span>的容器镜像。</p>
+</td>
+<td id="f31c15e3ebdqv" rowspan="1" colspan="1">
+<p id="88b7b0201as7v">否</p>
+</td>
+</tr>
+<tr id="cd348a94d8tee">
+<td id="9495f1c37f03s" rowspan="1" colspan="1">
+<p id="61f286268dnsm">spec.workload.workloadTweaks[*].tweaks.patches</p>
+</td>
+<td id="ed3332744cvko" rowspan="1" colspan="1">
+<p id="a2edddb4f13j2">通过<span class="help-letter-space"></span>patch<span class="help-letter-space"></span>字段可以修改<span class="help-letter-space"></span>workloadTemplate<span class="help-letter-space"></span>的任意字段。</p>
+</td>
+<td id="3aad32d5ecim9" rowspan="1" colspan="1">
+<p id="43301ccfe5w90">否</p>
+</td>
+</tr>
+<tr id="944c4edc7a795">
+<td id="0b1f11323fof6" rowspan="1" colspan="1">
+<p id="537afaa3771ly">spec.workload.workloadTweaks[*].tweaks.patches[*].path</p>
+</td>
+<td id="355501c8701kk" rowspan="1" colspan="1">
+<p id="820e3a03c3yw6">指定需要修改的字段在<span class="help-letter-space"></span>workloadTemplate<span class="help-letter-space"></span>中的路径。</p>
+</td>
+<td id="efe3bf57f329w" rowspan="1" colspan="1">
+<p id="7bdf048efdl6m">否</p>
+</td>
+</tr>
+<tr id="f0c83f49d18hu">
+<td id="39fdbffb37axd" rowspan="1" colspan="1">
+<p id="b310a9331bawl">spec.workload.workloadTweaks[*].tweaks.patches[*].operation</p>
+</td>
+<td id="9f9a07a0f5leb" rowspan="1" colspan="1">
+<p id="153b40601a75b">指定需要在<span class="help-letter-space"></span>path<span class="help-letter-space"></span>上执行的操作（目前支持：add/remove/replace）。</p>
+</td>
+<td id="8a1235a08ahd2" rowspan="1" colspan="1">
+<p id="967561d690kqo">否</p>
+</td>
+</tr>
+<tr id="0dece4b5c3yud">
+<td id="2f69641075tin" rowspan="1" colspan="1">
+<p id="6dbb23dbc8oeh">spec.workload.workloadTweaks[*].tweaks.patches[*].value</p>
+</td>
+<td id="9bf5538a121nm" rowspan="1" colspan="1">
+<p id="460e7c42f1y1w">指定修改后的最新取值（只对<span class="help-letter-space"></span>add/replace<span class="help-letter-space"></span>操作生效）。</p>
+</td>
+<td id="b7bfe936f4zbn" rowspan="1" colspan="1">
+<p id="93578310948mn">否</p>
+</td>
+</tr>
+<tr id="8989c61ef9msv">
+<td id="93f5717a61uat" rowspan="1" colspan="1">
+<p id="cae9d9f223dwf">status.conditions</p>
+</td>
+<td id="5aef106f42h3l" rowspan="1" colspan="1">
+<p id="2bfc76c4e6hta">表示<span class="help-letter-space"></span>YurtAppSet<span class="help-letter-space"></span>当前状态，包括节点池选中状态、workload<span class="help-letter-space"></span>状态等。</p>
+</td>
+<td id="d1fa789cefko6" rowspan="1" colspan="1">
+<p id="c9a30b15c5808"></p>
+</td>
+</tr>
+<tr id="54cb687048c11">
+<td id="2f6d0ca1b6p99" rowspan="1" colspan="1">
+<p id="8a28b12296vdw">status.readyWorkloads</p>
+</td>
+<td id="ddbdb1a59979f" rowspan="1" colspan="1">
+<p id="0656c78aeb9oj">表示<span class="help-letter-space"></span>YurtAppSet<span class="help-letter-space"></span>当前管理的<span class="help-letter-space"></span>workload<span class="help-letter-space"></span>中，所有副本都<span class="help-letter-space"></span>ready<span class="help-letter-space"></span>的<span class="help-letter-space"></span>workload<span class="help-letter-space"></span>数量。</p>
+</td>
+<td id="2672ea30211p0" rowspan="1" colspan="1">
+<p id="b1d095a5c2j1c"></p>
+</td>
+</tr>
+<tr id="b25e9f4779cwj">
+<td id="c50a24b7ce7b5" rowspan="1" colspan="1">
+<p id="c70e380c30ln1">status.updatedWorkloads</p>
+</td>
+<td id="2ed03f5daevhi" rowspan="1" colspan="1">
+<p id="09f7369056ncg">表示<span class="help-letter-space"></span>YurtAppSet<span class="help-letter-space"></span>当前管理的<span class="help-letter-space"></span>workload<span class="help-letter-space"></span>中，所有副本都已经更新到最新版本的<span class="help-letter-space"></span>workload<span class="help-letter-space"></span>数量。</p>
+</td>
+<td id="c88ee231b0hwa" rowspan="1" colspan="1">
+<p id="6e316a771b51s"></p>
+</td>
+</tr>
+<tr id="f6e41543d2hoa">
+<td id="f39c75415558v" rowspan="1" colspan="1">
+<p id="73f8f9ee8f9mx">status.totalWorkloads</p>
+</td>
+<td id="f6e26244561r8" rowspan="1" colspan="1">
+<p id="f267a6c90eq1t">表示<span class="help-letter-space"></span>YurtAppSet<span class="help-letter-space"></span>当前管理的<span class="help-letter-space"></span>workload<span class="help-letter-space"></span>数量。</p>
+</td>
+<td id="0f07b360307ev" rowspan="1" colspan="1">
+<p id="4a87de12dahos"></p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="6c84b9e75b0ou" class="section">
+<h2 id="cbe56ea20e1dk">1.26<span class="help-letter-space"></span>之前版本</h2>
+<p id="b595ff2cb4e6y">创建一个<span class="help-letter-space"></span>Workload<span class="help-letter-space"></span>模板为<span class="help-letter-space"></span>Deployment<span class="help-letter-space"></span>的<span class="help-letter-space"></span>UnitedDeployment<span class="help-letter-space"></span>部署实例。</p>
+<div data-tag="p" id="p-pah-knb-r9i" class="p">
+<p id="81479bb7e1xre">完整的<span class="help-letter-space"></span>YAML<span class="help-letter-space"></span>示例模板如下：</p><pre code-type="xCode" data-tag="codeblock" id="codeblock-cpt-6p7-e5w" outputclass="language-yaml" class="pre codeblock language-yaml"><code>apiVersion: apps.kruise.io/v1alpha1
+kind: UnitedDeployment
+metadata:
+  name: example
+  namespace: default
+spec:
+  revisionHistoryLimit: 5
+  selector:
+    matchLabels:
+      app: example
+  template:
+    deploymentTemplate:
+      metadata:
+        creationTimestamp: null
+        labels:
+          app: example
+      spec:  
+        selector:
+          matchLabels:
+            app: example
+        template:
+          metadata:
+            creationTimestamp: null
+            labels:
+              app: example
+          spec:
+            containers:
+            - image: nginx:1.19.3
+              imagePullPolicy: Always
+              name: nginx
+            dnsPolicy: ClusterFirst
+            restartPolicy: Always
+  topology:
+    subsets:
+    - name: cloud
+      nodeSelectorTerm:
+        matchExpressions:
+        - key: alibabacloud.com/nodepool-id
+          operator: In
+          values:
+          - np4b9781c40f0e46c581b2cf2b6160****
+      replicas: 2
+    - name: edge
+      nodeSelectorTerm:
+        matchExpressions:
+        - key: alibabacloud.com/nodepool-id
+          operator: In
+          values:
+          - np47832359db2e4843aa13e8b76f83****
+      replicas: 2
+      tolerations:
+      - effect: NoSchedule
+        key: apps.openyurt.io/taints
+        operator: Exists</code></pre>
+<p id="2e62b7a1ad71f">相关字段的解释如下表所示：</p>
+<table autofit="false" id="table-hoj-fe5-edp" tablecolswidth="355 355" tablewidth="710" class="table">
+<colgroup colwidth="1*" style="width:50.00%"></colgroup>
+<colgroup colwidth="1*" style="width:50.00%"></colgroup>
+<tbody class="tbody">
+<tr id="row-cyj-3c5-0cg">
+<td id="task-2035381-entry-988-f3o-fdd" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="25b3b3efc5hkm"><b>字段</b></p>
+</td>
+<td id="task-2035381-entry-7al-wf8-m69" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="6000fe3afed4n"><b>含义</b></p>
+</td>
+</tr>
+<tr id="row-tyy-7k8-y2s">
+<td id="entry-ndz-fhu-zdf" rowspan="1" colspan="1">
+<p id="7a3a4ef8cb18i">spec.workloadTemplate</p>
+</td>
+<td id="entry-5vg-rav-vzx" rowspan="1" colspan="1">
+<p id="2b4709776fgwl">代表支持的<span class="help-letter-space"></span>Workload<span class="help-letter-space"></span>模板，目前节点池支持<span data-tag="ph" id="codeph-4az-jkk-pj7" class="ph"><code code-type="xCode" data-tag="code" id="530e0a448a6n8" class="code">deploymentTemplate/statefulSetTemplate</code></span>两种模板。</p>
+</td>
+</tr>
+<tr id="row-xcg-pzz-k7o">
+<td id="entry-05q-a64-cjb" rowspan="1" colspan="1">
+<p id="d8d52a070d3dt">spec.topology.subsets</p>
+</td>
+<td id="entry-4m5-vy4-a1q" rowspan="1" colspan="1">
+<p id="e3569f3fd720e">指定多个节点池。</p>
+</td>
+</tr>
+<tr id="row-w9m-o3j-052">
+<td id="entry-xqm-ssa-2o1" rowspan="1" colspan="1">
+<p id="3bf0272faabnf">spec.topology.subsets[*].name</p>
+</td>
+<td id="entry-kuh-f5e-5bw" rowspan="1" colspan="1">
+<p id="c1bdb1ab2ds6z">节点池的名称。</p>
+</td>
+</tr>
+<tr id="row-jd6-532-mpv">
+<td id="entry-4xc-7p2-q8h" rowspan="1" colspan="1">
+<p id="c8e9f146e2qsf">spec.topology.pools[*].nodeSelectorTerm</p>
+</td>
+<td id="entry-snf-pbn-qv4" rowspan="1" colspan="1">
+<p id="ad6e62c62cido">节点池的主机亲和性配置若需与节点池<span class="help-letter-space"></span>NodePool<span class="help-letter-space"></span>相对应，Key<span class="help-letter-space"></span>使用<span data-tag="ph" id="codeph-zlz-6t5-9rh" class="ph"><code code-type="xCode" data-tag="code" id="826672105ex2n" class="code">apps.openyurt.io/nodepool</code></span>，Values<span class="help-letter-space"></span>使用节点池<span class="help-letter-space"></span>ID。</p>
+<div data-tag="note" id="note-nfn-wbs-mxr" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+<p id="5dc8183206vk0">您可以在<b id="uicontrol-dgp-t49-bqn" data-tag="uicontrol" data-isbold="true" class="uicontrol">节点池</b>页面，在对应云端和边缘侧的节点池<b id="uicontrol-6cc-6s6-o3z" data-tag="uicontrol" data-isbold="true" class="uicontrol">名称</b>的下方查看节点池<span class="help-letter-space"></span>ID。</p>
+</div></div>
+</td>
+</tr>
+<tr id="row-kcc-1m0-q95">
+<td id="entry-kdm-63a-oo3" rowspan="1" colspan="1">
+<p id="6d637f0eeeud8">spec.topology.pools[*].tolerations</p>
+</td>
+<td id="entry-xa1-695-d05" rowspan="1" colspan="1">
+<p id="2c95bee93biiv">节点池的主机容忍性配置。</p>
+</td>
+</tr>
+<tr id="row-tmz-3c1-5ev">
+<td id="entry-wlf-7h2-w5z" rowspan="1" colspan="1">
+<p id="6f84bdf76eg10">spec.topology.pools[*].replicas</p>
+</td>
+<td id="entry-a5r-nnw-0ld" rowspan="1" colspan="1">
+<p id="90e08b0660pr9">每个节点池下<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>的实例数。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+</section>
+</section>
+<section data-tag="section" data-type="section" id="section-kg7-cp1-aue" class="section">
+<h2 data-tag="title" id="title-glj-gb8-b2w" class="title">如何使用应用集管理边缘应用</h2>
+<ul data-tag="ul" id="ul-0a2-069-6sf" class="ul">
+<li id="6c3b3053640nq">
+<p id="6aaf92c2d55cz">应用版本升级：通过修改<code data-tag="code" id="deed1e077a8x4" class="code">spec.workload.workloadTemplate</code>中的字段触发升级流程，控制器把新的模板更新到各个节点池下的<span class="help-letter-space"></span>Workload<span class="help-letter-space"></span>中以触发节点池控制器升级<span class="help-letter-space"></span>Pod。</p>
+</li>
+<li id="bf2867f1eaqty">
+<p id="7d20b86e2b2oz">应用在某地域灰度更新：通过修改<code code-type="xCode" data-tag="code" id="0def4ee5f82sm" class="code">spec.workload.workloadTweak[*].containerImages</code>配置，触发相应节点池下应用<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>的镜像更新。</p>
+</li>
+<li data-lake-index-type="0" id="ae53c4bb4cwzm">
+<p id="383e83a85ckir">应用在某地域扩缩容：通过修改<code code-type="xCode" data-tag="code" id="14a075fabfuw7" class="code">spec.workload.workloadTweak[*].replicas</code>配置，触发相应节点池下应用<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>的扩缩容操作。</p>
+</li>
+<li data-lake-index-type="0" id="udf281db3">
+<p id="96396c60b1rs9">应用需要部署到一个新的地域：新创建一个匹配<span class="help-letter-space"></span>spec.nodepoolSelector<span class="help-letter-space"></span>标签的节点池，YurtAppSet<span class="help-letter-space"></span>会感知到节点池资源的变化，自动为该节点池创建一个<span class="help-letter-space"></span>Workload。之后将该地域的节点加入该节点池即可。</p>
+</li>
+<li data-lake-index-type="0" id="uf882ba4c">
+<p id="eee9864d915o5">应用需要在某个地域下线：删除对应地域的节点池，YurtAppSet<span class="help-letter-space"></span>会自动删除该地域对应的<span class="help-letter-space"></span>Workload。</p>
+</li>
+</ul>
+</section>
+<p id="4678c0964996d"></p>
+</div>
+</main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/ack/ack-edge/user-guide/application-management-overview/" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：应用管理</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/ack/ack-edge/user-guide/daemonset-upgrade-model" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：DaemonSet升级模型<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

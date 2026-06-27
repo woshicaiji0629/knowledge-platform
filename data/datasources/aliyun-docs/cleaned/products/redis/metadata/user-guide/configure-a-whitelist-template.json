@@ -1,0 +1,17 @@
+{
+  "id": "redis:user-guide/configure-a-whitelist-template",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "使用IP白名单模板统一管理多实例访问-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/configure-a-whitelist-template",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/user-guide/configure-a-whitelist-template.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/configure-a-whitelist-template.md",
+  "word_count": 574,
+  "text_units": 1380,
+  "local_links": 0,
+  "external_links": 66,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

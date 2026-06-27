@@ -1,0 +1,17 @@
+{
+  "id": "sls:troubleshoot-the-errors-related-to-logtail-machine-groups",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "troubleshoot",
+  "title": "如何排查Logtail机器组问题-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/troubleshoot-the-errors-related-to-logtail-machine-groups",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/troubleshoot-the-errors-related-to-logtail-machine-groups.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/troubleshoot-the-errors-related-to-logtail-machine-groups.md",
+  "word_count": 1758,
+  "text_units": 4634,
+  "local_links": 0,
+  "external_links": 134,
+  "has_tables": true,
+  "table_count": 12,
+  "quality": "accepted"
+}

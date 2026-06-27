@@ -1,0 +1,1 @@
+t = "hello"; $ossClient->putObject($bucket, $object, $content, $options); // GetObject接口指定付费者。 $ossClient->getObject($bucket, $object, $options); // DeleteObject接口指定付费者。 $ossClient->deleteObject($bucket, $object, $options); } catch (OssException $e) { printf(__FUNCTION__ . ": FAILED\n"); printf($e->getMessage() . "\n"); return; } print(__FUNCTION__ . ": OK" . "\n");

@@ -1,0 +1,4 @@
+ansitrouterprefixlistassociation.md)，在返回的结果中通过PrefixListId过滤通过前缀列表添加的路由条目。
+删除前缀：调用[DeleteTransitRouterPrefixListAssociation](../../cen/documents/developer-reference/api-cbn-2017-09-12-deletetransitrouterprefixlistassociation.md)，删除企业版转发路由器路由表中已引用的前缀列表。
+Terraform
+Resources：[alicloud_cen_transit_router_prefix_list_association](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/cen_transit_router_prefix_list_association)# 指定地域 provider "alicloud" { region = "cn-hangzhou" } # 在云企业网的转发路由器中，引用前缀列表 resource "alicloud_cen_transit_router_prefix_list_association" "example" { prefix_list_id = "pl-bp1fnjzxkk2m6qrwxxxxx" # 前缀列表ID transit_router_id = "tr-bp1czv20pflygguoxxxxx" # 转发路由器ID transit_router_table_id = "vtb-bp1v7079o4dwrkgpxxxxx" # 转发路由器路由表ID next_hop_type = "BlackHole" # 下一跳类型 next_hop = "BlackHole" # 下一跳实例ID }

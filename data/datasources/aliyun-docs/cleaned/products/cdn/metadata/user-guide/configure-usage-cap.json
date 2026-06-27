@@ -1,0 +1,17 @@
+{
+  "id": "cdn:user-guide/configure-usage-cap",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "配置CDN的用量封顶-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/user-guide/configure-usage-cap",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/user-guide/configure-usage-cap.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/user-guide/configure-usage-cap.md",
+  "word_count": 971,
+  "text_units": 4568,
+  "local_links": 0,
+  "external_links": 65,
+  "has_tables": true,
+  "table_count": 6,
+  "quality": "accepted"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/getting-started/quick-start-for-first-time-users",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "快速创建ACK托管集群-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/getting-started/quick-start-for-first-time-users",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-managed-and-ack-dedicated/getting-started/quick-start-for-first-time-users.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/getting-started/quick-start-for-first-time-users.md",
+  "word_count": 1168,
+  "text_units": 2822,
+  "local_links": 10,
+  "external_links": 84,
+  "has_tables": true,
+  "table_count": 9,
+  "quality": "accepted"
+}

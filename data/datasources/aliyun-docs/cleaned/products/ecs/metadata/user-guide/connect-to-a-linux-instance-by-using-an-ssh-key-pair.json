@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "deployment",
+  "title": "使用OpenSSH/Xshell远程连接Linux实例-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/connect-to-a-linux-instance-by-using-an-ssh-key-pair.md",
+  "word_count": 1722,
+  "text_units": 4621,
+  "local_links": 0,
+  "external_links": 101,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

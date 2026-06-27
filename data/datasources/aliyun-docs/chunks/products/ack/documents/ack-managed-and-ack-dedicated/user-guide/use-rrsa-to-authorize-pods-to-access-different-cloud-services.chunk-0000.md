@@ -1,0 +1,2 @@
+# 通过RRSA配置ServiceAccount的RAM权限实现Pod权限隔离
+基于适用于服务账户的RAM角色（RAM Roles for Service Accounts，简称RRSA）功能，您可以在集群内实现Pod维度的OpenAPI权限隔离，从而实现云资源访问权限的细粒度隔离，降低安全风险。本文介绍如何在集群中使用RRSA。

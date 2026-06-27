@@ -1,0 +1,5 @@
+### API
+调用[EnableResourceDirectory](https://help.aliyun.com/zh/resource-management/resource-directory/developer-reference/api-resourcedirectorymaster-2022-04-19-enableresourcedirectory)开通资源目录。结合[CreateFolder](https://help.aliyun.com/zh/resource-management/resource-directory/developer-reference/api-resourcedirectorymaster-2022-04-19-createfolder)和[CreateResourceAccount](https://help.aliyun.com/zh/resource-management/resource-directory/developer-reference/api-resourcedirectorymaster-2022-04-19-createresourceaccount)创建多账号体系。
+资源目录的管理账号，调用[RegisterDelegatedAdministrator](https://help.aliyun.com/zh/resource-management/resource-directory/developer-reference/api-resourcedirectorymaster-2022-04-19-registerdelegatedadministrator)设置 IPAM 委派管理员。
+IPAM 委派管理员调用[OpenVpcIpamService](developer-reference/api-vpcipam-2023-02-28-openvpcipamservice.md)开通 IPAM，并调用[CreateIpam](developer-reference/api-vpcipam-2023-02-28-createipam.md)创建IPAM。
+IPAM 委派管理员调用[AddIpamMembers](developer-reference/api-vpcipam-2023-02-28-addipammembers.md)添加成员，统一查看 IPAM 生效地域中所有纳管成员账号下的 IP 地址资源使用信息。

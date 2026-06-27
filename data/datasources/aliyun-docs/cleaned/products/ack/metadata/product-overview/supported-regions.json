@@ -1,0 +1,17 @@
+{
+  "id": "ack:product-overview/supported-regions",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "容器服务ACK支持的地域-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/product-overview/supported-regions",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/product-overview/supported-regions.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/product-overview/supported-regions.md",
+  "word_count": 709,
+  "text_units": 1257,
+  "local_links": 0,
+  "external_links": 64,
+  "has_tables": true,
+  "table_count": 11,
+  "quality": "accepted"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "ecs:billing-and-cost-management",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "pricing",
+  "title": "账单与费用管理功能帮助用户监控和优化云服务支出，提供详细的费用分析和预算控制。-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/billing-and-cost-management",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/billing-and-cost-management.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/billing-and-cost-management.md",
+  "word_count": 480,
+  "text_units": 772,
+  "local_links": 0,
+  "external_links": 67,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

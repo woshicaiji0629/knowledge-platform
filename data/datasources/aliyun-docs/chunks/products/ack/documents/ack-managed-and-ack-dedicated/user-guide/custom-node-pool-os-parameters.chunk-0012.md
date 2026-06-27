@@ -1,0 +1,6 @@
+| 字段名称 | 说明 | 可取值 |
+| --- | --- | --- |
+| transparent_enabled | 是否在系统全局开启 THP 功能。 | always：系统全局开启 THP 功能。 never：系统全局关闭 THP 功能。 madvise：仅在通过 madvise() 进行系统调用，并且设置了 MADV_HUGEPAGE 标记的内存区域中开启 THP 功能。 |
+| transparent_defrag | 是否开启透明大页 THP 相关的碎片整理配置。启用后，如果内存中的小页能够被合并成一个大页，可以减少页表的大小并提高系统的性能。 | always：当系统分配不出透明大页时，暂停内存分配行为，总是等待系统进行内存的直接回收和内存的直接整理。内存回收和整理结束后，如果存在足够的连续空闲内存，则继续分配透明大页。 defer：当系统分配不出透明大页时，转为分配普通的 4 KB 页。同时，系统会唤醒 kswapd 守护进程进行内存的后台回收，唤醒 kcompactd 守护进程进行内存的后台整理。一段时间后，如果存在足够的连续空闲内存， khugepaged 守护进程可将此前分配的 4 KB 页合并为 2 MB 的透明大页。 madvise：仅在通过 madvise() 进行系统调用，并且设置了 MADV_HUGEPAGE 标记的内存区域中，内存分配行为等同于 always。 其余部分的内存分配行为仍然为：发生缺页异常时，转为分配普通的 4 KB 页。 defer+madvise：仅在通过 madvise() 进行系统调用，并且设置了 MADV_HUGEPAGE 标记的内存区域中，内存分配行为等同于 always。其余部分的内存分配行为仍然为 defer。 never：禁止碎片整理。 |
+| khugepaged_defrag | khugepaged 是一个内核线程，主要负责管理和整理大页，以减少内存碎片化并提高性能。它会监视系统中的大页面，当发现分散的大页时，尝试将它们合并成更大的页，以提高内存利用率和性能。 由于该操作会在内存路径中执行锁定操作，且 khugepaged 守护进程可能会在错误的时间启动扫描和转换大页的操作，因此存在影响应用性能的可能性。 | 0：关闭 khugepaged 碎片整理功能。 1： khugepaged 守护进程会在系统空闲时周期性唤醒，尝试将连续的 4 KB 页合并成 2 MB 的透明大页。 |
+| khugepaged_alloc_sleep_millisecs | 当透明大页 THP 分配失败时， khugepaged 守护进程进行下一次大页分配前需要等待的时间，以避免短时间内连续发生大页分配失败。单位为毫秒。 | 请参见 [khugepaged](https://help.aliyun.co

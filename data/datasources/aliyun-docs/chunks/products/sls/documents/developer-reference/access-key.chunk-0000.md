@@ -1,0 +1,2 @@
+# 访问密钥
+阿里云访问密钥（AccessKey）是调用API访问云资源的安全口令，您可以使用AccessKey签名API请求内容以通过服务端的安全验证。本文介绍如何获取AccessKey。

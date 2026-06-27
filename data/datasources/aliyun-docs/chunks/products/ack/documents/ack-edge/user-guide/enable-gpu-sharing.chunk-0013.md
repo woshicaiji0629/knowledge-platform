@@ -1,0 +1,3 @@
+## 边缘节点池
+部署共享GPU示例应用，该示例应用申请4 GiB显存。
+apiVersion: batch/v1 kind: Job metadata: name: tensorflow-mnist-share spec: parallelism: 1 template: metadata: labels: app: tensorflow-mnist-share spec: nodeSelector: alibabacloud.com/nodepool-id: npxxxxxxxxxxxxxx # 此处需替换为您创建的边缘节点池ID。 containers: - name: tensorflow-mnist-share image: registry.cn-beijing.aliyuncs.com/ai-samples/gpushare-sample:tensorflow-1.5 command: - python - tensorflow-sample-code/tfjob/docker/mnist/main.py - --max_steps=100000 - --data_dir=tensorflow-sample-code/data resources: limits: aliyun.com/gpu-mem: 4 # 总共申请4 GiB显存。 workingDir: /root restartPolicy: Never

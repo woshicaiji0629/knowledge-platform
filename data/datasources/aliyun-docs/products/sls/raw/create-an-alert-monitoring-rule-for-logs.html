@@ -1,0 +1,595 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    如何创建日志告警监控规则-日志服务(SLS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/sls/create-an-alert-monitoring-rule-for-logs">
+  <meta name="keywords" content="告警监控规则">
+  <meta name="description" content="创建日志告警监控规则后，日志服务根据您定义的检查频率、触发条件等配置产生告警，并根据您所选择的告警策略和行动策略进行告警降噪和通知。">
+  <meta name="last-modified" content="2026-04-25T11:10:16+08:00">
+  <meta name="date" content="2021-03-15T06:24:17+08:00">
+  <meta property="og:title" content="创建告警监控规则">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/sls/create-an-alert-monitoring-rule-for-logs">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="创建日志告警监控规则后，日志服务根据您定义的检查频率、触发条件等配置产生告警，并根据您所选择的告警策略和行动策略进行告警降噪和通知。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/sls/create-an-alert-monitoring-rule-for-logs",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "207731",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/sls/create-an-alert-monitoring-rule-for-logs","nodeId":null,"data":{"lastModifiedTime":1777086616000,"keywords":"告警监控规则","docTitle":"创建告警监控规则","language":"zh","seoTitle":"如何创建日志告警监控规则-日志服务(SLS)-阿里云帮助中心","title":"创建告警监控规则","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"task-2045171\">\n    \n    \n    <p id=\"shortdesc-j6d-lzq-ox0\" data-tag=\"shortdesc\" class=\"shortdesc\">创建日志告警监控规则后，日志服务根据您定义的检查频率、触发条件等配置产生告警，并根据您所选择的告警策略和行动策略进行告警降噪和通知。</p>\n    <div data-tag=\"taskbody\" id=\"taskbody-f23-dmn-34n\" class=\"taskbody\">\n      <section data-tag=\"prereq\" id=\"prereq-wc7-rkc-564\" data-type=\"prereq\" class=\"section prereq\">\n        <h2 id=\"d41e14\">前提条件</h2>\n        <ul data-tag=\"ul\" id=\"ul-oda-0d2-bmi\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-hgq-aih-1q1\" class=\"li\">\n            <p id=\"001093c70esqb\">已采集数据。</p>\n            <div data-tag=\"p\" id=\"p-fk0-9e4-8sg\" class=\"p\">\n              <p id=\"001093c80ejki\">支持采集<a href=\"https://help.aliyun.com/zh/sls/data-collection-overview#concept-ikm-ql5-vdb\" id=\"xref-9bz-9s1-j7s\" title=\"\" class=\"xref\">日志</a>、<a href=\"https://help.aliyun.com/zh/sls/collect-metric-data-from-hosts#task-2538936\" id=\"xref-3aw-bc5-78c\" title=\"\" class=\"xref\">时序数据</a>。</p>\n              <div data-tag=\"note\" id=\"note-ptf-9yf-4a3\" type=\"important\" is-conref=\"true\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong><p id=\"887f6b6162shi\">基于查询和分析语句创建告警监控规则前，需要先将日志采集到<span class=\"help-letter-space\"></span>Standard Logstore<span class=\"help-letter-space\"></span>中。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/manage-a-logstore#concept-xkb-zh5-vdb\" id=\"xref-f6l-wd6-7ml\" title=\"\" class=\"xref\">管理<span class=\"help-letter-space\"></span>LogStore</a>。</p></div></div>\n            </div>\n          </li>\n          <li data-tag=\"li\" id=\"li-s9g-oqq-bfv\" class=\"li\">\n            <p id=\"001093ca0e22p\">如果采集的是日志，需要创建索引。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/create-indexes#task-jqz-v55-cfb\" id=\"xref-gvk-9ow-q3a\" title=\"\" class=\"xref\">创建索引</a>。</p>\n          </li>\n        </ul>\n      </section>\n      <section data-tag=\"section\" id=\"section-lxd-c89-irt\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-lyy-c22-j72\" class=\"title\">操作步骤</h2>\n        <ol data-tag=\"steps\" id=\"steps-2fk-rri-9he\" class=\"steps\">\n          <li data-tag=\"step\" id=\"step-zcr-tfk-sbu\" is-conref=\"true\" class=\"step\"><p id=\"6a7cc970501ga\"><span data-tag=\"ph\" id=\"ph-q0d-de9-ecs\" class=\"ph\">登录<span data-tag=\"ph\" id=\"ph-i3r-pp7-fzx\" props=\"china intl\" data-cond-props=\"china intl\" class=\"ph\"><a href=\"https://sls.console.aliyun.com\" id=\"xref-ivv-0k8-uct\" class=\"\" target=\"_blank\">日志服务控制台</a></span>。</span></p></li>\n          <li data-tag=\"step\" id=\"step-9wz-alh-i3w\" docid=\"2974463\" is-conref=\"true\" class=\"step\"><p id=\"6a7cf08050vb9\">在<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>列表区域，单击目标<span class=\"help-letter-space\"></span>Project。</p><p id=\"bda792c94bjlg\"><img id=\"fffd2c11d911u\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8797827471/p955209.png\" alt=\"image\" placement=\"break\" class=\"image break\"></p></li>\n          <li data-tag=\"step\" id=\"step-dmz-y0w-gos\" is-conref=\"true\" class=\"step\"><p id=\"6a7d1790502di\">在<span data-tag=\"menucascade\" id=\"menucascade-ng3-b3c-lbb\" class=\"menucascade\"><b data-tag=\"uicontrol\" id=\"uicontrol-gbp-1c6-3ms\" class=\"uicontrol\">日志存储</b> &gt; <b data-tag=\"uicontrol\" id=\"uicontrol-gft-25f-sfq\" class=\"uicontrol\">日志库</b></span>页签中，单击目标<span class=\"help-letter-space\"></span>Logstore。</p><p id=\"02f9c2336bu6k\"><img id=\"de4fccefbf23n\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4815774471/p768903.png\" alt=\"image\" placement=\"break\" class=\"image break\"></p></li>\n          <li data-tag=\"step\" id=\"step-ue0-ljy-o7c\" docid=\"2974463\" is-conref=\"true\" class=\"step\"><p id=\"6a7e9e3150tie\">在<b data-tag=\"uicontrol\" id=\"239c87957c1kx\" class=\"uicontrol\">查询/分析</b>页面，单击<img data-tag=\"image\" id=\"image-5ce-j50-9mj\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0134245861/p676175.png\" alt=\"告警图标\" placement=\"inline\" class=\"image inline\">图标。</p><p id=\"59fa6847f19ar\"><img id=\"37caed86e5svp\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3508602371/p768910.png\" alt=\"image\" placement=\"break\" class=\"image break\"></p></li>\n          <li data-tag=\"step\" id=\"step-syd-ofc-nks\" class=\"step\">\n            <p id=\"0010bad40eyi2\"><span data-tag=\"cmd\" id=\"cmd-fl7-1q2-0jr\" class=\"cmd\">在<b id=\"wintitle-qz6-j49-kjf\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">告警监控规则</b>面板中，配置如下参数，单击<b id=\"uicontrol-yk6-qsz-kum\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>。</span></p>\n            <div data-tag=\"info\" id=\"info-c8d-q6u-4hg\" class=\"info\">\n              <table id=\"table-i2a-nzv-0wj\" tablewidth=\"100\" tablecolswidth=\"15.49 84.51\" autofit=\"true\" class=\"table\">\n                <colgroup colwidth=\"0.31*\" style=\"width:15.49%\"></colgroup>\n                <colgroup colwidth=\"1.69*\" style=\"width:84.51%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"row-jnx-xko-ilw\">\n                    <td id=\"task-2045171-entry-84e-71f-fz7\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"0010bad50eecp\"><b>参数</b></p>\n                    </td>\n                    <td id=\"task-2045171-entry-llo-out-nup\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"0010bad60epm5\"><b>说明</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-479-6ra-79a\">\n                    <td id=\"entry-wty-wdp-66n\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"0010bad70e4ij\"><b id=\"uicontrol-ro6-shs-d54\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">规则名称</b></p>\n                    </td>\n                    <td id=\"entry-yzz-ztv-byh\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"0010bad80eyut\">告警监控规则的名称。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-13u-ler-4o2\">\n                    <td id=\"entry-yib-bps-uae\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"0010e1e00e4wm\"><b id=\"uicontrol-9mo-f07-1vj\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">检查频率</b></p>\n                    </td>\n                    <td id=\"entry-1px-imf-wt9\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"0010e1e10evqo\">日志服务根据您配置的频率对查询和分析结果进行检查。</p>\n                      <ul data-tag=\"ul\" id=\"ul-44a-b5u-lop\" class=\"ul\">\n                        <li data-tag=\"li\" id=\"li-zyu-gjn-0rx\" class=\"li\">\n                          <p id=\"0010e1e20e3s0\"><b id=\"uicontrol-9do-bg7-7cl\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">每小时</b>：每小时检查一次查询和分析结果。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-h6s-gnu-yyp\" class=\"li\">\n                          <p id=\"0010e1e30ekr2\"><b id=\"uicontrol-6en-jmu-on8\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">每天</b>：在每天的某个固定时间点检查一次查询和分析结果。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-wkx-npy-381\" class=\"li\">\n                          <p id=\"0010e1e40ez2i\"><b id=\"uicontrol-2bi-gn0-mop\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">每周</b>：在周几的某个固定时间点检查一次查询和分析结果。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-okf-a14-l8l\" class=\"li\">\n                          <p id=\"0010e1e50ep9i\"><b id=\"uicontrol-2uo-sc7-tgh\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">固定间隔</b>：按照固定间隔检查查询和分析结果。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-egz-yd0-64g\" class=\"li\">\n                          <p id=\"0010e1e60el2f\"><b id=\"uicontrol-5h1-7xs-iiu\">Cron</b>：通过<span class=\"help-letter-space\"></span>Cron<span class=\"help-letter-space\"></span>表达式指定时间间隔，按照指定的时间间隔检查查询和分析结果。</p>\n                          <div type=\"note\" id=\"4c6f41532817a\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                            <p id=\"ab3bb152218m6\">Cron<span class=\"help-letter-space\"></span>表达式在日志服务的告警规则里最小精度为分钟，格式为<span class=\"help-letter-space\"></span>24<span class=\"help-letter-space\"></span>小时制。例如：</p>\n                            <ul class=\"cron-list\" id=\"0db0cc97d8sc0\">\n                              <li id=\"21fb96c2831mw\">\n                                <p id=\"a1d2448acf6xd\"><code data-tag=\"code\" class=\"cron-code code\" code-type=\"xCode\" id=\"eb739ee2eeghn\">0/5 * * * *</code>从<span class=\"help-letter-space\"></span>0<span class=\"help-letter-space\"></span>分钟开始，每隔<span class=\"help-letter-space\"></span>5<span class=\"help-letter-space\"></span>分钟检查一次</p>\n                              </li>\n                              <li id=\"4d42510e25hyf\">\n                                <p id=\"06758beeedgg2\"><code data-tag=\"code\" class=\"cron-code code\" code-type=\"xCode\" id=\"cec91249998pb\">0 0/1 * * *</code>从<span class=\"help-letter-space\"></span>0<span class=\"help-letter-space\"></span>点<span class=\"help-letter-space\"></span>0<span class=\"help-letter-space\"></span>分开始，每隔<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>小时检查一次</p>\n                              </li>\n                              <li data-spm-anchor-id=\"5176.2020520112.0.i11.4a143efdlVhapN\" id=\"6c98caad07b3a\">\n                                <p id=\"7f84f89906prj\"><code data-tag=\"code\" class=\"cron-code code\" code-type=\"xCode\" id=\"1fba98062fgzw\">0 18 * * *</code>每天<span class=\"help-letter-space\"></span>18<span class=\"help-letter-space\"></span>点<span class=\"help-letter-space\"></span>0<span class=\"help-letter-space\"></span>分检查一次</p>\n                              </li>\n                              <li id=\"995147a60egjf\">\n                                <p id=\"6e6b07214dxjd\"><code data-tag=\"code\" class=\"cron-code code\" code-type=\"xCode\" id=\"a47cb7a3be2i1\">0 0 1 * *</code>每月<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>日<span class=\"help-letter-space\"></span>0<span class=\"help-letter-space\"></span>点<span class=\"help-letter-space\"></span>0<span class=\"help-letter-space\"></span>分检查一次</p>\n                              </li>\n                            </ul>\n                            <p id=\"7d3cbfe55a689\">Cron<span class=\"help-letter-space\"></span>表达式语法，可参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ecs/user-guide/cron-scheduled-tasks\" id=\"51b3ab52142di\" title=\"\" class=\"xref\">Cron<span class=\"help-letter-space\"></span>定时任务</a>。</p>\n                          </div></div>\n                        </li>\n                      </ul>\n                    </td>\n                  </tr>\n                  <tr id=\"row-jre-jw7-ae0\">\n                    <td id=\"entry-5ic-7ag-0fd\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"0010e1e70e55p\"><b id=\"uicontrol-lfl-d8o-o3e\">查询统计</b></p>\n                    </td>\n                    <td id=\"entry-kka-4pr-vmk\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"0010e1e80evs3\">单击输入框，在<b id=\"wintitle-d06-kcd-8im\">查询统计</b>对话框中，设置查询和分析语句。</p>\n                      <ul data-tag=\"ul\" id=\"ul-sw4-bp1-rsk\" class=\"ul\">\n                        <li data-tag=\"li\" id=\"li-ie1-etm-gpq\" class=\"li\">\n                          <p id=\"0010e1e90es49\"><b id=\"uicontrol-jrs-19w-ev7\">关联报表</b>页签：选择监控仪表盘。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-1de-9xk-73t\" class=\"li\">\n                          <p id=\"0010e1ea0eigc\"><b id=\"uicontrol-n5d-98q-k8m\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">高级配置</b>页签：</p>\n                          <ul id=\"0cce6eb18bw4i\">\n                            <li id=\"19941e426a3gs\">\n                              <p id=\"0cb2525c0d0da\">在<b id=\"wintitle-fj1-42g-wxv\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">类型</b>列表选择：</p>\n                              <ul data-tag=\"ul\" id=\"ul-dcr-olm-ak2\" class=\"ul\">\n                                <li data-tag=\"li\" id=\"li-z4m-136-ax8\" class=\"li\">\n                                  <p id=\"0010e1eb0e78g\"><b id=\"uicontrol-acj-eu8-y6s\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">日志库</b>：用于存储日志，相关的查询分析配置请参见<a href=\"https://help.aliyun.com/zh/sls/quick-guide-to-query-and-analysis#task-tqc-ddm-gfb\" id=\"xref-wtk-1tt-ng4\" title=\"\" class=\"xref\">查询与分析快速指引</a>。</p>\n                                </li>\n                                <li data-tag=\"li\" id=\"li-ndz-73p-nz4\" class=\"li\">\n                                  <p id=\"001108f00eob8\"><b id=\"uicontrol-b42-3i6-7bh\">指标库</b>：用于存储时序数据，相关的查询分析配置请参见<a href=\"https://help.aliyun.com/zh/sls/query-and-analyze-metric-data#task-2539642\" id=\"xref-1id-h4b-qec\" title=\"\" class=\"xref\">查询和分析时序数据</a>。</p>\n                                </li>\n                                <li data-tag=\"li\" id=\"li-8xu-foo-v3o\" class=\"li\">\n                                  <p id=\"001108f10ezag\"><b id=\"uicontrol-f2c-zy4-4ly\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">资源数据</b>：用于配置特定告警监控规则所关联的外部数据。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/create-resource-data#task-2057971\" id=\"xref-nje-oxd-sj4\" title=\"\" class=\"xref\">创建资源数据</a>。</p>\n                                </li>\n                              </ul>\n                            </li>\n                            <li id=\"8c28e72312fir\">\n                              <p id=\"af4c5873aau74\">选择<b id=\"uicontrol-sl5-znw-zem\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">类型</b>为<b id=\"uicontrol-ixn-5la-zd7\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">日志库</b>或<b id=\"uicontrol-iwa-5gf-zix\">指标库</b>，且设置了查询和分析语句时，您可以选择是否开启独享<span class=\"help-letter-space\"></span>SQL。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/dedicated-sql/#task-2081182\" id=\"3bcaa200e5tft\" title=\"\" class=\"xref\">高性能完全精确查询与分析（SQL<span class=\"help-letter-space\"></span>独享版）</a>。</p>\n                              <ul data-tag=\"ul\" id=\"ul-r5t-ikq-3aa\" class=\"ul\">\n                                <li data-tag=\"li\" id=\"li-wk7-c0b-1vm\" class=\"li\">\n                                  <p id=\"001108f30ekyl\"><b id=\"uicontrol-f44-96e-96g\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">自动</b>：默认不使用独享<span class=\"help-letter-space\"></span>SQL。当遇到查询并发限制或者查询结果不精确时，自动尝试使用独享<span class=\"help-letter-space\"></span>SQL<span class=\"help-letter-space\"></span>再次查询。</p>\n                                </li>\n                                <li data-tag=\"li\" id=\"li-obd-n3x-k24\" class=\"li\">\n                                  <p id=\"001108f40eaon\"><b id=\"uicontrol-fbo-pu0-5pi\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">启用</b>：始终使用独享<span class=\"help-letter-space\"></span>SQL<span class=\"help-letter-space\"></span>进行查询和分析。</p>\n                                </li>\n                                <li data-tag=\"li\" id=\"li-0b5-rs5-2ny\" class=\"li\">\n                                  <p id=\"001108f50e0jw\"><b id=\"uicontrol-5ma-52a-3tu\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">关闭</b>：关闭独享<span class=\"help-letter-space\"></span>SQL。</p>\n                                </li>\n                              </ul>\n                            </li>\n                          </ul>\n                        </li>\n                      </ul>\n                      <p data-tag=\"p\" id=\"p-9vp-9t8-jm2\" class=\"p\">配置多个查询统计时，您可以指定<b id=\"uicontrol-22b-i5g-pb5\">集合操作</b>关联多个查询结果。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/set-query-statistics-statement#reference-2061516\" id=\"xref-7ez-rz4-mc3\" title=\"\" class=\"xref\">设置查询统计语句</a>。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-uep-tct-aaj\">\n                    <td id=\"entry-s2d-u5b-rxp\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"001108f60e4vk\"><b id=\"uicontrol-7tz-9zy-kg1\">分组评估</b></p>\n                    </td>\n                    <td id=\"entry-a1a-iqb-f2h\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"001108f70eq8y\">日志服务支持对查询和分析结果进行分组。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/use-the-group-evaluation-feature#task-2047232\" id=\"xref-e99-q9c-7c4\" title=\"\" class=\"xref\">设置分组评估</a>。</p>\n                      <ul data-tag=\"ul\" id=\"ul-j5s-29t-bm3\" class=\"ul\">\n                        <li data-tag=\"li\" id=\"li-sou-khl-90h\" class=\"li\">\n                          <p id=\"001108f80ewtj\"><b id=\"uicontrol-od7-fxy-7z0\">标签自定义</b>：日志服务根据您配置的字段对查询和分析结果进行分组。分组后，每个组单独评估触发条件。在每个检查周期内，查询和分析结果满足触发条件时，各个分组各自产生一条告警。</p>\n                          <p data-tag=\"p\" id=\"p-h8h-6v6-bqy\" class=\"p\">支持设置多个字段。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-fll-id2-8f9\" class=\"li\">\n                          <p id=\"001108f90ese6\"><b data-tag=\"uicontrol\" id=\"uicontrol-0ow-efd-civ\" class=\"uicontrol\">不分组</b>：在每个检查周期内，满足触发条件时，只产生一条告警。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-pbn-3x4-i0m\" class=\"li\">\n                          <p id=\"001130000eprp\"><b id=\"uicontrol-fqg-gmo-k02\">标签自动</b>：当您在<b id=\"uicontrol-0k5-jyx-hi5\">查询统计</b>中选择<b id=\"uicontrol-0tu-z21-4vu\">指标库</b>（即监控时序数据的查询和分析结果）时 ，日志服务支持标签自动分组。</p>\n                          <p data-tag=\"p\" id=\"p-o7e-d2k-sck\" class=\"p\">分组后，每个组单独评估触发条件。在每个检查周期内，查询和分析结果满足触发条件时，各个分组各自产生一条告警。</p>\n                        </li>\n                      </ul>\n                    </td>\n                  </tr>\n                  <tr id=\"row-oev-07t-a7y\">\n                    <td id=\"entry-oi8-1nz-2r0\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"001130010e41i\"><b id=\"uicontrol-f1e-9qf-2pi\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">触发条件</b></p>\n                    </td>\n                    <td id=\"entry-ijb-pyr-jhm\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"001130020ecg9\">配置触发条件及严重度。</p>\n                      <ul data-tag=\"ul\" id=\"ul-2le-1a2-54j\" class=\"ul\">\n                        <li data-tag=\"li\" id=\"li-z9n-vjh-gnj\" class=\"li\">\n                          <p id=\"001130030eyjh\">触发条件</p>\n                          <ul data-tag=\"ul\" id=\"ul-fm6-ik0-bap\" class=\"ul\">\n                            <li data-tag=\"li\" id=\"li-ifg-7jn-tdq\" class=\"li\">\n                              <p id=\"001130040e802\"><b id=\"uicontrol-z3s-aol-cwh\">有数据</b>：当查询和分析结果中存在数据时，触发告警。</p>\n                            </li>\n                            <li data-tag=\"li\" id=\"li-gdh-7ej-g6t\" class=\"li\">\n                              <p id=\"001130050e4gu\"><b id=\"uicontrol-4vr-fc0-cej\">有特定条数据</b>：当查询和分析结果中存在<span class=\"help-letter-space\"></span>N<span class=\"help-letter-space\"></span>条数据时，触发告警。</p>\n                            </li>\n                            <li data-tag=\"li\" id=\"li-jp8-7xq-il6\" class=\"li\">\n                              <p id=\"001130060e9yy\"><b id=\"uicontrol-bkd-ejb-qg1\">有数据匹配</b>：当查询和分析结果中存在数据满足告警表达式时，触发告警。</p>\n                            </li>\n                            <li data-tag=\"li\" id=\"li-dko-zc2-jmh\" class=\"li\">\n                              <p id=\"001130070ek7l\"><b id=\"uicontrol-beh-258-uz5\">有特定条数据匹配</b>：当查询和分析结果中存在<span class=\"help-letter-space\"></span>N<span class=\"help-letter-space\"></span>条数据满足告警表达式时，触发告警。</p>\n                            </li>\n                          </ul>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-gdf-23y-dw1\" class=\"li\">\n                          <p id=\"001130080e8fj\">严重度</p>\n                          <p data-tag=\"p\" id=\"p-8cp-h4z-0ww\" class=\"p\">主要用于告警降噪控制和告警通知控制，即您在创建告警策略或行动策略时，可添加关于告警严重度的判断条件。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/specify-severity-levels-for-alerts#reference-2062449\" id=\"xref-18p-aty-oeh\" title=\"\" class=\"xref\">设置告警严重度</a>。</p>\n                          <ul data-tag=\"ul\" id=\"ul-8e3-lc2-jtt\" class=\"ul\">\n                            <li data-tag=\"li\" id=\"li-qma-con-v1f\" class=\"li\">\n                              <p id=\"001130090ekir\">简单配置：直接选择告警严重度，则表示通过该规则产生的告警都为同一严重度。</p>\n                            </li>\n                            <li data-tag=\"li\" id=\"li-bf3-pi1-2za\" class=\"li\">\n                              <p id=\"0011300a0epuv\">分条件配置：单击<b id=\"uicontrol-mc9-tyv-g0e\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">添加</b>，分条件设置告警严重度。</p>\n                            </li>\n                          </ul>\n                        </li>\n                      </ul>\n                      <p data-tag=\"p\" id=\"p-3n4-wzn-56s\" class=\"p\">告警条件表达式的相关语法，请参见<a href=\"https://help.aliyun.com/zh/sls/syntax-of-trigger-conditions-in-alert-rules#reference-byz-wrd-yfb\" id=\"xref-6zf-t12-ub3\" title=\"\" class=\"xref\">告警条件表达式语法</a>。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-x8p-hsy-pnm\">\n                    <td id=\"entry-0lj-aza-v9z\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"0011300b0egck\"><b id=\"uicontrol-q7b-em0-xv2\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">添加标签</b></p>\n                    </td>\n                    <td id=\"entry-czi-3zt-5vu\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"001157100e21l\">日志服务允许您给产生的告警添加标识性属性，键值对格式。主要用于告警降噪控制和告警通知控制，即您在创建告警策略或行动策略时，可添加关于标签的判断条件。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/labels-and-annotations#reference-2061517\" id=\"xref-tbk-ida-nld\" title=\"\" class=\"xref\">添加标签和标注</a>。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-95p-jwv-0eu\">\n                    <td id=\"entry-hbh-f7t-31v\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"001157110eygv\"><b id=\"uicontrol-h0g-chc-alg\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">添加标注</b></p>\n                    </td>\n                    <td id=\"entry-a31-rk1-ih6\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"001157120egkw\">日志服务允许您给产生的告警添加非标识性属性，键值对格式。主要用于告警降噪控制和告警通知控制，即您在创建告警策略或行动策略时，可添加关于标注的判断条件。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/labels-and-annotations#reference-2061517\" id=\"xref-1ab-hn0-byl\" title=\"\" class=\"xref\">添加标签和标注</a>。</p>\n                      <p data-tag=\"p\" id=\"p-yuv-mxn-ywy\" class=\"p\">您还可以打开<b id=\"uicontrol-lks-31m-1tb\">自动添加标注</b>开关，系统自动在告警中添加<span data-tag=\"parmname\" id=\"parmname-eqw-925-e42\" class=\"parmname\">__count__</span>等信息。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/labels-and-annotations#section-6hp-3y5-c5w\" id=\"xref-pi2-ptu-7xt\" title=\"\" class=\"xref\">自动标注</a>。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-w61-vry-p2f\">\n                    <td id=\"entry-9lt-log-qsl\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"001157130ecrl\"><b id=\"uicontrol-e41-lml-e02\" data-status=\"unpublished\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">恢复通知</b></p>\n                    </td>\n                    <td id=\"entry-ne0-rnh-015\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"001157140edz4\">打开<b id=\"uicontrol-mkf-zoi-fpo\" data-status=\"unpublished\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">恢复通知</b>开关后，告警恢复时触发一条恢复告警。例如您创建了一个告警监控规则，用于监控各个主机的<span class=\"help-letter-space\"></span>CPU<span class=\"help-letter-space\"></span>指标，当<span class=\"help-letter-space\"></span>CPU<span class=\"help-letter-space\"></span>使用率超过<span class=\"help-letter-space\"></span>95%时触发告警，主机<span class=\"help-letter-space\"></span>CPU<span class=\"help-letter-space\"></span>使用率下降为正常值（低于等于<span class=\"help-letter-space\"></span>95%）后发送一条恢复通知。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/recovery-notifications#reference-2061518\" id=\"xref-ayg-evi-yv5\" title=\"\" class=\"xref\">设置恢复通知</a>。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-q7n-k6a-94p\">\n                    <td id=\"entry-628-2ff-9e1\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"001157150ebz3\"><b id=\"uicontrol-1r9-dc1-7n8\">高级配置&gt;连续触发阈值</b></p>\n                    </td>\n                    <td id=\"entry-l97-bdm-erv\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"001157160eqi3\">连续多少次执行检查评估都满足触发条件时，才会触发一次告警。不满足触发条件时不计入统计。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-7fk-ope-a35\">\n                    <td id=\"entry-o1e-wpn-lro\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"001157170er5z\"><b id=\"uicontrol-vor-0bb-pkr\">高级配置&gt;无数据告警</b></p>\n                    </td>\n                    <td id=\"entry-xu9-fjb-n89\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"001157180el4i\">打开<b id=\"uicontrol-uvs-gbd-51h\">无数据告警</b>开关后，如果查询和分析的结果（有多个时，进行集合操作后的结果）为无数据的次数超过<b id=\"uicontrol-izt-nih-rvq\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">连续触发阈值</b>，则产生一条告警。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/user-guide/no-data-alert#reference-2061520\" id=\"xref-phk-u0n-upu\" title=\"\" class=\"xref\">无数据告警</a>。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"502fbf200enbh\">\n                    <td id=\"502fbf220ey1t\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"502fbf210ehco\"><b id=\"592b3f000epzc\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">输出目标</b></p>\n                    </td>\n                    <td id=\"502fbf240e7e3\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"502fbf230ew1e\">输出目标用于配置告警事件的输出位置，可以配置一个或多个输出目标。</p>\n                      <ul id=\"6071bbe00e1pb\">\n                        <li id=\"6071bbe20ejqt\">\n                          <p id=\"6071bbe10eaxt\"><b id=\"c03a09f00eth2\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">事件库</b>：将告警事件写入到<span class=\"help-letter-space\"></span>EventStore。</p>\n                        </li>\n                        <li id=\"6071bbe40e0uk\">\n                          <p id=\"6071bbe30ed0e\"><b id=\"c26b68e00evtx\">云监控事件中心</b>：将告警事件写入到云监控系统事件中心，通过云监控对告警进行管理和通知。</p>\n                        </li>\n                        <li id=\"6071bbe60ez47\">\n                          <p id=\"6071bbe50evtc\"><b id=\"c47039900e80f\">SLS<span class=\"help-letter-space\"></span>通知</b>：将告警事件输出到<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>的通知服务，通过告警策略、行动策略等对告警进行管理和通知。</p>\n                        </li>\n                      </ul>\n                    </td>\n                  </tr>\n                  <tr id=\"69dced800ed8g\">\n                    <td id=\"69dced820eju0\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"69dced810ebvj\"><b id=\"174be5800emz0\">输出目标-事件库</b></p>\n                    </td>\n                    <td id=\"69dd14910e21n\" rowspan=\"1\" colspan=\"1\">\n                      <ul id=\"498294b00egm5\">\n                        <li id=\"498294b20ec2h\">\n                          <p id=\"498294b10eenw\"><b id=\"fc1833a00evmk\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">开启</b>：打开事件库开启开关后，告警将写入到<span class=\"help-letter-space\"></span>EventStore<span class=\"help-letter-space\"></span>中。</p>\n                        </li>\n                        <li id=\"498294b40ecah\">\n                          <p id=\"498294b30esnn\"><b id=\"0d95e4b00e360\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">地域</b>：告警写入的<span class=\"help-letter-space\"></span>EventStore<span class=\"help-letter-space\"></span>所属地域。</p>\n                        </li>\n                        <li id=\"498294b60e5yb\">\n                          <p id=\"498294b50e7ne\"><b id=\"12796b500eyj8\">Project</b>：告警写入的<span class=\"help-letter-space\"></span>EventStore<span class=\"help-letter-space\"></span>所属项目。</p>\n                        </li>\n                        <li id=\"4982bbc00ehz8\">\n                          <p id=\"498294b70e3b5\"><b id=\"1661a2000ejky\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">事件库</b>：告警写入的<span class=\"help-letter-space\"></span>EventStore。</p>\n                        </li>\n                        <li id=\"4982bbc70e0e5\">\n                          <p id=\"4982bbc10ecf1\"><b id=\"192073e00em2z\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">授权方式</b>：</p>\n                          <ul id=\"4982bbc60e9z0\">\n                            <li id=\"4982bbc30el6r\">\n                              <p id=\"4982bbc20e25p\"><b id=\"1fd056100e3ow\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">默认角色</b>：单击<b id=\"550231f00earx\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">前往授权</b>，根据界面提示完成授权，并扮演阿里云系统角色<span class=\"help-letter-space\"></span>AliyunLogETLRole<span class=\"help-letter-space\"></span>将告警写入目标<span class=\"help-letter-space\"></span>EventStore。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/configure-permissions-for-writing-alarms-to-the-event-library#cfb6bd100ehqd\" id=\"7a767af00eakh\" title=\"\" class=\"xref\">默认角色授权</a>。</p>\n                            </li>\n                            <li id=\"4982bbc50e567\">\n                              <p id=\"4982bbc40evmg\"><b id=\"2217ae000eins\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">自定义角色</b>：扮演自定义角色将告警写入目标<span class=\"help-letter-space\"></span>EventStore，填写角色<span class=\"help-letter-space\"></span>ARN。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/configure-permissions-for-writing-alarms-to-the-event-library#d4197af00ej48\" id=\"6cbfe4000e9s8\" title=\"\" class=\"xref\">自定义角色授权</a>。</p>\n                            </li>\n                          </ul>\n                        </li>\n                      </ul>\n                    </td>\n                  </tr>\n                  <tr id=\"6997a7200epoc\">\n                    <td id=\"6997a7220exkd\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6997a7210eyrw\"><b id=\"15cb11e00ezoy\">输出目标-云监控事件中心</b></p>\n                    </td>\n                    <td id=\"6997ce300ejg7\" rowspan=\"1\" colspan=\"1\">\n                      <ul id=\"e2a0e2500ev18\">\n                        <li id=\"e2a0e2520ez7w\">\n                          <p id=\"e2a0e2510e5et\"><b id=\"db6c71600ec95\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">开启</b>：打开云监控事件中心开启开关后，告警将发送到云监控事件中心。更多信息，请参见<a href=\"https://help.aliyun.com/zh/cms/cloudmonitor-1-0/user-guide/view-system-events\" id=\"cde11aa6f3sd0\" title=\"\" class=\"xref\">查看系统事件</a>。</p>\n                        </li>\n                      </ul>\n                    </td>\n                  </tr>\n                  <tr id=\"6935b1000egu9\">\n                    <td id=\"6935d8110eor0\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6935d8100ed5i\"><b id=\"1963f0100e5as\">输出目标-SLS<span class=\"help-letter-space\"></span>通知</b></p>\n                    </td>\n                    <td id=\"6935d8130ea9v\" rowspan=\"1\" colspan=\"1\">\n                      <ul id=\"7e3fb5c10etoa\">\n                        <li id=\"7e3f8eb00e6fw\">\n                          <p id=\"6935d8120e6se\"><b id=\"e4bb84f00exxf\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">开启</b>：打开<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>通知开关后，告警将发送到<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>通知服务进行后续的管理和通知。</p>\n                        </li>\n                        <li id=\"0d01d535f4me5\">\n                          <p id=\"03b755796f6ph\"><b id=\"b484d9c6a20qo\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">告警策略</b></p>\n                          <section id=\"16227cd3576eu\" outputclass=\"tabbed-content-box\" data-tag=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n                            <section id=\"0e3abf30a9rkw\" class=\"section\">\n                              <h3 id=\"5a9dcdb1b1tns\"><b>极简模式</b></h3>\n                              <ul id=\"79bdbde14fcrl\">\n                                <li id=\"6164c69293sh8\">\n                                  <p id=\"2bb296de3d1z8\">日志服务默认使用<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>内置动态告警策略（sls.builtin.dynamic）进行告警管理。</p>\n                                </li>\n                                <li id=\"65e758419c582\">\n                                  <p id=\"7c7ea780138y5\">配置行动组。</p>\n                                  <p id=\"d31c0f1bcar8g\">您配置行动组后，日志服务自动为您创建一个名为<code data-tag=\"code\" code-type=\"xCode\" id=\"ea30d6f4bfzdk\" class=\"code\">规则名称-行动策略</code>的行动策略。由该告警监控规则触发的所有告警都通过该行动策略发送通知。如何配置，请参见<a href=\"https://help.aliyun.com/zh/sls/notification-methods#reference-2066133\" id=\"fc6201a972lkn\" title=\"\" class=\"xref\">通知渠道说明</a>。</p>\n                                  <div data-tag=\"note\" id=\"88fc0e37cfk5u\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                                    <p id=\"a301144c9a4i7\">您可以在行动策略管理页面，修改该行动策略。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/create-an-action-policy/#task-2045212\" id=\"c65674276apui\" title=\"\" class=\"xref\">行动策略</a>。如果您在修改行动策略时添加了判断条件，则此处的<b id=\"uicontrol-0j6-mok-e0m\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">告警策略</b>将自动变更为<b id=\"uicontrol-l29-jo0-1zs\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">普通模式</b>。</p>\n                                  </div></div>\n                                </li>\n                                <li id=\"6c95c9d71f0f6\">\n                                  <p id=\"757ac52471hez\"><b id=\"b387ea3038fc4\">重复等待</b>：在重复等待时间内，重复的告警只触发一次行动策略，即只发送一次告警通知。</p>\n                                </li>\n                              </ul>\n                            </section>\n                            <section id=\"fa774eb978fgf\" class=\"section\">\n                              <h3 id=\"1af4a17cd3qqp\"><b>普通模式</b></h3>\n                              <ul id=\"2fc5581b77tty\">\n                                <li id=\"f75aba0fb5gby\">\n                                  <p id=\"d95e6da1eatwf\">日志服务默认使用<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>内置动态告警策略（sls.builtin.dynamic）进行告警管理。</p>\n                                </li>\n                                <li id=\"19578a2cb1nu3\">\n                                  <p id=\"bce41203d3ci6\">选择内置的或自定义的行动策略进行告警通知。如何创建行动策略，请参见<a href=\"https://help.aliyun.com/zh/sls/create-an-action-policy/#task-2045212\" id=\"9e780275763ev\" title=\"\" class=\"xref\">行动策略</a>。</p>\n                                </li>\n                                <li id=\"2e6e88727fk4s\">\n                                  <p id=\"3438eb3d72n5v\"><b id=\"cffd75f00ebj4\">重复等待</b>：在重复等待时间内，重复的告警只触发一次行动策略，即只发送一次告警通知。</p>\n                                </li>\n                              </ul>\n                            </section>\n                            <section id=\"0f14645107m5t\" class=\"section\">\n                              <h3 id=\"79e4149ab770p\"><b>高级模式</b></h3>\n                              <ul id=\"2e15649b6d72j\">\n                                <li id=\"f78be7c4c5qkt\">\n                                  <p id=\"b276862795c6x\">选择内置的或自定义的告警策略进行告警管理。如何创建告警策略，请参见<a href=\"https://help.aliyun.com/zh/sls/create-an-alert-policy#task-2045393\" id=\"c10b488148nek\" title=\"\" class=\"xref\">创建告警策略</a>。</p>\n                                </li>\n                                <li id=\"ee10a7e33bprn\">\n                                  <p id=\"b3cba0ec84181\">选择内置的或自定义的行动策略进行告警通知。如何创建行动策略，请参见<a href=\"https://help.aliyun.com/zh/sls/create-an-action-policy/#task-2045212\" id=\"1dbe82ee11k5u\" title=\"\" class=\"xref\">行动策略</a>。还可以开启或关闭<b id=\"uicontrol-88m-9n3-8me\">自定义行动策略</b>。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/dynamic-action-policy-mechanism#reference-2061524\" id=\"8d4df95c846z0\" title=\"\" class=\"xref\">动态行动策略机制</a>。</p>\n                                </li>\n                                <li id=\"204866d0d362l\">\n                                  <p id=\"ba65a8c00en7a\"><b id=\"4cbd45d5e47oq\">重复等待</b>：在重复等待时间内，重复的告警只触发一次行动策略，即只发送一次告警通知。</p>\n                                </li>\n                              </ul>\n                            </section>\n                          </section>\n                        </li>\n                      </ul>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>\n          </li>\n        </ol>\n      </section>\n    </div>\n  </main>\n\n\n\n\n</div>","path":"https://help.aliyun.com/zh/sls/create-an-alert-monitoring-rule-for-logs","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"alias":"/sls/create-an-alert-monitoring-rule-for-logs","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":6,"developerUrl":"https://developer.aliyun.com/group/sls/","nodeType":1,"version":24,"url":"/zh/sls/create-an-alert-monitoring-rule-for-logs","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":207731,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"创建告警监控规则","id":207731,"title":"创建告警监控规则","url":"/zh/sls/create-an-alert-monitoring-rule-for-logs"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"告警","id":207608,"title":"告警","url":"/zh/sls/sls-alerting/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据监控","id":2928734,"title":"数据监控","url":"/zh/sls/data-monitoring/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"productUrl":"https://www.aliyun.com/product/sls","nodeId":207731,"desc":"创建日志告警监控规则后，日志服务根据您定义的检查频率、触发条件等配置产生告警，并根据您所选择的告警策略和行动策略进行告警降噪和通知。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据监控","id":2928734,"title":"数据监控","url":"/zh/sls/data-monitoring/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"告警","id":207608,"title":"告警","url":"/zh/sls/sls-alerting/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"创建告警监控规则","id":207731,"title":"创建告警监控规则","url":"/zh/sls/create-an-alert-monitoring-rule-for-logs"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=213e025217825470419491425eedaa&asid=AQAAAABigj9ql/+rHwAAAABhggKFGMlLDg==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2929180" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/start-using-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开始使用</span>
+</a>
+</li>
+ <li id="128096" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/resource-management/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">资源管理</span>
+</a>
+</li>
+ <li id="128134" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-collection-1/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据采集</span>
+</a>
+</li>
+ <li id="2842370" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-processing-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据处理</span>
+</a>
+</li>
+ <li id="270795" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-storage/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据存储</span>
+</a>
+</li>
+ <li id="128135" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/index-and-query/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">查询与分析</span>
+</a>
+</li>
+ <li id="2928734" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-monitoring/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据监控</span>
+</a>
+</li>
+ <li id="2928732" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-log-output-and-integration/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据输出与集成</span>
+</a>
+</li>
+ <li id="2928739" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-technical-solutions/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">技术解决方案</span>
+</a>
+</li>
+ <li id="154068" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2528763" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/security-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="169976" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/faq-15">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>创建告警监控规则</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/sls" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="task-2045171">
+    
+    
+    <p id="shortdesc-j6d-lzq-ox0" data-tag="shortdesc" class="shortdesc">创建日志告警监控规则后，日志服务根据您定义的检查频率、触发条件等配置产生告警，并根据您所选择的告警策略和行动策略进行告警降噪和通知。</p>
+    <div data-tag="taskbody" id="taskbody-f23-dmn-34n" class="taskbody">
+      <section data-tag="prereq" id="prereq-wc7-rkc-564" data-type="prereq" class="section prereq">
+        <h2 id="d41e14">前提条件</h2>
+        <ul data-tag="ul" id="ul-oda-0d2-bmi" class="ul">
+          <li data-tag="li" id="li-hgq-aih-1q1" class="li">
+            <p id="001093c70esqb">已采集数据。</p>
+            <div data-tag="p" id="p-fk0-9e4-8sg" class="p">
+              <p id="001093c80ejki">支持采集<a href="https://help.aliyun.com/zh/sls/data-collection-overview#concept-ikm-ql5-vdb" id="xref-9bz-9s1-j7s" title="" class="xref">日志</a>、<a href="https://help.aliyun.com/zh/sls/collect-metric-data-from-hosts#task-2538936" id="xref-3aw-bc5-78c" title="" class="xref">时序数据</a>。</p>
+              <div data-tag="note" id="note-ptf-9yf-4a3" type="important" is-conref="true" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong><p id="887f6b6162shi">基于查询和分析语句创建告警监控规则前，需要先将日志采集到<span class="help-letter-space"></span>Standard Logstore<span class="help-letter-space"></span>中。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/manage-a-logstore#concept-xkb-zh5-vdb" id="xref-f6l-wd6-7ml" title="" class="xref">管理<span class="help-letter-space"></span>LogStore</a>。</p></div></div>
+            </div>
+          </li>
+          <li data-tag="li" id="li-s9g-oqq-bfv" class="li">
+            <p id="001093ca0e22p">如果采集的是日志，需要创建索引。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/create-indexes#task-jqz-v55-cfb" id="xref-gvk-9ow-q3a" title="" class="xref">创建索引</a>。</p>
+          </li>
+        </ul>
+      </section>
+      <section data-tag="section" id="section-lxd-c89-irt" data-type="section" class="section">
+        <h2 data-tag="title" id="title-lyy-c22-j72" class="title">操作步骤</h2>
+        <ol data-tag="steps" id="steps-2fk-rri-9he" class="steps">
+          <li data-tag="step" id="step-zcr-tfk-sbu" is-conref="true" class="step"><p id="6a7cc970501ga"><span data-tag="ph" id="ph-q0d-de9-ecs" class="ph">登录<span data-tag="ph" id="ph-i3r-pp7-fzx" props="china intl" data-cond-props="china intl" class="ph"><a href="https://sls.console.aliyun.com" id="xref-ivv-0k8-uct" class="" target="_blank">日志服务控制台</a></span>。</span></p></li>
+          <li data-tag="step" id="step-9wz-alh-i3w" docid="2974463" is-conref="true" class="step"><p id="6a7cf08050vb9">在<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>列表区域，单击目标<span class="help-letter-space"></span>Project。</p><p id="bda792c94bjlg"><img id="fffd2c11d911u" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8797827471/p955209.png" alt="image" placement="break" class="image break"></p></li>
+          <li data-tag="step" id="step-dmz-y0w-gos" is-conref="true" class="step"><p id="6a7d1790502di">在<span data-tag="menucascade" id="menucascade-ng3-b3c-lbb" class="menucascade"><b data-tag="uicontrol" id="uicontrol-gbp-1c6-3ms" class="uicontrol">日志存储</b> &gt; <b data-tag="uicontrol" id="uicontrol-gft-25f-sfq" class="uicontrol">日志库</b></span>页签中，单击目标<span class="help-letter-space"></span>Logstore。</p><p id="02f9c2336bu6k"><img id="de4fccefbf23n" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4815774471/p768903.png" alt="image" placement="break" class="image break"></p></li>
+          <li data-tag="step" id="step-ue0-ljy-o7c" docid="2974463" is-conref="true" class="step"><p id="6a7e9e3150tie">在<b data-tag="uicontrol" id="239c87957c1kx" class="uicontrol">查询/分析</b>页面，单击<img data-tag="image" id="image-5ce-j50-9mj" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/0134245861/p676175.png" alt="告警图标" placement="inline" class="image inline">图标。</p><p id="59fa6847f19ar"><img id="37caed86e5svp" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/3508602371/p768910.png" alt="image" placement="break" class="image break"></p></li>
+          <li data-tag="step" id="step-syd-ofc-nks" class="step">
+            <p id="0010bad40eyi2"><span data-tag="cmd" id="cmd-fl7-1q2-0jr" class="cmd">在<b id="wintitle-qz6-j49-kjf" data-tag="uicontrol" data-isbold="true" class="uicontrol">告警监控规则</b>面板中，配置如下参数，单击<b id="uicontrol-yk6-qsz-kum" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>。</span></p>
+            <div data-tag="info" id="info-c8d-q6u-4hg" class="info">
+              <table id="table-i2a-nzv-0wj" tablewidth="100" tablecolswidth="15.49 84.51" autofit="true" class="table">
+                <colgroup colwidth="0.31*" style="width:15.49%"></colgroup>
+                <colgroup colwidth="1.69*" style="width:84.51%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="row-jnx-xko-ilw">
+                    <td id="task-2045171-entry-84e-71f-fz7" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="0010bad50eecp"><b>参数</b></p>
+                    </td>
+                    <td id="task-2045171-entry-llo-out-nup" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="0010bad60epm5"><b>说明</b></p>
+                    </td>
+                  </tr>
+                  <tr id="row-479-6ra-79a">
+                    <td id="entry-wty-wdp-66n" rowspan="1" colspan="1">
+                      <p id="0010bad70e4ij"><b id="uicontrol-ro6-shs-d54" data-tag="uicontrol" data-isbold="true" class="uicontrol">规则名称</b></p>
+                    </td>
+                    <td id="entry-yzz-ztv-byh" rowspan="1" colspan="1">
+                      <p id="0010bad80eyut">告警监控规则的名称。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-13u-ler-4o2">
+                    <td id="entry-yib-bps-uae" rowspan="1" colspan="1">
+                      <p id="0010e1e00e4wm"><b id="uicontrol-9mo-f07-1vj" data-tag="uicontrol" data-isbold="true" class="uicontrol">检查频率</b></p>
+                    </td>
+                    <td id="entry-1px-imf-wt9" rowspan="1" colspan="1">
+                      <p id="0010e1e10evqo">日志服务根据您配置的频率对查询和分析结果进行检查。</p>
+                      <ul data-tag="ul" id="ul-44a-b5u-lop" class="ul">
+                        <li data-tag="li" id="li-zyu-gjn-0rx" class="li">
+                          <p id="0010e1e20e3s0"><b id="uicontrol-9do-bg7-7cl" data-tag="uicontrol" data-isbold="true" class="uicontrol">每小时</b>：每小时检查一次查询和分析结果。</p>
+                        </li>
+                        <li data-tag="li" id="li-h6s-gnu-yyp" class="li">
+                          <p id="0010e1e30ekr2"><b id="uicontrol-6en-jmu-on8" data-tag="uicontrol" data-isbold="true" class="uicontrol">每天</b>：在每天的某个固定时间点检查一次查询和分析结果。</p>
+                        </li>
+                        <li data-tag="li" id="li-wkx-npy-381" class="li">
+                          <p id="0010e1e40ez2i"><b id="uicontrol-2bi-gn0-mop" data-tag="uicontrol" data-isbold="true" class="uicontrol">每周</b>：在周几的某个固定时间点检查一次查询和分析结果。</p>
+                        </li>
+                        <li data-tag="li" id="li-okf-a14-l8l" class="li">
+                          <p id="0010e1e50ep9i"><b id="uicontrol-2uo-sc7-tgh" data-tag="uicontrol" data-isbold="true" class="uicontrol">固定间隔</b>：按照固定间隔检查查询和分析结果。</p>
+                        </li>
+                        <li data-tag="li" id="li-egz-yd0-64g" class="li">
+                          <p id="0010e1e60el2f"><b id="uicontrol-5h1-7xs-iiu">Cron</b>：通过<span class="help-letter-space"></span>Cron<span class="help-letter-space"></span>表达式指定时间间隔，按照指定的时间间隔检查查询和分析结果。</p>
+                          <div type="note" id="4c6f41532817a" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                            <p id="ab3bb152218m6">Cron<span class="help-letter-space"></span>表达式在日志服务的告警规则里最小精度为分钟，格式为<span class="help-letter-space"></span>24<span class="help-letter-space"></span>小时制。例如：</p>
+                            <ul class="cron-list" id="0db0cc97d8sc0">
+                              <li id="21fb96c2831mw">
+                                <p id="a1d2448acf6xd"><code data-tag="code" class="cron-code code" code-type="xCode" id="eb739ee2eeghn">0/5 * * * *</code>从<span class="help-letter-space"></span>0<span class="help-letter-space"></span>分钟开始，每隔<span class="help-letter-space"></span>5<span class="help-letter-space"></span>分钟检查一次</p>
+                              </li>
+                              <li id="4d42510e25hyf">
+                                <p id="06758beeedgg2"><code data-tag="code" class="cron-code code" code-type="xCode" id="cec91249998pb">0 0/1 * * *</code>从<span class="help-letter-space"></span>0<span class="help-letter-space"></span>点<span class="help-letter-space"></span>0<span class="help-letter-space"></span>分开始，每隔<span class="help-letter-space"></span>1<span class="help-letter-space"></span>小时检查一次</p>
+                              </li>
+                              <li data-spm-anchor-id="5176.2020520112.0.i11.4a143efdlVhapN" id="6c98caad07b3a">
+                                <p id="7f84f89906prj"><code data-tag="code" class="cron-code code" code-type="xCode" id="1fba98062fgzw">0 18 * * *</code>每天<span class="help-letter-space"></span>18<span class="help-letter-space"></span>点<span class="help-letter-space"></span>0<span class="help-letter-space"></span>分检查一次</p>
+                              </li>
+                              <li id="995147a60egjf">
+                                <p id="6e6b07214dxjd"><code data-tag="code" class="cron-code code" code-type="xCode" id="a47cb7a3be2i1">0 0 1 * *</code>每月<span class="help-letter-space"></span>1<span class="help-letter-space"></span>日<span class="help-letter-space"></span>0<span class="help-letter-space"></span>点<span class="help-letter-space"></span>0<span class="help-letter-space"></span>分检查一次</p>
+                              </li>
+                            </ul>
+                            <p id="7d3cbfe55a689">Cron<span class="help-letter-space"></span>表达式语法，可参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ecs/user-guide/cron-scheduled-tasks" id="51b3ab52142di" title="" class="xref">Cron<span class="help-letter-space"></span>定时任务</a>。</p>
+                          </div></div>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr id="row-jre-jw7-ae0">
+                    <td id="entry-5ic-7ag-0fd" rowspan="1" colspan="1">
+                      <p id="0010e1e70e55p"><b id="uicontrol-lfl-d8o-o3e">查询统计</b></p>
+                    </td>
+                    <td id="entry-kka-4pr-vmk" rowspan="1" colspan="1">
+                      <p id="0010e1e80evs3">单击输入框，在<b id="wintitle-d06-kcd-8im">查询统计</b>对话框中，设置查询和分析语句。</p>
+                      <ul data-tag="ul" id="ul-sw4-bp1-rsk" class="ul">
+                        <li data-tag="li" id="li-ie1-etm-gpq" class="li">
+                          <p id="0010e1e90es49"><b id="uicontrol-jrs-19w-ev7">关联报表</b>页签：选择监控仪表盘。</p>
+                        </li>
+                        <li data-tag="li" id="li-1de-9xk-73t" class="li">
+                          <p id="0010e1ea0eigc"><b id="uicontrol-n5d-98q-k8m" data-tag="uicontrol" data-isbold="true" class="uicontrol">高级配置</b>页签：</p>
+                          <ul id="0cce6eb18bw4i">
+                            <li id="19941e426a3gs">
+                              <p id="0cb2525c0d0da">在<b id="wintitle-fj1-42g-wxv" data-tag="uicontrol" data-isbold="true" class="uicontrol">类型</b>列表选择：</p>
+                              <ul data-tag="ul" id="ul-dcr-olm-ak2" class="ul">
+                                <li data-tag="li" id="li-z4m-136-ax8" class="li">
+                                  <p id="0010e1eb0e78g"><b id="uicontrol-acj-eu8-y6s" data-tag="uicontrol" data-isbold="true" class="uicontrol">日志库</b>：用于存储日志，相关的查询分析配置请参见<a href="https://help.aliyun.com/zh/sls/quick-guide-to-query-and-analysis#task-tqc-ddm-gfb" id="xref-wtk-1tt-ng4" title="" class="xref">查询与分析快速指引</a>。</p>
+                                </li>
+                                <li data-tag="li" id="li-ndz-73p-nz4" class="li">
+                                  <p id="001108f00eob8"><b id="uicontrol-b42-3i6-7bh">指标库</b>：用于存储时序数据，相关的查询分析配置请参见<a href="https://help.aliyun.com/zh/sls/query-and-analyze-metric-data#task-2539642" id="xref-1id-h4b-qec" title="" class="xref">查询和分析时序数据</a>。</p>
+                                </li>
+                                <li data-tag="li" id="li-8xu-foo-v3o" class="li">
+                                  <p id="001108f10ezag"><b id="uicontrol-f2c-zy4-4ly" data-tag="uicontrol" data-isbold="true" class="uicontrol">资源数据</b>：用于配置特定告警监控规则所关联的外部数据。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/create-resource-data#task-2057971" id="xref-nje-oxd-sj4" title="" class="xref">创建资源数据</a>。</p>
+                                </li>
+                              </ul>
+                            </li>
+                            <li id="8c28e72312fir">
+                              <p id="af4c5873aau74">选择<b id="uicontrol-sl5-znw-zem" data-tag="uicontrol" data-isbold="true" class="uicontrol">类型</b>为<b id="uicontrol-ixn-5la-zd7" data-tag="uicontrol" data-isbold="true" class="uicontrol">日志库</b>或<b id="uicontrol-iwa-5gf-zix">指标库</b>，且设置了查询和分析语句时，您可以选择是否开启独享<span class="help-letter-space"></span>SQL。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/dedicated-sql/#task-2081182" id="3bcaa200e5tft" title="" class="xref">高性能完全精确查询与分析（SQL<span class="help-letter-space"></span>独享版）</a>。</p>
+                              <ul data-tag="ul" id="ul-r5t-ikq-3aa" class="ul">
+                                <li data-tag="li" id="li-wk7-c0b-1vm" class="li">
+                                  <p id="001108f30ekyl"><b id="uicontrol-f44-96e-96g" data-tag="uicontrol" data-isbold="true" class="uicontrol">自动</b>：默认不使用独享<span class="help-letter-space"></span>SQL。当遇到查询并发限制或者查询结果不精确时，自动尝试使用独享<span class="help-letter-space"></span>SQL<span class="help-letter-space"></span>再次查询。</p>
+                                </li>
+                                <li data-tag="li" id="li-obd-n3x-k24" class="li">
+                                  <p id="001108f40eaon"><b id="uicontrol-fbo-pu0-5pi" data-tag="uicontrol" data-isbold="true" class="uicontrol">启用</b>：始终使用独享<span class="help-letter-space"></span>SQL<span class="help-letter-space"></span>进行查询和分析。</p>
+                                </li>
+                                <li data-tag="li" id="li-0b5-rs5-2ny" class="li">
+                                  <p id="001108f50e0jw"><b id="uicontrol-5ma-52a-3tu" data-tag="uicontrol" data-isbold="true" class="uicontrol">关闭</b>：关闭独享<span class="help-letter-space"></span>SQL。</p>
+                                </li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                      <p data-tag="p" id="p-9vp-9t8-jm2" class="p">配置多个查询统计时，您可以指定<b id="uicontrol-22b-i5g-pb5">集合操作</b>关联多个查询结果。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/set-query-statistics-statement#reference-2061516" id="xref-7ez-rz4-mc3" title="" class="xref">设置查询统计语句</a>。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-uep-tct-aaj">
+                    <td id="entry-s2d-u5b-rxp" rowspan="1" colspan="1">
+                      <p id="001108f60e4vk"><b id="uicontrol-7tz-9zy-kg1">分组评估</b></p>
+                    </td>
+                    <td id="entry-a1a-iqb-f2h" rowspan="1" colspan="1">
+                      <p id="001108f70eq8y">日志服务支持对查询和分析结果进行分组。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/use-the-group-evaluation-feature#task-2047232" id="xref-e99-q9c-7c4" title="" class="xref">设置分组评估</a>。</p>
+                      <ul data-tag="ul" id="ul-j5s-29t-bm3" class="ul">
+                        <li data-tag="li" id="li-sou-khl-90h" class="li">
+                          <p id="001108f80ewtj"><b id="uicontrol-od7-fxy-7z0">标签自定义</b>：日志服务根据您配置的字段对查询和分析结果进行分组。分组后，每个组单独评估触发条件。在每个检查周期内，查询和分析结果满足触发条件时，各个分组各自产生一条告警。</p>
+                          <p data-tag="p" id="p-h8h-6v6-bqy" class="p">支持设置多个字段。</p>
+                        </li>
+                        <li data-tag="li" id="li-fll-id2-8f9" class="li">
+                          <p id="001108f90ese6"><b data-tag="uicontrol" id="uicontrol-0ow-efd-civ" class="uicontrol">不分组</b>：在每个检查周期内，满足触发条件时，只产生一条告警。</p>
+                        </li>
+                        <li data-tag="li" id="li-pbn-3x4-i0m" class="li">
+                          <p id="001130000eprp"><b id="uicontrol-fqg-gmo-k02">标签自动</b>：当您在<b id="uicontrol-0k5-jyx-hi5">查询统计</b>中选择<b id="uicontrol-0tu-z21-4vu">指标库</b>（即监控时序数据的查询和分析结果）时 ，日志服务支持标签自动分组。</p>
+                          <p data-tag="p" id="p-o7e-d2k-sck" class="p">分组后，每个组单独评估触发条件。在每个检查周期内，查询和分析结果满足触发条件时，各个分组各自产生一条告警。</p>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr id="row-oev-07t-a7y">
+                    <td id="entry-oi8-1nz-2r0" rowspan="1" colspan="1">
+                      <p id="001130010e41i"><b id="uicontrol-f1e-9qf-2pi" data-tag="uicontrol" data-isbold="true" class="uicontrol">触发条件</b></p>
+                    </td>
+                    <td id="entry-ijb-pyr-jhm" rowspan="1" colspan="1">
+                      <p id="001130020ecg9">配置触发条件及严重度。</p>
+                      <ul data-tag="ul" id="ul-2le-1a2-54j" class="ul">
+                        <li data-tag="li" id="li-z9n-vjh-gnj" class="li">
+                          <p id="001130030eyjh">触发条件</p>
+                          <ul data-tag="ul" id="ul-fm6-ik0-bap" class="ul">
+                            <li data-tag="li" id="li-ifg-7jn-tdq" class="li">
+                              <p id="001130040e802"><b id="uicontrol-z3s-aol-cwh">有数据</b>：当查询和分析结果中存在数据时，触发告警。</p>
+                            </li>
+                            <li data-tag="li" id="li-gdh-7ej-g6t" class="li">
+                              <p id="001130050e4gu"><b id="uicontrol-4vr-fc0-cej">有特定条数据</b>：当查询和分析结果中存在<span class="help-letter-space"></span>N<span class="help-letter-space"></span>条数据时，触发告警。</p>
+                            </li>
+                            <li data-tag="li" id="li-jp8-7xq-il6" class="li">
+                              <p id="001130060e9yy"><b id="uicontrol-bkd-ejb-qg1">有数据匹配</b>：当查询和分析结果中存在数据满足告警表达式时，触发告警。</p>
+                            </li>
+                            <li data-tag="li" id="li-dko-zc2-jmh" class="li">
+                              <p id="001130070ek7l"><b id="uicontrol-beh-258-uz5">有特定条数据匹配</b>：当查询和分析结果中存在<span class="help-letter-space"></span>N<span class="help-letter-space"></span>条数据满足告警表达式时，触发告警。</p>
+                            </li>
+                          </ul>
+                        </li>
+                        <li data-tag="li" id="li-gdf-23y-dw1" class="li">
+                          <p id="001130080e8fj">严重度</p>
+                          <p data-tag="p" id="p-8cp-h4z-0ww" class="p">主要用于告警降噪控制和告警通知控制，即您在创建告警策略或行动策略时，可添加关于告警严重度的判断条件。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/specify-severity-levels-for-alerts#reference-2062449" id="xref-18p-aty-oeh" title="" class="xref">设置告警严重度</a>。</p>
+                          <ul data-tag="ul" id="ul-8e3-lc2-jtt" class="ul">
+                            <li data-tag="li" id="li-qma-con-v1f" class="li">
+                              <p id="001130090ekir">简单配置：直接选择告警严重度，则表示通过该规则产生的告警都为同一严重度。</p>
+                            </li>
+                            <li data-tag="li" id="li-bf3-pi1-2za" class="li">
+                              <p id="0011300a0epuv">分条件配置：单击<b id="uicontrol-mc9-tyv-g0e" data-tag="uicontrol" data-isbold="true" class="uicontrol">添加</b>，分条件设置告警严重度。</p>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                      <p data-tag="p" id="p-3n4-wzn-56s" class="p">告警条件表达式的相关语法，请参见<a href="https://help.aliyun.com/zh/sls/syntax-of-trigger-conditions-in-alert-rules#reference-byz-wrd-yfb" id="xref-6zf-t12-ub3" title="" class="xref">告警条件表达式语法</a>。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-x8p-hsy-pnm">
+                    <td id="entry-0lj-aza-v9z" rowspan="1" colspan="1">
+                      <p id="0011300b0egck"><b id="uicontrol-q7b-em0-xv2" data-tag="uicontrol" data-isbold="true" class="uicontrol">添加标签</b></p>
+                    </td>
+                    <td id="entry-czi-3zt-5vu" rowspan="1" colspan="1">
+                      <p id="001157100e21l">日志服务允许您给产生的告警添加标识性属性，键值对格式。主要用于告警降噪控制和告警通知控制，即您在创建告警策略或行动策略时，可添加关于标签的判断条件。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/labels-and-annotations#reference-2061517" id="xref-tbk-ida-nld" title="" class="xref">添加标签和标注</a>。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-95p-jwv-0eu">
+                    <td id="entry-hbh-f7t-31v" rowspan="1" colspan="1">
+                      <p id="001157110eygv"><b id="uicontrol-h0g-chc-alg" data-tag="uicontrol" data-isbold="true" class="uicontrol">添加标注</b></p>
+                    </td>
+                    <td id="entry-a31-rk1-ih6" rowspan="1" colspan="1">
+                      <p id="001157120egkw">日志服务允许您给产生的告警添加非标识性属性，键值对格式。主要用于告警降噪控制和告警通知控制，即您在创建告警策略或行动策略时，可添加关于标注的判断条件。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/labels-and-annotations#reference-2061517" id="xref-1ab-hn0-byl" title="" class="xref">添加标签和标注</a>。</p>
+                      <p data-tag="p" id="p-yuv-mxn-ywy" class="p">您还可以打开<b id="uicontrol-lks-31m-1tb">自动添加标注</b>开关，系统自动在告警中添加<span data-tag="parmname" id="parmname-eqw-925-e42" class="parmname">__count__</span>等信息。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/labels-and-annotations#section-6hp-3y5-c5w" id="xref-pi2-ptu-7xt" title="" class="xref">自动标注</a>。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-w61-vry-p2f">
+                    <td id="entry-9lt-log-qsl" rowspan="1" colspan="1">
+                      <p id="001157130ecrl"><b id="uicontrol-e41-lml-e02" data-status="unpublished" data-tag="uicontrol" data-isbold="true" class="uicontrol">恢复通知</b></p>
+                    </td>
+                    <td id="entry-ne0-rnh-015" rowspan="1" colspan="1">
+                      <p id="001157140edz4">打开<b id="uicontrol-mkf-zoi-fpo" data-status="unpublished" data-tag="uicontrol" data-isbold="true" class="uicontrol">恢复通知</b>开关后，告警恢复时触发一条恢复告警。例如您创建了一个告警监控规则，用于监控各个主机的<span class="help-letter-space"></span>CPU<span class="help-letter-space"></span>指标，当<span class="help-letter-space"></span>CPU<span class="help-letter-space"></span>使用率超过<span class="help-letter-space"></span>95%时触发告警，主机<span class="help-letter-space"></span>CPU<span class="help-letter-space"></span>使用率下降为正常值（低于等于<span class="help-letter-space"></span>95%）后发送一条恢复通知。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/recovery-notifications#reference-2061518" id="xref-ayg-evi-yv5" title="" class="xref">设置恢复通知</a>。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-q7n-k6a-94p">
+                    <td id="entry-628-2ff-9e1" rowspan="1" colspan="1">
+                      <p id="001157150ebz3"><b id="uicontrol-1r9-dc1-7n8">高级配置&gt;连续触发阈值</b></p>
+                    </td>
+                    <td id="entry-l97-bdm-erv" rowspan="1" colspan="1">
+                      <p id="001157160eqi3">连续多少次执行检查评估都满足触发条件时，才会触发一次告警。不满足触发条件时不计入统计。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-7fk-ope-a35">
+                    <td id="entry-o1e-wpn-lro" rowspan="1" colspan="1">
+                      <p id="001157170er5z"><b id="uicontrol-vor-0bb-pkr">高级配置&gt;无数据告警</b></p>
+                    </td>
+                    <td id="entry-xu9-fjb-n89" rowspan="1" colspan="1">
+                      <p id="001157180el4i">打开<b id="uicontrol-uvs-gbd-51h">无数据告警</b>开关后，如果查询和分析的结果（有多个时，进行集合操作后的结果）为无数据的次数超过<b id="uicontrol-izt-nih-rvq" data-tag="uicontrol" data-isbold="true" class="uicontrol">连续触发阈值</b>，则产生一条告警。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/user-guide/no-data-alert#reference-2061520" id="xref-phk-u0n-upu" title="" class="xref">无数据告警</a>。</p>
+                    </td>
+                  </tr>
+                  <tr id="502fbf200enbh">
+                    <td id="502fbf220ey1t" rowspan="1" colspan="1">
+                      <p id="502fbf210ehco"><b id="592b3f000epzc" data-tag="uicontrol" data-isbold="true" class="uicontrol">输出目标</b></p>
+                    </td>
+                    <td id="502fbf240e7e3" rowspan="1" colspan="1">
+                      <p id="502fbf230ew1e">输出目标用于配置告警事件的输出位置，可以配置一个或多个输出目标。</p>
+                      <ul id="6071bbe00e1pb">
+                        <li id="6071bbe20ejqt">
+                          <p id="6071bbe10eaxt"><b id="c03a09f00eth2" data-tag="uicontrol" data-isbold="true" class="uicontrol">事件库</b>：将告警事件写入到<span class="help-letter-space"></span>EventStore。</p>
+                        </li>
+                        <li id="6071bbe40e0uk">
+                          <p id="6071bbe30ed0e"><b id="c26b68e00evtx">云监控事件中心</b>：将告警事件写入到云监控系统事件中心，通过云监控对告警进行管理和通知。</p>
+                        </li>
+                        <li id="6071bbe60ez47">
+                          <p id="6071bbe50evtc"><b id="c47039900e80f">SLS<span class="help-letter-space"></span>通知</b>：将告警事件输出到<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>的通知服务，通过告警策略、行动策略等对告警进行管理和通知。</p>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr id="69dced800ed8g">
+                    <td id="69dced820eju0" rowspan="1" colspan="1">
+                      <p id="69dced810ebvj"><b id="174be5800emz0">输出目标-事件库</b></p>
+                    </td>
+                    <td id="69dd14910e21n" rowspan="1" colspan="1">
+                      <ul id="498294b00egm5">
+                        <li id="498294b20ec2h">
+                          <p id="498294b10eenw"><b id="fc1833a00evmk" data-tag="uicontrol" data-isbold="true" class="uicontrol">开启</b>：打开事件库开启开关后，告警将写入到<span class="help-letter-space"></span>EventStore<span class="help-letter-space"></span>中。</p>
+                        </li>
+                        <li id="498294b40ecah">
+                          <p id="498294b30esnn"><b id="0d95e4b00e360" data-tag="uicontrol" data-isbold="true" class="uicontrol">地域</b>：告警写入的<span class="help-letter-space"></span>EventStore<span class="help-letter-space"></span>所属地域。</p>
+                        </li>
+                        <li id="498294b60e5yb">
+                          <p id="498294b50e7ne"><b id="12796b500eyj8">Project</b>：告警写入的<span class="help-letter-space"></span>EventStore<span class="help-letter-space"></span>所属项目。</p>
+                        </li>
+                        <li id="4982bbc00ehz8">
+                          <p id="498294b70e3b5"><b id="1661a2000ejky" data-tag="uicontrol" data-isbold="true" class="uicontrol">事件库</b>：告警写入的<span class="help-letter-space"></span>EventStore。</p>
+                        </li>
+                        <li id="4982bbc70e0e5">
+                          <p id="4982bbc10ecf1"><b id="192073e00em2z" data-tag="uicontrol" data-isbold="true" class="uicontrol">授权方式</b>：</p>
+                          <ul id="4982bbc60e9z0">
+                            <li id="4982bbc30el6r">
+                              <p id="4982bbc20e25p"><b id="1fd056100e3ow" data-tag="uicontrol" data-isbold="true" class="uicontrol">默认角色</b>：单击<b id="550231f00earx" data-tag="uicontrol" data-isbold="true" class="uicontrol">前往授权</b>，根据界面提示完成授权，并扮演阿里云系统角色<span class="help-letter-space"></span>AliyunLogETLRole<span class="help-letter-space"></span>将告警写入目标<span class="help-letter-space"></span>EventStore。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/configure-permissions-for-writing-alarms-to-the-event-library#cfb6bd100ehqd" id="7a767af00eakh" title="" class="xref">默认角色授权</a>。</p>
+                            </li>
+                            <li id="4982bbc50e567">
+                              <p id="4982bbc40evmg"><b id="2217ae000eins" data-tag="uicontrol" data-isbold="true" class="uicontrol">自定义角色</b>：扮演自定义角色将告警写入目标<span class="help-letter-space"></span>EventStore，填写角色<span class="help-letter-space"></span>ARN。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/configure-permissions-for-writing-alarms-to-the-event-library#d4197af00ej48" id="6cbfe4000e9s8" title="" class="xref">自定义角色授权</a>。</p>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr id="6997a7200epoc">
+                    <td id="6997a7220exkd" rowspan="1" colspan="1">
+                      <p id="6997a7210eyrw"><b id="15cb11e00ezoy">输出目标-云监控事件中心</b></p>
+                    </td>
+                    <td id="6997ce300ejg7" rowspan="1" colspan="1">
+                      <ul id="e2a0e2500ev18">
+                        <li id="e2a0e2520ez7w">
+                          <p id="e2a0e2510e5et"><b id="db6c71600ec95" data-tag="uicontrol" data-isbold="true" class="uicontrol">开启</b>：打开云监控事件中心开启开关后，告警将发送到云监控事件中心。更多信息，请参见<a href="https://help.aliyun.com/zh/cms/cloudmonitor-1-0/user-guide/view-system-events" id="cde11aa6f3sd0" title="" class="xref">查看系统事件</a>。</p>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr id="6935b1000egu9">
+                    <td id="6935d8110eor0" rowspan="1" colspan="1">
+                      <p id="6935d8100ed5i"><b id="1963f0100e5as">输出目标-SLS<span class="help-letter-space"></span>通知</b></p>
+                    </td>
+                    <td id="6935d8130ea9v" rowspan="1" colspan="1">
+                      <ul id="7e3fb5c10etoa">
+                        <li id="7e3f8eb00e6fw">
+                          <p id="6935d8120e6se"><b id="e4bb84f00exxf" data-tag="uicontrol" data-isbold="true" class="uicontrol">开启</b>：打开<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>通知开关后，告警将发送到<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>通知服务进行后续的管理和通知。</p>
+                        </li>
+                        <li id="0d01d535f4me5">
+                          <p id="03b755796f6ph"><b id="b484d9c6a20qo" data-tag="uicontrol" data-isbold="true" class="uicontrol">告警策略</b></p>
+                          <section id="16227cd3576eu" outputclass="tabbed-content-box" data-tag="tabbed-content-box" class="tabbed-content-box section">
+                            <section id="0e3abf30a9rkw" class="section">
+                              <h3 id="5a9dcdb1b1tns"><b>极简模式</b></h3>
+                              <ul id="79bdbde14fcrl">
+                                <li id="6164c69293sh8">
+                                  <p id="2bb296de3d1z8">日志服务默认使用<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>内置动态告警策略（sls.builtin.dynamic）进行告警管理。</p>
+                                </li>
+                                <li id="65e758419c582">
+                                  <p id="7c7ea780138y5">配置行动组。</p>
+                                  <p id="d31c0f1bcar8g">您配置行动组后，日志服务自动为您创建一个名为<code data-tag="code" code-type="xCode" id="ea30d6f4bfzdk" class="code">规则名称-行动策略</code>的行动策略。由该告警监控规则触发的所有告警都通过该行动策略发送通知。如何配置，请参见<a href="https://help.aliyun.com/zh/sls/notification-methods#reference-2066133" id="fc6201a972lkn" title="" class="xref">通知渠道说明</a>。</p>
+                                  <div data-tag="note" id="88fc0e37cfk5u" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                                    <p id="a301144c9a4i7">您可以在行动策略管理页面，修改该行动策略。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/create-an-action-policy/#task-2045212" id="c65674276apui" title="" class="xref">行动策略</a>。如果您在修改行动策略时添加了判断条件，则此处的<b id="uicontrol-0j6-mok-e0m" data-tag="uicontrol" data-isbold="true" class="uicontrol">告警策略</b>将自动变更为<b id="uicontrol-l29-jo0-1zs" data-tag="uicontrol" data-isbold="true" class="uicontrol">普通模式</b>。</p>
+                                  </div></div>
+                                </li>
+                                <li id="6c95c9d71f0f6">
+                                  <p id="757ac52471hez"><b id="b387ea3038fc4">重复等待</b>：在重复等待时间内，重复的告警只触发一次行动策略，即只发送一次告警通知。</p>
+                                </li>
+                              </ul>
+                            </section>
+                            <section id="fa774eb978fgf" class="section">
+                              <h3 id="1af4a17cd3qqp"><b>普通模式</b></h3>
+                              <ul id="2fc5581b77tty">
+                                <li id="f75aba0fb5gby">
+                                  <p id="d95e6da1eatwf">日志服务默认使用<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>内置动态告警策略（sls.builtin.dynamic）进行告警管理。</p>
+                                </li>
+                                <li id="19578a2cb1nu3">
+                                  <p id="bce41203d3ci6">选择内置的或自定义的行动策略进行告警通知。如何创建行动策略，请参见<a href="https://help.aliyun.com/zh/sls/create-an-action-policy/#task-2045212" id="9e780275763ev" title="" class="xref">行动策略</a>。</p>
+                                </li>
+                                <li id="2e6e88727fk4s">
+                                  <p id="3438eb3d72n5v"><b id="cffd75f00ebj4">重复等待</b>：在重复等待时间内，重复的告警只触发一次行动策略，即只发送一次告警通知。</p>
+                                </li>
+                              </ul>
+                            </section>
+                            <section id="0f14645107m5t" class="section">
+                              <h3 id="79e4149ab770p"><b>高级模式</b></h3>
+                              <ul id="2e15649b6d72j">
+                                <li id="f78be7c4c5qkt">
+                                  <p id="b276862795c6x">选择内置的或自定义的告警策略进行告警管理。如何创建告警策略，请参见<a href="https://help.aliyun.com/zh/sls/create-an-alert-policy#task-2045393" id="c10b488148nek" title="" class="xref">创建告警策略</a>。</p>
+                                </li>
+                                <li id="ee10a7e33bprn">
+                                  <p id="b3cba0ec84181">选择内置的或自定义的行动策略进行告警通知。如何创建行动策略，请参见<a href="https://help.aliyun.com/zh/sls/create-an-action-policy/#task-2045212" id="1dbe82ee11k5u" title="" class="xref">行动策略</a>。还可以开启或关闭<b id="uicontrol-88m-9n3-8me">自定义行动策略</b>。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/dynamic-action-policy-mechanism#reference-2061524" id="8d4df95c846z0" title="" class="xref">动态行动策略机制</a>。</p>
+                                </li>
+                                <li id="204866d0d362l">
+                                  <p id="ba65a8c00en7a"><b id="4cbd45d5e47oq">重复等待</b>：在重复等待时间内，重复的告警只触发一次行动策略，即只发送一次告警通知。</p>
+                                </li>
+                              </ul>
+                            </section>
+                          </section>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+        </ol>
+      </section>
+    </div>
+  </main>
+
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/sls/configure-permissions-for-writing-alarms-to-the-event-library" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：配置告警写入事件库的权限</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/sls/manage-an-alert-monitoring-rule" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：管理告警监控规则<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

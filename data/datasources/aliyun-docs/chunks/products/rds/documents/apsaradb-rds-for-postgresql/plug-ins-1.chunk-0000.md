@@ -1,0 +1,20 @@
+# 插件
+更新时间: 2025-05-19 10:02:25
+- [RDS PostgreSQL支持的扩展插件列表](extensions-supported-by-apsaradb-rds-for-postgresql.md)
+- [限制创建插件说明](limits-on-the-creation-of-the-pg-cron-extension.md)
+- [管理插件](manage-plug-ins.md)
+- [时空引擎（GanosBase）](ganos-spatio-temporal-engine.md)
+- [垂直行业](query-vertical-industry-specific-data.md)
+- [异构数据库访问](run-cross-database-queries.md)
+- [跨库操作（dblink、postgres_fdw）](use-the-dblink-and-postgres-fdw-extensions-for-cross-database-operations.md)
+- [在线分区功能（rds_online_migrate）](use-the-rds-online-migrate-extension-to-partition-tables-online.md)
+- [基数统计（hll）](use-the-hll-plug-in.md)
+- [定时任务（pg_cron）](use-the-pg-cron-extension-to-configure-scheduled-tasks.md)
+- [水平拆分（PL/Proxy）](use-the-pl-or-proxy-plug-in-for-horizontal-sharding.md)
+- [模糊查询（pg_bigm）](use-the-pg-bigm-extension-to-perform-fuzzy-match-based-queries.md)
+- [逻辑解码（wal2json）](use-the-wal2json-extension.md)
+- [集成Elasticsearch（ZomboDB）](use-the-zombodb-extension-to-integrate-with-elasticsearch.md)
+- [SQL防火墙（sql_firewall）](use-the-sql-firewall-extension.md)
+- [并发控制（pg_concurrency_control）](use-the-pg-concurrency-control-plug-in.md)
+- [高速全文检索（RUM）](use-the-rum-extension.md)
+- [中文分词（zhparser）](use-the-zhparser-extensio

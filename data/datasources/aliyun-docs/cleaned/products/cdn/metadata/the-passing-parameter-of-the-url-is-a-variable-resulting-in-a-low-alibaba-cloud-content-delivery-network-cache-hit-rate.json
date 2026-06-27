@@ -1,0 +1,17 @@
+{
+  "id": "cdn:the-passing-parameter-of-the-url-is-a-variable-resulting-in-a-low-alibaba-cloud-content-delivery-network-cache-hit-rate",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "开启过滤参数解决URL可变参数导致的CDN缓存命中率低-CDN-阿里云",
+  "source_url": "https://help.aliyun.com/zh/cdn/the-passing-parameter-of-the-url-is-a-variable-resulting-in-a-low-alibaba-cloud-content-delivery-network-cache-hit-rate",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/the-passing-parameter-of-the-url-is-a-variable-resulting-in-a-low-alibaba-cloud-content-delivery-network-cache-hit-rate.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/the-passing-parameter-of-the-url-is-a-variable-resulting-in-a-low-alibaba-cloud-content-delivery-network-cache-hit-rate.md",
+  "word_count": 524,
+  "text_units": 1132,
+  "local_links": 0,
+  "external_links": 62,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

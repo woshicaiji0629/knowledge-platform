@@ -1,0 +1,12 @@
+{
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "selection",
+  "url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/use-cases/use-argo-workflows-to-orchestrate-dynamic-dag-fan-out-fan-in-tasks",
+  "title": "本文介绍了如何使用Argo Workflow在云上通过动态DAG方式编排Fan-out/Fan-in任务，实现大规模子任务的并行处理与资源弹性调度，适用于数据处理、机器学习等场景。-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "fetched_at": "2026-06-27T07:59:40.869661+00:00",
+  "status_code": "200",
+  "content_type": "text/html;charset=UTF-8",
+  "raw_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/raw/ack-argo-workflow-cluster/use-cases/use-argo-workflows-to-orchestrate-dynamic-dag-fan-out-fan-in-tasks.html",
+  "document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-argo-workflow-cluster/use-cases/use-argo-workflows-to-orchestrate-dynamic-dag-fan-out-fan-in-tasks.md"
+}

@@ -1,0 +1,12 @@
+onnection-problems.md)[远程连接实例的问题](through-vnc-instance-remote-connection-problems.md)
+如可以通过Workbench工具正常登录，说明目标实例上的SSH服务正常运行，即排除SSH服务端异常的可能性，继续执行[步骤二：检查网络](troubleshooting-guidelines-when-you-cannot-remotely-log-on-to-a-linux-instance-through-ssh.md)进行排查。
+步骤二：检查网络
+无法正常远程连接Linux实例时，需要先检查网络是否正常。
+用其他网络环境中，不同网段或不同运营商的电脑连接对比测试，判断是本地网络问题还是服务器端的问题。
+如果是本地网络问题或运营商问题，请联系本地IT人员或运营商解决。
+如果是网卡驱动存在异常，请重新安装。
+在本地客户端使用ping命令测试与实例的网络连通性。
+网络异常时，请进行抓取数据包进行分析，具体操作，请参见[使用抓包工具进行网络数据包抓取](user-guide/how-to-grab-data-packets-when-the-network-is-abnormal.md)。
+当出现ping丢包或ping不通时，可以通过tracert或mtr等工具进行链路测试来判断问题根源。具体操作，请参见[使用](user-guide/use-mtr-tool-for-network-analysis.md)[MTR](user-guide/use-mtr-tool-for-network-analysis.md)[工具进行网络链路分析](user-guide/use-mtr-tool-for-network-analysis.md)。
+系统内核没有禁ping的情况下，使用ping命令测试ECS服务器，发现网络不通，可能是服务器系统内部防火墙对客户端进行了drop策略。
+具体操作，请参见[无法](troubleshooting-for-ping-attempts-to-pass-the-server-and-port-disconnection.md)[ping](troubleshooting-for-ping-attempts-to-pass-the-server-and-port-disconnection.md)[通](troubleshooting-for-ping-attempts-to-pass-the-server-and-port-disconnection.md)[ECS](troubleshooting-for-ping-attempts-to-pass-the-server-and-port-disconnection.md)[实例公网](troubleshooti

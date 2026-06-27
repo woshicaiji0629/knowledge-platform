@@ -1,0 +1,6 @@
+| 首字母 | 保留字 |
+| --- | --- |
+| a~c | add,admin,all,alter,analyze,and,as,asc,asensitive,aurora,before,between,bigint,binary,blob,both,by,call,cascade,case,change,char,character,check,collate,column,condition,connection,constraint,continue,convert,create,cross,current_date,current_time,current_timestamp,current_user,cursor |
+| d~f | database,databases,day_hour,day_microsecond,day_minute,day_second,dec,decimal,declare,default,delayed,delete,desc,describe,deterministic,distinct,distinctrow,div,double,drc_rds,drop,dual,each,eagleye,else,elseif,enclosed,escaped,exists,exit,explain,false,fetch,float,float4,float8,for,force,foreign,from,fulltext |
+| g~l | goto,grant,group,guest,having,high_priority,hour_microsecond,hour_minute,hour_second,if,ignore,in,index,infile,information_schema,inner,inout,insensitive,insert,int,int1,int2,int3,int4,int8,integer,interval,into,is,iterate,join,key,keys,kill,label,leading,leave,left,like,limit,linear,lines,load,localtime,localtimestamp,lock,long,longblob,longtext,loop,low_priority |
+| m~r | match,mediumblob,mediumint,mediumtext,middleint,minute_microsecond,minute_second,mod,modifies,mysql,natural,no_write_to_binlog,not,null,numeric,on,optimize,option,optio

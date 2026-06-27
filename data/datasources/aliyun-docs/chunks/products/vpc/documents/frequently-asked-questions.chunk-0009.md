@@ -1,0 +1,19 @@
+原则），将流量引到了其他地方（例如默认路由指向了NAT网关）。
+安全组问题：检查目的端安全组的入方向规则，是否只允许了部分源IP的访问。
+网络ACL问题：检查网络ACL是否只允许了部分子网的流量。
+对等连接为什么发起端可以ping通接收端，但反向ping不通？
+单向连通通常是由于非对称配置引起的。请重点排查两端ECS实例的安全组&网络ACL规则，是否允许出方向流量和入方向流量通行。
+我建立了A到B和B到C的VPC对等连接，为什么A和C无法通信？
+VPC对等连接不具备路由传递性。
+这意味着：如果VPC-A与VPC-B建立对等连接，同时VPC-B与VPC-C建立对等连接，那么VPC-A和VPC-C之间是无法通过VPC-B进行通信的。
+如果需要实现多VPC之间的全互通（例如构建星型或网状网络拓扑），请使用[云企业网](../../cen/documents/product-overview/what-is-cen.md)[CEN](../../cen/documents/product-overview/what-is-cen.md)产品。
+为什么VPC对等连接已经建立，但我还是无法访问对方的RDS/Redis等云服务？
+这个问题与ECS不通类似，但在排查时需要额外关注云服务自身的访问控制。
+完成基础连通性排查：按照[VPC](frequently-asked-questions.md)[对等连接不通排查思路](frequently-asked-questions.md)的 checklist 检查路由、网段、安全组和网络ACL配置，确保网络链路是通的。
+检查云服务IP白名单：大部分数据库和缓存服务（如RDS、Redis、MongoDB）都有IP白名单功能。您必须将发起访问的ECS实例的私网IP地址或者其所在的网段，添加到目标云服务的白名单中。
+VPC对等连接是否支持跨账号和跨地域？
+支持。注意跨地域使用时，会统一由[云数据传输](https://help.aliyun.com/zh/cdt/product-overview/what-is-cdt)[CDT](https://help.aliyun.com/zh/cdt/product-overview/what-is-cdt)按出向流量收取流量传输费。
+注意跨站点不支持，例如中国站与国际站的VPC无法互通。
+IPv4网关删除后公网为什么无法访问？
+最常见的原因是删除IPv4网关时，选择了“私网模式”，而不是“公网模式”。选择私网模式删除后，VPC内部所有资源将全部无法与公网互通。
+如果VPC需要恢复到没有IPv4网关且可以公网访问的状态，您可以重新创建IPv4网关，然后删除IPv4网关并选择“公网模式”。详细逻辑可参考[IPv4](ipv4-gateway-overview.md)[网关](ipv4-gatew

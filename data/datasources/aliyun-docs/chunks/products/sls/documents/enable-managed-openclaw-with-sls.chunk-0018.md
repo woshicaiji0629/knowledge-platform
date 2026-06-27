@@ -1,0 +1,1 @@
+聚合分析则将单条日志上升为全局统计视图。例如，对subsystem字段做分组聚合，则分析语句为_meta.logLevelName: ERROR or _meta.logLevelName: WARN or _meta.logLevelName: FATAL | select "0.subsystem" as subsystem, count(1) as c group by subsystem，可直观呈现各子系统的错误分布，快速识别集中性异常，为进一步排查指明方向。

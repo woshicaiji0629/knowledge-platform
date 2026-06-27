@@ -1,0 +1,2 @@
+## 与Prometheus&Loki（含AlertManager）告警对比
+自建Prometheus&Loki使用开源的Prometheus+Loki+AlertManager组合搭建告警监控系统，其中Prometheus Alert对时序数据进行告警监控，Loki对日志进行告警监控，两者共同将告警发送给Alert Manager进行告警管理。

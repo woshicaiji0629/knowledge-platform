@@ -1,0 +1,14 @@
+{
+  "id": "redis:developer-reference/tairbloom-command:17",
+  "document_id": "redis:developer-reference/tairbloom-command",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "TairBloom介绍,命令列表-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/developer-reference/tairbloom-command",
+  "chunk_index": 17,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/developer-reference/tairbloom-command.chunk-0017.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/tairbloom-command.md",
+  "heading_path": "Bloom > BF.INFO > 为什么选择阿里云",
+  "char_count": 328
+}

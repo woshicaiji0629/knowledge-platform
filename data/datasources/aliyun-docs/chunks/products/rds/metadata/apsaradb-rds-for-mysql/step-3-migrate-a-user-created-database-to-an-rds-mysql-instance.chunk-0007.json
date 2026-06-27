@@ -1,0 +1,14 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/step-3-migrate-a-user-created-database-to-an-rds-mysql-instance:7",
+  "document_id": "rds:apsaradb-rds-for-mysql/step-3-migrate-a-user-created-database-to-an-rds-mysql-instance",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "入门第三步：自建数据库迁移上云-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/step-3-migrate-a-user-created-database-to-an-rds-mysql-instance",
+  "chunk_index": 7,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/rds/documents/apsaradb-rds-for-mysql/step-3-migrate-a-user-created-database-to-an-rds-mysql-instance.chunk-0007.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/step-3-migrate-a-user-created-database-to-an-rds-mysql-instance.md",
+  "heading_path": "第三步：自建数据库迁移至RDS MySQL实例 > 配置目标库参数",
+  "char_count": 304
+}

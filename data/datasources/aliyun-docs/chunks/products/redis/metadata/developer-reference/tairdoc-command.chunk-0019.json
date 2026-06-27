@@ -1,0 +1,14 @@
+{
+  "id": "redis:developer-reference/tairdoc-command:19",
+  "document_id": "redis:developer-reference/tairdoc-command",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "Tair文档数据结构命令使用详解-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/developer-reference/tairdoc-command",
+  "chunk_index": 19,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/developer-reference/tairdoc-command.chunk-0019.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/tairdoc-command.md",
+  "heading_path": "@表达式 # 查询store中book中包含isbn元素的信息。 JSON.GET dockey $.store.book[?(@.isbn)] # 预期输出： \"[{\"category\":\"fiction\",\"author\":\"Herman Melville\",\"title\":\"Moby Dick\",\"isbn\":\"0-553-21311-3\",\"price\":8.99},{\"category\":\"fiction\",\"author\":\"J. R. R. Tolkien\",\"title\":\"The Lord of the Rings\",\"isbn\":\"0-395-19395-8\",\"price\":22.99}]\" # COMP表达式 # 查询store中price小于10的book信息。 JSON.GET dockey '$.store.book[?(@.price < 10)]' # 预期输出： \"[{\"category\":\"reference\",\"author\":\"Nigel Rees\",\"title\":\"Sayings of the Century\",\"price\":8.95},{\"category\":\"fiction\",\"author\":\"Herman Melville\",\"title\":\"Moby Dick\",\"isbn\":\"0-553-21311-3\",\"price\":8.99}]\" # 组合表达式 # 查询目标book信息，条件为price为12.99或者price比bicycle的price贵或者category为reference。 JSON.GET dockey \"$..book[?((@.price == 12.99 || @.price > $.store.bicycle.price) || @.category == 'reference')]\" # 预期输出： \"[{\"category\":\"reference\",\"author\":\"Nigel Rees\",\"title\":\"Sayings of the Century\",\"price\":8.95},{\"category\":\"fiction\",\"author\":\"J. R. R. Tolkien\",\"title\":\"The Lord of the Rings\",\"isbn\":\"0-395-19395-8\",\"price\":22.99},{\"category\":\"fiction\",\"author\":\"Evelyn Waugh\",\"title\":\"Sword of Honour\",\"price\":12.99}]\" > JSONPointer介绍",
+  "char_count": 210
+}

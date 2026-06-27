@@ -1,0 +1,1 @@
+命周期规则的操作 result, err := client.PutBucketLifecycle(context.TODO(), request) if err != nil { log.Fatalf("failed to put bucket lifecycle %v", err) } // 打印设置存储空间生命周期规则的结果 log.Printf("put bucket lifecycle result:%#v\n", result) }

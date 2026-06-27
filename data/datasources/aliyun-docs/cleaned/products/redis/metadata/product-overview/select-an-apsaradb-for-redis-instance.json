@@ -1,0 +1,17 @@
+{
+  "id": "redis:product-overview/select-an-apsaradb-for-redis-instance",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "selection",
+  "title": "如何选择阿里云Tair，Redis产品-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/select-an-apsaradb-for-redis-instance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/product-overview/select-an-apsaradb-for-redis-instance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/select-an-apsaradb-for-redis-instance.md",
+  "word_count": 1654,
+  "text_units": 3469,
+  "local_links": 25,
+  "external_links": 85,
+  "has_tables": true,
+  "table_count": 18,
+  "quality": "accepted"
+}

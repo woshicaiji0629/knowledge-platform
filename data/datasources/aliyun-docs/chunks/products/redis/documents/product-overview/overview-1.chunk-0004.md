@@ -1,0 +1,1 @@
+dis 开源版 的 15%。 性能：约为 Redis 开源版 的 60%，更多信息请参见 [磁盘（ESSD）型性能白皮书](../support/performance-white-paper-of-essd-based-instances.md) 、 [磁盘（SSD）型性能白皮书](../support/disk-ssd-performance-white-paper.md) 。 磁盘存储：数据分布在 ESSD 或 SSD 中，容量可达百 TB 级别，拥有高数据可靠性。 数据分布：采用阿里云 TairDB 存储引擎，数据通过磁盘持久化，内存用于请求加速。 高兼容性：兼容 Redis 6.0 大部分的数据结构和命令。 |

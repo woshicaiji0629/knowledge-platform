@@ -1,0 +1,14 @@
+{
+  "id": "redis:product-overview/observability:13",
+  "document_id": "redis:product-overview/observability",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "产品可观测性各项能力详解-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/observability",
+  "chunk_index": 13,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/product-overview/observability.chunk-0013.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/observability.md",
+  "heading_path": "可观测性能力介绍 > 分析能力 > 关注阿里云",
+  "char_count": 378
+}

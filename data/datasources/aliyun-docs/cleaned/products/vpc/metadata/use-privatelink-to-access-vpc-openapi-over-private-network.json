@@ -1,0 +1,17 @@
+{
+  "id": "vpc:use-privatelink-to-access-vpc-openapi-over-private-network",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "使用 PrivateLink 私网访问 VPC OpenAPI-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/use-privatelink-to-access-vpc-openapi-over-private-network",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/use-privatelink-to-access-vpc-openapi-over-private-network.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/use-privatelink-to-access-vpc-openapi-over-private-network.md",
+  "word_count": 697,
+  "text_units": 1597,
+  "local_links": 1,
+  "external_links": 68,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

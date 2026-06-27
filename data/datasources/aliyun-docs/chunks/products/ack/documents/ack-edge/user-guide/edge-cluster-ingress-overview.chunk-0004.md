@@ -1,0 +1,6 @@
+## 云端部署
+只需在云端节点池部署Ingress Controller。
+确保云端节点池和边缘节点池通过专线接入，实现内网互通，从而保证主机网络与容器网络的互联互通。
+Ingress Controller通过LoadBalancer类型的Service对外暴露服务，使用阿里云CLB地址作为端点，外部请求通过Ingress Controller转发到Service的后端Pod，使用负载均衡策略，不使用流量拓扑。
+该文章对您有帮助吗？
+反馈

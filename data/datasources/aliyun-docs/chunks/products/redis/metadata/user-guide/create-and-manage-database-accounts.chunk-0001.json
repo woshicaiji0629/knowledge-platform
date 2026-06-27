@@ -1,0 +1,14 @@
+{
+  "id": "redis:user-guide/create-and-manage-database-accounts:1",
+  "document_id": "redis:user-guide/create-and-manage-database-accounts",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "创建和管理云数据库 Tair（兼容 Redis）账号-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/create-and-manage-database-accounts",
+  "chunk_index": 1,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/user-guide/create-and-manage-database-accounts.chunk-0001.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/create-and-manage-database-accounts.md",
+  "heading_path": "例如默认账号为r-bp1jpghfglv6******，密码为Rp829dlwa。 redis-cli -h r-bp1zx****.redis.rds.aliyuncs.com -p 6379 -a Rp829dlwa > 前提条件",
+  "char_count": 113
+}

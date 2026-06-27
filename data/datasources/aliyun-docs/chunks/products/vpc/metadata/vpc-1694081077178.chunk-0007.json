@@ -1,0 +1,14 @@
+{
+  "id": "vpc:vpc-1694081077178:7",
+  "document_id": "vpc:vpc-1694081077178",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "支持的预设的系统权限策略列表-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/vpc-1694081077178",
+  "chunk_index": 7,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/vpc-1694081077178.chunk-0007.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/vpc-1694081077178.md",
+  "heading_path": "专有网络VPC系统权限策略参考 > 产品系统策略 > AliyunVPCPrefixListAccess",
+  "char_count": 176
+}

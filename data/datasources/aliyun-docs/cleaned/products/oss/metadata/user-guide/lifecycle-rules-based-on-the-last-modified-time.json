@@ -1,0 +1,17 @@
+{
+  "id": "oss:user-guide/lifecycle-rules-based-on-the-last-modified-time",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "features",
+  "title": "基于最后一次修改时间配置生命周期规则以降低OSS存储成本-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/user-guide/lifecycle-rules-based-on-the-last-modified-time",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/oss/documents/user-guide/lifecycle-rules-based-on-the-last-modified-time.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/user-guide/lifecycle-rules-based-on-the-last-modified-time.md",
+  "word_count": 4377,
+  "text_units": 12934,
+  "local_links": 14,
+  "external_links": 85,
+  "has_tables": true,
+  "table_count": 25,
+  "quality": "accepted"
+}

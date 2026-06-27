@@ -1,0 +1,5 @@
+## Service流量拓扑管理实现原理
+为了解决上述问题，容器服务 Edge 版基于原生的Service，增加了Endpoint的拓扑管理功能，即通过简单配置来限制Service后端Endpoint的访问范围。例如，边缘节点应用只能由相同节点池的节点访问，或者只能由本节点访问。具体实现原理如下图所示。
+Service1关联后端Pod2和Pod3两个实例，且Service1通过annotation："openyurt.io/topologyKeys: kubernetes.io/zone"配置了其拓扑节点池范围。
+Pod2所在的节点2和Pod3所在的节点4分别属于两个不同的节点池A和节点池B。
+因为Pod3和Pod1不在一个节点池，当Pod1访问Service1时，流量只会转发到Pod2上，访问Pod3的流量被限制。

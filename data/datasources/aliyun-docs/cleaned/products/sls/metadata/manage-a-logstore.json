@@ -1,0 +1,17 @@
+{
+  "id": "sls:manage-a-logstore",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "管理LogStore-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/manage-a-logstore",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/manage-a-logstore.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/manage-a-logstore.md",
+  "word_count": 1591,
+  "text_units": 5194,
+  "local_links": 1,
+  "external_links": 120,
+  "has_tables": true,
+  "table_count": 13,
+  "quality": "accepted"
+}

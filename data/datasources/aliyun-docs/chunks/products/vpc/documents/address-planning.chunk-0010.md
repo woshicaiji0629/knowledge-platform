@@ -1,0 +1,1 @@
+on = "IPv4" # 指定IPAM地址池的版本 } # 为IPAM子地址池分配CIDR resource "alicloud_vpc_ipam_ipam_pool_cidr" "example_childIpamPoolCidr" { cidr = "10.0.0.0/24" # 指定CIDR ipam_pool_id = alicloud_vpc_ipam_ipam_pool.example_childIpamPool.id # 指定IPAM地址池的ID }

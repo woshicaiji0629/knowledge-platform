@@ -1,0 +1,14 @@
+{
+  "id": "sls:denoise-alerts:4",
+  "document_id": "sls:denoise-alerts",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "告警降噪常用方法功能概览-日志服务-阿里云",
+  "source_url": "https://help.aliyun.com/zh/sls/denoise-alerts",
+  "chunk_index": 4,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/denoise-alerts.chunk-0004.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/denoise-alerts.md",
+  "heading_path": "告警降噪控制 > 为什么选择阿里云 > 技术内容",
+  "char_count": 201
+}

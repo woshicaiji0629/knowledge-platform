@@ -1,0 +1,17 @@
+{
+  "id": "redis:user-guide/manage-instances-in-the-recycle-bin",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "在回收站可以对实例执行哪些操作-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/manage-instances-in-the-recycle-bin",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/user-guide/manage-instances-in-the-recycle-bin.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/manage-instances-in-the-recycle-bin.md",
+  "word_count": 517,
+  "text_units": 1107,
+  "local_links": 1,
+  "external_links": 62,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

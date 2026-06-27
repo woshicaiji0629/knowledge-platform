@@ -1,0 +1,1 @@
+switches[0].vpc_id } # 创建ECS resource "alicloud_instance" "example_ecs" { instance_name = "example_ecs_name" instance_type = "ecs.e-c1m1.large" security_groups = [alicloud_security_group.example_sg.id] vswitch_id = var.vsw_id image_id = "aliyun_3_x64_20G_alibase_20250117.vhd" system_disk_category = "cloud_essd" }

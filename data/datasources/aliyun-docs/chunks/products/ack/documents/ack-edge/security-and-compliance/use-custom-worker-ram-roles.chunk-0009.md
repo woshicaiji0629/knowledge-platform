@@ -1,0 +1,6 @@
+## 相关操作
+创建RAM角色后，该RAM角色默认没有任何权限。
+如需通过控制台创建自定义策略并授权，请参见[创建自定义权限策略](../../../../ram/documents/create-a-custom-policy.md)、[为](../../../../ram/documents/user-guide/grant-permissions-to-a-ram-role.md)[RAM](../../../../ram/documents/user-guide/grant-permissions-to-a-ram-role.md)[角色授权](../../../../ram/documents/user-guide/grant-permissions-to-a-ram-role.md)。
+如需通过OpenAPI创建自定义策略并授权，请参见[CreatePolicy - 创建一个权限策略](../../../../ram/documents/developer-reference/api-ram-2015-05-01-createpolicy.md)、[AttachPolicyToRole - 为指定角色添加权限](../../../../ram/documents/developer-reference/api-ram-2015-05-01-attachpolicytorole.md)。
+如需通过Terraform创建自定义策略并授权，请参见[通过](https://help.aliyun.com/zh/terraform/create-and-authorize-a-role-by-using-terraform)[Terraform](https://help.aliyun.com/zh/terraform/create-and-authorize-a-role-by-using-terraform)[创建](https://help.aliyun.com/zh/terraform/create-and-authorize-a-role-by-using-terraform)[RAM](https://help.aliyun.com/zh/terraform/create-and-authorize-a-role-by-using-terraform)[角色并授权](https://help.aliyun.com/zh/terraform/create-and-authorize-a-role-by-using-terraform)。
+当Worker RAM角色不再需要某些权限时，请及时将这些权限移除，请参见[为](../../../../ram/documents/remove-permissions-from-a-ram-role.md)[

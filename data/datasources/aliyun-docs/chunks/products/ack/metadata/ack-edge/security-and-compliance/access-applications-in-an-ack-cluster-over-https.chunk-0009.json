@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/security-and-compliance/access-applications-in-an-ack-cluster-over-https:9",
+  "document_id": "ack:ack-edge/security-and-compliance/access-applications-in-an-ack-cluster-over-https",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "Kubernetes启用HTTPS安全访问-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/security-and-compliance/access-applications-in-an-ack-cluster-over-https",
+  "chunk_index": 9,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/security-and-compliance/access-applications-in-an-ack-cluster-over-https.chunk-0009.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/security-and-compliance/access-applications-in-an-ack-cluster-over-https.md",
+  "heading_path": "在Kubernetes中实现HTTPS安全访问 > 在Ingress上配置证书 > 大模型",
+  "char_count": 197
+}

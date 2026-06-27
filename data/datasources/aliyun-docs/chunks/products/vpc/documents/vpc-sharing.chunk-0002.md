@@ -1,0 +1,3 @@
+## 使用限制
+默认VPC不支持共享，您需要先创建自定义VPC，再使用VPC共享功能。如果默认VPC中已有存量云资源，您可以考虑将这些云资源迁移或重建到非默认VPC。
+使用共享VPC实现存量云资源的网络互通时，请先参考[支持在共享交换机下创建的云资源类型](vpc-sharing.md)和[交换机所有者和使用者的权限](vpc-sharing.md)，判断是否适用。如果适用，建议优先在共享VPC中重建存量云资源；若云资源本身支持跨VPC迁移，也可直接迁移至共享VPC。如果不适用或重建、迁移不可行，请使用[VPC](create-and-manage-vpc-peering-connection.md)[对等连接](create-and-manage-vpc-peering-connection.md)或[云企业网](../../cen/documents/getting-started/use-enterprise-edition-transit-routers-to-connect-vpcs-across-regions-and-accounts.md)[CEN](../../cen/documents/getting-started/use-enterprise-edition-transit-routers-to-connect-vpcs-across-regions-and-accounts.md)实现跨账号网络互通。

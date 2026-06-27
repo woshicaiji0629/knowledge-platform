@@ -1,0 +1,2 @@
+### 后续步骤：数据备份
+您可以将阿里云Elasticsearch索引存储的数据备份，确保数据安全存储与长期可访问性。Elasticsearch默认开启数据自动备份，您可以[将自动备份快照保存至阿里云](https://help.aliyun.com/zh/es/user-guide/enable-automatic-creation-of-snapshots-and-store-the-snapshots-to-an-oss-repository)[OSS](https://help.aliyun.com/zh/es/user-guide/enable-automatic-creation-of-snapshots-and-store-the-snapshots-to-an-oss-repository)[仓库](https://help.aliyun.com/zh/es/user-guide/enable-automatic-creation-of-snapshots-and-store-the-snapshots-to-an-oss-repository)。

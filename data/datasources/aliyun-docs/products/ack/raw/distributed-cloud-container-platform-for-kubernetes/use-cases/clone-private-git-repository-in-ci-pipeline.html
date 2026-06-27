@@ -1,0 +1,430 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    使用Argo Workflows构建CI Pipeline时Clone私有Git仓库-容器服务 Kubernetes 版 ACK-阿里云
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/clone-private-git-repository-in-ci-pipeline">
+  <meta name="keywords" content="在CI中克隆私有仓库,配置私有仓库凭据,CI克隆私有仓库方法,Argo Workflows实践">
+  <meta name="description" content="为解决在ACK One CI Pipeline中克隆私有Git仓库的难题，本文详解三种方法（Argo Workflows与Git命令），并提供完整YAML示例代码，助您安全高效地完成集成。">
+  <meta name="last-modified" content="2024-05-31T18:26:25+08:00">
+  <meta name="date" content="2024-05-31T06:26:25+08:00">
+  <meta property="og:title" content="在CI Pipeline中Clone私有Git仓库">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/clone-private-git-repository-in-ci-pipeline">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="为解决在ACK One CI Pipeline中克隆私有Git仓库的难题，本文详解三种方法（Argo Workflows与Git命令），并提供完整YAML示例代码，助您安全高效地完成集成。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/clone-private-git-repository-in-ci-pipeline",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "2803604",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/clone-private-git-repository-in-ci-pipeline","nodeId":null,"data":{"lastModifiedTime":1717151185000,"keywords":"在CI中克隆私有仓库,配置私有仓库凭据,CI克隆私有仓库方法,Argo Workflows实践","docTitle":"在CI Pipeline中Clone私有Git仓库","language":"zh","seoTitle":"使用Argo Workflows构建CI Pipeline时Clone私有Git仓库-容器服务 Kubernetes 版 ACK-阿里云","title":"在CI Pipeline中Clone私有Git仓库","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n<main id=\"main-2728031\"><p id=\"85025ead575id\" data-tag=\"shortdesc\" class=\"shortdesc\">ACK One<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"8d277a23f6cai\" docid=\"3350185\" class=\"ph\">工作流集群</span>构建<span class=\"help-letter-space\"></span>CI Pipeline，其使用<span class=\"help-letter-space\"></span>BuildKit Cache<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>NAS<span class=\"help-letter-space\"></span>存储<span class=\"help-letter-space\"></span>Go mode cache，可大幅加速<span class=\"help-letter-space\"></span>CI Pipeline<span class=\"help-letter-space\"></span>的流程。通过<span data-tag=\"ph\" id=\"29370c7132qxn\" docid=\"3350185\" class=\"ph\">工作流集群</span>构建基于<span class=\"help-letter-space\"></span>Golang<span class=\"help-letter-space\"></span>项目<span class=\"help-letter-space\"></span>CI Pipeline<span class=\"help-letter-space\"></span>时，若您使用的<span class=\"help-letter-space\"></span>Git<span class=\"help-letter-space\"></span>仓库为私有仓库，您需要在<span class=\"help-letter-space\"></span>CI<span class=\"help-letter-space\"></span>流程中先成功<span class=\"help-letter-space\"></span>Clone<span class=\"help-letter-space\"></span>该私有仓库，再进行<span class=\"help-letter-space\"></span>CI Pipeline<span class=\"help-letter-space\"></span>的构建操作。本文为您介绍如何在<span class=\"help-letter-space\"></span>CI Pipeline<span class=\"help-letter-space\"></span>中<span class=\"help-letter-space\"></span>Clone<span class=\"help-letter-space\"></span>私有<span class=\"help-letter-space\"></span>Git<span class=\"help-letter-space\"></span>仓库。</p><div data-tag=\"body\" class=\"body\"><section id=\"76b2e18001hw5\" class=\"section\"><h2 id=\"3a6e9fc165nxi\"><b>背景信息</b></h2><p id=\"5d56eb92b17vg\">使用公共<span class=\"help-letter-space\"></span>Git<span class=\"help-letter-space\"></span>仓库构建<span class=\"help-letter-space\"></span>CI Pipeline<span class=\"help-letter-space\"></span>的最佳实践，请参见<a title=\"\" class=\"xref\" href=\"https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/building-a-ci-pipeline-of-golang-project-based-on-workflow-cluster\">基于工作流集群构建<span class=\"help-letter-space\"></span>Golang<span class=\"help-letter-space\"></span>项目的<span class=\"help-letter-space\"></span>CI Pipeline</a>。</p><p id=\"1cabfd422bwnl\">若您使用私有<span class=\"help-letter-space\"></span>Git<span class=\"help-letter-space\"></span>仓库，则需要在上述最佳实践操作前，先<span class=\"help-letter-space\"></span>Clone<span class=\"help-letter-space\"></span>私有<span class=\"help-letter-space\"></span>Git<span class=\"help-letter-space\"></span>仓库。</p><p id=\"a8da12c500deq\">本文为您提供以下三种方法<span class=\"help-letter-space\"></span>Clone<span class=\"help-letter-space\"></span>私有<span class=\"help-letter-space\"></span>Git<span class=\"help-letter-space\"></span>仓库：</p><ul id=\"be951fe1bbi5y\"><li id=\"20b5d156d9hol\"><p id=\"e892fdad77yeu\"><a title=\"\" class=\"xref\" href=\"#bba207296basv\">方法一：基于<span class=\"help-letter-space\"></span>Argo Workflows Git Artifact<span class=\"help-letter-space\"></span>与用户名密码</a></p></li><li id=\"cf8d64776768h\"><p id=\"f0f93aef8e65i\"><a title=\"\" class=\"xref\" href=\"#d95b0086093nw\">方法二：基于<span class=\"help-letter-space\"></span>Argo Workflows Git Artifact<span class=\"help-letter-space\"></span>与<span class=\"help-letter-space\"></span>SSH Private Key</a></p></li><li id=\"ebbed58eb300x\"><p id=\"8559cf174f6qv\"><a title=\"\" class=\"xref\" href=\"#3b7c1c2843t08\">方法三：基于<span class=\"help-letter-space\"></span>Git Clone<span class=\"help-letter-space\"></span>命令与用户名密码</a></p></li></ul></section><section id=\"893640bb5f4x8\" class=\"section\"><h2 id=\"095dea389fzvk\">在工作流集群中保存私有仓库凭据</h2><p id=\"5084708024unz\">Clone<span class=\"help-letter-space\"></span>私有仓库前，您需要先在<span data-tag=\"ph\" id=\"c8a5ca987fbkp\" docid=\"3350185\" class=\"ph\">工作流集群</span>中执行如下命令保存私有仓库所需的用户名、密码和<code data-tag=\"code\" code-type=\"xCode\" class=\"code\">ssh private key</code>。</p><p id=\"438eec132c5fp\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">username</code>、<code data-tag=\"code\" code-type=\"xCode\" class=\"code\">password</code>和<code data-tag=\"code\" code-type=\"xCode\" class=\"code\">ssh-private-key</code>需要替换为您实际使用的参数值。</p><pre code-type=\"xCode\" id=\"ec90af85d65y4\" data-tag=\"codeblock\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>kubectl create secret generic git-creds --from-literal=\"username=${username}\" --from-literal=\"password=${password or token}\" --from-file=ssh-private-key=${ssh private key path}\n\n# example\n# kubectl create secret generic git-creds --from-literal=\"username=demo\" --from-literal=\"password=ghp_GePB****************d407\" --from-file=ssh-private-key=$HOME/.ssh/id_rsa</code></pre></section><section id=\"bba207296basv\" class=\"section\"><h2 id=\"2808ba601dat5\"><b>方法一：基于<span class=\"help-letter-space\"></span>Argo Workflows Git Artifact<span class=\"help-letter-space\"></span>与用户名密码</b></h2><p id=\"4ee87a64e0hqp\">该方法主要是在执行构建<span class=\"help-letter-space\"></span>CI Pipeline<span class=\"help-letter-space\"></span>的操作前，先执行<span class=\"help-letter-space\"></span>Git Clone<span class=\"help-letter-space\"></span>私有仓库操作，再进行<span class=\"help-letter-space\"></span>Git Checkout<span class=\"help-letter-space\"></span>操作。</p><p id=\"52f140eeae4n8\">以下<span class=\"help-letter-space\"></span>YAML<span class=\"help-letter-space\"></span>为了方便展示，和上文<a title=\"\" class=\"xref\" href=\"https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/building-a-ci-pipeline-of-golang-project-based-on-workflow-cluster#d4baa6f4eaoxj\">预置工作流模板</a>内容相比，仅保留了上述<span class=\"help-letter-space\"></span>CI Pipeline<span class=\"help-letter-space\"></span>中的<code data-tag=\"code\" code-type=\"xCode\" class=\"code\">git-checkout-pr</code>任务（其他方法均相同），基于此增加<code data-tag=\"code\" code-type=\"xCode\" class=\"code\">git-clone</code>任务，并设置<code data-tag=\"code\" class=\"code ne-code\" code-type=\"xCode\">git-checkout-pr</code>依赖<code data-tag=\"code\" class=\"code ne-code\" code-type=\"xCode\">git-clone</code>。</p><ul class=\"ne-ul\" id=\"8bf0e7fe084ww\"><li id=\"u7c8c43b5\" data-lake-index-type=\"0\"><p id=\"af864b7b4fcef\"><code data-tag=\"code\" class=\"code ne-code\" code-type=\"xCode\">git-checkout-pr</code>的<code data-tag=\"code\" code-type=\"xCode\" class=\"code\">command</code>中，shell script<span class=\"help-letter-space\"></span>无需修改。</p></li><li id=\"ubb32d959\" data-lake-index-type=\"0\"><p id=\"a599763a58b05\"><code data-tag=\"code\" class=\"code ne-code\" code-type=\"xCode\">git-clone</code>的<code data-tag=\"code\" code-type=\"xCode\" class=\"code\">artifacts</code>中引用保存的私有仓库凭据的<code data-tag=\"code\" class=\"code ne-code\" code-type=\"xCode\">git-creds</code> secret<span class=\"help-letter-space\"></span>中的用户名、密码。</p></li></ul><h3 id=\"ba29e9456c9si\"><b>示例模板</b></h3><pre code-type=\"xCode\" id=\"7962753b3be7h\" data-tag=\"codeblock\" outputclass=\"language-yaml\" class=\"pre codeblock language-yaml\"><code>apiVersion: argoproj.io/v1alpha1\nkind: ClusterWorkflowTemplate\nmetadata:\n  name: ci-git-artifact\nspec:\n  entrypoint: main\n  volumes:\n  - name: run-test\n    emptyDir: {}\n  - name: workdir\n    persistentVolumeClaim:\n      claimName: pvc-nas\n  - name: docker-config\n    secret:\n      secretName: docker-config\n  arguments:\n    parameters:\n    - name: repo_url\n      value: \"\"\n    - name: repo_name\n      value: \"\"\n    - name: target_branch\n      value: \"main\"\n  templates:\n    - name: main\n      dag:\n        tasks:\n          - name: git-clone\n            arguments:\n              artifacts:\n              - name: git-repo\n                path: /workdir\n                git:\n                  repo: \"{{arguments.parameters.repo_url}}\"\n                  revision: main\n                  usernameSecret:\n                    name: git-creds\n                    key: username\n                  passwordSecret:\n                    name: git-creds\n                    key: password\n                  sshPrivateKeySecret:\n                    name: git-creds\n                    key: ssh-private-key\n            inline:\n              container:\n                image: golang:1.10\n                command: \n                - sh\n                - -c\n                - |\n                  cd {{workflow.parameters.repo_name}}\n                  git status &amp;&amp; ls\n                workingDir: /workdir\n                volumeMounts:\n                - name: \"workdir\"\n                  mountPath: /workdir\n          - name: git-checkout-pr\n            inline:\n              container:\n                image: alpine:latest\n                command:\n                  - sh\n                  - -c\n                  - |\n                    set -eu\n                    \n                    apk --update add git\n          \n                    cd /workdir\n                    echo \"Start to Clone \"{{workflow.parameters.repo_url}}\n                    git -C \"{{workflow.parameters.repo_name}}\" pull || git clone {{workflow.parameters.repo_url}} \n                    cd {{workflow.parameters.repo_name}}\n          \n                    echo \"Start to Checkout target branch\" {{workflow.parameters.target_branch}}\n                    git checkout {{workflow.parameters.target_branch}}\n                    \n                    echo \"Get commit id\" \n                    git rev-parse --short origin/{{workflow.parameters.target_branch}} &gt; /workdir/{{workflow.parameters.repo_name}}-commitid.txt\n                    commitId=$(cat /workdir/{{workflow.parameters.repo_name}}-commitid.txt)\n                    echo \"Commit id is got: \"$commitId\n                                        \n                    echo \"Git Clone and Checkout Complete.\"\n                volumeMounts:\n                - name: \"workdir\"\n                  mountPath: /workdir\n                resources:\n                  requests:\n                    memory: 1Gi\n                    cpu: 1\n                activeDeadlineSeconds: 1200\n            depends: git-clone   </code></pre><h3 id=\"6151e825872jp\"><b>提交<span class=\"help-letter-space\"></span>Workflow<span class=\"help-letter-space\"></span>参数说明</b></h3><p id=\"14111228e12w8\">涉及参数和<span class=\"help-letter-space\"></span>CI Pipeline<span class=\"help-letter-space\"></span>保持一致，如下图所示：</p><p id=\"02cbf6db70xgi\"><img id=\"3b44d067c510f\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4886317171/p806165.png\" alt=\"image\" placement=\"break\" width=\"300\" class=\"image break\"></p></section><section id=\"d95b0086093nw\" class=\"section\"><h2 id=\"b518dd802b50m\"><b>方法二：基于<span class=\"help-letter-space\"></span>Argo Workflows Git Artifact<span class=\"help-letter-space\"></span>与<span class=\"help-letter-space\"></span>SSH Private Key</b></h2><p id=\"2b1219526elks\">和方法一基本相同，主要差异如下：</p><ul id=\"b8476851eft34\"><li id=\"e8d3502e73qee\"><p id=\"4bba585739v93\"><code data-tag=\"code\" class=\"code ne-code\" code-type=\"xCode\">git-clone</code>的<code data-tag=\"code\" code-type=\"xCode\" class=\"code\">artifacts</code>中引用保存的私有仓库凭据的<code data-tag=\"code\" class=\"code ne-code\" code-type=\"xCode\">git-creds</code> secret<span class=\"help-letter-space\"></span>中的<code data-tag=\"code\" code-type=\"xCode\" class=\"code\">ssh private key</code>。</p></li></ul><ul id=\"66b5a841b669k\" class=\"ne-ul\"><li id=\"u3ebdd3a2\" data-lake-index-type=\"0\"><p id=\"8be77a23e2t8b\">在提交<span class=\"help-letter-space\"></span>Workflow<span class=\"help-letter-space\"></span>时，<code data-tag=\"code\" code-type=\"xCode\" class=\"code\">repo_url</code>需要为<span class=\"help-letter-space\"></span>ssh<span class=\"help-letter-space\"></span>格式，例如：<code data-tag=\"code\" class=\"code ne-code\" code-type=\"xCode\">git@github.com:ivan-cai/gitops-demo-private.git</code>。</p></li></ul><h3 id=\"e9c2e5ac42rsb\"><b>示例模板</b></h3><pre code-type=\"xCode\" id=\"e44c1e725b23r\" data-tag=\"codeblock\" outputclass=\"language-yaml\" class=\"pre codeblock language-yaml\"><code>apiVersion: argoproj.io/v1alpha1\nkind: ClusterWorkflowTemplate\nmetadata:\n  name: ci-git-artifact-sshkey\nspec:\n  entrypoint: main\n  volumes:\n  - name: run-test\n    emptyDir: {}\n  - name: workdir\n    persistentVolumeClaim:\n      claimName: pvc-nas\n  - name: docker-config\n    secret:\n      secretName: docker-config\n  arguments:\n    parameters:\n    - name: repo_url\n      value: \"\"\n    - name: repo_name\n      value: \"\"\n    - name: target_branch\n      value: \"main\"\n  templates:\n    - name: main\n      dag:\n        tasks:\n          - name: git-clone\n            arguments:\n              artifacts:\n              - name: git-repo\n                path: /workdir\n                git:\n                  repo: \"{{arguments.parameters.repo_url}}\"\n                  revision: main\n                  sshPrivateKeySecret:\n                    name: git-creds\n                    key: ssh-private-key\n            inline:\n              container:\n                image: golang:1.10\n                command: \n                - sh\n                - -c\n                - |\n                  cd {{workflow.parameters.repo_name}}\n                  git status &amp;&amp; ls\n                workingDir: /workdir\n                volumeMounts:\n                - name: \"workdir\"\n                  mountPath: /workdir\n          - name: git-checkout-pr\n            inline:\n              container:\n                image: alpine:latest\n                command:\n                  - sh\n                  - -c\n                  - |\n                    set -eu\n                    \n                    apk --update add git\n          \n                    cd /workdir\n                    echo \"Start to Clone \"{{workflow.parameters.repo_url}}\n                    git -C \"{{workflow.parameters.repo_name}}\" pull || git clone {{workflow.parameters.repo_url}} \n                    cd {{workflow.parameters.repo_name}}\n          \n                    echo \"Start to Checkout target branch\" {{workflow.parameters.target_branch}}\n                    git checkout {{workflow.parameters.target_branch}}\n                    \n                    echo \"Get commit id\" \n                    git rev-parse --short origin/{{workflow.parameters.target_branch}} &gt; /workdir/{{workflow.parameters.repo_name}}-commitid.txt\n                    commitId=$(cat /workdir/{{workflow.parameters.repo_name}}-commitid.txt)\n                    echo \"Commit id is got: \"$commitId\n                                        \n                    echo \"Git Clone and Checkout Complete.\"\n                volumeMounts:\n                - name: \"workdir\"\n                  mountPath: /workdir\n                resources:\n                  requests:\n                    memory: 1Gi\n                    cpu: 1\n                activeDeadlineSeconds: 1200\n            depends: git-clone   </code></pre><h3 id=\"b23456c697rxx\"><b>提交<span class=\"help-letter-space\"></span>Workflow<span class=\"help-letter-space\"></span>参数说明</b></h3><p id=\"42a96a2f16wop\">涉及参数如下：</p><div type=\"note\" id=\"bd37ad48edeom\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong><p id=\"c2e22f9963wqe\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">repo_url</code>需要为<span class=\"help-letter-space\"></span>ssh<span class=\"help-letter-space\"></span>格式。</p></div></div><p id=\"90bf7c56fewki\"><img id=\"d6a1fcbce3ssk\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4886317171/p806217.png\" alt=\"image\" placement=\"break\" width=\"300\" class=\"image break\"></p></section><section id=\"3b7c1c2843t08\" class=\"section\"><h2 id=\"4a66d725e47sz\"><b>方法三：基于<span class=\"help-letter-space\"></span>Git Clone<span class=\"help-letter-space\"></span>命令与用户名密码</b></h2><p id=\"90adbf79a0b3a\">和前两种方法不同，该方法不需要增加<span class=\"help-letter-space\"></span>DAG（Directed Acyclic Graph）任务，但需要修改<code data-tag=\"code\" class=\"code ne-code\" code-type=\"xCode\">git-checkout-pr</code>中<span class=\"help-letter-space\"></span>git clone<span class=\"help-letter-space\"></span>的命令，并通过<span class=\"help-letter-space\"></span>env<span class=\"help-letter-space\"></span>引用<code data-tag=\"code\" class=\"code ne-code\" code-type=\"xCode\">git-creds</code> secret<span class=\"help-letter-space\"></span>中的用户名、密码。命令如下：</p><p id=\"084a4adc70z2z\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">git clone https://${GIT_USER}:${GIT_TOKEN}@github.com/${GITHUB_REPOSITORY}</code></p><h3 id=\"f9b327bbf7wl5\"><b>示例模板</b></h3><pre id=\"68d9a9c918zgd\" code-type=\"xCode\" data-tag=\"codeblock\" outputclass=\"language-yaml\" class=\"pre codeblock language-yaml\"><code>apiVersion: argoproj.io/v1alpha1\nkind: ClusterWorkflowTemplate\nmetadata:\n  name: ci-git\nspec:\n  entrypoint: main\n  volumes:\n  - name: run-test\n    emptyDir: {}\n  - name: workdir\n    persistentVolumeClaim:\n      claimName: pvc-nas\n  - name: docker-config\n    secret:\n      secretName: docker-config\n  arguments:\n    parameters:\n    - name: repo_url\n      value: \"\"\n    - name: repo_name\n      value: \"\"\n    - name: target_branch\n      value: \"main\"\n  templates:\n    - name: main\n      dag:\n        tasks:\n          - name: git-checkout-pr\n            inline:\n              container:\n                image: alpine:latest\n                env:\n                - name: GIT_USER\n                  valueFrom:\n                    secretKeyRef:\n                      name: git-creds\n                      key: username\n                - name: GIT_TOKEN\n                  valueFrom:\n                    secretKeyRef:\n                      name: git-creds\n                      key: password\n                command:\n                  - sh\n                  - -c\n                  - |\n                    set -eu\n                    \n                    apk --update add git\n          \n                    cd /workdir\n                    echo \"Start to Clone \"{{workflow.parameters.repo_url}}\n                    git -C \"{{workflow.parameters.repo_name}}\" pull || git clone https://$GIT_USER:$GIT_TOKEN@{{workflow.parameters.repo_url}} \n                    cd {{workflow.parameters.repo_name}}\n          \n                    echo \"Start to Checkout target branch\" {{workflow.parameters.target_branch}}\n                    git checkout {{workflow.parameters.target_branch}}\n                    \n                    echo \"Get commit id\" \n                    git rev-parse --short origin/{{workflow.parameters.target_branch}} &gt; /workdir/{{workflow.parameters.repo_name}}-commitid.txt\n                    commitId=$(cat /workdir/{{workflow.parameters.repo_name}}-commitid.txt)\n                    echo \"Commit id is got: \"$commitId\n                                        \n                    echo \"Git Clone and Checkout Complete.\"\n                volumeMounts:\n                - name: \"workdir\"\n                  mountPath: /workdir\n                resources:\n                  requests:\n                    memory: 1Gi\n                    cpu: 1\n                activeDeadlineSeconds: 1200</code></pre><h3 id=\"26132cf19e4o4\"><b>提交<span class=\"help-letter-space\"></span>Workflow<span class=\"help-letter-space\"></span>参数说明</b></h3><p id=\"fd5fa674fb029\">涉及参数如下：</p><div id=\"5d6f8bb37246m\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong><p id=\"08d4717761o6i\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">repo_url</code>参数不能包含<code data-tag=\"code\" class=\"code ne-code\" code-type=\"xCode\">https://</code>前缀。</p></div></div><p id=\"3f1de1a3cagc7\"><img id=\"2f8d6c25686pv\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4886317171/p806233.png\" alt=\"image\" placement=\"break\" width=\"300\" class=\"image break\"></p></section><section id=\"24ce3f7222x66\" class=\"section\"><h2 id=\"ee74345138b6e\"><b>相关文档</b></h2><p id=\"7690ab8f50oq1\">使用公共<span class=\"help-letter-space\"></span>Git<span class=\"help-letter-space\"></span>仓库构建<span class=\"help-letter-space\"></span>CI Pipeline<span class=\"help-letter-space\"></span>的最佳实践，请参见<a title=\"\" class=\"xref\" href=\"https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/building-a-ci-pipeline-of-golang-project-based-on-workflow-cluster\">基于工作流集群构建<span class=\"help-letter-space\"></span>Golang<span class=\"help-letter-space\"></span>项目的<span class=\"help-letter-space\"></span>CI Pipeline</a>。</p></section></div></main>\n\n</div>","path":"https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/clone-private-git-repository-in-ci-pipeline","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"alias":"/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/clone-private-git-repository-in-ci-pipeline","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":7,"developerUrl":"https://developer.aliyun.com/group/kubernetes/","nodeType":1,"version":1,"url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/clone-private-git-repository-in-ci-pipeline","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":2803604,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"在CI Pipeline中Clone私有Git仓库","id":2803604,"title":"在CI Pipeline中Clone私有Git仓库","url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/clone-private-git-repository-in-ci-pipeline"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"CI/CD","id":2802985,"title":"CI/CD","url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/ci-cd/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"实践教程","id":2391743,"title":"实践教程","url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"分布式云容器平台ACK One","id":358832,"title":"分布式云容器平台ACK One","url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"productUrl":"https://www.aliyun.com/product/kubernetes","nodeId":2803604,"desc":"为解决在ACK One CI Pipeline中克隆私有Git仓库的难题，本文详解三种方法（Argo Workflows与Git命令），并提供完整YAML示例代码，助您安全高效地完成集成。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"分布式云容器平台ACK One","id":358832,"title":"分布式云容器平台ACK One","url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"实践教程","id":2391743,"title":"实践教程","url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"CI/CD","id":2802985,"title":"CI/CD","url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/ci-cd/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"在CI Pipeline中Clone私有Git仓库","id":2803604,"title":"在CI Pipeline中Clone私有Git仓库","url":"/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/clone-private-git-repository-in-ci-pipeline"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=213e013317825486203322224ef784&asid=AQAAAACMiD9q5NMtIAAAAAAD/Y/tix3W7A==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"><div class="help-subproduct-container"></div></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2391721" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/distributed-cloud-container-platform-for-kubernetes/product-overview/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品概述</span>
+</a>
+</li>
+ <li id="423344" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/distributed-cloud-container-platform-for-kubernetes/getting-started">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">快速入门</span>
+</a>
+</li>
+ <li id="2391733" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">操作指南</span>
+</a>
+</li>
+ <li id="2391743" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">实践教程</span>
+</a>
+</li>
+ <li id="2391753" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/distributed-cloud-container-platform-for-kubernetes/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2391754" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/distributed-cloud-container-platform-for-kubernetes/support/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">服务支持</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>在CI Pipeline中Clone私有Git仓库</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/kubernetes" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+<main id="main-2728031"><p id="85025ead575id" data-tag="shortdesc" class="shortdesc">ACK One<span class="help-letter-space"></span><span data-tag="ph" id="8d277a23f6cai" docid="3350185" class="ph">工作流集群</span>构建<span class="help-letter-space"></span>CI Pipeline，其使用<span class="help-letter-space"></span>BuildKit Cache<span class="help-letter-space"></span>和<span class="help-letter-space"></span>NAS<span class="help-letter-space"></span>存储<span class="help-letter-space"></span>Go mode cache，可大幅加速<span class="help-letter-space"></span>CI Pipeline<span class="help-letter-space"></span>的流程。通过<span data-tag="ph" id="29370c7132qxn" docid="3350185" class="ph">工作流集群</span>构建基于<span class="help-letter-space"></span>Golang<span class="help-letter-space"></span>项目<span class="help-letter-space"></span>CI Pipeline<span class="help-letter-space"></span>时，若您使用的<span class="help-letter-space"></span>Git<span class="help-letter-space"></span>仓库为私有仓库，您需要在<span class="help-letter-space"></span>CI<span class="help-letter-space"></span>流程中先成功<span class="help-letter-space"></span>Clone<span class="help-letter-space"></span>该私有仓库，再进行<span class="help-letter-space"></span>CI Pipeline<span class="help-letter-space"></span>的构建操作。本文为您介绍如何在<span class="help-letter-space"></span>CI Pipeline<span class="help-letter-space"></span>中<span class="help-letter-space"></span>Clone<span class="help-letter-space"></span>私有<span class="help-letter-space"></span>Git<span class="help-letter-space"></span>仓库。</p><div data-tag="body" class="body"><section id="76b2e18001hw5" class="section"><h2 id="3a6e9fc165nxi"><b>背景信息</b></h2><p id="5d56eb92b17vg">使用公共<span class="help-letter-space"></span>Git<span class="help-letter-space"></span>仓库构建<span class="help-letter-space"></span>CI Pipeline<span class="help-letter-space"></span>的最佳实践，请参见<a title="" class="xref" href="https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/building-a-ci-pipeline-of-golang-project-based-on-workflow-cluster">基于工作流集群构建<span class="help-letter-space"></span>Golang<span class="help-letter-space"></span>项目的<span class="help-letter-space"></span>CI Pipeline</a>。</p><p id="1cabfd422bwnl">若您使用私有<span class="help-letter-space"></span>Git<span class="help-letter-space"></span>仓库，则需要在上述最佳实践操作前，先<span class="help-letter-space"></span>Clone<span class="help-letter-space"></span>私有<span class="help-letter-space"></span>Git<span class="help-letter-space"></span>仓库。</p><p id="a8da12c500deq">本文为您提供以下三种方法<span class="help-letter-space"></span>Clone<span class="help-letter-space"></span>私有<span class="help-letter-space"></span>Git<span class="help-letter-space"></span>仓库：</p><ul id="be951fe1bbi5y"><li id="20b5d156d9hol"><p id="e892fdad77yeu"><a title="" class="xref" href="#bba207296basv">方法一：基于<span class="help-letter-space"></span>Argo Workflows Git Artifact<span class="help-letter-space"></span>与用户名密码</a></p></li><li id="cf8d64776768h"><p id="f0f93aef8e65i"><a title="" class="xref" href="#d95b0086093nw">方法二：基于<span class="help-letter-space"></span>Argo Workflows Git Artifact<span class="help-letter-space"></span>与<span class="help-letter-space"></span>SSH Private Key</a></p></li><li id="ebbed58eb300x"><p id="8559cf174f6qv"><a title="" class="xref" href="#3b7c1c2843t08">方法三：基于<span class="help-letter-space"></span>Git Clone<span class="help-letter-space"></span>命令与用户名密码</a></p></li></ul></section><section id="893640bb5f4x8" class="section"><h2 id="095dea389fzvk">在工作流集群中保存私有仓库凭据</h2><p id="5084708024unz">Clone<span class="help-letter-space"></span>私有仓库前，您需要先在<span data-tag="ph" id="c8a5ca987fbkp" docid="3350185" class="ph">工作流集群</span>中执行如下命令保存私有仓库所需的用户名、密码和<code data-tag="code" code-type="xCode" class="code">ssh private key</code>。</p><p id="438eec132c5fp"><code data-tag="code" code-type="xCode" class="code">username</code>、<code data-tag="code" code-type="xCode" class="code">password</code>和<code data-tag="code" code-type="xCode" class="code">ssh-private-key</code>需要替换为您实际使用的参数值。</p><pre code-type="xCode" id="ec90af85d65y4" data-tag="codeblock" outputclass="language-shell" class="pre codeblock language-shell"><code>kubectl create secret generic git-creds --from-literal="username=${username}" --from-literal="password=${password or token}" --from-file=ssh-private-key=${ssh private key path}
+
+# example
+# kubectl create secret generic git-creds --from-literal="username=demo" --from-literal="password=ghp_GePB****************d407" --from-file=ssh-private-key=$HOME/.ssh/id_rsa</code></pre></section><section id="bba207296basv" class="section"><h2 id="2808ba601dat5"><b>方法一：基于<span class="help-letter-space"></span>Argo Workflows Git Artifact<span class="help-letter-space"></span>与用户名密码</b></h2><p id="4ee87a64e0hqp">该方法主要是在执行构建<span class="help-letter-space"></span>CI Pipeline<span class="help-letter-space"></span>的操作前，先执行<span class="help-letter-space"></span>Git Clone<span class="help-letter-space"></span>私有仓库操作，再进行<span class="help-letter-space"></span>Git Checkout<span class="help-letter-space"></span>操作。</p><p id="52f140eeae4n8">以下<span class="help-letter-space"></span>YAML<span class="help-letter-space"></span>为了方便展示，和上文<a title="" class="xref" href="https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/building-a-ci-pipeline-of-golang-project-based-on-workflow-cluster#d4baa6f4eaoxj">预置工作流模板</a>内容相比，仅保留了上述<span class="help-letter-space"></span>CI Pipeline<span class="help-letter-space"></span>中的<code data-tag="code" code-type="xCode" class="code">git-checkout-pr</code>任务（其他方法均相同），基于此增加<code data-tag="code" code-type="xCode" class="code">git-clone</code>任务，并设置<code data-tag="code" class="code ne-code" code-type="xCode">git-checkout-pr</code>依赖<code data-tag="code" class="code ne-code" code-type="xCode">git-clone</code>。</p><ul class="ne-ul" id="8bf0e7fe084ww"><li id="u7c8c43b5" data-lake-index-type="0"><p id="af864b7b4fcef"><code data-tag="code" class="code ne-code" code-type="xCode">git-checkout-pr</code>的<code data-tag="code" code-type="xCode" class="code">command</code>中，shell script<span class="help-letter-space"></span>无需修改。</p></li><li id="ubb32d959" data-lake-index-type="0"><p id="a599763a58b05"><code data-tag="code" class="code ne-code" code-type="xCode">git-clone</code>的<code data-tag="code" code-type="xCode" class="code">artifacts</code>中引用保存的私有仓库凭据的<code data-tag="code" class="code ne-code" code-type="xCode">git-creds</code> secret<span class="help-letter-space"></span>中的用户名、密码。</p></li></ul><h3 id="ba29e9456c9si"><b>示例模板</b></h3><pre code-type="xCode" id="7962753b3be7h" data-tag="codeblock" outputclass="language-yaml" class="pre codeblock language-yaml"><code>apiVersion: argoproj.io/v1alpha1
+kind: ClusterWorkflowTemplate
+metadata:
+  name: ci-git-artifact
+spec:
+  entrypoint: main
+  volumes:
+  - name: run-test
+    emptyDir: {}
+  - name: workdir
+    persistentVolumeClaim:
+      claimName: pvc-nas
+  - name: docker-config
+    secret:
+      secretName: docker-config
+  arguments:
+    parameters:
+    - name: repo_url
+      value: ""
+    - name: repo_name
+      value: ""
+    - name: target_branch
+      value: "main"
+  templates:
+    - name: main
+      dag:
+        tasks:
+          - name: git-clone
+            arguments:
+              artifacts:
+              - name: git-repo
+                path: /workdir
+                git:
+                  repo: "{{arguments.parameters.repo_url}}"
+                  revision: main
+                  usernameSecret:
+                    name: git-creds
+                    key: username
+                  passwordSecret:
+                    name: git-creds
+                    key: password
+                  sshPrivateKeySecret:
+                    name: git-creds
+                    key: ssh-private-key
+            inline:
+              container:
+                image: golang:1.10
+                command: 
+                - sh
+                - -c
+                - |
+                  cd {{workflow.parameters.repo_name}}
+                  git status &amp;&amp; ls
+                workingDir: /workdir
+                volumeMounts:
+                - name: "workdir"
+                  mountPath: /workdir
+          - name: git-checkout-pr
+            inline:
+              container:
+                image: alpine:latest
+                command:
+                  - sh
+                  - -c
+                  - |
+                    set -eu
+                    
+                    apk --update add git
+          
+                    cd /workdir
+                    echo "Start to Clone "{{workflow.parameters.repo_url}}
+                    git -C "{{workflow.parameters.repo_name}}" pull || git clone {{workflow.parameters.repo_url}} 
+                    cd {{workflow.parameters.repo_name}}
+          
+                    echo "Start to Checkout target branch" {{workflow.parameters.target_branch}}
+                    git checkout {{workflow.parameters.target_branch}}
+                    
+                    echo "Get commit id" 
+                    git rev-parse --short origin/{{workflow.parameters.target_branch}} &gt; /workdir/{{workflow.parameters.repo_name}}-commitid.txt
+                    commitId=$(cat /workdir/{{workflow.parameters.repo_name}}-commitid.txt)
+                    echo "Commit id is got: "$commitId
+                                        
+                    echo "Git Clone and Checkout Complete."
+                volumeMounts:
+                - name: "workdir"
+                  mountPath: /workdir
+                resources:
+                  requests:
+                    memory: 1Gi
+                    cpu: 1
+                activeDeadlineSeconds: 1200
+            depends: git-clone   </code></pre><h3 id="6151e825872jp"><b>提交<span class="help-letter-space"></span>Workflow<span class="help-letter-space"></span>参数说明</b></h3><p id="14111228e12w8">涉及参数和<span class="help-letter-space"></span>CI Pipeline<span class="help-letter-space"></span>保持一致，如下图所示：</p><p id="02cbf6db70xgi"><img id="3b44d067c510f" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4886317171/p806165.png" alt="image" placement="break" width="300" class="image break"></p></section><section id="d95b0086093nw" class="section"><h2 id="b518dd802b50m"><b>方法二：基于<span class="help-letter-space"></span>Argo Workflows Git Artifact<span class="help-letter-space"></span>与<span class="help-letter-space"></span>SSH Private Key</b></h2><p id="2b1219526elks">和方法一基本相同，主要差异如下：</p><ul id="b8476851eft34"><li id="e8d3502e73qee"><p id="4bba585739v93"><code data-tag="code" class="code ne-code" code-type="xCode">git-clone</code>的<code data-tag="code" code-type="xCode" class="code">artifacts</code>中引用保存的私有仓库凭据的<code data-tag="code" class="code ne-code" code-type="xCode">git-creds</code> secret<span class="help-letter-space"></span>中的<code data-tag="code" code-type="xCode" class="code">ssh private key</code>。</p></li></ul><ul id="66b5a841b669k" class="ne-ul"><li id="u3ebdd3a2" data-lake-index-type="0"><p id="8be77a23e2t8b">在提交<span class="help-letter-space"></span>Workflow<span class="help-letter-space"></span>时，<code data-tag="code" code-type="xCode" class="code">repo_url</code>需要为<span class="help-letter-space"></span>ssh<span class="help-letter-space"></span>格式，例如：<code data-tag="code" class="code ne-code" code-type="xCode">git@github.com:ivan-cai/gitops-demo-private.git</code>。</p></li></ul><h3 id="e9c2e5ac42rsb"><b>示例模板</b></h3><pre code-type="xCode" id="e44c1e725b23r" data-tag="codeblock" outputclass="language-yaml" class="pre codeblock language-yaml"><code>apiVersion: argoproj.io/v1alpha1
+kind: ClusterWorkflowTemplate
+metadata:
+  name: ci-git-artifact-sshkey
+spec:
+  entrypoint: main
+  volumes:
+  - name: run-test
+    emptyDir: {}
+  - name: workdir
+    persistentVolumeClaim:
+      claimName: pvc-nas
+  - name: docker-config
+    secret:
+      secretName: docker-config
+  arguments:
+    parameters:
+    - name: repo_url
+      value: ""
+    - name: repo_name
+      value: ""
+    - name: target_branch
+      value: "main"
+  templates:
+    - name: main
+      dag:
+        tasks:
+          - name: git-clone
+            arguments:
+              artifacts:
+              - name: git-repo
+                path: /workdir
+                git:
+                  repo: "{{arguments.parameters.repo_url}}"
+                  revision: main
+                  sshPrivateKeySecret:
+                    name: git-creds
+                    key: ssh-private-key
+            inline:
+              container:
+                image: golang:1.10
+                command: 
+                - sh
+                - -c
+                - |
+                  cd {{workflow.parameters.repo_name}}
+                  git status &amp;&amp; ls
+                workingDir: /workdir
+                volumeMounts:
+                - name: "workdir"
+                  mountPath: /workdir
+          - name: git-checkout-pr
+            inline:
+              container:
+                image: alpine:latest
+                command:
+                  - sh
+                  - -c
+                  - |
+                    set -eu
+                    
+                    apk --update add git
+          
+                    cd /workdir
+                    echo "Start to Clone "{{workflow.parameters.repo_url}}
+                    git -C "{{workflow.parameters.repo_name}}" pull || git clone {{workflow.parameters.repo_url}} 
+                    cd {{workflow.parameters.repo_name}}
+          
+                    echo "Start to Checkout target branch" {{workflow.parameters.target_branch}}
+                    git checkout {{workflow.parameters.target_branch}}
+                    
+                    echo "Get commit id" 
+                    git rev-parse --short origin/{{workflow.parameters.target_branch}} &gt; /workdir/{{workflow.parameters.repo_name}}-commitid.txt
+                    commitId=$(cat /workdir/{{workflow.parameters.repo_name}}-commitid.txt)
+                    echo "Commit id is got: "$commitId
+                                        
+                    echo "Git Clone and Checkout Complete."
+                volumeMounts:
+                - name: "workdir"
+                  mountPath: /workdir
+                resources:
+                  requests:
+                    memory: 1Gi
+                    cpu: 1
+                activeDeadlineSeconds: 1200
+            depends: git-clone   </code></pre><h3 id="b23456c697rxx"><b>提交<span class="help-letter-space"></span>Workflow<span class="help-letter-space"></span>参数说明</b></h3><p id="42a96a2f16wop">涉及参数如下：</p><div type="note" id="bd37ad48edeom" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong><p id="c2e22f9963wqe"><code data-tag="code" code-type="xCode" class="code">repo_url</code>需要为<span class="help-letter-space"></span>ssh<span class="help-letter-space"></span>格式。</p></div></div><p id="90bf7c56fewki"><img id="d6a1fcbce3ssk" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4886317171/p806217.png" alt="image" placement="break" width="300" class="image break"></p></section><section id="3b7c1c2843t08" class="section"><h2 id="4a66d725e47sz"><b>方法三：基于<span class="help-letter-space"></span>Git Clone<span class="help-letter-space"></span>命令与用户名密码</b></h2><p id="90adbf79a0b3a">和前两种方法不同，该方法不需要增加<span class="help-letter-space"></span>DAG（Directed Acyclic Graph）任务，但需要修改<code data-tag="code" class="code ne-code" code-type="xCode">git-checkout-pr</code>中<span class="help-letter-space"></span>git clone<span class="help-letter-space"></span>的命令，并通过<span class="help-letter-space"></span>env<span class="help-letter-space"></span>引用<code data-tag="code" class="code ne-code" code-type="xCode">git-creds</code> secret<span class="help-letter-space"></span>中的用户名、密码。命令如下：</p><p id="084a4adc70z2z"><code data-tag="code" code-type="xCode" class="code">git clone https://${GIT_USER}:${GIT_TOKEN}@github.com/${GITHUB_REPOSITORY}</code></p><h3 id="f9b327bbf7wl5"><b>示例模板</b></h3><pre id="68d9a9c918zgd" code-type="xCode" data-tag="codeblock" outputclass="language-yaml" class="pre codeblock language-yaml"><code>apiVersion: argoproj.io/v1alpha1
+kind: ClusterWorkflowTemplate
+metadata:
+  name: ci-git
+spec:
+  entrypoint: main
+  volumes:
+  - name: run-test
+    emptyDir: {}
+  - name: workdir
+    persistentVolumeClaim:
+      claimName: pvc-nas
+  - name: docker-config
+    secret:
+      secretName: docker-config
+  arguments:
+    parameters:
+    - name: repo_url
+      value: ""
+    - name: repo_name
+      value: ""
+    - name: target_branch
+      value: "main"
+  templates:
+    - name: main
+      dag:
+        tasks:
+          - name: git-checkout-pr
+            inline:
+              container:
+                image: alpine:latest
+                env:
+                - name: GIT_USER
+                  valueFrom:
+                    secretKeyRef:
+                      name: git-creds
+                      key: username
+                - name: GIT_TOKEN
+                  valueFrom:
+                    secretKeyRef:
+                      name: git-creds
+                      key: password
+                command:
+                  - sh
+                  - -c
+                  - |
+                    set -eu
+                    
+                    apk --update add git
+          
+                    cd /workdir
+                    echo "Start to Clone "{{workflow.parameters.repo_url}}
+                    git -C "{{workflow.parameters.repo_name}}" pull || git clone https://$GIT_USER:$GIT_TOKEN@{{workflow.parameters.repo_url}} 
+                    cd {{workflow.parameters.repo_name}}
+          
+                    echo "Start to Checkout target branch" {{workflow.parameters.target_branch}}
+                    git checkout {{workflow.parameters.target_branch}}
+                    
+                    echo "Get commit id" 
+                    git rev-parse --short origin/{{workflow.parameters.target_branch}} &gt; /workdir/{{workflow.parameters.repo_name}}-commitid.txt
+                    commitId=$(cat /workdir/{{workflow.parameters.repo_name}}-commitid.txt)
+                    echo "Commit id is got: "$commitId
+                                        
+                    echo "Git Clone and Checkout Complete."
+                volumeMounts:
+                - name: "workdir"
+                  mountPath: /workdir
+                resources:
+                  requests:
+                    memory: 1Gi
+                    cpu: 1
+                activeDeadlineSeconds: 1200</code></pre><h3 id="26132cf19e4o4"><b>提交<span class="help-letter-space"></span>Workflow<span class="help-letter-space"></span>参数说明</b></h3><p id="fd5fa674fb029">涉及参数如下：</p><div id="5d6f8bb37246m" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong><p id="08d4717761o6i"><code data-tag="code" code-type="xCode" class="code">repo_url</code>参数不能包含<code data-tag="code" class="code ne-code" code-type="xCode">https://</code>前缀。</p></div></div><p id="3f1de1a3cagc7"><img id="2f8d6c25686pv" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4886317171/p806233.png" alt="image" placement="break" width="300" class="image break"></p></section><section id="24ce3f7222x66" class="section"><h2 id="ee74345138b6e"><b>相关文档</b></h2><p id="7690ab8f50oq1">使用公共<span class="help-letter-space"></span>Git<span class="help-letter-space"></span>仓库构建<span class="help-letter-space"></span>CI Pipeline<span class="help-letter-space"></span>的最佳实践，请参见<a title="" class="xref" href="https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/building-a-ci-pipeline-of-golang-project-based-on-workflow-cluster">基于工作流集群构建<span class="help-letter-space"></span>Golang<span class="help-letter-space"></span>项目的<span class="help-letter-space"></span>CI Pipeline</a>。</p></section></div></main>
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/building-a-ci-pipeline-of-golang-project-based-on-workflow-cluster" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：基于工作流集群构建Golang项目的CI Pipeline</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/ack/distributed-cloud-container-platform-for-kubernetes/use-cases/event-driven-ci-pipeline-based-on-eventbridge" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：基于EventBridge的事件驱动CI Pipeline<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

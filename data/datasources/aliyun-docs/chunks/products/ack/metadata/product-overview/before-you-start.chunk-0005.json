@@ -1,0 +1,14 @@
+{
+  "id": "ack:product-overview/before-you-start:5",
+  "document_id": "ack:product-overview/before-you-start",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "使用容器服务ACK的注意事项及高危操作列表-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/product-overview/before-you-start",
+  "chunk_index": 5,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/product-overview/before-you-start.chunk-0005.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/product-overview/before-you-start.md",
+  "heading_path": "使用须知及高危风险操作说明 > 使用须知 > Kubernetes原生配置相关",
+  "char_count": 292
+}

@@ -1,0 +1,2 @@
+### CDN 回源私有 OSS 时，如何配合条件源站实现鉴权？
+当您的 OSS Bucket 为私有权限时，CDN 回源需要正确的鉴权配置才能正常获取资源。请通过服务关联角色授权 CDN 访问私有 OSS，授权 CDN 服务访问您的私有 OSS Bucket，详细操作参见[OSS](grant-alibaba-cloud-cdn-access-permissions-on-private-oss-buckets.md)[私有](grant-alibaba-cloud-cdn-access-permissions-on-private-oss-buckets.md)[Bucket](grant-alibaba-cloud-cdn-access-permissions-on-private-oss-buckets.md)[回源](grant-alibaba-cloud-cdn-access-permissions-on-private-oss-buckets.md)。CDN 会通过服务关联角色获取 OSS 访问权限。授权后，CDN 回源私有 Bucket 时自动携带鉴权信息，无需手动配置。

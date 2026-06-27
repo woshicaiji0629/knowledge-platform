@@ -1,0 +1,1 @@
+)[与](https://help.aliyun.com/zh/dts/user-guide/connect-a-data-center-to-dts-using-vpn-gateway#concept-227432)[DTS](https://help.aliyun.com/zh/dts/user-guide/connect-a-data-center-to-dts-using-vpn-gateway#concept-227432)[云服务互通](https://help.aliyun.com/zh/dts/user-guide/connect-a-data-center-to-dts-using-vpn-gateway#concept-227432)。

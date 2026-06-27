@@ -1,0 +1,2 @@
+安全组新增规则成功。
+... Do you want to perform these actions? Terraform will perform the actions described above. Only 'yes' will be accepted to approve. Enter a value: yes alicloud_security_group_rule.allow_tcp_443: Creating... alicloud_security_group_rule.allow_tcp_443: Creation complete after 0s [id=sg-2vcdz6b8h9c3XXXXXXXX:ingress:tcp:443/443:intranet:0.0.0.0/0:accept:1] Apply complete! Resources: 1 added, 0 changed, 0 destroyed.

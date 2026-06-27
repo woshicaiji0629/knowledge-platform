@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/limitations",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "performance",
+  "title": "ECS资源使用限制与配额-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/limitations",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/limitations.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/limitations.md",
+  "word_count": 7221,
+  "text_units": 17363,
+  "local_links": 12,
+  "external_links": 684,
+  "has_tables": true,
+  "table_count": 69,
+  "quality": "accepted"
+}

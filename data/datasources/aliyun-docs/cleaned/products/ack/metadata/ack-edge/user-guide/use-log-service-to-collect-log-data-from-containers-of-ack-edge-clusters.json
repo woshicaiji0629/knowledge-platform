@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-edge/user-guide/use-log-service-to-collect-log-data-from-containers-of-ack-edge-clusters",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "通过日志服务采集ACK Edge集群的容器日志-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/user-guide/use-log-service-to-collect-log-data-from-containers-of-ack-edge-clusters",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-edge/user-guide/use-log-service-to-collect-log-data-from-containers-of-ack-edge-clusters.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/user-guide/use-log-service-to-collect-log-data-from-containers-of-ack-edge-clusters.md",
+  "word_count": 1110,
+  "text_units": 2816,
+  "local_links": 30,
+  "external_links": 68,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

@@ -1,0 +1,5 @@
+MS 凭据和集群在同一 Region。 替换 {region} 为 KMS 凭据所在的 Region。 应用默认配置，使用此地址时无需配置。 |
+| 共享网关 | 公网 | kms.{region}.aliyuncs.com | 替换 {region} 为 KMS 凭据所在的 Region。 集群具有公网访问能力。 |
+
+KMS Endpoint配置示例
+apiVersion: secrets-store.csi.x-k8s.io/v1 kind: SecretProviderClass metadata: name: test spec: provider: alibabacloud # 固定值为 'alibabacloud' parameters: # 示例使用网关说明： # hangzhou-public 使用共享网关公网域名，需要将{region}替换为KMS凭据所在的Region，此方式可获取和集群不在同一Region的KMS凭据 # hangzhou-vpc 未指定kmsEndpoint字段，使用默认的共享网关VPC域名 # hangzhou-cryptoservice 使用专属网关，需要替换{kms-instance-id}为KMS凭据所属实例ID # london-public 使用共享网关公网域名，需要将{region}替换为KMS凭据所在的Region，此方式可获取和集群不在同一Region的KMS凭据 objects: | - objectName: "test-hangzhou" objectType: "kms" objectAlias: "hangzhou-public" kmsEndpoint: "kms.{region}.aliyuncs.com" - objectName: "test-hangzhou" objectType: "kms" objectAlias: "hangzhou-vpc" - objectName: "test-hangzhou" objectType: "kms" objectAlias: "hangzhou-cryptoservice" kmsEndpoint: "{kms-instance-id}.cryptoservice.kms.aliyuncs.com" - objectName: "test-london" objectAlias: "london-public" kmsEndpoint: "kms.{region}.aliyuncs.com"

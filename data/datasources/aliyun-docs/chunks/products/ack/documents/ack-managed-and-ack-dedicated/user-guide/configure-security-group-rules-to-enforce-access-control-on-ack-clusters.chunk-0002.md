@@ -1,0 +1,22 @@
+### 企业安全组
+入方向
+
+| 集群访问规则 | 协议 | 端口 | 授权对象 |
+| --- | --- | --- | --- |
+| 推荐范围 | ICMP | -1/-1（不限制端口） | 0.0.0.0/0 |
+| 所有协议 | -1/-1（不限制端口） | 集群所属的 VPC 网段 集群所属的附加 VPC 网段 集群 Pod 网络地址段（Flannel 网络模式添加安全组规则，Terway 网络模式不添加安全组规则） |  |
+| 最小范围 | 所有协议 | 53/53（DNS） | 集群内所有关联的 vSwitch 网段，包括 Node vSwitch 和 Pod vSwitch 集群 Pod 网络地址段（Flannel 网络模式添加安全组规则，Terway 网络模式不添加安全组规则） |
+| ICMP | -1/-1（不限制端口） |  |  |
+| TCP | 10250（Kubelet） 10255（Kubelet） 443（Webhook） 6443（APIServer） 8082（heapster） 集群内提供 Webhook 服务的应用或组件容器监听的端口（例如 Gatekeeper 组件监听的 8443 端口） |  |  |
+| TCP | 9082 | [Poseidon](../../serverless-kubernetes/user-guide/using-the-network-policy-networkpolicy.md) 组件使用的端口。如不使用，则无需配置。 |  |
+| 所有协议 | 所有应用或组件期望被访问的端口 | 所有应用或组件期望被访问的来源地址或者来源安全组 |  |
+
+出方向
+
+| 集群访问规则 | 协议 | 端口 | 授权对象 |
+| --- | --- | --- | --- |
+| 推荐范围 | 所有协议 | -1/-1（不限制端口） | 0.0.0.0/0 |
+| 最小范围 | 所有协议 | -1/-1（不限制端口） | 100.64.0.0/10 （云产品网段） |
+| 所有协议 | 53/53（DNS） | 集群 APIServer SLB 地址 集群内所有关联的 vSwitch 网段，包括 Node vSwitch 和 Pod vSwitch 集群 Pod 网络地址段（Flannel 网络模式添加安全组规则，Terway 网络模式不添加安全组规则） |  |
+| TCP | 10250（Kubelet） 10255（Kubelet） 443（APIServer） 6443（APIServer） |  |  |
+| 所有协议 | 所有应用或组件期望访问的端口 | 所有应用或组件期望访问的目的地址或者目的安全组 |  |

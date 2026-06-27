@@ -1,0 +1,14 @@
+{
+  "id": "sls:faq-about-the-query-and-analysis-of-json-logs:1",
+  "document_id": "sls:faq-about-the-query-and-analysis-of-json-logs",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "troubleshoot",
+  "title": "JSON日志索引查询与分析FAQ-日志服务-阿里云",
+  "source_url": "https://help.aliyun.com/zh/sls/faq-about-the-query-and-analysis-of-json-logs",
+  "chunk_index": 1,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/faq-about-the-query-and-analysis-of-json-logs.chunk-0001.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/faq-about-the-query-and-analysis-of-json-logs.md",
+  "heading_path": "查询和分析JSON日志的常见问题 > 如何设置索引？ > 如何选择索引类型？",
+  "char_count": 278
+}

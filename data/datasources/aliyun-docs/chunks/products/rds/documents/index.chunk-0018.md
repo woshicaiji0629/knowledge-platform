@@ -1,0 +1,2 @@
+### [RDS MySQL倚天版（ARM架构）性能&价格力观测](apsaradb-rds-for-mysql/performance-and-cost-effectiveness-of-cost-effective-rds-instances-that-originally-use-the-arm-architecture.md)
+[免费体验RDS MySQL倚天版高性价比 一键快速搭建资源完全对等的环境，对倚天版（ARM架构）RDS MySQL与部署在ECS实例（X86架构）的自建MySQL基于Sysbench进行性能压测，实时动态查看性能、价格和性价比结果。](apsaradb-rds-for-mysql/performance-and-cost-effectiveness-of-cost-effective-rds-instances-that-originally-use-the-arm-architecture.md)

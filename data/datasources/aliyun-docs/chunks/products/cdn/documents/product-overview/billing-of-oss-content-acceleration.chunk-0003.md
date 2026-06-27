@@ -1,0 +1,6 @@
+| 资源包 | 使用说明 |
+| --- | --- |
+| [CDN](https://common-buy.aliyun.com/?spm=5176.197032.J_5834642020.4.141442c417YQT6&commodityCode=dcdnpaybag#/buy) [下行流量包](https://common-buy.aliyun.com/?spm=5176.197032.J_5834642020.4.141442c417YQT6&commodityCode=dcdnpaybag#/buy) | 用于抵扣 CDN 节点将资源下发给客户端时产生的流量费用，超出部分自动按量计费。 |
+| [CDN](https://common-buy.aliyun.com/?spm=5176.197032.J_5834642020.4.141442c417YQT6&commodityCode=dcdnpaybag#/buy) [静态](https://common-buy.aliyun.com/?spm=5176.197032.J_5834642020.4.141442c417YQT6&commodityCode=dcdnpaybag#/buy) [HTTPS](https://common-buy.aliyun.com/?spm=5176.197032.J_5834642020.4.141442c417YQT6&commodityCode=dcdnpaybag#/buy) [请求数资源包](https://common-buy.aliyun.com/?spm=5176.197032.J_5834642020.4.141442c417YQT6&commodityCode=dcdnpaybag#/buy) | 用于抵扣 CDN 加速服务中产生的静态 HTTPS 请求费用，超出部分自动按量计费。 |
+| [OSS](https://common-buy.aliyun.com/?spm=5176.8064714.J_323065.pricedetail1111.59762bc6BGAZfq&commodityCode=ossbag&request=%7B%22region%22%3A%22china-common%22%7D#/buy) [回源流量包](https://common-buy.aliyun.com/?spm=5176.8064714.J_323065.pricedetail1111.59762bc6BGAZfq&commodityCode=ossbag&request=%7B%22region%22%3A%22china-common%22%7D#/buy) | 用于抵扣 CDN 回源时产生的流量费用，超出部分自动按量计费。 |
+| [OSS]

@@ -1,0 +1,17 @@
+{
+  "id": "vpc:ip-address-management-ipam",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "什么是IPAM？-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/ip-address-management-ipam",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/ip-address-management-ipam.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/ip-address-management-ipam.md",
+  "word_count": 750,
+  "text_units": 2180,
+  "local_links": 0,
+  "external_links": 61,
+  "has_tables": true,
+  "table_count": 8,
+  "quality": "accepted"
+}

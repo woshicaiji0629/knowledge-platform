@@ -1,0 +1,1 @@
+SEARCH my_index_k 2 [3,3.1] "creation_time > 1735" 返回示例 1： 1) "key1" 2) "0.81000018119812012" 3) "key2" 4) "12.410000801086426" 命令示例 2： TVS.KNNSEARCH my_index_k 2 [3,3.1] "creation_time > 1735 && productname == \"Aliyun\"" search_policy scala ivf_filter_count 15000 返回示例 2： 1) "key2" 2) "12.410000801086426" |

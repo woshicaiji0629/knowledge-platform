@@ -1,0 +1,17 @@
+{
+  "id": "redis:user-guide/change-the-network-type-from-classic-network-to-vpc",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "将实例从经典网络切换为专有网络VPC-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/change-the-network-type-from-classic-network-to-vpc",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/user-guide/change-the-network-type-from-classic-network-to-vpc.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/change-the-network-type-from-classic-network-to-vpc.md",
+  "word_count": 760,
+  "text_units": 2091,
+  "local_links": 9,
+  "external_links": 68,
+  "has_tables": true,
+  "table_count": 6,
+  "quality": "accepted"
+}

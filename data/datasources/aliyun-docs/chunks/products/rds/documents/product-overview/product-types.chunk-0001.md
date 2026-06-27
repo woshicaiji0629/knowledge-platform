@@ -1,0 +1,4 @@
+gresql/primary-apsaradb-rds-for-postgresql-instance-types.md) | [RDS MySQL](../apsaradb-rds-for-mysql/primary-apsaradb-rds-for-mysql-instance-types.md) [标准版（原](../apsaradb-rds-for-mysql/primary-apsaradb-rds-for-mysql-instance-types.md) [X86）主实例规格列表](../apsaradb-rds-for-mysql/primary-apsaradb-rds-for-mysql-instance-types.md) [RDS PostgreSQL](../apsaradb-rds-for-postgresql/primary-apsaradb-rds-for-postgresql-instance-types.md) [标准版（原](../apsaradb-rds-for-postgresql/primary-apsaradb-rds-for-postgresql-instance-types.md) [X86）主实例规格列表](../apsaradb-rds-for-postgresql/primary-apsaradb-rds-for-postgresql-instance-types.md) |
+| 支持地域 | 当前支持地域如下，后续逐步支持更多地域，具体以售卖页为准。 华东 1（杭州）、华东 2（上海）、华北 2（北京）、华北 3（张家口）、华北 6（乌兰察布）、华南 1（深圳）、华南 3（广州）、西南 1（成都）、中国（香港）、印度尼西亚（雅加达）和新加坡 | 30 多个地域 |
+| 支持存储类型 | 云盘 | 云盘、高性能本地盘 |
+| 支持引擎版本 | MySQL 5.7、8.0 PostgreSQL 13 或以上版本 | RDS MySQL、PostgreSQL、SQL Server、MariaDB 所有在售版本 |

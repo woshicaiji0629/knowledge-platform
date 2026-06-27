@@ -1,0 +1,14 @@
+{
+  "id": "sls:paged-query:14",
+  "document_id": "sls:paged-query",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "分页获取查询结果与分析结果-日志服务-阿里云",
+  "source_url": "https://help.aliyun.com/zh/sls/paged-query",
+  "chunk_index": 14,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/paged-query.chunk-0014.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/paged-query.md",
+  "heading_path": "日志服务的服务接入点 endpoint = '' # 本示例从环境变量中获取AccessKey ID和AccessKey Secret。 accessKeyId = os.environ.get('ALIBABA_CLOUD_ACCESS_KEY_ID', '') accessKey = os.environ.get('ALIBABA_CLOUD_ACCESS_KEY_SECRET', '') # Project名称。 project = '' # Logstore名称。 logstore = '' client = LogClient(endpoint, accessKeyId, accessKey) topic = \"\" origin_query = \"* | select * limit \" From = int(time.time()) - 600 To = int(time.time()) log_line = 100 offset = 0 while True: res4 = None query = origin_query + str(offset) + \" , \" + str(log_line) for retry_time in range(0, 3): req4 = GetLogsRequest(project, logstore, From, To, topic=topic, query=query) res4 = client.get_logs(req4) if res4 is not None and res4.is_completed(): break time.sleep(1) offset += 100 if res4.is_completed() and res4.get_count() == 0: break; if res4 is not None: # 处理结果。 res4.log_print() > Java代码示例 > 友情链接",
+  "char_count": 935
+}

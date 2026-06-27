@@ -1,0 +1,14 @@
+{
+  "id": "ecs:user-guide/build-an-sgx-encrypted-computing-environment:25",
+  "document_id": "ecs:user-guide/build-an-sgx-encrypted-computing-environment",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "构建并验证SGX机密计算环境-云服务器 ECS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/build-an-sgx-encrypted-computing-environment",
+  "chunk_index": 25,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ecs/documents/user-guide/build-an-sgx-encrypted-computing-environment.chunk-0025.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/build-an-sgx-encrypted-computing-environment.md",
+  "heading_path": "PCCS server address PCCS_URL=https://sgx-dcap-server-vpc.[Region-ID].aliyuncs.com/sgx/certification/v4/ # To accept insecure HTTPS cert, set this option to FALSE USE_SECURE_CERT=TRUE > 已知问题 > 产品和定价",
+  "char_count": 272
+}

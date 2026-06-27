@@ -1,0 +1,17 @@
+{
+  "id": "sls:collect-k8s-cluster-logs-through-sidecar",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "通过Sidecar方式采集集群日志（阿里云ACK集群和自建Kubernetes集群）-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/collect-k8s-cluster-logs-through-sidecar",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/collect-k8s-cluster-logs-through-sidecar.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/collect-k8s-cluster-logs-through-sidecar.md",
+  "word_count": 4487,
+  "text_units": 12387,
+  "local_links": 0,
+  "external_links": 112,
+  "has_tables": true,
+  "table_count": 34,
+  "quality": "accepted"
+}

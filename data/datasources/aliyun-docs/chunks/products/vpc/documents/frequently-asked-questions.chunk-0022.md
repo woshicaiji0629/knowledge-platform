@@ -1,0 +1,10 @@
+需要调整交换机的网段，只能删除该交换机后，使用新的网段重新创建。注意在删除交换机前，必须先释放或迁移交换机内的所有云资源，例如ECS实例、负载均衡实例、RDS实例等。这是一个高风险操作，请务必做好数据备份和业务迁移计划。
+创建VPC时应该选择哪个网段？
+选择VPC网段是网络规划的关键一步，建议遵循以下原则：
+使用标准私网网段：推荐使用RFC1918定义的标准私网网段，例如：10.0.0.0/16、172.16.0.0/16、192.168.0.0/16。不能使用100.64.0.0/10、224.0.0.0/4、127.0.0.0/8或169.254.0.0/16网段作为VPC的网段。
+避免与本地数据中心（IDC）或其他网络环境冲突：如果您计划将VPC与本地网络或其他VPC、其他云打通，请务必确保VPC网段与这些网络的网段不冲突。
+预留足够地址空间：根据您未来的业务规模预估所需的IP地址数量，选择一个足够大的网段，避免后期因地址不足而被迫进行复杂的网络改造。
+避免与容器网络常用网段冲突：如果您计划在VPC内使用Docker或Kubernetes（K8s），建议避免使用172.17.0.0/16等容器默认网段，以防无法通信。
+如何为VPC分配IPv6网段？IPv6如何访问公网？
+为专有网络和交换机开启IPv6后，系统将自动创建[IPv6](https://help.aliyun.com/zh/ipv6-gateway/product-overview/what-is-an-ipv6-gateway/)[网关](https://help.aliyun.com/zh/ipv6-gateway/product-overview/what-is-an-ipv6-gateway/)并分配IPv6网段，默认仅支持私网通信。如需公网通信，可[开通](https://help.aliyun.com/zh/ipv6-gateway/user-guide/enable-and-manage-ipv6-internet-bandwidth#section-dvo-wjp-zcb)[IPv6](https://help.aliyun.com/zh/ipv6-gateway/user-guide/enable-and-manage-ipv6-internet-bandwidth#section-dvo-wjp-zcb)[公网带宽](https://help.aliyun.com/zh/ipv6-gateway/user-guide/enable-and-manage-ipv6-internet-bandwidth#section-dvo-wjp-zcb)。详细操作可参考[开启/关闭](vpc-and-vswitch.md)[IPv6](vpc-and-vswitch.md)。
+VPC是

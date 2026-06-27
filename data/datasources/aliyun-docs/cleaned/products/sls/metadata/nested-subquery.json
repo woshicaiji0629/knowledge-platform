@@ -1,0 +1,17 @@
+{
+  "id": "sls:nested-subquery",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "使用嵌套子查询实现复杂SQL分析-日志服务-阿里云",
+  "source_url": "https://help.aliyun.com/zh/sls/nested-subquery",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/nested-subquery.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/nested-subquery.md",
+  "word_count": 581,
+  "text_units": 1153,
+  "local_links": 0,
+  "external_links": 61,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

@@ -1,0 +1,14 @@
+## Kubernetes原生配置
+Kubernetes在架构上是面向单租户的容器编排管理平台，即控制平面的单个实例在集群内的所有租户之间共享。您可以使用各种Kubernetes对象来实现多租户隔离的目的。例如，可以使用命名空间和基于角色的访问控制 (RBAC)，以在逻辑上将租户彼此隔离。同样，Quotas和Limit Ranges可用于控制每个租户可以消耗的集群资源量。然而，集群是唯一提供强大安全边界的结构。这是因为设法获得对集群内主机的访问权的攻击者可以检索所有安装在该主机上的Secrets、ConfigMaps和Volumes。还可以模拟Kubelet，这将允许操纵节点的属性或在集群内横向移动。下面的Kubernetes原生配置可以帮助您降低使用像Kubernetes这样的单租户平台的风险，在一定程度上实现上述场景中租户之间的隔离。
+命名空间
+Namespaces是实现软多租的基础。Namespaces允许您将集群分为不同的逻辑层。Quotas、Network Policies、Service Accounts和其他资源对象都需要在Namespaces范围内实现多租。
+AuthN&AuthZ&Admission
+ACK集群的授权分为RAM授权和RBAC授权两个步骤，其中RAM授权作用于集群管理接口的访问控制，包括对集群的CRUD权限（如集群可见性、扩缩容、添加节点等操作），而RBAC授权用于集群内部Kubernetes资源模型的访问控制，可以做到指定资源在命名空间粒度的细化授权。ACK授权管理为租户内用户提供了不同级别的预置角色模板，同时支持绑定多个用户自定义的集群角色，此外支持对批量用户的授权。具体操作，请参见[授权](../../ack-managed-and-ack-dedicated/user-guide/authorization-overview.md)。
+网络策略
+默认情况下，Kubernetes集群中的所有Pod都允许相互通信。使用Network Policies更改此默认设置。
+Network Policies使用标签或IP地址范围限制Pod之间的通信。在需要租户之间严格网络隔离的多租户环境中，需要添加两条规则：
+拒绝Pod之间通信的默认规则。
+允许所有Pod查询DNS服务器以进行名称解析。
+资源配额&限制范围
+Quotas用于定义集群中托管的工作负载的限制。使用Quotas，您可以指定Pod可以消耗的最大CPU和内存量，也可以限制可以在集群或命名空间中分配的资源数量。Limit ranges允许您声明每个限制的最小值、最大值和默认值。
+在共享集群中过度使用资源通常是有益的，因为可以让您最大限度地利用资源。但是，对集群的无限制访问会导致资源匮乏，从而导致性能下降和应用程序可用性损失。如果一个Pod的请求设置得太低，实际资源利用率超过了

@@ -1,0 +1,6 @@
+## 安全说明
+通常情况下，用户的密钥会保存在文件中供应用程序读取，这种情况和通过阿里云KMS凭据管家直接读取密钥存在兼容性问题。ack-secret-manager可以解决此类兼容性问题，同时支持将密钥同步创建为集群中的Kubernetes原生Secrets实例，以供环境变量挂载使用。使用前请评估如下的安全风险。
+当密钥在文件系统中可以被访问时，如果应用中存在某些有缺陷的软件，该软件的漏洞可能会造成目录遍历的风险，导致敏感信息泄露。
+一些Debug端点或Logs权限的误配置可能导致密钥泄露，所以通过环境变量挂载引用的方式消费密钥是一个不安全且不推荐的做法。
+当开启Secret实例同步特性时，需要基于权限最小化原则严格控制访问权限。
+鉴于上述原因，如果应用中并不需要密文的持久化存储，推荐[通过](../../ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[RRSA](../../ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[配置](../../ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[ServiceAccount](../../ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[的](../../ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[RAM](../../ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[权限实现](../../ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[Pod](../../ack-m

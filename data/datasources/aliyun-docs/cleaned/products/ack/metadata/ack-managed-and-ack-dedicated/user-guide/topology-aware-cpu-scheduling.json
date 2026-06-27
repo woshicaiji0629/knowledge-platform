@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/user-guide/topology-aware-cpu-scheduling",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "启用CPU拓扑感知调度-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/topology-aware-cpu-scheduling",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/topology-aware-cpu-scheduling.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/topology-aware-cpu-scheduling.md",
+  "word_count": 1593,
+  "text_units": 3883,
+  "local_links": 6,
+  "external_links": 81,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

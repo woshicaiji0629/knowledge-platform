@@ -1,0 +1,14 @@
+（可选）数据盘
+数据盘用于存储应用数据，选择数据盘时，您还可以加密云盘满足数据安全或法规合规等场景的要求。关于数据加密的介绍，请参见[加密云盘](encryption-overview.md)。
+说明
+单台实例支持挂载的数据盘存在数量限制。更多信息，请参见[块存储使用限制](limitations.md)。
+（可选）快照服务
+快照是云盘在某一时间点数据状态的备份文件，用快照创建云盘便于快速导入数据。创建实例时即可为云盘开启自动备份，有效应对数据误删等风险。
+选择已有的自动快照策略，或者单击创建自动快照策略前往快照页面即时创建自动快照策略。具体操作，请参见[创建自动快照策略](create-an-automatic-snapshot-policy-1.md)。创建完成后，返回ECS实例创建向导并单击图标，查看自动快照策略列表。
+重要
+使用快照会产生费用，更多详情，请参见[快照计费](../snapshots-1.md)。
+（可选）弹性临时盘
+弹性临时盘是一款可灵活随实例创建或单独创建的、您可以自定义选择容量大小的块存储设备，作为临时数据存储使用，为ECS实例提供临时数据存储，具备高性能、高性价比等特点。更多信息，请参见[弹性临时盘](elastic-ephemeral-disks.md)。
+（可选）文件存储NAS
+如果您有较多数据需要供多台实例共享访问，推荐使用NAS文件系统，可以节约大量拷贝与同步成本。
+选择已有的NAS文件系统，或者单击创建文件系统前往NAS文件系统控制台即时创建NAS文件系统。具体操作，请参见[通过控制台创建通用型](https://help.aliyun.com/zh/nas/user-guide/create-a-file-system#section-5jo-0kj-jn5)[NAS](https://help.aliyun.com/zh/nas/user-guide/create-a-file-system#section-5jo-0kj-jn5)[文件系统](https://help.aliyun.com/zh/nas/user-guide/create-a-file-system#section-5jo-0kj-jn5)。创建完成后，返回ECS实例创建向导并单击图标，查看NAS文件系统列表。关于挂载NAS文件系统时的注意事项，请参见[新购](https://help.aliyun.com/zh/nas/use-cases/mount-nas-file-systems-when-you-purchase-an-ecs-instance#task-2480876)[ECS](https://help.aliyun.com/zh/nas/use-cases/mount-nas-file-systems-when-you-purcha

@@ -1,0 +1,6 @@
+| 参数 | 说明 |
+| --- | --- |
+| cluster_compat_enable | 是否开启原生 Redis cluster 语法兼容，取值： 0 ：关闭。 1 （默认）：开启，开启后支持 READONLY、READWRITE 和 CLUSTER 类命令，具体命令请参见 [代理模式（Proxy）支持的命令列表](../developer-reference/limits-on-commands-supported-by-cluster-and-read-write-splitting-instances.md) 。 |
+| hello_enabled | 是否开启通过 HELLO 命令切换协议 RESP2、RESP3 协议的开关。取值： 0 （默认）：关闭。 1 ：开启，开启后即可通过 HELLO 命令切换协议 RESP2 或 RESP3 协议。 说明 仅 Proxy 7.0.9 及以上版本支持该参数。 |
+| max_session_processing | 单个连接允许堆积的最大请求个数，取值范围为[10-10000000]，默认为 1000。 代理节点转发客户端的请求给数据节点，但是未收到数据节点的回复，此时该请求即处于堆积状态。该参数主要用于限制代理节点前后端处理能力差异导致的请求堆积，避免内存上涨的问题。 |
+| #no_loose_statistics-ip-enable #no_loose_statistics-cmds #no_loose_statistics-keys | 本组参数为 [可观测性能力](../product-overview/observability.md) 的一部分，设置后还需要开通 [审计日志](enable-the-new-audit-log-feature.md) 才会生效，统计周期为 5 秒/次。 #no_loose_statistics-ip-enable ：设置是否开启 IP 地址统计，即记录建连的 IP 地址，取值为 yes （开启）、 no （默认，关闭）。 #no_loose_statistics-cmds ：设置要统计的命令，统计这些命令的来源 IP 地址和频率，默认为空，即不统计。多个命令以英文逗号（,）分隔。 #no_loose_statistics-keys ：设置要统计的 Key，统计这些 Key 的来源 IP 地址和频率，默认为空，即不统计。多个 Key 以英文逗号（,）分隔。 说明 为避免影响性能， #no_loose_statistics-cmds 和 #no_loose_statistics-keys 参数中设置的值不宜设置过多，并确保仅在故障排查或运维需要时开启。 从您可以通过日志服务控制台下载审计日志（下载方法参见 [下载审计日志](download-audit

@@ -1,0 +1,17 @@
+{
+  "id": "redis:user-guide/use-a-client-to-connect-to-an-apsaradb-for-redis-instance",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "deployment",
+  "title": "通过客户端程序连接Tair-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/use-a-client-to-connect-to-an-apsaradb-for-redis-instance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/user-guide/use-a-client-to-connect-to-an-apsaradb-for-redis-instance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/use-a-client-to-connect-to-an-apsaradb-for-redis-instance.md",
+  "word_count": 3192,
+  "text_units": 5853,
+  "local_links": 25,
+  "external_links": 87,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

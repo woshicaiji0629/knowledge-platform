@@ -1,0 +1,17 @@
+{
+  "id": "sls:display-query-results-in-a-sankey-diagram",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "如何进行桑基图操作-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/display-query-results-in-a-sankey-diagram",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/display-query-results-in-a-sankey-diagram.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/display-query-results-in-a-sankey-diagram.md",
+  "word_count": 755,
+  "text_units": 2387,
+  "local_links": 0,
+  "external_links": 67,
+  "has_tables": true,
+  "table_count": 17,
+  "quality": "accepted"
+}

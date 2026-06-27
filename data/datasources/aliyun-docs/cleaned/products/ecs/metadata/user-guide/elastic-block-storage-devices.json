@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/elastic-block-storage-devices",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "块存储类型以及如何使用块存储-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/elastic-block-storage-devices",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/elastic-block-storage-devices.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/elastic-block-storage-devices.md",
+  "word_count": 1164,
+  "text_units": 3960,
+  "local_links": 1,
+  "external_links": 95,
+  "has_tables": true,
+  "table_count": 17,
+  "quality": "accepted"
+}

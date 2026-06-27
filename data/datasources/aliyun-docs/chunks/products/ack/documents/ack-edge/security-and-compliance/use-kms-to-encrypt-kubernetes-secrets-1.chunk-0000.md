@@ -1,0 +1,2 @@
+# 在ACK Edge集群中使用阿里云KMS进行Secret的落盘加密
+在ACK Edge集群Pro版中，您可以使用在阿里云密钥管理服务KMS（Key Management Service）中创建的密钥加密Kubernetes Secret密钥，提升加密数据保护能力。本文主要介绍如何使用KMS中管理的密钥对ACK Edge集群Pro版中的Kubernetes Secret密钥数据进行落盘加密。

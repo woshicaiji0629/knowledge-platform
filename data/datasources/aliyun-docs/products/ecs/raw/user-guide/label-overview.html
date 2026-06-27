@@ -1,0 +1,628 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    使用标签对云服务器ECS资源进行分类以精细化管理资源-云服务器 ECS(ECS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/ecs/user-guide/label-overview">
+  <meta name="keywords" content="标签,资源分类,批量管理资源,标记资源,精细化管理">
+  <meta name="description" content="随着云资源增加，管理难度也在增加，您可能无法批量管理云资源的成本和监控。为了实现资源的精细化管理，您可以使用标签对资源进行分类标记。标签是重要的分组工具，可以帮助您在人员、财务和物品管理方面进行横向管理。">
+  <meta name="last-modified" content="2026-04-23T20:23:45+08:00">
+  <meta name="date" content="2016-05-06T10:39:57+08:00">
+  <meta property="og:title" content="标签">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/ecs/user-guide/label-overview">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="随着云资源增加，管理难度也在增加，您可能无法批量管理云资源的成本和监控。为了实现资源的精细化管理，您可以使用标签对资源进行分类标记。标签是重要的分组工具，可以帮助您在人员、财务和物品管理方面进行横向管理。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/ecs/user-guide/label-overview",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "25477",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/ecs/user-guide/label-overview","nodeId":null,"data":{"lastModifiedTime":1776947025000,"keywords":"标签,资源分类,批量管理资源,标记资源,精细化管理","docTitle":"使用标签对云服务器ECS资源进行分类和管理","language":"zh","seoTitle":"使用标签对云服务器ECS资源进行分类以精细化管理资源-云服务器 ECS(ECS)-阿里云帮助中心","title":"标签","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"concept-jzp-qtd-zdb\">\n    \n    \n    <p data-tag=\"shortdesc\" id=\"shortdesc-62r-75o-0vs\" class=\"shortdesc\">随着云资源增加，管理难度也在增加，您可能无法批量管理云资源的成本和监控。为了实现资源的精细化管理，您可以使用标签对资源进行分类标记。标签是重要的分组工具，可以帮助您在人员、财务和物品管理方面进行横向管理。</p>\n    <div data-tag=\"conbody\" id=\"conbody-6pv-tsr-oqr\" class=\"conbody\">\n      <p id=\"a5ae6b7782hid\">更多标签信息，请参见<a href=\"https://help.aliyun.com/zh/resource-management/tag/product-overview/tag-overview\" id=\"51b1a4967f4aa\" title=\"\" class=\"xref\">什么是标签</a>。</p>\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-ic2-gkw-wgb\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-zjn-bhd-2jr\" class=\"title\">应用场景</h2>\n        <p data-tag=\"p\" id=\"p-xga-wef-1pq\" class=\"p\">随着您创建的云服务器<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>数量的增加，利用标签进行资源分组管理和分类有利于搜索和批量操作。标签的常见场景包括：</p>\n        <ul data-tag=\"ul\" id=\"ul-1t7-l4u-akd\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-py8-nbd-i8a\" class=\"li\">\n            <p id=\"9db3566da4gv7\">管理应用发布流程</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-ko7-ygm-gtt\" class=\"li\">\n            <p id=\"e35d52c1a5h03\">资源溯源，基于标签分组检索和管理资源</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-5so-xr0-n94\" class=\"li\">\n            <p id=\"0794857e7ftwo\">搭配<span id=\"77bcb38d10p6o\" outputclass=\"productName\" data-tag=\"ph\" data-ref-searchable=\"yes\" data-reuse-tag=\"productName\" data-type=\"productName\" data-product-code=\"oos\" docid=\"4265318\" is-conref=\"true\" class=\"ph productName\">系统运维管理</span>、资源编排、弹性伸缩和云助手等实现基于标签自动化分组运维</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-zar-y0a-mbw\" class=\"li\">\n            <p id=\"20f5f6bbf87fa\">基于标签管理成本和分账</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-vjp-yqr-mlt\" class=\"li\">\n            <p id=\"e32e4a9b92p9x\">设计资源或角色访问控制</p>\n          </li>\n        </ul>\n        <p id=\"f7cb862ab7idg\">本文将详细介绍以下两个场景，更多应用场景，请参见<a href=\"https://help.aliyun.com/zh/resource-management/tag/product-overview/tag-overview\" id=\"f07c5d6385apx\" title=\"\" class=\"xref\">什么是标签</a>。</p>\n        <section data-tag=\"tabbed-content-box\" id=\"81703639f9ckd\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n          <section id=\"88bacff9b70hv\" class=\"section\">\n            <h2 id=\"4c6dce43d3gt5\">场景一：优化云服务器资源管理或使用标签进行自动化运维</h2>\n            <section data-tag=\"section\" data-type=\"section\" id=\"6f3883bc48yow\" class=\"section\">\n              <p id=\"8fe468d56fams\">您可以为不同环境（如生产环境和测试环境）、操作系统（如<span class=\"help-letter-space\"></span>Windows<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>Linux）或客户端平台（如<span class=\"help-letter-space\"></span>iOS<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>Android）绑定不同的标签。例如，为测试环境涉及的所有<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例绑定一个类似<span data-tag=\"ph\" id=\"codeph-hwg-yy2-gsn\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">Test:Server-Windows</code></span>的标签键值对，以便在维护中快速筛选相关实例。<img alt=\"标签应用场景示例二\" data-tag=\"image\" id=\"image-r0y-f25-0cz\" placement=\"break\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7250659951/p76664.png\" width=\"500\" class=\"image break\"></p>\n              <p data-tag=\"p\" id=\"p-n7u-smk-toh\" class=\"p\">批量操作示例： </p>\n              <ul data-tag=\"ul\" id=\"ul-wq6-ljf-85h\" class=\"ul\">\n                <li data-tag=\"li\" id=\"li-ngc-ob6-6t9\" class=\"li\">\n                  <p id=\"6f4122d5373rk\">更换镜像部署应用</p>\n                </li>\n                <li data-tag=\"li\" id=\"li-nsp-ny3-2kd\" class=\"li\">\n                  <p id=\"6f4122d637qk6\">升级补丁</p>\n                </li>\n                <li data-tag=\"li\" id=\"li-ygj-ig6-1gi\" class=\"li\">\n                  <p id=\"6f4122d737fik\">添加安全组规则控制网络访问</p>\n                  <p id=\"bc47352deb22i\">更多信息，请参见<a href=\"https://help.aliyun.com/zh/resource-management/tag/use-cases/query-ecs-instances-based-on-tags-and-add-ecs-instances-to-security-groups-with-same-tags\" id=\"592a20cc67x17\" title=\"\" class=\"xref\">使用标签获取<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例并将其加入到对应标签的安全组</a>。</p>\n                </li>\n                <li data-tag=\"li\" id=\"li-ql6-bb6-ar8\" class=\"li\">\n                  <p id=\"6f4122d837mj2\">通过<span id=\"6e33ec7628i7c\" outputclass=\"productName\" data-tag=\"ph\" data-ref-searchable=\"yes\" data-reuse-tag=\"productName\" data-type=\"productName\" data-product-code=\"oos\" docid=\"4265318\" is-conref=\"true\" class=\"ph productName\">系统运维管理</span>批量启动、停止或重启<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例</p>\n                  <p id=\"66cc9f0ff62dz\">以批量启动<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>为例，具体操作，请参见<a href=\"https://help.aliyun.com/zh/resource-management/use-oos-to-start-multiple-ecs-instances-with-specific-tags-at-a-time-1\" id=\"acfec5f1c8fsm\" title=\"\" class=\"xref\">使用<span class=\"help-letter-space\"></span>OOS<span class=\"help-letter-space\"></span>批量启动带指定标签的<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例</a>。</p>\n                </li>\n                <li data-tag=\"li\" id=\"li-ujr-l8a-q0y\" class=\"li\">\n                  <p id=\"6f4122d937o02\">通过云助手在多台<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例上运行运维脚本</p>\n                  <p id=\"c9fbba8e903n8\">以在指定标签的<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例上执行云助手命令为例，具体操作，请参见<a href=\"https://help.aliyun.com/zh/ecs/user-guide/control-the-executions-of-cloud-assistant-commands-based-on-tags\" id=\"455bc45636twg\" title=\"\" class=\"xref\">使用标签控制云助手命令的执行</a>。</p>\n                </li>\n              </ul>\n            </section>\n          </section>\n          <section id=\"8ab694b5c0rcl\" class=\"section\">\n            <h3 id=\"9f0431a3ea8j1\">场景二：团队和项目管理</h3>\n            <section data-tag=\"section\" data-type=\"section\" id=\"307e03c494ygo\" class=\"section\">\n              <p id=\"f02f263094biq\">在团队或项目管理中，您可以添加以群组、项目或部门为维度的标签（如<span data-tag=\"ph\" id=\"codeph-bn4-egh-peg\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">CostCenter:aliyun</code></span>），然后实现分组、在费用中心基于标签实现分账管理，或者交叉授权等目的。<img alt=\"标签应用场景示例\" data-tag=\"image\" id=\"image-44o-0mq-zui\" placement=\"break\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7250659951/p76662.png\" width=\"500\" class=\"image break\"></p>\n              <p data-tag=\"p\" id=\"p-izx-ju6-vkf\" class=\"p\">更多信息，请参见： </p>\n              <ul data-tag=\"ul\" id=\"ul-t0r-7fg-088\" class=\"ul\">\n                <li id=\"9feae332a4lmg\" props=\"china\" data-cond-props=\"china\">\n                  <p id=\"8828f69d2c046\"><a href=\"https://help.aliyun.com/zh/resource-management/tag/use-cases/use-tags-to-allocate-costs-for-instance-based-services\" id=\"afc245ef157mn\" title=\"\" class=\"xref\">使用标签实现实例型云服务分账</a></p>\n                </li>\n                <li id=\"dd848e51ae6ms\" props=\"china\" data-cond-props=\"china\">\n                  <p id=\"269a2a4b00bnc\"><a href=\"https://help.aliyun.com/zh/resource-management/tag/use-cases/view-and-export-the-split-bills-of-instance-based-services\" id=\"8616f6056be3v\" title=\"\" class=\"xref\">查看和导出实例型云服务的分账账单</a></p>\n                </li>\n                <li id=\"38b0501114mue\">\n                  <p id=\"7037f7bfe9laf\"><a href=\"https://help.aliyun.com/zh/resource-management/tag/user-guide/use-tags-to-query-cloud-resources\" id=\"f6ee17e441lom\" title=\"\" class=\"xref\">使用标签查找资源</a></p>\n                </li>\n                <li id=\"fa9d186c78jou\">\n                  <p id=\"7d91d45ee1uf4\"><a href=\"https://help.aliyun.com/zh/ram/use-cases/use-tags-to-grant-access-to-ecs-instances-by-group\" id=\"5902027c00so5\" title=\"\" class=\"xref\">使用标签对<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例进行分组授权</a></p>\n                </li>\n              </ul>\n            </section>\n          </section>\n        </section>\n      </section>\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-rpy-vzb-x8o\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-l9y-rel-2tl\" class=\"title\">使用说明</h2>\n        <p id=\"6f41980037uj1\">标签都由一对键值对（Key-Value）组成，资源的任一标签的标签键（Key）必须唯一。</p>\n        <div id=\"720d67c7f0ztg\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n          <p id=\"84ae8879f19b0\">使用标签前，您需要了解标签的使用限制及配额，请参见<a href=\"https://help.aliyun.com/zh/resource-management/tag/product-overview/tag-overview#section-fln-n74-2dh\" id=\"000e82e135bn8\" title=\"\" class=\"xref\">什么是标签</a>。</p>\n        </div></div>\n        <div id=\"da0c568448ni4\" outputclass=\"collapse\" class=\"collapse\">\n          <p data-tag=\"expandable-title\" id=\"e6510df048t5h\" class=\"expandable-title\">支持绑定标签的<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>资源</p>\n          <div data-tag=\"expandable-content\" id=\"da0c568248lih\" class=\"expandable-content\">\n            <ul id=\"2df10ad2489hn\">\n              <li data-tag=\"li\" id=\"2e37d7d148sc8\" class=\"li\">\n                <p id=\"2e37d7d248mbx\">ECS<span class=\"help-letter-space\"></span>实例</p>\n              </li>\n              <li id=\"82e5f2714843a\">\n                <p id=\"82e5f2704835s\">云盘</p>\n              </li>\n              <li data-tag=\"li\" id=\"2e37d7d348ija\" class=\"li\">\n                <p id=\"2e37d7d44892x\">预留实例券</p>\n              </li>\n              <li data-tag=\"li\" id=\"2e37d7d548xt4\" class=\"li\">\n                <p id=\"2e37d7d648424\">块存储</p>\n              </li>\n              <li data-tag=\"li\" id=\"2e37d7d748wgw\" class=\"li\">\n                <p id=\"2e37d7d848iqd\">快照</p>\n              </li>\n              <li id=\"b56ef57048xnj\">\n                <p id=\"b56ece6048d6e\">快照一致性组</p>\n              </li>\n              <li data-tag=\"li\" id=\"2e37d7d94835v\" class=\"li\">\n                <p id=\"2e37d7da48h7e\">自动快照策略</p>\n              </li>\n              <li data-tag=\"li\" id=\"2e37d7db48jr2\" class=\"li\">\n                <p id=\"2e37d7dc48lf4\">镜像</p>\n              </li>\n              <li id=\"a717ffd048l9v\">\n                <p id=\"a717d8c0487xv\">镜像组件</p>\n              </li>\n              <li id=\"c9096c00489mm\">\n                <p id=\"c90944f048s1a\">镜像模板</p>\n              </li>\n              <li data-tag=\"li\" id=\"2e37d7dd48e6s\" class=\"li\">\n                <p id=\"2e37d7de48qty\">安全组</p>\n              </li>\n              <li data-tag=\"li\" id=\"2e37d7df48rwd\" class=\"li\">\n                <p id=\"2e37d7e048tqu\">弹性网卡</p>\n              </li>\n              <li data-tag=\"li\" id=\"2e37d7e1488kv\" class=\"li\">\n                <p id=\"2e37d7e248ve1\">专有宿主机</p>\n              </li>\n              <li data-tag=\"li\" id=\"2e37d7e3489me\" class=\"li\">\n                <p id=\"2e37d7e448wdf\">SSH<span class=\"help-letter-space\"></span>密钥对</p>\n              </li>\n              <li data-tag=\"li\" id=\"2e37d7e5483r6\" class=\"li\">\n                <p id=\"2e37d7e648u9o\">实例启动模板</p>\n              </li>\n              <li id=\"993501b14808v\">\n                <p id=\"993501b0485mg\">专有宿主机组</p>\n              </li>\n              <li id=\"2e37d7e94859n\">\n                <p id=\"2e37d7ea485zh\">弹性保障</p>\n              </li>\n              <li id=\"2e37d7eb489ut\">\n                <p id=\"2e37d7ec48f1w\">容量预定服务</p>\n              </li>\n              <li id=\"b39ccd80484uk\">\n                <p id=\"b39ca67048kfg\">存储容量单位包</p>\n              </li>\n              <li id=\"2e37d7ed48g4n\">\n                <p id=\"2e37d7ee488yb\">云助手命令</p>\n              </li>\n              <li id=\"2e37d7ef48ozu\">\n                <p id=\"2e37d7f048kak\">云助手命令执行或文件下发结果</p>\n              </li>\n              <li id=\"2e37d7f14868g\">\n                <p id=\"2e37d7f248xop\">云助手托管实例</p>\n              </li>\n              <li id=\"2e37d7f348xj1\">\n                <p id=\"2e37d7f448bj7\">云助手托管实例激活码</p>\n              </li>\n            </ul>\n          </div>\n        </div>\n      </section>\n      <section data-tag=\"section\" data-type=\"section\" id=\"section-yoy-sme-w01\" class=\"section\">\n        <h2 id=\"c0c680a32beez\"><b>创建并绑定标签</b></h2>\n        <p id=\"661893fccesi9\">在创建标签前，请参见<a href=\"https://help.aliyun.com/zh/resource-management/tag/use-cases/best-practices-for-tag-design#section-svt-g2c-pri\" id=\"08d7813967l7i\" title=\"\" class=\"xref\">标签设计的原则</a>以了解相关背景和示例。创建或绑定标签的具体操作如下：</p>\n        <div id=\"1c8429129en2g\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n          <p id=\"a0232f01597fu\">一个资源绑定标签的上限为<span class=\"help-letter-space\"></span>20<span class=\"help-letter-space\"></span>个。如果超出上限，您需要解绑部分标签后再继续绑定新标签。</p>\n        </div></div>\n        <ol data-tag=\"steps\" id=\"7b754dc048ovh\" class=\"steps\">\n          <li id=\"b9a45a1c07t9l\" docid=\"380982\" is-conref=\"true\"><p id=\"6941fd38eespi\">访问<span data-tag=\"ph\" id=\"37b4f83f4eifp\" docid=\"380982\" is-conref=\"true\" class=\"ph\"><span props=\"china\"><a class=\"\" href=\"https://ecs.console.aliyun.com/tags/region\" id=\"ed4f558c51ll2\">ECS<span class=\"help-letter-space\"></span>控制台-标签</a></span></span>。</p></li>\n          <li data-tag=\"step\" id=\"b1df3ccecfljd\" is-conref=\"true\" class=\"step\"><p id=\"cc0dfc4237gix\"><span data-tag=\"cmd\" id=\"cmd-acu-560-w33\" class=\"cmd\">在页面左侧顶部，选择目标资源所在的资源组和地域。<img alt=\"地域\" data-tag=\"image\" id=\"image-3wz-243-ym2\" placement=\"break\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5587314271/p680076.png\" width=\"500\" class=\"image break\"> </span></p></li>\n          <li data-tag=\"step\" id=\"step-3ev-ki1-fhw\" class=\"step\">\n            <p id=\"e7099918c5vzl\">在<b id=\"uicontrol-wg7-mfz-518\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">自定义标签</b>页签下，单击<b data-tag=\"uicontrol\" id=\"uicontrol-9cm-6uf-wl0\" class=\"uicontrol\">创建自定义标签</b>。</p>\n          </li>\n          <li data-tag=\"step\" id=\"step-um1-oui-mcl\" class=\"step\">\n            <p id=\"c28a0aeeddxyc\">在<b data-tag=\"uicontrol\" id=\"wintitle-qkt-tnx-i94\" class=\"uicontrol\">创建自定义标签</b>页面中，完成以下操作。</p>\n            <div data-tag=\"info\" id=\"info-x81-mi7-vvn\" class=\"info\">\n              <p id=\"52153d5a7ftzi\">创建自定义标签时必须同时绑定资源。如果需要仅创建标签，并规划标签键和标签值，请使用预置标签。更多信息，请参见<a href=\"https://help.aliyun.com/zh/resource-management/tag/user-guide/create-a-tag#task-2115168\" id=\"84f56477b1wds\" title=\"\" class=\"xref\">创建标签</a>。</p>\n            </div>\n            <ol data-tag=\"substeps\" id=\"substeps-zbq-57x-poo\" type=\"a\" class=\"substeps\">\n              <li data-tag=\"substep\" id=\"substep-vfq-f2u-cex\" class=\"substep\">\n                <p id=\"4dfef64bd0qaf\">创建新标签。</p>\n                <div data-tag=\"info\" id=\"info-jop-1jz-pvg\" class=\"info\">\n                  <p id=\"7f8e055c11ku4\"><img alt=\"tag\" data-tag=\"image\" id=\"image-u0b-9pk-rx8\" placement=\"break\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5074051661/p481737.png\" width=\"650\" class=\"image break\"></p>\n                  <p id=\"a790f1ab27dul\">参数说明如下所示：</p>\n                  <table autofit=\"false\" bordertype=\"has-border\" id=\"table-y74-am3-x2m\" tablecolswidth=\"142 142 426\" tablewidth=\"710\" class=\"table\">\n                    <colgroup colwidth=\"0.6*\" style=\"width:20.00%\"></colgroup>\n                    <colgroup colwidth=\"0.6*\" style=\"width:20.00%\"></colgroup>\n                    <colgroup colwidth=\"1.81*\" style=\"width:60.00%\"></colgroup>\n                    <tbody class=\"tbody\">\n                      <tr id=\"row-zeb-oyh-z0s\">\n                        <td id=\"task-728113-entry-2bt-lci-gzq\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                          <p id=\"2e78142f31aqs\"><b>参数</b></p>\n                        </td>\n                        <td id=\"task-728113-entry-9dl-j4u-eqe\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                          <p id=\"68bb09114djje\"><b>是否必选</b></p>\n                        </td>\n                        <td id=\"task-728113-entry-q1w-jra-x2l\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                          <p id=\"11f6886bdalwm\"><b>说明</b></p>\n                        </td>\n                      </tr>\n                      <tr id=\"row-keo-u9z-cxo\">\n                        <td id=\"entry-dn3-1n8-oko\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"d859810937abi\"><b id=\"uicontrol-huq-hm5-rjx\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">标签键</b></p>\n                        </td>\n                        <td id=\"entry-ua8-0kw-l09\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"77fdb9956fp5u\">是</p>\n                        </td>\n                        <td id=\"entry-pxn-voy-cux\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"9f523cc7c0i5g\">输入新标签键或选择已有标签键。</p>\n                          <ul data-tag=\"ul\" id=\"ul-is0-30b-9w2\" class=\"ul\">\n                            <li data-tag=\"li\" id=\"li-j97-bhj-k9c\" class=\"li\">\n                              <p id=\"fb2f36a5e9lgl\">输入新标签键时，最多支持<span class=\"help-letter-space\"></span>128<span class=\"help-letter-space\"></span>个字符，不能以<span class=\"help-letter-space\"></span><span data-tag=\"option\" id=\"option-bbw-0pz-21p\" class=\"option\">aliyun</span><span class=\"help-letter-space\"></span>或<span class=\"help-letter-space\"></span><span data-tag=\"option\" id=\"option-39i-y50-c8q\" class=\"option\">acs:</span>开头，不能包含<span class=\"help-letter-space\"></span><span data-tag=\"option\" id=\"option-aav-17q-zoz\" class=\"option\">http://</span>和<span class=\"help-letter-space\"></span><span data-tag=\"option\" id=\"option-f92-3ed-sdz\" class=\"option\">https://</span>。</p>\n                            </li>\n                            <li data-tag=\"li\" id=\"li-qcn-l9w-in0\" class=\"li\">\n                              <p id=\"781ae64becc7i\">选择已有标签键时，支持模糊搜索。</p>\n                            </li>\n                          </ul>\n                        </td>\n                      </tr>\n                      <tr id=\"row-auz-5o3-fg1\">\n                        <td id=\"entry-76n-2g7-jiw\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"07f969bb721y8\"><b id=\"uicontrol-jtk-m90-dps\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">标签值</b></p>\n                        </td>\n                        <td id=\"entry-9b7-979-lft\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"3ad2722a8bvre\">否</p>\n                        </td>\n                        <td id=\"entry-dsa-84c-zjc\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"07603ada02n4c\">输入新标签值。</p>\n                          <p id=\"382e30c122yy5\">输入新标签值时，最多支持<span class=\"help-letter-space\"></span>128<span class=\"help-letter-space\"></span>个字符，不能包含<span class=\"help-letter-space\"></span><span data-tag=\"option\" id=\"option-njm-oj5-jfd\" class=\"option\">http://</span>和<span class=\"help-letter-space\"></span><span data-tag=\"option\" id=\"option-glg-2ep-wz9\" class=\"option\">https://</span>。</p>\n                          <div data-tag=\"note\" id=\"note-uh0-ts5-94p\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                            <p id=\"6f1499fe87t3j\">标签中同一标签键可对应不同标签值。因此，选择已有标签键，输入新标签值也可创建新标签。</p>\n                          </div></div>\n                          <p id=\"375ca6f8fa0te\"></p>\n                        </td>\n                      </tr>\n                    </tbody>\n                  </table>\n                </div>\n              </li>\n              <li data-tag=\"substep\" id=\"substep-2hx-ukq-f35\" class=\"substep\">\n                <p id=\"18aa53e8ac7h7\">单击<b id=\"uicontrol-21a-7n8-k6z\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">下一步</b>。</p>\n              </li>\n              <li data-tag=\"substep\" id=\"substep-vzd-yit-hii\" class=\"substep\">\n                <p id=\"97063063e831m\">配置相关参数绑定资源。</p>\n                <div data-tag=\"info\" id=\"info-dcp-tod-p3p\" class=\"info\">\n                  <p id=\"bebbb7f6117uk\">参数说明如下所示：</p>\n                  <table autofit=\"false\" bordertype=\"has-border\" id=\"table-ms1-fn7-ot3\" tablecolswidth=\"177 355 177\" tablewidth=\"709\" class=\"table\">\n                    <colgroup colwidth=\"0.75*\" style=\"width:24.96%\"></colgroup>\n                    <colgroup colwidth=\"1.5*\" style=\"width:50.07%\"></colgroup>\n                    <colgroup colwidth=\"0.75*\" style=\"width:24.96%\"></colgroup>\n                    <tbody class=\"tbody\">\n                      <tr id=\"row-o38-lfg-5h6\">\n                        <td id=\"task-728113-entry-rjc-ub0-3nn\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                          <p id=\"b6106afbcbig2\"><b>参数</b></p>\n                        </td>\n                        <td id=\"task-728113-entry-jrg-vt3-e1v\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                          <p id=\"07d30e89569gu\"><b>说明</b></p>\n                        </td>\n                        <td id=\"task-728113-entry-313-au9-8is\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                          <p id=\"59e05f3f2arqj\"><b>示例</b></p>\n                        </td>\n                      </tr>\n                      <tr id=\"d8a2621048u28\">\n                        <td id=\"d8a2621148ai2\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"e5cb4853997id\"><b data-tag=\"uicontrol\" id=\"uicontrol-369-7zj-got\" class=\"uicontrol\">资源选择方式</b></p>\n                        </td>\n                        <td id=\"d8a2621348bvg\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"1101bf10a37p6\">资源选择支持以下两种方式：</p>\n                          <ul data-tag=\"ul\" id=\"df3a768248us1\" class=\"ul\">\n                            <li data-tag=\"li\" id=\"df3a768348nj0\" class=\"li\">\n                              <p id=\"039eeafb4cenf\"><b data-tag=\"uicontrol\" id=\"uicontrol-j11-w26-9va\" class=\"uicontrol\">资源列表选择</b>：您可以在资源列表中选择需要绑定的一个或多个资源。</p>\n                            </li>\n                            <li data-tag=\"li\" id=\"df3a9d9048jnd\" class=\"li\">\n                              <p id=\"3cf5925bcbx6p\"><b data-tag=\"uicontrol\" id=\"uicontrol-6sd-kw8-wlm\" class=\"uicontrol\">输入多个资源<span class=\"help-letter-space\"></span>ID</b>：您可以在<b id=\"uicontrol-g6y-wn5-js3\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">输入资源<span class=\"help-letter-space\"></span>ID</b><span class=\"help-letter-space\"></span>区域的输入框中输入资源<span class=\"help-letter-space\"></span>ID。</p>\n                              <div id=\"4aa14660489rn\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                                <ul id=\"ada6bbc08737y\">\n                                  <li id=\"6ac43708b8ceq\">\n                                    <p id=\"80c18c2d768p4\">多个资源<span class=\"help-letter-space\"></span>ID<span class=\"help-letter-space\"></span>请分行输入，或使用半角逗号（,）分隔。</p>\n                                  </li>\n                                  <li id=\"53c88f8c02whg\">\n                                    <p id=\"b2077fd60dx0c\">单次请求最多可以绑定<span class=\"help-letter-space\"></span>20<span class=\"help-letter-space\"></span>个标签。</p>\n                                  </li>\n                                </ul>\n                              </div></div>\n                            </li>\n                          </ul>\n                        </td>\n                        <td id=\"d8a2621548jqg\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"d1abb36a29wl0\"><b data-tag=\"uicontrol\" id=\"a7d925944877f\" class=\"uicontrol\">输入多个资源<span class=\"help-letter-space\"></span>ID</b></p>\n                        </td>\n                      </tr>\n                      <tr id=\"row-1pv-j7k-yj6\">\n                        <td id=\"entry-2lg-d2t-jvr\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"10314e00e1cdk\"><b id=\"uicontrol-thl-7w3-qxt\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">产品</b></p>\n                        </td>\n                        <td id=\"entry-0b8-7e8-h82\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"cbd84e087epw8\">选择产品的资源类型。例如，云服务器<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>的实例、云盘、快照等资源。</p>\n                        </td>\n                        <td id=\"entry-y84-rex-neh\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"b125b745e7hxu\"><b data-tag=\"uicontrol\" id=\"uicontrol-qll-hm5-ogw\" class=\"uicontrol\">云服务器:实例</b></p>\n                        </td>\n                      </tr>\n                      <tr id=\"row-ybl-k84-i4j\" style=\"height:69px\">\n                        <td id=\"entry-9n5-si8-za1\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"c47747f00btmx\"><b id=\"a7d92595483al\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">输入资源<span class=\"help-letter-space\"></span>ID</b></p>\n                        </td>\n                        <td id=\"entry-kbm-z3m-jw1\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"5db0376b38tk4\">输入对应云服务器<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例的实例<span class=\"help-letter-space\"></span>ID。</p>\n                        </td>\n                        <td id=\"entry-ord-kji-whq\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"7bb4a07b36n29\">i-bp12d03u8usvakpo****</p>\n                        </td>\n                      </tr>\n                    </tbody>\n                  </table>\n                </div>\n              </li>\n              <li data-tag=\"substep\" id=\"substep-zeb-7bo-756\" class=\"substep\">\n                <p id=\"03e3dbce80skx\">单击<b id=\"uicontrol-2xt-9ic-af2\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>。</p>\n              </li>\n              <li id=\"9227ab5b3aw3v\">\n                <p id=\"68ff46d4a2z9d\">（可选）查看绑定的资源列表。</p>\n                <p id=\"60278b19f72ge\">在标签创建和绑定成功后，您可以在<b id=\"uicontrol-v1x-jtl-9pm\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">自定义标签</b>列表上方单击<img alt=\"tag1\" data-tag=\"image\" id=\"432d5d235b8e9\" placement=\"inline\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5074051661/p481778.png\" width=\"30\" class=\"image inline\">图标，然后找到已成功绑定的标签，单击对应<b id=\"uicontrol-784-ur3-727\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">操作</b>列的<b id=\"uicontrol-tel-vy1-1ep\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">查看资源</b>，查看绑定的资源列表。</p>\n                <p id=\"684e26932bjm0\"><img alt=\"check resource\" data-tag=\"image\" id=\"a542d3b077d0f\" placement=\"break\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=\" data-src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5074051661/p481791.png\" width=\"800\" class=\"image break lazy-media lazy-loading\"></p>\n              </li>\n            </ol>\n          </li>\n        </ol>\n        <p id=\"02d0738740al6\"></p>\n      </section>\n      <section data-tag=\"section\" data-type=\"section\" id=\"504fbe06fdthn\" class=\"section\">\n        <h2 id=\"bea06a4d98jzd\"><b>解绑或删除标签</b></h2>\n        <p id=\"b9816eae1fa5k\">如果标签不再适用，您可以将该标签从目标资源上解绑。下面以资源类型为<b data-tag=\"uicontrol\" id=\"uicontrol-eb3-5so-1im\" class=\"uicontrol\">云服务器：实例</b>、该资源绑定的标签为<span class=\"help-letter-space\"></span><b id=\"uicontrol-z2l-vuw-8tv\">ECS:Documentation</b>（标签键为<span class=\"help-letter-space\"></span><b id=\"uicontrol-5ci-sax-ahh\">ECS</b>，标签值为<span class=\"help-letter-space\"></span><b id=\"uicontrol-3oq-wwf-ras\">Documentation</b>）为例，介绍资源解绑标签的操作方法。</p>\n        <div id=\"f6362d5f2ebki\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n          <ul data-tag=\"ul\" id=\"ul-cid-hfk-liu\" class=\"ul\">\n            <li data-tag=\"li\" id=\"li-a77-wnt-s5h\" class=\"li\">\n              <p id=\"692fb7604btfx\">单次最多可以解绑<span class=\"help-letter-space\"></span>20<span class=\"help-letter-space\"></span>个标签。</p>\n            </li>\n            <li data-tag=\"li\" id=\"li-fxv-v1l-usn\" class=\"li\">\n              <p id=\"2c3b224f8a3jw\">解绑标签后，如果标签绑定的资源数量为零，则该标签将在<span class=\"help-letter-space\"></span>24<span class=\"help-letter-space\"></span>小时内被自动删除。</p>\n            </li>\n          </ul>\n        </div></div>\n        <ol data-tag=\"steps\" id=\"steps-ifw-7ws-x5u\" class=\"steps\">\n          <li data-tag=\"step\" id=\"step-2t5-7me-5my\" class=\"step\">\n            <p id=\"34157a5d3b9le\">在<b id=\"uicontrol-9n0-0ps-xd5\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">自定义标签</b>页签下，选择资源类型为<b id=\"uicontrol-58y-gig-tha\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">实例</b>。</p>\n          </li>\n          <li data-tag=\"step\" id=\"step-800-216-1dl\" class=\"step\">\n            <p id=\"793935e230fab\">在标签列表中找到待解绑的标签<span class=\"help-letter-space\"></span><b id=\"uicontrol-0k0-6f0-rqm\">ECS:Documentation</b>，以如下任一方式进入<b id=\"uicontrol-sen-09i-aeb\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">资源列表</b>页面。</p>\n            <div data-tag=\"info\" id=\"info-ff6-dv5-7i8\" class=\"info\">\n              <ul data-tag=\"ul\" id=\"ul-bi9-e1o-26m\" class=\"ul\">\n                <li data-tag=\"li\" id=\"li-xph-vno-sg6\" class=\"li\">\n                  <p id=\"c8ba7c4dde15s\">方式一：单击<span class=\"help-letter-space\"></span><b id=\"uicontrol-qf8-lid-lt6\">ECS</b><span class=\"help-letter-space\"></span>标签键后，在<span class=\"help-letter-space\"></span><b id=\"uicontrol-zcl-wv0-rj5\">Documentation</b><span class=\"help-letter-space\"></span>标签值对应的<b id=\"uicontrol-556-pmb-lrx\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">操作</b>列，单击<b id=\"uicontrol-v3h-fzs-17z\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">查看资源</b>。</p>\n                </li>\n                <li data-tag=\"li\" id=\"li-p8l-nu0-yr1\" class=\"li\">\n                  <p id=\"b387fc291etli\">方式二：在<span class=\"help-letter-space\"></span><b id=\"uicontrol-qxa-r3v-7a7\">ECS</b><span class=\"help-letter-space\"></span>标签键对应的<b id=\"uicontrol-gky-gu4-pyq\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">操作</b>列，单击<b id=\"uicontrol-mrc-9xs-vsw\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">查看资源</b>。</p>\n                </li>\n              </ul>\n            </div>\n          </li>\n          <li data-tag=\"step\" id=\"step-pwr-0i9-bn1\" class=\"step\">\n            <p id=\"cae0db9e239hc\">在<b id=\"uicontrol-orl-a1c-2na\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">资源列表</b>页签下，解绑一个或多个资源。</p>\n            <div data-tag=\"info\" id=\"info-x3w-yv2-kxd\" class=\"info\">\n              <ul data-tag=\"ul\" id=\"ul-agi-dih-pap\" class=\"ul\">\n                <li data-tag=\"li\" id=\"li-5zj-hdd-ulq\" class=\"li\">\n                  <p id=\"dfb0c07e9fgep\">单个解绑：选择一个待解绑的资源，单击对应<b id=\"uicontrol-0fz-sh8-urq\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">操作</b>列的<b id=\"uicontrol-cd4-vmy-815\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">解绑资源</b>。</p>\n                </li>\n                <li data-tag=\"li\" id=\"li-7ts-az1-inu\" class=\"li\">\n                  <p id=\"aa84d849c9cwn\">批量解绑：选中多个待解绑资源，单击<b data-tag=\"uicontrol\" id=\"813a6dda304tw\" class=\"uicontrol\">解绑当前标签</b>或<b id=\"bc5a652d54agp\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">解绑标签</b>。</p>\n                </li>\n              </ul>\n              <p id=\"4e879d3107saq\"><img alt=\"remove resources\" data-tag=\"image\" id=\"image-o61-426-jyi\" placement=\"break\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=\" data-src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4610995271/p481903.png\" class=\"image break lazy-media lazy-loading\"></p>\n            </div>\n          </li>\n          <li data-tag=\"step\" id=\"step-ir4-ein-k03\" class=\"step\">\n            <p id=\"4884ce9154b8j\">在弹出的<b id=\"uicontrol-w7t-vlg-fxa\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">解绑资源</b>对话框中，单击<b id=\"uicontrol-hln-g35-6go\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>。</p>\n            <p id=\"725c00af2dkg7\">资源解绑标签成功后，在<b id=\"uicontrol-2e6-zea-361\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">资源列表</b>页面，单击<img alt=\"tag1.png\" class=\"image inline lazy-media lazy-loading\" data-tag=\"image\" id=\"image-u25-vvv-ux4\" placement=\"inline\" src=\"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=\" data-src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1596434071/p754264.png\" width=\"30\">图标后，您可以查看到资源对应的标签已解绑。</p>\n          </li>\n        </ol>\n      </section>\n      <section data-tag=\"section\" data-type=\"section\" id=\"d9d47c0483m62\" class=\"section\">\n        <h2 id=\"45160522e26ts\"><b>标签最佳实践</b></h2>\n        <p id=\"fe77e1d8b1xbl\">您可以使用标签来精细化管理资源，常见用法及对应操作如下：</p>\n        <ul id=\"59bb6027d6tif\">\n          <li id=\"4e31d296009x2\">\n            <p id=\"c1fb8ac7f1isg\"><b>查找或导出资源</b></p>\n            <ul id=\"233a9c006cd9g\">\n              <li id=\"a542c2a5cafvg\">\n                <p id=\"8c5b4f3aa10bm\">使用标签编辑器编辑资源的标签以及导出资源信息，具体操作，请参见<a href=\"https://help.aliyun.com/zh/resource-management/tag-editor/\" id=\"824a86313288d\" title=\"\" class=\"xref\">标签编辑器</a>。</p>\n              </li>\n              <li id=\"fd29ed10f2u9k\">\n                <p id=\"3cf3a52350qei\">精确查找和模糊搜索目标标签下的云资源，具体操作，请参见<a href=\"https://help.aliyun.com/zh/resource-management/tag/user-guide/use-tags-to-query-cloud-resources\" id=\"3c5aacce66qcc\" title=\"\" class=\"xref\">使用标签查找资源</a>。</p>\n              </li>\n            </ul>\n          </li>\n          <li id=\"b23666d2degcp\">\n            <p id=\"d2d6e667ba6p2\"><b>使用标签控制资源访问</b></p>\n            <ul id=\"6bd61242b24pg\">\n              <li id=\"dea49ce68bwv3\">\n                <p id=\"a41cc29af2631\">使用标签对<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例进行分组并授权，以满足<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>用户只能查看和操作被授权资源的需求。具体操作，请参见<a href=\"https://help.aliyun.com/zh/ram/use-cases/use-tags-to-grant-access-to-ecs-instances-by-group\" id=\"67cf5b205djca\" title=\"\" class=\"xref\">使用标签对<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例进行分组授权</a>。</p>\n              </li>\n              <li id=\"6e548ccc73ags\">\n                <p id=\"d309420bb4ocd\">通过<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>的自定义策略指定授权的标签，利用标签限制<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>用户只能查看和管理指定的<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例。具体操作，请参见<a href=\"https://help.aliyun.com/zh/ram/use-cases/use-tags-to-control-access-to-ecs-resources-1\" id=\"7242b04208tut\" title=\"\" class=\"xref\">使用标签限制<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>用户管理指定的<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例</a>。</p>\n              </li>\n            </ul>\n          </li>\n          <li id=\"c9a24dfb83qhw\">\n            <p id=\"cadb946d6d2tp\"><b>使用标签进行自动化运维</b></p>\n            <ul id=\"47ad610a28yin\">\n              <li id=\"f55f6d8a4c08w\">\n                <p id=\"0887954af5wah\">在<span class=\"help-letter-space\"></span>OOS<span class=\"help-letter-space\"></span>中批量启动带指定标签的多台<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例。具体操作，请参见<a href=\"https://help.aliyun.com/zh/resource-management/tag/use-cases/use-oos-to-start-multiple-ecs-instances-with-specific-tags-at-a-time\" id=\"b4355f3be04su\" title=\"\" class=\"xref\">使用<span class=\"help-letter-space\"></span>OOS<span class=\"help-letter-space\"></span>批量启动带指定标签的<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例</a>。</p>\n              </li>\n              <li id=\"885ed24fcbwrn\">\n                <p id=\"e8eabe5baf7e6\">使用<span class=\"help-letter-space\"></span>OOS<span class=\"help-letter-space\"></span>提供的公共任务模板创建执行，为<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例下的云盘、弹性网卡、弹性公网<span class=\"help-letter-space\"></span>IP、快照和自定义镜像批量继承<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例的标签。具体操作，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/resource-management/tag/use-cases/use-oos-to-enable-resources-of-the-ecs-instances-to-inherit-tags-at-a-time\" id=\"f8d2870271y3j\" title=\"\" class=\"xref\">ECS<span class=\"help-letter-space\"></span>实例下的云盘、弹性网卡、弹性公网<span class=\"help-letter-space\"></span>IP、快照和自定义镜像批量继承<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例的标签</a>。</p>\n              </li>\n              <li id=\"7e8832a68e150\">\n                <p id=\"1ae7a94338wup\">使用<span class=\"help-letter-space\"></span>OOS<span class=\"help-letter-space\"></span>提供的公共任务模板创建执行，根据指定标签获取<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例，并把获取到的<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例加入到绑定了同一标签的安全组中。具体操作，请参见<a href=\"https://help.aliyun.com/zh/resource-management/tag/use-cases/query-ecs-instances-based-on-tags-and-add-ecs-instances-to-security-groups-with-same-tags\" id=\"a3235cf69d8fu\" title=\"\" class=\"xref\">使用标签获取<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例并将其加入到对应标签的安全组</a>。</p>\n              </li>\n              <li id=\"dfaf82d6c3a47\">\n                <p id=\"9a6aa9f8edbry\">为多台<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例绑定相同标签，然后通过云监控的智能标签同步功能，将它们自动添加至同一个应用分组，实现自动化分组监控。具体操作，请参见<a href=\"https://help.aliyun.com/zh/resource-management/tag/use-cases/use-tags-to-enable-ecs-instances-to-be-automatically-added-to-cloudmonitor-application-groups-1\" id=\"8d359327eb04h\" title=\"\" class=\"xref\">使用标签将<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例自动加入云监控应用分组</a>。</p>\n              </li>\n              <li id=\"1fa1b06496wqj\">\n                <p id=\"ca03dc4f29a54\">在指定标签的<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例上批量执行云助手命令或通过云助手上传文件。具体操作，请参见<a href=\"https://help.aliyun.com/zh/resource-management/tag/use-cases/use-tags-to-control-the-running-of-cloud-assistant-commands\" id=\"9b439c30c7y0g\" title=\"\" class=\"xref\">使用标签控制云助手的命令执行</a>。</p>\n              </li>\n            </ul>\n          </li>\n        </ul>\n      </section>\n      <section id=\"48847a804848u\" class=\"section\">\n        <h2 id=\"48847a81480fs\"><b>相关文档</b></h2>\n        <ul id=\"0b62910d8252t\">\n          <li id=\"f770bb8b56ype\">\n            <p id=\"b50c5ea6d8aid\">您还可以通过资源组根据资源的用途、权限和归属等维度对您拥有的云资源进行分组，从而实现企业内部多用户、多项目的资源分级管理。更多信息，请参见<a href=\"https://help.aliyun.com/zh/resource-management/resource-group/product-overview/resource-group-overview\" id=\"c879b20bbasxg\" title=\"\" class=\"xref\">什么是资源组</a>或<a href=\"https://help.aliyun.com/zh/ecs/user-guide/resource-groups\" id=\"9a7e1cbf08fpw\" title=\"\" class=\"xref\">资源组</a>。</p>\n          </li>\n          <li id=\"98541df71dj94\">\n            <p id=\"63bb1a9bcc6ql\">调用接口<a href=\"https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-tagresources\" id=\"45ce37a09bi59\" title=\"\" class=\"xref\">创建并绑定标签</a>。</p>\n          </li>\n          <li id=\"b1aca9dceb1yw\">\n            <p id=\"b7f7ebea64uwn\">调用接口<a href=\"https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-listtagresources\" id=\"1a9b646353u31\" title=\"\" class=\"xref\">查询资源已经绑定的标签列表</a>。</p>\n          </li>\n          <li id=\"4378d1190emds\">\n            <p id=\"aee1c4444ddla\">调用接口<a href=\"https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-untagresources\" id=\"9c37be95bbssg\" title=\"\" class=\"xref\">为指定资源列表统一解绑标签</a>。</p>\n          </li>\n          <li id=\"5f27bc5715gn0\">\n            <p id=\"ce5a4f54fd5na\">调用接口<a href=\"https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-joinresourcegroup\" id=\"a3a7d6a1f1x8r\" title=\"\" class=\"xref\">将一个<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>资源或者服务加入一个资源组</a>。</p>\n          </li>\n        </ul>\n      </section>\n      <p id=\"0874126854rff\"></p>\n    </div>\n  </main>\n\n\n\n\n</div>","path":"https://help.aliyun.com/zh/ecs/user-guide/label-overview","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云服务器 ECS","id":25365,"title":"云服务器 ECS","url":"/zh/ecs/"},"alias":"/ecs/user-guide/label-overview","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":7,"developerUrl":"https://developer.aliyun.com/group/ecs/","nodeType":1,"version":69,"url":"/zh/ecs/user-guide/label-overview","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":25477,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"标签","id":25477,"title":"标签","url":"/zh/ecs/user-guide/label-overview"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"标签与资源","id":108425,"title":"标签与资源","url":"/zh/ecs/user-guide/tags-and-resources/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"实践教程","id":51167,"title":"实践教程","url":"/zh/ecs/user-guide/use-cases/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云服务器 ECS","id":25365,"title":"云服务器 ECS","url":"/zh/ecs/"},"productUrl":"https://www.aliyun.com/product/ecs","nodeId":25477,"desc":"随着云资源增加，管理难度也在增加，您可能无法批量管理云资源的成本和监控。为了实现资源的精细化管理，您可以使用标签对资源进行分类标记。标签是重要的分组工具，可以帮助您在人员、财务和物品管理方面进行横向管理。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云服务器 ECS","id":25365,"title":"云服务器 ECS","url":"/zh/ecs/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"实践教程","id":51167,"title":"实践教程","url":"/zh/ecs/user-guide/use-cases/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"标签与资源","id":108425,"title":"标签与资源","url":"/zh/ecs/user-guide/tags-and-resources/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"标签","id":25477,"title":"标签","url":"/zh/ecs/user-guide/label-overview"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=215041ae17825371679997480e2d92&asid=AQAAAADQWz9qYawvewAAAADj1vfyYDPm2A==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2399509" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">用户指南</span>
+</a>
+</li>
+ <li id="2399511" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="25396" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/billing-2/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品计费</span>
+</a>
+</li>
+ <li id="2983136" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/faqs/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+ <li id="117482" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/announcements-and-updates/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">动态与公告</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>使用标签对云服务器ECS资源进行分类和管理</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/ecs" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="concept-jzp-qtd-zdb">
+    
+    
+    <p data-tag="shortdesc" id="shortdesc-62r-75o-0vs" class="shortdesc">随着云资源增加，管理难度也在增加，您可能无法批量管理云资源的成本和监控。为了实现资源的精细化管理，您可以使用标签对资源进行分类标记。标签是重要的分组工具，可以帮助您在人员、财务和物品管理方面进行横向管理。</p>
+    <div data-tag="conbody" id="conbody-6pv-tsr-oqr" class="conbody">
+      <p id="a5ae6b7782hid">更多标签信息，请参见<a href="https://help.aliyun.com/zh/resource-management/tag/product-overview/tag-overview" id="51b1a4967f4aa" title="" class="xref">什么是标签</a>。</p>
+      <section data-tag="section" data-type="section" id="section-ic2-gkw-wgb" class="section">
+        <h2 data-tag="title" id="title-zjn-bhd-2jr" class="title">应用场景</h2>
+        <p data-tag="p" id="p-xga-wef-1pq" class="p">随着您创建的云服务器<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>数量的增加，利用标签进行资源分组管理和分类有利于搜索和批量操作。标签的常见场景包括：</p>
+        <ul data-tag="ul" id="ul-1t7-l4u-akd" class="ul">
+          <li data-tag="li" id="li-py8-nbd-i8a" class="li">
+            <p id="9db3566da4gv7">管理应用发布流程</p>
+          </li>
+          <li data-tag="li" id="li-ko7-ygm-gtt" class="li">
+            <p id="e35d52c1a5h03">资源溯源，基于标签分组检索和管理资源</p>
+          </li>
+          <li data-tag="li" id="li-5so-xr0-n94" class="li">
+            <p id="0794857e7ftwo">搭配<span id="77bcb38d10p6o" outputclass="productName" data-tag="ph" data-ref-searchable="yes" data-reuse-tag="productName" data-type="productName" data-product-code="oos" docid="4265318" is-conref="true" class="ph productName">系统运维管理</span>、资源编排、弹性伸缩和云助手等实现基于标签自动化分组运维</p>
+          </li>
+          <li data-tag="li" id="li-zar-y0a-mbw" class="li">
+            <p id="20f5f6bbf87fa">基于标签管理成本和分账</p>
+          </li>
+          <li data-tag="li" id="li-vjp-yqr-mlt" class="li">
+            <p id="e32e4a9b92p9x">设计资源或角色访问控制</p>
+          </li>
+        </ul>
+        <p id="f7cb862ab7idg">本文将详细介绍以下两个场景，更多应用场景，请参见<a href="https://help.aliyun.com/zh/resource-management/tag/product-overview/tag-overview" id="f07c5d6385apx" title="" class="xref">什么是标签</a>。</p>
+        <section data-tag="tabbed-content-box" id="81703639f9ckd" outputclass="tabbed-content-box" class="tabbed-content-box section">
+          <section id="88bacff9b70hv" class="section">
+            <h2 id="4c6dce43d3gt5">场景一：优化云服务器资源管理或使用标签进行自动化运维</h2>
+            <section data-tag="section" data-type="section" id="6f3883bc48yow" class="section">
+              <p id="8fe468d56fams">您可以为不同环境（如生产环境和测试环境）、操作系统（如<span class="help-letter-space"></span>Windows<span class="help-letter-space"></span>和<span class="help-letter-space"></span>Linux）或客户端平台（如<span class="help-letter-space"></span>iOS<span class="help-letter-space"></span>和<span class="help-letter-space"></span>Android）绑定不同的标签。例如，为测试环境涉及的所有<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例绑定一个类似<span data-tag="ph" id="codeph-hwg-yy2-gsn" class="ph"><code code-type="xCode" data-tag="code" class="code">Test:Server-Windows</code></span>的标签键值对，以便在维护中快速筛选相关实例。<img alt="标签应用场景示例二" data-tag="image" id="image-r0y-f25-0cz" placement="break" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7250659951/p76664.png" width="500" class="image break"></p>
+              <p data-tag="p" id="p-n7u-smk-toh" class="p">批量操作示例： </p>
+              <ul data-tag="ul" id="ul-wq6-ljf-85h" class="ul">
+                <li data-tag="li" id="li-ngc-ob6-6t9" class="li">
+                  <p id="6f4122d5373rk">更换镜像部署应用</p>
+                </li>
+                <li data-tag="li" id="li-nsp-ny3-2kd" class="li">
+                  <p id="6f4122d637qk6">升级补丁</p>
+                </li>
+                <li data-tag="li" id="li-ygj-ig6-1gi" class="li">
+                  <p id="6f4122d737fik">添加安全组规则控制网络访问</p>
+                  <p id="bc47352deb22i">更多信息，请参见<a href="https://help.aliyun.com/zh/resource-management/tag/use-cases/query-ecs-instances-based-on-tags-and-add-ecs-instances-to-security-groups-with-same-tags" id="592a20cc67x17" title="" class="xref">使用标签获取<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例并将其加入到对应标签的安全组</a>。</p>
+                </li>
+                <li data-tag="li" id="li-ql6-bb6-ar8" class="li">
+                  <p id="6f4122d837mj2">通过<span id="6e33ec7628i7c" outputclass="productName" data-tag="ph" data-ref-searchable="yes" data-reuse-tag="productName" data-type="productName" data-product-code="oos" docid="4265318" is-conref="true" class="ph productName">系统运维管理</span>批量启动、停止或重启<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例</p>
+                  <p id="66cc9f0ff62dz">以批量启动<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>为例，具体操作，请参见<a href="https://help.aliyun.com/zh/resource-management/use-oos-to-start-multiple-ecs-instances-with-specific-tags-at-a-time-1" id="acfec5f1c8fsm" title="" class="xref">使用<span class="help-letter-space"></span>OOS<span class="help-letter-space"></span>批量启动带指定标签的<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例</a>。</p>
+                </li>
+                <li data-tag="li" id="li-ujr-l8a-q0y" class="li">
+                  <p id="6f4122d937o02">通过云助手在多台<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例上运行运维脚本</p>
+                  <p id="c9fbba8e903n8">以在指定标签的<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例上执行云助手命令为例，具体操作，请参见<a href="https://help.aliyun.com/zh/ecs/user-guide/control-the-executions-of-cloud-assistant-commands-based-on-tags" id="455bc45636twg" title="" class="xref">使用标签控制云助手命令的执行</a>。</p>
+                </li>
+              </ul>
+            </section>
+          </section>
+          <section id="8ab694b5c0rcl" class="section">
+            <h3 id="9f0431a3ea8j1">场景二：团队和项目管理</h3>
+            <section data-tag="section" data-type="section" id="307e03c494ygo" class="section">
+              <p id="f02f263094biq">在团队或项目管理中，您可以添加以群组、项目或部门为维度的标签（如<span data-tag="ph" id="codeph-bn4-egh-peg" class="ph"><code code-type="xCode" data-tag="code" class="code">CostCenter:aliyun</code></span>），然后实现分组、在费用中心基于标签实现分账管理，或者交叉授权等目的。<img alt="标签应用场景示例" data-tag="image" id="image-44o-0mq-zui" placement="break" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/7250659951/p76662.png" width="500" class="image break"></p>
+              <p data-tag="p" id="p-izx-ju6-vkf" class="p">更多信息，请参见： </p>
+              <ul data-tag="ul" id="ul-t0r-7fg-088" class="ul">
+                <li id="9feae332a4lmg" props="china" data-cond-props="china">
+                  <p id="8828f69d2c046"><a href="https://help.aliyun.com/zh/resource-management/tag/use-cases/use-tags-to-allocate-costs-for-instance-based-services" id="afc245ef157mn" title="" class="xref">使用标签实现实例型云服务分账</a></p>
+                </li>
+                <li id="dd848e51ae6ms" props="china" data-cond-props="china">
+                  <p id="269a2a4b00bnc"><a href="https://help.aliyun.com/zh/resource-management/tag/use-cases/view-and-export-the-split-bills-of-instance-based-services" id="8616f6056be3v" title="" class="xref">查看和导出实例型云服务的分账账单</a></p>
+                </li>
+                <li id="38b0501114mue">
+                  <p id="7037f7bfe9laf"><a href="https://help.aliyun.com/zh/resource-management/tag/user-guide/use-tags-to-query-cloud-resources" id="f6ee17e441lom" title="" class="xref">使用标签查找资源</a></p>
+                </li>
+                <li id="fa9d186c78jou">
+                  <p id="7d91d45ee1uf4"><a href="https://help.aliyun.com/zh/ram/use-cases/use-tags-to-grant-access-to-ecs-instances-by-group" id="5902027c00so5" title="" class="xref">使用标签对<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例进行分组授权</a></p>
+                </li>
+              </ul>
+            </section>
+          </section>
+        </section>
+      </section>
+      <section data-tag="section" data-type="section" id="section-rpy-vzb-x8o" class="section">
+        <h2 data-tag="title" id="title-l9y-rel-2tl" class="title">使用说明</h2>
+        <p id="6f41980037uj1">标签都由一对键值对（Key-Value）组成，资源的任一标签的标签键（Key）必须唯一。</p>
+        <div id="720d67c7f0ztg" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+          <p id="84ae8879f19b0">使用标签前，您需要了解标签的使用限制及配额，请参见<a href="https://help.aliyun.com/zh/resource-management/tag/product-overview/tag-overview#section-fln-n74-2dh" id="000e82e135bn8" title="" class="xref">什么是标签</a>。</p>
+        </div></div>
+        <div id="da0c568448ni4" outputclass="collapse" class="collapse">
+          <p data-tag="expandable-title" id="e6510df048t5h" class="expandable-title">支持绑定标签的<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>资源</p>
+          <div data-tag="expandable-content" id="da0c568248lih" class="expandable-content">
+            <ul id="2df10ad2489hn">
+              <li data-tag="li" id="2e37d7d148sc8" class="li">
+                <p id="2e37d7d248mbx">ECS<span class="help-letter-space"></span>实例</p>
+              </li>
+              <li id="82e5f2714843a">
+                <p id="82e5f2704835s">云盘</p>
+              </li>
+              <li data-tag="li" id="2e37d7d348ija" class="li">
+                <p id="2e37d7d44892x">预留实例券</p>
+              </li>
+              <li data-tag="li" id="2e37d7d548xt4" class="li">
+                <p id="2e37d7d648424">块存储</p>
+              </li>
+              <li data-tag="li" id="2e37d7d748wgw" class="li">
+                <p id="2e37d7d848iqd">快照</p>
+              </li>
+              <li id="b56ef57048xnj">
+                <p id="b56ece6048d6e">快照一致性组</p>
+              </li>
+              <li data-tag="li" id="2e37d7d94835v" class="li">
+                <p id="2e37d7da48h7e">自动快照策略</p>
+              </li>
+              <li data-tag="li" id="2e37d7db48jr2" class="li">
+                <p id="2e37d7dc48lf4">镜像</p>
+              </li>
+              <li id="a717ffd048l9v">
+                <p id="a717d8c0487xv">镜像组件</p>
+              </li>
+              <li id="c9096c00489mm">
+                <p id="c90944f048s1a">镜像模板</p>
+              </li>
+              <li data-tag="li" id="2e37d7dd48e6s" class="li">
+                <p id="2e37d7de48qty">安全组</p>
+              </li>
+              <li data-tag="li" id="2e37d7df48rwd" class="li">
+                <p id="2e37d7e048tqu">弹性网卡</p>
+              </li>
+              <li data-tag="li" id="2e37d7e1488kv" class="li">
+                <p id="2e37d7e248ve1">专有宿主机</p>
+              </li>
+              <li data-tag="li" id="2e37d7e3489me" class="li">
+                <p id="2e37d7e448wdf">SSH<span class="help-letter-space"></span>密钥对</p>
+              </li>
+              <li data-tag="li" id="2e37d7e5483r6" class="li">
+                <p id="2e37d7e648u9o">实例启动模板</p>
+              </li>
+              <li id="993501b14808v">
+                <p id="993501b0485mg">专有宿主机组</p>
+              </li>
+              <li id="2e37d7e94859n">
+                <p id="2e37d7ea485zh">弹性保障</p>
+              </li>
+              <li id="2e37d7eb489ut">
+                <p id="2e37d7ec48f1w">容量预定服务</p>
+              </li>
+              <li id="b39ccd80484uk">
+                <p id="b39ca67048kfg">存储容量单位包</p>
+              </li>
+              <li id="2e37d7ed48g4n">
+                <p id="2e37d7ee488yb">云助手命令</p>
+              </li>
+              <li id="2e37d7ef48ozu">
+                <p id="2e37d7f048kak">云助手命令执行或文件下发结果</p>
+              </li>
+              <li id="2e37d7f14868g">
+                <p id="2e37d7f248xop">云助手托管实例</p>
+              </li>
+              <li id="2e37d7f348xj1">
+                <p id="2e37d7f448bj7">云助手托管实例激活码</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+      <section data-tag="section" data-type="section" id="section-yoy-sme-w01" class="section">
+        <h2 id="c0c680a32beez"><b>创建并绑定标签</b></h2>
+        <p id="661893fccesi9">在创建标签前，请参见<a href="https://help.aliyun.com/zh/resource-management/tag/use-cases/best-practices-for-tag-design#section-svt-g2c-pri" id="08d7813967l7i" title="" class="xref">标签设计的原则</a>以了解相关背景和示例。创建或绑定标签的具体操作如下：</p>
+        <div id="1c8429129en2g" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+          <p id="a0232f01597fu">一个资源绑定标签的上限为<span class="help-letter-space"></span>20<span class="help-letter-space"></span>个。如果超出上限，您需要解绑部分标签后再继续绑定新标签。</p>
+        </div></div>
+        <ol data-tag="steps" id="7b754dc048ovh" class="steps">
+          <li id="b9a45a1c07t9l" docid="380982" is-conref="true"><p id="6941fd38eespi">访问<span data-tag="ph" id="37b4f83f4eifp" docid="380982" is-conref="true" class="ph"><span props="china"><a class="" href="https://ecs.console.aliyun.com/tags/region" id="ed4f558c51ll2">ECS<span class="help-letter-space"></span>控制台-标签</a></span></span>。</p></li>
+          <li data-tag="step" id="b1df3ccecfljd" is-conref="true" class="step"><p id="cc0dfc4237gix"><span data-tag="cmd" id="cmd-acu-560-w33" class="cmd">在页面左侧顶部，选择目标资源所在的资源组和地域。<img alt="地域" data-tag="image" id="image-3wz-243-ym2" placement="break" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5587314271/p680076.png" width="500" class="image break"> </span></p></li>
+          <li data-tag="step" id="step-3ev-ki1-fhw" class="step">
+            <p id="e7099918c5vzl">在<b id="uicontrol-wg7-mfz-518" data-tag="uicontrol" data-isbold="true" class="uicontrol">自定义标签</b>页签下，单击<b data-tag="uicontrol" id="uicontrol-9cm-6uf-wl0" class="uicontrol">创建自定义标签</b>。</p>
+          </li>
+          <li data-tag="step" id="step-um1-oui-mcl" class="step">
+            <p id="c28a0aeeddxyc">在<b data-tag="uicontrol" id="wintitle-qkt-tnx-i94" class="uicontrol">创建自定义标签</b>页面中，完成以下操作。</p>
+            <div data-tag="info" id="info-x81-mi7-vvn" class="info">
+              <p id="52153d5a7ftzi">创建自定义标签时必须同时绑定资源。如果需要仅创建标签，并规划标签键和标签值，请使用预置标签。更多信息，请参见<a href="https://help.aliyun.com/zh/resource-management/tag/user-guide/create-a-tag#task-2115168" id="84f56477b1wds" title="" class="xref">创建标签</a>。</p>
+            </div>
+            <ol data-tag="substeps" id="substeps-zbq-57x-poo" type="a" class="substeps">
+              <li data-tag="substep" id="substep-vfq-f2u-cex" class="substep">
+                <p id="4dfef64bd0qaf">创建新标签。</p>
+                <div data-tag="info" id="info-jop-1jz-pvg" class="info">
+                  <p id="7f8e055c11ku4"><img alt="tag" data-tag="image" id="image-u0b-9pk-rx8" placement="break" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5074051661/p481737.png" width="650" class="image break"></p>
+                  <p id="a790f1ab27dul">参数说明如下所示：</p>
+                  <table autofit="false" bordertype="has-border" id="table-y74-am3-x2m" tablecolswidth="142 142 426" tablewidth="710" class="table">
+                    <colgroup colwidth="0.6*" style="width:20.00%"></colgroup>
+                    <colgroup colwidth="0.6*" style="width:20.00%"></colgroup>
+                    <colgroup colwidth="1.81*" style="width:60.00%"></colgroup>
+                    <tbody class="tbody">
+                      <tr id="row-zeb-oyh-z0s">
+                        <td id="task-728113-entry-2bt-lci-gzq" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                          <p id="2e78142f31aqs"><b>参数</b></p>
+                        </td>
+                        <td id="task-728113-entry-9dl-j4u-eqe" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                          <p id="68bb09114djje"><b>是否必选</b></p>
+                        </td>
+                        <td id="task-728113-entry-q1w-jra-x2l" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                          <p id="11f6886bdalwm"><b>说明</b></p>
+                        </td>
+                      </tr>
+                      <tr id="row-keo-u9z-cxo">
+                        <td id="entry-dn3-1n8-oko" rowspan="1" colspan="1">
+                          <p id="d859810937abi"><b id="uicontrol-huq-hm5-rjx" data-tag="uicontrol" data-isbold="true" class="uicontrol">标签键</b></p>
+                        </td>
+                        <td id="entry-ua8-0kw-l09" rowspan="1" colspan="1">
+                          <p id="77fdb9956fp5u">是</p>
+                        </td>
+                        <td id="entry-pxn-voy-cux" rowspan="1" colspan="1">
+                          <p id="9f523cc7c0i5g">输入新标签键或选择已有标签键。</p>
+                          <ul data-tag="ul" id="ul-is0-30b-9w2" class="ul">
+                            <li data-tag="li" id="li-j97-bhj-k9c" class="li">
+                              <p id="fb2f36a5e9lgl">输入新标签键时，最多支持<span class="help-letter-space"></span>128<span class="help-letter-space"></span>个字符，不能以<span class="help-letter-space"></span><span data-tag="option" id="option-bbw-0pz-21p" class="option">aliyun</span><span class="help-letter-space"></span>或<span class="help-letter-space"></span><span data-tag="option" id="option-39i-y50-c8q" class="option">acs:</span>开头，不能包含<span class="help-letter-space"></span><span data-tag="option" id="option-aav-17q-zoz" class="option">http://</span>和<span class="help-letter-space"></span><span data-tag="option" id="option-f92-3ed-sdz" class="option">https://</span>。</p>
+                            </li>
+                            <li data-tag="li" id="li-qcn-l9w-in0" class="li">
+                              <p id="781ae64becc7i">选择已有标签键时，支持模糊搜索。</p>
+                            </li>
+                          </ul>
+                        </td>
+                      </tr>
+                      <tr id="row-auz-5o3-fg1">
+                        <td id="entry-76n-2g7-jiw" rowspan="1" colspan="1">
+                          <p id="07f969bb721y8"><b id="uicontrol-jtk-m90-dps" data-tag="uicontrol" data-isbold="true" class="uicontrol">标签值</b></p>
+                        </td>
+                        <td id="entry-9b7-979-lft" rowspan="1" colspan="1">
+                          <p id="3ad2722a8bvre">否</p>
+                        </td>
+                        <td id="entry-dsa-84c-zjc" rowspan="1" colspan="1">
+                          <p id="07603ada02n4c">输入新标签值。</p>
+                          <p id="382e30c122yy5">输入新标签值时，最多支持<span class="help-letter-space"></span>128<span class="help-letter-space"></span>个字符，不能包含<span class="help-letter-space"></span><span data-tag="option" id="option-njm-oj5-jfd" class="option">http://</span>和<span class="help-letter-space"></span><span data-tag="option" id="option-glg-2ep-wz9" class="option">https://</span>。</p>
+                          <div data-tag="note" id="note-uh0-ts5-94p" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                            <p id="6f1499fe87t3j">标签中同一标签键可对应不同标签值。因此，选择已有标签键，输入新标签值也可创建新标签。</p>
+                          </div></div>
+                          <p id="375ca6f8fa0te"></p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </li>
+              <li data-tag="substep" id="substep-2hx-ukq-f35" class="substep">
+                <p id="18aa53e8ac7h7">单击<b id="uicontrol-21a-7n8-k6z" data-tag="uicontrol" data-isbold="true" class="uicontrol">下一步</b>。</p>
+              </li>
+              <li data-tag="substep" id="substep-vzd-yit-hii" class="substep">
+                <p id="97063063e831m">配置相关参数绑定资源。</p>
+                <div data-tag="info" id="info-dcp-tod-p3p" class="info">
+                  <p id="bebbb7f6117uk">参数说明如下所示：</p>
+                  <table autofit="false" bordertype="has-border" id="table-ms1-fn7-ot3" tablecolswidth="177 355 177" tablewidth="709" class="table">
+                    <colgroup colwidth="0.75*" style="width:24.96%"></colgroup>
+                    <colgroup colwidth="1.5*" style="width:50.07%"></colgroup>
+                    <colgroup colwidth="0.75*" style="width:24.96%"></colgroup>
+                    <tbody class="tbody">
+                      <tr id="row-o38-lfg-5h6">
+                        <td id="task-728113-entry-rjc-ub0-3nn" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                          <p id="b6106afbcbig2"><b>参数</b></p>
+                        </td>
+                        <td id="task-728113-entry-jrg-vt3-e1v" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                          <p id="07d30e89569gu"><b>说明</b></p>
+                        </td>
+                        <td id="task-728113-entry-313-au9-8is" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                          <p id="59e05f3f2arqj"><b>示例</b></p>
+                        </td>
+                      </tr>
+                      <tr id="d8a2621048u28">
+                        <td id="d8a2621148ai2" rowspan="1" colspan="1">
+                          <p id="e5cb4853997id"><b data-tag="uicontrol" id="uicontrol-369-7zj-got" class="uicontrol">资源选择方式</b></p>
+                        </td>
+                        <td id="d8a2621348bvg" rowspan="1" colspan="1">
+                          <p id="1101bf10a37p6">资源选择支持以下两种方式：</p>
+                          <ul data-tag="ul" id="df3a768248us1" class="ul">
+                            <li data-tag="li" id="df3a768348nj0" class="li">
+                              <p id="039eeafb4cenf"><b data-tag="uicontrol" id="uicontrol-j11-w26-9va" class="uicontrol">资源列表选择</b>：您可以在资源列表中选择需要绑定的一个或多个资源。</p>
+                            </li>
+                            <li data-tag="li" id="df3a9d9048jnd" class="li">
+                              <p id="3cf5925bcbx6p"><b data-tag="uicontrol" id="uicontrol-6sd-kw8-wlm" class="uicontrol">输入多个资源<span class="help-letter-space"></span>ID</b>：您可以在<b id="uicontrol-g6y-wn5-js3" data-tag="uicontrol" data-isbold="true" class="uicontrol">输入资源<span class="help-letter-space"></span>ID</b><span class="help-letter-space"></span>区域的输入框中输入资源<span class="help-letter-space"></span>ID。</p>
+                              <div id="4aa14660489rn" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                                <ul id="ada6bbc08737y">
+                                  <li id="6ac43708b8ceq">
+                                    <p id="80c18c2d768p4">多个资源<span class="help-letter-space"></span>ID<span class="help-letter-space"></span>请分行输入，或使用半角逗号（,）分隔。</p>
+                                  </li>
+                                  <li id="53c88f8c02whg">
+                                    <p id="b2077fd60dx0c">单次请求最多可以绑定<span class="help-letter-space"></span>20<span class="help-letter-space"></span>个标签。</p>
+                                  </li>
+                                </ul>
+                              </div></div>
+                            </li>
+                          </ul>
+                        </td>
+                        <td id="d8a2621548jqg" rowspan="1" colspan="1">
+                          <p id="d1abb36a29wl0"><b data-tag="uicontrol" id="a7d925944877f" class="uicontrol">输入多个资源<span class="help-letter-space"></span>ID</b></p>
+                        </td>
+                      </tr>
+                      <tr id="row-1pv-j7k-yj6">
+                        <td id="entry-2lg-d2t-jvr" rowspan="1" colspan="1">
+                          <p id="10314e00e1cdk"><b id="uicontrol-thl-7w3-qxt" data-tag="uicontrol" data-isbold="true" class="uicontrol">产品</b></p>
+                        </td>
+                        <td id="entry-0b8-7e8-h82" rowspan="1" colspan="1">
+                          <p id="cbd84e087epw8">选择产品的资源类型。例如，云服务器<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>的实例、云盘、快照等资源。</p>
+                        </td>
+                        <td id="entry-y84-rex-neh" rowspan="1" colspan="1">
+                          <p id="b125b745e7hxu"><b data-tag="uicontrol" id="uicontrol-qll-hm5-ogw" class="uicontrol">云服务器:实例</b></p>
+                        </td>
+                      </tr>
+                      <tr id="row-ybl-k84-i4j" style="height:69px">
+                        <td id="entry-9n5-si8-za1" rowspan="1" colspan="1">
+                          <p id="c47747f00btmx"><b id="a7d92595483al" data-tag="uicontrol" data-isbold="true" class="uicontrol">输入资源<span class="help-letter-space"></span>ID</b></p>
+                        </td>
+                        <td id="entry-kbm-z3m-jw1" rowspan="1" colspan="1">
+                          <p id="5db0376b38tk4">输入对应云服务器<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例的实例<span class="help-letter-space"></span>ID。</p>
+                        </td>
+                        <td id="entry-ord-kji-whq" rowspan="1" colspan="1">
+                          <p id="7bb4a07b36n29">i-bp12d03u8usvakpo****</p>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </li>
+              <li data-tag="substep" id="substep-zeb-7bo-756" class="substep">
+                <p id="03e3dbce80skx">单击<b id="uicontrol-2xt-9ic-af2" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>。</p>
+              </li>
+              <li id="9227ab5b3aw3v">
+                <p id="68ff46d4a2z9d">（可选）查看绑定的资源列表。</p>
+                <p id="60278b19f72ge">在标签创建和绑定成功后，您可以在<b id="uicontrol-v1x-jtl-9pm" data-tag="uicontrol" data-isbold="true" class="uicontrol">自定义标签</b>列表上方单击<img alt="tag1" data-tag="image" id="432d5d235b8e9" placement="inline" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5074051661/p481778.png" width="30" class="image inline">图标，然后找到已成功绑定的标签，单击对应<b id="uicontrol-784-ur3-727" data-tag="uicontrol" data-isbold="true" class="uicontrol">操作</b>列的<b id="uicontrol-tel-vy1-1ep" data-tag="uicontrol" data-isbold="true" class="uicontrol">查看资源</b>，查看绑定的资源列表。</p>
+                <p id="684e26932bjm0"><img alt="check resource" data-tag="image" id="a542d3b077d0f" placement="break" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/5074051661/p481791.png" width="800" class="image break lazy-media lazy-loading"></p>
+              </li>
+            </ol>
+          </li>
+        </ol>
+        <p id="02d0738740al6"></p>
+      </section>
+      <section data-tag="section" data-type="section" id="504fbe06fdthn" class="section">
+        <h2 id="bea06a4d98jzd"><b>解绑或删除标签</b></h2>
+        <p id="b9816eae1fa5k">如果标签不再适用，您可以将该标签从目标资源上解绑。下面以资源类型为<b data-tag="uicontrol" id="uicontrol-eb3-5so-1im" class="uicontrol">云服务器：实例</b>、该资源绑定的标签为<span class="help-letter-space"></span><b id="uicontrol-z2l-vuw-8tv">ECS:Documentation</b>（标签键为<span class="help-letter-space"></span><b id="uicontrol-5ci-sax-ahh">ECS</b>，标签值为<span class="help-letter-space"></span><b id="uicontrol-3oq-wwf-ras">Documentation</b>）为例，介绍资源解绑标签的操作方法。</p>
+        <div id="f6362d5f2ebki" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+          <ul data-tag="ul" id="ul-cid-hfk-liu" class="ul">
+            <li data-tag="li" id="li-a77-wnt-s5h" class="li">
+              <p id="692fb7604btfx">单次最多可以解绑<span class="help-letter-space"></span>20<span class="help-letter-space"></span>个标签。</p>
+            </li>
+            <li data-tag="li" id="li-fxv-v1l-usn" class="li">
+              <p id="2c3b224f8a3jw">解绑标签后，如果标签绑定的资源数量为零，则该标签将在<span class="help-letter-space"></span>24<span class="help-letter-space"></span>小时内被自动删除。</p>
+            </li>
+          </ul>
+        </div></div>
+        <ol data-tag="steps" id="steps-ifw-7ws-x5u" class="steps">
+          <li data-tag="step" id="step-2t5-7me-5my" class="step">
+            <p id="34157a5d3b9le">在<b id="uicontrol-9n0-0ps-xd5" data-tag="uicontrol" data-isbold="true" class="uicontrol">自定义标签</b>页签下，选择资源类型为<b id="uicontrol-58y-gig-tha" data-tag="uicontrol" data-isbold="true" class="uicontrol">实例</b>。</p>
+          </li>
+          <li data-tag="step" id="step-800-216-1dl" class="step">
+            <p id="793935e230fab">在标签列表中找到待解绑的标签<span class="help-letter-space"></span><b id="uicontrol-0k0-6f0-rqm">ECS:Documentation</b>，以如下任一方式进入<b id="uicontrol-sen-09i-aeb" data-tag="uicontrol" data-isbold="true" class="uicontrol">资源列表</b>页面。</p>
+            <div data-tag="info" id="info-ff6-dv5-7i8" class="info">
+              <ul data-tag="ul" id="ul-bi9-e1o-26m" class="ul">
+                <li data-tag="li" id="li-xph-vno-sg6" class="li">
+                  <p id="c8ba7c4dde15s">方式一：单击<span class="help-letter-space"></span><b id="uicontrol-qf8-lid-lt6">ECS</b><span class="help-letter-space"></span>标签键后，在<span class="help-letter-space"></span><b id="uicontrol-zcl-wv0-rj5">Documentation</b><span class="help-letter-space"></span>标签值对应的<b id="uicontrol-556-pmb-lrx" data-tag="uicontrol" data-isbold="true" class="uicontrol">操作</b>列，单击<b id="uicontrol-v3h-fzs-17z" data-tag="uicontrol" data-isbold="true" class="uicontrol">查看资源</b>。</p>
+                </li>
+                <li data-tag="li" id="li-p8l-nu0-yr1" class="li">
+                  <p id="b387fc291etli">方式二：在<span class="help-letter-space"></span><b id="uicontrol-qxa-r3v-7a7">ECS</b><span class="help-letter-space"></span>标签键对应的<b id="uicontrol-gky-gu4-pyq" data-tag="uicontrol" data-isbold="true" class="uicontrol">操作</b>列，单击<b id="uicontrol-mrc-9xs-vsw" data-tag="uicontrol" data-isbold="true" class="uicontrol">查看资源</b>。</p>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li data-tag="step" id="step-pwr-0i9-bn1" class="step">
+            <p id="cae0db9e239hc">在<b id="uicontrol-orl-a1c-2na" data-tag="uicontrol" data-isbold="true" class="uicontrol">资源列表</b>页签下，解绑一个或多个资源。</p>
+            <div data-tag="info" id="info-x3w-yv2-kxd" class="info">
+              <ul data-tag="ul" id="ul-agi-dih-pap" class="ul">
+                <li data-tag="li" id="li-5zj-hdd-ulq" class="li">
+                  <p id="dfb0c07e9fgep">单个解绑：选择一个待解绑的资源，单击对应<b id="uicontrol-0fz-sh8-urq" data-tag="uicontrol" data-isbold="true" class="uicontrol">操作</b>列的<b id="uicontrol-cd4-vmy-815" data-tag="uicontrol" data-isbold="true" class="uicontrol">解绑资源</b>。</p>
+                </li>
+                <li data-tag="li" id="li-7ts-az1-inu" class="li">
+                  <p id="aa84d849c9cwn">批量解绑：选中多个待解绑资源，单击<b data-tag="uicontrol" id="813a6dda304tw" class="uicontrol">解绑当前标签</b>或<b id="bc5a652d54agp" data-tag="uicontrol" data-isbold="true" class="uicontrol">解绑标签</b>。</p>
+                </li>
+              </ul>
+              <p id="4e879d3107saq"><img alt="remove resources" data-tag="image" id="image-o61-426-jyi" placement="break" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4610995271/p481903.png" class="image break lazy-media lazy-loading"></p>
+            </div>
+          </li>
+          <li data-tag="step" id="step-ir4-ein-k03" class="step">
+            <p id="4884ce9154b8j">在弹出的<b id="uicontrol-w7t-vlg-fxa" data-tag="uicontrol" data-isbold="true" class="uicontrol">解绑资源</b>对话框中，单击<b id="uicontrol-hln-g35-6go" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>。</p>
+            <p id="725c00af2dkg7">资源解绑标签成功后，在<b id="uicontrol-2e6-zea-361" data-tag="uicontrol" data-isbold="true" class="uicontrol">资源列表</b>页面，单击<img alt="tag1.png" class="image inline lazy-media lazy-loading" data-tag="image" id="image-u25-vvv-ux4" placement="inline" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" data-src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1596434071/p754264.png" width="30">图标后，您可以查看到资源对应的标签已解绑。</p>
+          </li>
+        </ol>
+      </section>
+      <section data-tag="section" data-type="section" id="d9d47c0483m62" class="section">
+        <h2 id="45160522e26ts"><b>标签最佳实践</b></h2>
+        <p id="fe77e1d8b1xbl">您可以使用标签来精细化管理资源，常见用法及对应操作如下：</p>
+        <ul id="59bb6027d6tif">
+          <li id="4e31d296009x2">
+            <p id="c1fb8ac7f1isg"><b>查找或导出资源</b></p>
+            <ul id="233a9c006cd9g">
+              <li id="a542c2a5cafvg">
+                <p id="8c5b4f3aa10bm">使用标签编辑器编辑资源的标签以及导出资源信息，具体操作，请参见<a href="https://help.aliyun.com/zh/resource-management/tag-editor/" id="824a86313288d" title="" class="xref">标签编辑器</a>。</p>
+              </li>
+              <li id="fd29ed10f2u9k">
+                <p id="3cf3a52350qei">精确查找和模糊搜索目标标签下的云资源，具体操作，请参见<a href="https://help.aliyun.com/zh/resource-management/tag/user-guide/use-tags-to-query-cloud-resources" id="3c5aacce66qcc" title="" class="xref">使用标签查找资源</a>。</p>
+              </li>
+            </ul>
+          </li>
+          <li id="b23666d2degcp">
+            <p id="d2d6e667ba6p2"><b>使用标签控制资源访问</b></p>
+            <ul id="6bd61242b24pg">
+              <li id="dea49ce68bwv3">
+                <p id="a41cc29af2631">使用标签对<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例进行分组并授权，以满足<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>用户只能查看和操作被授权资源的需求。具体操作，请参见<a href="https://help.aliyun.com/zh/ram/use-cases/use-tags-to-grant-access-to-ecs-instances-by-group" id="67cf5b205djca" title="" class="xref">使用标签对<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例进行分组授权</a>。</p>
+              </li>
+              <li id="6e548ccc73ags">
+                <p id="d309420bb4ocd">通过<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>的自定义策略指定授权的标签，利用标签限制<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>用户只能查看和管理指定的<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例。具体操作，请参见<a href="https://help.aliyun.com/zh/ram/use-cases/use-tags-to-control-access-to-ecs-resources-1" id="7242b04208tut" title="" class="xref">使用标签限制<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>用户管理指定的<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例</a>。</p>
+              </li>
+            </ul>
+          </li>
+          <li id="c9a24dfb83qhw">
+            <p id="cadb946d6d2tp"><b>使用标签进行自动化运维</b></p>
+            <ul id="47ad610a28yin">
+              <li id="f55f6d8a4c08w">
+                <p id="0887954af5wah">在<span class="help-letter-space"></span>OOS<span class="help-letter-space"></span>中批量启动带指定标签的多台<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例。具体操作，请参见<a href="https://help.aliyun.com/zh/resource-management/tag/use-cases/use-oos-to-start-multiple-ecs-instances-with-specific-tags-at-a-time" id="b4355f3be04su" title="" class="xref">使用<span class="help-letter-space"></span>OOS<span class="help-letter-space"></span>批量启动带指定标签的<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例</a>。</p>
+              </li>
+              <li id="885ed24fcbwrn">
+                <p id="e8eabe5baf7e6">使用<span class="help-letter-space"></span>OOS<span class="help-letter-space"></span>提供的公共任务模板创建执行，为<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例下的云盘、弹性网卡、弹性公网<span class="help-letter-space"></span>IP、快照和自定义镜像批量继承<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例的标签。具体操作，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/resource-management/tag/use-cases/use-oos-to-enable-resources-of-the-ecs-instances-to-inherit-tags-at-a-time" id="f8d2870271y3j" title="" class="xref">ECS<span class="help-letter-space"></span>实例下的云盘、弹性网卡、弹性公网<span class="help-letter-space"></span>IP、快照和自定义镜像批量继承<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例的标签</a>。</p>
+              </li>
+              <li id="7e8832a68e150">
+                <p id="1ae7a94338wup">使用<span class="help-letter-space"></span>OOS<span class="help-letter-space"></span>提供的公共任务模板创建执行，根据指定标签获取<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例，并把获取到的<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例加入到绑定了同一标签的安全组中。具体操作，请参见<a href="https://help.aliyun.com/zh/resource-management/tag/use-cases/query-ecs-instances-based-on-tags-and-add-ecs-instances-to-security-groups-with-same-tags" id="a3235cf69d8fu" title="" class="xref">使用标签获取<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例并将其加入到对应标签的安全组</a>。</p>
+              </li>
+              <li id="dfaf82d6c3a47">
+                <p id="9a6aa9f8edbry">为多台<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例绑定相同标签，然后通过云监控的智能标签同步功能，将它们自动添加至同一个应用分组，实现自动化分组监控。具体操作，请参见<a href="https://help.aliyun.com/zh/resource-management/tag/use-cases/use-tags-to-enable-ecs-instances-to-be-automatically-added-to-cloudmonitor-application-groups-1" id="8d359327eb04h" title="" class="xref">使用标签将<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例自动加入云监控应用分组</a>。</p>
+              </li>
+              <li id="1fa1b06496wqj">
+                <p id="ca03dc4f29a54">在指定标签的<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例上批量执行云助手命令或通过云助手上传文件。具体操作，请参见<a href="https://help.aliyun.com/zh/resource-management/tag/use-cases/use-tags-to-control-the-running-of-cloud-assistant-commands" id="9b439c30c7y0g" title="" class="xref">使用标签控制云助手的命令执行</a>。</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section id="48847a804848u" class="section">
+        <h2 id="48847a81480fs"><b>相关文档</b></h2>
+        <ul id="0b62910d8252t">
+          <li id="f770bb8b56ype">
+            <p id="b50c5ea6d8aid">您还可以通过资源组根据资源的用途、权限和归属等维度对您拥有的云资源进行分组，从而实现企业内部多用户、多项目的资源分级管理。更多信息，请参见<a href="https://help.aliyun.com/zh/resource-management/resource-group/product-overview/resource-group-overview" id="c879b20bbasxg" title="" class="xref">什么是资源组</a>或<a href="https://help.aliyun.com/zh/ecs/user-guide/resource-groups" id="9a7e1cbf08fpw" title="" class="xref">资源组</a>。</p>
+          </li>
+          <li id="98541df71dj94">
+            <p id="63bb1a9bcc6ql">调用接口<a href="https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-tagresources" id="45ce37a09bi59" title="" class="xref">创建并绑定标签</a>。</p>
+          </li>
+          <li id="b1aca9dceb1yw">
+            <p id="b7f7ebea64uwn">调用接口<a href="https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-listtagresources" id="1a9b646353u31" title="" class="xref">查询资源已经绑定的标签列表</a>。</p>
+          </li>
+          <li id="4378d1190emds">
+            <p id="aee1c4444ddla">调用接口<a href="https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-untagresources" id="9c37be95bbssg" title="" class="xref">为指定资源列表统一解绑标签</a>。</p>
+          </li>
+          <li id="5f27bc5715gn0">
+            <p id="ce5a4f54fd5na">调用接口<a href="https://help.aliyun.com/zh/ecs/developer-reference/api-ecs-2014-05-26-joinresourcegroup" id="a3a7d6a1f1x8r" title="" class="xref">将一个<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>资源或者服务加入一个资源组</a>。</p>
+          </li>
+        </ul>
+      </section>
+      <p id="0874126854rff"></p>
+    </div>
+  </main>
+
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/ecs/user-guide/tags-and-resources/" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：标签与资源</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/ecs/user-guide/resources/" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：资源<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

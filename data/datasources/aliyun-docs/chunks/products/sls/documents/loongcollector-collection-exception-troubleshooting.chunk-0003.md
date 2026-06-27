@@ -1,0 +1,3 @@
+保留下来，采集器默认往回读取1M日志导致日志重复。
+容器内日志发生采集重复，并且采集路径含NAS。
+如果创建reader的时间点因为（NAS）目录注册慢没有赶上dump checkpoint的时间点，那么进度都会丢失。add a new watcher持续时间过长也是一个特征，解决方法是把check_point_dump_interval修改为600。

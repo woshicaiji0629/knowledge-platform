@@ -1,0 +1,17 @@
+{
+  "id": "vpc:vpc-prefix-lists",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "前缀列表-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/vpc-prefix-lists",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/vpc-prefix-lists.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/vpc-prefix-lists.md",
+  "word_count": 1848,
+  "text_units": 6526,
+  "local_links": 9,
+  "external_links": 106,
+  "has_tables": true,
+  "table_count": 6,
+  "quality": "accepted"
+}

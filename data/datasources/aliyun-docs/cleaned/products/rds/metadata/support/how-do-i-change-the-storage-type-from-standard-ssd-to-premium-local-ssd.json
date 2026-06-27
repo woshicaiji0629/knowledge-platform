@@ -1,0 +1,17 @@
+{
+  "id": "rds:support/how-do-i-change-the-storage-type-from-standard-ssd-to-premium-local-ssd",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "performance",
+  "title": "将RDS实例的云盘变更为高性能本地盘-云数据库 RDS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/rds/support/how-do-i-change-the-storage-type-from-standard-ssd-to-premium-local-ssd",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/support/how-do-i-change-the-storage-type-from-standard-ssd-to-premium-local-ssd.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/support/how-do-i-change-the-storage-type-from-standard-ssd-to-premium-local-ssd.md",
+  "word_count": 507,
+  "text_units": 899,
+  "local_links": 3,
+  "external_links": 61,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-sql-server/follow-up-guide",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "深入使用RDS SQL Server-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-sql-server/follow-up-guide",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-sql-server/follow-up-guide.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-sql-server/follow-up-guide.md",
+  "word_count": 875,
+  "text_units": 1991,
+  "local_links": 1,
+  "external_links": 90,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

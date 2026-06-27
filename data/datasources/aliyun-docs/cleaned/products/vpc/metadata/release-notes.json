@@ -1,0 +1,17 @@
+{
+  "id": "vpc:release-notes",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "专有网络VPC的产品功能动态和对应的文档-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/release-notes",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/release-notes.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/release-notes.md",
+  "word_count": 3128,
+  "text_units": 7227,
+  "local_links": 0,
+  "external_links": 264,
+  "has_tables": true,
+  "table_count": 168,
+  "quality": "accepted"
+}

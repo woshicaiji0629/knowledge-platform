@@ -1,0 +1,17 @@
+{
+  "id": "vpc:understanding-vpc-quotas-in-alibaba-cloud",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "performance",
+  "title": "限制与配额-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/understanding-vpc-quotas-in-alibaba-cloud",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/understanding-vpc-quotas-in-alibaba-cloud.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/understanding-vpc-quotas-in-alibaba-cloud.md",
+  "word_count": 1574,
+  "text_units": 3967,
+  "local_links": 0,
+  "external_links": 91,
+  "has_tables": true,
+  "table_count": 54,
+  "quality": "accepted"
+}

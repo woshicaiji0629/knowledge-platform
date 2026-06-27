@@ -1,0 +1,424 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    配置Prometheus监控数据为Grafana数据源-日志服务(SLS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/sls/send-time-series-data-from-log-service-to-grafana">
+  <meta name="keywords" content="对接时序数据到Grafana,配置Prometheus数据源,导入Grafana模板,时序数据Grafana对接,Grafana数据源配置,Prometheus兼容API">
+  <meta name="description" content="日志服务MetricStore提供了兼容Prometheus的查询接口，您可以直接通过Prometheus数据源方式对接到Grafana进行可视化演示。本文介绍配置Prometheus监控数据为Grafana数据源的操作步骤。">
+  <meta name="last-modified" content="2026-04-22T19:10:28+08:00">
+  <meta name="date" content="2020-07-16T02:21:30+08:00">
+  <meta property="og:title" content="时序数据对接Grafana">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/sls/send-time-series-data-from-log-service-to-grafana">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="日志服务MetricStore提供了兼容Prometheus的查询接口，您可以直接通过Prometheus数据源方式对接到Grafana进行可视化演示。本文介绍配置Prometheus监控数据为Grafana数据源的操作步骤。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/sls/send-time-series-data-from-log-service-to-grafana",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "173903",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/sls/send-time-series-data-from-log-service-to-grafana","nodeId":null,"data":{"lastModifiedTime":1776856228000,"keywords":"对接时序数据到Grafana,配置Prometheus数据源,导入Grafana模板,时序数据Grafana对接,Grafana数据源配置,Prometheus兼容API","docTitle":"时序数据对接Grafana","language":"zh","seoTitle":"配置Prometheus监控数据为Grafana数据源-日志服务(SLS)-阿里云帮助中心","title":"时序数据对接Grafana","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"task-2539803\">\n    \n    \n    <p id=\"shortdesc-ka3-l5w-b50\" data-tag=\"shortdesc\" class=\"shortdesc\">日志服务<span class=\"help-letter-space\"></span>MetricStore<span class=\"help-letter-space\"></span>提供了兼容<span class=\"help-letter-space\"></span>Prometheus<span class=\"help-letter-space\"></span>的查询接口，您可以直接通过<span class=\"help-letter-space\"></span>Prometheus<span class=\"help-letter-space\"></span>数据源方式对接到<span class=\"help-letter-space\"></span>Grafana<span class=\"help-letter-space\"></span>进行可视化演示。本文介绍配置<span class=\"help-letter-space\"></span>Prometheus<span class=\"help-letter-space\"></span>监控数据为<span class=\"help-letter-space\"></span>Grafana<span class=\"help-letter-space\"></span>数据源的操作步骤。</p>\n    <div data-tag=\"taskbody\" id=\"taskbody-y7o-ucl-t5s\" class=\"taskbody\">\n      <section id=\"d3412ce6f1t99\" props=\"china\" data-cond-props=\"china\" class=\"section\">\n        <h2 id=\"c8d039533chfw\"><b>操作视频</b></h2><video data-tag=\"object\" id=\"object-m37-8f3-n37\" src=\"https://cloud.video.taobao.com/play/u/null/p/1/e/6/t/1/d/ud/340853379756.mp4\" controls=\"\" class=\"object\" poster=\"https://img.alicdn.com/imgextra/i1/O1CN016UJXJm1Exws0KRfi2_!!6000000000419-0-tps-1204-677.jpg\" title=\"时序数据对接Grafana\" alt=\"时序数据对接Grafana\"></video>\n      </section>\n      <section data-tag=\"prereq\" id=\"prereq-k27-itf-3kz\" data-type=\"prereq\" class=\"section prereq\">\n        <h2 id=\"d41e14\">前提条件</h2>\n        <ul data-tag=\"ul\" id=\"ul-r7y-1ox-l8p\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-y16-9ij-py9\" class=\"li\">\n            <p id=\"e3056f6750qeu\">已安装<span class=\"help-letter-space\"></span>Grafana。具体操作，请参见<a href=\"http://docs.grafana.org/installation/\" id=\"xref-yws-c5s-ncg\" class=\"\" target=\"_blank\">安装<span class=\"help-letter-space\"></span>Grafana</a>。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-x5n-j3r-0tq\" class=\"li\">\n            <p id=\"2e77b9c8ecvns\">已接入时序数据。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/collect-metric-data-from-prometheus-by-using-the-remote-write-protocol#task-2538933\" id=\"xref-e4s-quk-slt\" title=\"\" class=\"xref\">通过<span class=\"help-letter-space\"></span>Remote Write<span class=\"help-letter-space\"></span>协议接入<span class=\"help-letter-space\"></span>Prometheus<span class=\"help-letter-space\"></span>监控数据</a>。</p>\n          </li>\n        </ul>\n      </section>\n      <section data-tag=\"section\" id=\"section-h0f-4wl-pjo\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-46k-6n2-1td\" class=\"title\">对接<span class=\"help-letter-space\"></span>Grafana</h2>\n        <ol data-tag=\"steps\" id=\"steps-t2y-fs5-hsy\" class=\"steps\">\n          <li data-tag=\"step\" id=\"step-dxm-abc-6nn\" class=\"step\">\n            <p id=\"e8714a2ca0rs9\"><span data-tag=\"cmd\" id=\"cmd-4rf-tme-5md\" class=\"cmd\">登录<span class=\"help-letter-space\"></span>Grafana。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-ocg-izt-esm\" class=\"step\">\n            <p id=\"84eea3e42ehqb\"><span data-tag=\"cmd\" id=\"cmd-egq-1s2-oxh\" class=\"cmd\">在左侧导航栏，选择<span data-tag=\"menucascade\" id=\"menucascade-92e-bp3-8wk\" class=\"menucascade\"><span class=\"help-letter-space\"></span><b data-tag=\"uicontrol\" id=\"uicontrol-zud-evw-gnb\" class=\"uicontrol\">Configuration</b> &gt; <b data-tag=\"uicontrol\" id=\"uicontrol-mpu-bgq-n0b\" class=\"uicontrol\">Data Sources</b></span>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-nip-lm9-3ij\" class=\"step\">\n            <p id=\"d69f03a1a7bdg\"><span data-tag=\"cmd\" id=\"cmd-hit-x21-0t9\" class=\"cmd\">在<span class=\"help-letter-space\"></span><b id=\"wintitle-3bc-5qa-qxn\">Data Sources</b><span class=\"help-letter-space\"></span>页签，单击<span class=\"help-letter-space\"></span><b id=\"uicontrol-m0l-pf4-vib\">Add data source</b>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-6gc-87s-2cb\" class=\"step\">\n            <p id=\"727d81ef5e1n8\"><span data-tag=\"cmd\" id=\"cmd-k49-5dw-spt\" class=\"cmd\">选择<span class=\"help-letter-space\"></span><b id=\"uicontrol-kog-hdu-et0\">Prometheus</b>，单击<span class=\"help-letter-space\"></span><b id=\"uicontrol-j8v-9k1-r3e\">Select</b>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-l8k-9e6-jo8\" class=\"step\">\n            <p id=\"77166a3dac01a\"><span data-tag=\"cmd\" id=\"cmd-6as-hn9-cor\" class=\"cmd\">在<span class=\"help-letter-space\"></span><b id=\"wintitle-ria-l9y-ojs\">Settings</b><span class=\"help-letter-space\"></span>页签中，请参考如下说明配置数据源。</span></p>\n            <div data-tag=\"info\" id=\"info-obi-d9c-zrf\" class=\"info\">\n              <table id=\"table-nhs-gmc-ohu\" tablewidth=\"709\" tablecolswidth=\"177 532\" autofit=\"false\" class=\"table\">\n                <colgroup colwidth=\"0.5*\" style=\"width:24.96%\"></colgroup>\n                <colgroup colwidth=\"1.5*\" style=\"width:75.04%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"row-0fv-zo3-z9l\">\n                    <td id=\"task-2539803-entry-rn1-np2-eer\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"359579029al6z\"><b>参数</b></p>\n                    </td>\n                    <td id=\"task-2539803-entry-cz8-tqj-2cp\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"bcd2a075f6qde\"><b>说明</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-i6s-s34-w9y\">\n                    <td id=\"entry-40t-7s7-gb0\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"85cc10abbey61\"><span data-tag=\"parmname\" id=\"parmname-c5h-msz-uga\" class=\"parmname\">Name</span></p>\n                    </td>\n                    <td id=\"entry-qar-sls-h5r\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"5e5292886e2qs\">请您自定义一个数据源的名称，例如<span class=\"help-letter-space\"></span>Prometheus-01。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-76z-93r-3tw\">\n                    <td id=\"entry-vgd-5ud-7o5\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"6be144cd45bnl\"><span data-tag=\"parmname\" id=\"parmname-i0p-xy3-0dc\" class=\"parmname\">HTTP</span></p>\n                    </td>\n                    <td id=\"entry-w6a-g6d-4ou\" rowspan=\"1\" colspan=\"1\">\n                      <ul data-tag=\"ul\" id=\"ul-ikr-qvv-ics\" class=\"ul\">\n                        <li data-tag=\"li\" id=\"li-570-cco-7al\" class=\"li\">\n                          <p id=\"349703a61btef\"><b id=\"uicontrol-fmb-ig8-izi\">URL</b>：日志服务<span class=\"help-letter-space\"></span>MetricStore<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>URL，格式为<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-k6z-a0m-yc5\" class=\"parmname\">https://{project}.{sls-endpoint}/prometheus/{project}/{metricstore}</span>。其中<span data-tag=\"varname\" id=\"varname-sb0-4qr-m1w\" class=\"varname\"><i>{sls-endpoint}</i></span>为<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>所在地域的<span class=\"help-letter-space\"></span>Endpoint，详情请参见<a href=\"https://help.aliyun.com/zh/sls/developer-reference/service-entrance\" id=\"2cedc056b5ud1\" title=\"\" class=\"xref\">服务入口</a>，<span data-tag=\"varname\" id=\"varname-d90-5xk-42m\" class=\"varname\"><i>{project}</i></span>和<span data-tag=\"varname\" id=\"varname-lz8-bd0-2wo\" class=\"varname\"><i>{metricstore}</i></span>为您已创建的日志服务的<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>Metricstore，请根据实际值替换。例如：<span data-tag=\"parmname\" id=\"parmname-q4w-iwt-pb9\" class=\"parmname\">https://sls-prometheus-test.cn-hangzhou.log.aliyuncs.com/prometheus/sls-prometheus-test/prometheus</span>。 </p>\n                          <div data-tag=\"note\" id=\"note-un9-pqz-6mo\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                            <p id=\"ef9f25bb06a0r\">为保证传输安全性，请务必设置为<span data-tag=\"ph\" id=\"codeph-5zr-fgl-7s2\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" id=\"4d6b0b11f3mq3\" class=\"code\">https</code></span>。</p>\n                          </div></div>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-kjd-9cw-te6\" class=\"li\">\n                          <p id=\"b25c31d9cci59\"><b id=\"uicontrol-hn7-hjq-3j0\">Whitelisted Cookies</b>：添加访问白名单，可选。</p>\n                        </li>\n                      </ul>\n                    </td>\n                  </tr>\n                  <tr id=\"row-sne-x04-hzs\">\n                    <td id=\"entry-of7-mhm-04s\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"4967d67d1c5np\"><span data-tag=\"parmname\" id=\"parmname-ti4-96s-wp8\" class=\"parmname\">Auth</span></p>\n                    </td>\n                    <td id=\"entry-q85-sn5-46z\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"09a9ee3d37uso\">打开<span class=\"help-letter-space\"></span><b id=\"uicontrol-g2i-6pb-gm4\">Basic auth</b><span class=\"help-letter-space\"></span>开关。</p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-wmx-341-n3y\">\n                    <td id=\"entry-a3y-l3a-hzc\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"94642c60ad72u\"><span data-tag=\"parmname\" id=\"parmname-std-1ii-ctv\" class=\"parmname\">Basic Auth Details</span></p>\n                    </td>\n                    <td id=\"entry-xp9-qv3-5vc\" rowspan=\"1\" colspan=\"1\">\n                      <ul data-tag=\"ul\" id=\"ul-tfy-a51-8wf\" class=\"ul\">\n                        <li data-tag=\"li\" id=\"li-5rc-35u-di3\" class=\"li\">\n                          <p id=\"7ad304c8b0eil\"><b id=\"uicontrol-988-zaq-413\">User</b><span class=\"help-letter-space\"></span>为阿里云账号<span class=\"help-letter-space\"></span>AccessKeyID。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-226-c9n-mba\" class=\"li\">\n                          <p id=\"3de135bd28xpb\"><b id=\"uicontrol-6on-pc3-gk4\">Password</b><span class=\"help-letter-space\"></span>为阿里云账号<span class=\"help-letter-space\"></span>AccessKeySecret。</p>\n                        </li>\n                      </ul>\n                      <p id=\"3806e17d8cozk\">建议您使用仅具备指定<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>只读权限的<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>用户账号，详情请参见<a href=\"https://help.aliyun.com/zh/sls/use-custom-policies-to-grant-permissions-to-a-ram-user#section-vrx-w1l-z2b\" id=\"xref-wsw-xd8-hpx\" title=\"\" class=\"xref\">指定<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>只读授权策略</a>。</p>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </div>\n          </li>\n          <li data-tag=\"step\" id=\"step-bvi-435-hwc\" class=\"step\">\n            <p id=\"4ba917e3f8ji4\"><span data-tag=\"cmd\" id=\"cmd-y7m-ncw-jn4\" class=\"cmd\">单击<span class=\"help-letter-space\"></span><b id=\"uicontrol-sza-xql-piy\">Save &amp; Test</b>。</span></p>\n          </li>\n        </ol>\n      </section>\n      <section data-tag=\"section\" id=\"section-lk4-bq3-r8g\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-stv-axo-2cj\" class=\"title\">导入日志服务<span class=\"help-letter-space\"></span>Grafana<span class=\"help-letter-space\"></span>模板</h2>\n        <p data-tag=\"p\" id=\"p-dfv-2ae-071\" class=\"p\">您可以在<span class=\"help-letter-space\"></span>Grafana<span class=\"help-letter-space\"></span>模板市场中查找日志服务提供的可视化模板并一键导入到您的<span class=\"help-letter-space\"></span>Grafana<span class=\"help-letter-space\"></span>中，进行可视化展示。</p>\n        <ol data-tag=\"steps\" id=\"steps-1t1-2wr-kre\" class=\"steps\">\n          <li data-tag=\"step\" id=\"step-a91-11u-9af\" class=\"step\">\n            <p id=\"5bea342547eyv\"><span data-tag=\"cmd\" id=\"cmd-0da-qui-881\" class=\"cmd\">复制<span class=\"help-letter-space\"></span>Grafana<span class=\"help-letter-space\"></span>模板<span class=\"help-letter-space\"></span>ID。</span></p>\n            <ol type=\"a\" data-tag=\"substeps\" id=\"substeps-4bv-olz-kkb\" class=\"substeps\">\n              <li data-tag=\"substep\" id=\"substep-9ta-fsy-iv1\" class=\"substep\">\n                <p id=\"39e4618741s14\"><span data-tag=\"cmd\" id=\"cmd-45o-rqo-stv\" class=\"cmd\">登录<span class=\"help-letter-space\"></span><a href=\"https://grafana.com/grafana/dashboards?search=SLS\" id=\"xref-mlf-gq6-fcz\" class=\"\" target=\"_blank\">Grafana<span class=\"help-letter-space\"></span>模板市场</a>。</span></p>\n              </li>\n              <li data-tag=\"substep\" id=\"substep-ah4-bsz-tfk\" class=\"substep\">\n                <p id=\"c75f46cfe50yc\"><span data-tag=\"cmd\" id=\"cmd-yw0-243-g89\" class=\"cmd\">单击您要导入的模板。</span></p>\n              </li>\n              <li data-tag=\"substep\" id=\"substep-r8j-lyl-y52\" class=\"substep\">\n                <p id=\"6d071ee80fw1e\"><span data-tag=\"cmd\" id=\"cmd-mgb-fpn-7mr\" class=\"cmd\">在页面右侧，单击<span class=\"help-letter-space\"></span><b id=\"uicontrol-q94-g5e-djt\">Copy ID to Clipboard</b>。</span></p>\n              </li>\n            </ol>\n          </li>\n          <li data-tag=\"step\" id=\"step-ord-yfh-oaa\" class=\"step\">\n            <p id=\"3d26bbb1f3ttt\"><span data-tag=\"cmd\" id=\"cmd-b16-k59-aon\" class=\"cmd\">登录<span class=\"help-letter-space\"></span>Grafana。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-dc2-dki-f3h\" class=\"step\">\n            <p id=\"dc6b1f560b1tk\"><span data-tag=\"cmd\" id=\"cmd-rj0-s1x-aj4\" class=\"cmd\">在左侧导航栏中，选择<span data-tag=\"menucascade\" id=\"menucascade-tea-xkx-khz\" class=\"menucascade\"><span class=\"help-letter-space\"></span><b data-tag=\"uicontrol\" id=\"uicontrol-oza-0f4-hof\" class=\"uicontrol\">Create</b> &gt; <b data-tag=\"uicontrol\" id=\"uicontrol-sxa-0k9-5zm\" class=\"uicontrol\">Import</b></span>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-1nw-6zf-ghj\" class=\"step\">\n            <p id=\"ac222fba55jut\"><span data-tag=\"cmd\" id=\"cmd-3ns-kqk-0r7\" class=\"cmd\">在<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-h58-5lc-jb4\" class=\"parmname\">Grafana.com Dashboard</span><span class=\"help-letter-space\"></span>文本框中输入您在<a href=\"#step-a91-11u-9af\" id=\"xref-x3d-yf3-j83\" title=\"\" class=\"xref\">步骤<span class=\"help-letter-space\"></span>1</a><span class=\"help-letter-space\"></span>中复制的<span class=\"help-letter-space\"></span>Grafana<span class=\"help-letter-space\"></span>模板<span class=\"help-letter-space\"></span>ID。</span></p>\n            <div data-tag=\"info\" id=\"info-hnp-08n-6wt\" class=\"info\">\n              <p data-tag=\"p\" id=\"p-caa-m0t-jme\" class=\"p\">配置完成后，单击空白处，即可进入配置页面，配置数据源。</p>\n            </div>\n          </li>\n          <li data-tag=\"step\" id=\"step-iho-aqw-kj1\" class=\"step\">\n            <p id=\"0de25d1166hhz\"><span data-tag=\"cmd\" id=\"cmd-svn-5lu-iu6\" class=\"cmd\">配置数据源。</span></p>\n            <div data-tag=\"info\" id=\"info-2vf-0sf-w8f\" class=\"info\">\n              <p data-tag=\"p\" id=\"p-lv9-cml-9v6\" class=\"p\">此处需配置为您在<a href=\"#section-h0f-4wl-pjo\" id=\"xref-ra2-yrz-i2w\" title=\"\" class=\"xref\">对接<span class=\"help-letter-space\"></span>Grafana</a><span class=\"help-letter-space\"></span>中添加的数据源。不同仪表盘对应的数据源参数不同，可能为<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-but-p3x-3t3\" class=\"parmname\">telegraf</span>、<span data-tag=\"parmname\" id=\"parmname-mx7-2u5-bxx\" class=\"parmname\">host</span><span class=\"help-letter-space\"></span>等。</p>\n            </div>\n          </li>\n          <li data-tag=\"step\" id=\"step-kz1-wzh-rr4\" class=\"step\">\n            <p id=\"dcbce147d6632\"><span data-tag=\"cmd\" id=\"cmd-uv4-aec-brk\" class=\"cmd\">单击<span class=\"help-letter-space\"></span><b id=\"uicontrol-xar-tgr-qcj\">Import</b>。</span></p>\n          </li>\n        </ol>\n      </section>\n      <section data-tag=\"section\" id=\"section-zaj-ey4-6f4\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-f2g-e1v-wig\" class=\"title\">Prometheus<span class=\"help-letter-space\"></span>查询<span class=\"help-letter-space\"></span>API</h2>\n        <div data-tag=\"p\" id=\"p-0yj-r1u-hqc\" class=\"p\">\n          <p id=\"27d5f95eb1ppr\">日志服务提供了兼容<span class=\"help-letter-space\"></span>Prometheus<span class=\"help-letter-space\"></span>的查询<span class=\"help-letter-space\"></span>API，可直接配置日志服务作为<span class=\"help-letter-space\"></span>Grafana<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>Prometheus<span class=\"help-letter-space\"></span>数据源，同时也支持用各类<span class=\"help-letter-space\"></span>Prometheus API<span class=\"help-letter-space\"></span>直接访问。支持的<span class=\"help-letter-space\"></span>API<span class=\"help-letter-space\"></span>如下： </p>\n          <table id=\"table-qjc-hnb-cer\" tablewidth=\"709\" tablecolswidth=\"177 532\" autofit=\"false\" class=\"table\">\n            <colgroup colwidth=\"0.5*\" style=\"width:24.96%\"></colgroup>\n            <colgroup colwidth=\"1.5*\" style=\"width:75.04%\"></colgroup>\n            <tbody class=\"tbody\">\n              <tr id=\"row-fek-psk-kt2\">\n                <td id=\"task-2539803-entry-pvt-yq8-37p\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"66b80160e8klf\"><b>API<span class=\"help-letter-space\"></span>名称</b></p>\n                </td>\n                <td id=\"task-2539803-entry-t9t-nna-4ge\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"f5eaaea7afzvx\"><b>示例</b></p>\n                </td>\n              </tr>\n              <tr id=\"row-haq-ypr-mrz\">\n                <td id=\"entry-yic-tri-n67\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"5467faa0bani7\"><a href=\"https://prometheus.io/docs/prometheus/latest/querying/api/#instant-queries\" id=\"xref-ee1-e9v-bmz\" class=\"\" target=\"_blank\">Instant queries</a></p>\n                </td>\n                <td id=\"entry-hnh-jrj-zmo\" rowspan=\"1\" colspan=\"1\"><pre data-tag=\"codeblock\" id=\"codeblock-xqe-18c-z7y\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>GET /api/v1/query\nPOST /api/v1/query</code></pre></td>\n              </tr>\n              <tr id=\"row-zrn-4g5-yy6\">\n                <td id=\"entry-mmu-nf1-6yi\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"ee642c9567620\"><a href=\"https://prometheus.io/docs/prometheus/latest/querying/api/#range-queries\" id=\"xref-6mp-gb3-dsf\" class=\"\" target=\"_blank\">Range queries</a></p>\n                </td>\n                <td id=\"entry-5ut-yqr-997\" rowspan=\"1\" colspan=\"1\"><pre data-tag=\"codeblock\" id=\"codeblock-hzi-z2o-qej\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>GET /api/v1/query_range\nPOST /api/v1/query_range</code></pre></td>\n              </tr>\n              <tr id=\"row-98z-dli-453\">\n                <td id=\"entry-dfs-qhg-sc6\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"a7aa877e10fj5\"><a href=\"https://prometheus.io/docs/prometheus/latest/querying/api/#getting-label-names\" id=\"xref-3ad-pd6-yz8\" class=\"\" target=\"_blank\">Getting label names</a></p>\n                </td>\n                <td id=\"entry-hjf-bt8-b7q\" rowspan=\"1\" colspan=\"1\"><pre data-tag=\"codeblock\" id=\"codeblock-nuc-nqw-d13\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>GET /api/v1/labels\nPOST /api/v1/labels</code></pre></td>\n              </tr>\n              <tr id=\"row-bxe-9kv-ks3\">\n                <td id=\"entry-1cy-i61-78a\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"b1ff3a4f6eqk3\"><a href=\"https://prometheus.io/docs/prometheus/latest/querying/api/#querying-label-values\" id=\"xref-59h-a4z-yf2\" class=\"\" target=\"_blank\">Querying label values</a></p>\n                </td>\n                <td id=\"entry-c8b-7a1-vl0\" rowspan=\"1\" colspan=\"1\"><pre data-tag=\"codeblock\" id=\"codeblock-hn3-mn9-4an\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>GET /api/v1/label/&lt;label_name&gt;/values</code></pre></td>\n              </tr>\n              <tr id=\"row-y74-fr3-2vp\">\n                <td id=\"entry-3mg-06b-iu7\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"098da68381ede\"><a href=\"https://prometheus.io/docs/prometheus/latest/querying/api/#finding-series-by-label-matchers\" id=\"xref-myn-9pb-li8\" class=\"\" target=\"_blank\">Finding series by label matchers</a></p>\n                </td>\n                <td id=\"entry-xv9-bv8-oyr\" rowspan=\"1\" colspan=\"1\"><pre data-tag=\"codeblock\" id=\"codeblock-t9c-54f-h9s\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>GET /api/v1/series\nPOST /api/v1/series</code></pre></td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </section>\n    </div>\n  </main>\n\n\n\n\n</div>","path":"https://help.aliyun.com/zh/sls/send-time-series-data-from-log-service-to-grafana","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"alias":"/sls/send-time-series-data-from-log-service-to-grafana","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":7,"developerUrl":"https://developer.aliyun.com/group/sls/","nodeType":1,"version":8,"url":"/zh/sls/send-time-series-data-from-log-service-to-grafana","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":173903,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"时序数据对接Grafana","id":173903,"title":"时序数据对接Grafana","url":"/zh/sls/send-time-series-data-from-log-service-to-grafana"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"可视化最佳实践","id":262155,"title":"可视化最佳实践","url":"/zh/sls/best-practices-11/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"可视化","id":252810,"title":"可视化","url":"/zh/sls/visualization-2/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据监控","id":2928734,"title":"数据监控","url":"/zh/sls/data-monitoring/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"productUrl":"https://www.aliyun.com/product/sls","nodeId":173903,"desc":"日志服务MetricStore提供了兼容Prometheus的查询接口，您可以直接通过Prometheus数据源方式对接到Grafana进行可视化演示。本文介绍配置Prometheus监控数据为Grafana数据源的操作步骤。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据监控","id":2928734,"title":"数据监控","url":"/zh/sls/data-monitoring/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"可视化","id":252810,"title":"可视化","url":"/zh/sls/visualization-2/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"可视化最佳实践","id":262155,"title":"可视化最佳实践","url":"/zh/sls/best-practices-11/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"时序数据对接Grafana","id":173903,"title":"时序数据对接Grafana","url":"/zh/sls/send-time-series-data-from-log-service-to-grafana"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=2150467b17825497694735840ed9d3&asid=AQAAAAAJjT9qNb7fDQAAAAAjo+YvA/dOfQ==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2929180" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/start-using-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开始使用</span>
+</a>
+</li>
+ <li id="128096" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/resource-management/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">资源管理</span>
+</a>
+</li>
+ <li id="128134" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-collection-1/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据采集</span>
+</a>
+</li>
+ <li id="2842370" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-processing-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据处理</span>
+</a>
+</li>
+ <li id="270795" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-storage/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据存储</span>
+</a>
+</li>
+ <li id="128135" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/index-and-query/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">查询与分析</span>
+</a>
+</li>
+ <li id="2928734" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-monitoring/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据监控</span>
+</a>
+</li>
+ <li id="2928732" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-log-output-and-integration/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据输出与集成</span>
+</a>
+</li>
+ <li id="2928739" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-technical-solutions/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">技术解决方案</span>
+</a>
+</li>
+ <li id="154068" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2528763" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/security-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="169976" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/faq-15">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>时序数据对接Grafana</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/sls" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="task-2539803">
+    
+    
+    <p id="shortdesc-ka3-l5w-b50" data-tag="shortdesc" class="shortdesc">日志服务<span class="help-letter-space"></span>MetricStore<span class="help-letter-space"></span>提供了兼容<span class="help-letter-space"></span>Prometheus<span class="help-letter-space"></span>的查询接口，您可以直接通过<span class="help-letter-space"></span>Prometheus<span class="help-letter-space"></span>数据源方式对接到<span class="help-letter-space"></span>Grafana<span class="help-letter-space"></span>进行可视化演示。本文介绍配置<span class="help-letter-space"></span>Prometheus<span class="help-letter-space"></span>监控数据为<span class="help-letter-space"></span>Grafana<span class="help-letter-space"></span>数据源的操作步骤。</p>
+    <div data-tag="taskbody" id="taskbody-y7o-ucl-t5s" class="taskbody">
+      <section id="d3412ce6f1t99" props="china" data-cond-props="china" class="section">
+        <h2 id="c8d039533chfw"><b>操作视频</b></h2><video data-tag="object" id="object-m37-8f3-n37" src="https://cloud.video.taobao.com/play/u/null/p/1/e/6/t/1/d/ud/340853379756.mp4" controls="" class="object" poster="https://img.alicdn.com/imgextra/i1/O1CN016UJXJm1Exws0KRfi2_!!6000000000419-0-tps-1204-677.jpg" title="时序数据对接Grafana" alt="时序数据对接Grafana"></video>
+      </section>
+      <section data-tag="prereq" id="prereq-k27-itf-3kz" data-type="prereq" class="section prereq">
+        <h2 id="d41e14">前提条件</h2>
+        <ul data-tag="ul" id="ul-r7y-1ox-l8p" class="ul">
+          <li data-tag="li" id="li-y16-9ij-py9" class="li">
+            <p id="e3056f6750qeu">已安装<span class="help-letter-space"></span>Grafana。具体操作，请参见<a href="http://docs.grafana.org/installation/" id="xref-yws-c5s-ncg" class="" target="_blank">安装<span class="help-letter-space"></span>Grafana</a>。</p>
+          </li>
+          <li data-tag="li" id="li-x5n-j3r-0tq" class="li">
+            <p id="2e77b9c8ecvns">已接入时序数据。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/collect-metric-data-from-prometheus-by-using-the-remote-write-protocol#task-2538933" id="xref-e4s-quk-slt" title="" class="xref">通过<span class="help-letter-space"></span>Remote Write<span class="help-letter-space"></span>协议接入<span class="help-letter-space"></span>Prometheus<span class="help-letter-space"></span>监控数据</a>。</p>
+          </li>
+        </ul>
+      </section>
+      <section data-tag="section" id="section-h0f-4wl-pjo" data-type="section" class="section">
+        <h2 data-tag="title" id="title-46k-6n2-1td" class="title">对接<span class="help-letter-space"></span>Grafana</h2>
+        <ol data-tag="steps" id="steps-t2y-fs5-hsy" class="steps">
+          <li data-tag="step" id="step-dxm-abc-6nn" class="step">
+            <p id="e8714a2ca0rs9"><span data-tag="cmd" id="cmd-4rf-tme-5md" class="cmd">登录<span class="help-letter-space"></span>Grafana。</span></p>
+          </li>
+          <li data-tag="step" id="step-ocg-izt-esm" class="step">
+            <p id="84eea3e42ehqb"><span data-tag="cmd" id="cmd-egq-1s2-oxh" class="cmd">在左侧导航栏，选择<span data-tag="menucascade" id="menucascade-92e-bp3-8wk" class="menucascade"><span class="help-letter-space"></span><b data-tag="uicontrol" id="uicontrol-zud-evw-gnb" class="uicontrol">Configuration</b> &gt; <b data-tag="uicontrol" id="uicontrol-mpu-bgq-n0b" class="uicontrol">Data Sources</b></span>。</span></p>
+          </li>
+          <li data-tag="step" id="step-nip-lm9-3ij" class="step">
+            <p id="d69f03a1a7bdg"><span data-tag="cmd" id="cmd-hit-x21-0t9" class="cmd">在<span class="help-letter-space"></span><b id="wintitle-3bc-5qa-qxn">Data Sources</b><span class="help-letter-space"></span>页签，单击<span class="help-letter-space"></span><b id="uicontrol-m0l-pf4-vib">Add data source</b>。</span></p>
+          </li>
+          <li data-tag="step" id="step-6gc-87s-2cb" class="step">
+            <p id="727d81ef5e1n8"><span data-tag="cmd" id="cmd-k49-5dw-spt" class="cmd">选择<span class="help-letter-space"></span><b id="uicontrol-kog-hdu-et0">Prometheus</b>，单击<span class="help-letter-space"></span><b id="uicontrol-j8v-9k1-r3e">Select</b>。</span></p>
+          </li>
+          <li data-tag="step" id="step-l8k-9e6-jo8" class="step">
+            <p id="77166a3dac01a"><span data-tag="cmd" id="cmd-6as-hn9-cor" class="cmd">在<span class="help-letter-space"></span><b id="wintitle-ria-l9y-ojs">Settings</b><span class="help-letter-space"></span>页签中，请参考如下说明配置数据源。</span></p>
+            <div data-tag="info" id="info-obi-d9c-zrf" class="info">
+              <table id="table-nhs-gmc-ohu" tablewidth="709" tablecolswidth="177 532" autofit="false" class="table">
+                <colgroup colwidth="0.5*" style="width:24.96%"></colgroup>
+                <colgroup colwidth="1.5*" style="width:75.04%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="row-0fv-zo3-z9l">
+                    <td id="task-2539803-entry-rn1-np2-eer" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="359579029al6z"><b>参数</b></p>
+                    </td>
+                    <td id="task-2539803-entry-cz8-tqj-2cp" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="bcd2a075f6qde"><b>说明</b></p>
+                    </td>
+                  </tr>
+                  <tr id="row-i6s-s34-w9y">
+                    <td id="entry-40t-7s7-gb0" rowspan="1" colspan="1">
+                      <p id="85cc10abbey61"><span data-tag="parmname" id="parmname-c5h-msz-uga" class="parmname">Name</span></p>
+                    </td>
+                    <td id="entry-qar-sls-h5r" rowspan="1" colspan="1">
+                      <p id="5e5292886e2qs">请您自定义一个数据源的名称，例如<span class="help-letter-space"></span>Prometheus-01。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-76z-93r-3tw">
+                    <td id="entry-vgd-5ud-7o5" rowspan="1" colspan="1">
+                      <p id="6be144cd45bnl"><span data-tag="parmname" id="parmname-i0p-xy3-0dc" class="parmname">HTTP</span></p>
+                    </td>
+                    <td id="entry-w6a-g6d-4ou" rowspan="1" colspan="1">
+                      <ul data-tag="ul" id="ul-ikr-qvv-ics" class="ul">
+                        <li data-tag="li" id="li-570-cco-7al" class="li">
+                          <p id="349703a61btef"><b id="uicontrol-fmb-ig8-izi">URL</b>：日志服务<span class="help-letter-space"></span>MetricStore<span class="help-letter-space"></span>的<span class="help-letter-space"></span>URL，格式为<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-k6z-a0m-yc5" class="parmname">https://{project}.{sls-endpoint}/prometheus/{project}/{metricstore}</span>。其中<span data-tag="varname" id="varname-sb0-4qr-m1w" class="varname"><i>{sls-endpoint}</i></span>为<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>所在地域的<span class="help-letter-space"></span>Endpoint，详情请参见<a href="https://help.aliyun.com/zh/sls/developer-reference/service-entrance" id="2cedc056b5ud1" title="" class="xref">服务入口</a>，<span data-tag="varname" id="varname-d90-5xk-42m" class="varname"><i>{project}</i></span>和<span data-tag="varname" id="varname-lz8-bd0-2wo" class="varname"><i>{metricstore}</i></span>为您已创建的日志服务的<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>和<span class="help-letter-space"></span>Metricstore，请根据实际值替换。例如：<span data-tag="parmname" id="parmname-q4w-iwt-pb9" class="parmname">https://sls-prometheus-test.cn-hangzhou.log.aliyuncs.com/prometheus/sls-prometheus-test/prometheus</span>。 </p>
+                          <div data-tag="note" id="note-un9-pqz-6mo" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                            <p id="ef9f25bb06a0r">为保证传输安全性，请务必设置为<span data-tag="ph" id="codeph-5zr-fgl-7s2" class="ph"><code data-tag="code" code-type="xCode" id="4d6b0b11f3mq3" class="code">https</code></span>。</p>
+                          </div></div>
+                        </li>
+                        <li data-tag="li" id="li-kjd-9cw-te6" class="li">
+                          <p id="b25c31d9cci59"><b id="uicontrol-hn7-hjq-3j0">Whitelisted Cookies</b>：添加访问白名单，可选。</p>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr id="row-sne-x04-hzs">
+                    <td id="entry-of7-mhm-04s" rowspan="1" colspan="1">
+                      <p id="4967d67d1c5np"><span data-tag="parmname" id="parmname-ti4-96s-wp8" class="parmname">Auth</span></p>
+                    </td>
+                    <td id="entry-q85-sn5-46z" rowspan="1" colspan="1">
+                      <p id="09a9ee3d37uso">打开<span class="help-letter-space"></span><b id="uicontrol-g2i-6pb-gm4">Basic auth</b><span class="help-letter-space"></span>开关。</p>
+                    </td>
+                  </tr>
+                  <tr id="row-wmx-341-n3y">
+                    <td id="entry-a3y-l3a-hzc" rowspan="1" colspan="1">
+                      <p id="94642c60ad72u"><span data-tag="parmname" id="parmname-std-1ii-ctv" class="parmname">Basic Auth Details</span></p>
+                    </td>
+                    <td id="entry-xp9-qv3-5vc" rowspan="1" colspan="1">
+                      <ul data-tag="ul" id="ul-tfy-a51-8wf" class="ul">
+                        <li data-tag="li" id="li-5rc-35u-di3" class="li">
+                          <p id="7ad304c8b0eil"><b id="uicontrol-988-zaq-413">User</b><span class="help-letter-space"></span>为阿里云账号<span class="help-letter-space"></span>AccessKeyID。</p>
+                        </li>
+                        <li data-tag="li" id="li-226-c9n-mba" class="li">
+                          <p id="3de135bd28xpb"><b id="uicontrol-6on-pc3-gk4">Password</b><span class="help-letter-space"></span>为阿里云账号<span class="help-letter-space"></span>AccessKeySecret。</p>
+                        </li>
+                      </ul>
+                      <p id="3806e17d8cozk">建议您使用仅具备指定<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>只读权限的<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>用户账号，详情请参见<a href="https://help.aliyun.com/zh/sls/use-custom-policies-to-grant-permissions-to-a-ram-user#section-vrx-w1l-z2b" id="xref-wsw-xd8-hpx" title="" class="xref">指定<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>只读授权策略</a>。</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </li>
+          <li data-tag="step" id="step-bvi-435-hwc" class="step">
+            <p id="4ba917e3f8ji4"><span data-tag="cmd" id="cmd-y7m-ncw-jn4" class="cmd">单击<span class="help-letter-space"></span><b id="uicontrol-sza-xql-piy">Save &amp; Test</b>。</span></p>
+          </li>
+        </ol>
+      </section>
+      <section data-tag="section" id="section-lk4-bq3-r8g" data-type="section" class="section">
+        <h2 data-tag="title" id="title-stv-axo-2cj" class="title">导入日志服务<span class="help-letter-space"></span>Grafana<span class="help-letter-space"></span>模板</h2>
+        <p data-tag="p" id="p-dfv-2ae-071" class="p">您可以在<span class="help-letter-space"></span>Grafana<span class="help-letter-space"></span>模板市场中查找日志服务提供的可视化模板并一键导入到您的<span class="help-letter-space"></span>Grafana<span class="help-letter-space"></span>中，进行可视化展示。</p>
+        <ol data-tag="steps" id="steps-1t1-2wr-kre" class="steps">
+          <li data-tag="step" id="step-a91-11u-9af" class="step">
+            <p id="5bea342547eyv"><span data-tag="cmd" id="cmd-0da-qui-881" class="cmd">复制<span class="help-letter-space"></span>Grafana<span class="help-letter-space"></span>模板<span class="help-letter-space"></span>ID。</span></p>
+            <ol type="a" data-tag="substeps" id="substeps-4bv-olz-kkb" class="substeps">
+              <li data-tag="substep" id="substep-9ta-fsy-iv1" class="substep">
+                <p id="39e4618741s14"><span data-tag="cmd" id="cmd-45o-rqo-stv" class="cmd">登录<span class="help-letter-space"></span><a href="https://grafana.com/grafana/dashboards?search=SLS" id="xref-mlf-gq6-fcz" class="" target="_blank">Grafana<span class="help-letter-space"></span>模板市场</a>。</span></p>
+              </li>
+              <li data-tag="substep" id="substep-ah4-bsz-tfk" class="substep">
+                <p id="c75f46cfe50yc"><span data-tag="cmd" id="cmd-yw0-243-g89" class="cmd">单击您要导入的模板。</span></p>
+              </li>
+              <li data-tag="substep" id="substep-r8j-lyl-y52" class="substep">
+                <p id="6d071ee80fw1e"><span data-tag="cmd" id="cmd-mgb-fpn-7mr" class="cmd">在页面右侧，单击<span class="help-letter-space"></span><b id="uicontrol-q94-g5e-djt">Copy ID to Clipboard</b>。</span></p>
+              </li>
+            </ol>
+          </li>
+          <li data-tag="step" id="step-ord-yfh-oaa" class="step">
+            <p id="3d26bbb1f3ttt"><span data-tag="cmd" id="cmd-b16-k59-aon" class="cmd">登录<span class="help-letter-space"></span>Grafana。</span></p>
+          </li>
+          <li data-tag="step" id="step-dc2-dki-f3h" class="step">
+            <p id="dc6b1f560b1tk"><span data-tag="cmd" id="cmd-rj0-s1x-aj4" class="cmd">在左侧导航栏中，选择<span data-tag="menucascade" id="menucascade-tea-xkx-khz" class="menucascade"><span class="help-letter-space"></span><b data-tag="uicontrol" id="uicontrol-oza-0f4-hof" class="uicontrol">Create</b> &gt; <b data-tag="uicontrol" id="uicontrol-sxa-0k9-5zm" class="uicontrol">Import</b></span>。</span></p>
+          </li>
+          <li data-tag="step" id="step-1nw-6zf-ghj" class="step">
+            <p id="ac222fba55jut"><span data-tag="cmd" id="cmd-3ns-kqk-0r7" class="cmd">在<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-h58-5lc-jb4" class="parmname">Grafana.com Dashboard</span><span class="help-letter-space"></span>文本框中输入您在<a href="#step-a91-11u-9af" id="xref-x3d-yf3-j83" title="" class="xref">步骤<span class="help-letter-space"></span>1</a><span class="help-letter-space"></span>中复制的<span class="help-letter-space"></span>Grafana<span class="help-letter-space"></span>模板<span class="help-letter-space"></span>ID。</span></p>
+            <div data-tag="info" id="info-hnp-08n-6wt" class="info">
+              <p data-tag="p" id="p-caa-m0t-jme" class="p">配置完成后，单击空白处，即可进入配置页面，配置数据源。</p>
+            </div>
+          </li>
+          <li data-tag="step" id="step-iho-aqw-kj1" class="step">
+            <p id="0de25d1166hhz"><span data-tag="cmd" id="cmd-svn-5lu-iu6" class="cmd">配置数据源。</span></p>
+            <div data-tag="info" id="info-2vf-0sf-w8f" class="info">
+              <p data-tag="p" id="p-lv9-cml-9v6" class="p">此处需配置为您在<a href="#section-h0f-4wl-pjo" id="xref-ra2-yrz-i2w" title="" class="xref">对接<span class="help-letter-space"></span>Grafana</a><span class="help-letter-space"></span>中添加的数据源。不同仪表盘对应的数据源参数不同，可能为<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-but-p3x-3t3" class="parmname">telegraf</span>、<span data-tag="parmname" id="parmname-mx7-2u5-bxx" class="parmname">host</span><span class="help-letter-space"></span>等。</p>
+            </div>
+          </li>
+          <li data-tag="step" id="step-kz1-wzh-rr4" class="step">
+            <p id="dcbce147d6632"><span data-tag="cmd" id="cmd-uv4-aec-brk" class="cmd">单击<span class="help-letter-space"></span><b id="uicontrol-xar-tgr-qcj">Import</b>。</span></p>
+          </li>
+        </ol>
+      </section>
+      <section data-tag="section" id="section-zaj-ey4-6f4" data-type="section" class="section">
+        <h2 data-tag="title" id="title-f2g-e1v-wig" class="title">Prometheus<span class="help-letter-space"></span>查询<span class="help-letter-space"></span>API</h2>
+        <div data-tag="p" id="p-0yj-r1u-hqc" class="p">
+          <p id="27d5f95eb1ppr">日志服务提供了兼容<span class="help-letter-space"></span>Prometheus<span class="help-letter-space"></span>的查询<span class="help-letter-space"></span>API，可直接配置日志服务作为<span class="help-letter-space"></span>Grafana<span class="help-letter-space"></span>的<span class="help-letter-space"></span>Prometheus<span class="help-letter-space"></span>数据源，同时也支持用各类<span class="help-letter-space"></span>Prometheus API<span class="help-letter-space"></span>直接访问。支持的<span class="help-letter-space"></span>API<span class="help-letter-space"></span>如下： </p>
+          <table id="table-qjc-hnb-cer" tablewidth="709" tablecolswidth="177 532" autofit="false" class="table">
+            <colgroup colwidth="0.5*" style="width:24.96%"></colgroup>
+            <colgroup colwidth="1.5*" style="width:75.04%"></colgroup>
+            <tbody class="tbody">
+              <tr id="row-fek-psk-kt2">
+                <td id="task-2539803-entry-pvt-yq8-37p" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="66b80160e8klf"><b>API<span class="help-letter-space"></span>名称</b></p>
+                </td>
+                <td id="task-2539803-entry-t9t-nna-4ge" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="f5eaaea7afzvx"><b>示例</b></p>
+                </td>
+              </tr>
+              <tr id="row-haq-ypr-mrz">
+                <td id="entry-yic-tri-n67" rowspan="1" colspan="1">
+                  <p id="5467faa0bani7"><a href="https://prometheus.io/docs/prometheus/latest/querying/api/#instant-queries" id="xref-ee1-e9v-bmz" class="" target="_blank">Instant queries</a></p>
+                </td>
+                <td id="entry-hnh-jrj-zmo" rowspan="1" colspan="1"><pre data-tag="codeblock" id="codeblock-xqe-18c-z7y" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>GET /api/v1/query
+POST /api/v1/query</code></pre></td>
+              </tr>
+              <tr id="row-zrn-4g5-yy6">
+                <td id="entry-mmu-nf1-6yi" rowspan="1" colspan="1">
+                  <p id="ee642c9567620"><a href="https://prometheus.io/docs/prometheus/latest/querying/api/#range-queries" id="xref-6mp-gb3-dsf" class="" target="_blank">Range queries</a></p>
+                </td>
+                <td id="entry-5ut-yqr-997" rowspan="1" colspan="1"><pre data-tag="codeblock" id="codeblock-hzi-z2o-qej" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>GET /api/v1/query_range
+POST /api/v1/query_range</code></pre></td>
+              </tr>
+              <tr id="row-98z-dli-453">
+                <td id="entry-dfs-qhg-sc6" rowspan="1" colspan="1">
+                  <p id="a7aa877e10fj5"><a href="https://prometheus.io/docs/prometheus/latest/querying/api/#getting-label-names" id="xref-3ad-pd6-yz8" class="" target="_blank">Getting label names</a></p>
+                </td>
+                <td id="entry-hjf-bt8-b7q" rowspan="1" colspan="1"><pre data-tag="codeblock" id="codeblock-nuc-nqw-d13" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>GET /api/v1/labels
+POST /api/v1/labels</code></pre></td>
+              </tr>
+              <tr id="row-bxe-9kv-ks3">
+                <td id="entry-1cy-i61-78a" rowspan="1" colspan="1">
+                  <p id="b1ff3a4f6eqk3"><a href="https://prometheus.io/docs/prometheus/latest/querying/api/#querying-label-values" id="xref-59h-a4z-yf2" class="" target="_blank">Querying label values</a></p>
+                </td>
+                <td id="entry-c8b-7a1-vl0" rowspan="1" colspan="1"><pre data-tag="codeblock" id="codeblock-hn3-mn9-4an" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>GET /api/v1/label/&lt;label_name&gt;/values</code></pre></td>
+              </tr>
+              <tr id="row-y74-fr3-2vp">
+                <td id="entry-3mg-06b-iu7" rowspan="1" colspan="1">
+                  <p id="098da68381ede"><a href="https://prometheus.io/docs/prometheus/latest/querying/api/#finding-series-by-label-matchers" id="xref-myn-9pb-li8" class="" target="_blank">Finding series by label matchers</a></p>
+                </td>
+                <td id="entry-xv9-bv8-oyr" rowspan="1" colspan="1"><pre data-tag="codeblock" id="codeblock-t9c-54f-h9s" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>GET /api/v1/series
+POST /api/v1/series</code></pre></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+  </main>
+
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/sls/best-practices-11/" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：可视化最佳实践</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/sls/add-a-filter-of-the-replace-variable-type" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：添加变量类型的过滤器<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

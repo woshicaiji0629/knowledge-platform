@@ -1,0 +1,7 @@
+## 步骤二：创建Event Source
+登录[轻量消息队列（原 MNS）控制台](https://mns.console.aliyun.com/)。
+在队列列表页面创建队列test-event-queue，并在队列详情页面的接入点区域获取Endpoint。
+若是通过轻量消息队列（原 MNS）创建了Event Bus，则步骤3~步骤5可直接跳过，直接执行[步骤](trigger-workflows-via-simple-message-queue.md)[6](trigger-workflows-via-simple-message-queue.md)。
+使用RAM管理员登录[RAM](https://ram.console.aliyun.com/)[控制台](https://ram.console.aliyun.com/)。
+创建RAM用户，为RAM用户授予AliyunMNSFullAccess权限，并获取RAM用户的AK和SK。
+具体操作，请参见[创建](../../../../ram/documents/user-guide/create-a-ram-user.md)[RAM](../../../../ram/documents/user-guide/create-a-ram-user.md)[用户](../../../../ram/documents/user-guide/create-a-ram-user.md)、[管理](../../../../ram/documents/user-guide/grant-permissions-to-the-ram-user.md)[RAM](../../../../ram/documents/user-guide/grant-permissions-to-the-ram-user.md)[用户的权限](../../../../ram/documents/user-guide/grant-permissions-to-the-ram-user.md)、[创建](../../../../ram/documents/user-guide/create-an-accesskey-pair.md)[AccessKey](../../../../ram/documents/user-guide/create-an-accesskey-pair.md)和[查看](../../../../ram/documents/user-guide/view-the-accesskey-pairs-of-a-ram-user.md)[RAM](../../../../ram/documents/user-guide/view-the-accesskey-pairs-of-a-ram-user.md)[用户的](../../../../

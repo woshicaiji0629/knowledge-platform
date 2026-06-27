@@ -1,0 +1,17 @@
+{
+  "id": "redis:user-guide/enable-tls-encryption",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "开启TLS加密,有哪些注意事项和前提条件-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/enable-tls-encryption",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/user-guide/enable-tls-encryption.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/enable-tls-encryption.md",
+  "word_count": 859,
+  "text_units": 2536,
+  "local_links": 1,
+  "external_links": 68,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

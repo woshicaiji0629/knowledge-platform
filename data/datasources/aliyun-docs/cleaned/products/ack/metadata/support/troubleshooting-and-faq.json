@@ -1,0 +1,17 @@
+{
+  "id": "ack:support/troubleshooting-and-faq",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "troubleshoot",
+  "title": "故障排查与常见问题-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/support/troubleshooting-and-faq",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/support/troubleshooting-and-faq.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/support/troubleshooting-and-faq.md",
+  "word_count": 733,
+  "text_units": 1191,
+  "local_links": 23,
+  "external_links": 61,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

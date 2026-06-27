@@ -1,0 +1,17 @@
+{
+  "id": "cdn:add-a-cname-record-for-a-domain-name",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "通过配置CNAME域名实现网站加速-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/add-a-cname-record-for-a-domain-name",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/add-a-cname-record-for-a-domain-name.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/add-a-cname-record-for-a-domain-name.md",
+  "word_count": 985,
+  "text_units": 2681,
+  "local_links": 0,
+  "external_links": 89,
+  "has_tables": true,
+  "table_count": 9,
+  "quality": "accepted"
+}

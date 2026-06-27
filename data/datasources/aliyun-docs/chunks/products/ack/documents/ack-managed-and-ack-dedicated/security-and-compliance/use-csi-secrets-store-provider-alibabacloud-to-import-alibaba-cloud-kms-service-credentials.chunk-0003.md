@@ -1,0 +1,4 @@
+## 前提条件
+已创建符合如下要求的ACK集群。具体操作，请参见[创建](../user-guide/create-an-ack-managed-cluster-2.md)[ACK](../user-guide/create-an-ack-managed-cluster-2.md)[托管集群](../user-guide/create-an-ack-managed-cluster-2.md)、[创建](../../distributed-cloud-container-platform-for-kubernetes/user-guide/create-ack-one-registered-clusters.md)[ACK One](../../distributed-cloud-container-platform-for-kubernetes/user-guide/create-ack-one-registered-clusters.md)[注册集群](../../distributed-cloud-container-platform-for-kubernetes/user-guide/create-ack-one-registered-clusters.md)。
+集群为1.20及以上版本。支持ACK托管集群、ACK专有集群、ACK Edge集群和ACK One注册集群，暂不支持ACK Serverless集群。
+[已通过](../user-guide/obtain-the-kubeconfig-file-of-a-cluster-and-use-kubectl-to-connect-to-the-cluster.md)[kubectl](../user-guide/obtain-the-kubeconfig-file-of-a-cluster-and-use-kubectl-to-connect-to-the-cluster.md)[工具连接集群](../user-guide/obtain-the-kubeconfig-file-of-a-cluster-and-use-kubectl-to-connect-to-the-cluster.md)。

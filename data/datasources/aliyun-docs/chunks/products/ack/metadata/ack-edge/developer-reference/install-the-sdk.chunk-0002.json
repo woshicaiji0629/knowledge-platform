@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/developer-reference/install-the-sdk:2",
+  "document_id": "ack:ack-edge/developer-reference/install-the-sdk",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "deployment",
+  "title": "使用容器服务SDK-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/install-the-sdk",
+  "chunk_index": 2,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/developer-reference/install-the-sdk.chunk-0002.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/install-the-sdk.md",
+  "heading_path": "Java SDK调用示例 > 步骤二：创建RAM用户并完成授权",
+  "char_count": 213
+}

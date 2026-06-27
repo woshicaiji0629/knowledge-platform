@@ -1,0 +1,17 @@
+{
+  "id": "sls:alarm-settings-quick-start",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "如何快速设置日志告警-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/alarm-settings-quick-start",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/alarm-settings-quick-start.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/alarm-settings-quick-start.md",
+  "word_count": 688,
+  "text_units": 2372,
+  "local_links": 0,
+  "external_links": 68,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

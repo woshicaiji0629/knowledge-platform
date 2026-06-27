@@ -1,0 +1,2 @@
+### Terraform
+未创建 IPAM 时，可以创建自定义资源发现。Resources：[alicloud_vpc_ipam_ipam_resource_discovery](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/vpc_ipam_ipam_resource_discovery)# 指定未创建IPAM、可创建自定义资源发现的地域 provider "alicloud" { region = "cn-shanghai" } resource "alicloud_vpc_ipam_ipam_resource_discovery" "example_ipam_resource_discovery" { operating_region_list = ["cn-shanghai"] # 指定IPAM资源发现的生效地域 ipam_resource_discovery_name = "example_ipam_resource_discovery_name" }

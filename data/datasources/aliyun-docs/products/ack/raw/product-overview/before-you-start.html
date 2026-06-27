@@ -1,0 +1,1264 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    使用容器服务ACK的注意事项及高危操作列表-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/ack/product-overview/before-you-start">
+  <meta name="keywords" content="容器服务ACK,Kubernetes,高危操作,数据面组件,集群升级,控制面运维">
+  <meta name="description" content="阿里云容器服务Kubernetes版（简称容器服务ACK）提供容器服务相关的技术架构以及核心组件的托管服务，对于非托管组件以及运行在ACK集群中的应用，不当操作可能会导致业务故障。为了更好地预估和避免相关的操作风险，在使用容器服务ACK前，请认真阅读本文中的建议与注意事项。">
+  <meta name="last-modified" content="2026-03-10T11:01:47+08:00">
+  <meta name="date" content="2019-05-15T10:07:12+08:00">
+  <meta property="og:title" content="使用须知及高危风险操作说明">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/ack/product-overview/before-you-start">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="阿里云容器服务Kubernetes版（简称容器服务ACK）提供容器服务相关的技术架构以及核心组件的托管服务，对于非托管组件以及运行在ACK集群中的应用，不当操作可能会导致业务故障。为了更好地预估和避免相关的操作风险，在使用容器服务ACK前，请认真阅读本文中的建议与注意事项。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/ack/product-overview/before-you-start",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "118806",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/ack/product-overview/before-you-start","nodeId":null,"data":{"lastModifiedTime":1773111707000,"keywords":"容器服务ACK,Kubernetes,高危操作,数据面组件,集群升级,控制面运维","docTitle":"使用须知及高危风险操作说明","language":"zh","seoTitle":"使用容器服务ACK的注意事项及高危操作列表-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心","title":"使用须知及高危风险操作说明","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n<main id=\"concept-265348\">\n\n\n<p data-tag=\"shortdesc\" id=\"shortdesc-92g-chx-4ya\" class=\"shortdesc\">阿里云容器服务<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>版（简称容器服务<span class=\"help-letter-space\"></span>ACK）提供容器服务相关的技术架构以及核心组件的托管服务，对于非托管组件以及运行在<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>集群中的应用，不当操作可能会导致业务故障。为了更好地预估和避免相关的操作风险，在使用容器服务<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>前，请认真阅读本文中的建议与注意事项。</p>\n<div data-tag=\"conbody\" id=\"conbody-e1s-ktq-ue7\" class=\"conbody\">\n<section id=\"704da0c00fbsv\" class=\"section\">\n<h2 id=\"704da0c10ffqx\"><b>索引</b></h2>\n<table autofit=\"false\" id=\"8a0fb6b00fc18\" tablecolswidth=\"243 445\" tablewidth=\"688\" class=\"table\">\n<colgroup colwidth=\"0.71*\" style=\"width:35.32%\"></colgroup>\n<colgroup colwidth=\"1.29*\" style=\"width:64.68%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"8a0fb6b10fp1w\">\n<td id=\"8a0fb6b20fzxo\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"8a0fb6b30f2fy\"><b>信息项</b></p>\n</td>\n<td id=\"8a0fb6b40fef6\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"8a0fb6b50fn3u\"><b>相关文档</b></p>\n</td>\n</tr>\n<tr id=\"8a0fb6b60f5xe\">\n<td id=\"8a0fb6b70f19f\" rowspan=\"1\" colspan=\"1\">\n<p id=\"8a0fb6b80fobj\"><a href=\"#section-c7y-7xe-w5u\" id=\"b86a04200fddd\" title=\"\" class=\"xref\">使用须知</a></p>\n</td>\n<td id=\"8a0fb6b90fvsm\" rowspan=\"1\" colspan=\"1\">\n<ul id=\"9ee6b5d10fimn\">\n<li id=\"9ee68ec00fh1k\">\n<p id=\"8a0fb6ba0f85l\"><a href=\"#136f5dd70f5fj\" id=\"8200a3900fb88\" title=\"\" class=\"xref\">数据面组件相关</a></p>\n</li>\n<li id=\"9ee703f00f4n3\">\n<p id=\"833441900fdse\"><a href=\"#136fabf20ffwp\" id=\"89978a600fr96\" title=\"\" class=\"xref\">集群升级相关</a></p>\n</li>\n<li id=\"9ee752100fec9\">\n<p id=\"8a0ba8f00ft91\"><a href=\"#3\" id=\"907756300fgag\" title=\"\" class=\"xref\">Kubernetes<span class=\"help-letter-space\"></span>原生配置相关</a></p>\n</li>\n<li id=\"cfe748613ce86\">\n<p id=\"cfe748603c6fv\"><a href=\"#4\" id=\"b02bb2803cxjp\" title=\"\" class=\"xref\">ACK Serverless<span class=\"help-letter-space\"></span>集群相关</a></p>\n</li>\n<li id=\"9ee7c7400fbks\">\n<p id=\"90e1b0c00ftyg\"><a href=\"#c783c2c03cgcm\" id=\"b8590cf03cbzj\" title=\"\" class=\"xref\">注册集群相关</a></p>\n</li>\n<li id=\"9ee83c700f2zt\">\n<p id=\"97046e200fasl\"><a href=\"#5\" id=\"9cee68400fxx7\" title=\"\" class=\"xref\">应用目录相关</a></p>\n</li>\n</ul>\n</td>\n</tr>\n<tr id=\"8a0fddc00fuqd\">\n<td id=\"8a0fddc10f8p8\" rowspan=\"1\" colspan=\"1\">\n<p id=\"8a0fddc20fn1t\"><a href=\"#section-qyx-kxv-p4v\" id=\"c2d31dc00fn50\" title=\"\" class=\"xref\">高危操作</a></p>\n</td>\n<td id=\"8a0fddc30fl5f\" rowspan=\"1\" colspan=\"1\">\n<ul id=\"c712d4320fto0\">\n<li id=\"c712d4300fytc\">\n<p id=\"8a0fddc40frrl\"><a href=\"#6\" id=\"a6c135500f8jj\" title=\"\" class=\"xref\">集群相关高危操作</a></p>\n</li>\n<li id=\"c71349600fu1a\">\n<p id=\"a7533c200feqn\"><a href=\"#7\" id=\"acff1bd00frej\" title=\"\" class=\"xref\">节点池相关高危操作</a></p>\n</li>\n<li id=\"c71397800flic\">\n<p id=\"ad6509900fqzh\"><a href=\"#13710b880fjly\" id=\"b380c2100fxrj\" title=\"\" class=\"xref\">网络与负载均衡相关高危操作</a></p>\n</li>\n<li id=\"c7140cb00f0dx\">\n<p id=\"b41428700f9fk\"><a href=\"#9\" id=\"b9cc8b400fr0c\" title=\"\" class=\"xref\">存储相关高危操作</a></p>\n</li>\n<li id=\"c71481e00f9h4\">\n<p id=\"ba266b100fe8j\"><a href=\"#10\" id=\"c1915fe00frm5\" title=\"\" class=\"xref\">日志相关高危操作</a></p>\n</li>\n</ul>\n</td>\n</tr>\n</tbody>\n</table>\n</section>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-c7y-7xe-w5u\" class=\"section\">\n<h2 data-tag=\"title\" id=\"title-zif-oiy-q7d\" class=\"title\">使用须知</h2>\n<h3 id=\"136f5dd70f5fj\"><b>数据面组件相关</b></h3>\n<p data-tag=\"p\" id=\"p-sk9-qre-xcf\" class=\"p\">数据面组件指运行在客户<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>服务器上的系统组件，例如<span class=\"help-letter-space\"></span>CoreDNS、Ingress、kube-proxy、terway、kubelet<span class=\"help-letter-space\"></span>等。由于数据面组件运行在客户<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>服务器上，因此数据面组件运行的稳定性需要阿里云容器服务与客户共同维护。</p>\n<div data-tag=\"p\" id=\"p-08q-f3z-quu\" class=\"p\">\n<p id=\"136f84e00fkqh\">阿里云容器服务<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>对数据面组件提供以下支持：</p>\n<ul data-tag=\"ul\" id=\"ul-dr7-7iw-cez\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-jwi-zcz-dep\" class=\"li\">\n<p id=\"136f84e10fpe5\">提供组件的参数化设置管理、定期功能优化、BugFix、CVE<span class=\"help-letter-space\"></span>补丁等功能，并给出相应的指导文档。</p>\n</li>\n<li data-tag=\"li\" id=\"li-jf1-3j7-jrv\" class=\"li\">\n<p id=\"136f84e20fq0w\">提供组件的监控与报警等可观测能力的建设，部分核心组件会提供组件日志，并通过<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>透出给客户。</p>\n</li>\n<li data-tag=\"li\" id=\"li-5rf-e5j-opq\" class=\"li\">\n<p id=\"136f84e30fuqm\">提供配置最佳实践和建议，容器服务将根据集群规模大小给出组件配置建议。</p>\n</li>\n<li data-tag=\"li\" id=\"li-egv-wgy-bce\" class=\"li\">\n<p id=\"136f84e40ffx6\">提供组件的定期巡检能力和一定的报警通知能力，检查项包括但不限于：组件版本、组件配置、组件负载、组件部署分布拓扑、组件实例数等。</p>\n</li>\n</ul>\n</div>\n<div data-tag=\"p\" id=\"p-x5c-er5-w0k\" class=\"p\">\n<p id=\"136f84e50fm0v\">您在使用数据面组件时，请遵循以下建议：</p>\n<ul data-tag=\"ul\" id=\"ul-1bu-4rm-ej9\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-lo5-bxq-vyw\" class=\"li\">\n<p id=\"136f84e60fxvc\">使用最新的组件版本。组件经常会发布新版本以修复<span class=\"help-letter-space\"></span>Bug<span class=\"help-letter-space\"></span>或提供新特性。您需要在新版本的组件发布后，在保证业务稳定的前提下选择合适的时机，遵循组件升级指导文档中的说明进行升级操作。更多信息，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/component-overview#task-2094293\" id=\"xref-mbi-xjq-rih\" title=\"\" class=\"xref\">组件</a>。</p>\n</li>\n<li data-tag=\"li\" id=\"li-usl-wbi-fjq\" class=\"li\">\n<p id=\"136f84e70f53l\">请在容器服务<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>的报警中心中设置联系人的邮箱地址、手机号码，并设置相应的报警信息接收方式，阿里云将通过这些渠道推送容器服务的报警信息、产品公告等。更多信息，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/alert-management#task-2056339\" id=\"xref-mc6-dvo-9nb\" title=\"\" class=\"xref\">容器服务报警管理</a><span data-tag=\"ph\" id=\"ph-ci8-ru2-r7k\" props=\"china\" data-cond-props=\"china\" class=\"ph\">和<a href=\"https://help.aliyun.com/zh/account/message-received-management-settings#topic-2149123\" id=\"xref-b3w-2yc-7h5\" title=\"\" class=\"xref\">如何设置消息接收？</a></span>。</p>\n</li>\n<li data-tag=\"li\" id=\"li-pgo-cz4-1q9\" class=\"li\">\n<p id=\"136f84e80fkft\">在您收到组件稳定性风险报告后，请及时按照相关指引进行处理，消除安全隐患。</p>\n</li>\n<li data-tag=\"li\" id=\"li-so3-crx-3xs\" class=\"li\">\n<p id=\"136f84e90f1xr\">当您在使用数据面组件时，请通过<span data-tag=\"ph\" id=\"ph-z8s-n1v-ica\" class=\"ph\"><span props=\"china intl\"><a href=\"https://cs.console.aliyun.com\" id=\"xref-h02-wcx-yb2\" class=\"\" target=\"_blank\">容器服务控制台</a></span></span>集群管理页面<span data-tag=\"menucascade\" id=\"menucascade-jzk-5bw-a9h\" class=\"menucascade\"><b id=\"uicontrol-6k9-t46-t03\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">运维管理</b> &gt; <b id=\"uicontrol-mo5-8gf-jr0\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">组件管理</b></span>的方式或者<span class=\"help-letter-space\"></span>OpenAPI<span class=\"help-letter-space\"></span>的方式配置组件的自定义参数。通过其他渠道修改组件配置可能会导致组件功能异常。更多信息，请参见<a href=\"https://help.aliyun.com/zh/ack/manage-system-components#task-z3j-tvk-2gb\" id=\"xref-wrv-wr9-g4z\" title=\"\" class=\"xref\">管理组件</a>。</p>\n</li>\n<li data-tag=\"li\" id=\"li-mj1-wrw-w96\" class=\"li\">\n<p id=\"136fabf00f6lc\">请勿直接使用<span class=\"help-letter-space\"></span>IaaS<span class=\"help-letter-space\"></span>层产品的<span class=\"help-letter-space\"></span>OpenAPI<span class=\"help-letter-space\"></span>来变更组件的运行环境，包括但不限于使用<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>OpenAPI<span class=\"help-letter-space\"></span>更改<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>运行状态、修改<span class=\"help-letter-space\"></span>Worker<span class=\"help-letter-space\"></span>节点的安全组配置、更改<span class=\"help-letter-space\"></span>Worker<span class=\"help-letter-space\"></span>节点的网络配置以及通过负载均衡的<span class=\"help-letter-space\"></span>OpenAPI<span class=\"help-letter-space\"></span>修改<span class=\"help-letter-space\"></span>SLB<span class=\"help-letter-space\"></span>配置等，擅自改动<span class=\"help-letter-space\"></span>IaaS<span class=\"help-letter-space\"></span>层资源可能会导致数据面组件异常。</p>\n</li>\n<li data-tag=\"li\" id=\"li-8cn-52j-gtf\" class=\"li\">\n<p id=\"136fabf10fgg0\">部分数据面组件受上游社区版组件影响，可能存在<span class=\"help-letter-space\"></span>Bug<span class=\"help-letter-space\"></span>或漏洞，请注意及时升级组件，以避免开源组件<span class=\"help-letter-space\"></span>Bug<span class=\"help-letter-space\"></span>或漏洞导致您的业务受损。</p>\n</li>\n</ul>\n</div>\n<h3 id=\"136fabf20ffwp\"><b>集群升级相关</b></h3>\n<p data-tag=\"p\" id=\"p-88i-50y-5kd\" class=\"p\">请务必通过容器服务<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>的集群升级功能升级集群的<span class=\"help-letter-space\"></span>K8s<span class=\"help-letter-space\"></span>版本，自行升级<span class=\"help-letter-space\"></span>K8s<span class=\"help-letter-space\"></span>版本可能导致<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>集群的稳定性和兼容性问题。详细操作，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/update-the-kubernetes-version-of-an-ack-cluster#task-1664343\" id=\"xref-tri-d1d-ec1\" title=\"\" class=\"xref\">升级集群和独立升级集群控制面和节点池</a>。</p>\n<div data-tag=\"p\" id=\"p-ejk-afx-j6a\" class=\"p\">\n<p id=\"136fabf30f573\">阿里云容器服务<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>对集群升级提供以下支持：</p>\n<ul data-tag=\"ul\" id=\"ul-o1a-jdw-1o2\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-ebb-o6j-q3g\" class=\"li\">\n<p id=\"136fabf40f53v\">提供集群<span class=\"help-letter-space\"></span>K8s<span class=\"help-letter-space\"></span>新版本的升级功能。</p>\n</li>\n<li data-tag=\"li\" id=\"li-0v8-41p-9vl\" class=\"li\">\n<p id=\"136fabf50fa0b\">提供<span class=\"help-letter-space\"></span>K8s<span class=\"help-letter-space\"></span>新版本升级的前置检查功能，确保集群当前状态支持升级。</p>\n</li>\n<li data-tag=\"li\" id=\"li-s70-cv2-8s2\" class=\"li\">\n<p id=\"136fabf60f252\">提供<span class=\"help-letter-space\"></span>K8s<span class=\"help-letter-space\"></span>新版本的版本说明文档，包括相较于前版本的变化。</p>\n</li>\n<li data-tag=\"li\" id=\"li-5sq-y4d-whz\" class=\"li\">\n<p id=\"136fabf70fa2j\">提示升级到<span class=\"help-letter-space\"></span>K8s<span class=\"help-letter-space\"></span>新版本时因资源变化可能会发生的风险。</p>\n</li>\n</ul>\n</div>\n<div data-tag=\"p\" id=\"p-rcb-sy7-us2\" class=\"p\">\n<p id=\"136fabf80fwy6\">您在使用集群升级功能时，请遵循以下建议：</p>\n<ul data-tag=\"ul\" id=\"ul-ell-cvk-5va\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-k9w-dss-t4l\" class=\"li\">\n<p id=\"136fabf90f0cy\">在集群升级前运行前置检查，并根据前置检查结果逐一修复集群升级的阻塞点。</p>\n</li>\n<li data-tag=\"li\" id=\"li-cer-c7k-if1\" class=\"li\">\n<p id=\"136fabfa0fwmp\">详细阅读<span class=\"help-letter-space\"></span>K8s<span class=\"help-letter-space\"></span>新版本的版本说明文档，并根据<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>所提示的升级风险确认集群和业务的状态，自行判断升级风险。详细信息，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/ack/overview-of-kubernetes-versions-supported-by-ack#task-1960241\" id=\"xref-vy3-3gg-6bu\" title=\"\" class=\"xref\">Kubernetes<span class=\"help-letter-space\"></span>版本发布概览</a>。</p>\n</li>\n<li data-tag=\"li\" id=\"li-k6o-2gx-mo5\" class=\"li\">\n<p id=\"136fabfb0f4c7\">由于集群升级不提供回滚功能，请做好充分的升级计划和预后备份。</p>\n</li>\n<li data-tag=\"li\" id=\"li-32h-ace-bew\" class=\"li\">\n<p id=\"136fabfc0f8ci\">根据容器服务<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>的版本支持机制，在当前版本的支持周期内及时升级集群<span class=\"help-letter-space\"></span>K8s<span class=\"help-letter-space\"></span>版本。更多信息，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/support-for-kubernetes-versions/#concept-186482\" id=\"xref-7r2-iah-o85\" title=\"\" class=\"xref\">版本说明</a>。</p>\n</li>\n</ul>\n</div>\n<h3 class=\"custom-h3\" data-spm-anchor-id=\"a2c4g.118806.0.i4.49ab48d18nh6ud\" id=\"3\" jc=\"left\" style=\"text-align:left\">Kubernetes<span class=\"help-letter-space\"></span>原生配置相关</h3>\n<ul data-tag=\"ul\" id=\"ul-nk4-uvd-tqh\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-ik1-oc1-gnq\" class=\"li\">\n<p id=\"136fd3010f9ov\">请勿擅自修改<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>的关键配置，例如以下文件的路径、链接和内容：</p>\n<ul data-tag=\"ul\" id=\"ul-ftk-ni6-dz7\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-4cf-wk1-q36\" class=\"li\">\n<p id=\"136fd3020fj7h\"><span data-tag=\"filepath\" id=\"filepath-eb8-qrf-k50\" class=\"filepath\">/var/lib/kubelet</span></p>\n</li>\n<li data-tag=\"li\" id=\"li-pbu-wlv-30n\" class=\"li\">\n<p id=\"136fd3030fxgs\"><span data-tag=\"filepath\" id=\"filepath-o1f-rba-vtb\" class=\"filepath\">/var/lib/docker</span></p>\n</li>\n<li data-tag=\"li\" id=\"li-mbc-0sj-tuz\" class=\"li\">\n<p id=\"136fd3040fol3\"><span data-tag=\"filepath\" id=\"filepath-x7d-5ac-5sq\" class=\"filepath\">/etc/kubernetes</span></p>\n</li>\n<li data-tag=\"li\" id=\"li-vdv-vb4-pls\" class=\"li\">\n<p id=\"136fd3050fhoz\"><span data-tag=\"filepath\" id=\"filepath-2f4-yan-yeq\" class=\"filepath\">/etc/kubeadm</span></p>\n</li>\n<li data-tag=\"li\" id=\"li-fn5-726-ecb\" class=\"li\">\n<p id=\"136fd3060fg17\"><span data-tag=\"filepath\" id=\"filepath-vpa-5xi-n56\" class=\"filepath\">/var/lib/containerd</span></p>\n</li>\n</ul>\n</li>\n<li data-tag=\"li\" id=\"li-mrd-a5d-gru\" class=\"li\">\n<p id=\"136fd3070fmzt\">在<span class=\"help-letter-space\"></span>YAML<span class=\"help-letter-space\"></span>模板中请勿使用<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>集群预留的<span class=\"help-letter-space\"></span>Annotation，否则会造成资源不可用、申请失败、异常等问题。以<span data-tag=\"ph\" id=\"codeph-3mj-fkz-jk2\" class=\"ph\">\n<code data-tag=\"code\" id=\"a8bdbe01a8ny9\" class=\"code\">kubernetes.io/</code>\n\n</span>\n和<span data-tag=\"ph\" id=\"codeph-01i-18e-igs\" class=\"ph\">\n<code data-tag=\"code\" id=\"f8dd1d4393i89\" class=\"code\">k8s.io/</code>\n\n</span>\n开头的<span class=\"help-letter-space\"></span>Annotation<span class=\"help-letter-space\"></span>为核心组件预留标签。违规示例：<code data-tag=\"code\" id=\"78229acf71x2p\" class=\"code\">pv.kubernetes.io/bind-completed: \"yes\"</code>。\n            </p>\n</li>\n</ul>\n<h3 class=\"custom-h3\" data-spm-anchor-id=\"a2c4g.118806.0.i5.49ab48d18nh6ud\" id=\"4\" jc=\"left\" style=\"text-align:left\"><span data-tag=\"ph\" id=\"2b47c4f13csgq\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Serverless<span class=\"help-letter-space\"></span>集群</span>相关</h3>\n<p id=\"f666b5d03c1gw\">在以下场景中，<span data-tag=\"ph\" id=\"fcee01603cpls\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Serverless<span class=\"help-letter-space\"></span>集群</span>不提供赔付：</p>\n<ul id=\"6e7ad8123c645\">\n<li id=\"6e7ad8103c2b0\">\n<p id=\"209a9d703cp5m\">为简化集群运维，<span data-tag=\"ph\" id=\"32a65db13cesa\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Serverless<span class=\"help-letter-space\"></span>集群</span>提供部分系统组件托管能力，并在集群的组件开启托管后，负责其部署和维护。由于您误删托管组件依赖的<span class=\"help-letter-space\"></span>K8s<span class=\"help-letter-space\"></span>对象资源等其他情况导致业务受损时，ACK&nbsp;Serverless<span class=\"help-letter-space\"></span>不提供赔付。</p>\n</li>\n<li id=\"7357cf003ckuu\" props=\"china\" data-cond-props=\"china\">\n<p id=\"7357a7f03cz64\">针对<a href=\"https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202010221416_90184.html\" id=\"dc8beaf03c3a7\" class=\"\" target=\"_blank\">阿里云容器服务<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>版服务等级协议</a>下“<b>除外情形</b>”中列举的情况和原因，ACK&nbsp;Serverless<span class=\"help-letter-space\"></span>不提供赔付。</p>\n</li>\n</ul>\n<h3 id=\"c783c2c03cgcm\">注册集群相关</h3>\n<ul data-tag=\"ul\" id=\"ul-j5g-3xx-pig\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-m8f-mch-cp1\" class=\"li\">\n<p id=\"136ffa100f5n5\">通过<span data-tag=\"ph\" id=\"ph-kzl-f51-ztw\" is-conref=\"true\" class=\"ph\"><span props=\"china intl\"><a href=\"https://cs.console.aliyun.com\" id=\"xref-fo4-3rc-jwt\" class=\"\" target=\"_blank\">容器服务管理控制台</a></span></span>的注册集群功能接入外部<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>集群时，请确保外部集群与阿里云之间的网络稳定性。</p>\n</li>\n<li data-tag=\"li\" id=\"li-32t-p4m-hti\" class=\"li\">\n<p id=\"136ffa110f2il\">容器服务<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>提供外部<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>集群的注册接入，但无法管控外部集群自身的稳定性以及不当操作。因此当您通过注册集群配置外部集群节点的<span class=\"help-letter-space\"></span>Label、Annotation、Tag<span class=\"help-letter-space\"></span>等信息时，可能导致应用运行异常，请谨慎操作。</p>\n</li>\n</ul>\n<h3 class=\"custom-h3\" data-spm-anchor-id=\"a2c4g.118806.0.i6.49ab48d18nh6ud\" id=\"5\" jc=\"left\" style=\"text-align:left\">应用目录相关</h3>\n<p data-tag=\"p\" id=\"p-wce-ivy-8sg\" class=\"p\">为了丰富<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>应用，容器服务<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>的应用市场提供了应用目录，它们是基于开源软件做了适配和二次开发的应用。ACK<span class=\"help-letter-space\"></span>无法管控开源软件本身产生的缺陷，请知晓此风险。更多信息，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/app-marketplace#task-dby-n5y-ne0\" id=\"xref-fxe-923-cyv\" title=\"\" class=\"xref\">应用市场</a>。</p>\n</section>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-qyx-kxv-p4v\" class=\"section\">\n<h2 data-tag=\"title\" id=\"title-ty4-kyb-nkj\" class=\"title\">高危操作</h2>\n<div data-tag=\"p\" id=\"p-aoj-ez7-trq\" class=\"p\">\n<p id=\"136ffa130fliq\">在使用容器服务<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>过程中相关功能模块存在高危操作，可能会对业务稳定性造成较大影响。在使用前请认真了解以下高危操作及其影响。</p>\n</div>\n<section id=\"abdecfc7fdqzs\" class=\"section\">\n<h3 class=\"custom-h3\" data-spm-anchor-id=\"a2c4g.118806.0.i9.49ab48d18nh6ud\" id=\"6\" jc=\"left\" style=\"text-align:left\">集群相关高危操作</h3>\n<table autofit=\"true\" id=\"table-ije-ddc-fji\" tablecolswidth=\"14.2 28.7 27.39 29.710000000000008\" tablewidth=\"100\" class=\"table\">\n<colgroup colwidth=\"0.57*\" style=\"width:14.20%\"></colgroup>\n<colgroup colwidth=\"1.15*\" style=\"width:28.70%\"></colgroup>\n<colgroup colwidth=\"1.1*\" style=\"width:27.39%\"></colgroup>\n<colgroup colwidth=\"1.19*\" style=\"width:29.71%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"row-9o0-093-mmc\">\n<td id=\"concept-265348-entry-i21-giy-sdw\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"137021200fnbg\"><b>分类</b></p>\n</td>\n<td id=\"concept-265348-entry-082-z95-5c9\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"137021210fg1u\"><b>高危操作</b></p>\n</td>\n<td id=\"concept-265348-entry-at9-46n-hku\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"137021220fatg\"><b>影响</b></p>\n</td>\n<td id=\"concept-265348-entry-hn4-mgv-rbt\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"137021230f7c2\"><b>恢复方案</b></p>\n</td>\n</tr>\n<tr id=\"row-cxx-xq6-vnt\">\n<td id=\"entry-7xi-gow-3qo\" rowspan=\"3\" colspan=\"1\">\n<p id=\"137021240fcv3\">API Server</p>\n</td>\n<td id=\"entry-h7o-c01-jvb\" rowspan=\"1\" colspan=\"1\">\n<p id=\"b55f8a07fb3ck\">复用<span class=\"help-letter-space\"></span>API Server<span class=\"help-letter-space\"></span>所使用的<span class=\"help-letter-space\"></span>CLB<span class=\"help-letter-space\"></span>于其他场景，例如使用<span class=\"help-letter-space\"></span>LoadBalancer<span class=\"help-letter-space\"></span>类型<span class=\"help-letter-space\"></span>Service<span class=\"help-letter-space\"></span>复用该<span class=\"help-letter-space\"></span>CLB。</p>\n</td>\n<td id=\"entry-rj5-1mp-djk\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1acf9563f8zlb\">导致集群不可用，影响业务流量。</p>\n</td>\n<td id=\"entry-llj-jgp-g8i\" rowspan=\"1\" colspan=\"1\">\n<p id=\"42c95b4471xaq\">恢复原有配置，或请求售后服务支持。</p>\n</td>\n</tr>\n<tr id=\"6ea7a73d87qgz\">\n<td id=\"0c7ffbc114dyk\" rowspan=\"1\" colspan=\"1\">\n<p id=\"45f659dc2awfh\">修改<span class=\"help-letter-space\"></span>API Server<span class=\"help-letter-space\"></span>所使用的<span class=\"help-letter-space\"></span>CLB<span class=\"help-letter-space\"></span>的监听、服务器组、ACL<span class=\"help-letter-space\"></span>等控制<span class=\"help-letter-space\"></span>CLB<span class=\"help-letter-space\"></span>转发的配置、CLB<span class=\"help-letter-space\"></span>标签配置。</p>\n</td>\n<td id=\"06d39d285bhz1\" rowspan=\"1\" colspan=\"1\">\n<p id=\"605472fe4b43t\">导致集群异常。</p>\n</td>\n<td id=\"e7029b19deqzu\" rowspan=\"1\" colspan=\"1\">\n<p id=\"000bc37953hku\">恢复原有配置。</p>\n</td>\n</tr>\n<tr id=\"bdaf87d0980ua\">\n<td id=\"c5ea7793be5an\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"137021250fmob\">删除<span class=\"help-letter-space\"></span>API Server<span class=\"help-letter-space\"></span>所使用的<span class=\"help-letter-space\"></span>CLB。</p>\n</td>\n<td id=\"e9db2c19e079k\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"137021260f094\">导致集群不可操作。</p>\n</td>\n<td id=\"8b8881db6b3dt\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"137021270fopw\">不可恢复，请重新创建集群。重建集群请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/create-an-ack-managed-cluster-2/#task-skz-qwk-qfb\" id=\"9cd9c12891i43\" title=\"\" class=\"xref\">创建<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>托管集群</a>。</p>\n</td>\n</tr>\n<tr id=\"row-m6m-0t1-pyf\">\n<td id=\"entry-1a4-2lj-65p\" rowspan=\"9\" colspan=\"1\">\n<p id=\"137021280fx5y\">Worker<span class=\"help-letter-space\"></span>节点</p>\n</td>\n<td id=\"entry-d1q-epa-to5\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137021290fi6g\">修改集群内节点安全组。</p>\n</td>\n<td id=\"entry-se1-4ua-gfb\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370212a0fe97\">可能导致节点不可用。</p>\n</td>\n<td id=\"entry-4cr-ymz-trw\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370212b0fgwe\">将节点重新添加到集群自动创建的节点安全组中，请参见<a href=\"https://help.aliyun.com/zh/ecs/user-guide/manage-ecs-instances-in-security-groups#concept-jhw-31n-xdb\" id=\"xref-pn9-28c-r4a\" title=\"\" class=\"xref\">为实例（主网卡）关联安全组</a>。</p>\n</td>\n</tr>\n<tr id=\"row-fl7-96e-ve8\">\n<td id=\"entry-20l-56p-c66\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370212e0fgvq\">节点到期或被销毁。</p>\n</td>\n<td id=\"entry-w7d-can-09y\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370212f0f1a2\">该节点不可用。</p>\n</td>\n<td id=\"entry-tq1-3yz-fth\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137021300fvt3\">不可恢复。</p>\n</td>\n</tr>\n<tr id=\"row-y8m-fmf-5u6\">\n<td id=\"entry-jvd-22w-36p\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137048320f1o5\">重装操作系统。</p>\n</td>\n<td id=\"entry-588-6x9-346\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137048330fpfy\">节点上组件被删除。</p>\n</td>\n<td id=\"entry-w3z-fgc-obi\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137048340fdjx\">节点移出再加入集群。相关操作请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/remove-a-node#task-tqk-v54-dgb\" id=\"xref-9fj-h2g-ek4\" title=\"\" class=\"xref\">移除节点</a>、<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/add-existing-ecs-instances-to-an-ack-cluster#task-2548777\" id=\"xref-vpa-f0p-f3i\" title=\"\" class=\"xref\">添加已有节点</a>。</p>\n</td>\n</tr>\n<tr id=\"row-84v-tkn-tlo\">\n<td id=\"entry-pm0-2nc-v0t\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137048370ftr8\">自行升级节点组件版本。</p>\n</td>\n<td id=\"entry-vtq-ah7-fgs\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137048380fdsh\">可能导致节点无法使用。</p>\n</td>\n<td id=\"entry-nzk-qy1-6tc\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137048390fhl3\">回退到原始版本。</p>\n</td>\n</tr>\n<tr id=\"row-d4l-q98-nzu\">\n<td id=\"entry-mwv-r01-1g4\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370483c0f09t\">更改节点<span class=\"help-letter-space\"></span>IP。</p>\n</td>\n<td id=\"entry-5ju-lir-6aw\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370483d0fp2s\">节点不可用。</p>\n</td>\n<td id=\"entry-7r9-7r1-3gi\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370483e0f56l\">改回原<span class=\"help-letter-space\"></span>IP。</p>\n</td>\n</tr>\n<tr id=\"row-clp-lsi-3i4\">\n<td id=\"entry-i1u-742-azr\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137048410folb\">自行修改核心组件（kubelet、docker、containerd 等）参数。</p>\n</td>\n<td id=\"entry-gz7-42m-2pd\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137048420fkf2\">可能导致节点不可用。</p>\n</td>\n<td id=\"entry-r84-hg5-6hp\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137048430foef\">按照官网推荐配置参数。</p>\n</td>\n</tr>\n<tr id=\"row-d23-hg5-oyg\">\n<td id=\"entry-ikl-5eo-7o8\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13706f420fvim\">修改操作系统配置。</p>\n</td>\n<td id=\"entry-rro-5e1-cjv\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13706f430fdh4\">可能导致节点不可用。</p>\n</td>\n<td id=\"entry-zua-ws3-tfu\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13706f440fljj\">尝试还原配置项或删除节点重新购买。</p>\n</td>\n</tr>\n<tr id=\"a9e051c026i0t\">\n<td id=\"a9e078d126yoc\" rowspan=\"1\" colspan=\"1\">\n<p id=\"a9e078d2268my\">修改节点时间。</p>\n</td>\n<td id=\"a9e078d326q11\" rowspan=\"1\" colspan=\"1\">\n<p id=\"a9e078d426wkq\">可能导致节点上组件工作异常。</p>\n</td>\n<td id=\"a9e078d526pbf\" rowspan=\"1\" colspan=\"1\">\n<p id=\"a9e078d6260y3\">还原节点时间。</p>\n</td>\n</tr>\n<tr id=\"74485d857aqet\">\n<td id=\"7c09c4b323x3w\" rowspan=\"1\" colspan=\"1\">\n<p id=\"5e67174017p88\">通过不受&nbsp;ACK&nbsp;支持的方式向集群中添加节点算力资源。</p>\n</td>\n<td id=\"3570c020055i8\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1dff9a4678llo\">ACK&nbsp;提供控制台、OpenAPI、CLI<span class=\"help-letter-space\"></span>等方式向集群中增加节点算力资源，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/add-existing-ecs-instances-to-an-ack-cluster\" id=\"b7675191760gi\" title=\"\" class=\"xref\">添加已有节点</a>。如果您通过其他方式向集群中添加了节点，ACK<span class=\"help-letter-space\"></span>无法识别此类节点的来源，无法提供节点生命周期管理、自动化运维和技术支持等产品能力。详细风险说明，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/faq-about-node-management#22f153a210s4u\" id=\"180b8d9809ox3\" title=\"\" class=\"xref\">为什么控制台显示节点所属节点池的来源为“其他节点”？</a>。</p>\n</td>\n<td id=\"2b7c3a41e6c12\" rowspan=\"1\" colspan=\"1\">\n<p id=\"5ad46d6e31278\">建议通过节点池的方式纳管算力资源。如需继续使用，请自行确保节点与集群各组件（如&nbsp;Kubernetes<span class=\"help-letter-space\"></span>组件、网络、存储、安全组件等）的兼容性。</p>\n</td>\n</tr>\n<tr id=\"row-yti-dnc-icd\">\n<td id=\"entry-nw7-0k2-fox\" rowspan=\"10\" colspan=\"1\">\n<p id=\"13706f450fjjb\">Master<span class=\"help-letter-space\"></span>节点（ACK<span class=\"help-letter-space\"></span>专有版集群）</p>\n</td>\n<td id=\"entry-ket-od3-y9t\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13706f460fua7\">修改集群内节点安全组。</p>\n</td>\n<td id=\"entry-y0s-3ky-kl7\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13706f470f3h9\">可能导致<span class=\"help-letter-space\"></span>Master<span class=\"help-letter-space\"></span>节点不可用。</p>\n</td>\n<td id=\"entry-h8u-qqu-zsx\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13706f480ftj3\">将节点重新添加到集群自动创建的节点安全组中，请参见<a href=\"https://help.aliyun.com/zh/ecs/user-guide/manage-ecs-instances-in-security-groups#concept-jhw-31n-xdb\" id=\"xref-4u0-oo5-9ze\" title=\"\" class=\"xref\">为实例（主网卡）关联安全组</a>。</p>\n</td>\n</tr>\n<tr id=\"row-rhs-j1o-j1g\">\n<td id=\"entry-upu-s2q-lxp\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13706f4b0fq24\">节点到期或被销毁。</p>\n</td>\n<td id=\"entry-g6s-ueu-mlg\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13706f4c0fjbz\">该<span class=\"help-letter-space\"></span>Master<span class=\"help-letter-space\"></span>节点不可用。</p>\n</td>\n<td id=\"entry-uq7-xm7-c35\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13706f4d0f5cg\">不可恢复。</p>\n</td>\n</tr>\n<tr id=\"row-aod-tsy-olq\">\n<td id=\"entry-bhb-blc-431\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13706f500fxdk\">重装操作系统。</p>\n</td>\n<td id=\"entry-f2o-qm2-gbp\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13706f510f3cq\">Master<span class=\"help-letter-space\"></span>节点上组件被删除。</p>\n</td>\n<td id=\"entry-9z3-x9k-eyz\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13706f520fadq\">不可恢复。</p>\n</td>\n</tr>\n<tr id=\"row-33f-c9k-j8x\">\n<td id=\"entry-exn-wum-fao\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137096510fb3h\">自行升级<span class=\"help-letter-space\"></span>Master<span class=\"help-letter-space\"></span>或者<span class=\"help-letter-space\"></span>etcd<span class=\"help-letter-space\"></span>组件版本。</p>\n</td>\n<td id=\"entry-uwh-qtm-op1\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137096520ftc4\">可能导致集群无法使用。</p>\n</td>\n<td id=\"entry-d4p-fqu-942\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137096530f5ed\">回退到原始版本。</p>\n</td>\n</tr>\n<tr id=\"row-d2f-r7q-u9a\">\n<td id=\"entry-og9-s3o-3we\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137096560fz3t\">删除或格式化节点<span data-tag=\"filepath\" id=\"filepath-ix6-m33-n5a\" class=\"filepath\">/etc/kubernetes</span><span class=\"help-letter-space\"></span>等核心目录数据。</p>\n</td>\n<td id=\"entry-reb-gth-1hi\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137096570fd2x\">该<span class=\"help-letter-space\"></span>Master<span class=\"help-letter-space\"></span>节点不可用。</p>\n</td>\n<td id=\"entry-tk9-oz9-kff\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137096580faf4\">不可恢复。</p>\n</td>\n</tr>\n<tr id=\"row-6mx-fsk-i3t\">\n<td id=\"entry-y79-sy6-8cb\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370965b0fj6o\">更改节点<span class=\"help-letter-space\"></span>IP。</p>\n</td>\n<td id=\"entry-t8s-ov7-3w6\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370965c0f1r2\">该<span class=\"help-letter-space\"></span>Master<span class=\"help-letter-space\"></span>节点不可用。</p>\n</td>\n<td id=\"entry-uh8-zlx-b28\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370965d0ff6b\">改回原<span class=\"help-letter-space\"></span>IP。</p>\n</td>\n</tr>\n<tr id=\"row-mp5-1og-oi1\">\n<td id=\"entry-ta9-x6d-wgz\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137096600fq7d\">自行修改核心组件（etcd、kube-apiserver、docker<span class=\"help-letter-space\"></span>等）参数。</p>\n</td>\n<td id=\"entry-b65-370-orz\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137096610f99x\">可能导致<span class=\"help-letter-space\"></span>Master<span class=\"help-letter-space\"></span>节点不可用。</p>\n</td>\n<td id=\"entry-0zu-v0e-rp5\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137096620fm0e\">按照官网推荐配置参数。</p>\n</td>\n</tr>\n<tr id=\"row-x7p-pzy-a78\">\n<td id=\"entry-oj2-amq-w4n\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370bd610fdrm\">自行更换<span class=\"help-letter-space\"></span>Master<span class=\"help-letter-space\"></span>或<span class=\"help-letter-space\"></span>etcd 证书</p>\n</td>\n<td id=\"entry-qqe-ei3-ncj\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370bd620fenh\">可能导致集群无法使用。</p>\n</td>\n<td id=\"entry-dz7-bad-dx2\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370bd630f0ps\">不可恢复。</p>\n</td>\n</tr>\n<tr id=\"row-4b9-90j-41j\">\n<td id=\"entry-311-pbb-oac\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370bd660fm0g\">自行增加或减少<span class=\"help-letter-space\"></span>Master<span class=\"help-letter-space\"></span>节点。</p>\n</td>\n<td id=\"entry-5h8-bgf-8r1\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370bd670fo2m\">可能导致集群无法使用。</p>\n</td>\n<td id=\"entry-0lg-14d-gtb\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370bd680f3vu\">不可恢复。</p>\n</td>\n</tr>\n<tr id=\"d330089026z0a\">\n<td id=\"d330089326hyz\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d330089426bej\">修改节点时间。</p>\n</td>\n<td id=\"d3300895260jc\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3300896263z6\">可能导致节点上组件工作异常。</p>\n</td>\n<td id=\"d3302fa026jq9\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3302fa126mwk\">还原节点时间。</p>\n</td>\n</tr>\n<tr id=\"row-cs7-ws9-n7h\">\n<td id=\"entry-wex-0hv-x0m\" rowspan=\"2\" colspan=\"1\">\n<p id=\"1370bd690f82r\">其他</p>\n</td>\n<td id=\"entry-zyp-yii-064\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370bd6a0fyyg\">通过<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>执行权限变更或修改操作。</p>\n</td>\n<td id=\"entry-ip8-m7g-uwf\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370bd6b0f4ls\">集群部分资源如负载均衡可能无法创建成功。</p>\n</td>\n<td id=\"entry-a3w-qdc-g7q\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370bd6c0f9ce\">恢复原先权限。</p>\n</td>\n</tr>\n<tr id=\"49c962cd20y3w\">\n<td id=\"ff3c7afa8539q\" rowspan=\"1\" colspan=\"1\">\n<div id=\"a0e826b8d6smx\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n<p id=\"0a6727e815e0e\">仅适用于<span class=\"help-letter-space\"></span>1.26<span class=\"help-letter-space\"></span>以下版本的集群。</p>\n</div></div>\n<p id=\"9723ccfae7lzb\">修改或删除集群内预置的<span class=\"help-letter-space\"></span>PodSecurityPolicy<span class=\"help-letter-space\"></span>相关资源（包括名称为 <code data-tag=\"code\" id=\"f2788ff649pug\" class=\"code\">ack.privileged</code>的<span class=\"help-letter-space\"></span>PodSecurityPolicy<span class=\"help-letter-space\"></span>资源，名称以 <code data-tag=\"code\" id=\"94ab27198cg6d\" class=\"code\">ack:podsecuritypolicy:</code>开头的<span class=\"help-letter-space\"></span>ClusterRole、ClusterRoleBinding、Role<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>RoleBinding<span class=\"help-letter-space\"></span>资源）。</p>\n</td>\n<td id=\"c274a6dbe1gei\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c457c4a9d28g3\">可能导致集群核心组件异常、可能导致无法在集群内创建和更新<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>资源。</p>\n</td>\n<td id=\"3c48ed4bc94kk\" rowspan=\"1\" colspan=\"1\">\n<p id=\"5416499165fv8\">恢复相关资源。具体操作，详见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/use-pod-security-policies#section-sc9-zs4-6nz\" id=\"4d7463430ex7s\" title=\"\" class=\"xref\">配置或恢复<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>默认的<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>安全策略</a>。</p>\n</td>\n</tr>\n</tbody>\n</table>\n</section>\n<section id=\"a92f486113pqy\" class=\"section\">\n<h3 class=\"custom-h3\" data-spm-anchor-id=\"a2c4g.118806.0.i10.49ab48d18nh6ud\" id=\"7\" jc=\"left\" style=\"text-align:left\">节点池相关高危操作</h3>\n<table autofit=\"true\" id=\"table-url-djs-dvh\" tablecolswidth=\"32.19 29.66 38.150000000000006\" tablewidth=\"100\" class=\"table\">\n<colgroup colwidth=\"0.98*\" style=\"width:32.19%\"></colgroup>\n<colgroup colwidth=\"0.9*\" style=\"width:29.66%\"></colgroup>\n<colgroup colwidth=\"1.16*\" style=\"width:38.15%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"row-5yd-kt0-4sj\">\n<td id=\"concept-265348-entry-lsp-93p-w5w\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"1370bd6e0fjuj\"><b>高危操作</b></p>\n</td>\n<td id=\"concept-265348-entry-ckc-9s3-w6b\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"1370bd6f0fc8d\"><b>影响</b></p>\n</td>\n<td id=\"concept-265348-entry-hta-npk-thy\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"1370bd700fk2a\"><b>恢复方案</b></p>\n</td>\n</tr>\n<tr id=\"row-9fh-6nu-tju\">\n<td id=\"entry-ro1-dup-czr\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370bd710f9ia\">删除伸缩组。</p>\n</td>\n<td id=\"entry-s8e-pyx-fxo\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370bd720fh48\">导致节点池异常。</p>\n</td>\n<td id=\"entry-xiw-met-sek\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370e4700f51r\">不可恢复，只能重建节点池。重建节点池请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/create-a-node-pool#section-eq0-lmv-4a7\" id=\"xref-him-5fy-by6\" title=\"\" class=\"xref\">创建节点池</a>。</p>\n</td>\n</tr>\n<tr id=\"row-x3a-xdl-1zm\">\n<td id=\"entry-ist-vjd-hsp\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370e4710ffs4\">通过<span class=\"help-letter-space\"></span>kubectl<span class=\"help-letter-space\"></span>移除节点。</p>\n</td>\n<td id=\"entry-1k5-lrb-zub\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370e4720f1oy\">节点池节点数显示和实际不符。</p>\n</td>\n<td id=\"entry-p1k-jak-y6y\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370e4730f4yj\">通过容器服务管理控制台或者节点池相关<span class=\"help-letter-space\"></span>API<span class=\"help-letter-space\"></span>移除指定节点（参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/remove-a-node#task-tqk-v54-dgb\" id=\"xref-hn6-gi8-6l1\" title=\"\" class=\"xref\">移除节点</a>）或者修改节点池的期望节点数进行缩容（参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/create-a-node-pool#section-a2i-luy-mnw\" id=\"xref-ucg-h80-1g2\" title=\"\" class=\"xref\">创建和管理节点池</a>）。</p>\n</td>\n</tr>\n<tr id=\"row-m8g-egb-cn3\">\n<td id=\"entry-t0n-vkg-zk3\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370e4740f9vr\">直接释放<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例。</p>\n</td>\n<td id=\"entry-n69-2ni-jyf\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370e4750fzlg\">可能导致节点池详情页面显示异常。开启期望节点数的节点池为维持期望节点数，将会根据相应节点池配置自动扩容到期望节点数。</p>\n</td>\n<td id=\"entry-51x-tjp-o7x\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370e4760fn7j\">不可恢复。正确做法是通过容器服务管理控制台或者节点池相关<span class=\"help-letter-space\"></span>API<span class=\"help-letter-space\"></span>修改节点池的期望节点数进行缩容（参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/create-a-node-pool#section-a2i-luy-mnw\" id=\"xref-97w-4xt-q80\" title=\"\" class=\"xref\">创建和管理节点池</a>）或移除指定节点（参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/remove-a-node#task-tqk-v54-dgb\" id=\"xref-kbx-j3m-gli\" title=\"\" class=\"xref\">移除节点</a>）。</p>\n</td>\n</tr>\n<tr id=\"row-vyr-6kp-hxs\">\n<td id=\"entry-65c-rkl-2a9\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370e4770f3av\">对开启自动伸缩的节点池进行手动扩容或缩容。</p>\n</td>\n<td id=\"entry-ddm-vhu-fzc\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370e4780fxrm\">自动伸缩组件会根据策略自动调整节点数，导致结果与期望不符。</p>\n</td>\n<td id=\"entry-6nm-eyd-vda\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370e4790fxsf\">不可恢复。自动伸缩节点池无需手动干预。</p>\n</td>\n</tr>\n<tr id=\"row-zru-3ga-8iu\">\n<td id=\"entry-ztg-8oi-f6d\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370e47a0faif\">修改<span class=\"help-letter-space\"></span>ESS<span class=\"help-letter-space\"></span>伸缩组的最大或最小实例数。</p>\n</td>\n<td id=\"entry-uoo-0o0-l8w\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1370e47b0f6vg\">可能导致扩缩容异常。</p>\n</td>\n<td id=\"entry-v24-znx-3wg\" rowspan=\"1\" colspan=\"1\">\n<ul data-tag=\"ul\" id=\"ul-gpz-fsk-eim\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-oy7-x1v-rj4\" class=\"li\">\n<p id=\"1370e47c0fd1f\">对于未开启自动伸缩组的节点池，ESS<span class=\"help-letter-space\"></span>伸缩组最大和最小实例数改为默认值<span class=\"help-letter-space\"></span>2000<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>0。</p>\n</li>\n<li data-tag=\"li\" id=\"li-cxi-g12-onk\" class=\"li\">\n<p id=\"1370e47d0f4qf\">对于开启自动伸缩的节点池，将<span class=\"help-letter-space\"></span>ESS<span class=\"help-letter-space\"></span>伸缩组最大和最小实例数修改为与节点池最大和最小节点数一致。</p>\n</li>\n</ul>\n</td>\n</tr>\n<tr id=\"row-kye-ixc-l02\">\n<td id=\"entry-w6u-ega-re0\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13710b800fiig\">添加已有节点前不进行数据备份。</p>\n</td>\n<td id=\"entry-qmx-el9-lea\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13710b810fomv\">添加前实例上的数据丢失。</p>\n</td>\n<td id=\"entry-4lv-05t-ecr\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13710b820fdw0\">不可恢复。</p>\n<ul data-tag=\"ul\" id=\"ul-sbx-ov7-2gt\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-aza-wma-6nd\" class=\"li\">\n<p id=\"13710b830f056\">手动添加已有节点前必须对要保留的所有数据进行提前备份。</p>\n</li>\n<li data-tag=\"li\" id=\"li-cyc-q6x-7tb\" class=\"li\">\n<p id=\"13710b840f1og\">自动添加节点时会执行系统盘替换操作，需要您提前备份保存在系统盘中的有用数据。</p>\n</li>\n</ul>\n</td>\n</tr>\n<tr id=\"row-4z6-2yo-e48\">\n<td id=\"entry-g2p-oxe-lt2\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13710b850fo8m\">在节点系统盘中保存重要数据。</p>\n</td>\n<td id=\"entry-b1i-244-cpe\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13710b860fk3m\">节点池的自愈操作可能通过重置节点配置的方式修复节点，因此可能导致系统盘数据丢失。</p>\n</td>\n<td id=\"entry-eqe-md7-hws\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13710b870fkhh\">不可恢复。正确做法是将重要数据存放于额外的数据盘或者云盘、NAS、OSS。</p>\n</td>\n</tr>\n</tbody>\n</table>\n</section>\n<section id=\"755c81dc86wvf\" class=\"section\">\n<h3 id=\"44a3d8bf47frq\" jc=\"left\" style=\"text-align:left\" uuid=\"mm9yvqa6008lzsdv7449t\"><b>虚拟节点相关高危操作</b></h3>\n<table autofit=\"true\" id=\"b8b01aa2581mx\" tablecolswidth=\"22.12 50.84 27.039999999999992\" tablewidth=\"100\" class=\"table\">\n<colgroup colwidth=\"0.67*\" style=\"width:22.12%\"></colgroup>\n<colgroup colwidth=\"1.54*\" style=\"width:50.84%\"></colgroup>\n<colgroup colwidth=\"0.82*\" style=\"width:27.04%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"0dcfe69997l2e\">\n<td id=\"cb618770126s1\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n<p id=\"652d97143fcfr\" jc=\"left\" style=\"text-align:left\" uuid=\"50a2b13c-a017-4efa-ae89-7a5b8ee170ca\"><b>高危操作</b></p>\n</td>\n<td id=\"e729f9fd18kq6\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n<p id=\"046c0df54edz3\" jc=\"left\" style=\"text-align:left\" uuid=\"ef2f0db4-9d86-4531-93c1-49899f31a0f6\"><b>影响</b></p>\n</td>\n<td id=\"880e1a06b0sfp\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n<p id=\"66f2be652dr5v\" jc=\"left\" style=\"text-align:left\" uuid=\"1d900b58-a9f5-451d-aa2f-08ac454dc9ab\"><b>恢复方案</b></p>\n</td>\n</tr>\n<tr id=\"217ed73af2guj\">\n<td id=\"35c7f0b8b8crz\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"20b7e0a54fsnw\" jc=\"left\" style=\"text-align:left\" uuid=\"957a1591-d168-4ef1-a2bc-5a652347f91c\">卸载虚拟节点组件。</p>\n</td>\n<td id=\"3476298558e5a\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"dfd26eac15sx9\" jc=\"left\" style=\"text-align:left\" uuid=\"mm9zzkwtvuzools9fqh\">Serverless Pod 管理功能异常：已创建的 ECI Pod 和 ACS Pod 无法正常删除，也无法正常创建新的 ECI Pod 和 ACS Pod。</p>\n</td>\n<td id=\"a5ed8de99cron\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"03fb7fe2bb1go\" jc=\"left\" style=\"text-align:left\" uuid=\"e75aed64-1f3d-46a6-ae36-95f0076e9af8\">重新<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/virtual-node-overview/#a80c0de73cycc\" id=\"b567da197d2gc\" title=\"\" class=\"xref\">安装虚拟节点组件</a>。</p>\n</td>\n</tr>\n</tbody>\n</table>\n</section>\n<section id=\"db9daf568bwmq\" class=\"section\">\n<h3 id=\"13710b880fjly\"><b>网络与负载均衡相关高危操作</b></h3>\n<table autofit=\"true\" id=\"table-6fe-g1c-kb2\" tablecolswidth=\"41.6 20.18 38.22\" tablewidth=\"100\" class=\"table\">\n<colgroup colwidth=\"1.26*\" style=\"width:41.60%\"></colgroup>\n<colgroup colwidth=\"0.61*\" style=\"width:20.18%\"></colgroup>\n<colgroup colwidth=\"1.16*\" style=\"width:38.22%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"row-9x4-86l-vi1\">\n<td id=\"concept-265348-entry-91e-xbl-oqm\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"13710b890fn0t\"><b>高危操作</b></p>\n</td>\n<td id=\"concept-265348-entry-v3g-0ix-dad\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"13710b8a0f2w1\"><b>影响</b></p>\n</td>\n<td id=\"concept-265348-entry-x2r-k7i-mi6\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"13710b8b0flag\"><b>恢复方案</b></p>\n</td>\n</tr>\n<tr id=\"row-sgx-x1j-99w\">\n<td id=\"entry-rd7-168-wn4\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13710b8c0f6ox\">修改内核参数<span data-tag=\"ph\" id=\"codeph-ewd-6yb-piz\" class=\"ph\"><code data-tag=\"code\" id=\"580f2388ccft0\" class=\"code\">net.ipv4.ip_forward=0</code></span>。</p>\n</td>\n<td id=\"entry-u23-roj-3ts\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13710b8d0fdv8\">网络不通。</p>\n</td>\n<td id=\"entry-lnp-ug2-c1e\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13710b8e0fge8\">修改内核参数为<span data-tag=\"ph\" id=\"codeph-jsx-dvx-143\" class=\"ph\"><code data-tag=\"code\" id=\"9893b46e21ims\" class=\"code\">net.ipv4.ip_forward=1</code></span>。</p>\n</td>\n</tr>\n<tr id=\"row-5hs-br5-soi\">\n<td id=\"entry-1u3-j3h-dx2\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13710b8f0feus\">修改内核参数：</p>\n<ul data-tag=\"ul\" id=\"ul-x9s-4mk-dlx\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-dma-owf-acu\" class=\"li\">\n<p id=\"137132900f8az\"><span data-tag=\"ph\" id=\"codeph-n8t-tgh-03n\" class=\"ph\"><code data-tag=\"code\" id=\"d852d03dd826o\" class=\"code\">net.ipv4.conf.all.rp_filter = 1|2</code></span></p>\n</li>\n<li data-tag=\"li\" id=\"li-hq7-9x7-jtb\" class=\"li\">\n<p id=\"137132910fb6k\"><span data-tag=\"ph\" id=\"codeph-xc6-acd-fvp\" class=\"ph\"><code data-tag=\"code\" id=\"87d302876eher\" class=\"code\">net.ipv4.conf.[ethX].rp_filter = 1|2</code></span></p>\n<div data-tag=\"note\" id=\"note-psz-vxt-nqo\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n<p id=\"137132920f8so\"><span data-tag=\"ph\" id=\"codeph-1ju-rln-x4e\" class=\"ph\"><code data-tag=\"code\" id=\"c6e20bbc3722c\" class=\"code\">ethX</code></span>代表所有以<span data-tag=\"ph\" id=\"codeph-6e7-p1s-b6p\" class=\"ph\"><code data-tag=\"code\" id=\"98d3258e48hmb\" class=\"code\">eth</code></span>开头的网卡。</p>\n</div></div>\n</li>\n</ul>\n</td>\n<td id=\"entry-e6e-10d-nix\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137132930f0x3\">网络不通。</p>\n</td>\n<td id=\"entry-ao5-vfl-yx5\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137132940fefd\">修改内核参数为：</p>\n<ul data-tag=\"ul\" id=\"ul-tt8-zfa-z6z\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-6sp-3nm-y3r\" class=\"li\">\n<p id=\"137132950fqbe\"><span data-tag=\"ph\" id=\"codeph-3z9-tqi-e2o\" class=\"ph\"><code data-tag=\"code\" id=\"8228fb730e9en\" class=\"code\">net.ipv4.conf.all.rp_filter = 0</code></span></p>\n</li>\n<li data-tag=\"li\" id=\"li-c4p-3p6-dcp\" class=\"li\">\n<p id=\"137132960fp80\"><span data-tag=\"ph\" id=\"codeph-oah-yk8-77o\" class=\"ph\"><code data-tag=\"code\" id=\"8144abf6c5ths\" class=\"code\">net.ipv4.conf.[ethX].rp_filter = 0</code></span></p>\n</li>\n</ul>\n</td>\n</tr>\n<tr id=\"row-gkl-qe6-l2e\">\n<td id=\"entry-wnj-hfq-hdq\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137132970fqo7\">修改内核参数<span data-tag=\"ph\" id=\"codeph-ili-iwp-9nb\" class=\"ph\"><code data-tag=\"code\" id=\"2f78a50c92pug\" class=\"code\">net.ipv4.tcp_tw_reuse = 1</code></span>。</p>\n</td>\n<td id=\"entry-hyw-de4-ono\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137159a00fx0j\">导致<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>健康检查异常。</p>\n</td>\n<td id=\"entry-3do-2ol-r2j\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137159a10fflg\">修改内核参数为<span data-tag=\"ph\" id=\"codeph-yaz-ss8-fh6\" class=\"ph\"><code data-tag=\"code\" id=\"c3d4721b7dbrt\" class=\"code\">net.ipv4.tcp_tw_reuse = 0</code></span>。</p>\n</td>\n</tr>\n<tr id=\"row-8bw-vif-h2l\">\n<td id=\"entry-yky-j2s-7oh\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137159a20fz7f\">修改内核参数<span data-tag=\"ph\" id=\"codeph-40g-ol1-x8q\" class=\"ph\"><code data-tag=\"code\" id=\"82592150a5xym\" class=\"code\">net.ipv4.tcp_tw_recycle = 1</code></span>。</p>\n</td>\n<td id=\"entry-v5n-8mx-zto\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137159a30fft1\">导致<span class=\"help-letter-space\"></span>NAT<span class=\"help-letter-space\"></span>异常。</p>\n</td>\n<td id=\"entry-iw4-69p-qq3\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137159a40f527\">修改内核参数<span data-tag=\"ph\" id=\"codeph-ssb-dpq-4zp\" class=\"ph\"><code data-tag=\"code\" id=\"b3990e1c9ecev\" class=\"code\">net.ipv4.tcp_tw_recycle = 0</code></span>。</p>\n</td>\n</tr>\n<tr id=\"row-nt4-b1r-20a\">\n<td id=\"entry-swl-5ec-ajv\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137159a50fh3q\">修改内核参数<span data-tag=\"ph\" id=\"codeph-txt-po2-qnu\" class=\"ph\"><code data-tag=\"code\" id=\"a23eab23cezw2\" class=\"code\">net.ipv4.ip_local_port_range</code></span>。</p>\n</td>\n<td id=\"entry-7l4-dwi-1qh\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137159a60fmyg\">导致网络偶发不通。</p>\n</td>\n<td id=\"entry-1rb-d9u-r0s\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137159a70f289\">修改内核参数到默认值<span data-tag=\"ph\" id=\"codeph-gm3-0oh-nrc\" class=\"ph\"><code data-tag=\"code\" id=\"6c828f036ak8w\" class=\"code\">net.ipv4.ip_local_port_range=\"32768 60999\"</code></span>。</p>\n</td>\n</tr>\n<tr id=\"row-0tz-vk0-j52\">\n<td id=\"entry-7s2-r53-4hf\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137159a80fvxv\">安装防火墙软件，例如<span class=\"help-letter-space\"></span>Firewalld<span class=\"help-letter-space\"></span>或者<span class=\"help-letter-space\"></span>ufw<span class=\"help-letter-space\"></span>等。</p>\n</td>\n<td id=\"entry-h4p-y4l-l53\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137159a90fi1e\">导致容器网络不通。</p>\n</td>\n<td id=\"entry-1ji-2mr-6gz\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137159aa0fnqj\">卸载防火墙软件并重启节点。</p>\n</td>\n</tr>\n<tr id=\"row-0er-2w1-odc\">\n<td id=\"entry-gyd-1oi-ave\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137159ab0f7vi\">节点安全组配置未放通容器 CIDR<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>53<span class=\"help-letter-space\"></span>端口<span class=\"help-letter-space\"></span>UDP。</p>\n</td>\n<td id=\"entry-rcp-6of-eyz\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137180b00fid3\">集群内<span class=\"help-letter-space\"></span>DNS<span class=\"help-letter-space\"></span>无法正常工作。</p>\n</td>\n<td id=\"entry-2vb-udh-rrr\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137180b10fvtl\">按照官网推荐配置放通安全组。</p>\n</td>\n</tr>\n<tr id=\"row-l2y-907-6g1\">\n<td id=\"entry-099-1p5-yuv\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137180b20ffs8\">修改或者删除<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>添加的<span class=\"help-letter-space\"></span>SLB<span class=\"help-letter-space\"></span>的标签。</p>\n</td>\n<td id=\"entry-ljo-5f9-zzt\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137180b30fctw\">导致<span class=\"help-letter-space\"></span>SLB<span class=\"help-letter-space\"></span>异常。</p>\n</td>\n<td id=\"entry-bv7-3lg-iek\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137180b40f9yk\">恢复<span class=\"help-letter-space\"></span>SLB<span class=\"help-letter-space\"></span>的标签。</p>\n</td>\n</tr>\n<tr id=\"row-o4r-1pk-mff\">\n<td id=\"entry-xb9-jfq-vji\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137180b50f2sk\">通过负载均衡控制台修改<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>管理的<span class=\"help-letter-space\"></span>SLB<span class=\"help-letter-space\"></span>的配置，包括<span class=\"help-letter-space\"></span>SLB、监听及虚拟服务器组。</p>\n</td>\n<td id=\"entry-hki-cxg-bmt\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137180b60fg6s\">导致<span class=\"help-letter-space\"></span>SLB<span class=\"help-letter-space\"></span>异常。</p>\n</td>\n<td id=\"entry-ntd-qua-yuk\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137180b70fvkn\">恢复<span class=\"help-letter-space\"></span>SLB<span class=\"help-letter-space\"></span>的配置。</p>\n</td>\n</tr>\n<tr id=\"row-xps-6ck-3w3\">\n<td id=\"entry-mia-8oy-c0u\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137180b80ffs1\">移除<span class=\"help-letter-space\"></span>Service<span class=\"help-letter-space\"></span>中复用已有<span class=\"help-letter-space\"></span>SLB<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>Annotation，即<span data-tag=\"ph\" id=\"codeph-31z-2hr-wjg\" class=\"ph\"><code data-tag=\"code\" id=\"800db328367er\" class=\"code\">service.beta.kubernetes.io/alibaba-cloud-loadbalancer-id: ${YOUR_LB_ID}</code></span>。</p>\n</td>\n<td id=\"entry-gxc-asv-829\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137180b90fb1i\">导致<span class=\"help-letter-space\"></span>SLB<span class=\"help-letter-space\"></span>异常。</p>\n</td>\n<td id=\"entry-ohf-gir-6fo\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137180ba0fnux\">在<span class=\"help-letter-space\"></span>Service<span class=\"help-letter-space\"></span>中添加复用已有<span class=\"help-letter-space\"></span>SLB<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>Annotation。</p>\n<div data-tag=\"note\" id=\"note-f95-ine-tw6\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n<p id=\"137180bb0f3cr\">复用已有<span class=\"help-letter-space\"></span>SLB<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>Service<span class=\"help-letter-space\"></span>无法直接修改为使用自动创建<span class=\"help-letter-space\"></span>SLB<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>Service。您需要重新创建<span class=\"help-letter-space\"></span>Service。</p>\n</div></div>\n</td>\n</tr>\n<tr id=\"row-iw4-y91-hue\">\n<td id=\"entry-0ke-1jk-aeo\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137180bc0fbt4\">通过负载均衡控制台删除<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>创建的<span class=\"help-letter-space\"></span>SLB。</p>\n</td>\n<td id=\"entry-9vk-1xl-j9w\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137180bd0f8bx\">可能导致集群网络异常。</p>\n</td>\n<td id=\"entry-tue-uwe-ge0\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137180be0fij1\">通过删除<span class=\"help-letter-space\"></span>Service<span class=\"help-letter-space\"></span>的方式删除<span class=\"help-letter-space\"></span>SLB。删除<span class=\"help-letter-space\"></span>Service<span class=\"help-letter-space\"></span>请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/service-management/#step-trr-3n3-2uy\" id=\"xref-jfz-756-2oo\" title=\"\" class=\"xref\">删除<span class=\"help-letter-space\"></span>Service</a>。</p>\n</td>\n</tr>\n<tr id=\"row-3bs-18m-bse\">\n<td id=\"entry-hmu-6yv-4sb\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137180bf0f1x4\">在安装<span class=\"help-letter-space\"></span>Nginx Ingress Controller<span class=\"help-letter-space\"></span>组件的情况下手动删除 kube-system<span class=\"help-letter-space\"></span>命名空间下的<span data-tag=\"ph\" id=\"codeph-zah-lnq-sr5\" class=\"ph\"><code data-tag=\"code\" id=\"ed976f06e36yu\" class=\"code\">nginx-ingress-lb</code></span> Service。</p>\n</td>\n<td id=\"entry-0nl-1gl-p3v\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371a7c00fps7\">Ingress Controller<span class=\"help-letter-space\"></span>工作不正常，严重时产生崩溃。</p>\n</td>\n<td id=\"entry-i5e-x8j-gfj\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371a7c10fzwp\">使用以下<span class=\"help-letter-space\"></span>YAML<span class=\"help-letter-space\"></span>新建一个同名<span class=\"help-letter-space\"></span>Service。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"codeblock-6n8-x8b-ftu\" outputclass=\"language-yaml\" class=\"pre codeblock language-yaml\"><code>apiVersion: v1\nkind: Service\nmetadata:\n  annotations:\n  labels:\n    app: nginx-ingress-lb\n  name: nginx-ingress-lb\n  namespace: kube-system\nspec:\n  externalTrafficPolicy: Local\n  ports:\n  - name: http\n    port: 80\n    protocol: TCP\n    targetPort: 80\n  - name: https\n    port: 443\n    protocol: TCP\n    targetPort: 443\n  selector:\n    app: ingress-nginx\n  type: LoadBalancer</code></pre>\n</td>\n</tr>\n<tr id=\"row-nft-v9d-wl7\">\n<td id=\"entry-lyz-o2h-op4\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371a7c20fvw6\">新增或修改<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>节点上<span class=\"help-letter-space\"></span>DNS<span class=\"help-letter-space\"></span>配置文件<span data-tag=\"filepath\" id=\"filepath-hw1-0ro-e6p\" class=\"filepath\">/etc/resolv.conf</span><span class=\"help-letter-space\"></span>中<span data-tag=\"ph\" id=\"codeph-b0i-m8j-xq9\" class=\"ph\"><code data-tag=\"code\" id=\"83bb7b27bf7ro\" class=\"code\">nameserver</code></span>选项。</p>\n</td>\n<td id=\"entry-21h-cep-5p3\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371a7c30f6q2\">若配置的<span class=\"help-letter-space\"></span>DNS<span class=\"help-letter-space\"></span>服务器配置不合理，可能导致<span class=\"help-letter-space\"></span>DNS<span class=\"help-letter-space\"></span>无法解析，影响集群正常运行。</p>\n</td>\n<td id=\"entry-dhp-ghe-d6l\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371a7c40fe82\">您如果想要使用自建<span class=\"help-letter-space\"></span>DNS<span class=\"help-letter-space\"></span>服务器作为上游服务器，建议在<span class=\"help-letter-space\"></span>CoreDNS<span class=\"help-letter-space\"></span>侧进行配置。具体操作，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/configure-coredns#task-2165721\" id=\"xref-mnj-hh4-msx\" title=\"\" class=\"xref\">非托管<span class=\"help-letter-space\"></span>CoreDNS<span class=\"help-letter-space\"></span>配置说明</a>。</p>\n</td>\n</tr>\n<tr id=\"41a405d615b16\">\n<td id=\"b2bd6236e8j79\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1e8a9f3d99f7b\">修改、删除<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>创建的弹性网卡、灵骏弹性网卡。</p>\n</td>\n<td id=\"7ae7761d2e9fj\" rowspan=\"1\" colspan=\"1\">\n<p id=\"277c08adf5fov\">Pod<span class=\"help-letter-space\"></span>网络中断。</p>\n</td>\n<td id=\"5c28cce980w4q\" rowspan=\"1\" colspan=\"1\">\n<p id=\"4d2e540f4bver\">不可恢复。</p>\n</td>\n</tr>\n<tr id=\"71eb787bd6tv7\">\n<td id=\"f475ead5cbnir\" rowspan=\"1\" colspan=\"1\">\n<p id=\"baf4148f32fwl\">修改、删除网络相关 CRD。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"345e38e7e2ndu\" index=\"0\" outputclass=\"language-plaintext\" class=\"pre codeblock language-plaintext\"><code>podnetworkings.network.alibabacloud.com\npodenis.network.alibabacloud.com\nnetworkinterfaces.network.alibabacloud.com\nnodes.network.alibabacloud.com\nnoderuntimes.network.alibabacloud.com\n*.cilium.io\n*.crd.projectcalico.org</code></pre>\n</td>\n<td id=\"9fac402e7cy92\" rowspan=\"1\" colspan=\"1\">\n<p id=\"ef317bdbcanun\">Terway 组件将无法工作，严重时可能导致网络中断、Pod<span class=\"help-letter-space\"></span>异常。</p>\n</td>\n<td id=\"c4ab6fcde05r7\" rowspan=\"1\" colspan=\"1\">\n<p id=\"45430045f06yq\">不可恢复。</p>\n</td>\n</tr>\n<tr id=\"2f540fc2cfuge\">\n<td id=\"e03b5bf4f8o2i\" rowspan=\"1\" colspan=\"1\">\n<p id=\"dc3a4b761aidf\">创建、修改、删除网络相关系统<span class=\"help-letter-space\"></span>CR。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"b56f6adfa65ca\" index=\"0\" outputclass=\"language-plaintext\" class=\"pre codeblock language-plaintext\"><code>podenis.network.alibabacloud.com\nnetworkinterfaces.network.alibabacloud.com\nnodes.network.alibabacloud.com\nnoderuntimes.network.alibabacloud.com\n*.cilium.io\n*.crd.projectcalico.org</code></pre>\n</td>\n<td id=\"79951b63c1e9u\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13171bea389py\">Terway 组件将无法工作，严重时可能导致网络中断、Pod<span class=\"help-letter-space\"></span>异常。</p>\n</td>\n<td id=\"ada67ac7487di\" rowspan=\"1\" colspan=\"1\">\n<p id=\"635457bf9e0vs\">删除自定义<span class=\"help-letter-space\"></span>CR<span class=\"help-letter-space\"></span>定义，并重建关联的<span class=\"help-letter-space\"></span>Pod。</p>\n</td>\n</tr>\n<tr id=\"edd2a9b8b9a0c\">\n<td id=\"6c9587c5e5e7o\" rowspan=\"1\" colspan=\"1\">\n<p id=\"7e78983d2dzbs\">修改、删除<span class=\"help-letter-space\"></span>Terway<span class=\"help-letter-space\"></span>网络配置中非允许修改的字段。配置参数声明<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/terway-configuration-parameters\" id=\"edf99135fcwis\" title=\"\" class=\"xref\">自定义<span class=\"help-letter-space\"></span>Terway<span class=\"help-letter-space\"></span>配置参数</a>。</p>\n</td>\n<td id=\"bca3f4014a0ko\" rowspan=\"1\" colspan=\"1\">\n<p id=\"2919fa8e0cv06\">Terway 组件将无法工作，严重时可能导致网络中断、Pod<span class=\"help-letter-space\"></span>异常。</p>\n</td>\n<td id=\"3e8409034e837\" rowspan=\"1\" colspan=\"1\">\n<p id=\"351c3b8785ye8\">恢复原有配置，并重启节点。</p>\n</td>\n</tr>\n</tbody>\n</table>\n</section>\n<section id=\"e500dc056cgw8\" class=\"section\">\n<h3 class=\"custom-h3\" data-spm-anchor-id=\"a2c4g.118806.0.i13.49ab48d18nh6ud\" id=\"9\" jc=\"left\" style=\"text-align:left\">存储相关高危操作</h3>\n<table autofit=\"true\" id=\"table-mxg-2hy-1r9\" tablecolswidth=\"30.97 29.43 39.6\" tablewidth=\"100\" class=\"table\">\n<colgroup colwidth=\"0.94*\" style=\"width:30.97%\"></colgroup>\n<colgroup colwidth=\"0.89*\" style=\"width:29.43%\"></colgroup>\n<colgroup colwidth=\"1.2*\" style=\"width:39.60%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"row-aly-r4u-qub\">\n<td id=\"concept-265348-entry-5b0-q29-1y2\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"1371a7c60fqou\"><b>高危操作</b></p>\n</td>\n<td id=\"concept-265348-entry-sws-v6f-4my\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"1371a7c70fg17\"><b>影响</b></p>\n</td>\n<td id=\"concept-265348-entry-loe-zei-vo4\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"1371a7c80fq5b\"><b>恢复方案</b></p>\n</td>\n</tr>\n<tr id=\"row-gsd-wzh-6ns\">\n<td id=\"entry-x9x-2rc-c5f\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371a7c90f4sc\">控制台手动解挂云盘。</p>\n</td>\n<td id=\"entry-mrl-6mp-sxt\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371a7ca0f8wz\">Pod<span class=\"help-letter-space\"></span>写入报<span class=\"help-letter-space\"></span>IO Error。</p>\n</td>\n<td id=\"entry-nvv-rvm-4dp\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371a7cb0fcki\">重启<span class=\"help-letter-space\"></span>Pod，手动清理节点挂载残留。</p>\n</td>\n</tr>\n<tr id=\"row-qtm-b58-hp6\">\n<td id=\"entry-xet-vam-7c8\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371a7cc0fsri\">节点上<span class=\"help-letter-space\"></span><span data-tag=\"cmdname\" id=\"cmdname-gy3-w1y-34j\" class=\"cmdname\">umount</span><span class=\"help-letter-space\"></span>磁盘挂载路径</p>\n</td>\n<td id=\"entry-c77-630-txj\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371a7cd0fhdx\">Pod<span class=\"help-letter-space\"></span>写入本地磁盘。</p>\n</td>\n<td id=\"entry-zva-siu-201\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371ced00fzwp\">重启<span class=\"help-letter-space\"></span>Pod。</p>\n</td>\n</tr>\n<tr id=\"row-95o-wsm-t22\">\n<td id=\"entry-64s-p0c-gbu\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371ced10f6ma\">节点上直接操作云盘。</p>\n</td>\n<td id=\"entry-2z3-hkq-98r\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371ced20frxh\">Pod<span class=\"help-letter-space\"></span>写入本地磁盘。</p>\n</td>\n<td id=\"entry-3nx-q47-a9v\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371ced30fqwu\">不可恢复。</p>\n</td>\n</tr>\n<tr id=\"row-ox8-9ud-l39\">\n<td id=\"entry-z4f-4mc-agm\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371ced40f9l8\">多个<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>挂载相同云盘。</p>\n</td>\n<td id=\"entry-ev2-5td-noz\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371ced50f15y\">Pod<span class=\"help-letter-space\"></span>写入本地磁盘或者报错<span class=\"help-letter-space\"></span>IO Error。</p>\n</td>\n<td id=\"entry-x97-llq-tk9\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371ced60fp3j\">确保一个云盘给一个<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>使用。</p>\n<div data-tag=\"note\" id=\"note-sqa-mfj-1bp\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n<p id=\"1371ced70flmp\">云盘为阿里云存储团队提供的非共享存储，只能同时被一个<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>挂载。</p>\n</div></div>\n</td>\n</tr>\n<tr id=\"row-gct-bkv-bo8\">\n<td id=\"entry-yil-wxz-c37\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371ced80f38o\">手动删除<span class=\"help-letter-space\"></span>NAS<span class=\"help-letter-space\"></span>挂载目录。</p>\n</td>\n<td id=\"entry-4y1-b1e-mzp\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371ced90fzco\">Pod<span class=\"help-letter-space\"></span>写入报<span class=\"help-letter-space\"></span>IO Error。</p>\n</td>\n<td id=\"entry-0no-n6d-9vl\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371ceda0fg2z\">重启<span class=\"help-letter-space\"></span>Pod。</p>\n</td>\n</tr>\n<tr id=\"row-8oh-qml-t39\">\n<td id=\"entry-0n4-28m-g75\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371cedb0f5rw\">删除正在使用的<span class=\"help-letter-space\"></span>NAS<span class=\"help-letter-space\"></span>盘或挂载点。</p>\n</td>\n<td id=\"entry-y9g-rim-107\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371cedc0fsxo\">Pod<span class=\"help-letter-space\"></span>出现<span class=\"help-letter-space\"></span>IO Hang。</p>\n</td>\n<td id=\"entry-g08-jfl-n51\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1371cedd0f35y\">重启<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>节点。重启具体操作，请参见<a href=\"https://help.aliyun.com/zh/ecs/user-guide/restart-instances#concept-yxw-dwm-xdb\" id=\"xref-kcz-k1n-mv7\" title=\"\" class=\"xref\">重启<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例</a>。</p>\n</td>\n</tr>\n</tbody>\n</table>\n</section>\n<section id=\"e7c35fe5d7yqa\" class=\"section\">\n<h3 class=\"custom-h3\" data-spm-anchor-id=\"a2c4g.118806.0.i14.49ab48d18nh6ud\" id=\"10\" jc=\"left\" style=\"text-align:left\">日志相关高危操作</h3>\n<table autofit=\"true\" id=\"table-imr-tkc-e1r\" tablecolswidth=\"41.69 15.38 42.93\" tablewidth=\"100\" class=\"table\">\n<colgroup colwidth=\"1.26*\" style=\"width:41.69%\"></colgroup>\n<colgroup colwidth=\"0.47*\" style=\"width:15.38%\"></colgroup>\n<colgroup colwidth=\"1.3*\" style=\"width:42.93%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"row-rvi-lw1-dpa\">\n<td id=\"concept-265348-entry-ck7-ye5-d3a\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"1371cedf0ff77\"><b>高危操作</b></p>\n</td>\n<td id=\"concept-265348-entry-e9g-z1v-1mb\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"1371cee00fg01\"><b>影响</b></p>\n</td>\n<td id=\"concept-265348-entry-sl6-9gb-eui\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"13721cf00ft4i\"><b>恢复方案</b></p>\n</td>\n</tr>\n<tr id=\"row-qyc-t21-vx3\">\n<td id=\"entry-eof-vt8-ode\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13721cf10fi5w\">删除宿主机<span data-tag=\"filepath\" id=\"filepath-729-5ya-1t3\" class=\"filepath\">/tmp/ccs-log-collector/pos</span><span class=\"help-letter-space\"></span>目录。</p>\n</td>\n<td id=\"entry-uzn-wjg-8i7\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13721cf20f8b8\">日志重复采集。</p>\n</td>\n<td id=\"entry-qp7-p13-jcj\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13721cf30f0pr\">不可恢复。该目录下的文件记录了日志的采集位置。</p>\n</td>\n</tr>\n<tr id=\"row-dhd-6z6-zkc\">\n<td id=\"entry-rc5-jfm-ts0\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13721cf40fs3o\">删除宿主机<span data-tag=\"filepath\" id=\"filepath-bzs-anf-9qw\" class=\"filepath\">/tmp/ccs-log-collector/buffer</span><span class=\"help-letter-space\"></span>目录。</p>\n</td>\n<td id=\"entry-zpc-oen-bgl\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13721cf50fzpa\">日志丢失。</p>\n</td>\n<td id=\"entry-7k2-gdo-gsp\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13721cf60fn8g\">不可恢复。该目录是待消费的日志缓存文件。</p>\n</td>\n</tr>\n<tr id=\"row-lb5-ti8-80u\">\n<td id=\"entry-fxk-8qe-fds\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13721cf70falr\">删除<span class=\"help-letter-space\"></span>aliyunlogconfig CRD<span class=\"help-letter-space\"></span>资源。</p>\n</td>\n<td id=\"entry-tmo-t72-1o3\" rowspan=\"1\" colspan=\"1\">\n<p id=\"13721cf80f2bd\">日志采集失效。</p>\n</td>\n<td id=\"entry-5kk-i0b-h63\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137244000fcg0\">重新创建删除的<span class=\"help-letter-space\"></span>CRD<span class=\"help-letter-space\"></span>以及对应的资源，但失效期间日志无法恢复。</p>\n<p data-tag=\"p\" id=\"p-dlb-7s0-prf\" class=\"p\">删除<span class=\"help-letter-space\"></span>CRD<span class=\"help-letter-space\"></span>会关联删除对应所有的实例，即使恢复<span class=\"help-letter-space\"></span>CRD<span class=\"help-letter-space\"></span>后还需要手动创建被删除的实例。</p>\n</td>\n</tr>\n<tr id=\"row-2oa-evg-nyy\">\n<td id=\"entry-me3-vgh-2mr\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137244010frcb\">删除日志组件。</p>\n</td>\n<td id=\"entry-i8k-q0l-8rk\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137244020f4k1\">日志采集失效。</p>\n</td>\n<td id=\"entry-6vu-cmc-zd6\" rowspan=\"1\" colspan=\"1\">\n<p id=\"137244030fjlh\">重新安装日志组件并手动恢复<span class=\"help-letter-space\"></span>aliyunlogconfig CRD<span class=\"help-letter-space\"></span>实例，删除期间日志无法恢复。</p>\n<p data-tag=\"p\" id=\"p-bom-j3l-gk5\" class=\"p\">删除日志组件相当于删除<span class=\"help-letter-space\"></span>aliyunlogconfig CRD<span class=\"help-letter-space\"></span>以及日志采集器<span class=\"help-letter-space\"></span>Logtail，期间日志采集能力全部丢失。</p>\n</td>\n</tr>\n</tbody>\n</table>\n</section>\n</section>\n<section data-tag=\"related-links\" data-type=\"related-links\" id=\"related-links-i55-73u-q9q\" role=\"navigation\" class=\"related-links section\">\n<h2 id=\"d41e734\">相关文档</h2>\n<div data-tag=\"linklist\" id=\"137244040fh4l\" lang=\"zh-CN\" class=\"linklist\">\n<ul id=\"137244050fvhc\">\n<li id=\"137244060fcv4\">\n<p id=\"137244070fswn\"><a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/best-practices-for-the-nginx-ingress-controller#task-2175597\" id=\"link-e4k-ykz-a1h\" title=\"\" class=\"xref\">Nginx Ingress Controller<span class=\"help-letter-space\"></span>使用建议</a></p>\n</li>\n<li id=\"137244080fycj\">\n<p id=\"137244090fpts\"><a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/dns-best-practice#task-2548861\" id=\"link-qhs-kjg-bjf\" title=\"\" class=\"xref\">DNS<span class=\"help-letter-space\"></span>最佳实践</a></p>\n</li>\n</ul>\n</div>\n</section>\n<p id=\"690875603ctml\"></p>\n</div>\n</main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/ack/product-overview/before-you-start","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"alias":"/ack/product-overview/before-you-start","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":5,"developerUrl":"https://developer.aliyun.com/group/kubernetes/","nodeType":1,"version":30,"url":"/zh/ack/product-overview/before-you-start","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":118806,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"使用须知及高危风险操作说明","id":118806,"title":"使用须知及高危风险操作说明","url":"/zh/ack/product-overview/before-you-start"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"产品概述","id":2391624,"title":"产品概述","url":"/zh/ack/product-overview/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"productUrl":"https://www.aliyun.com/product/kubernetes","nodeId":118806,"desc":"阿里云容器服务Kubernetes版（简称容器服务ACK）提供容器服务相关的技术架构以及核心组件的托管服务，对于非托管组件以及运行在ACK集群中的应用，不当操作可能会导致业务故障。为了更好地预估和避免相关的操作风险，在使用容器服务ACK前，请认真阅读本文中的建议与注意事项。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"产品概述","id":2391624,"title":"产品概述","url":"/zh/ack/product-overview/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"使用须知及高危风险操作说明","id":118806,"title":"使用须知及高危风险操作说明","url":"/zh/ack/product-overview/before-you-start"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=213e031117825395705878959eb3a4&asid=AQAAAAAyZT9qEUAfYQAAAAD8m8PxKyacmA==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"><div class="help-subproduct-container"></div></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2391624" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/product-overview/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品概述</span>
+</a>
+</li>
+ <li id="2391628" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">操作指南</span>
+</a>
+</li>
+ <li id="2391633" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/support/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">服务支持</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>使用须知及高危风险操作说明</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/kubernetes" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+<main id="concept-265348">
+
+
+<p data-tag="shortdesc" id="shortdesc-92g-chx-4ya" class="shortdesc">阿里云容器服务<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>版（简称容器服务<span class="help-letter-space"></span>ACK）提供容器服务相关的技术架构以及核心组件的托管服务，对于非托管组件以及运行在<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>集群中的应用，不当操作可能会导致业务故障。为了更好地预估和避免相关的操作风险，在使用容器服务<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>前，请认真阅读本文中的建议与注意事项。</p>
+<div data-tag="conbody" id="conbody-e1s-ktq-ue7" class="conbody">
+<section id="704da0c00fbsv" class="section">
+<h2 id="704da0c10ffqx"><b>索引</b></h2>
+<table autofit="false" id="8a0fb6b00fc18" tablecolswidth="243 445" tablewidth="688" class="table">
+<colgroup colwidth="0.71*" style="width:35.32%"></colgroup>
+<colgroup colwidth="1.29*" style="width:64.68%"></colgroup>
+<tbody class="tbody">
+<tr id="8a0fb6b10fp1w">
+<td id="8a0fb6b20fzxo" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="8a0fb6b30f2fy"><b>信息项</b></p>
+</td>
+<td id="8a0fb6b40fef6" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="8a0fb6b50fn3u"><b>相关文档</b></p>
+</td>
+</tr>
+<tr id="8a0fb6b60f5xe">
+<td id="8a0fb6b70f19f" rowspan="1" colspan="1">
+<p id="8a0fb6b80fobj"><a href="#section-c7y-7xe-w5u" id="b86a04200fddd" title="" class="xref">使用须知</a></p>
+</td>
+<td id="8a0fb6b90fvsm" rowspan="1" colspan="1">
+<ul id="9ee6b5d10fimn">
+<li id="9ee68ec00fh1k">
+<p id="8a0fb6ba0f85l"><a href="#136f5dd70f5fj" id="8200a3900fb88" title="" class="xref">数据面组件相关</a></p>
+</li>
+<li id="9ee703f00f4n3">
+<p id="833441900fdse"><a href="#136fabf20ffwp" id="89978a600fr96" title="" class="xref">集群升级相关</a></p>
+</li>
+<li id="9ee752100fec9">
+<p id="8a0ba8f00ft91"><a href="#3" id="907756300fgag" title="" class="xref">Kubernetes<span class="help-letter-space"></span>原生配置相关</a></p>
+</li>
+<li id="cfe748613ce86">
+<p id="cfe748603c6fv"><a href="#4" id="b02bb2803cxjp" title="" class="xref">ACK Serverless<span class="help-letter-space"></span>集群相关</a></p>
+</li>
+<li id="9ee7c7400fbks">
+<p id="90e1b0c00ftyg"><a href="#c783c2c03cgcm" id="b8590cf03cbzj" title="" class="xref">注册集群相关</a></p>
+</li>
+<li id="9ee83c700f2zt">
+<p id="97046e200fasl"><a href="#5" id="9cee68400fxx7" title="" class="xref">应用目录相关</a></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr id="8a0fddc00fuqd">
+<td id="8a0fddc10f8p8" rowspan="1" colspan="1">
+<p id="8a0fddc20fn1t"><a href="#section-qyx-kxv-p4v" id="c2d31dc00fn50" title="" class="xref">高危操作</a></p>
+</td>
+<td id="8a0fddc30fl5f" rowspan="1" colspan="1">
+<ul id="c712d4320fto0">
+<li id="c712d4300fytc">
+<p id="8a0fddc40frrl"><a href="#6" id="a6c135500f8jj" title="" class="xref">集群相关高危操作</a></p>
+</li>
+<li id="c71349600fu1a">
+<p id="a7533c200feqn"><a href="#7" id="acff1bd00frej" title="" class="xref">节点池相关高危操作</a></p>
+</li>
+<li id="c71397800flic">
+<p id="ad6509900fqzh"><a href="#13710b880fjly" id="b380c2100fxrj" title="" class="xref">网络与负载均衡相关高危操作</a></p>
+</li>
+<li id="c7140cb00f0dx">
+<p id="b41428700f9fk"><a href="#9" id="b9cc8b400fr0c" title="" class="xref">存储相关高危操作</a></p>
+</li>
+<li id="c71481e00f9h4">
+<p id="ba266b100fe8j"><a href="#10" id="c1915fe00frm5" title="" class="xref">日志相关高危操作</a></p>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section data-tag="section" data-type="section" id="section-c7y-7xe-w5u" class="section">
+<h2 data-tag="title" id="title-zif-oiy-q7d" class="title">使用须知</h2>
+<h3 id="136f5dd70f5fj"><b>数据面组件相关</b></h3>
+<p data-tag="p" id="p-sk9-qre-xcf" class="p">数据面组件指运行在客户<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>服务器上的系统组件，例如<span class="help-letter-space"></span>CoreDNS、Ingress、kube-proxy、terway、kubelet<span class="help-letter-space"></span>等。由于数据面组件运行在客户<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>服务器上，因此数据面组件运行的稳定性需要阿里云容器服务与客户共同维护。</p>
+<div data-tag="p" id="p-08q-f3z-quu" class="p">
+<p id="136f84e00fkqh">阿里云容器服务<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>对数据面组件提供以下支持：</p>
+<ul data-tag="ul" id="ul-dr7-7iw-cez" class="ul">
+<li data-tag="li" id="li-jwi-zcz-dep" class="li">
+<p id="136f84e10fpe5">提供组件的参数化设置管理、定期功能优化、BugFix、CVE<span class="help-letter-space"></span>补丁等功能，并给出相应的指导文档。</p>
+</li>
+<li data-tag="li" id="li-jf1-3j7-jrv" class="li">
+<p id="136f84e20fq0w">提供组件的监控与报警等可观测能力的建设，部分核心组件会提供组件日志，并通过<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>透出给客户。</p>
+</li>
+<li data-tag="li" id="li-5rf-e5j-opq" class="li">
+<p id="136f84e30fuqm">提供配置最佳实践和建议，容器服务将根据集群规模大小给出组件配置建议。</p>
+</li>
+<li data-tag="li" id="li-egv-wgy-bce" class="li">
+<p id="136f84e40ffx6">提供组件的定期巡检能力和一定的报警通知能力，检查项包括但不限于：组件版本、组件配置、组件负载、组件部署分布拓扑、组件实例数等。</p>
+</li>
+</ul>
+</div>
+<div data-tag="p" id="p-x5c-er5-w0k" class="p">
+<p id="136f84e50fm0v">您在使用数据面组件时，请遵循以下建议：</p>
+<ul data-tag="ul" id="ul-1bu-4rm-ej9" class="ul">
+<li data-tag="li" id="li-lo5-bxq-vyw" class="li">
+<p id="136f84e60fxvc">使用最新的组件版本。组件经常会发布新版本以修复<span class="help-letter-space"></span>Bug<span class="help-letter-space"></span>或提供新特性。您需要在新版本的组件发布后，在保证业务稳定的前提下选择合适的时机，遵循组件升级指导文档中的说明进行升级操作。更多信息，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/component-overview#task-2094293" id="xref-mbi-xjq-rih" title="" class="xref">组件</a>。</p>
+</li>
+<li data-tag="li" id="li-usl-wbi-fjq" class="li">
+<p id="136f84e70f53l">请在容器服务<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>的报警中心中设置联系人的邮箱地址、手机号码，并设置相应的报警信息接收方式，阿里云将通过这些渠道推送容器服务的报警信息、产品公告等。更多信息，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/alert-management#task-2056339" id="xref-mc6-dvo-9nb" title="" class="xref">容器服务报警管理</a><span data-tag="ph" id="ph-ci8-ru2-r7k" props="china" data-cond-props="china" class="ph">和<a href="https://help.aliyun.com/zh/account/message-received-management-settings#topic-2149123" id="xref-b3w-2yc-7h5" title="" class="xref">如何设置消息接收？</a></span>。</p>
+</li>
+<li data-tag="li" id="li-pgo-cz4-1q9" class="li">
+<p id="136f84e80fkft">在您收到组件稳定性风险报告后，请及时按照相关指引进行处理，消除安全隐患。</p>
+</li>
+<li data-tag="li" id="li-so3-crx-3xs" class="li">
+<p id="136f84e90f1xr">当您在使用数据面组件时，请通过<span data-tag="ph" id="ph-z8s-n1v-ica" class="ph"><span props="china intl"><a href="https://cs.console.aliyun.com" id="xref-h02-wcx-yb2" class="" target="_blank">容器服务控制台</a></span></span>集群管理页面<span data-tag="menucascade" id="menucascade-jzk-5bw-a9h" class="menucascade"><b id="uicontrol-6k9-t46-t03" data-tag="uicontrol" data-isbold="true" class="uicontrol">运维管理</b> &gt; <b id="uicontrol-mo5-8gf-jr0" data-tag="uicontrol" data-isbold="true" class="uicontrol">组件管理</b></span>的方式或者<span class="help-letter-space"></span>OpenAPI<span class="help-letter-space"></span>的方式配置组件的自定义参数。通过其他渠道修改组件配置可能会导致组件功能异常。更多信息，请参见<a href="https://help.aliyun.com/zh/ack/manage-system-components#task-z3j-tvk-2gb" id="xref-wrv-wr9-g4z" title="" class="xref">管理组件</a>。</p>
+</li>
+<li data-tag="li" id="li-mj1-wrw-w96" class="li">
+<p id="136fabf00f6lc">请勿直接使用<span class="help-letter-space"></span>IaaS<span class="help-letter-space"></span>层产品的<span class="help-letter-space"></span>OpenAPI<span class="help-letter-space"></span>来变更组件的运行环境，包括但不限于使用<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>的<span class="help-letter-space"></span>OpenAPI<span class="help-letter-space"></span>更改<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>运行状态、修改<span class="help-letter-space"></span>Worker<span class="help-letter-space"></span>节点的安全组配置、更改<span class="help-letter-space"></span>Worker<span class="help-letter-space"></span>节点的网络配置以及通过负载均衡的<span class="help-letter-space"></span>OpenAPI<span class="help-letter-space"></span>修改<span class="help-letter-space"></span>SLB<span class="help-letter-space"></span>配置等，擅自改动<span class="help-letter-space"></span>IaaS<span class="help-letter-space"></span>层资源可能会导致数据面组件异常。</p>
+</li>
+<li data-tag="li" id="li-8cn-52j-gtf" class="li">
+<p id="136fabf10fgg0">部分数据面组件受上游社区版组件影响，可能存在<span class="help-letter-space"></span>Bug<span class="help-letter-space"></span>或漏洞，请注意及时升级组件，以避免开源组件<span class="help-letter-space"></span>Bug<span class="help-letter-space"></span>或漏洞导致您的业务受损。</p>
+</li>
+</ul>
+</div>
+<h3 id="136fabf20ffwp"><b>集群升级相关</b></h3>
+<p data-tag="p" id="p-88i-50y-5kd" class="p">请务必通过容器服务<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>的集群升级功能升级集群的<span class="help-letter-space"></span>K8s<span class="help-letter-space"></span>版本，自行升级<span class="help-letter-space"></span>K8s<span class="help-letter-space"></span>版本可能导致<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>集群的稳定性和兼容性问题。详细操作，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/update-the-kubernetes-version-of-an-ack-cluster#task-1664343" id="xref-tri-d1d-ec1" title="" class="xref">升级集群和独立升级集群控制面和节点池</a>。</p>
+<div data-tag="p" id="p-ejk-afx-j6a" class="p">
+<p id="136fabf30f573">阿里云容器服务<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>对集群升级提供以下支持：</p>
+<ul data-tag="ul" id="ul-o1a-jdw-1o2" class="ul">
+<li data-tag="li" id="li-ebb-o6j-q3g" class="li">
+<p id="136fabf40f53v">提供集群<span class="help-letter-space"></span>K8s<span class="help-letter-space"></span>新版本的升级功能。</p>
+</li>
+<li data-tag="li" id="li-0v8-41p-9vl" class="li">
+<p id="136fabf50fa0b">提供<span class="help-letter-space"></span>K8s<span class="help-letter-space"></span>新版本升级的前置检查功能，确保集群当前状态支持升级。</p>
+</li>
+<li data-tag="li" id="li-s70-cv2-8s2" class="li">
+<p id="136fabf60f252">提供<span class="help-letter-space"></span>K8s<span class="help-letter-space"></span>新版本的版本说明文档，包括相较于前版本的变化。</p>
+</li>
+<li data-tag="li" id="li-5sq-y4d-whz" class="li">
+<p id="136fabf70fa2j">提示升级到<span class="help-letter-space"></span>K8s<span class="help-letter-space"></span>新版本时因资源变化可能会发生的风险。</p>
+</li>
+</ul>
+</div>
+<div data-tag="p" id="p-rcb-sy7-us2" class="p">
+<p id="136fabf80fwy6">您在使用集群升级功能时，请遵循以下建议：</p>
+<ul data-tag="ul" id="ul-ell-cvk-5va" class="ul">
+<li data-tag="li" id="li-k9w-dss-t4l" class="li">
+<p id="136fabf90f0cy">在集群升级前运行前置检查，并根据前置检查结果逐一修复集群升级的阻塞点。</p>
+</li>
+<li data-tag="li" id="li-cer-c7k-if1" class="li">
+<p id="136fabfa0fwmp">详细阅读<span class="help-letter-space"></span>K8s<span class="help-letter-space"></span>新版本的版本说明文档，并根据<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>所提示的升级风险确认集群和业务的状态，自行判断升级风险。详细信息，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/ack/overview-of-kubernetes-versions-supported-by-ack#task-1960241" id="xref-vy3-3gg-6bu" title="" class="xref">Kubernetes<span class="help-letter-space"></span>版本发布概览</a>。</p>
+</li>
+<li data-tag="li" id="li-k6o-2gx-mo5" class="li">
+<p id="136fabfb0f4c7">由于集群升级不提供回滚功能，请做好充分的升级计划和预后备份。</p>
+</li>
+<li data-tag="li" id="li-32h-ace-bew" class="li">
+<p id="136fabfc0f8ci">根据容器服务<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>的版本支持机制，在当前版本的支持周期内及时升级集群<span class="help-letter-space"></span>K8s<span class="help-letter-space"></span>版本。更多信息，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/support-for-kubernetes-versions/#concept-186482" id="xref-7r2-iah-o85" title="" class="xref">版本说明</a>。</p>
+</li>
+</ul>
+</div>
+<h3 class="custom-h3" data-spm-anchor-id="a2c4g.118806.0.i4.49ab48d18nh6ud" id="3" jc="left" style="text-align:left">Kubernetes<span class="help-letter-space"></span>原生配置相关</h3>
+<ul data-tag="ul" id="ul-nk4-uvd-tqh" class="ul">
+<li data-tag="li" id="li-ik1-oc1-gnq" class="li">
+<p id="136fd3010f9ov">请勿擅自修改<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>的关键配置，例如以下文件的路径、链接和内容：</p>
+<ul data-tag="ul" id="ul-ftk-ni6-dz7" class="ul">
+<li data-tag="li" id="li-4cf-wk1-q36" class="li">
+<p id="136fd3020fj7h"><span data-tag="filepath" id="filepath-eb8-qrf-k50" class="filepath">/var/lib/kubelet</span></p>
+</li>
+<li data-tag="li" id="li-pbu-wlv-30n" class="li">
+<p id="136fd3030fxgs"><span data-tag="filepath" id="filepath-o1f-rba-vtb" class="filepath">/var/lib/docker</span></p>
+</li>
+<li data-tag="li" id="li-mbc-0sj-tuz" class="li">
+<p id="136fd3040fol3"><span data-tag="filepath" id="filepath-x7d-5ac-5sq" class="filepath">/etc/kubernetes</span></p>
+</li>
+<li data-tag="li" id="li-vdv-vb4-pls" class="li">
+<p id="136fd3050fhoz"><span data-tag="filepath" id="filepath-2f4-yan-yeq" class="filepath">/etc/kubeadm</span></p>
+</li>
+<li data-tag="li" id="li-fn5-726-ecb" class="li">
+<p id="136fd3060fg17"><span data-tag="filepath" id="filepath-vpa-5xi-n56" class="filepath">/var/lib/containerd</span></p>
+</li>
+</ul>
+</li>
+<li data-tag="li" id="li-mrd-a5d-gru" class="li">
+<p id="136fd3070fmzt">在<span class="help-letter-space"></span>YAML<span class="help-letter-space"></span>模板中请勿使用<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>集群预留的<span class="help-letter-space"></span>Annotation，否则会造成资源不可用、申请失败、异常等问题。以<span data-tag="ph" id="codeph-3mj-fkz-jk2" class="ph">
+<code data-tag="code" id="a8bdbe01a8ny9" class="code">kubernetes.io/</code>
+
+</span>
+和<span data-tag="ph" id="codeph-01i-18e-igs" class="ph">
+<code data-tag="code" id="f8dd1d4393i89" class="code">k8s.io/</code>
+
+</span>
+开头的<span class="help-letter-space"></span>Annotation<span class="help-letter-space"></span>为核心组件预留标签。违规示例：<code data-tag="code" id="78229acf71x2p" class="code">pv.kubernetes.io/bind-completed: "yes"</code>。
+            </p>
+</li>
+</ul>
+<h3 class="custom-h3" data-spm-anchor-id="a2c4g.118806.0.i5.49ab48d18nh6ud" id="4" jc="left" style="text-align:left"><span data-tag="ph" id="2b47c4f13csgq" docid="4431993" is-conref="true" class="ph">ACK Serverless<span class="help-letter-space"></span>集群</span>相关</h3>
+<p id="f666b5d03c1gw">在以下场景中，<span data-tag="ph" id="fcee01603cpls" docid="4431993" is-conref="true" class="ph">ACK Serverless<span class="help-letter-space"></span>集群</span>不提供赔付：</p>
+<ul id="6e7ad8123c645">
+<li id="6e7ad8103c2b0">
+<p id="209a9d703cp5m">为简化集群运维，<span data-tag="ph" id="32a65db13cesa" docid="4431993" is-conref="true" class="ph">ACK Serverless<span class="help-letter-space"></span>集群</span>提供部分系统组件托管能力，并在集群的组件开启托管后，负责其部署和维护。由于您误删托管组件依赖的<span class="help-letter-space"></span>K8s<span class="help-letter-space"></span>对象资源等其他情况导致业务受损时，ACK&nbsp;Serverless<span class="help-letter-space"></span>不提供赔付。</p>
+</li>
+<li id="7357cf003ckuu" props="china" data-cond-props="china">
+<p id="7357a7f03cz64">针对<a href="https://terms.aliyun.com/legal-agreement/terms/suit_bu1_ali_cloud/suit_bu1_ali_cloud202010221416_90184.html" id="dc8beaf03c3a7" class="" target="_blank">阿里云容器服务<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>版服务等级协议</a>下“<b>除外情形</b>”中列举的情况和原因，ACK&nbsp;Serverless<span class="help-letter-space"></span>不提供赔付。</p>
+</li>
+</ul>
+<h3 id="c783c2c03cgcm">注册集群相关</h3>
+<ul data-tag="ul" id="ul-j5g-3xx-pig" class="ul">
+<li data-tag="li" id="li-m8f-mch-cp1" class="li">
+<p id="136ffa100f5n5">通过<span data-tag="ph" id="ph-kzl-f51-ztw" is-conref="true" class="ph"><span props="china intl"><a href="https://cs.console.aliyun.com" id="xref-fo4-3rc-jwt" class="" target="_blank">容器服务管理控制台</a></span></span>的注册集群功能接入外部<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>集群时，请确保外部集群与阿里云之间的网络稳定性。</p>
+</li>
+<li data-tag="li" id="li-32t-p4m-hti" class="li">
+<p id="136ffa110f2il">容器服务<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>提供外部<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>集群的注册接入，但无法管控外部集群自身的稳定性以及不当操作。因此当您通过注册集群配置外部集群节点的<span class="help-letter-space"></span>Label、Annotation、Tag<span class="help-letter-space"></span>等信息时，可能导致应用运行异常，请谨慎操作。</p>
+</li>
+</ul>
+<h3 class="custom-h3" data-spm-anchor-id="a2c4g.118806.0.i6.49ab48d18nh6ud" id="5" jc="left" style="text-align:left">应用目录相关</h3>
+<p data-tag="p" id="p-wce-ivy-8sg" class="p">为了丰富<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>应用，容器服务<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>的应用市场提供了应用目录，它们是基于开源软件做了适配和二次开发的应用。ACK<span class="help-letter-space"></span>无法管控开源软件本身产生的缺陷，请知晓此风险。更多信息，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/app-marketplace#task-dby-n5y-ne0" id="xref-fxe-923-cyv" title="" class="xref">应用市场</a>。</p>
+</section>
+<section data-tag="section" data-type="section" id="section-qyx-kxv-p4v" class="section">
+<h2 data-tag="title" id="title-ty4-kyb-nkj" class="title">高危操作</h2>
+<div data-tag="p" id="p-aoj-ez7-trq" class="p">
+<p id="136ffa130fliq">在使用容器服务<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>过程中相关功能模块存在高危操作，可能会对业务稳定性造成较大影响。在使用前请认真了解以下高危操作及其影响。</p>
+</div>
+<section id="abdecfc7fdqzs" class="section">
+<h3 class="custom-h3" data-spm-anchor-id="a2c4g.118806.0.i9.49ab48d18nh6ud" id="6" jc="left" style="text-align:left">集群相关高危操作</h3>
+<table autofit="true" id="table-ije-ddc-fji" tablecolswidth="14.2 28.7 27.39 29.710000000000008" tablewidth="100" class="table">
+<colgroup colwidth="0.57*" style="width:14.20%"></colgroup>
+<colgroup colwidth="1.15*" style="width:28.70%"></colgroup>
+<colgroup colwidth="1.1*" style="width:27.39%"></colgroup>
+<colgroup colwidth="1.19*" style="width:29.71%"></colgroup>
+<tbody class="tbody">
+<tr id="row-9o0-093-mmc">
+<td id="concept-265348-entry-i21-giy-sdw" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="137021200fnbg"><b>分类</b></p>
+</td>
+<td id="concept-265348-entry-082-z95-5c9" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="137021210fg1u"><b>高危操作</b></p>
+</td>
+<td id="concept-265348-entry-at9-46n-hku" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="137021220fatg"><b>影响</b></p>
+</td>
+<td id="concept-265348-entry-hn4-mgv-rbt" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="137021230f7c2"><b>恢复方案</b></p>
+</td>
+</tr>
+<tr id="row-cxx-xq6-vnt">
+<td id="entry-7xi-gow-3qo" rowspan="3" colspan="1">
+<p id="137021240fcv3">API Server</p>
+</td>
+<td id="entry-h7o-c01-jvb" rowspan="1" colspan="1">
+<p id="b55f8a07fb3ck">复用<span class="help-letter-space"></span>API Server<span class="help-letter-space"></span>所使用的<span class="help-letter-space"></span>CLB<span class="help-letter-space"></span>于其他场景，例如使用<span class="help-letter-space"></span>LoadBalancer<span class="help-letter-space"></span>类型<span class="help-letter-space"></span>Service<span class="help-letter-space"></span>复用该<span class="help-letter-space"></span>CLB。</p>
+</td>
+<td id="entry-rj5-1mp-djk" rowspan="1" colspan="1">
+<p id="1acf9563f8zlb">导致集群不可用，影响业务流量。</p>
+</td>
+<td id="entry-llj-jgp-g8i" rowspan="1" colspan="1">
+<p id="42c95b4471xaq">恢复原有配置，或请求售后服务支持。</p>
+</td>
+</tr>
+<tr id="6ea7a73d87qgz">
+<td id="0c7ffbc114dyk" rowspan="1" colspan="1">
+<p id="45f659dc2awfh">修改<span class="help-letter-space"></span>API Server<span class="help-letter-space"></span>所使用的<span class="help-letter-space"></span>CLB<span class="help-letter-space"></span>的监听、服务器组、ACL<span class="help-letter-space"></span>等控制<span class="help-letter-space"></span>CLB<span class="help-letter-space"></span>转发的配置、CLB<span class="help-letter-space"></span>标签配置。</p>
+</td>
+<td id="06d39d285bhz1" rowspan="1" colspan="1">
+<p id="605472fe4b43t">导致集群异常。</p>
+</td>
+<td id="e7029b19deqzu" rowspan="1" colspan="1">
+<p id="000bc37953hku">恢复原有配置。</p>
+</td>
+</tr>
+<tr id="bdaf87d0980ua">
+<td id="c5ea7793be5an" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="137021250fmob">删除<span class="help-letter-space"></span>API Server<span class="help-letter-space"></span>所使用的<span class="help-letter-space"></span>CLB。</p>
+</td>
+<td id="e9db2c19e079k" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="137021260f094">导致集群不可操作。</p>
+</td>
+<td id="8b8881db6b3dt" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="137021270fopw">不可恢复，请重新创建集群。重建集群请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/create-an-ack-managed-cluster-2/#task-skz-qwk-qfb" id="9cd9c12891i43" title="" class="xref">创建<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>托管集群</a>。</p>
+</td>
+</tr>
+<tr id="row-m6m-0t1-pyf">
+<td id="entry-1a4-2lj-65p" rowspan="9" colspan="1">
+<p id="137021280fx5y">Worker<span class="help-letter-space"></span>节点</p>
+</td>
+<td id="entry-d1q-epa-to5" rowspan="1" colspan="1">
+<p id="137021290fi6g">修改集群内节点安全组。</p>
+</td>
+<td id="entry-se1-4ua-gfb" rowspan="1" colspan="1">
+<p id="1370212a0fe97">可能导致节点不可用。</p>
+</td>
+<td id="entry-4cr-ymz-trw" rowspan="1" colspan="1">
+<p id="1370212b0fgwe">将节点重新添加到集群自动创建的节点安全组中，请参见<a href="https://help.aliyun.com/zh/ecs/user-guide/manage-ecs-instances-in-security-groups#concept-jhw-31n-xdb" id="xref-pn9-28c-r4a" title="" class="xref">为实例（主网卡）关联安全组</a>。</p>
+</td>
+</tr>
+<tr id="row-fl7-96e-ve8">
+<td id="entry-20l-56p-c66" rowspan="1" colspan="1">
+<p id="1370212e0fgvq">节点到期或被销毁。</p>
+</td>
+<td id="entry-w7d-can-09y" rowspan="1" colspan="1">
+<p id="1370212f0f1a2">该节点不可用。</p>
+</td>
+<td id="entry-tq1-3yz-fth" rowspan="1" colspan="1">
+<p id="137021300fvt3">不可恢复。</p>
+</td>
+</tr>
+<tr id="row-y8m-fmf-5u6">
+<td id="entry-jvd-22w-36p" rowspan="1" colspan="1">
+<p id="137048320f1o5">重装操作系统。</p>
+</td>
+<td id="entry-588-6x9-346" rowspan="1" colspan="1">
+<p id="137048330fpfy">节点上组件被删除。</p>
+</td>
+<td id="entry-w3z-fgc-obi" rowspan="1" colspan="1">
+<p id="137048340fdjx">节点移出再加入集群。相关操作请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/remove-a-node#task-tqk-v54-dgb" id="xref-9fj-h2g-ek4" title="" class="xref">移除节点</a>、<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/add-existing-ecs-instances-to-an-ack-cluster#task-2548777" id="xref-vpa-f0p-f3i" title="" class="xref">添加已有节点</a>。</p>
+</td>
+</tr>
+<tr id="row-84v-tkn-tlo">
+<td id="entry-pm0-2nc-v0t" rowspan="1" colspan="1">
+<p id="137048370ftr8">自行升级节点组件版本。</p>
+</td>
+<td id="entry-vtq-ah7-fgs" rowspan="1" colspan="1">
+<p id="137048380fdsh">可能导致节点无法使用。</p>
+</td>
+<td id="entry-nzk-qy1-6tc" rowspan="1" colspan="1">
+<p id="137048390fhl3">回退到原始版本。</p>
+</td>
+</tr>
+<tr id="row-d4l-q98-nzu">
+<td id="entry-mwv-r01-1g4" rowspan="1" colspan="1">
+<p id="1370483c0f09t">更改节点<span class="help-letter-space"></span>IP。</p>
+</td>
+<td id="entry-5ju-lir-6aw" rowspan="1" colspan="1">
+<p id="1370483d0fp2s">节点不可用。</p>
+</td>
+<td id="entry-7r9-7r1-3gi" rowspan="1" colspan="1">
+<p id="1370483e0f56l">改回原<span class="help-letter-space"></span>IP。</p>
+</td>
+</tr>
+<tr id="row-clp-lsi-3i4">
+<td id="entry-i1u-742-azr" rowspan="1" colspan="1">
+<p id="137048410folb">自行修改核心组件（kubelet、docker、containerd 等）参数。</p>
+</td>
+<td id="entry-gz7-42m-2pd" rowspan="1" colspan="1">
+<p id="137048420fkf2">可能导致节点不可用。</p>
+</td>
+<td id="entry-r84-hg5-6hp" rowspan="1" colspan="1">
+<p id="137048430foef">按照官网推荐配置参数。</p>
+</td>
+</tr>
+<tr id="row-d23-hg5-oyg">
+<td id="entry-ikl-5eo-7o8" rowspan="1" colspan="1">
+<p id="13706f420fvim">修改操作系统配置。</p>
+</td>
+<td id="entry-rro-5e1-cjv" rowspan="1" colspan="1">
+<p id="13706f430fdh4">可能导致节点不可用。</p>
+</td>
+<td id="entry-zua-ws3-tfu" rowspan="1" colspan="1">
+<p id="13706f440fljj">尝试还原配置项或删除节点重新购买。</p>
+</td>
+</tr>
+<tr id="a9e051c026i0t">
+<td id="a9e078d126yoc" rowspan="1" colspan="1">
+<p id="a9e078d2268my">修改节点时间。</p>
+</td>
+<td id="a9e078d326q11" rowspan="1" colspan="1">
+<p id="a9e078d426wkq">可能导致节点上组件工作异常。</p>
+</td>
+<td id="a9e078d526pbf" rowspan="1" colspan="1">
+<p id="a9e078d6260y3">还原节点时间。</p>
+</td>
+</tr>
+<tr id="74485d857aqet">
+<td id="7c09c4b323x3w" rowspan="1" colspan="1">
+<p id="5e67174017p88">通过不受&nbsp;ACK&nbsp;支持的方式向集群中添加节点算力资源。</p>
+</td>
+<td id="3570c020055i8" rowspan="1" colspan="1">
+<p id="1dff9a4678llo">ACK&nbsp;提供控制台、OpenAPI、CLI<span class="help-letter-space"></span>等方式向集群中增加节点算力资源，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/add-existing-ecs-instances-to-an-ack-cluster" id="b7675191760gi" title="" class="xref">添加已有节点</a>。如果您通过其他方式向集群中添加了节点，ACK<span class="help-letter-space"></span>无法识别此类节点的来源，无法提供节点生命周期管理、自动化运维和技术支持等产品能力。详细风险说明，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/faq-about-node-management#22f153a210s4u" id="180b8d9809ox3" title="" class="xref">为什么控制台显示节点所属节点池的来源为“其他节点”？</a>。</p>
+</td>
+<td id="2b7c3a41e6c12" rowspan="1" colspan="1">
+<p id="5ad46d6e31278">建议通过节点池的方式纳管算力资源。如需继续使用，请自行确保节点与集群各组件（如&nbsp;Kubernetes<span class="help-letter-space"></span>组件、网络、存储、安全组件等）的兼容性。</p>
+</td>
+</tr>
+<tr id="row-yti-dnc-icd">
+<td id="entry-nw7-0k2-fox" rowspan="10" colspan="1">
+<p id="13706f450fjjb">Master<span class="help-letter-space"></span>节点（ACK<span class="help-letter-space"></span>专有版集群）</p>
+</td>
+<td id="entry-ket-od3-y9t" rowspan="1" colspan="1">
+<p id="13706f460fua7">修改集群内节点安全组。</p>
+</td>
+<td id="entry-y0s-3ky-kl7" rowspan="1" colspan="1">
+<p id="13706f470f3h9">可能导致<span class="help-letter-space"></span>Master<span class="help-letter-space"></span>节点不可用。</p>
+</td>
+<td id="entry-h8u-qqu-zsx" rowspan="1" colspan="1">
+<p id="13706f480ftj3">将节点重新添加到集群自动创建的节点安全组中，请参见<a href="https://help.aliyun.com/zh/ecs/user-guide/manage-ecs-instances-in-security-groups#concept-jhw-31n-xdb" id="xref-4u0-oo5-9ze" title="" class="xref">为实例（主网卡）关联安全组</a>。</p>
+</td>
+</tr>
+<tr id="row-rhs-j1o-j1g">
+<td id="entry-upu-s2q-lxp" rowspan="1" colspan="1">
+<p id="13706f4b0fq24">节点到期或被销毁。</p>
+</td>
+<td id="entry-g6s-ueu-mlg" rowspan="1" colspan="1">
+<p id="13706f4c0fjbz">该<span class="help-letter-space"></span>Master<span class="help-letter-space"></span>节点不可用。</p>
+</td>
+<td id="entry-uq7-xm7-c35" rowspan="1" colspan="1">
+<p id="13706f4d0f5cg">不可恢复。</p>
+</td>
+</tr>
+<tr id="row-aod-tsy-olq">
+<td id="entry-bhb-blc-431" rowspan="1" colspan="1">
+<p id="13706f500fxdk">重装操作系统。</p>
+</td>
+<td id="entry-f2o-qm2-gbp" rowspan="1" colspan="1">
+<p id="13706f510f3cq">Master<span class="help-letter-space"></span>节点上组件被删除。</p>
+</td>
+<td id="entry-9z3-x9k-eyz" rowspan="1" colspan="1">
+<p id="13706f520fadq">不可恢复。</p>
+</td>
+</tr>
+<tr id="row-33f-c9k-j8x">
+<td id="entry-exn-wum-fao" rowspan="1" colspan="1">
+<p id="137096510fb3h">自行升级<span class="help-letter-space"></span>Master<span class="help-letter-space"></span>或者<span class="help-letter-space"></span>etcd<span class="help-letter-space"></span>组件版本。</p>
+</td>
+<td id="entry-uwh-qtm-op1" rowspan="1" colspan="1">
+<p id="137096520ftc4">可能导致集群无法使用。</p>
+</td>
+<td id="entry-d4p-fqu-942" rowspan="1" colspan="1">
+<p id="137096530f5ed">回退到原始版本。</p>
+</td>
+</tr>
+<tr id="row-d2f-r7q-u9a">
+<td id="entry-og9-s3o-3we" rowspan="1" colspan="1">
+<p id="137096560fz3t">删除或格式化节点<span data-tag="filepath" id="filepath-ix6-m33-n5a" class="filepath">/etc/kubernetes</span><span class="help-letter-space"></span>等核心目录数据。</p>
+</td>
+<td id="entry-reb-gth-1hi" rowspan="1" colspan="1">
+<p id="137096570fd2x">该<span class="help-letter-space"></span>Master<span class="help-letter-space"></span>节点不可用。</p>
+</td>
+<td id="entry-tk9-oz9-kff" rowspan="1" colspan="1">
+<p id="137096580faf4">不可恢复。</p>
+</td>
+</tr>
+<tr id="row-6mx-fsk-i3t">
+<td id="entry-y79-sy6-8cb" rowspan="1" colspan="1">
+<p id="1370965b0fj6o">更改节点<span class="help-letter-space"></span>IP。</p>
+</td>
+<td id="entry-t8s-ov7-3w6" rowspan="1" colspan="1">
+<p id="1370965c0f1r2">该<span class="help-letter-space"></span>Master<span class="help-letter-space"></span>节点不可用。</p>
+</td>
+<td id="entry-uh8-zlx-b28" rowspan="1" colspan="1">
+<p id="1370965d0ff6b">改回原<span class="help-letter-space"></span>IP。</p>
+</td>
+</tr>
+<tr id="row-mp5-1og-oi1">
+<td id="entry-ta9-x6d-wgz" rowspan="1" colspan="1">
+<p id="137096600fq7d">自行修改核心组件（etcd、kube-apiserver、docker<span class="help-letter-space"></span>等）参数。</p>
+</td>
+<td id="entry-b65-370-orz" rowspan="1" colspan="1">
+<p id="137096610f99x">可能导致<span class="help-letter-space"></span>Master<span class="help-letter-space"></span>节点不可用。</p>
+</td>
+<td id="entry-0zu-v0e-rp5" rowspan="1" colspan="1">
+<p id="137096620fm0e">按照官网推荐配置参数。</p>
+</td>
+</tr>
+<tr id="row-x7p-pzy-a78">
+<td id="entry-oj2-amq-w4n" rowspan="1" colspan="1">
+<p id="1370bd610fdrm">自行更换<span class="help-letter-space"></span>Master<span class="help-letter-space"></span>或<span class="help-letter-space"></span>etcd 证书</p>
+</td>
+<td id="entry-qqe-ei3-ncj" rowspan="1" colspan="1">
+<p id="1370bd620fenh">可能导致集群无法使用。</p>
+</td>
+<td id="entry-dz7-bad-dx2" rowspan="1" colspan="1">
+<p id="1370bd630f0ps">不可恢复。</p>
+</td>
+</tr>
+<tr id="row-4b9-90j-41j">
+<td id="entry-311-pbb-oac" rowspan="1" colspan="1">
+<p id="1370bd660fm0g">自行增加或减少<span class="help-letter-space"></span>Master<span class="help-letter-space"></span>节点。</p>
+</td>
+<td id="entry-5h8-bgf-8r1" rowspan="1" colspan="1">
+<p id="1370bd670fo2m">可能导致集群无法使用。</p>
+</td>
+<td id="entry-0lg-14d-gtb" rowspan="1" colspan="1">
+<p id="1370bd680f3vu">不可恢复。</p>
+</td>
+</tr>
+<tr id="d330089026z0a">
+<td id="d330089326hyz" rowspan="1" colspan="1">
+<p id="d330089426bej">修改节点时间。</p>
+</td>
+<td id="d3300895260jc" rowspan="1" colspan="1">
+<p id="d3300896263z6">可能导致节点上组件工作异常。</p>
+</td>
+<td id="d3302fa026jq9" rowspan="1" colspan="1">
+<p id="d3302fa126mwk">还原节点时间。</p>
+</td>
+</tr>
+<tr id="row-cs7-ws9-n7h">
+<td id="entry-wex-0hv-x0m" rowspan="2" colspan="1">
+<p id="1370bd690f82r">其他</p>
+</td>
+<td id="entry-zyp-yii-064" rowspan="1" colspan="1">
+<p id="1370bd6a0fyyg">通过<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>执行权限变更或修改操作。</p>
+</td>
+<td id="entry-ip8-m7g-uwf" rowspan="1" colspan="1">
+<p id="1370bd6b0f4ls">集群部分资源如负载均衡可能无法创建成功。</p>
+</td>
+<td id="entry-a3w-qdc-g7q" rowspan="1" colspan="1">
+<p id="1370bd6c0f9ce">恢复原先权限。</p>
+</td>
+</tr>
+<tr id="49c962cd20y3w">
+<td id="ff3c7afa8539q" rowspan="1" colspan="1">
+<div id="a0e826b8d6smx" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+<p id="0a6727e815e0e">仅适用于<span class="help-letter-space"></span>1.26<span class="help-letter-space"></span>以下版本的集群。</p>
+</div></div>
+<p id="9723ccfae7lzb">修改或删除集群内预置的<span class="help-letter-space"></span>PodSecurityPolicy<span class="help-letter-space"></span>相关资源（包括名称为 <code data-tag="code" id="f2788ff649pug" class="code">ack.privileged</code>的<span class="help-letter-space"></span>PodSecurityPolicy<span class="help-letter-space"></span>资源，名称以 <code data-tag="code" id="94ab27198cg6d" class="code">ack:podsecuritypolicy:</code>开头的<span class="help-letter-space"></span>ClusterRole、ClusterRoleBinding、Role<span class="help-letter-space"></span>和<span class="help-letter-space"></span>RoleBinding<span class="help-letter-space"></span>资源）。</p>
+</td>
+<td id="c274a6dbe1gei" rowspan="1" colspan="1">
+<p id="c457c4a9d28g3">可能导致集群核心组件异常、可能导致无法在集群内创建和更新<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>资源。</p>
+</td>
+<td id="3c48ed4bc94kk" rowspan="1" colspan="1">
+<p id="5416499165fv8">恢复相关资源。具体操作，详见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/use-pod-security-policies#section-sc9-zs4-6nz" id="4d7463430ex7s" title="" class="xref">配置或恢复<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>默认的<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>安全策略</a>。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="a92f486113pqy" class="section">
+<h3 class="custom-h3" data-spm-anchor-id="a2c4g.118806.0.i10.49ab48d18nh6ud" id="7" jc="left" style="text-align:left">节点池相关高危操作</h3>
+<table autofit="true" id="table-url-djs-dvh" tablecolswidth="32.19 29.66 38.150000000000006" tablewidth="100" class="table">
+<colgroup colwidth="0.98*" style="width:32.19%"></colgroup>
+<colgroup colwidth="0.9*" style="width:29.66%"></colgroup>
+<colgroup colwidth="1.16*" style="width:38.15%"></colgroup>
+<tbody class="tbody">
+<tr id="row-5yd-kt0-4sj">
+<td id="concept-265348-entry-lsp-93p-w5w" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="1370bd6e0fjuj"><b>高危操作</b></p>
+</td>
+<td id="concept-265348-entry-ckc-9s3-w6b" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="1370bd6f0fc8d"><b>影响</b></p>
+</td>
+<td id="concept-265348-entry-hta-npk-thy" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="1370bd700fk2a"><b>恢复方案</b></p>
+</td>
+</tr>
+<tr id="row-9fh-6nu-tju">
+<td id="entry-ro1-dup-czr" rowspan="1" colspan="1">
+<p id="1370bd710f9ia">删除伸缩组。</p>
+</td>
+<td id="entry-s8e-pyx-fxo" rowspan="1" colspan="1">
+<p id="1370bd720fh48">导致节点池异常。</p>
+</td>
+<td id="entry-xiw-met-sek" rowspan="1" colspan="1">
+<p id="1370e4700f51r">不可恢复，只能重建节点池。重建节点池请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/create-a-node-pool#section-eq0-lmv-4a7" id="xref-him-5fy-by6" title="" class="xref">创建节点池</a>。</p>
+</td>
+</tr>
+<tr id="row-x3a-xdl-1zm">
+<td id="entry-ist-vjd-hsp" rowspan="1" colspan="1">
+<p id="1370e4710ffs4">通过<span class="help-letter-space"></span>kubectl<span class="help-letter-space"></span>移除节点。</p>
+</td>
+<td id="entry-1k5-lrb-zub" rowspan="1" colspan="1">
+<p id="1370e4720f1oy">节点池节点数显示和实际不符。</p>
+</td>
+<td id="entry-p1k-jak-y6y" rowspan="1" colspan="1">
+<p id="1370e4730f4yj">通过容器服务管理控制台或者节点池相关<span class="help-letter-space"></span>API<span class="help-letter-space"></span>移除指定节点（参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/remove-a-node#task-tqk-v54-dgb" id="xref-hn6-gi8-6l1" title="" class="xref">移除节点</a>）或者修改节点池的期望节点数进行缩容（参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/create-a-node-pool#section-a2i-luy-mnw" id="xref-ucg-h80-1g2" title="" class="xref">创建和管理节点池</a>）。</p>
+</td>
+</tr>
+<tr id="row-m8g-egb-cn3">
+<td id="entry-t0n-vkg-zk3" rowspan="1" colspan="1">
+<p id="1370e4740f9vr">直接释放<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例。</p>
+</td>
+<td id="entry-n69-2ni-jyf" rowspan="1" colspan="1">
+<p id="1370e4750fzlg">可能导致节点池详情页面显示异常。开启期望节点数的节点池为维持期望节点数，将会根据相应节点池配置自动扩容到期望节点数。</p>
+</td>
+<td id="entry-51x-tjp-o7x" rowspan="1" colspan="1">
+<p id="1370e4760fn7j">不可恢复。正确做法是通过容器服务管理控制台或者节点池相关<span class="help-letter-space"></span>API<span class="help-letter-space"></span>修改节点池的期望节点数进行缩容（参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/create-a-node-pool#section-a2i-luy-mnw" id="xref-97w-4xt-q80" title="" class="xref">创建和管理节点池</a>）或移除指定节点（参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/remove-a-node#task-tqk-v54-dgb" id="xref-kbx-j3m-gli" title="" class="xref">移除节点</a>）。</p>
+</td>
+</tr>
+<tr id="row-vyr-6kp-hxs">
+<td id="entry-65c-rkl-2a9" rowspan="1" colspan="1">
+<p id="1370e4770f3av">对开启自动伸缩的节点池进行手动扩容或缩容。</p>
+</td>
+<td id="entry-ddm-vhu-fzc" rowspan="1" colspan="1">
+<p id="1370e4780fxrm">自动伸缩组件会根据策略自动调整节点数，导致结果与期望不符。</p>
+</td>
+<td id="entry-6nm-eyd-vda" rowspan="1" colspan="1">
+<p id="1370e4790fxsf">不可恢复。自动伸缩节点池无需手动干预。</p>
+</td>
+</tr>
+<tr id="row-zru-3ga-8iu">
+<td id="entry-ztg-8oi-f6d" rowspan="1" colspan="1">
+<p id="1370e47a0faif">修改<span class="help-letter-space"></span>ESS<span class="help-letter-space"></span>伸缩组的最大或最小实例数。</p>
+</td>
+<td id="entry-uoo-0o0-l8w" rowspan="1" colspan="1">
+<p id="1370e47b0f6vg">可能导致扩缩容异常。</p>
+</td>
+<td id="entry-v24-znx-3wg" rowspan="1" colspan="1">
+<ul data-tag="ul" id="ul-gpz-fsk-eim" class="ul">
+<li data-tag="li" id="li-oy7-x1v-rj4" class="li">
+<p id="1370e47c0fd1f">对于未开启自动伸缩组的节点池，ESS<span class="help-letter-space"></span>伸缩组最大和最小实例数改为默认值<span class="help-letter-space"></span>2000<span class="help-letter-space"></span>和<span class="help-letter-space"></span>0。</p>
+</li>
+<li data-tag="li" id="li-cxi-g12-onk" class="li">
+<p id="1370e47d0f4qf">对于开启自动伸缩的节点池，将<span class="help-letter-space"></span>ESS<span class="help-letter-space"></span>伸缩组最大和最小实例数修改为与节点池最大和最小节点数一致。</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr id="row-kye-ixc-l02">
+<td id="entry-w6u-ega-re0" rowspan="1" colspan="1">
+<p id="13710b800fiig">添加已有节点前不进行数据备份。</p>
+</td>
+<td id="entry-qmx-el9-lea" rowspan="1" colspan="1">
+<p id="13710b810fomv">添加前实例上的数据丢失。</p>
+</td>
+<td id="entry-4lv-05t-ecr" rowspan="1" colspan="1">
+<p id="13710b820fdw0">不可恢复。</p>
+<ul data-tag="ul" id="ul-sbx-ov7-2gt" class="ul">
+<li data-tag="li" id="li-aza-wma-6nd" class="li">
+<p id="13710b830f056">手动添加已有节点前必须对要保留的所有数据进行提前备份。</p>
+</li>
+<li data-tag="li" id="li-cyc-q6x-7tb" class="li">
+<p id="13710b840f1og">自动添加节点时会执行系统盘替换操作，需要您提前备份保存在系统盘中的有用数据。</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr id="row-4z6-2yo-e48">
+<td id="entry-g2p-oxe-lt2" rowspan="1" colspan="1">
+<p id="13710b850fo8m">在节点系统盘中保存重要数据。</p>
+</td>
+<td id="entry-b1i-244-cpe" rowspan="1" colspan="1">
+<p id="13710b860fk3m">节点池的自愈操作可能通过重置节点配置的方式修复节点，因此可能导致系统盘数据丢失。</p>
+</td>
+<td id="entry-eqe-md7-hws" rowspan="1" colspan="1">
+<p id="13710b870fkhh">不可恢复。正确做法是将重要数据存放于额外的数据盘或者云盘、NAS、OSS。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="755c81dc86wvf" class="section">
+<h3 id="44a3d8bf47frq" jc="left" style="text-align:left" uuid="mm9yvqa6008lzsdv7449t"><b>虚拟节点相关高危操作</b></h3>
+<table autofit="true" id="b8b01aa2581mx" tablecolswidth="22.12 50.84 27.039999999999992" tablewidth="100" class="table">
+<colgroup colwidth="0.67*" style="width:22.12%"></colgroup>
+<colgroup colwidth="1.54*" style="width:50.84%"></colgroup>
+<colgroup colwidth="0.82*" style="width:27.04%"></colgroup>
+<tbody class="tbody">
+<tr id="0dcfe69997l2e">
+<td id="cb618770126s1" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+<p id="652d97143fcfr" jc="left" style="text-align:left" uuid="50a2b13c-a017-4efa-ae89-7a5b8ee170ca"><b>高危操作</b></p>
+</td>
+<td id="e729f9fd18kq6" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+<p id="046c0df54edz3" jc="left" style="text-align:left" uuid="ef2f0db4-9d86-4531-93c1-49899f31a0f6"><b>影响</b></p>
+</td>
+<td id="880e1a06b0sfp" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+<p id="66f2be652dr5v" jc="left" style="text-align:left" uuid="1d900b58-a9f5-451d-aa2f-08ac454dc9ab"><b>恢复方案</b></p>
+</td>
+</tr>
+<tr id="217ed73af2guj">
+<td id="35c7f0b8b8crz" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="20b7e0a54fsnw" jc="left" style="text-align:left" uuid="957a1591-d168-4ef1-a2bc-5a652347f91c">卸载虚拟节点组件。</p>
+</td>
+<td id="3476298558e5a" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="dfd26eac15sx9" jc="left" style="text-align:left" uuid="mm9zzkwtvuzools9fqh">Serverless Pod 管理功能异常：已创建的 ECI Pod 和 ACS Pod 无法正常删除，也无法正常创建新的 ECI Pod 和 ACS Pod。</p>
+</td>
+<td id="a5ed8de99cron" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="03fb7fe2bb1go" jc="left" style="text-align:left" uuid="e75aed64-1f3d-46a6-ae36-95f0076e9af8">重新<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/virtual-node-overview/#a80c0de73cycc" id="b567da197d2gc" title="" class="xref">安装虚拟节点组件</a>。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="db9daf568bwmq" class="section">
+<h3 id="13710b880fjly"><b>网络与负载均衡相关高危操作</b></h3>
+<table autofit="true" id="table-6fe-g1c-kb2" tablecolswidth="41.6 20.18 38.22" tablewidth="100" class="table">
+<colgroup colwidth="1.26*" style="width:41.60%"></colgroup>
+<colgroup colwidth="0.61*" style="width:20.18%"></colgroup>
+<colgroup colwidth="1.16*" style="width:38.22%"></colgroup>
+<tbody class="tbody">
+<tr id="row-9x4-86l-vi1">
+<td id="concept-265348-entry-91e-xbl-oqm" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="13710b890fn0t"><b>高危操作</b></p>
+</td>
+<td id="concept-265348-entry-v3g-0ix-dad" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="13710b8a0f2w1"><b>影响</b></p>
+</td>
+<td id="concept-265348-entry-x2r-k7i-mi6" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="13710b8b0flag"><b>恢复方案</b></p>
+</td>
+</tr>
+<tr id="row-sgx-x1j-99w">
+<td id="entry-rd7-168-wn4" rowspan="1" colspan="1">
+<p id="13710b8c0f6ox">修改内核参数<span data-tag="ph" id="codeph-ewd-6yb-piz" class="ph"><code data-tag="code" id="580f2388ccft0" class="code">net.ipv4.ip_forward=0</code></span>。</p>
+</td>
+<td id="entry-u23-roj-3ts" rowspan="1" colspan="1">
+<p id="13710b8d0fdv8">网络不通。</p>
+</td>
+<td id="entry-lnp-ug2-c1e" rowspan="1" colspan="1">
+<p id="13710b8e0fge8">修改内核参数为<span data-tag="ph" id="codeph-jsx-dvx-143" class="ph"><code data-tag="code" id="9893b46e21ims" class="code">net.ipv4.ip_forward=1</code></span>。</p>
+</td>
+</tr>
+<tr id="row-5hs-br5-soi">
+<td id="entry-1u3-j3h-dx2" rowspan="1" colspan="1">
+<p id="13710b8f0feus">修改内核参数：</p>
+<ul data-tag="ul" id="ul-x9s-4mk-dlx" class="ul">
+<li data-tag="li" id="li-dma-owf-acu" class="li">
+<p id="137132900f8az"><span data-tag="ph" id="codeph-n8t-tgh-03n" class="ph"><code data-tag="code" id="d852d03dd826o" class="code">net.ipv4.conf.all.rp_filter = 1|2</code></span></p>
+</li>
+<li data-tag="li" id="li-hq7-9x7-jtb" class="li">
+<p id="137132910fb6k"><span data-tag="ph" id="codeph-xc6-acd-fvp" class="ph"><code data-tag="code" id="87d302876eher" class="code">net.ipv4.conf.[ethX].rp_filter = 1|2</code></span></p>
+<div data-tag="note" id="note-psz-vxt-nqo" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+<p id="137132920f8so"><span data-tag="ph" id="codeph-1ju-rln-x4e" class="ph"><code data-tag="code" id="c6e20bbc3722c" class="code">ethX</code></span>代表所有以<span data-tag="ph" id="codeph-6e7-p1s-b6p" class="ph"><code data-tag="code" id="98d3258e48hmb" class="code">eth</code></span>开头的网卡。</p>
+</div></div>
+</li>
+</ul>
+</td>
+<td id="entry-e6e-10d-nix" rowspan="1" colspan="1">
+<p id="137132930f0x3">网络不通。</p>
+</td>
+<td id="entry-ao5-vfl-yx5" rowspan="1" colspan="1">
+<p id="137132940fefd">修改内核参数为：</p>
+<ul data-tag="ul" id="ul-tt8-zfa-z6z" class="ul">
+<li data-tag="li" id="li-6sp-3nm-y3r" class="li">
+<p id="137132950fqbe"><span data-tag="ph" id="codeph-3z9-tqi-e2o" class="ph"><code data-tag="code" id="8228fb730e9en" class="code">net.ipv4.conf.all.rp_filter = 0</code></span></p>
+</li>
+<li data-tag="li" id="li-c4p-3p6-dcp" class="li">
+<p id="137132960fp80"><span data-tag="ph" id="codeph-oah-yk8-77o" class="ph"><code data-tag="code" id="8144abf6c5ths" class="code">net.ipv4.conf.[ethX].rp_filter = 0</code></span></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr id="row-gkl-qe6-l2e">
+<td id="entry-wnj-hfq-hdq" rowspan="1" colspan="1">
+<p id="137132970fqo7">修改内核参数<span data-tag="ph" id="codeph-ili-iwp-9nb" class="ph"><code data-tag="code" id="2f78a50c92pug" class="code">net.ipv4.tcp_tw_reuse = 1</code></span>。</p>
+</td>
+<td id="entry-hyw-de4-ono" rowspan="1" colspan="1">
+<p id="137159a00fx0j">导致<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>健康检查异常。</p>
+</td>
+<td id="entry-3do-2ol-r2j" rowspan="1" colspan="1">
+<p id="137159a10fflg">修改内核参数为<span data-tag="ph" id="codeph-yaz-ss8-fh6" class="ph"><code data-tag="code" id="c3d4721b7dbrt" class="code">net.ipv4.tcp_tw_reuse = 0</code></span>。</p>
+</td>
+</tr>
+<tr id="row-8bw-vif-h2l">
+<td id="entry-yky-j2s-7oh" rowspan="1" colspan="1">
+<p id="137159a20fz7f">修改内核参数<span data-tag="ph" id="codeph-40g-ol1-x8q" class="ph"><code data-tag="code" id="82592150a5xym" class="code">net.ipv4.tcp_tw_recycle = 1</code></span>。</p>
+</td>
+<td id="entry-v5n-8mx-zto" rowspan="1" colspan="1">
+<p id="137159a30fft1">导致<span class="help-letter-space"></span>NAT<span class="help-letter-space"></span>异常。</p>
+</td>
+<td id="entry-iw4-69p-qq3" rowspan="1" colspan="1">
+<p id="137159a40f527">修改内核参数<span data-tag="ph" id="codeph-ssb-dpq-4zp" class="ph"><code data-tag="code" id="b3990e1c9ecev" class="code">net.ipv4.tcp_tw_recycle = 0</code></span>。</p>
+</td>
+</tr>
+<tr id="row-nt4-b1r-20a">
+<td id="entry-swl-5ec-ajv" rowspan="1" colspan="1">
+<p id="137159a50fh3q">修改内核参数<span data-tag="ph" id="codeph-txt-po2-qnu" class="ph"><code data-tag="code" id="a23eab23cezw2" class="code">net.ipv4.ip_local_port_range</code></span>。</p>
+</td>
+<td id="entry-7l4-dwi-1qh" rowspan="1" colspan="1">
+<p id="137159a60fmyg">导致网络偶发不通。</p>
+</td>
+<td id="entry-1rb-d9u-r0s" rowspan="1" colspan="1">
+<p id="137159a70f289">修改内核参数到默认值<span data-tag="ph" id="codeph-gm3-0oh-nrc" class="ph"><code data-tag="code" id="6c828f036ak8w" class="code">net.ipv4.ip_local_port_range="32768 60999"</code></span>。</p>
+</td>
+</tr>
+<tr id="row-0tz-vk0-j52">
+<td id="entry-7s2-r53-4hf" rowspan="1" colspan="1">
+<p id="137159a80fvxv">安装防火墙软件，例如<span class="help-letter-space"></span>Firewalld<span class="help-letter-space"></span>或者<span class="help-letter-space"></span>ufw<span class="help-letter-space"></span>等。</p>
+</td>
+<td id="entry-h4p-y4l-l53" rowspan="1" colspan="1">
+<p id="137159a90fi1e">导致容器网络不通。</p>
+</td>
+<td id="entry-1ji-2mr-6gz" rowspan="1" colspan="1">
+<p id="137159aa0fnqj">卸载防火墙软件并重启节点。</p>
+</td>
+</tr>
+<tr id="row-0er-2w1-odc">
+<td id="entry-gyd-1oi-ave" rowspan="1" colspan="1">
+<p id="137159ab0f7vi">节点安全组配置未放通容器 CIDR<span class="help-letter-space"></span>的<span class="help-letter-space"></span>53<span class="help-letter-space"></span>端口<span class="help-letter-space"></span>UDP。</p>
+</td>
+<td id="entry-rcp-6of-eyz" rowspan="1" colspan="1">
+<p id="137180b00fid3">集群内<span class="help-letter-space"></span>DNS<span class="help-letter-space"></span>无法正常工作。</p>
+</td>
+<td id="entry-2vb-udh-rrr" rowspan="1" colspan="1">
+<p id="137180b10fvtl">按照官网推荐配置放通安全组。</p>
+</td>
+</tr>
+<tr id="row-l2y-907-6g1">
+<td id="entry-099-1p5-yuv" rowspan="1" colspan="1">
+<p id="137180b20ffs8">修改或者删除<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>添加的<span class="help-letter-space"></span>SLB<span class="help-letter-space"></span>的标签。</p>
+</td>
+<td id="entry-ljo-5f9-zzt" rowspan="1" colspan="1">
+<p id="137180b30fctw">导致<span class="help-letter-space"></span>SLB<span class="help-letter-space"></span>异常。</p>
+</td>
+<td id="entry-bv7-3lg-iek" rowspan="1" colspan="1">
+<p id="137180b40f9yk">恢复<span class="help-letter-space"></span>SLB<span class="help-letter-space"></span>的标签。</p>
+</td>
+</tr>
+<tr id="row-o4r-1pk-mff">
+<td id="entry-xb9-jfq-vji" rowspan="1" colspan="1">
+<p id="137180b50f2sk">通过负载均衡控制台修改<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>管理的<span class="help-letter-space"></span>SLB<span class="help-letter-space"></span>的配置，包括<span class="help-letter-space"></span>SLB、监听及虚拟服务器组。</p>
+</td>
+<td id="entry-hki-cxg-bmt" rowspan="1" colspan="1">
+<p id="137180b60fg6s">导致<span class="help-letter-space"></span>SLB<span class="help-letter-space"></span>异常。</p>
+</td>
+<td id="entry-ntd-qua-yuk" rowspan="1" colspan="1">
+<p id="137180b70fvkn">恢复<span class="help-letter-space"></span>SLB<span class="help-letter-space"></span>的配置。</p>
+</td>
+</tr>
+<tr id="row-xps-6ck-3w3">
+<td id="entry-mia-8oy-c0u" rowspan="1" colspan="1">
+<p id="137180b80ffs1">移除<span class="help-letter-space"></span>Service<span class="help-letter-space"></span>中复用已有<span class="help-letter-space"></span>SLB<span class="help-letter-space"></span>的<span class="help-letter-space"></span>Annotation，即<span data-tag="ph" id="codeph-31z-2hr-wjg" class="ph"><code data-tag="code" id="800db328367er" class="code">service.beta.kubernetes.io/alibaba-cloud-loadbalancer-id: ${YOUR_LB_ID}</code></span>。</p>
+</td>
+<td id="entry-gxc-asv-829" rowspan="1" colspan="1">
+<p id="137180b90fb1i">导致<span class="help-letter-space"></span>SLB<span class="help-letter-space"></span>异常。</p>
+</td>
+<td id="entry-ohf-gir-6fo" rowspan="1" colspan="1">
+<p id="137180ba0fnux">在<span class="help-letter-space"></span>Service<span class="help-letter-space"></span>中添加复用已有<span class="help-letter-space"></span>SLB<span class="help-letter-space"></span>的<span class="help-letter-space"></span>Annotation。</p>
+<div data-tag="note" id="note-f95-ine-tw6" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+<p id="137180bb0f3cr">复用已有<span class="help-letter-space"></span>SLB<span class="help-letter-space"></span>的<span class="help-letter-space"></span>Service<span class="help-letter-space"></span>无法直接修改为使用自动创建<span class="help-letter-space"></span>SLB<span class="help-letter-space"></span>的<span class="help-letter-space"></span>Service。您需要重新创建<span class="help-letter-space"></span>Service。</p>
+</div></div>
+</td>
+</tr>
+<tr id="row-iw4-y91-hue">
+<td id="entry-0ke-1jk-aeo" rowspan="1" colspan="1">
+<p id="137180bc0fbt4">通过负载均衡控制台删除<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>创建的<span class="help-letter-space"></span>SLB。</p>
+</td>
+<td id="entry-9vk-1xl-j9w" rowspan="1" colspan="1">
+<p id="137180bd0f8bx">可能导致集群网络异常。</p>
+</td>
+<td id="entry-tue-uwe-ge0" rowspan="1" colspan="1">
+<p id="137180be0fij1">通过删除<span class="help-letter-space"></span>Service<span class="help-letter-space"></span>的方式删除<span class="help-letter-space"></span>SLB。删除<span class="help-letter-space"></span>Service<span class="help-letter-space"></span>请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/service-management/#step-trr-3n3-2uy" id="xref-jfz-756-2oo" title="" class="xref">删除<span class="help-letter-space"></span>Service</a>。</p>
+</td>
+</tr>
+<tr id="row-3bs-18m-bse">
+<td id="entry-hmu-6yv-4sb" rowspan="1" colspan="1">
+<p id="137180bf0f1x4">在安装<span class="help-letter-space"></span>Nginx Ingress Controller<span class="help-letter-space"></span>组件的情况下手动删除 kube-system<span class="help-letter-space"></span>命名空间下的<span data-tag="ph" id="codeph-zah-lnq-sr5" class="ph"><code data-tag="code" id="ed976f06e36yu" class="code">nginx-ingress-lb</code></span> Service。</p>
+</td>
+<td id="entry-0nl-1gl-p3v" rowspan="1" colspan="1">
+<p id="1371a7c00fps7">Ingress Controller<span class="help-letter-space"></span>工作不正常，严重时产生崩溃。</p>
+</td>
+<td id="entry-i5e-x8j-gfj" rowspan="1" colspan="1">
+<p id="1371a7c10fzwp">使用以下<span class="help-letter-space"></span>YAML<span class="help-letter-space"></span>新建一个同名<span class="help-letter-space"></span>Service。</p><pre code-type="xCode" data-tag="codeblock" id="codeblock-6n8-x8b-ftu" outputclass="language-yaml" class="pre codeblock language-yaml"><code>apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+  labels:
+    app: nginx-ingress-lb
+  name: nginx-ingress-lb
+  namespace: kube-system
+spec:
+  externalTrafficPolicy: Local
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  - name: https
+    port: 443
+    protocol: TCP
+    targetPort: 443
+  selector:
+    app: ingress-nginx
+  type: LoadBalancer</code></pre>
+</td>
+</tr>
+<tr id="row-nft-v9d-wl7">
+<td id="entry-lyz-o2h-op4" rowspan="1" colspan="1">
+<p id="1371a7c20fvw6">新增或修改<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>节点上<span class="help-letter-space"></span>DNS<span class="help-letter-space"></span>配置文件<span data-tag="filepath" id="filepath-hw1-0ro-e6p" class="filepath">/etc/resolv.conf</span><span class="help-letter-space"></span>中<span data-tag="ph" id="codeph-b0i-m8j-xq9" class="ph"><code data-tag="code" id="83bb7b27bf7ro" class="code">nameserver</code></span>选项。</p>
+</td>
+<td id="entry-21h-cep-5p3" rowspan="1" colspan="1">
+<p id="1371a7c30f6q2">若配置的<span class="help-letter-space"></span>DNS<span class="help-letter-space"></span>服务器配置不合理，可能导致<span class="help-letter-space"></span>DNS<span class="help-letter-space"></span>无法解析，影响集群正常运行。</p>
+</td>
+<td id="entry-dhp-ghe-d6l" rowspan="1" colspan="1">
+<p id="1371a7c40fe82">您如果想要使用自建<span class="help-letter-space"></span>DNS<span class="help-letter-space"></span>服务器作为上游服务器，建议在<span class="help-letter-space"></span>CoreDNS<span class="help-letter-space"></span>侧进行配置。具体操作，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/configure-coredns#task-2165721" id="xref-mnj-hh4-msx" title="" class="xref">非托管<span class="help-letter-space"></span>CoreDNS<span class="help-letter-space"></span>配置说明</a>。</p>
+</td>
+</tr>
+<tr id="41a405d615b16">
+<td id="b2bd6236e8j79" rowspan="1" colspan="1">
+<p id="1e8a9f3d99f7b">修改、删除<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>创建的弹性网卡、灵骏弹性网卡。</p>
+</td>
+<td id="7ae7761d2e9fj" rowspan="1" colspan="1">
+<p id="277c08adf5fov">Pod<span class="help-letter-space"></span>网络中断。</p>
+</td>
+<td id="5c28cce980w4q" rowspan="1" colspan="1">
+<p id="4d2e540f4bver">不可恢复。</p>
+</td>
+</tr>
+<tr id="71eb787bd6tv7">
+<td id="f475ead5cbnir" rowspan="1" colspan="1">
+<p id="baf4148f32fwl">修改、删除网络相关 CRD。</p><pre code-type="xCode" data-tag="codeblock" id="345e38e7e2ndu" index="0" outputclass="language-plaintext" class="pre codeblock language-plaintext"><code>podnetworkings.network.alibabacloud.com
+podenis.network.alibabacloud.com
+networkinterfaces.network.alibabacloud.com
+nodes.network.alibabacloud.com
+noderuntimes.network.alibabacloud.com
+*.cilium.io
+*.crd.projectcalico.org</code></pre>
+</td>
+<td id="9fac402e7cy92" rowspan="1" colspan="1">
+<p id="ef317bdbcanun">Terway 组件将无法工作，严重时可能导致网络中断、Pod<span class="help-letter-space"></span>异常。</p>
+</td>
+<td id="c4ab6fcde05r7" rowspan="1" colspan="1">
+<p id="45430045f06yq">不可恢复。</p>
+</td>
+</tr>
+<tr id="2f540fc2cfuge">
+<td id="e03b5bf4f8o2i" rowspan="1" colspan="1">
+<p id="dc3a4b761aidf">创建、修改、删除网络相关系统<span class="help-letter-space"></span>CR。</p><pre code-type="xCode" data-tag="codeblock" id="b56f6adfa65ca" index="0" outputclass="language-plaintext" class="pre codeblock language-plaintext"><code>podenis.network.alibabacloud.com
+networkinterfaces.network.alibabacloud.com
+nodes.network.alibabacloud.com
+noderuntimes.network.alibabacloud.com
+*.cilium.io
+*.crd.projectcalico.org</code></pre>
+</td>
+<td id="79951b63c1e9u" rowspan="1" colspan="1">
+<p id="13171bea389py">Terway 组件将无法工作，严重时可能导致网络中断、Pod<span class="help-letter-space"></span>异常。</p>
+</td>
+<td id="ada67ac7487di" rowspan="1" colspan="1">
+<p id="635457bf9e0vs">删除自定义<span class="help-letter-space"></span>CR<span class="help-letter-space"></span>定义，并重建关联的<span class="help-letter-space"></span>Pod。</p>
+</td>
+</tr>
+<tr id="edd2a9b8b9a0c">
+<td id="6c9587c5e5e7o" rowspan="1" colspan="1">
+<p id="7e78983d2dzbs">修改、删除<span class="help-letter-space"></span>Terway<span class="help-letter-space"></span>网络配置中非允许修改的字段。配置参数声明<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/terway-configuration-parameters" id="edf99135fcwis" title="" class="xref">自定义<span class="help-letter-space"></span>Terway<span class="help-letter-space"></span>配置参数</a>。</p>
+</td>
+<td id="bca3f4014a0ko" rowspan="1" colspan="1">
+<p id="2919fa8e0cv06">Terway 组件将无法工作，严重时可能导致网络中断、Pod<span class="help-letter-space"></span>异常。</p>
+</td>
+<td id="3e8409034e837" rowspan="1" colspan="1">
+<p id="351c3b8785ye8">恢复原有配置，并重启节点。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e500dc056cgw8" class="section">
+<h3 class="custom-h3" data-spm-anchor-id="a2c4g.118806.0.i13.49ab48d18nh6ud" id="9" jc="left" style="text-align:left">存储相关高危操作</h3>
+<table autofit="true" id="table-mxg-2hy-1r9" tablecolswidth="30.97 29.43 39.6" tablewidth="100" class="table">
+<colgroup colwidth="0.94*" style="width:30.97%"></colgroup>
+<colgroup colwidth="0.89*" style="width:29.43%"></colgroup>
+<colgroup colwidth="1.2*" style="width:39.60%"></colgroup>
+<tbody class="tbody">
+<tr id="row-aly-r4u-qub">
+<td id="concept-265348-entry-5b0-q29-1y2" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="1371a7c60fqou"><b>高危操作</b></p>
+</td>
+<td id="concept-265348-entry-sws-v6f-4my" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="1371a7c70fg17"><b>影响</b></p>
+</td>
+<td id="concept-265348-entry-loe-zei-vo4" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="1371a7c80fq5b"><b>恢复方案</b></p>
+</td>
+</tr>
+<tr id="row-gsd-wzh-6ns">
+<td id="entry-x9x-2rc-c5f" rowspan="1" colspan="1">
+<p id="1371a7c90f4sc">控制台手动解挂云盘。</p>
+</td>
+<td id="entry-mrl-6mp-sxt" rowspan="1" colspan="1">
+<p id="1371a7ca0f8wz">Pod<span class="help-letter-space"></span>写入报<span class="help-letter-space"></span>IO Error。</p>
+</td>
+<td id="entry-nvv-rvm-4dp" rowspan="1" colspan="1">
+<p id="1371a7cb0fcki">重启<span class="help-letter-space"></span>Pod，手动清理节点挂载残留。</p>
+</td>
+</tr>
+<tr id="row-qtm-b58-hp6">
+<td id="entry-xet-vam-7c8" rowspan="1" colspan="1">
+<p id="1371a7cc0fsri">节点上<span class="help-letter-space"></span><span data-tag="cmdname" id="cmdname-gy3-w1y-34j" class="cmdname">umount</span><span class="help-letter-space"></span>磁盘挂载路径</p>
+</td>
+<td id="entry-c77-630-txj" rowspan="1" colspan="1">
+<p id="1371a7cd0fhdx">Pod<span class="help-letter-space"></span>写入本地磁盘。</p>
+</td>
+<td id="entry-zva-siu-201" rowspan="1" colspan="1">
+<p id="1371ced00fzwp">重启<span class="help-letter-space"></span>Pod。</p>
+</td>
+</tr>
+<tr id="row-95o-wsm-t22">
+<td id="entry-64s-p0c-gbu" rowspan="1" colspan="1">
+<p id="1371ced10f6ma">节点上直接操作云盘。</p>
+</td>
+<td id="entry-2z3-hkq-98r" rowspan="1" colspan="1">
+<p id="1371ced20frxh">Pod<span class="help-letter-space"></span>写入本地磁盘。</p>
+</td>
+<td id="entry-3nx-q47-a9v" rowspan="1" colspan="1">
+<p id="1371ced30fqwu">不可恢复。</p>
+</td>
+</tr>
+<tr id="row-ox8-9ud-l39">
+<td id="entry-z4f-4mc-agm" rowspan="1" colspan="1">
+<p id="1371ced40f9l8">多个<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>挂载相同云盘。</p>
+</td>
+<td id="entry-ev2-5td-noz" rowspan="1" colspan="1">
+<p id="1371ced50f15y">Pod<span class="help-letter-space"></span>写入本地磁盘或者报错<span class="help-letter-space"></span>IO Error。</p>
+</td>
+<td id="entry-x97-llq-tk9" rowspan="1" colspan="1">
+<p id="1371ced60fp3j">确保一个云盘给一个<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>使用。</p>
+<div data-tag="note" id="note-sqa-mfj-1bp" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+<p id="1371ced70flmp">云盘为阿里云存储团队提供的非共享存储，只能同时被一个<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>挂载。</p>
+</div></div>
+</td>
+</tr>
+<tr id="row-gct-bkv-bo8">
+<td id="entry-yil-wxz-c37" rowspan="1" colspan="1">
+<p id="1371ced80f38o">手动删除<span class="help-letter-space"></span>NAS<span class="help-letter-space"></span>挂载目录。</p>
+</td>
+<td id="entry-4y1-b1e-mzp" rowspan="1" colspan="1">
+<p id="1371ced90fzco">Pod<span class="help-letter-space"></span>写入报<span class="help-letter-space"></span>IO Error。</p>
+</td>
+<td id="entry-0no-n6d-9vl" rowspan="1" colspan="1">
+<p id="1371ceda0fg2z">重启<span class="help-letter-space"></span>Pod。</p>
+</td>
+</tr>
+<tr id="row-8oh-qml-t39">
+<td id="entry-0n4-28m-g75" rowspan="1" colspan="1">
+<p id="1371cedb0f5rw">删除正在使用的<span class="help-letter-space"></span>NAS<span class="help-letter-space"></span>盘或挂载点。</p>
+</td>
+<td id="entry-y9g-rim-107" rowspan="1" colspan="1">
+<p id="1371cedc0fsxo">Pod<span class="help-letter-space"></span>出现<span class="help-letter-space"></span>IO Hang。</p>
+</td>
+<td id="entry-g08-jfl-n51" rowspan="1" colspan="1">
+<p id="1371cedd0f35y">重启<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>节点。重启具体操作，请参见<a href="https://help.aliyun.com/zh/ecs/user-guide/restart-instances#concept-yxw-dwm-xdb" id="xref-kcz-k1n-mv7" title="" class="xref">重启<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例</a>。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="e7c35fe5d7yqa" class="section">
+<h3 class="custom-h3" data-spm-anchor-id="a2c4g.118806.0.i14.49ab48d18nh6ud" id="10" jc="left" style="text-align:left">日志相关高危操作</h3>
+<table autofit="true" id="table-imr-tkc-e1r" tablecolswidth="41.69 15.38 42.93" tablewidth="100" class="table">
+<colgroup colwidth="1.26*" style="width:41.69%"></colgroup>
+<colgroup colwidth="0.47*" style="width:15.38%"></colgroup>
+<colgroup colwidth="1.3*" style="width:42.93%"></colgroup>
+<tbody class="tbody">
+<tr id="row-rvi-lw1-dpa">
+<td id="concept-265348-entry-ck7-ye5-d3a" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="1371cedf0ff77"><b>高危操作</b></p>
+</td>
+<td id="concept-265348-entry-e9g-z1v-1mb" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="1371cee00fg01"><b>影响</b></p>
+</td>
+<td id="concept-265348-entry-sl6-9gb-eui" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="13721cf00ft4i"><b>恢复方案</b></p>
+</td>
+</tr>
+<tr id="row-qyc-t21-vx3">
+<td id="entry-eof-vt8-ode" rowspan="1" colspan="1">
+<p id="13721cf10fi5w">删除宿主机<span data-tag="filepath" id="filepath-729-5ya-1t3" class="filepath">/tmp/ccs-log-collector/pos</span><span class="help-letter-space"></span>目录。</p>
+</td>
+<td id="entry-uzn-wjg-8i7" rowspan="1" colspan="1">
+<p id="13721cf20f8b8">日志重复采集。</p>
+</td>
+<td id="entry-qp7-p13-jcj" rowspan="1" colspan="1">
+<p id="13721cf30f0pr">不可恢复。该目录下的文件记录了日志的采集位置。</p>
+</td>
+</tr>
+<tr id="row-dhd-6z6-zkc">
+<td id="entry-rc5-jfm-ts0" rowspan="1" colspan="1">
+<p id="13721cf40fs3o">删除宿主机<span data-tag="filepath" id="filepath-bzs-anf-9qw" class="filepath">/tmp/ccs-log-collector/buffer</span><span class="help-letter-space"></span>目录。</p>
+</td>
+<td id="entry-zpc-oen-bgl" rowspan="1" colspan="1">
+<p id="13721cf50fzpa">日志丢失。</p>
+</td>
+<td id="entry-7k2-gdo-gsp" rowspan="1" colspan="1">
+<p id="13721cf60fn8g">不可恢复。该目录是待消费的日志缓存文件。</p>
+</td>
+</tr>
+<tr id="row-lb5-ti8-80u">
+<td id="entry-fxk-8qe-fds" rowspan="1" colspan="1">
+<p id="13721cf70falr">删除<span class="help-letter-space"></span>aliyunlogconfig CRD<span class="help-letter-space"></span>资源。</p>
+</td>
+<td id="entry-tmo-t72-1o3" rowspan="1" colspan="1">
+<p id="13721cf80f2bd">日志采集失效。</p>
+</td>
+<td id="entry-5kk-i0b-h63" rowspan="1" colspan="1">
+<p id="137244000fcg0">重新创建删除的<span class="help-letter-space"></span>CRD<span class="help-letter-space"></span>以及对应的资源，但失效期间日志无法恢复。</p>
+<p data-tag="p" id="p-dlb-7s0-prf" class="p">删除<span class="help-letter-space"></span>CRD<span class="help-letter-space"></span>会关联删除对应所有的实例，即使恢复<span class="help-letter-space"></span>CRD<span class="help-letter-space"></span>后还需要手动创建被删除的实例。</p>
+</td>
+</tr>
+<tr id="row-2oa-evg-nyy">
+<td id="entry-me3-vgh-2mr" rowspan="1" colspan="1">
+<p id="137244010frcb">删除日志组件。</p>
+</td>
+<td id="entry-i8k-q0l-8rk" rowspan="1" colspan="1">
+<p id="137244020f4k1">日志采集失效。</p>
+</td>
+<td id="entry-6vu-cmc-zd6" rowspan="1" colspan="1">
+<p id="137244030fjlh">重新安装日志组件并手动恢复<span class="help-letter-space"></span>aliyunlogconfig CRD<span class="help-letter-space"></span>实例，删除期间日志无法恢复。</p>
+<p data-tag="p" id="p-bom-j3l-gk5" class="p">删除日志组件相当于删除<span class="help-letter-space"></span>aliyunlogconfig CRD<span class="help-letter-space"></span>以及日志采集器<span class="help-letter-space"></span>Logtail，期间日志采集能力全部丢失。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section data-tag="related-links" data-type="related-links" id="related-links-i55-73u-q9q" role="navigation" class="related-links section">
+<h2 id="d41e734">相关文档</h2>
+<div data-tag="linklist" id="137244040fh4l" lang="zh-CN" class="linklist">
+<ul id="137244050fvhc">
+<li id="137244060fcv4">
+<p id="137244070fswn"><a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/best-practices-for-the-nginx-ingress-controller#task-2175597" id="link-e4k-ykz-a1h" title="" class="xref">Nginx Ingress Controller<span class="help-letter-space"></span>使用建议</a></p>
+</li>
+<li id="137244080fycj">
+<p id="137244090fpts"><a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/dns-best-practice#task-2548861" id="link-qhs-kjg-bjf" title="" class="xref">DNS<span class="help-letter-space"></span>最佳实践</a></p>
+</li>
+</ul>
+</div>
+</section>
+<p id="690875603ctml"></p>
+</div>
+</main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/ack/product-overview/supported-time-zones" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：支持时区</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/ack/product-overview/limits" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：配额与限制<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

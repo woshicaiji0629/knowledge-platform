@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-edge/user-guide/enable-gpu-sharing",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "在ACK Edge集群中使用共享GPU调度能力-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/user-guide/enable-gpu-sharing",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-edge/user-guide/enable-gpu-sharing.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/user-guide/enable-gpu-sharing.md",
+  "word_count": 2072,
+  "text_units": 4573,
+  "local_links": 26,
+  "external_links": 80,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

@@ -1,0 +1,2 @@
+## Terraform
+Resources:[alicloud_vpc_vswitch_cidr_reservation](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/vpc_vswitch_cidr_reservation)# 指定创建VPC的地域 provider "alicloud" { region = "cn-hangzhou" # 资源所在的地域 } # 指定交换机的ID variable "vsw_id" { default = "vsw-xxx" # 修改为交换机的实际ID } # 创建预留网段 resource "alicloud_vpc_vswitch_cidr_reservation" "example_cidr_reservation" { vswitch_id = var.vsw_id ip_version = "IPv4" cidr_reservation_cidr = "10.0.0.128/26" # 指定预留网段 }

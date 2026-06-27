@@ -1,0 +1,5 @@
+。
+登录[RDS](https://rdsnext.console.aliyun.com/?spm=5176.2020520152.nav-right.2.469016ddzrU6KW#/detail/rm-bp12685y16w4zjz9d/security/whiteList?region=cn-hangzhou)[控制台](https://rdsnext.console.aliyun.com/?spm=5176.2020520152.nav-right.2.469016ddzrU6KW#/detail/rm-bp12685y16w4zjz9d/security/whiteList?region=cn-hangzhou)，查看Annotation中RDS实例中的白名单。有关如何查看RDS的白名单，请参见[高安全白名单模式](../../../../rds/documents/apsaradb-rds-for-postgresql/configure-an-ip-address-whitelist-for-an-apsaradb-rds-for-postgresql-instance.md)[IP](../../../../rds/documents/apsaradb-rds-for-postgresql/configure-an-ip-address-whitelist-for-an-apsaradb-rds-for-postgresql-instance.md)[白名单](../../../../rds/documents/apsaradb-rds-for-postgresql/configure-an-ip-address-whitelist-for-an-apsaradb-rds-for-postgresql-instance.md)。
+此时，控制台显示规则已经自动添加。
+将[步骤](dynamically-add-the-ip-addresses-of-pods-to-the-whitelists-of-alibaba-cloud-services.md)[1](dynamically-add-the-ip-addresses-of-pods-to-the-whitelists-of-alibaba-cloud-services.md)中的Deployment的副本数设置为0，再次查看RDS白名单。
+此时，控制台显示已创建的规则被自动删除。

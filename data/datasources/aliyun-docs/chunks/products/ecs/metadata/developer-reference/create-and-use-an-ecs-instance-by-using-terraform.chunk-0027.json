@@ -1,0 +1,14 @@
+{
+  "id": "ecs:developer-reference/create-and-use-an-ecs-instance-by-using-terraform:27",
+  "document_id": "ecs:developer-reference/create-and-use-an-ecs-instance-by-using-terraform",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "使用Terraform创建ecs-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/developer-reference/create-and-use-an-ecs-instance-by-using-terraform",
+  "chunk_index": 27,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ecs/documents/developer-reference/create-and-use-an-ecs-instance-by-using-terraform.chunk-0027.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/developer-reference/create-and-use-an-ecs-instance-by-using-terraform.md",
+  "heading_path": "命令格式：terraform state show <资源类型>.<资源别名>[索引] terraform state show alicloud_instance.instance[0] > 相关文档 > 产品和定价",
+  "char_count": 272
+}

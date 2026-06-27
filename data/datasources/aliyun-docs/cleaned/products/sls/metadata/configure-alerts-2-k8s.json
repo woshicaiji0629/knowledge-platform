@@ -1,0 +1,17 @@
+{
+  "id": "sls:configure-alerts-2-k8s",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "如何为日志服务K8s事件中心设置告警-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/configure-alerts-2-k8s",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/configure-alerts-2-k8s.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/configure-alerts-2-k8s.md",
+  "word_count": 618,
+  "text_units": 1719,
+  "local_links": 0,
+  "external_links": 68,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

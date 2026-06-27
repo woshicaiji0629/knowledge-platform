@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/user-guide/untitled-document:1",
+  "document_id": "ack:ack-edge/user-guide/untitled-document",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "删除ACK Edge集群及后续资源释放与失败处理-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/user-guide/untitled-document",
+  "chunk_index": 1,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/user-guide/untitled-document.chunk-0001.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/user-guide/untitled-document.md",
+  "heading_path": "如何删除ACK Edge集群 > 集群删除及节点释放规则",
+  "char_count": 568
+}

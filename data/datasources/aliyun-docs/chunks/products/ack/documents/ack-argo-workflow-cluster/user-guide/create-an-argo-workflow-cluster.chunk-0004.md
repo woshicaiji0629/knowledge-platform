@@ -1,0 +1,1 @@
+-ack-clusters-using-daemonset-deployed-logtail-agents.md) 、 [使用集群](../../ack-managed-and-ack-dedicated/security-and-compliance/work-with-cluster-auditing.md) [API Server](../../ack-managed-and-ack-dedicated/security-and-compliance/work-with-cluster-auditing.md) [审计功能](../../ack-managed-and-ack-dedicated/security-and-compliance/work-with-cluster-auditing.md) 。 |

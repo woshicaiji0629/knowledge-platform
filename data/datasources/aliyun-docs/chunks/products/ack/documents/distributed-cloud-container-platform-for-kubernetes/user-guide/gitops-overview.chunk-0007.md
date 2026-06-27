@@ -1,0 +1,6 @@
+gitops.md) [GitOps](enable-the-collection-of-the-control-plane-logs-and-audit-logs-of-gitops.md) [控制面日志与审计日志](enable-the-collection-of-the-control-plane-logs-and-audit-logs-of-gitops.md) |
+| GitOps 中敏感数据管理 | 介绍如何在 GitOps 中管理 Secret 信息。 | [Secret](secret-management.md) [管理](secret-management.md) |
+| 使用钉钉机器人通知 GitOps 应用变更 | 介绍如何配置钉钉机器人接收应用变更通知。 | [使用钉钉机器人通知](notify-gitops-of-application-changes-using-dingtalk-bots.md) [GitOps](notify-gitops-of-application-changes-using-dingtalk-bots.md) [应用变更](notify-gitops-of-application-changes-using-dingtalk-bots.md) |
+| GitOps 中 HPA 的使用 | 介绍如何处理 GitOps 和 HPA 对应用副本数的冲突。 | [应用使用](applications-using-hpa.md) [HPA](applications-using-hpa.md) |
+| 自建 ArgoCD 无损迁移至 ACK One GitOps | 介绍如何将自建 ArgoCD 无损迁移至 ACK One GitOps。 | [自建](migrate-self-built-argocd-to-ack-one-gitops.md) [ArgoCD](migrate-self-built-argocd-to-ack-one-gitops.md) [迁移至](migrate-self-built-argocd-to-ack-one-gitops.md) [ACK One GitOps](migrate-self-built-argocd-to-ack-one-gitops.md) |
+| 配置自定义域名访问 GitOps 控制台 | 介绍如何为 GitOps 控制台配置自定义域名。 | [自定义域名访问](access-the-gitops-console-through-a-custom-domain-name.md) [GitOps](access-the-gitops-console-through-a-custom-domain-name.md) [控制台](access-the-gitops

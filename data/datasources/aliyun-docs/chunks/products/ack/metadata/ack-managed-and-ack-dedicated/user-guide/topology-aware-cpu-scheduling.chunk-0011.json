@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/user-guide/topology-aware-cpu-scheduling:11",
+  "document_id": "ack:ack-managed-and-ack-dedicated/user-guide/topology-aware-cpu-scheduling",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "启用CPU拓扑感知调度-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/topology-aware-cpu-scheduling",
+  "chunk_index": 11,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/topology-aware-cpu-scheduling.chunk-0011.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/topology-aware-cpu-scheduling.md",
+  "heading_path": "将 <your-pod-name> 替换实际Pod名称 kubectl get pod <your-pod-name> -n default -o yaml | grep \"cpuset:\"",
+  "char_count": 384
+}

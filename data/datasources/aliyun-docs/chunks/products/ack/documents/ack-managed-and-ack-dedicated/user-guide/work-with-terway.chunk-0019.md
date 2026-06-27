@@ -1,0 +1,2 @@
+### 访问控制
+Terway共享ENI模式通过对NetworkPolicy的支持和Trunk ENI选项，允许对集群内的网络流量进行更精细化的管理。Terway独占ENI模式同样支持一部分流量控制能力。

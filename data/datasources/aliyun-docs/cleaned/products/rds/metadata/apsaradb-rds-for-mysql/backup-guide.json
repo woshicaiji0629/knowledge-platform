@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/backup-guide",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "备份指引-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/backup-guide",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-mysql/backup-guide.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/backup-guide.md",
+  "word_count": 1701,
+  "text_units": 5292,
+  "local_links": 12,
+  "external_links": 101,
+  "has_tables": true,
+  "table_count": 21,
+  "quality": "accepted"
+}

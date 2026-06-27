@@ -1,0 +1,778 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    连接RDS PostgreSQL实例-云数据库 RDS(RDS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/connect-to-an-apsaradb-rds-for-postgresql-instance-1">
+  <meta name="keywords" content="连接实例,连接RDS PostgreSQL,pgAdmin连接,psql连接,jdbc连接">
+  <meta name="description" content="购买RDS PostgreSQL实例并完成必要配置（创建账号、设置白名单）后，您就可以通过数据管理DMS、pgAdmin客户端、PostgreSQL命令行工具或应用程序等方式连接RDS PostgreSQL实例，实现您的业务目标。本文介绍这些连接方法的具体操作。">
+  <meta name="last-modified" content="2026-06-11T21:13:17+08:00">
+  <meta name="date" content="2016-05-06T10:40:57+08:00">
+  <meta property="og:title" content="连接PostgreSQL实例">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/connect-to-an-apsaradb-rds-for-postgresql-instance-1">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="购买RDS PostgreSQL实例并完成必要配置（创建账号、设置白名单）后，您就可以通过数据管理DMS、pgAdmin客户端、PostgreSQL命令行工具或应用程序等方式连接RDS PostgreSQL实例，实现您的业务目标。本文介绍这些连接方法的具体操作。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/connect-to-an-apsaradb-rds-for-postgresql-instance-1",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "26158",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/rds/apsaradb-rds-for-postgresql/connect-to-an-apsaradb-rds-for-postgresql-instance-1","nodeId":null,"data":{"lastModifiedTime":1781183597000,"keywords":"连接实例,连接RDS PostgreSQL,pgAdmin连接,psql连接,jdbc连接","docTitle":"连接RDS PostgreSQL实例","language":"zh","seoTitle":"连接RDS PostgreSQL实例-云数据库 RDS(RDS)-阿里云帮助中心","title":"连接PostgreSQL实例","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"concept-stt-3hg-wdb\">\n    \n    \n    <p id=\"shortdesc-40a-34d-px0\" data-tag=\"shortdesc\" class=\"shortdesc\">购买<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>实例并完成必要配置（创建账号、设置白名单）后，您就可以通过数据管理<span class=\"help-letter-space\"></span>DMS、pgAdmin<span class=\"help-letter-space\"></span>客户端、PostgreSQL<span class=\"help-letter-space\"></span>命令行工具或应用程序等方式连接<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>实例，实现您的业务目标。本文介绍这些连接方法的具体操作。</p>\n    <div data-tag=\"conbody\" id=\"conbody-ftv-pak-j8n\" class=\"conbody\">\n      <section data-tag=\"section\" id=\"section-847-tdi-a7h\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-k52-lo4-xmm\" class=\"title\">前提条件</h2>\n        <ul data-tag=\"ul\" id=\"ul-obx-ygx-2yp\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-lkc-p3f-ohk\" class=\"li\">\n            <p id=\"5edd28333bypm\">已创建<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>实例。更多信息，请参见<a href=\"https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/create-an-apsaradb-rds-for-postgresql-instance-1#concept-kzn-qcg-wdb\" id=\"xref-go5-la6-agd\" title=\"\" class=\"xref\">创建<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>实例</a>。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-89j-3ml-8uc\" class=\"li\">\n            <p id=\"5edd4f403bwmn\">已创建账号和数据库。更多信息，请参见<a href=\"https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/create-a-database-and-an-account-on-an-apsaradb-rds-for-postgresql-instance#concept-njz-1gg-wdb\" id=\"xref-d4y-sft-umb\" title=\"\" class=\"xref\">创建账号和数据库</a>。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-73x-bnn-gh6\" class=\"li\">\n            <p id=\"5edd76503b6mq\">已设置白名单，允许客户端所在的<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>或本地设备访问<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>实例。更多信息，请参见<a href=\"https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/configure-an-ip-address-whitelist-for-an-apsaradb-rds-for-postgresql-instance#concept-sfx-kdg-wdb\" id=\"xref-0lp-ev5-kt9\" title=\"\" class=\"xref\">设置白名单</a>。</p>\n            <ul data-tag=\"ul\" id=\"ul-qsd-ww7-nl4\" class=\"ul\">\n              <li data-tag=\"li\" id=\"li-iy1-ls4-9hm\" class=\"li\">\n                <p id=\"5edd76513bm82\">如果使用<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>通过内网访问<span class=\"help-letter-space\"></span>RDS PostgreSQL，ECS<span class=\"help-letter-space\"></span>与<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>实例必须位于同一阿里云账号下的同一地域及同一<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>内，同时应将<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>的私网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址添加至白名单。</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-onz-2mi-r96\" class=\"li\">\n                <p id=\"5edd76523babd\">如果使用本地设备访问<span class=\"help-letter-space\"></span>RDS PostgreSQL，则将本地设备的公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>添加到白名单。</p>\n              </li>\n            </ul>\n          </li>\n        </ul>\n      </section>\n<section id=\"8ca5d3c4b5wqo\" class=\"section\">\n        <h2 id=\"780cac2874tax\"><b>操作步骤</b></h2>\n        <section id=\"feb7622259e3y\" outputclass=\"tabbed-content-box\" data-tag=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n          <section id=\"247d06e0b7ngw\" class=\"section\">\n            <h3 id=\"6359788bc96lr\"><b>数据管理<span class=\"help-letter-space\"></span>DMS<span class=\"help-letter-space\"></span>连接</b></h3>\n            <p data-tag=\"p\" id=\"p-yl9-rm9-nvm\" class=\"p\">数据管理<span class=\"help-letter-space\"></span>DMS<span class=\"help-letter-space\"></span>是一种集数据管理、结构管理、用户授权、安全审计、数据趋势、数据追踪、BI<span class=\"help-letter-space\"></span>图表、性能与优化和服务器管理于一体的数据管理服务。关于数据库管理<span class=\"help-letter-space\"></span>DMS<span class=\"help-letter-space\"></span>的更多信息，请参见<a href=\"https://help.aliyun.com/zh/dms/product-overview/what-is-dms#task-1919582\" id=\"bc9e4bd4davzo\" title=\"\" class=\"xref\">什么是数据管理<span class=\"help-letter-space\"></span>DMS</a> 。</p>\n            <ol data-tag=\"ol\" id=\"ol-5mc-832-gpw\" class=\"ol\">\n              <li data-tag=\"li\" id=\"ac4cb93544g5s\" is-conref=\"true\" class=\"li\"><p id=\"bfe5ec98891rq\">访问<span class=\"help-letter-space\"></span><a href=\"https://rdsnext.console.aliyun.com/rdsList/basic\" id=\"xref-pjk-5b7-ayp\" class=\"\" target=\"_blank\">RDS<span class=\"help-letter-space\"></span>实例列表</a>，在上方选择地域，然后单击目标实例<span class=\"help-letter-space\"></span>ID。</p></li>\n              <li data-tag=\"li\" id=\"li-6gt-gtv-kz2\" class=\"li\">\n                <p id=\"5ede87c03bwso\">在<b id=\"wintitle-4hs-nyl-g5s\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">基本信息</b>页面单击<b id=\"uicontrol-htu-m6h-z5z\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">登录数据库</b>。在实例的基本信息页面上方，单击<b>登录数据库</b>。</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-uuf-g41-ixs\" class=\"li\">\n                <p id=\"5edeaed03b3ps\">在<span class=\"help-letter-space\"></span>DMS<span class=\"help-letter-space\"></span>的<b id=\"uicontrol-nzr-2ua-jqc\">登录实例</b>页面，选择<b id=\"c0895f534cgy4\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">访问方式</b>和<b id=\"e45dade976iq8\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">管控模式</b>。</p>\n                <table id=\"aacc2159efyab\" tablewidth=\"100\" tablecolswidth=\"25 75\" autofit=\"true\" class=\"table\">\n                  <colgroup colwidth=\"0.5*\" style=\"width:25.00%\"></colgroup>\n                  <colgroup colwidth=\"1.5*\" style=\"width:75.00%\"></colgroup>\n                  <tbody class=\"tbody\">\n                    <tr id=\"8b6e303a24h29\" style=\"height:42px\">\n                      <td id=\"af6d360f883pp\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                        <p id=\"41dc4f1d9dx6r\"><b>配置项</b></p>\n                      </td>\n                      <td id=\"dcc8ed54d172u\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                        <p id=\"b1e6485813ub0\"><b>说明</b></p>\n                      </td>\n                    </tr>\n                    <tr id=\"c481161db3ktk\">\n                      <td id=\"afb598b8063l9\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"841a7aa4ddf5u\"><b id=\"e5b63680e65x5\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">访问方式</b></p>\n                      </td>\n                      <td id=\"31da3b429bm4q\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"372572a47f33t\">通过<span class=\"help-letter-space\"></span>DMS<span class=\"help-letter-space\"></span>访问<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例的方式。本文以<b id=\"c7885d572153r\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">账号+密码登录</b>为例。</p>\n                        <ul id=\"0d18dbffbbluc\">\n                          <li id=\"fe085de248wyc\">\n                            <p id=\"4c3d81bf23i87\"><b id=\"b91521be1avn1\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">账号+密码登录</b>：使用<b>拥有目标数据库的权限</b>的数据库账号和密码登录。</p>\n                          </li>\n                          <li id=\"00a9658f66prv\">\n                            <p id=\"0fb63e4ac1bo2\"><b id=\"659f17b16fbrr\">KMS<span class=\"help-letter-space\"></span>凭据登录</b>：DMS<span class=\"help-letter-space\"></span>会自动为实例开启安全托管，但您需要手动选择在<span class=\"help-letter-space\"></span>KMS<span class=\"help-letter-space\"></span>创建的<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>凭据以登录数据库。</p>\n                          </li>\n                        </ul>\n                        <div type=\"note\" id=\"4f7e08085ctst\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                          <ul id=\"fa04c5359625m\">\n                            <li id=\"8e581ad82dn1l\">\n                              <p id=\"d80dc5f187tvl\"><b id=\"1dbbca31203xe\">KMS<span class=\"help-letter-space\"></span>凭据登录</b>的访问方式登录<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>时，DMS<span class=\"help-letter-space\"></span>会自动为实例免费开启<a href=\"https://help.aliyun.com/zh/dms/product-overview/security-hosting\" id=\"575011e66e47c\" title=\"\" class=\"xref\">安全托管</a>。</p>\n                            </li>\n                            <li id=\"26fa0e677ccu0\">\n                              <p id=\"309a0a72b81bn\">您也可以单击<b id=\"7ce2a9d4fcq45\">一键开启安全托管</b>，输入账号和密码，为实例免费开启<a href=\"https://help.aliyun.com/zh/dms/product-overview/security-hosting\" id=\"23ecd8591awp0\" title=\"\" class=\"xref\">安全托管</a>，实现安全可控的<b>免密登录。</b></p>\n                            </li>\n                          </ul>\n                        </div></div>\n                      </td>\n                    </tr>\n                    <tr id=\"ef1dd900a4lye\">\n                      <td id=\"05759aff60ezf\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"028762dc1383d\"><b id=\"dd7b7097f9bsb\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">管控模式</b></p>\n                      </td>\n                      <td id=\"1be389dbf4gwx\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"53944ab942qk5\">数据管理<span class=\"help-letter-space\"></span>DMS<span class=\"help-letter-space\"></span>提供三种实例级别的<a href=\"https://help.aliyun.com/zh/dms/product-overview/control-modes\" id=\"81e7f639c9m98\" title=\"\" class=\"xref\">管控模式</a>，您可以根据实际业务场景进行设置。</p>\n                        <ul id=\"d28e3da0aa7e0\">\n                          <li id=\"93c908cc57l0d\">\n                            <p id=\"3a0489717enow\"><b id=\"0a6aea31e7m6k\">自由操作</b></p>\n                          </li>\n                          <li id=\"62d5af16e3cz1\">\n                            <p id=\"ba69dd719b73o\"><b id=\"b0e2b4a5e4si9\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">稳定变更</b></p>\n                          </li>\n                          <li id=\"066afecc799g1\">\n                            <p id=\"b8085b19e9ps5\"><b id=\"50f83925fan3p\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">安全协同</b></p>\n                          </li>\n                        </ul>\n                      </td>\n                    </tr>\n                  </tbody>\n                </table>\n              </li>\n              <li data-tag=\"li\" id=\"li-bpz-1pn-5yg\" class=\"li\">\n                <p id=\"5edeaed33b5ct\">登录后请刷新页面。随后，您可以在左侧<b id=\"uicontrol-mdm-vi5-vya\">已登录实例</b>菜单中看到实例内已登录的实例及其数据库。</p>\n                <div type=\"note\" id=\"41d8dbc696x5g\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                  <p id=\"9a52ef0918lp5\">如果开启了安全托管，您可以在左侧<b id=\"f24e7e8b928qk\">免登录实例</b>菜单中看到已登录的实例及其数据库。</p>\n                </div></div>\n                <ul id=\"0bb8e2dfa5gxv\" data-spm-anchor-id=\"a2c4g.11186623.0.i4.6da27747vLovsD\">\n                  <li id=\"aed2519fe35p2\">\n                    <p id=\"b1dc15c4f9z3f\">在<span class=\"help-letter-space\"></span>DMS<span class=\"help-letter-space\"></span>控制台，只能通过双击目标数据库的方式切换数据库，不支持使用<code data-tag=\"code\" class=\"code\" id=\"b5fb68ec572yb\">USE</code>命令切换。</p>\n                  </li>\n                  <li id=\"95db0537e1kps\">\n                    <p id=\"7164da16e4xs2\">如果实例存在，但实例展开后未找到目标数据库，可能是：</p>\n                    <ul id=\"4481381f51bjw\">\n                      <li id=\"7bb1fd65e2zr0\">\n                        <p id=\"ddf211d7330k2\">登录账号无目标数据库的访问权限，请更换具有相关权限的账号进行登录。</p>\n                      </li>\n                      <li id=\"a8330978eeaof\">\n                        <p id=\"3941ead260yua\">元数据未同步导致目录无法显示：请将鼠标悬浮在目标数据库所属实例上，单击实例名右侧的<img id=\"05da9d8ea7eh6\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4254594471/p944766.png\" alt=\"image\" placement=\"inline\" width=\"22\" class=\"image inline\">按钮，即可刷新数据库列表，显示目标数据库。</p>\n                      </li>\n                    </ul>\n                    <p id=\"c16d10f48d6v3\">如需快速同步数据库的库表结构，可以通过<span class=\"help-letter-space\"></span>DMS<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/dms/initialize-empty-databases\" id=\"587cdf1555xn6\" title=\"\" class=\"xref\">空库初始化</a>功能实现。</p>\n                  </li>\n                </ul>\n              </li>\n            </ol>\n            <div id=\"92513a54d8wie\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n              <ul id=\"b1df7a5959fxb\">\n                <li id=\"b120f99906j1p\">\n                  <p id=\"acc1cee53b7f5\">除了通过<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>控制台跳转到<span class=\"help-letter-space\"></span>DMS<span class=\"help-letter-space\"></span>进行登录，您还可以登录<span class=\"help-letter-space\"></span>DMS<span class=\"help-letter-space\"></span>控制台直接录入<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例，录入后可以在<span class=\"help-letter-space\"></span>DMS<span class=\"help-letter-space\"></span>控制台快速登录数据库。详情请参见<a href=\"https://help.aliyun.com/zh/dms/register-an-apsaradb-instance-1#multiTask2179\" id=\"b058e8d6e9dhu\" title=\"\" class=\"xref\">云数据库录入</a>。</p>\n                </li>\n                <li id=\"6a6d847ac7on5\">\n                  <p id=\"99e97b781atbk\">如果重置了账号密码，需要重新登录<span class=\"help-letter-space\"></span>DMS。</p>\n                </li>\n              </ul>\n            </div></div>\n          </section>\n          <section id=\"d85514abcc8na\" class=\"section\">\n            <h3 id=\"be9dfa77f451k\"><b>pgAdmin<span class=\"help-letter-space\"></span>客户端连接</b></h3>\n            <p data-tag=\"p\" id=\"p-yv8-qgf-q6w\" class=\"p\">pgAdmin<span class=\"help-letter-space\"></span>客户端是<span class=\"help-letter-space\"></span>PostgreSQL<span class=\"help-letter-space\"></span>官方推荐的数据库连接工具，在<span class=\"help-letter-space\"></span><a href=\"https://www.postgresql.org/download/\" id=\"xref-vgd-uni-xlb\" class=\"\" target=\"_blank\">PostgreSQL<span class=\"help-letter-space\"></span>官方网站</a>下载并安装<span class=\"help-letter-space\"></span>PostgreSQL<span class=\"help-letter-space\"></span>时，将会自动安装<span class=\"help-letter-space\"></span><b id=\"wintitle-o35-z05-anm\">pgAdmin 4</b><span class=\"help-letter-space\"></span>客户端。下文以<span data-tag=\"ph\" id=\"codeph-scx-lm1-lve\" class=\"ph\"><code data-tag=\"code\" id=\"270485bd30grl\" class=\"code\">pgAdmin 4 V6.2.0</code></span>为例，介绍如何连接<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>实例。</p>\n            <p data-tag=\"p\" id=\"p-5cg-af7-eun\" class=\"p\">如果您不想安装<span class=\"help-letter-space\"></span>PostgreSQL，也可以单独下载<span class=\"help-letter-space\"></span><a href=\"https://www.pgadmin.org/download/\" id=\"xref-grc-mib-zco\" class=\"\" target=\"_blank\">pgAdmin<span class=\"help-letter-space\"></span>客户端</a>，仅用于连接远程数据库。</p>\n            <ol data-tag=\"ol\" id=\"ol-twy-bi2-eiv\" class=\"ol\">\n              <li data-tag=\"li\" id=\"li-eia-nq0-lnb\" class=\"li\">\n                <p id=\"5edf99303bye5\">启动<span class=\"help-letter-space\"></span><b id=\"wintitle-rck-mek-6ue\">pgAdmin 4</b><span class=\"help-letter-space\"></span>客户端。 </p>\n                <div data-tag=\"note\" id=\"note-za8-g07-i1a\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                  <p id=\"5edf99313bffv\">高版本客户端首次登录需要设置<span class=\"help-letter-space\"></span>Master Password<span class=\"help-letter-space\"></span>用于保护保存的密码和其他凭据。</p>\n                </div></div>\n              </li>\n              <li data-tag=\"li\" id=\"li-q17-p88-77k\" class=\"li\">\n                <p id=\"5edfc0403budp\">右键单击<span class=\"help-letter-space\"></span><b id=\"uicontrol-ymg-v5c-f58\">Servers</b>，选择<span data-tag=\"menucascade\" id=\"menucascade-76j-xhw-zfu\" class=\"menucascade\"><span class=\"help-letter-space\"></span><b data-tag=\"uicontrol\" id=\"uicontrol-m3n-43q-76m\" class=\"uicontrol\">Register</b> &gt; <b data-tag=\"uicontrol\" id=\"uicontrol-ipd-e6b-cqn\" class=\"uicontrol\">Server...</b></span>。 </p>\n                <div data-tag=\"p\" id=\"p-2x9-7vo-rnl\" class=\"p\">\n                </div>\n              </li>\n              <li data-tag=\"li\" id=\"li-ox0-s83-orv\" class=\"li\">\n                <p id=\"5edfe7513bb33\">在<span class=\"help-letter-space\"></span><b id=\"uicontrol-4kb-ooz-w83\">General</b><span class=\"help-letter-space\"></span>页签设置连接名称。 在 <b>General</b> 标签页的 <b>Name</b> 字段中输入自定义的服务器名称。</p>\n              </li>\n              <li data-tag=\"li\" id=\"li-twj-0rp-oiw\" class=\"li\">\n                <p id=\"5edfe7523b0sm\">选择<span class=\"help-letter-space\"></span><b id=\"uicontrol-31m-np6-x67\">Connection</b><span class=\"help-letter-space\"></span>标签页，输入要连接的实例信息。 在 <b>Connection</b> 标签页，填写以下连接参数，完成后单击 <b>Save</b>。</p>\n                <table id=\"table-s15-p6j-744\" tablewidth=\"709\" tablecolswidth=\"177 532\" autofit=\"false\" class=\"table\">\n                  <colgroup colwidth=\"0.5*\" style=\"width:24.96%\"></colgroup>\n                  <colgroup colwidth=\"1.5*\" style=\"width:75.04%\"></colgroup>\n                  <tbody class=\"tbody\">\n                    <tr id=\"row-bjr-nwc-nuu\">\n                      <td id=\"concept-stt-3hg-wdb-entry-9i2-2ih-efu\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                        <p id=\"5edfe7533b042\"><b>参数</b></p>\n                      </td>\n                      <td id=\"concept-stt-3hg-wdb-entry-qwq-ogl-llu\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                        <p id=\"5edfe7543brup\"><b>说明</b></p>\n                      </td>\n                    </tr>\n                    <tr id=\"row-t81-pnh-u6x\">\n                      <td id=\"entry-eju-2er-fs6\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"5edfe7553bpi8\"><b id=\"uicontrol-qwk-fec-o6k\">Host name/address</b></p>\n                      </td>\n                      <td id=\"entry-3p9-ti5-cbc\" rowspan=\"2\" colspan=\"1\">\n                        <p id=\"5edfe7563blzd\">RDS PostgreSQL<span class=\"help-letter-space\"></span>实例的连接地址及对应的端口。</p>\n                        <ul data-tag=\"ul\" id=\"ul-ci5-08p-qfh\" class=\"ul\">\n                          <li data-tag=\"li\" id=\"li-oom-nuf-gzk\" class=\"li\">\n                            <p id=\"5ee00e603b4kh\">若通过内网连接，需输入<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例的内网地址和内网端口。</p>\n                          </li>\n                          <li data-tag=\"li\" id=\"li-0rp-a0w-93z\" class=\"li\">\n                            <p id=\"5ee00e613bb7h\">若使用外网连接，需输入<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例的外网地址和外网端口。</p>\n                          </li>\n                        </ul>\n                        <p data-tag=\"p\" id=\"p-arr-o6p-lox\" class=\"p\">您可以在<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>实例的数据库连接页面查看。</p>\n                        <p data-tag=\"p\" id=\"p-gw0-rng-nbp\" class=\"p\">更多信息，请参见<a href=\"https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/view-and-change-the-endpoints-and-port-numbers-of-an-apsaradb-rds-for-postgresql-instance#concept-fbd-ypv-ydb\" id=\"7647e7dcc6esd\" title=\"\" class=\"xref\">查看或修改连接地址和端口</a>。</p>\n                      </td>\n                    </tr>\n                    <tr id=\"row-ch9-qnp-akz\">\n                      <td id=\"entry-3ri-lzj-2v5\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"5ee035703bwk4\"><b id=\"uicontrol-cuz-aav-b7q\">Port</b></p>\n                      </td>\n                    </tr>\n                    <tr id=\"row-tp5-9f6-421\">\n                      <td id=\"entry-yfs-skq-rgp\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"5ee035733bpu0\"><b id=\"uicontrol-0s2-zaz-x3t\">Username</b></p>\n                      </td>\n                      <td id=\"entry-mit-6tb-v92\" rowspan=\"2\" colspan=\"1\">\n                        <p id=\"5ee035743bzwt\">RDS PostgreSQL<span class=\"help-letter-space\"></span>实例的账号和密码。</p>\n                        <p data-tag=\"p\" id=\"p-bod-8je-vpy\" class=\"p\">创建<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例的账号请参见<a href=\"https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/create-a-database-and-an-account-on-an-apsaradb-rds-for-postgresql-instance#concept-njz-1gg-wdb\" id=\"d025a51d03uqv\" title=\"\" class=\"xref\">创建账号和数据库</a>。</p>\n                      </td>\n                    </tr>\n                    <tr id=\"row-1v6-x4c-jk8\">\n                      <td id=\"entry-e0o-4rs-7bs\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"5ee05c803bnhs\"><b id=\"uicontrol-oap-8rl-p6j\">Password</b></p>\n                      </td>\n                    </tr>\n                  </tbody>\n                </table>\n              </li>\n              <li data-tag=\"li\" id=\"li-tmq-o1t-e0d\" class=\"li\">\n                <p id=\"5ee083903bgi3\">单击<span class=\"help-letter-space\"></span><b id=\"uicontrol-rmq-f06-6pi\">Save</b>。</p>\n                <div data-tag=\"p\" id=\"p-upw-urq-cb8\" class=\"p\">\n                  <p id=\"5ee083913bner\">若连接信息无误，会出现如下界面，则表示连接成功。连接成功后，pgAdmin 4 主界面显示 <b>Dashboard</b> 监控面板，左侧 <b>Browser</b> 面板可展开查看服务器下的 <b>Databases</b>、<b>Login/Group Roles</b>、<b>Tablespaces</b> 等对象。</p>\n                  <div data-tag=\"note\" id=\"note-vbb-ss8-dok\" type=\"notice\" class=\"note note-notice\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note notice\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                    <p id=\"5ee083923buff\">postgres<span class=\"help-letter-space\"></span>是<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例默认的系统数据库，请勿在该数据库中进行任何操作。</p>\n                  </div></div>\n                </div>\n              </li>\n            </ol>\n          </section>\n          <section id=\"369514eb49uv0\" class=\"section\">\n            <h3 id=\"c828c08dfb4w3\"><b>PostgreSQL<span class=\"help-letter-space\"></span>命令行工具连接</b></h3>\n            <p data-tag=\"p\" id=\"p-n3t-miv-uit\" class=\"p\">通过<span class=\"help-letter-space\"></span><a href=\"https://www.postgresql.org/download/\" id=\"xref-wfb-tsc-98t\" class=\"\" target=\"_blank\">PostgreSQL<span class=\"help-letter-space\"></span>官方网站</a>下载并安装<span class=\"help-letter-space\"></span>PostgreSQL<span class=\"help-letter-space\"></span>时，将会自动安装<span class=\"help-letter-space\"></span><b id=\"wintitle-tjy-g8p-qq2\">PostgreSQL<span class=\"help-letter-space\"></span>命令行终端工具（Command Line Tools）</b>。</p>\n            <div data-tag=\"p\" id=\"p-an6-ecr-zcf\" class=\"p\">\n              <p id=\"5ee083933bzbi\">在命令行终端中输入如下命令连接<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>数据库。</p><pre data-tag=\"codeblock\" id=\"codeblock-fs9-mzh-df9\" outputclass=\"language-shell\" code-type=\"xCode\" class=\"pre codeblock language-shell\"><code>psql -h &lt;实例连接地址&gt; -U &lt;用户名&gt; -p &lt;端口号&gt; [-d &lt;数据库名&gt;]</code></pre>\n            </div>\n            <pre data-tag=\"codeblock\" id=\"codeblock-2c8f1508c5de\" code-type=\"xCode\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>C:\\Users\\Administrator&gt;psql -h pgm-xxx.pg.rds.aliyuncs.com -p 5432 -U xxx -d postgres\n用户 xxx 的口令;\npsql (13.4, 服务器 11.9)\n输入 \"help\" 来获取帮助信息.\n\npostgres=&gt;</code></pre>\n            <table id=\"table-ddu-3ds-cqn\" tablewidth=\"709\" tablecolswidth=\"177 532\" autofit=\"false\" class=\"table\">\n              <colgroup colwidth=\"0.5*\" style=\"width:24.96%\"></colgroup>\n              <colgroup colwidth=\"1.5*\" style=\"width:75.04%\"></colgroup>\n              <tbody class=\"tbody\">\n                <tr id=\"row-i09-sky-d0u\">\n                  <td id=\"concept-stt-3hg-wdb-entry-zu7-8m0-52c\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"5ee083953bu13\"><b>参数</b></p>\n                  </td>\n                  <td id=\"concept-stt-3hg-wdb-entry-bpf-7gm-1oc\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                    <p id=\"5ee083963bwen\"><b>说明</b></p>\n                  </td>\n                </tr>\n                <tr id=\"row-4qz-jng-ybt\">\n                  <td id=\"entry-uer-ouj-3v1\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"5ee0aaa03bjxi\"><span data-tag=\"parmname\" id=\"parmname-np3-3uu-asw\" class=\"parmname\">实例连接地址</span></p>\n                  </td>\n                  <td id=\"entry-qag-tbt-upv\" rowspan=\"2\" colspan=\"1\">\n                    <p id=\"5ee0aaa13baak\">RDS PostgreSQL<span class=\"help-letter-space\"></span>实例的连接地址及对应的端口。</p>\n                    <ul data-tag=\"ul\" id=\"ul-cd4-t79-qd1\" class=\"ul\">\n                      <li data-tag=\"li\" id=\"li-4at-s5i-7u9\" class=\"li\">\n                        <p id=\"5ee0aaa23bc1o\">若通过内网连接，需输入<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例的内网地址和内网端口。</p>\n                      </li>\n                      <li data-tag=\"li\" id=\"li-syd-8m8-aex\" class=\"li\">\n                        <p id=\"5ee0aaa33b687\">若使用外网连接，需输入<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例的外网地址和外网端口。</p>\n                      </li>\n                    </ul>\n                    <p data-tag=\"p\" id=\"p-xb8-sn1-48q\" class=\"p\">您可以在<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>实例的数据库连接页面查看。</p>\n                    <p data-tag=\"p\" id=\"p-y3w-uaq-259\" class=\"p\">更多信息，请参见<a href=\"https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/view-and-change-the-endpoints-and-port-numbers-of-an-apsaradb-rds-for-postgresql-instance#concept-fbd-ypv-ydb\" id=\"eb36486b75t17\" title=\"\" class=\"xref\">查看或修改连接地址和端口</a>。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-5g8-nqv-gc9\">\n                  <td id=\"entry-5wc-1x3-0w9\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"5ee0d1b03blzn\"><b id=\"uicontrol-yn2-46s-3o7\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">端口号</b></p>\n                  </td>\n                </tr>\n                <tr id=\"row-g4k-5jp-ady\">\n                  <td id=\"entry-j8j-uws-o6h\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"5ee0d1b33b8um\"><b id=\"uicontrol-tfy-jxc-ntk\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">用户名</b></p>\n                  </td>\n                  <td id=\"entry-7h8-lkd-zrs\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"5ee0d1b43b4bk\">RDS PostgreSQL<span class=\"help-letter-space\"></span>实例的账号。</p>\n                    <p data-tag=\"p\" id=\"p-hll-2qf-i4w\" class=\"p\">创建<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例的账号请参见<a href=\"https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/create-a-database-and-an-account-on-an-apsaradb-rds-for-postgresql-instance#concept-njz-1gg-wdb\" id=\"04a45affd5nun\" title=\"\" class=\"xref\">创建账号和数据库</a>。</p>\n                  </td>\n                </tr>\n                <tr id=\"row-0mz-7wi-adi\">\n                  <td id=\"entry-v3g-vw9-ewn\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"5ee0f8c03bnf5\"><b id=\"uicontrol-7tm-12i-9fi\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">数据库名</b></p>\n                  </td>\n                  <td id=\"entry-vuw-286-y64\" rowspan=\"1\" colspan=\"1\">\n                    <p id=\"5ee0f8c13bwo1\">可选，需要连接的数据库名，postgres<span class=\"help-letter-space\"></span>是<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>实例默认的系统数据库，请勿在该数据库中进行任何操作，建议配置<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例下已创建的其他数据库。</p>\n                    <p data-tag=\"p\" id=\"p-8d8-rda-k4r\" class=\"p\">如何创建和查看数据库，请参见<a href=\"https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/create-a-database-on-an-apsaradb-rds-for-postgresql-instance#concept-cg3-ljq-wdb\" id=\"a730347ea9xwc\" title=\"\" class=\"xref\">创建数据库</a>。</p>\n                  </td>\n                </tr>\n              </tbody>\n            </table>\n          </section>\n          <section id=\"ac5f6323a2j9j\" class=\"section\">\n            <h3 id=\"aa85054baf1cj\"><b>应用程序连接</b></h3>\n            <div data-tag=\"note\" id=\"note-v36-yjo-m5n\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n              <p id=\"5ee11fd03b5y1\">本文以<span class=\"help-letter-space\"></span>Maven<span class=\"help-letter-space\"></span>项目<span class=\"help-letter-space\"></span>JDBC<span class=\"help-letter-space\"></span>连接<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>实例为例，其它编程语言连接方式类似。</p>\n            </div></div>\n            <ol data-tag=\"ol\" id=\"ol-64i-krk-b5x\" class=\"ol\">\n              <li data-tag=\"li\" id=\"li-8sy-jpe-m5w\" class=\"li\">\n                <p id=\"5ee11fd13bvvt\">pom.xml<span class=\"help-letter-space\"></span>中添加依赖。</p><pre data-tag=\"codeblock\" id=\"codeblock-07t-75r-ceg\" outputclass=\"language-xml\" code-type=\"xCode\" class=\"pre codeblock language-xml\"><code>&lt;dependency&gt;\n  &lt;groupId&gt;postgresql&lt;/groupId&gt;\n  &lt;artifactId&gt;postgresql&lt;/artifactId&gt;\n  &lt;version&gt;8.2-504.jdbc3&lt;/version&gt;\n&lt;/dependency&gt;</code></pre>\n              </li>\n              <li data-tag=\"li\" id=\"li-dio-6m3-lxq\" class=\"li\">\n              <p id=\"5ee11fd23bql6\">连接实例示例代码如下：</p>\n<pre data-tag=\"codeblock\" id=\"codeblock-e8q-lww-gf8\" outputclass=\"language-java\" code-type=\"xCode\" class=\"pre codeblock language-java\"><code>public class DatabaseConnection\n{\n    public static void main( String[] args ){\n        try {\n            Class.forName(\"org.postgresql.Driver\");\n        } catch (ClassNotFoundException e) {\n            e.printStackTrace();\n        }\n        //实例连接地址\n        String hostname = \"pgm-bp1i3kkq7321o9****.pg.rds.aliyuncs.com\";\n        //实例连接端口\n        int port = 5432;\n        //数据库名称\n        String dbname = \"postgres\";\n        //用户名\n        String username = \"username\";\n        //密码\n        String password = \"password\";\n\n        String dbUrl = \"jdbc:postgresql://\" + hostname + \":\" + port + \"/\" + dbname + \"?binaryTransfer=true\";\n        Connection dbConnection;\n        try {\n            dbConnection = DriverManager.getConnection(dbUrl, username, password);\n            Statement statement = dbConnection.createStatement();\n            //输入需要执行的<span class=\"help-letter-space\"></span>SQL<span class=\"help-letter-space\"></span>语句。\n            String selectSql = \"SELECT * FROM information_schema.sql_features LIMIT 10\";\n            ResultSet resultSet = statement.executeQuery(selectSql);\n            while (resultSet.next()) {\n                System.out.println(resultSet.getString(\"feature_name\"));\n            }\n        } catch (SQLException e) {\n            e.printStackTrace();\n        }\n    }\n}</code></pre>\n              </li>\n            </ol>\n          </section>\n          \n          <section id=\"2734a1255f41i\" props=\"china\" data-cond-props=\"china\" class=\"section\">\n            <h3 id=\"4938b5063bjtm\"><b>第三方报表工具连接</b></h3>\n            <div data-tag=\"div\" id=\"div-tpj-lpm-1ny\" outputclass=\"collapse\" class=\"div collapse\">\n              <p data-tag=\"expandable-title\" id=\"p-yn1-6b8-bya\" class=\"expandable-title\">Microsoft Power BI</p>\n              <div id=\"5e1bacf13b4np\" data-tag=\"expandable-content\" class=\"expandable-content\">\n                <p data-tag=\"p\" id=\"p-fxu-vps-1lx\" class=\"p\">RDS PostgreSQL<span class=\"help-letter-space\"></span>支持接入<span class=\"help-letter-space\"></span><a href=\"https://powerbi.microsoft.com/\" id=\"xref-fc7-fh5-jj2\" class=\"\" target=\"_blank\">Power BI</a>，在<span class=\"help-letter-space\"></span>Power BI<span class=\"help-letter-space\"></span>中对数据进行获取、清洗、建模和可视化展示等操作，实现数据分析。下文以<span data-tag=\"ph\" id=\"codeph-gko-32n-ivw\" class=\"ph\"><code data-tag=\"code\" id=\"15ef18b896zge\" class=\"code\">Power BI 2.112.1161.0 64-bit</code></span>版本为例，介绍如何连接<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>实例。</p>\n                <ol data-tag=\"ol\" id=\"ol-rpx-bv3-vle\" class=\"ol\">\n                  <li data-tag=\"li\" id=\"li-lny-8af-he6\" class=\"li\">\n                    <p id=\"5ee20a313bkh9\">下载并安装<span class=\"help-letter-space\"></span>Power BI Desktop<span class=\"help-letter-space\"></span>客户端。下载方法请参见<a href=\"https://learn.microsoft.com/power-bi/fundamentals/desktop-get-the-desktop\" id=\"xref-afp-d54-k7r\" class=\"\" target=\"_blank\">获取 Power BI Desktop</a>。 </p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-yma-mxo-15t\" class=\"li\">\n                    <p id=\"5ee20a323bpky\">启动<span class=\"help-letter-space\"></span>Power BI Desktop<span class=\"help-letter-space\"></span>客户端。</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-hmw-u7v-b68\" class=\"li\">\n                    <p id=\"5ee20a333bs6q\">在顶部菜单栏选择<b id=\"uicontrol-onq-nmt-7d4\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">主页</b>页签，然后单击<span data-tag=\"menucascade\" id=\"menucascade-gk8-5ic-c7q\" class=\"menucascade\"><b data-tag=\"uicontrol\" id=\"uicontrol-5vb-03g-wgm\" class=\"uicontrol\">获取数据</b> &gt; <b id=\"uicontrol-vzg-gr6-dzh\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">更多...</b></span>。在 <b>主页</b> 选项卡中，单击 <b>获取数据</b> 按钮，在下拉菜单底部单击 <b>更多...</b>。</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-9i5-kuu-wea\" class=\"li\">\n                    <p id=\"5ee231403biya\">在<b id=\"wintitle-v2j-xue-e2c\">获取数据</b>对话框中选择<span data-tag=\"menucascade\" id=\"menucascade-9pa-gwr-al3\" class=\"menucascade\"><b id=\"uicontrol-7rd-9yk-zo6\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">数据库</b> &gt; <b id=\"uicontrol-qjc-r8c-pn7\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">PostgreSQL<span class=\"help-letter-space\"></span>数据库</b></span>，然后单击<b id=\"uicontrol-e0e-j86-rc4\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">连接</b>。在左侧分类列表中选择 <b>数据库</b>，然后在右侧列表中选择 <b>PostgreSQL 数据库</b>，单击 <b>连接</b>。</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-uml-zme-dua\" class=\"li\">\n                    <p id=\"5ee231413bsth\">在<span class=\"help-letter-space\"></span><b id=\"wintitle-704-2p3-8a6\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">PostgreSQL<span class=\"help-letter-space\"></span>数据库</b>对话框中，分别设置<b id=\"uicontrol-xjf-sku-ik6\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">服务器</b>和<b id=\"uicontrol-dx6-h7u-ejv\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">数据库</b>后，单击<b id=\"uicontrol-3hx-d3p-u4k\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>。在<b>数据连接模式</b>中选择<b>导入</b>，然后单击<b>确定</b>。</p>\n                    <table id=\"table-hy0-apl-tsm\" tablewidth=\"709\" tablecolswidth=\"177 532\" autofit=\"false\" class=\"table\">\n                      <colgroup colwidth=\"0.5*\" style=\"width:24.96%\"></colgroup>\n                      <colgroup colwidth=\"1.5*\" style=\"width:75.04%\"></colgroup>\n                      <tbody class=\"tbody\">\n                        <tr id=\"row-nyc-bdj-4aq\">\n                          <td id=\"concept-stt-3hg-wdb-entry-t0i-ene-4bp\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                            <p id=\"5ee231423bwfm\"><b>参数</b></p>\n                          </td>\n                          <td id=\"concept-stt-3hg-wdb-entry-2n4-nmd-vqv\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                            <p id=\"5ee231433bncb\"><b>说明</b></p>\n                          </td>\n                        </tr>\n                        <tr id=\"row-7iy-m9d-u16\">\n                          <td id=\"entry-nb4-u9z-tpg\" rowspan=\"1\" colspan=\"1\">\n                            <p id=\"5ee231443bf0q\"><span data-tag=\"parmname\" id=\"parmname-v32-jjv-by7\" class=\"parmname\">服务器</span></p>\n                          </td>\n                          <td id=\"entry-7sr-mqe-e9v\" rowspan=\"1\" colspan=\"1\">\n                            <p id=\"5ee231453bwt8\">RDS PostgreSQL<span class=\"help-letter-space\"></span>实例的连接地址和对应的端口。</p>\n                            <p data-tag=\"p\" id=\"p-bg0-m4s-34h\" class=\"p\">格式：<span data-tag=\"ph\" id=\"codeph-p43-stw-o54\" class=\"ph\"><code data-tag=\"code\" id=\"f7eb293fecmwq\" class=\"code\">连接地址:端口</code></span></p>\n                            <ul data-tag=\"ul\" id=\"ul-qzb-g1e-9jy\" class=\"ul\">\n                              <li data-tag=\"li\" id=\"li-2zt-529-lz1\" class=\"li\">\n                                <p id=\"5ee258503b6a8\">若通过内网连接，需输入<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例的内网地址和内网端口。</p>\n                              </li>\n                              <li data-tag=\"li\" id=\"li-fvd-kna-xak\" class=\"li\">\n                                <p id=\"5ee258513b2xy\">若使用外网连接，需输入<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例的外网地址和外网端口。</p>\n                              </li>\n                            </ul>\n                            <p data-tag=\"p\" id=\"p-hpj-kxo-857\" class=\"p\">您可以在<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>实例的数据库连接页面查看。</p>\n                            <p data-tag=\"p\" id=\"p-rnt-pyj-eor\" class=\"p\">更多信息，请参见<a href=\"https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/view-and-change-the-endpoints-and-port-numbers-of-an-apsaradb-rds-for-postgresql-instance#concept-fbd-ypv-ydb\" id=\"ab2c7b4d15ekp\" title=\"\" class=\"xref\">查看或修改连接地址和端口</a>。</p>\n                          </td>\n                        </tr>\n                        <tr id=\"row-do5-wkw-0is\">\n                          <td id=\"entry-7b4-kjm-ex6\" rowspan=\"1\" colspan=\"1\">\n                            <p id=\"5ee2cd803bzgj\"><b id=\"uicontrol-4rb-zf1-vwu\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">数据库</b></p>\n                          </td>\n                          <td id=\"entry-38t-zvm-bex\" rowspan=\"1\" colspan=\"1\">\n                            <p id=\"5ee2cd813bquc\">postgres<span class=\"help-letter-space\"></span>是<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>实例默认的系统数据库，请勿在该数据库中进行任何操作，建议配置<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例下已创建的其他数据库。</p>\n                            <p data-tag=\"p\" id=\"p-bmd-mqp-l0r\" class=\"p\">如何创建和查看数据库，请参见<a href=\"https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/create-a-database-on-an-apsaradb-rds-for-postgresql-instance#concept-cg3-ljq-wdb\" id=\"e0062e9f6exrj\" title=\"\" class=\"xref\">创建数据库</a>。</p>\n                          </td>\n                        </tr>\n                      </tbody>\n                    </table>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-wk7-nz8-6iv\" class=\"li\">\n                    <p id=\"5ee2f4903bq2n\">设置<b id=\"uicontrol-1lr-chf-u10\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">用户名</b>和<b id=\"uicontrol-y8b-65b-34b\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">密码</b>后，单击<b id=\"uicontrol-lth-4yb-nwa\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">连接</b>。在弹出的身份验证对话框中，输入 RDS PostgreSQL 实例的<b>用户名</b>和<b>密码</b>，然后单击<b>连接</b>。</p>\n                    <div data-tag=\"note\" id=\"note-at8-6ee-25q\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                      <p id=\"5ee2f4913bpt9\">创建<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例的账号请参见<a href=\"https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/create-a-database-and-an-account-on-an-apsaradb-rds-for-postgresql-instance#concept-njz-1gg-wdb\" id=\"3709c21e8fh3z\" title=\"\" class=\"xref\">创建账号和数据库</a>。</p>\n                    </div></div>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-s62-j2k-09x\" class=\"li\">\n                    <p id=\"5ee31ba03b467\">在加密支持对话框中单击<b id=\"uicontrol-jag-3y5-kvf\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>。在弹出的 <b>加密支持</b> 对话框中，单击 <b>确定</b> 以使用不加密连接访问数据源。</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-22w-w5p-60b\" class=\"li\">\n                    <p id=\"5ee342b03biie\">连接成功后，即可在<b id=\"uicontrol-y1o-rly-m6f\">导航器</b>窗口中查看数据库中的表信息，您可以根据业务需求，选中目标表后，选择<b id=\"uicontrol-p33-ef4-v3q\">加载</b>或<b id=\"uicontrol-eyy-g2f-ruj\">转换数据</b>操作。在 <b>导航器</b> 对话框左侧导航树中，展开已连接的 RDS PostgreSQL 实例，勾选需要导入的目标表（例如 <b>public.tb_test2</b>），右侧将自动预览该表的数据。确认无误后，单击 <b>加载</b> 直接导入数据，或单击 <b>转换数据</b> 在导入前进行数据编辑。</p>\n                  </li>\n                </ol>\n              </div>\n            </div>\n            <div data-tag=\"div\" id=\"div-x6r-gdj-nxb\" outputclass=\"collapse\" class=\"div collapse\">\n              <p data-tag=\"expandable-title\" id=\"p-ez0-2ia-xgx\" class=\"expandable-title\">Smartbi</p>\n              <div id=\"5e1c97503btwe\" data-tag=\"expandable-content\" class=\"expandable-content\">\n                <p data-tag=\"p\" id=\"p-4xf-108-yrw\" class=\"p\">RDS PostgreSQL<span class=\"help-letter-space\"></span>支持接入<span class=\"help-letter-space\"></span>Smartbi，在<span class=\"help-letter-space\"></span>Smartbi<span class=\"help-letter-space\"></span>中对数据进行分析处理，满足您在企业级报表、数据可视化分析、自助探索分析、数据挖掘建模、AI 智能分析等大数据分析需求。下文以<span data-tag=\"ph\" id=\"codeph-l9d-jir-dko\" class=\"ph\"><code data-tag=\"code\" id=\"3977e4c5b25lm\" class=\"code\">Smartbi V10.5</code></span>版本为例，介绍如何连接<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>实例。</p>\n                <ol data-tag=\"ol\" id=\"ol-ndb-jdf-24k\" class=\"ol\">\n                  <li data-tag=\"li\" id=\"li-2fo-687-1nd\" class=\"li\">\n                    <p id=\"5ee342b13b8eg\">根据<span class=\"help-letter-space\"></span>Smartbi<span class=\"help-letter-space\"></span>官方安装指导，完成申请<span class=\"help-letter-space\"></span>License、Smartbi<span class=\"help-letter-space\"></span>客户端的下载、安装以及启动<span class=\"help-letter-space\"></span>Smartbi<span class=\"help-letter-space\"></span>服务。</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-nkk-wjs-v24\" class=\"li\">\n                    <p id=\"5ee342b23bbti\">在开始菜单，单击<b id=\"uicontrol-8tz-04s-bf9\">访问<span class=\"help-letter-space\"></span>Smartbi</b>。在 Windows 开始菜单中找到 <b>Smartbi</b> 文件夹，单击 <b>访问<span class=\"help-letter-space\"></span>Smartbi</b> 打开 Smartbi 登录页面。</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-got-8k3-y9x\" class=\"li\">\n                    <p id=\"5ee342b33b5j7\">输入账号和密码后，单击<b id=\"uicontrol-acw-cyf-tdy\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">登录</b>，进入<span class=\"help-letter-space\"></span>Smartbi。</p>\n                    <div data-tag=\"note\" id=\"note-e16-bxw-q9q\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                      <ul data-tag=\"ul\" id=\"ul-loj-8qe-lvt\" class=\"ul\">\n                        <li data-tag=\"li\" id=\"li-58o-muz-1ee\" class=\"li\">\n                          <p id=\"5ee342b43b6bz\">管理员默认登录账号为<span class=\"help-letter-space\"></span><b id=\"uicontrol-ra1-orb-x5s\">admin</b>，密码为<span class=\"help-letter-space\"></span><b id=\"uicontrol-5qi-53j-zbk\">manager</b>。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-psd-v3s-x7j\" class=\"li\">\n                          <p id=\"5ee342b53b63c\">如果是首次登录，则需要修改管理员密码。</p>\n                        </li>\n                      </ul>\n                    </div></div>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-nzs-o5u-zew\" class=\"li\">\n                    <p id=\"5ee369c03b7r8\">在左侧单击</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-v6q-1og-xk2\" class=\"li\">\n                    <p id=\"5ee369c13bfik\">在<b id=\"wintitle-5tm-d5k-3vl\">新建关系数据库</b>对话框中配置相关参数，然后单击<b id=\"uicontrol-6e4-o6p-zr8\">测试连接(T)</b>。<b>驱动程序存放目录</b>选择<b>产品内置</b>，<b>链接方式</b>选择<b>用户名密码</b>，验证类型选择<b>静态</b>，填写完成后单击<b>测试连接(T)</b>验证连接是否正常。</p>\n                    <table id=\"table-vja-h2m-xel\" tablewidth=\"709\" tablecolswidth=\"177 532\" autofit=\"false\" class=\"table\">\n                      <colgroup colwidth=\"0.5*\" style=\"width:24.96%\"></colgroup>\n                      <colgroup colwidth=\"1.5*\" style=\"width:75.04%\"></colgroup>\n                      <tbody class=\"tbody\">\n                        <tr id=\"row-sbd-hzm-rib\">\n                          <td id=\"concept-stt-3hg-wdb-entry-x59-t2d-abq\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                            <p id=\"5ee369c23buj0\"><b>参数</b></p>\n                          </td>\n                          <td id=\"concept-stt-3hg-wdb-entry-kem-wng-2ah\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                            <p id=\"5ee369c33btnp\"><b>说明</b></p>\n                          </td>\n                        </tr>\n                        <tr id=\"row-uq1-h8o-2cr\">\n                          <td id=\"entry-0u5-sii-ck8\" rowspan=\"1\" colspan=\"1\">\n                            <p id=\"5ee369c43b563\"><b id=\"uicontrol-d22-bo4-qk7\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">名称</b></p>\n                          </td>\n                          <td id=\"entry-qmu-0l6-6c6\" rowspan=\"1\" colspan=\"1\">\n                            <p id=\"5ee369c53b6fi\">数据库连接的名称，自定义。</p>\n                          </td>\n                        </tr>\n                        <tr id=\"row-aus-h72-6vg\">\n                          <td id=\"entry-dwm-1bc-j7i\" rowspan=\"1\" colspan=\"1\">\n                            <p id=\"5ee369c63bzc3\"><b id=\"uicontrol-lyf-gdj-1z2\">驱动程序类型</b></p>\n                          </td>\n                          <td id=\"entry-vxl-gnk-usv\" rowspan=\"1\" colspan=\"1\">\n                            <p id=\"5ee369c73bdc3\">固定选择为<span class=\"help-letter-space\"></span>PostgreSQL。</p>\n                          </td>\n                        </tr>\n                        <tr id=\"row-slw-4tc-t4m\">\n                          <td id=\"entry-6ge-lvy-jnf\" rowspan=\"1\" colspan=\"1\">\n                            <p id=\"5ee390d03bs62\"><b id=\"uicontrol-0tz-eee-uxv\">驱动程序类</b></p>\n                          </td>\n                          <td id=\"entry-tbv-0kr-7o5\" rowspan=\"1\" colspan=\"1\">\n                            <p id=\"5ee390d13beg6\">选择<b id=\"uicontrol-xym-6ar-g6k\">驱动程序类型</b>后自动选择，无需修改。</p>\n                          </td>\n                        </tr>\n                        <tr id=\"row-q94-nrx-vi2\">\n                          <td id=\"entry-ph8-2vw-tkm\" rowspan=\"1\" colspan=\"1\">\n                            <p id=\"5ee390d23b8dp\"><b id=\"uicontrol-guu-t8l-6q0\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">连接字符串</b></p>\n                          </td>\n                          <td id=\"entry-cvg-okc-lkg\" rowspan=\"1\" colspan=\"1\">\n                          <p id=\"5ee390d33bpql\">连接<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>实例的<span class=\"help-letter-space\"></span>JDBC<span class=\"help-letter-space\"></span>连接串，格式如下：</p>\n<pre data-tag=\"codeblock\" id=\"codeblock-w4i-hhf-83q\" outputclass=\"language-shell\" code-type=\"xCode\" class=\"pre codeblock language-shell\"><code>jdbc:postgresql://&lt;servername&gt;:&lt;port&gt;/&lt;dbName&gt;?defaultRowFetchSize=10000</code></pre>\n                            <ul data-tag=\"ul\" id=\"ul-ua3-0u4-zkr\" class=\"ul\">\n                              <li data-tag=\"li\" id=\"li-pz5-c2l-xjy\" class=\"li\">\n                                <p id=\"5ee390d43bbch\"><b id=\"uicontrol-952-jbt-l4x\">&lt;servername&gt;:&lt;port&gt;</b>：RDS PostgreSQL<span class=\"help-letter-space\"></span>实例的连接地址和对应的端口。</p>\n                                <ul data-tag=\"ul\" id=\"ul-ex0-vwk-o5w\" class=\"ul\">\n                                  <li data-tag=\"li\" id=\"li-uol-jbn-26m\" class=\"li\">\n                                    <p id=\"5ee390d53b9b7\">若通过内网连接，需输入<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例的内网地址和内网端口。</p>\n                                  </li>\n                                  <li data-tag=\"li\" id=\"li-4yd-9ma-fs7\" class=\"li\">\n                                    <p id=\"5ee390d63bcrc\">若使用外网连接，需输入<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例的外网地址和外网端口。</p>\n                                  </li>\n                                </ul>\n                                <p data-tag=\"p\" id=\"p-kua-6eq-awu\" class=\"p\">您可以在<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>实例的数据库连接页面查看。</p>\n                                <p data-tag=\"p\" id=\"p-o8b-8sj-fz3\" class=\"p\">更多信息，请参见<a href=\"https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/view-and-change-the-endpoints-and-port-numbers-of-an-apsaradb-rds-for-postgresql-instance#concept-fbd-ypv-ydb\" id=\"0d6d7bc0f41ie\" title=\"\" class=\"xref\">查看或修改连接地址和端口</a>。</p>\n                              </li>\n                              <li data-tag=\"li\" id=\"li-nn0-uwx-k8g\" class=\"li\">\n                                <p id=\"5ee3def03b4ds\"><b id=\"uicontrol-wix-0i1-4xc\">&lt;dbName&gt;</b>：postgres<span class=\"help-letter-space\"></span>是<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>实例默认的系统数据库，请勿在该数据库中进行任何操作。</p>\n                                <p data-tag=\"p\" id=\"p-881-vro-pzv\" class=\"p\">建议配置<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例下已创建的其他数据库。如何创建和查看数据库，请参见<a href=\"https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/create-a-database-on-an-apsaradb-rds-for-postgresql-instance#concept-cg3-ljq-wdb\" id=\"1b5fb9dcabj4j\" title=\"\" class=\"xref\">创建数据库</a>。</p>\n                              </li>\n                            </ul>\n                          </td>\n                        </tr>\n                        <tr id=\"row-zlc-hc4-hys\">\n                          <td id=\"entry-xgn-wdu-bt7\" rowspan=\"1\" colspan=\"1\">\n                            <p id=\"5ee406003bay4\"><b id=\"uicontrol-wvw-vwk-s5j\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">用户名</b>、<b id=\"uicontrol-n4o-56n-og3\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">密码</b></p>\n                          </td>\n                          <td id=\"entry-dpf-yhs-63c\" rowspan=\"1\" colspan=\"1\">\n                            <p id=\"5ee406013b9wd\">创建<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>实例的账号请参见<a href=\"https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/create-an-account-on-an-apsaradb-rds-for-postgresql-instance#concept-kxw-k1p-ydb\" id=\"ad4f424bbbe38\" title=\"\" class=\"xref\">创建账号</a>。</p>\n                          </td>\n                        </tr>\n                      </tbody>\n                    </table>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-u11-r53-kp8\" class=\"li\">\n                    <p id=\"5ee454203biwo\">测试通过后，单击<b id=\"uicontrol-n3t-je9-25s\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">保存</b>，出现如下信息，表示连接成功。连接成功后，左侧导航面板的<b>数据连接</b>列表中将显示<span class=\"help-letter-space\"></span><b>RDS_PostgreSQL</b><span class=\"help-letter-space\"></span>节点，展开该节点可查看<b>表关系视图</b>、<b>计算字段</b>和<b>过滤器</b>三个子项。</p>\n                  </li>\n                </ol>\n              </div>\n            </div>\n          </section>\n          <section id=\"230a987f4b3d5\" class=\"section\">\n            <h3 id=\"380813038371q\"><b>SSL<span class=\"help-letter-space\"></span>连接</b></h3>\n            <p data-tag=\"p\" id=\"p-h12-9a2-maa\" class=\"p\">RDS PostgreSQL<span class=\"help-letter-space\"></span>支持设置<span class=\"help-letter-space\"></span>SSL<span class=\"help-letter-space\"></span>链路加密，对网络连接进行加密，保证传输链路的安全。具体配置请参见<a href=\"https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/connect-to-an-apsaradb-rds-for-postgresql-instance-over-ssl-connections#task-1079262\" id=\"7ac16c400egi1\" title=\"\" class=\"xref\">使用<span class=\"help-letter-space\"></span>SSL<span class=\"help-letter-space\"></span>链路连接<span class=\"help-letter-space\"></span>RDS PostgreSQL<span class=\"help-letter-space\"></span>数据库</a>。</p>\n          </section>\n        </section>\n      </section>\n      <section data-tag=\"section\" id=\"section-z11-3xz-dfb\" props=\"china\" data-type=\"section\" data-cond-props=\"china\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-sd5-hcu-2oh\" class=\"title\">连接失败的解决办法</h2>\n        <p data-tag=\"p\" id=\"p-p4p-1mw-eso\" class=\"p\">请参见<a href=\"https://help.aliyun.com/zh/rds/support/what-do-i-do-if-i-fail-to-connect-to-an-apsaradb-rds-instance#concept-cqq-x1d-sfb\" id=\"xref-jik-4a8-zs9\" title=\"\" class=\"xref\">解决无法连接实例问题</a>。</p>\n      </section>\n      \n      <section data-tag=\"section\" id=\"section-684-48s-vjr\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-1yf-kix-j9d\" class=\"title\">常见问题</h2>\n        <ul id=\"db2950fa16geq\">\n          <li id=\"fd87a82fbdz6q\">\n            <p data-tag=\"p\" id=\"p-o6r-96s-e9f\" class=\"p\">Q：如果<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>与<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>不位于同一地域或同一账号下，如何进行连接？</p>\n            <p id=\"0acdb5f3f04dh\">A：可以使用如下两种方法中的一种进行连接。</p>\n            <ul id=\"9a20f1569e74e\">\n              <li id=\"6170947d8fsp1\">\n                <p id=\"fa2d3b1552841\">使用<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/vpc/vpc-peer-to-peer-connection\" id=\"bc12bb7b31los\" title=\"\" class=\"xref\">VPC<span class=\"help-letter-space\"></span>对等连接</a>实现同账号或跨账号、同地域或跨地域的两个<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>间的私网互通，且同地域的<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>对等连接免费。</p>\n              </li>\n              <li id=\"5f818e9524du1\">\n                <p id=\"225b3ac074ub0\">使用云企业网实现内网互通，具体请根据实际情况参照<a href=\"https://help.aliyun.com/zh/cen/getting-started/connect-vpcs-in-same-region-with-transit-router\" id=\"738c20773f1jo\" title=\"\" class=\"xref\">同地域<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>互通</a>、<a href=\"https://help.aliyun.com/zh/cen/getting-started/inter-region-vpc-interworking\" id=\"2136611e30u68\" title=\"\" class=\"xref\">跨地域<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>互通</a>或<a href=\"https://help.aliyun.com/zh/cen/getting-started/use-enterprise-edition-transit-routers-to-connect-vpcs-across-regions-and-accounts\" id=\"e8e618e058pcg\" title=\"\" class=\"xref\">跨账号<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>互通</a>实现。</p>\n              </li>\n            </ul>\n          </li>\n          <li id=\"2e249dcc7cstf\">\n            <p id=\"23ab03fc26fja\">Q：我使用函数计算，想获取<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>的数据，要怎么操作呢？</p>\n            <p data-tag=\"p\" id=\"p-948-idb-bbq\" class=\"p\">A：您可以为函数安装第三方依赖，使用内置模块获取<span class=\"help-letter-space\"></span>RDS<span class=\"help-letter-space\"></span>数据，详情请参见<a class=\"\" href=\"https://help.aliyun.com/zh/functioncompute/fc-2-0/user-guide/install-third-party-dependencies-on-function-compute\" id=\"xref-hnp-eao-mby\">为函数安装第三方依赖</a>。</p>\n          </li>\n        </ul>\n      </section>\n</div>\n  </main>\n\n\n\n\n</div>","path":"https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/connect-to-an-apsaradb-rds-for-postgresql-instance-1","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云数据库 RDS","id":26090,"title":"云数据库 RDS","url":"/zh/rds/"},"alias":"/rds/apsaradb-rds-for-postgresql/connect-to-an-apsaradb-rds-for-postgresql-instance-1","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":6,"developerUrl":"https://developer.aliyun.com/database/","nodeType":1,"version":47,"url":"/zh/rds/apsaradb-rds-for-postgresql/connect-to-an-apsaradb-rds-for-postgresql-instance-1","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":26158,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"连接PostgreSQL实例","id":26158,"title":"连接PostgreSQL实例","url":"/zh/rds/apsaradb-rds-for-postgresql/connect-to-an-apsaradb-rds-for-postgresql-instance-1"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"快速入门","id":140691,"title":"快速入门","url":"/zh/rds/apsaradb-rds-for-postgresql/getting-started/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"RDS PostgreSQL数据库","id":95626,"title":"RDS PostgreSQL数据库","url":"/zh/rds/apsaradb-rds-for-postgresql/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云数据库 RDS","id":26090,"title":"云数据库 RDS","url":"/zh/rds/"},"productUrl":"https://www.aliyun.com/product/rds","nodeId":26158,"desc":"购买RDS PostgreSQL实例并完成必要配置（创建账号、设置白名单）后，您就可以通过数据管理DMS、pgAdmin客户端、PostgreSQL命令行工具或应用程序等方式连接RDS PostgreSQL实例，实现您的业务目标。本文介绍这些连接方法的具体操作。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云数据库 RDS","id":26090,"title":"云数据库 RDS","url":"/zh/rds/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"RDS PostgreSQL数据库","id":95626,"title":"RDS PostgreSQL数据库","url":"/zh/rds/apsaradb-rds-for-postgresql/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"快速入门","id":140691,"title":"快速入门","url":"/zh/rds/apsaradb-rds-for-postgresql/getting-started/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"连接PostgreSQL实例","id":26158,"title":"连接PostgreSQL实例","url":"/zh/rds/apsaradb-rds-for-postgresql/connect-to-an-apsaradb-rds-for-postgresql-instance-1"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=213e023017825375848363806eb803&asid=AQAAAABxXT9qL7A2SwAAAAAUGWqPMu2V3g==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"><div class="help-subproduct-container"></div></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2569525" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-postgresql/product-overview/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品概述</span>
+</a>
+</li>
+ <li id="140691" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-postgresql/getting-started/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">快速入门</span>
+</a>
+</li>
+ <li id="3036363" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-postgresql/duckdb-analytics-acceleration/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">DuckDB分析加速</span>
+</a>
+</li>
+ <li id="2922603" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-postgresql/rds-for-ai/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">RDS for AI</span>
+</a>
+</li>
+ <li id="182379" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-postgresql/proprietary-alipg/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">自研内核 AliPG</span>
+</a>
+</li>
+ <li id="279473" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-postgresql/plug-ins-1/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">插件</span>
+</a>
+</li>
+ <li id="2623621" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-postgresql/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">操作指南</span>
+</a>
+</li>
+ <li id="52948" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-postgresql/use-cases/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">实践教程</span>
+</a>
+</li>
+ <li id="2623622" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-postgresql/security-and-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="2568728" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-postgresql/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2569008" class="Menu--level1--UN3zYr3">
+<a href="/zh/rds/apsaradb-rds-for-postgresql/support/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">服务支持</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>连接RDS PostgreSQL实例</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/rds" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="concept-stt-3hg-wdb">
+    
+    
+    <p id="shortdesc-40a-34d-px0" data-tag="shortdesc" class="shortdesc">购买<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>实例并完成必要配置（创建账号、设置白名单）后，您就可以通过数据管理<span class="help-letter-space"></span>DMS、pgAdmin<span class="help-letter-space"></span>客户端、PostgreSQL<span class="help-letter-space"></span>命令行工具或应用程序等方式连接<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>实例，实现您的业务目标。本文介绍这些连接方法的具体操作。</p>
+    <div data-tag="conbody" id="conbody-ftv-pak-j8n" class="conbody">
+      <section data-tag="section" id="section-847-tdi-a7h" data-type="section" class="section">
+        <h2 data-tag="title" id="title-k52-lo4-xmm" class="title">前提条件</h2>
+        <ul data-tag="ul" id="ul-obx-ygx-2yp" class="ul">
+          <li data-tag="li" id="li-lkc-p3f-ohk" class="li">
+            <p id="5edd28333bypm">已创建<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>实例。更多信息，请参见<a href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/create-an-apsaradb-rds-for-postgresql-instance-1#concept-kzn-qcg-wdb" id="xref-go5-la6-agd" title="" class="xref">创建<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>实例</a>。</p>
+          </li>
+          <li data-tag="li" id="li-89j-3ml-8uc" class="li">
+            <p id="5edd4f403bwmn">已创建账号和数据库。更多信息，请参见<a href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/create-a-database-and-an-account-on-an-apsaradb-rds-for-postgresql-instance#concept-njz-1gg-wdb" id="xref-d4y-sft-umb" title="" class="xref">创建账号和数据库</a>。</p>
+          </li>
+          <li data-tag="li" id="li-73x-bnn-gh6" class="li">
+            <p id="5edd76503b6mq">已设置白名单，允许客户端所在的<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>或本地设备访问<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>实例。更多信息，请参见<a href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/configure-an-ip-address-whitelist-for-an-apsaradb-rds-for-postgresql-instance#concept-sfx-kdg-wdb" id="xref-0lp-ev5-kt9" title="" class="xref">设置白名单</a>。</p>
+            <ul data-tag="ul" id="ul-qsd-ww7-nl4" class="ul">
+              <li data-tag="li" id="li-iy1-ls4-9hm" class="li">
+                <p id="5edd76513bm82">如果使用<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>通过内网访问<span class="help-letter-space"></span>RDS PostgreSQL，ECS<span class="help-letter-space"></span>与<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>实例必须位于同一阿里云账号下的同一地域及同一<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>内，同时应将<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>的私网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址添加至白名单。</p>
+              </li>
+              <li data-tag="li" id="li-onz-2mi-r96" class="li">
+                <p id="5edd76523babd">如果使用本地设备访问<span class="help-letter-space"></span>RDS PostgreSQL，则将本地设备的公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>添加到白名单。</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+<section id="8ca5d3c4b5wqo" class="section">
+        <h2 id="780cac2874tax"><b>操作步骤</b></h2>
+        <section id="feb7622259e3y" outputclass="tabbed-content-box" data-tag="tabbed-content-box" class="tabbed-content-box section">
+          <section id="247d06e0b7ngw" class="section">
+            <h3 id="6359788bc96lr"><b>数据管理<span class="help-letter-space"></span>DMS<span class="help-letter-space"></span>连接</b></h3>
+            <p data-tag="p" id="p-yl9-rm9-nvm" class="p">数据管理<span class="help-letter-space"></span>DMS<span class="help-letter-space"></span>是一种集数据管理、结构管理、用户授权、安全审计、数据趋势、数据追踪、BI<span class="help-letter-space"></span>图表、性能与优化和服务器管理于一体的数据管理服务。关于数据库管理<span class="help-letter-space"></span>DMS<span class="help-letter-space"></span>的更多信息，请参见<a href="https://help.aliyun.com/zh/dms/product-overview/what-is-dms#task-1919582" id="bc9e4bd4davzo" title="" class="xref">什么是数据管理<span class="help-letter-space"></span>DMS</a> 。</p>
+            <ol data-tag="ol" id="ol-5mc-832-gpw" class="ol">
+              <li data-tag="li" id="ac4cb93544g5s" is-conref="true" class="li"><p id="bfe5ec98891rq">访问<span class="help-letter-space"></span><a href="https://rdsnext.console.aliyun.com/rdsList/basic" id="xref-pjk-5b7-ayp" class="" target="_blank">RDS<span class="help-letter-space"></span>实例列表</a>，在上方选择地域，然后单击目标实例<span class="help-letter-space"></span>ID。</p></li>
+              <li data-tag="li" id="li-6gt-gtv-kz2" class="li">
+                <p id="5ede87c03bwso">在<b id="wintitle-4hs-nyl-g5s" data-tag="uicontrol" data-isbold="true" class="uicontrol">基本信息</b>页面单击<b id="uicontrol-htu-m6h-z5z" data-tag="uicontrol" data-isbold="true" class="uicontrol">登录数据库</b>。在实例的基本信息页面上方，单击<b>登录数据库</b>。</p>
+              </li>
+              <li data-tag="li" id="li-uuf-g41-ixs" class="li">
+                <p id="5edeaed03b3ps">在<span class="help-letter-space"></span>DMS<span class="help-letter-space"></span>的<b id="uicontrol-nzr-2ua-jqc">登录实例</b>页面，选择<b id="c0895f534cgy4" data-tag="uicontrol" data-isbold="true" class="uicontrol">访问方式</b>和<b id="e45dade976iq8" data-tag="uicontrol" data-isbold="true" class="uicontrol">管控模式</b>。</p>
+                <table id="aacc2159efyab" tablewidth="100" tablecolswidth="25 75" autofit="true" class="table">
+                  <colgroup colwidth="0.5*" style="width:25.00%"></colgroup>
+                  <colgroup colwidth="1.5*" style="width:75.00%"></colgroup>
+                  <tbody class="tbody">
+                    <tr id="8b6e303a24h29" style="height:42px">
+                      <td id="af6d360f883pp" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                        <p id="41dc4f1d9dx6r"><b>配置项</b></p>
+                      </td>
+                      <td id="dcc8ed54d172u" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                        <p id="b1e6485813ub0"><b>说明</b></p>
+                      </td>
+                    </tr>
+                    <tr id="c481161db3ktk">
+                      <td id="afb598b8063l9" rowspan="1" colspan="1">
+                        <p id="841a7aa4ddf5u"><b id="e5b63680e65x5" data-tag="uicontrol" data-isbold="true" class="uicontrol">访问方式</b></p>
+                      </td>
+                      <td id="31da3b429bm4q" rowspan="1" colspan="1">
+                        <p id="372572a47f33t">通过<span class="help-letter-space"></span>DMS<span class="help-letter-space"></span>访问<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例的方式。本文以<b id="c7885d572153r" data-tag="uicontrol" data-isbold="true" class="uicontrol">账号+密码登录</b>为例。</p>
+                        <ul id="0d18dbffbbluc">
+                          <li id="fe085de248wyc">
+                            <p id="4c3d81bf23i87"><b id="b91521be1avn1" data-tag="uicontrol" data-isbold="true" class="uicontrol">账号+密码登录</b>：使用<b>拥有目标数据库的权限</b>的数据库账号和密码登录。</p>
+                          </li>
+                          <li id="00a9658f66prv">
+                            <p id="0fb63e4ac1bo2"><b id="659f17b16fbrr">KMS<span class="help-letter-space"></span>凭据登录</b>：DMS<span class="help-letter-space"></span>会自动为实例开启安全托管，但您需要手动选择在<span class="help-letter-space"></span>KMS<span class="help-letter-space"></span>创建的<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>凭据以登录数据库。</p>
+                          </li>
+                        </ul>
+                        <div type="note" id="4f7e08085ctst" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                          <ul id="fa04c5359625m">
+                            <li id="8e581ad82dn1l">
+                              <p id="d80dc5f187tvl"><b id="1dbbca31203xe">KMS<span class="help-letter-space"></span>凭据登录</b>的访问方式登录<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>时，DMS<span class="help-letter-space"></span>会自动为实例免费开启<a href="https://help.aliyun.com/zh/dms/product-overview/security-hosting" id="575011e66e47c" title="" class="xref">安全托管</a>。</p>
+                            </li>
+                            <li id="26fa0e677ccu0">
+                              <p id="309a0a72b81bn">您也可以单击<b id="7ce2a9d4fcq45">一键开启安全托管</b>，输入账号和密码，为实例免费开启<a href="https://help.aliyun.com/zh/dms/product-overview/security-hosting" id="23ecd8591awp0" title="" class="xref">安全托管</a>，实现安全可控的<b>免密登录。</b></p>
+                            </li>
+                          </ul>
+                        </div></div>
+                      </td>
+                    </tr>
+                    <tr id="ef1dd900a4lye">
+                      <td id="05759aff60ezf" rowspan="1" colspan="1">
+                        <p id="028762dc1383d"><b id="dd7b7097f9bsb" data-tag="uicontrol" data-isbold="true" class="uicontrol">管控模式</b></p>
+                      </td>
+                      <td id="1be389dbf4gwx" rowspan="1" colspan="1">
+                        <p id="53944ab942qk5">数据管理<span class="help-letter-space"></span>DMS<span class="help-letter-space"></span>提供三种实例级别的<a href="https://help.aliyun.com/zh/dms/product-overview/control-modes" id="81e7f639c9m98" title="" class="xref">管控模式</a>，您可以根据实际业务场景进行设置。</p>
+                        <ul id="d28e3da0aa7e0">
+                          <li id="93c908cc57l0d">
+                            <p id="3a0489717enow"><b id="0a6aea31e7m6k">自由操作</b></p>
+                          </li>
+                          <li id="62d5af16e3cz1">
+                            <p id="ba69dd719b73o"><b id="b0e2b4a5e4si9" data-tag="uicontrol" data-isbold="true" class="uicontrol">稳定变更</b></p>
+                          </li>
+                          <li id="066afecc799g1">
+                            <p id="b8085b19e9ps5"><b id="50f83925fan3p" data-tag="uicontrol" data-isbold="true" class="uicontrol">安全协同</b></p>
+                          </li>
+                        </ul>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+              <li data-tag="li" id="li-bpz-1pn-5yg" class="li">
+                <p id="5edeaed33b5ct">登录后请刷新页面。随后，您可以在左侧<b id="uicontrol-mdm-vi5-vya">已登录实例</b>菜单中看到实例内已登录的实例及其数据库。</p>
+                <div type="note" id="41d8dbc696x5g" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                  <p id="9a52ef0918lp5">如果开启了安全托管，您可以在左侧<b id="f24e7e8b928qk">免登录实例</b>菜单中看到已登录的实例及其数据库。</p>
+                </div></div>
+                <ul id="0bb8e2dfa5gxv" data-spm-anchor-id="a2c4g.11186623.0.i4.6da27747vLovsD">
+                  <li id="aed2519fe35p2">
+                    <p id="b1dc15c4f9z3f">在<span class="help-letter-space"></span>DMS<span class="help-letter-space"></span>控制台，只能通过双击目标数据库的方式切换数据库，不支持使用<code data-tag="code" class="code" id="b5fb68ec572yb">USE</code>命令切换。</p>
+                  </li>
+                  <li id="95db0537e1kps">
+                    <p id="7164da16e4xs2">如果实例存在，但实例展开后未找到目标数据库，可能是：</p>
+                    <ul id="4481381f51bjw">
+                      <li id="7bb1fd65e2zr0">
+                        <p id="ddf211d7330k2">登录账号无目标数据库的访问权限，请更换具有相关权限的账号进行登录。</p>
+                      </li>
+                      <li id="a8330978eeaof">
+                        <p id="3941ead260yua">元数据未同步导致目录无法显示：请将鼠标悬浮在目标数据库所属实例上，单击实例名右侧的<img id="05da9d8ea7eh6" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4254594471/p944766.png" alt="image" placement="inline" width="22" class="image inline">按钮，即可刷新数据库列表，显示目标数据库。</p>
+                      </li>
+                    </ul>
+                    <p id="c16d10f48d6v3">如需快速同步数据库的库表结构，可以通过<span class="help-letter-space"></span>DMS<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/dms/initialize-empty-databases" id="587cdf1555xn6" title="" class="xref">空库初始化</a>功能实现。</p>
+                  </li>
+                </ul>
+              </li>
+            </ol>
+            <div id="92513a54d8wie" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+              <ul id="b1df7a5959fxb">
+                <li id="b120f99906j1p">
+                  <p id="acc1cee53b7f5">除了通过<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>控制台跳转到<span class="help-letter-space"></span>DMS<span class="help-letter-space"></span>进行登录，您还可以登录<span class="help-letter-space"></span>DMS<span class="help-letter-space"></span>控制台直接录入<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例，录入后可以在<span class="help-letter-space"></span>DMS<span class="help-letter-space"></span>控制台快速登录数据库。详情请参见<a href="https://help.aliyun.com/zh/dms/register-an-apsaradb-instance-1#multiTask2179" id="b058e8d6e9dhu" title="" class="xref">云数据库录入</a>。</p>
+                </li>
+                <li id="6a6d847ac7on5">
+                  <p id="99e97b781atbk">如果重置了账号密码，需要重新登录<span class="help-letter-space"></span>DMS。</p>
+                </li>
+              </ul>
+            </div></div>
+          </section>
+          <section id="d85514abcc8na" class="section">
+            <h3 id="be9dfa77f451k"><b>pgAdmin<span class="help-letter-space"></span>客户端连接</b></h3>
+            <p data-tag="p" id="p-yv8-qgf-q6w" class="p">pgAdmin<span class="help-letter-space"></span>客户端是<span class="help-letter-space"></span>PostgreSQL<span class="help-letter-space"></span>官方推荐的数据库连接工具，在<span class="help-letter-space"></span><a href="https://www.postgresql.org/download/" id="xref-vgd-uni-xlb" class="" target="_blank">PostgreSQL<span class="help-letter-space"></span>官方网站</a>下载并安装<span class="help-letter-space"></span>PostgreSQL<span class="help-letter-space"></span>时，将会自动安装<span class="help-letter-space"></span><b id="wintitle-o35-z05-anm">pgAdmin 4</b><span class="help-letter-space"></span>客户端。下文以<span data-tag="ph" id="codeph-scx-lm1-lve" class="ph"><code data-tag="code" id="270485bd30grl" class="code">pgAdmin 4 V6.2.0</code></span>为例，介绍如何连接<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>实例。</p>
+            <p data-tag="p" id="p-5cg-af7-eun" class="p">如果您不想安装<span class="help-letter-space"></span>PostgreSQL，也可以单独下载<span class="help-letter-space"></span><a href="https://www.pgadmin.org/download/" id="xref-grc-mib-zco" class="" target="_blank">pgAdmin<span class="help-letter-space"></span>客户端</a>，仅用于连接远程数据库。</p>
+            <ol data-tag="ol" id="ol-twy-bi2-eiv" class="ol">
+              <li data-tag="li" id="li-eia-nq0-lnb" class="li">
+                <p id="5edf99303bye5">启动<span class="help-letter-space"></span><b id="wintitle-rck-mek-6ue">pgAdmin 4</b><span class="help-letter-space"></span>客户端。 </p>
+                <div data-tag="note" id="note-za8-g07-i1a" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                  <p id="5edf99313bffv">高版本客户端首次登录需要设置<span class="help-letter-space"></span>Master Password<span class="help-letter-space"></span>用于保护保存的密码和其他凭据。</p>
+                </div></div>
+              </li>
+              <li data-tag="li" id="li-q17-p88-77k" class="li">
+                <p id="5edfc0403budp">右键单击<span class="help-letter-space"></span><b id="uicontrol-ymg-v5c-f58">Servers</b>，选择<span data-tag="menucascade" id="menucascade-76j-xhw-zfu" class="menucascade"><span class="help-letter-space"></span><b data-tag="uicontrol" id="uicontrol-m3n-43q-76m" class="uicontrol">Register</b> &gt; <b data-tag="uicontrol" id="uicontrol-ipd-e6b-cqn" class="uicontrol">Server...</b></span>。 </p>
+                <div data-tag="p" id="p-2x9-7vo-rnl" class="p">
+                </div>
+              </li>
+              <li data-tag="li" id="li-ox0-s83-orv" class="li">
+                <p id="5edfe7513bb33">在<span class="help-letter-space"></span><b id="uicontrol-4kb-ooz-w83">General</b><span class="help-letter-space"></span>页签设置连接名称。 在 <b>General</b> 标签页的 <b>Name</b> 字段中输入自定义的服务器名称。</p>
+              </li>
+              <li data-tag="li" id="li-twj-0rp-oiw" class="li">
+                <p id="5edfe7523b0sm">选择<span class="help-letter-space"></span><b id="uicontrol-31m-np6-x67">Connection</b><span class="help-letter-space"></span>标签页，输入要连接的实例信息。 在 <b>Connection</b> 标签页，填写以下连接参数，完成后单击 <b>Save</b>。</p>
+                <table id="table-s15-p6j-744" tablewidth="709" tablecolswidth="177 532" autofit="false" class="table">
+                  <colgroup colwidth="0.5*" style="width:24.96%"></colgroup>
+                  <colgroup colwidth="1.5*" style="width:75.04%"></colgroup>
+                  <tbody class="tbody">
+                    <tr id="row-bjr-nwc-nuu">
+                      <td id="concept-stt-3hg-wdb-entry-9i2-2ih-efu" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                        <p id="5edfe7533b042"><b>参数</b></p>
+                      </td>
+                      <td id="concept-stt-3hg-wdb-entry-qwq-ogl-llu" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                        <p id="5edfe7543brup"><b>说明</b></p>
+                      </td>
+                    </tr>
+                    <tr id="row-t81-pnh-u6x">
+                      <td id="entry-eju-2er-fs6" rowspan="1" colspan="1">
+                        <p id="5edfe7553bpi8"><b id="uicontrol-qwk-fec-o6k">Host name/address</b></p>
+                      </td>
+                      <td id="entry-3p9-ti5-cbc" rowspan="2" colspan="1">
+                        <p id="5edfe7563blzd">RDS PostgreSQL<span class="help-letter-space"></span>实例的连接地址及对应的端口。</p>
+                        <ul data-tag="ul" id="ul-ci5-08p-qfh" class="ul">
+                          <li data-tag="li" id="li-oom-nuf-gzk" class="li">
+                            <p id="5ee00e603b4kh">若通过内网连接，需输入<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例的内网地址和内网端口。</p>
+                          </li>
+                          <li data-tag="li" id="li-0rp-a0w-93z" class="li">
+                            <p id="5ee00e613bb7h">若使用外网连接，需输入<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例的外网地址和外网端口。</p>
+                          </li>
+                        </ul>
+                        <p data-tag="p" id="p-arr-o6p-lox" class="p">您可以在<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>实例的数据库连接页面查看。</p>
+                        <p data-tag="p" id="p-gw0-rng-nbp" class="p">更多信息，请参见<a href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/view-and-change-the-endpoints-and-port-numbers-of-an-apsaradb-rds-for-postgresql-instance#concept-fbd-ypv-ydb" id="7647e7dcc6esd" title="" class="xref">查看或修改连接地址和端口</a>。</p>
+                      </td>
+                    </tr>
+                    <tr id="row-ch9-qnp-akz">
+                      <td id="entry-3ri-lzj-2v5" rowspan="1" colspan="1">
+                        <p id="5ee035703bwk4"><b id="uicontrol-cuz-aav-b7q">Port</b></p>
+                      </td>
+                    </tr>
+                    <tr id="row-tp5-9f6-421">
+                      <td id="entry-yfs-skq-rgp" rowspan="1" colspan="1">
+                        <p id="5ee035733bpu0"><b id="uicontrol-0s2-zaz-x3t">Username</b></p>
+                      </td>
+                      <td id="entry-mit-6tb-v92" rowspan="2" colspan="1">
+                        <p id="5ee035743bzwt">RDS PostgreSQL<span class="help-letter-space"></span>实例的账号和密码。</p>
+                        <p data-tag="p" id="p-bod-8je-vpy" class="p">创建<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例的账号请参见<a href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/create-a-database-and-an-account-on-an-apsaradb-rds-for-postgresql-instance#concept-njz-1gg-wdb" id="d025a51d03uqv" title="" class="xref">创建账号和数据库</a>。</p>
+                      </td>
+                    </tr>
+                    <tr id="row-1v6-x4c-jk8">
+                      <td id="entry-e0o-4rs-7bs" rowspan="1" colspan="1">
+                        <p id="5ee05c803bnhs"><b id="uicontrol-oap-8rl-p6j">Password</b></p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </li>
+              <li data-tag="li" id="li-tmq-o1t-e0d" class="li">
+                <p id="5ee083903bgi3">单击<span class="help-letter-space"></span><b id="uicontrol-rmq-f06-6pi">Save</b>。</p>
+                <div data-tag="p" id="p-upw-urq-cb8" class="p">
+                  <p id="5ee083913bner">若连接信息无误，会出现如下界面，则表示连接成功。连接成功后，pgAdmin 4 主界面显示 <b>Dashboard</b> 监控面板，左侧 <b>Browser</b> 面板可展开查看服务器下的 <b>Databases</b>、<b>Login/Group Roles</b>、<b>Tablespaces</b> 等对象。</p>
+                  <div data-tag="note" id="note-vbb-ss8-dok" type="notice" class="note note-notice"><div class="note-icon-wrapper"><i class="icon-note note notice"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                    <p id="5ee083923buff">postgres<span class="help-letter-space"></span>是<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例默认的系统数据库，请勿在该数据库中进行任何操作。</p>
+                  </div></div>
+                </div>
+              </li>
+            </ol>
+          </section>
+          <section id="369514eb49uv0" class="section">
+            <h3 id="c828c08dfb4w3"><b>PostgreSQL<span class="help-letter-space"></span>命令行工具连接</b></h3>
+            <p data-tag="p" id="p-n3t-miv-uit" class="p">通过<span class="help-letter-space"></span><a href="https://www.postgresql.org/download/" id="xref-wfb-tsc-98t" class="" target="_blank">PostgreSQL<span class="help-letter-space"></span>官方网站</a>下载并安装<span class="help-letter-space"></span>PostgreSQL<span class="help-letter-space"></span>时，将会自动安装<span class="help-letter-space"></span><b id="wintitle-tjy-g8p-qq2">PostgreSQL<span class="help-letter-space"></span>命令行终端工具（Command Line Tools）</b>。</p>
+            <div data-tag="p" id="p-an6-ecr-zcf" class="p">
+              <p id="5ee083933bzbi">在命令行终端中输入如下命令连接<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>数据库。</p><pre data-tag="codeblock" id="codeblock-fs9-mzh-df9" outputclass="language-shell" code-type="xCode" class="pre codeblock language-shell"><code>psql -h &lt;实例连接地址&gt; -U &lt;用户名&gt; -p &lt;端口号&gt; [-d &lt;数据库名&gt;]</code></pre>
+            </div>
+            <pre data-tag="codeblock" id="codeblock-2c8f1508c5de" code-type="xCode" outputclass="language-shell" class="pre codeblock language-shell"><code>C:\Users\Administrator&gt;psql -h pgm-xxx.pg.rds.aliyuncs.com -p 5432 -U xxx -d postgres
+用户 xxx 的口令;
+psql (13.4, 服务器 11.9)
+输入 "help" 来获取帮助信息.
+
+postgres=&gt;</code></pre>
+            <table id="table-ddu-3ds-cqn" tablewidth="709" tablecolswidth="177 532" autofit="false" class="table">
+              <colgroup colwidth="0.5*" style="width:24.96%"></colgroup>
+              <colgroup colwidth="1.5*" style="width:75.04%"></colgroup>
+              <tbody class="tbody">
+                <tr id="row-i09-sky-d0u">
+                  <td id="concept-stt-3hg-wdb-entry-zu7-8m0-52c" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="5ee083953bu13"><b>参数</b></p>
+                  </td>
+                  <td id="concept-stt-3hg-wdb-entry-bpf-7gm-1oc" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                    <p id="5ee083963bwen"><b>说明</b></p>
+                  </td>
+                </tr>
+                <tr id="row-4qz-jng-ybt">
+                  <td id="entry-uer-ouj-3v1" rowspan="1" colspan="1">
+                    <p id="5ee0aaa03bjxi"><span data-tag="parmname" id="parmname-np3-3uu-asw" class="parmname">实例连接地址</span></p>
+                  </td>
+                  <td id="entry-qag-tbt-upv" rowspan="2" colspan="1">
+                    <p id="5ee0aaa13baak">RDS PostgreSQL<span class="help-letter-space"></span>实例的连接地址及对应的端口。</p>
+                    <ul data-tag="ul" id="ul-cd4-t79-qd1" class="ul">
+                      <li data-tag="li" id="li-4at-s5i-7u9" class="li">
+                        <p id="5ee0aaa23bc1o">若通过内网连接，需输入<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例的内网地址和内网端口。</p>
+                      </li>
+                      <li data-tag="li" id="li-syd-8m8-aex" class="li">
+                        <p id="5ee0aaa33b687">若使用外网连接，需输入<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例的外网地址和外网端口。</p>
+                      </li>
+                    </ul>
+                    <p data-tag="p" id="p-xb8-sn1-48q" class="p">您可以在<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>实例的数据库连接页面查看。</p>
+                    <p data-tag="p" id="p-y3w-uaq-259" class="p">更多信息，请参见<a href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/view-and-change-the-endpoints-and-port-numbers-of-an-apsaradb-rds-for-postgresql-instance#concept-fbd-ypv-ydb" id="eb36486b75t17" title="" class="xref">查看或修改连接地址和端口</a>。</p>
+                  </td>
+                </tr>
+                <tr id="row-5g8-nqv-gc9">
+                  <td id="entry-5wc-1x3-0w9" rowspan="1" colspan="1">
+                    <p id="5ee0d1b03blzn"><b id="uicontrol-yn2-46s-3o7" data-tag="uicontrol" data-isbold="true" class="uicontrol">端口号</b></p>
+                  </td>
+                </tr>
+                <tr id="row-g4k-5jp-ady">
+                  <td id="entry-j8j-uws-o6h" rowspan="1" colspan="1">
+                    <p id="5ee0d1b33b8um"><b id="uicontrol-tfy-jxc-ntk" data-tag="uicontrol" data-isbold="true" class="uicontrol">用户名</b></p>
+                  </td>
+                  <td id="entry-7h8-lkd-zrs" rowspan="1" colspan="1">
+                    <p id="5ee0d1b43b4bk">RDS PostgreSQL<span class="help-letter-space"></span>实例的账号。</p>
+                    <p data-tag="p" id="p-hll-2qf-i4w" class="p">创建<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例的账号请参见<a href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/create-a-database-and-an-account-on-an-apsaradb-rds-for-postgresql-instance#concept-njz-1gg-wdb" id="04a45affd5nun" title="" class="xref">创建账号和数据库</a>。</p>
+                  </td>
+                </tr>
+                <tr id="row-0mz-7wi-adi">
+                  <td id="entry-v3g-vw9-ewn" rowspan="1" colspan="1">
+                    <p id="5ee0f8c03bnf5"><b id="uicontrol-7tm-12i-9fi" data-tag="uicontrol" data-isbold="true" class="uicontrol">数据库名</b></p>
+                  </td>
+                  <td id="entry-vuw-286-y64" rowspan="1" colspan="1">
+                    <p id="5ee0f8c13bwo1">可选，需要连接的数据库名，postgres<span class="help-letter-space"></span>是<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>实例默认的系统数据库，请勿在该数据库中进行任何操作，建议配置<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例下已创建的其他数据库。</p>
+                    <p data-tag="p" id="p-8d8-rda-k4r" class="p">如何创建和查看数据库，请参见<a href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/create-a-database-on-an-apsaradb-rds-for-postgresql-instance#concept-cg3-ljq-wdb" id="a730347ea9xwc" title="" class="xref">创建数据库</a>。</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+          <section id="ac5f6323a2j9j" class="section">
+            <h3 id="aa85054baf1cj"><b>应用程序连接</b></h3>
+            <div data-tag="note" id="note-v36-yjo-m5n" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+              <p id="5ee11fd03b5y1">本文以<span class="help-letter-space"></span>Maven<span class="help-letter-space"></span>项目<span class="help-letter-space"></span>JDBC<span class="help-letter-space"></span>连接<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>实例为例，其它编程语言连接方式类似。</p>
+            </div></div>
+            <ol data-tag="ol" id="ol-64i-krk-b5x" class="ol">
+              <li data-tag="li" id="li-8sy-jpe-m5w" class="li">
+                <p id="5ee11fd13bvvt">pom.xml<span class="help-letter-space"></span>中添加依赖。</p><pre data-tag="codeblock" id="codeblock-07t-75r-ceg" outputclass="language-xml" code-type="xCode" class="pre codeblock language-xml"><code>&lt;dependency&gt;
+  &lt;groupId&gt;postgresql&lt;/groupId&gt;
+  &lt;artifactId&gt;postgresql&lt;/artifactId&gt;
+  &lt;version&gt;8.2-504.jdbc3&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
+              </li>
+              <li data-tag="li" id="li-dio-6m3-lxq" class="li">
+              <p id="5ee11fd23bql6">连接实例示例代码如下：</p>
+<pre data-tag="codeblock" id="codeblock-e8q-lww-gf8" outputclass="language-java" code-type="xCode" class="pre codeblock language-java"><code>public class DatabaseConnection
+{
+    public static void main( String[] args ){
+        try {
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        //实例连接地址
+        String hostname = "pgm-bp1i3kkq7321o9****.pg.rds.aliyuncs.com";
+        //实例连接端口
+        int port = 5432;
+        //数据库名称
+        String dbname = "postgres";
+        //用户名
+        String username = "username";
+        //密码
+        String password = "password";
+
+        String dbUrl = "jdbc:postgresql://" + hostname + ":" + port + "/" + dbname + "?binaryTransfer=true";
+        Connection dbConnection;
+        try {
+            dbConnection = DriverManager.getConnection(dbUrl, username, password);
+            Statement statement = dbConnection.createStatement();
+            //输入需要执行的<span class="help-letter-space"></span>SQL<span class="help-letter-space"></span>语句。
+            String selectSql = "SELECT * FROM information_schema.sql_features LIMIT 10";
+            ResultSet resultSet = statement.executeQuery(selectSql);
+            while (resultSet.next()) {
+                System.out.println(resultSet.getString("feature_name"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+              </li>
+            </ol>
+          </section>
+          
+          <section id="2734a1255f41i" props="china" data-cond-props="china" class="section">
+            <h3 id="4938b5063bjtm"><b>第三方报表工具连接</b></h3>
+            <div data-tag="div" id="div-tpj-lpm-1ny" outputclass="collapse" class="div collapse">
+              <p data-tag="expandable-title" id="p-yn1-6b8-bya" class="expandable-title">Microsoft Power BI</p>
+              <div id="5e1bacf13b4np" data-tag="expandable-content" class="expandable-content">
+                <p data-tag="p" id="p-fxu-vps-1lx" class="p">RDS PostgreSQL<span class="help-letter-space"></span>支持接入<span class="help-letter-space"></span><a href="https://powerbi.microsoft.com/" id="xref-fc7-fh5-jj2" class="" target="_blank">Power BI</a>，在<span class="help-letter-space"></span>Power BI<span class="help-letter-space"></span>中对数据进行获取、清洗、建模和可视化展示等操作，实现数据分析。下文以<span data-tag="ph" id="codeph-gko-32n-ivw" class="ph"><code data-tag="code" id="15ef18b896zge" class="code">Power BI 2.112.1161.0 64-bit</code></span>版本为例，介绍如何连接<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>实例。</p>
+                <ol data-tag="ol" id="ol-rpx-bv3-vle" class="ol">
+                  <li data-tag="li" id="li-lny-8af-he6" class="li">
+                    <p id="5ee20a313bkh9">下载并安装<span class="help-letter-space"></span>Power BI Desktop<span class="help-letter-space"></span>客户端。下载方法请参见<a href="https://learn.microsoft.com/power-bi/fundamentals/desktop-get-the-desktop" id="xref-afp-d54-k7r" class="" target="_blank">获取 Power BI Desktop</a>。 </p>
+                  </li>
+                  <li data-tag="li" id="li-yma-mxo-15t" class="li">
+                    <p id="5ee20a323bpky">启动<span class="help-letter-space"></span>Power BI Desktop<span class="help-letter-space"></span>客户端。</p>
+                  </li>
+                  <li data-tag="li" id="li-hmw-u7v-b68" class="li">
+                    <p id="5ee20a333bs6q">在顶部菜单栏选择<b id="uicontrol-onq-nmt-7d4" data-tag="uicontrol" data-isbold="true" class="uicontrol">主页</b>页签，然后单击<span data-tag="menucascade" id="menucascade-gk8-5ic-c7q" class="menucascade"><b data-tag="uicontrol" id="uicontrol-5vb-03g-wgm" class="uicontrol">获取数据</b> &gt; <b id="uicontrol-vzg-gr6-dzh" data-tag="uicontrol" data-isbold="true" class="uicontrol">更多...</b></span>。在 <b>主页</b> 选项卡中，单击 <b>获取数据</b> 按钮，在下拉菜单底部单击 <b>更多...</b>。</p>
+                  </li>
+                  <li data-tag="li" id="li-9i5-kuu-wea" class="li">
+                    <p id="5ee231403biya">在<b id="wintitle-v2j-xue-e2c">获取数据</b>对话框中选择<span data-tag="menucascade" id="menucascade-9pa-gwr-al3" class="menucascade"><b id="uicontrol-7rd-9yk-zo6" data-tag="uicontrol" data-isbold="true" class="uicontrol">数据库</b> &gt; <b id="uicontrol-qjc-r8c-pn7" data-tag="uicontrol" data-isbold="true" class="uicontrol">PostgreSQL<span class="help-letter-space"></span>数据库</b></span>，然后单击<b id="uicontrol-e0e-j86-rc4" data-tag="uicontrol" data-isbold="true" class="uicontrol">连接</b>。在左侧分类列表中选择 <b>数据库</b>，然后在右侧列表中选择 <b>PostgreSQL 数据库</b>，单击 <b>连接</b>。</p>
+                  </li>
+                  <li data-tag="li" id="li-uml-zme-dua" class="li">
+                    <p id="5ee231413bsth">在<span class="help-letter-space"></span><b id="wintitle-704-2p3-8a6" data-tag="uicontrol" data-isbold="true" class="uicontrol">PostgreSQL<span class="help-letter-space"></span>数据库</b>对话框中，分别设置<b id="uicontrol-xjf-sku-ik6" data-tag="uicontrol" data-isbold="true" class="uicontrol">服务器</b>和<b id="uicontrol-dx6-h7u-ejv" data-tag="uicontrol" data-isbold="true" class="uicontrol">数据库</b>后，单击<b id="uicontrol-3hx-d3p-u4k" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>。在<b>数据连接模式</b>中选择<b>导入</b>，然后单击<b>确定</b>。</p>
+                    <table id="table-hy0-apl-tsm" tablewidth="709" tablecolswidth="177 532" autofit="false" class="table">
+                      <colgroup colwidth="0.5*" style="width:24.96%"></colgroup>
+                      <colgroup colwidth="1.5*" style="width:75.04%"></colgroup>
+                      <tbody class="tbody">
+                        <tr id="row-nyc-bdj-4aq">
+                          <td id="concept-stt-3hg-wdb-entry-t0i-ene-4bp" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                            <p id="5ee231423bwfm"><b>参数</b></p>
+                          </td>
+                          <td id="concept-stt-3hg-wdb-entry-2n4-nmd-vqv" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                            <p id="5ee231433bncb"><b>说明</b></p>
+                          </td>
+                        </tr>
+                        <tr id="row-7iy-m9d-u16">
+                          <td id="entry-nb4-u9z-tpg" rowspan="1" colspan="1">
+                            <p id="5ee231443bf0q"><span data-tag="parmname" id="parmname-v32-jjv-by7" class="parmname">服务器</span></p>
+                          </td>
+                          <td id="entry-7sr-mqe-e9v" rowspan="1" colspan="1">
+                            <p id="5ee231453bwt8">RDS PostgreSQL<span class="help-letter-space"></span>实例的连接地址和对应的端口。</p>
+                            <p data-tag="p" id="p-bg0-m4s-34h" class="p">格式：<span data-tag="ph" id="codeph-p43-stw-o54" class="ph"><code data-tag="code" id="f7eb293fecmwq" class="code">连接地址:端口</code></span></p>
+                            <ul data-tag="ul" id="ul-qzb-g1e-9jy" class="ul">
+                              <li data-tag="li" id="li-2zt-529-lz1" class="li">
+                                <p id="5ee258503b6a8">若通过内网连接，需输入<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例的内网地址和内网端口。</p>
+                              </li>
+                              <li data-tag="li" id="li-fvd-kna-xak" class="li">
+                                <p id="5ee258513b2xy">若使用外网连接，需输入<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例的外网地址和外网端口。</p>
+                              </li>
+                            </ul>
+                            <p data-tag="p" id="p-hpj-kxo-857" class="p">您可以在<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>实例的数据库连接页面查看。</p>
+                            <p data-tag="p" id="p-rnt-pyj-eor" class="p">更多信息，请参见<a href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/view-and-change-the-endpoints-and-port-numbers-of-an-apsaradb-rds-for-postgresql-instance#concept-fbd-ypv-ydb" id="ab2c7b4d15ekp" title="" class="xref">查看或修改连接地址和端口</a>。</p>
+                          </td>
+                        </tr>
+                        <tr id="row-do5-wkw-0is">
+                          <td id="entry-7b4-kjm-ex6" rowspan="1" colspan="1">
+                            <p id="5ee2cd803bzgj"><b id="uicontrol-4rb-zf1-vwu" data-tag="uicontrol" data-isbold="true" class="uicontrol">数据库</b></p>
+                          </td>
+                          <td id="entry-38t-zvm-bex" rowspan="1" colspan="1">
+                            <p id="5ee2cd813bquc">postgres<span class="help-letter-space"></span>是<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>实例默认的系统数据库，请勿在该数据库中进行任何操作，建议配置<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例下已创建的其他数据库。</p>
+                            <p data-tag="p" id="p-bmd-mqp-l0r" class="p">如何创建和查看数据库，请参见<a href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/create-a-database-on-an-apsaradb-rds-for-postgresql-instance#concept-cg3-ljq-wdb" id="e0062e9f6exrj" title="" class="xref">创建数据库</a>。</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </li>
+                  <li data-tag="li" id="li-wk7-nz8-6iv" class="li">
+                    <p id="5ee2f4903bq2n">设置<b id="uicontrol-1lr-chf-u10" data-tag="uicontrol" data-isbold="true" class="uicontrol">用户名</b>和<b id="uicontrol-y8b-65b-34b" data-tag="uicontrol" data-isbold="true" class="uicontrol">密码</b>后，单击<b id="uicontrol-lth-4yb-nwa" data-tag="uicontrol" data-isbold="true" class="uicontrol">连接</b>。在弹出的身份验证对话框中，输入 RDS PostgreSQL 实例的<b>用户名</b>和<b>密码</b>，然后单击<b>连接</b>。</p>
+                    <div data-tag="note" id="note-at8-6ee-25q" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                      <p id="5ee2f4913bpt9">创建<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例的账号请参见<a href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/create-a-database-and-an-account-on-an-apsaradb-rds-for-postgresql-instance#concept-njz-1gg-wdb" id="3709c21e8fh3z" title="" class="xref">创建账号和数据库</a>。</p>
+                    </div></div>
+                  </li>
+                  <li data-tag="li" id="li-s62-j2k-09x" class="li">
+                    <p id="5ee31ba03b467">在加密支持对话框中单击<b id="uicontrol-jag-3y5-kvf" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>。在弹出的 <b>加密支持</b> 对话框中，单击 <b>确定</b> 以使用不加密连接访问数据源。</p>
+                  </li>
+                  <li data-tag="li" id="li-22w-w5p-60b" class="li">
+                    <p id="5ee342b03biie">连接成功后，即可在<b id="uicontrol-y1o-rly-m6f">导航器</b>窗口中查看数据库中的表信息，您可以根据业务需求，选中目标表后，选择<b id="uicontrol-p33-ef4-v3q">加载</b>或<b id="uicontrol-eyy-g2f-ruj">转换数据</b>操作。在 <b>导航器</b> 对话框左侧导航树中，展开已连接的 RDS PostgreSQL 实例，勾选需要导入的目标表（例如 <b>public.tb_test2</b>），右侧将自动预览该表的数据。确认无误后，单击 <b>加载</b> 直接导入数据，或单击 <b>转换数据</b> 在导入前进行数据编辑。</p>
+                  </li>
+                </ol>
+              </div>
+            </div>
+            <div data-tag="div" id="div-x6r-gdj-nxb" outputclass="collapse" class="div collapse">
+              <p data-tag="expandable-title" id="p-ez0-2ia-xgx" class="expandable-title">Smartbi</p>
+              <div id="5e1c97503btwe" data-tag="expandable-content" class="expandable-content">
+                <p data-tag="p" id="p-4xf-108-yrw" class="p">RDS PostgreSQL<span class="help-letter-space"></span>支持接入<span class="help-letter-space"></span>Smartbi，在<span class="help-letter-space"></span>Smartbi<span class="help-letter-space"></span>中对数据进行分析处理，满足您在企业级报表、数据可视化分析、自助探索分析、数据挖掘建模、AI 智能分析等大数据分析需求。下文以<span data-tag="ph" id="codeph-l9d-jir-dko" class="ph"><code data-tag="code" id="3977e4c5b25lm" class="code">Smartbi V10.5</code></span>版本为例，介绍如何连接<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>实例。</p>
+                <ol data-tag="ol" id="ol-ndb-jdf-24k" class="ol">
+                  <li data-tag="li" id="li-2fo-687-1nd" class="li">
+                    <p id="5ee342b13b8eg">根据<span class="help-letter-space"></span>Smartbi<span class="help-letter-space"></span>官方安装指导，完成申请<span class="help-letter-space"></span>License、Smartbi<span class="help-letter-space"></span>客户端的下载、安装以及启动<span class="help-letter-space"></span>Smartbi<span class="help-letter-space"></span>服务。</p>
+                  </li>
+                  <li data-tag="li" id="li-nkk-wjs-v24" class="li">
+                    <p id="5ee342b23bbti">在开始菜单，单击<b id="uicontrol-8tz-04s-bf9">访问<span class="help-letter-space"></span>Smartbi</b>。在 Windows 开始菜单中找到 <b>Smartbi</b> 文件夹，单击 <b>访问<span class="help-letter-space"></span>Smartbi</b> 打开 Smartbi 登录页面。</p>
+                  </li>
+                  <li data-tag="li" id="li-got-8k3-y9x" class="li">
+                    <p id="5ee342b33b5j7">输入账号和密码后，单击<b id="uicontrol-acw-cyf-tdy" data-tag="uicontrol" data-isbold="true" class="uicontrol">登录</b>，进入<span class="help-letter-space"></span>Smartbi。</p>
+                    <div data-tag="note" id="note-e16-bxw-q9q" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                      <ul data-tag="ul" id="ul-loj-8qe-lvt" class="ul">
+                        <li data-tag="li" id="li-58o-muz-1ee" class="li">
+                          <p id="5ee342b43b6bz">管理员默认登录账号为<span class="help-letter-space"></span><b id="uicontrol-ra1-orb-x5s">admin</b>，密码为<span class="help-letter-space"></span><b id="uicontrol-5qi-53j-zbk">manager</b>。</p>
+                        </li>
+                        <li data-tag="li" id="li-psd-v3s-x7j" class="li">
+                          <p id="5ee342b53b63c">如果是首次登录，则需要修改管理员密码。</p>
+                        </li>
+                      </ul>
+                    </div></div>
+                  </li>
+                  <li data-tag="li" id="li-nzs-o5u-zew" class="li">
+                    <p id="5ee369c03b7r8">在左侧单击</p>
+                  </li>
+                  <li data-tag="li" id="li-v6q-1og-xk2" class="li">
+                    <p id="5ee369c13bfik">在<b id="wintitle-5tm-d5k-3vl">新建关系数据库</b>对话框中配置相关参数，然后单击<b id="uicontrol-6e4-o6p-zr8">测试连接(T)</b>。<b>驱动程序存放目录</b>选择<b>产品内置</b>，<b>链接方式</b>选择<b>用户名密码</b>，验证类型选择<b>静态</b>，填写完成后单击<b>测试连接(T)</b>验证连接是否正常。</p>
+                    <table id="table-vja-h2m-xel" tablewidth="709" tablecolswidth="177 532" autofit="false" class="table">
+                      <colgroup colwidth="0.5*" style="width:24.96%"></colgroup>
+                      <colgroup colwidth="1.5*" style="width:75.04%"></colgroup>
+                      <tbody class="tbody">
+                        <tr id="row-sbd-hzm-rib">
+                          <td id="concept-stt-3hg-wdb-entry-x59-t2d-abq" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                            <p id="5ee369c23buj0"><b>参数</b></p>
+                          </td>
+                          <td id="concept-stt-3hg-wdb-entry-kem-wng-2ah" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                            <p id="5ee369c33btnp"><b>说明</b></p>
+                          </td>
+                        </tr>
+                        <tr id="row-uq1-h8o-2cr">
+                          <td id="entry-0u5-sii-ck8" rowspan="1" colspan="1">
+                            <p id="5ee369c43b563"><b id="uicontrol-d22-bo4-qk7" data-tag="uicontrol" data-isbold="true" class="uicontrol">名称</b></p>
+                          </td>
+                          <td id="entry-qmu-0l6-6c6" rowspan="1" colspan="1">
+                            <p id="5ee369c53b6fi">数据库连接的名称，自定义。</p>
+                          </td>
+                        </tr>
+                        <tr id="row-aus-h72-6vg">
+                          <td id="entry-dwm-1bc-j7i" rowspan="1" colspan="1">
+                            <p id="5ee369c63bzc3"><b id="uicontrol-lyf-gdj-1z2">驱动程序类型</b></p>
+                          </td>
+                          <td id="entry-vxl-gnk-usv" rowspan="1" colspan="1">
+                            <p id="5ee369c73bdc3">固定选择为<span class="help-letter-space"></span>PostgreSQL。</p>
+                          </td>
+                        </tr>
+                        <tr id="row-slw-4tc-t4m">
+                          <td id="entry-6ge-lvy-jnf" rowspan="1" colspan="1">
+                            <p id="5ee390d03bs62"><b id="uicontrol-0tz-eee-uxv">驱动程序类</b></p>
+                          </td>
+                          <td id="entry-tbv-0kr-7o5" rowspan="1" colspan="1">
+                            <p id="5ee390d13beg6">选择<b id="uicontrol-xym-6ar-g6k">驱动程序类型</b>后自动选择，无需修改。</p>
+                          </td>
+                        </tr>
+                        <tr id="row-q94-nrx-vi2">
+                          <td id="entry-ph8-2vw-tkm" rowspan="1" colspan="1">
+                            <p id="5ee390d23b8dp"><b id="uicontrol-guu-t8l-6q0" data-tag="uicontrol" data-isbold="true" class="uicontrol">连接字符串</b></p>
+                          </td>
+                          <td id="entry-cvg-okc-lkg" rowspan="1" colspan="1">
+                          <p id="5ee390d33bpql">连接<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>实例的<span class="help-letter-space"></span>JDBC<span class="help-letter-space"></span>连接串，格式如下：</p>
+<pre data-tag="codeblock" id="codeblock-w4i-hhf-83q" outputclass="language-shell" code-type="xCode" class="pre codeblock language-shell"><code>jdbc:postgresql://&lt;servername&gt;:&lt;port&gt;/&lt;dbName&gt;?defaultRowFetchSize=10000</code></pre>
+                            <ul data-tag="ul" id="ul-ua3-0u4-zkr" class="ul">
+                              <li data-tag="li" id="li-pz5-c2l-xjy" class="li">
+                                <p id="5ee390d43bbch"><b id="uicontrol-952-jbt-l4x">&lt;servername&gt;:&lt;port&gt;</b>：RDS PostgreSQL<span class="help-letter-space"></span>实例的连接地址和对应的端口。</p>
+                                <ul data-tag="ul" id="ul-ex0-vwk-o5w" class="ul">
+                                  <li data-tag="li" id="li-uol-jbn-26m" class="li">
+                                    <p id="5ee390d53b9b7">若通过内网连接，需输入<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例的内网地址和内网端口。</p>
+                                  </li>
+                                  <li data-tag="li" id="li-4yd-9ma-fs7" class="li">
+                                    <p id="5ee390d63bcrc">若使用外网连接，需输入<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例的外网地址和外网端口。</p>
+                                  </li>
+                                </ul>
+                                <p data-tag="p" id="p-kua-6eq-awu" class="p">您可以在<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>实例的数据库连接页面查看。</p>
+                                <p data-tag="p" id="p-o8b-8sj-fz3" class="p">更多信息，请参见<a href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/view-and-change-the-endpoints-and-port-numbers-of-an-apsaradb-rds-for-postgresql-instance#concept-fbd-ypv-ydb" id="0d6d7bc0f41ie" title="" class="xref">查看或修改连接地址和端口</a>。</p>
+                              </li>
+                              <li data-tag="li" id="li-nn0-uwx-k8g" class="li">
+                                <p id="5ee3def03b4ds"><b id="uicontrol-wix-0i1-4xc">&lt;dbName&gt;</b>：postgres<span class="help-letter-space"></span>是<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>实例默认的系统数据库，请勿在该数据库中进行任何操作。</p>
+                                <p data-tag="p" id="p-881-vro-pzv" class="p">建议配置<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例下已创建的其他数据库。如何创建和查看数据库，请参见<a href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/create-a-database-on-an-apsaradb-rds-for-postgresql-instance#concept-cg3-ljq-wdb" id="1b5fb9dcabj4j" title="" class="xref">创建数据库</a>。</p>
+                              </li>
+                            </ul>
+                          </td>
+                        </tr>
+                        <tr id="row-zlc-hc4-hys">
+                          <td id="entry-xgn-wdu-bt7" rowspan="1" colspan="1">
+                            <p id="5ee406003bay4"><b id="uicontrol-wvw-vwk-s5j" data-tag="uicontrol" data-isbold="true" class="uicontrol">用户名</b>、<b id="uicontrol-n4o-56n-og3" data-tag="uicontrol" data-isbold="true" class="uicontrol">密码</b></p>
+                          </td>
+                          <td id="entry-dpf-yhs-63c" rowspan="1" colspan="1">
+                            <p id="5ee406013b9wd">创建<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>实例的账号请参见<a href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/create-an-account-on-an-apsaradb-rds-for-postgresql-instance#concept-kxw-k1p-ydb" id="ad4f424bbbe38" title="" class="xref">创建账号</a>。</p>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </li>
+                  <li data-tag="li" id="li-u11-r53-kp8" class="li">
+                    <p id="5ee454203biwo">测试通过后，单击<b id="uicontrol-n3t-je9-25s" data-tag="uicontrol" data-isbold="true" class="uicontrol">保存</b>，出现如下信息，表示连接成功。连接成功后，左侧导航面板的<b>数据连接</b>列表中将显示<span class="help-letter-space"></span><b>RDS_PostgreSQL</b><span class="help-letter-space"></span>节点，展开该节点可查看<b>表关系视图</b>、<b>计算字段</b>和<b>过滤器</b>三个子项。</p>
+                  </li>
+                </ol>
+              </div>
+            </div>
+          </section>
+          <section id="230a987f4b3d5" class="section">
+            <h3 id="380813038371q"><b>SSL<span class="help-letter-space"></span>连接</b></h3>
+            <p data-tag="p" id="p-h12-9a2-maa" class="p">RDS PostgreSQL<span class="help-letter-space"></span>支持设置<span class="help-letter-space"></span>SSL<span class="help-letter-space"></span>链路加密，对网络连接进行加密，保证传输链路的安全。具体配置请参见<a href="https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/connect-to-an-apsaradb-rds-for-postgresql-instance-over-ssl-connections#task-1079262" id="7ac16c400egi1" title="" class="xref">使用<span class="help-letter-space"></span>SSL<span class="help-letter-space"></span>链路连接<span class="help-letter-space"></span>RDS PostgreSQL<span class="help-letter-space"></span>数据库</a>。</p>
+          </section>
+        </section>
+      </section>
+      <section data-tag="section" id="section-z11-3xz-dfb" props="china" data-type="section" data-cond-props="china" class="section">
+        <h2 data-tag="title" id="title-sd5-hcu-2oh" class="title">连接失败的解决办法</h2>
+        <p data-tag="p" id="p-p4p-1mw-eso" class="p">请参见<a href="https://help.aliyun.com/zh/rds/support/what-do-i-do-if-i-fail-to-connect-to-an-apsaradb-rds-instance#concept-cqq-x1d-sfb" id="xref-jik-4a8-zs9" title="" class="xref">解决无法连接实例问题</a>。</p>
+      </section>
+      
+      <section data-tag="section" id="section-684-48s-vjr" data-type="section" class="section">
+        <h2 data-tag="title" id="title-1yf-kix-j9d" class="title">常见问题</h2>
+        <ul id="db2950fa16geq">
+          <li id="fd87a82fbdz6q">
+            <p data-tag="p" id="p-o6r-96s-e9f" class="p">Q：如果<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>与<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>不位于同一地域或同一账号下，如何进行连接？</p>
+            <p id="0acdb5f3f04dh">A：可以使用如下两种方法中的一种进行连接。</p>
+            <ul id="9a20f1569e74e">
+              <li id="6170947d8fsp1">
+                <p id="fa2d3b1552841">使用<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/vpc/vpc-peer-to-peer-connection" id="bc12bb7b31los" title="" class="xref">VPC<span class="help-letter-space"></span>对等连接</a>实现同账号或跨账号、同地域或跨地域的两个<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>间的私网互通，且同地域的<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>对等连接免费。</p>
+              </li>
+              <li id="5f818e9524du1">
+                <p id="225b3ac074ub0">使用云企业网实现内网互通，具体请根据实际情况参照<a href="https://help.aliyun.com/zh/cen/getting-started/connect-vpcs-in-same-region-with-transit-router" id="738c20773f1jo" title="" class="xref">同地域<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>互通</a>、<a href="https://help.aliyun.com/zh/cen/getting-started/inter-region-vpc-interworking" id="2136611e30u68" title="" class="xref">跨地域<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>互通</a>或<a href="https://help.aliyun.com/zh/cen/getting-started/use-enterprise-edition-transit-routers-to-connect-vpcs-across-regions-and-accounts" id="e8e618e058pcg" title="" class="xref">跨账号<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>互通</a>实现。</p>
+              </li>
+            </ul>
+          </li>
+          <li id="2e249dcc7cstf">
+            <p id="23ab03fc26fja">Q：我使用函数计算，想获取<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>的数据，要怎么操作呢？</p>
+            <p data-tag="p" id="p-948-idb-bbq" class="p">A：您可以为函数安装第三方依赖，使用内置模块获取<span class="help-letter-space"></span>RDS<span class="help-letter-space"></span>数据，详情请参见<a class="" href="https://help.aliyun.com/zh/functioncompute/fc-2-0/user-guide/install-third-party-dependencies-on-function-compute" id="xref-hnp-eao-mby">为函数安装第三方依赖</a>。</p>
+          </li>
+        </ul>
+      </section>
+</div>
+  </main>
+
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/rds/apsaradb-rds-for-postgresql/apply-for-or-release-a-public-endpoint-on-an-apsaradb-rds-for-postgresql-instance-4" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：开通或关闭外网地址</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/rds/apsaradb-rds-for-postgresql/duckdb-analytics-acceleration/" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：DuckDB分析加速<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

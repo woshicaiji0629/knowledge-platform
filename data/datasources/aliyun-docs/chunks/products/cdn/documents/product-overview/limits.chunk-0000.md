@@ -1,0 +1,6 @@
+| 限制项 | 说明 |
+| --- | --- |
+| 安全违规行为 | 所有接入 CDN 的域名都要经过内容审核， CDN 目前不支持接入的域名包括但不限于： 无法正常访问或内容不包含任何实质信息 游戏私服类 传奇类游戏和纸牌类游戏 盗版软件、盗版小说、盗版视频、盗版漫画等无内容版权的网站 P2P 类金融网站 彩票类网站 违规医院和药品类网站 涉黄、涉毒、涉赌等 如果您想了解更多违规行为以及违规信息，请参见 [安全违规行为类型说明](https://help.aliyun.com/zh/document_detail/469814.html) 和 [安全违规信息类型说明](https://help.aliyun.com/zh/document_detail/469816.html) 。 说明 含有以上违规内容的加速域名，由您自行承担任何可能的风险。阿里云 CDN 系统也将定期复审域名内容，如果发现以上任何违规行为，则系统会立即下线或封禁域名。情节严重的将封禁整个账号下域名服务，且永不恢复。 如果您在阿里云 CDN 接入了一个泛域名（例如 *.example.com ）进行加速，该泛域名包含的某个精确域名（例如 a.example.com ）出现了以上违规内容，阿里云 CDN 将下线该泛域名（ *.example.com ）。 如果您的域名审核被拒绝，请在控制台的域名列表查看拒绝原因，请自行整改后重新提交域名审核。 详细说明，请参见 [CDN](../alibaba-cloud-content-delivery-network-dynamic-route-for-content-delivery-network-add-accelerated-domain-name-audit-failed.md) [加速域名审核失败](../alibaba-cloud-content-delivery-network-dynamic-route-for-content-delivery-network-add-accelerated-domain-name-audit-failed.md) 。 |
+| URL 屏蔽的解除办法 | 通过 [阿里云安全管控申诉](https://page.aliyun.com/form/act1555286298/index.htm) 自助申诉。 |
+| 域名违规导致的加速域名清退申诉方案 | 可以通过下边的三步申请加速域名解封： 需要对违规网站进行彻底整改，例如删除违法内容、文件或链接，整改涉诈信息等。 准备相关的申诉材料。 营业执照（必须和域名的备案信息一致）。 域名的业务说明。 通过 [智能在线](https://ia.aliyun.com/) 反馈给阿里云售后，申请解封。 |
+| 突发带宽/QPS 限流规则 | 根据您与阿里云签订的

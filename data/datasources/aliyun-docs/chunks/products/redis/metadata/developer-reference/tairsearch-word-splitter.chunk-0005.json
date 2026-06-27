@@ -1,0 +1,14 @@
+{
+  "id": "redis:developer-reference/tairsearch-word-splitter:5",
+  "document_id": "redis:developer-reference/tairsearch-word-splitter",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "Search分词器类型与配置方法-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/developer-reference/tairsearch-word-splitter",
+  "chunk_index": 5,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/developer-reference/tairsearch-word-splitter.chunk-0005.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/tairsearch-word-splitter.md",
+  "heading_path": "默认配置： { \"mappings\":{ \"properties\":{ \"f0\":{ \"type\":\"text\", \"analyzer\":\"standard\" } } } } # 自定义停用词配置： { \"mappings\":{ \"properties\":{ \"f0\":{ \"type\":\"text\", \"analyzer\":\"my_analyzer\" } } }, \"settings\":{ \"analysis\":{ \"analyzer\":{ \"my_analyzer\":{ \"type\":\"standard\", \"max_token_length\":10, \"stopwords\":[ \"memory\", \"disk\", \"is\", \"a\" ] } } } } } > Stop",
+  "char_count": 490
+}

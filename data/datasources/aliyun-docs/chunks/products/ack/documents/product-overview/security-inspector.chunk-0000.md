@@ -1,0 +1,2 @@
+## 组件介绍
+security-inspector组件支持对Workload配置进行多维度扫描，帮助您实时了解当前状态下应用是否有安全隐患。security-inspector组件的架构如下图所示。

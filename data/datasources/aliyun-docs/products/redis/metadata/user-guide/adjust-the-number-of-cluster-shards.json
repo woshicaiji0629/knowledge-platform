@@ -1,0 +1,12 @@
+{
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "url": "https://help.aliyun.com/zh/redis/user-guide/adjust-the-number-of-cluster-shards",
+  "title": "调整集群实例的分片数-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "fetched_at": "2026-06-27T05:02:23.474776+00:00",
+  "status_code": "200",
+  "content_type": "text/html;charset=UTF-8",
+  "raw_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/raw/user-guide/adjust-the-number-of-cluster-shards.html",
+  "document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/user-guide/adjust-the-number-of-cluster-shards.md"
+}

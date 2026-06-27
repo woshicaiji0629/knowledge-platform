@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-argo-workflow-cluster/use-cases/use-pythonsdk-to-build-large-scale-argo-workflows:10",
+  "document_id": "ack:ack-argo-workflow-cluster/use-cases/use-pythonsdk-to-build-large-scale-argo-workflows",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "使用PythonSDK构建大规模Argo Workflows-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/use-cases/use-pythonsdk-to-build-large-scale-argo-workflows",
+  "chunk_index": 10,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-argo-workflow-cluster/use-cases/use-pythonsdk-to-build-large-scale-argo-workflows.chunk-0010.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-argo-workflow-cluster/use-cases/use-pythonsdk-to-build-large-scale-argo-workflows.md",
+  "heading_path": "导入相关包。 from hera.workflows import DAG, Workflow, script from hera.shared import global_config import urllib3 urllib3.disable_warnings() # 配置访问地址和Token。 global_config.host = \"https://{{argo_server_IP}}:2746\" global_config.token = \"abcdefgxxxxxx\" # 填入之前获取的Token。 global_config.verify_ssl = \"\" # 装饰器函数script是Hera实现近乎原生的Python函数编排的关键功能。 # 它允许您在Hera上下文管理器（例如Workflow或Steps上下文）下调用该函数。 # 该函数在任何Hera上下文之外仍将正常运行，这意味着您可以在给定函数上编写单元测试。 # 该示例是打印输入的信息。 @script(image=\"mirrors-ssl.aliyuncs.com/python:3.10\") def echo(message: str): print(message) # 构建workflow，Workflow是Argo中的主要资源，也是Hera的关键类，负责保存模板、设置入口点和运行模板。 with Workflow( generate_name=\"dag-diamond-\", entrypoint=\"diamond\", namespace=\"default\", ) as w: with DAG(name=\"diamond\"): A = echo(name=\"A\", arguments={\"message\": \"A\"}) # 构建Template。 B = echo(name=\"B\", arguments={\"message\": \"B\"}) C = echo(name=\"C\", arguments={\"message\": \"C\"}) D = echo(name=\"D\", arguments={\"message\": \"D\"}) A >> [B, C] >> D # 构建依赖关系，B、C任务依赖A，D依赖B和C。 # 创建Workflow。 w.create() > 相关文档 > 为什么选择阿里云",
+  "char_count": 328
+}

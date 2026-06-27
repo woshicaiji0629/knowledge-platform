@@ -1,0 +1,17 @@
+{
+  "id": "vpc:regions-that-support-vpc-features",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "VPC特性支持的地域-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/regions-that-support-vpc-features",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/regions-that-support-vpc-features.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/regions-that-support-vpc-features.md",
+  "word_count": 1717,
+  "text_units": 3951,
+  "local_links": 0,
+  "external_links": 61,
+  "has_tables": true,
+  "table_count": 56,
+  "quality": "accepted"
+}

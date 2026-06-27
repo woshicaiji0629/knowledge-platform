@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/replace-the-operating-system-of-an-instance",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "更换ECS实例的操作系统（更换系统盘）-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/replace-the-operating-system-of-an-instance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/replace-the-operating-system-of-an-instance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/replace-the-operating-system-of-an-instance.md",
+  "word_count": 1094,
+  "text_units": 3347,
+  "local_links": 12,
+  "external_links": 82,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

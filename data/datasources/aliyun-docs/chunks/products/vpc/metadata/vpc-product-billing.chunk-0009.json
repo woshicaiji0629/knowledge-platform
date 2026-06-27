@@ -1,0 +1,14 @@
+{
+  "id": "vpc:vpc-product-billing:9",
+  "document_id": "vpc:vpc-product-billing",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "pricing",
+  "title": "产品计费-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/vpc-product-billing",
+  "chunk_index": 9,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/vpc-product-billing.chunk-0009.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/vpc-product-billing.md",
+  "heading_path": "产品计费 > 流量镜像计费说明 > 计费示例",
+  "char_count": 157
+}

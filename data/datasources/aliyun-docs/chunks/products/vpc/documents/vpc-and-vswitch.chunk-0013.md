@@ -1,0 +1,2 @@
+## Terraform
+Terraform当前仅支持创建IPv4附加网段，暂不支持创建IPv6附加网段。Resources：[alicloud_vpc_ipv4_cidr_block](https://registry.terraform.io/providers/aliyun/alicloud/latest/docs/resources/vpc_ipv4_cidr_block)# 指定创建VPC的地域 provider "alicloud" { region = "cn-hangzhou" } # 指定VPC的ID variable "vpc_id" { default = "vpc-xxx" # 修改为VPC的实际ID } # 在VPC中创建附加网段 resource "alicloud_vpc_ipv4_cidr_block" "example_secondary_cidr_block" { vpc_id = var.vpc_id secondary_cidr_block = "192.168.0.0/16" # 指定附加网段 }

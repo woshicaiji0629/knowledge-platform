@@ -1,0 +1,1 @@
+com.aliyun.ecs20140526.Client ecsClient) { try { DescribeInstanceStatusRequest request = new DescribeInstanceStatusRequest() .setRegionId(Constants.REGION_ID) .setInstanceId(instanceIds); return ecsClient.describeInstanceStatus(request); } catch (Exception e) { throw new RuntimeException("describeInstanceStatus failed: " + e.getMessage()); } } }

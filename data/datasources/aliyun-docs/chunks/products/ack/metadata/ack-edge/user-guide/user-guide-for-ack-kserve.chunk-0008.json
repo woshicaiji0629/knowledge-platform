@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/user-guide/user-guide-for-ack-kserve:8",
+  "document_id": "ack:ack-edge/user-guide/user-guide-for-ack-kserve",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "deployment",
+  "title": "在ACK Edge集群中部署和管理ack-kserve组件-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/user-guide/user-guide-for-ack-kserve",
+  "chunk_index": 8,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/user-guide/user-guide-for-ack-kserve.chunk-0008.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/user-guide/user-guide-for-ack-kserve.md",
+  "heading_path": "查看集群内所有isvc资源。 kubectl get isvc --all-namespaces # 保存集群内所有isvc资源。 kubectl get isvc --all-namespaces -oyaml > isvc.yaml.bak # 确认业务不再使用后删除isvc资源。 kubectl delete isvc --all > 常见问题及解决方案",
+  "char_count": 986
+}

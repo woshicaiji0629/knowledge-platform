@@ -1,0 +1,1 @@
+pace 正则匹配，示例为匹配 default 和 nginx 命名空间下的所有容器。 K8sNamespaceRegex: ^(default|nginx)$ # Pod 名称正则匹配，示例为匹配所有以 nginx-log-demo 开头的 Pod 下的容器。 K8sPodRegex: ^(nginx-log-demo.*)$ # 容器名称正则匹配，示例为匹配所有名为 container-test 的容器 K8sContainerRegex: ^(container-test)$ |

@@ -1,0 +1,189 @@
+# CVE漏洞修复-容器服务 Kubernetes 版 ACK-阿里云
+
+Source: https://help.aliyun.com/zh/ack/product-overview/security-bulletins
+
+[大模型](https://www.aliyun.com/product/tongyi)[产品](https://www.aliyun.com/product/list)[解决方案](https://www.aliyun.com/solution/tech-solution/)[权益](https://www.aliyun.com/benefit)[定价](https://www.aliyun.com/price)[云市场](https://market.aliyun.com/)[伙伴](https://partner.aliyun.com/management/v2)[服务](https://www.aliyun.com/service)[了解阿里云](https://www.aliyun.com/about)
+
+查看 "" 全部搜索结果
+
+[AI 助理](https://www.aliyun.com/ai-assistant?displayMode=side)
+
+[文档](https://help.aliyun.com/)[备案](https://beian.aliyun.com/)[控制台](https://home.console.aliyun.com/home/dashboard/ProductAndService)
+
+[首页](https://help.aliyun.com/)[容器服务 Kubernetes 版 ACK](products/ack/documents/index.md)[产品概述](products/ack/documents/product-overview.md)[动态与公告](products/ack/documents/product-overview/announcements-and-updates.md)CVE漏洞修复
+
+# CVE漏洞修复
+
+更新时间: 2024-06-05 19:07:02
+
+- [漏洞CVE-2026-42945公告](products/ack/documents/product-overview/security-advisory-for-cve-2026-42945.md)
+
+- [漏洞CVE-2026-31431公告](products/ack/documents/product-overview/security-advisory-for-cve-2026-31431.md)
+
+- [漏洞CVE-2026-4342公告](products/ack/documents/product-overview/security-advisory-for-cve-2026-4342.md)
+
+- [漏洞CVE-2026-24512公告](products/ack/documents/product-overview/security-advisory-for-cve-2026-24512.md)
+
+- [漏洞CVE-2026-3288公告](products/ack/documents/product-overview/security-advisory-for-cve-2026-3288.md)
+
+- [漏洞CVE-2025-31133、CVE-2025-52565、CVE-2025-52881公告](products/ack/documents/product-overview/security-advisory-for-cve-2025-31133-cve-2025-52565-and-cve-2025-52881.md)
+
+- [漏洞CVE-2025-5187公告](products/ack/documents/product-overview/vulnerability-cve-2025-5187.md)
+
+- [漏洞CVE-2025-23266公告](products/ack/documents/product-overview/vulnerability-cve-2025-23266.md)
+
+- [漏洞CVE-2025-23359公告](products/ack/documents/product-overview/security-advisory-for-cve-2025-23359.md)
+
+- [漏洞CVE-2025-1097、CVE-2025-1098、CVE-2025-1974、CVE-2025-24513、CVE-2025-24514公告](products/ack/documents/product-overview/security-advisory-for-cve-2025-1097-cve-2025-1098-cve-2025-1974-cve-2025-24513-and-cve-2025-24514.md)
+
+- [漏洞CVE-2025-0426公告](products/ack/documents/product-overview/vulnerability-cve-2025-0426.md)
+
+- [漏洞CVE-2024-40635公告](products/ack/documents/product-overview/vulnerability-cve-2024-40635.md)
+
+- [漏洞CVE-2024-10220公告](products/ack/documents/product-overview/vulnerability-cve-2024-10220.md)
+
+- [漏洞CVE-2024-0132和CVE-2024-0133公告](products/ack/documents/product-overview/vulnerabilities-cve-2024-0132-and-cve-2024-0133.md)
+
+- [漏洞CVE-2024-7646公告](products/ack/documents/product-overview/vulnerability-cve-2024-7646-bulletin.md)
+
+- [漏洞CVE-2024-5321公告](products/ack/documents/product-overview/vulnerability-cve-2024-5321-bulletin.md)
+
+- [漏洞CVE-2024-3177公告](products/ack/documents/product-overview/vulnerability-cve-2024-3177-bulletin.md)
+
+- [漏洞CVE-2023-51699公告](products/ack/documents/product-overview/vulnerability-cve-2023-51699-bulletin.md)
+
+- [漏洞CVE-2024-21626公告](products/ack/documents/product-overview/vulnerability-cve-2024-21626-bulletin.md)
+
+- [漏洞CVE-2023-3676和CVE-2023-3955公告](products/ack/documents/product-overview/vulnerability-cve-2023-3676-and-cve-2023-3955-bulletin.md)
+
+- [漏洞CVE-2023-2878公告](products/ack/documents/product-overview/vulnerability-cve-2023-2878-bulletin.md)
+
+- [漏洞CVE-2023-2727和CVE-2023-2728公告](products/ack/documents/product-overview/vulnerability-cve-2023-2727-and-cve-2023-2728-bulletin.md)
+
+- [漏洞CVE-2023-30840公告](products/ack/documents/product-overview/vulnerability-cve-2023-30840-bulletin.md)
+
+- [漏洞CVE-2023-27561和CVE-2023-28642公告](products/ack/documents/product-overview/cve-2023-27561-and-cve-2023-28642.md)
+
+- [漏洞CVE-2023-25153和CVE-2023-25173公告](products/ack/documents/product-overview/cve-2023-25153-and-cve-2023-25173.md)
+
+- [漏洞CVE-2022-23471公告](products/ack/documents/product-overview/cve-2022-23471.md)
+
+- [漏洞CVE-2022-3294公告](products/ack/documents/product-overview/cve-2022-3294.md)
+
+- [漏洞CVE-2022-3162公告](products/ack/documents/product-overview/cve-2022-3162.md)
+
+- [漏洞CVE-2022-3172公告](products/ack/documents/product-overview/vulnerability-cve-2022-3172.md)
+
+- [漏洞CVE-2022-31030公告](products/ack/documents/product-overview/vulnerability-cve-2022-31030.md)
+
+- [漏洞CVE-2021-25748公告](products/ack/documents/product-overview/vulnerability-cve-2021-25748.md)
+
+- [漏洞CVE-2021-25746公告](products/ack/documents/product-overview/vulnerability-cve-2021-25746.md)
+
+- [漏洞CVE-2021-25745公告](products/ack/documents/product-overview/vulnerability-cve-2021-25745.md)
+
+- [漏洞CVE-2022-23648公告](products/ack/documents/product-overview/vulnerability-cve-2022-23648.md)
+
+- [漏洞CVE-2022-0492公告](products/ack/documents/product-overview/vulnerability-cve-2022-0492.md)
+
+- [漏洞CVE-2022-0185公告](products/ack/documents/product-overview/vulnerability-cve-2022-0185.md)
+
+- [漏洞CVE-2021-25742公告](products/ack/documents/product-overview/vulnerability-fixed-cve-2021-25742.md)
+
+- [漏洞CVE-2021-41103公告](products/ack/documents/product-overview/vulnerability-fixed-cve-2021-41103.md)
+
+- [漏洞CVE-2021-25741公告](products/ack/documents/product-overview/vulnerability-cve-2021-25741-in-kubernetes.md)
+
+- [漏洞CVE-2021-25740公告](products/ack/documents/product-overview/vulnerability-fixed-cve-2021-25740.md)
+
+- [修复漏洞CVE-2021-25738公告](products/ack/documents/product-overview/vulnerability-cve-2021-25738.md)
+
+- [修复漏洞CVE-2021-25737公告](products/ack/documents/product-overview/vulnerability-fixed-cve-2021-25737.md)
+
+- [修复漏洞CVE-2021-30465公告](products/ack/documents/product-overview/vulnerability-fixed-cve-2021-30465.md)
+
+- [修复漏洞CVE-2021-3121公告](products/ack/documents/product-overview/vulnerability-cve-2021-3121.md)
+
+- [漏洞CVE-2020-8562公告](products/ack/documents/product-overview/vulnerability-cve-2020-8562.md)
+
+- [修复漏洞CVE-2021-25735公告](products/ack/documents/product-overview/vulnerability-fixed-cve-2021-25735.md)
+
+- [修复NVIDIA GPU驱动漏洞CVE-2021-1056公告](products/ack/documents/product-overview/vulnerability-fixed-cve-2021-1056-in-nvidia-gpu-drivers.md)
+
+- [修复漏洞CVE-2020-8554公告](products/ack/documents/product-overview/vulnerability-fixed-cve-2020-8554.md)
+
+- [修复漏洞CVE-2020-15257公告](products/ack/documents/product-overview/vulnerability-fixed-cve-2020-15257.md)
+
+- [修复Kubernetes Dashboard漏洞CVE-2018-18264的公告](products/ack/documents/product-overview/vulnerability-fixed-cve-2018-18264-in-kubernetes-dashboard.md)
+
+- [修复Kubernetes漏洞CVE-2018-1002105公告](products/ack/documents/product-overview/vulnerability-fixed-cve-2018-1002105-in-kubernetes.md)
+
+- [修复runc漏洞CVE-2019-5736的公告](products/ack/documents/product-overview/announcement-about-fixing-the-runc-vulnerability-cve-2019-5736.md)
+
+- [修复Kubectl cp漏洞CVE-2019-11246的公告](products/ack/documents/product-overview/vulnerability-fix-cve-2019-11246-related-to-kubectl-cp.md)
+
+- [修复Kubectl cp漏洞CVE-2019-11249的公告](products/ack/documents/product-overview/announcement-about-fixing-the-cve-2019-11249-vulnerability.md)
+
+- [修复Kubernetes漏洞CVE-2019-11253的公告](products/ack/documents/product-overview/announcement-about-fixing-the-kubernetes-vulnerability-cve-2019-11253.md)
+
+- [修复 GoLang 漏洞 CVE-2019-16276 的公告](products/ack/documents/product-overview/vulnerability-fixed-cve-2019-16276-in-golang.md)
+
+- [修复Kubectl cp 漏洞CVE-2019-1002101的公告](products/ack/documents/product-overview/vulnerability-fixed-cve-2019-1002101-in-kubectl-cp.md)
+
+- [修复kube-controller-manager SSRF漏洞CVE-2020-8555的公告](products/ack/documents/product-overview/vulnerability-fixed-cve-2020-8555-in-kube-controller-manager.md)
+
+- [修复漏洞CVE-2020-8558的公告](products/ack/documents/product-overview/vulnerability-fix-cve-2020-8558.md)
+
+- [修复漏洞CVE-2020-13401的公告](products/ack/documents/product-overview/vulnerability-fixed-cve-2020-13401.md)
+
+- [修复漏洞CVE-2020-8559的公告](products/ack/documents/product-overview/vulnerability-fixed-cve-2020-8559-for-kube-apiserver.md)
+
+- [修复漏洞CVE-2020-8557的公告](products/ack/documents/product-overview/vulnerability-fixed-cve-2020-8557-for-kubelet.md)
+
+- [修复漏洞CVE-2020-14386的公告](products/ack/documents/product-overview/vulnerability-updates-cve-2020-14386.md)
+
+- [修复漏洞CVE-2020-8564、CVE-2020-8565、CVE-2020-8566的公告](products/ack/documents/product-overview/vulnerability-fix-cve-2020-8564-cve-2020-8565-and-cve-2020-8566.md)
+
+[上一篇: 【系统恢复】修复部分集群节点未成功挂载数据盘的公告](products/ack/documents/product-overview/the-issue-where-data-disks-fail-to-be-mounted-to-a-multi-zone-ack-cluster-is-fixed.md)[下一篇: 漏洞CVE-2026-42945公告](products/ack/documents/product-overview/security-advisory-for-cve-2026-42945.md)
+
+[阿里云首页](https://www.aliyun.com/)[容器服务Kubernetes版](https://www.aliyun.com/product/kubernetes)[相关技术圈](https://developer.aliyun.com/group/kubernetes/)
+
+### 为什么选择阿里云
+
+[什么是云计算](https://www.aliyun.com/about/what-is-cloud-computing)[全球基础设施](https://infrastructure.aliyun.com/)[技术领先](https://www.aliyun.com/why-us/leading-technology)[稳定可靠](https://www.aliyun.com/why-us/reliability)[安全合规](https://www.aliyun.com/why-us/security-compliance)[分析师报告](https://www.aliyun.com/analyst-reports)
+
+### 大模型
+
+[千问大模型](https://www.aliyun.com/product/tongyi)[大模型服务](https://bailian.console.aliyun.com/?tab=model#/model-market)[AI应用构建](https://bailian.console.aliyun.com/app-center?tab=app#/app-center)
+
+### 产品和定价
+
+[全部产品](https://www.aliyun.com/product/list)[免费试用](https://free.aliyun.com/)[产品动态](https://www.aliyun.com/product/news/)[产品定价](https://www.aliyun.com/price/detail)[配置报价器](https://www.aliyun.com/price/cpq/list)[云上成本管理](https://www.aliyun.com/price/cost-management)
+
+### 技术内容
+
+[技术解决方案](https://www.aliyun.com/solution/tech-solution)[帮助文档](https://help.aliyun.com/)[开发者社区](https://developer.aliyun.com/)[天池大赛](https://tianchi.aliyun.com/)[阿里云认证](https://edu.aliyun.com/)
+
+### 权益
+
+[免费试用](https://free.aliyun.com/)[解决方案免费试用](https://www.aliyun.com/solution/free)[高校计划](https://university.aliyun.com/)[5亿算力补贴](https://www.aliyun.com/benefit/form/index)[推荐返现计划](https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&pageCode=yunparterIndex)
+
+### 服务
+
+[基础服务](https://www.aliyun.com/service)[企业增值服务](https://www.aliyun.com/service/supportplans)[迁云服务](https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn)[官网公告](https://www.aliyun.com/notice/)[健康看板](https://status.aliyun.com/)[信任中心](https://security.aliyun.com/trust-center)
+
+### 关注阿里云
+
+关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务
+
+联系我们：4008013260
+
+[法律声明](https://help.aliyun.com/product/67275.html)[Cookies 政策](https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html)[廉正举报](https://aliyun.jubao.alibaba.com/)[安全举报](https://report.aliyun.com/)[联系我们](https://www.aliyun.com/contact)[加入我们](https://careers.aliyun.com/)
+
+### 友情链接
+
+[阿里巴巴集团](https://www.alibabagroup.com/cn/global/home)[淘宝网](https://www.taobao.com/)[天猫](https://www.tmall.com/)[全球速卖通](https://www.aliexpress.com/)[阿里巴巴国际交易市场](https://www.alibaba.com/)[1688](https://www.1688.com/)[阿里妈妈](https://www.alimama.com/index.htm)[飞猪](https://www.fliggy.com/)[阿里云计算](https://www.aliyun.com/)[万网](https://wanwang.aliyun.com/)[高德](https://mobile.amap.com/)[UC](https://www.uc.cn/)[友盟](https://www.umeng.com/)[优酷](https://www.youku.com/)[钉钉](https://www.dingtalk.com/)[支付宝](https://www.alipay.com/)[达摩院](https://damo.alibaba.com/)[淘宝海外](https://world.taobao.com/)[阿里云盘](https://www.aliyundrive.com/)[淘宝闪购](https://www.ele.me/)
+
+© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证：[浙B2-20080101](http://beian.miit.gov.cn/)域名注册服务机构许可：[浙D3-20210002](https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 )
+
+[浙公网安备 33010602009975号](http://www.beian.gov.cn/portal/registerSystemInfo)[浙B2-20080101-4](https://beian.miit.gov.cn/)

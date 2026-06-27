@@ -1,0 +1,5 @@
+dedicated/user-guide/configure-coredns.md) [配置说明](../ack-managed-and-ack-dedicated/user-guide/configure-coredns.md) 。 |
+| 修改、删除 ACK 创建的弹性网卡、灵骏弹性网卡。 | Pod 网络中断。 | 不可恢复。 |
+| 修改、删除网络相关 CRD。 podnetworkings.network.alibabacloud.com podenis.network.alibabacloud.com networkinterfaces.network.alibabacloud.com nodes.network.alibabacloud.com noderuntimes.network.alibabacloud.com *.cilium.io *.crd.projectcalico.org | Terway 组件将无法工作，严重时可能导致网络中断、Pod 异常。 | 不可恢复。 |
+| 创建、修改、删除网络相关系统 CR。 podenis.network.alibabacloud.com networkinterfaces.network.alibabacloud.com nodes.network.alibabacloud.com noderuntimes.network.alibabacloud.com *.cilium.io *.crd.projectcalico.org | Terway 组件将无法工作，严重时可能导致网络中断、Pod 异常。 | 删除自定义 CR 定义，并重建关联的 Pod。 |
+| 修改、删除 Terway 网络配置中非允许修改的字段。配置参数声明 [自定义](../ack-managed-and-ack-dedicated/user-guide/terway-configuration-parameters.md) [Terway](../ack-managed-and-ack-dedicated/user-guide/terway-configuration-parameters.md) [配置参数](../ack-managed-and-ack-dedicated/user-guide/terway-configuration-parameters.md) 。 | Terway 组件将无法工作，严重时可能导致网络中断、Pod 异常。 | 恢复原有配置，并重启节点。 |

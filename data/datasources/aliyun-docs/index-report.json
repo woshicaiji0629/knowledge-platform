@@ -1,0 +1,34 @@
+{
+  "source": "aliyun_docs",
+  "updated_at": "2026-06-27T11:31:31.149071+00:00",
+  "collection": "aliyun_docs_product_v1",
+  "qdrant_endpoint": "http://localhost:6333",
+  "embedding_model": "text-embedding-v4",
+  "source_chunk_count": 20,
+  "indexed": 0,
+  "skipped_existing": 20,
+  "batch_size": 10,
+  "concurrency": 2,
+  "dry_run": false,
+  "skip_existing": true,
+  "batches": [
+    {
+      "batch_index": 0,
+      "input_chunks": 10,
+      "skipped_existing": 10,
+      "embedded": 0,
+      "indexed": 0,
+      "request_id": "",
+      "usage": {}
+    },
+    {
+      "batch_index": 1,
+      "input_chunks": 10,
+      "skipped_existing": 10,
+      "embedded": 0,
+      "indexed": 0,
+      "request_id": "",
+      "usage": {}
+    }
+  ]
+}

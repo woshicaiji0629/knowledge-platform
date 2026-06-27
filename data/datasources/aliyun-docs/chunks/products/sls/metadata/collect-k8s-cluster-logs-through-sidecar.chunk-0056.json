@@ -1,0 +1,14 @@
+{
+  "id": "sls:collect-k8s-cluster-logs-through-sidecar:56",
+  "document_id": "sls:collect-k8s-cluster-logs-through-sidecar",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "通过Sidecar方式采集集群日志（阿里云ACK集群和自建Kubernetes集群）-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/collect-k8s-cluster-logs-through-sidecar",
+  "chunk_index": 56,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/collect-k8s-cluster-logs-through-sidecar.chunk-0056.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/collect-k8s-cluster-logs-through-sidecar.md",
+  "heading_path": "影响采集完整性的参数 env: - name: enable_full_drain_mode value: \"true\" # 启用全量排空模式 > 附录：正则表达式使用限制（容器过滤） > 服务",
+  "char_count": 303
+}

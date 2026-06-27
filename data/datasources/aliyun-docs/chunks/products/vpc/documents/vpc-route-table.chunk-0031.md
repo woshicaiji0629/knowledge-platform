@@ -1,0 +1,14 @@
+help.aliyun.com/zh/vpn/sub-product-ipsec-vpn/getting-started/establish-a-connection-between-the-vpc-and-the-on-premises-data)[IPsec-VPN](https://help.aliyun.com/zh/vpn/sub-product-ipsec-vpn/getting-started/establish-a-connection-between-the-vpc-and-the-on-premises-data)[连接访问本地数据中心](https://help.aliyun.com/zh/vpn/sub-product-ipsec-vpn/getting-started/establish-a-connection-between-the-vpc-and-the-on-premises-data)。
+路由到ECS实例或弹性网卡
+VPC内2个交换机进行互访时，可通过调整路由表，将第三方安全设备（如防火墙、WAF等）串联到流量路径中，实现流量检测、分析和保护。
+配置时，需将互访的交换机分别绑定自定义路由表，并将系统路由条目对应网段的下一跳改为防火墙对应的ECS实例，或防火墙的弹性网卡ENI：
+路由到路由器接口
+通过高速通道的[VBR](https://help.aliyun.com/zh/express-connect/user-guide/what-is-a-vbr-to-vpc-connection/)[上连](https://help.aliyun.com/zh/express-connect/user-guide/what-is-a-vbr-to-vpc-connection/)功能，可将本地IDC接入云上网络。
+说明
+VBR上连功能默认不开放。如需使用，请向商务经理申请。
+使用时，需为VPC配置目标网段为本地IDC网段，下一跳类型为路由器接口（边界路由器方向）的路由，实现VPC通过边界路由器，访问本地数据中心。该类型支持负载分担和主备方式，需要配合[健康检查](https://help.aliyun.com/zh/express-connect/user-guide/configure-and-manage-health-checks)使用：
+主备方式：仅支持两个实例作为下一跳，主路由下一跳权重为100，备份路由下一跳权重为0。当主路由健康检查失败时，备份路由生效。
+负载分担：需要选择2-16个实例作为路由下一跳。每个实例对应的权重需要相同，权重的有效范围为0-255的整数，系统会将流量平均分配给下一跳实例。
+主备方式的示意图：
+路由到专线网关
+通过使用高速通道的[专线网关](https://help.aliyun.com/zh

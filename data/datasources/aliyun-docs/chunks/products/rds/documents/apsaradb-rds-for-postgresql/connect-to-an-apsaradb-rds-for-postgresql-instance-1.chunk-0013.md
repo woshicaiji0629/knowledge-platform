@@ -1,0 +1,6 @@
+## 常见问题
+Q：如果ECS与RDS不位于同一地域或同一账号下，如何进行连接？
+A：可以使用如下两种方法中的一种进行连接。
+使用[VPC](../../../vpc/documents/vpc-peer-to-peer-connection.md)[对等连接](../../../vpc/documents/vpc-peer-to-peer-connection.md)实现同账号或跨账号、同地域或跨地域的两个VPC间的私网互通，且同地域的VPC对等连接免费。
+使用云企业网实现内网互通，具体请根据实际情况参照[同地域](../../../cen/documents/getting-started/connect-vpcs-in-same-region-with-transit-router.md)[VPC](../../../cen/documents/getting-started/connect-vpcs-in-same-region-with-transit-router.md)[互通](../../../cen/documents/getting-started/connect-vpcs-in-same-region-with-transit-router.md)、[跨地域](../../../cen/documents/getting-started/inter-region-vpc-interworking.md)[VPC](../../../cen/documents/getting-started/inter-region-vpc-interworking.md)[互通](../../../cen/documents/getting-started/inter-region-vpc-interworking.md)或[跨账号](../../../cen/documents/getting-started/use-enterprise-edition-transit-routers-to-connect-vpcs-across-regions-and-accounts.md)[VPC](../../../cen/documents/getting-started/use-enterprise-edition-transit-routers-to-connect-vpcs-across-regions-and-accounts.md)[互通](../../../cen/documents/getting-started/use-enterprise-edition-transit-routers-to-connect-vpcs-across-regions-and-accounts.md)实现。
+Q：我使用函数计算，想获取RDS的数据，要怎么操作呢

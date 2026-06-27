@@ -1,0 +1,14 @@
+{
+  "id": "ecs:user-guide/use-alibaba-cloud-client-to-manage-ecs-instances:16",
+  "document_id": "ecs:user-guide/use-alibaba-cloud-client-to-manage-ecs-instances",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "通过阿里云客户端查看和管理ECS实例-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/use-alibaba-cloud-client-to-manage-ecs-instances?spm=a2c4g.11186623.help-menu-25365.d_4_1_5_5_3.27257686KzDHaC&scm=20140722.H_438478._.OR_help-T_cn-DAS-zh-V_1",
+  "chunk_index": 16,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ecs/documents/user-guide/use-alibaba-cloud-client-to-manage-ecs-instances.chunk-0016.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/use-alibaba-cloud-client-to-manage-ecs-instances.md",
+  "heading_path": "检查实例的运行状态... # 检查当前用户SessionManager协议开通状态[已开通] > localhost: start server socket : { address: '127.0.0.1', family: 'IPv4', port: 8088 } > localhost: start socket listen : { address: '127.0.0.1', family: 'IPv4', port: 8088 } > 开始监听本地端口 localhost:8088，该监听只接受来自本机的连接请求。 > 常见问题 > 技术内容",
+  "char_count": 201
+}

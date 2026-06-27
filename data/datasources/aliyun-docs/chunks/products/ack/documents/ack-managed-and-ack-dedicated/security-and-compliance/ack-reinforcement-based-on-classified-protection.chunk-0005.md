@@ -1,0 +1,3 @@
+侵检测和告警功能可以满足。如果已有其他检测与告警方式，可自行举证并忽略此项。 |  |
+| 应通过设定终端接入方式或网络地址范围对通过网络进行管理的管理终端进行限制。 | Alibaba Cloud Linux 3： 根据实际配置登录服务器的终端，编辑 /etc/ssh/sshd_config 文件。 根据实际情况设置参数 AllowUsers <user>@<host> 。 说明 <user> 表示需要登录的服务器用户名， <host> 表示服务器的 IP 地址，请根据实际情况进行替换。 修改完成后按 Esc 键，输入 :wq 后按下回车键，保存并退出。 执行 sudo systemctl restart sshd 命令重启 sshd 服务。 Alibaba Cloud Linux 2： /etc/hosts.allow 文件指定允许连接到主机的 IP 地址，不应配置为 ALL:ALL 。 /etc/hosts.deny 文件指定禁止连接到主机的 IP 地址，应该配置为 ALL:ALL ，默认禁止所有连接。 两者需要配合使用，且必须先配置 /etc/hosts.allow 规则。若是已通过其他方式实现，例如网络安全组、防火墙等，可自行举证并忽略此项。 |  |
+| 恶意代码防范 | Alibaba Cloud Linux 3：应采用免受恶意代码攻击的技术措施或主动免疫可信验证机制及时识别入侵和病毒行为，并将其有效阻断。 Alibaba Cloud Linux 2：应安装防恶意代码软件，并及时更新防恶意代码软件版本和恶意代码库。 | 检测是否安装使用云安全中心，如安装了其他防恶意代码软件，可自行举证并忽略此项。 |

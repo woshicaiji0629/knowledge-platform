@@ -1,0 +1,14 @@
+{
+  "id": "sls:host-text-log-collection-auto-install:15",
+  "document_id": "sls:host-text-log-collection-auto-install",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "deployment",
+  "title": "日志服务主机文本日志采集-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/host-text-log-collection-auto-install",
+  "chunk_index": 15,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/host-text-log-collection-auto-install.chunk-0015.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/host-text-log-collection-auto-install.md",
+  "heading_path": "持续采集主机文本日志 > 通过黑名单控制采集范围 > 4. 日志分类",
+  "char_count": 791
+}

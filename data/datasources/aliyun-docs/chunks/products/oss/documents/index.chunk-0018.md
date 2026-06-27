@@ -1,0 +1,3 @@
+### [将OSS挂载为本地文件系统](https://developer.aliyun.com/adc/scenario/311000740000?spm=a2c6h.14164896.0.0.7b8f47c5lsOo6o&scm=20140722.S_community@@%E5%AE%9E%E9%AA%8C@@311000740000._.ID_311000740000-RL_oss-LOC_search~UND~community~UND~item-OR_ser-V_4-P0_7-P1_1)
+[创建Bucket](https://developer.aliyun.com/adc/scenario/311000740000?spm=a2c6h.14164896.0.0.7b8f47c5lsOo6o&scm=20140722.S_community@@%E5%AE%9E%E9%AA%8C@@311000740000._.ID_311000740000-RL_oss-LOC_search~UND~community~UND~item-OR_ser-V_4-P0_7-P1_1)
+[在Linux系统中挂载OSS](https://developer.aliyun.com/adc/scenario/311000740000?spm=a2c6h.14164896.0.0.7b8f47c5lsOo6o&scm=20140722.S_community@@%E5%AE%9E%E9%AA%8C@@311000740000._.ID_311000740000-RL_oss-LOC_search~UND~community~UND~item-OR_ser-V_4-P0_7-P1_1)

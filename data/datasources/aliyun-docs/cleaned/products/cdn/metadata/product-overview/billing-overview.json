@@ -1,0 +1,17 @@
+{
+  "id": "cdn:product-overview/billing-overview",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "pricing",
+  "title": "CDN如何计费-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/product-overview/billing-overview",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/product-overview/billing-overview.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/product-overview/billing-overview.md",
+  "word_count": 930,
+  "text_units": 2365,
+  "local_links": 1,
+  "external_links": 98,
+  "has_tables": true,
+  "table_count": 14,
+  "quality": "accepted"
+}

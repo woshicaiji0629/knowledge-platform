@@ -1,0 +1,2 @@
+## 操作步骤
+若使用RAM用户执行操作步骤，请确保该用户拥有ram:CreateRole（创建角色）、ecs:AttachInstanceRamRole（授予角色）以及 ram:PassRole（传递角色）等权限。更多信息，请参见[如何使用](attach-an-instance-ram-role-to-an-ecs-instance.md)[RAM](attach-an-instance-ram-role-to-an-ecs-instance.md)[用户给实例授予](attach-an-instance-ram-role-to-an-ecs-instance.md)[RAM](attach-an-instance-ram-role-to-an-ecs-instance.md)[角色？](attach-an-instance-ram-role-to-an-ecs-instance.md)。

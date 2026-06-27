@@ -1,0 +1,6 @@
+-multiple-applications.md) |
+| GitOps 中多租权限管理 | 介绍如何配置 Local User 或者 RAM 用户/角色的 Argo CD RBAC 权限。 | [为用户配置](manage-users-based-on-gitops.md) [ArgoCD RBAC](manage-users-based-on-gitops.md) |
+| 自定义 GitOps 操作关联集群的 RBAC 权限 | 介绍如何为关联集群添加 GitOps 可下发资源的 RBAC 权限。 | [自定义](custom-gitops-operations-associated-with-the-cluster-s-rbac-permissions.md) [GitOps](custom-gitops-operations-associated-with-the-cluster-s-rbac-permissions.md) [操作关联集群的](custom-gitops-operations-associated-with-the-cluster-s-rbac-permissions.md) [RBAC](custom-gitops-operations-associated-with-the-cluster-s-rbac-permissions.md) [权限](custom-gitops-operations-associated-with-the-cluster-s-rbac-permissions.md) |
+| Argo CD 监控的开启关闭 | 介绍如何开启或关闭舰队和 Argo CD 监控。 | [舰队监控](fleet-monitoring.md) |
+| 配置 Argo CD 告警 | 介绍如何配置 Argo CD 告警。 | [配置](configure-ack-one-argocd-alarm.md) [ACK One ArgoCD](configure-ack-one-argocd-alarm.md) [告警](configure-ack-one-argocd-alarm.md) |
+| GitOps 日志的开启和关闭 | 介绍如何开启或关闭 GitOps 日志。 | [开启](enable-the-collection-of-the-control-plane-logs-and-audit-logs-of-gitops.md) [GitOps](enable-the-collection-of-the-control-plane-logs-and-audit-logs-of-gitops.md) [控制面日志与审计日志](enable-the-collection-of-the-control-plane-logs-an

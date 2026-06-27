@@ -1,0 +1,2 @@
+# kube-apiserver组件监控指标及大盘使用说明
+kube-apiserver组件提供了Kubernetes的RESTful API接口，使得外部客户端、集群内的其他组件可以与ACK集群交互。本文介绍kube-apiserver组件的监控指标清单、大盘使用指导以及常见指标异常解析。

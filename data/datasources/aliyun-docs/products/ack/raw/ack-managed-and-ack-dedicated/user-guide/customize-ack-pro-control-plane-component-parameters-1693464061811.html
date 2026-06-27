@@ -1,0 +1,1303 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    如何自定义Pro版集群的控制面核心组件参数-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/customize-ack-pro-control-plane-component-parameters-1693464061811">
+  <meta name="keywords" content="自定义组件参数,Pro集群,控制面,托管组件">
+  <meta name="description" content="为了满足生产环境调整控制面参数的需求，容器服务 Kubernetes 版提供控制面参数自定义功能。您可以根据需要修改Kube API Server、Kube Controller Manager（KCM）、Cloud Controller Manager（CCM）、Kube Scheduler等核心托管组件的参数。本文介绍如何在容器服务管理控制台自定义控制面参数。">
+  <meta name="last-modified" content="2026-03-23T14:39:14+08:00">
+  <meta name="date" content="2021-01-14T09:56:00+08:00">
+  <meta property="og:title" content="自定义Pro版集群的控制面组件参数">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/customize-ack-pro-control-plane-component-parameters-1693464061811">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="为了满足生产环境调整控制面参数的需求，容器服务 Kubernetes 版提供控制面参数自定义功能。您可以根据需要修改Kube API Server、Kube Controller Manager（KCM）、Cloud Controller Manager（CCM）、Kube Scheduler等核心托管组件的参数。本文介绍如何在容器服务管理控制台自定义控制面参数。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/customize-ack-pro-control-plane-component-parameters-1693464061811",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "199588",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/ack/ack-managed-and-ack-dedicated/user-guide/customize-ack-pro-control-plane-component-parameters-1693464061811","nodeId":null,"data":{"lastModifiedTime":1774247954000,"keywords":"自定义组件参数,Pro集群,控制面,托管组件","docTitle":"自定义Pro版集群的控制面组件参数","language":"zh","seoTitle":"如何自定义Pro版集群的控制面核心组件参数-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心","title":"自定义Pro版集群的控制面组件参数","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n<main id=\"task-2025933\">\n\n\n<p data-tag=\"shortdesc\" id=\"shortdesc-noc-zmz-es3\" class=\"shortdesc\">为了满足生产环境调整控制面参数的需求，<span id=\"3ebedb8046a2r\" outputclass=\"productName\" data-tag=\"ph\" data-ref-searchable=\"yes\" data-reuse-tag=\"productName\" data-type=\"productName\" data-product-code=\"csk\" docid=\"4265392\" is-conref=\"true\" class=\"ph productName\">容器服务 Kubernetes 版</span>提供控制面参数自定义功能。您可以根据需要修改<span class=\"help-letter-space\"></span>Kube API Server、Kube Controller Manager（KCM）、Cloud Controller Manager（CCM）、Kube Scheduler<span class=\"help-letter-space\"></span>等核心托管组件的参数。本文介绍如何在容器服务管理控制台自定义控制面参数。</p>\n<div data-tag=\"taskbody\" id=\"taskbody-bpq-rbo-3ve\" class=\"taskbody\">\n<section data-tag=\"section\" data-type=\"section\" id=\"section-79o-xc7-hik\" class=\"section\">\n<h2 data-tag=\"title\" id=\"title-v7j-uoh-5oq\" class=\"title\">注意事项</h2>\n<div data-tag=\"p\" id=\"p-luh-u6c-djk\" class=\"p\">\n<ul data-tag=\"ul\" id=\"ul-udp-neo-0tl\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-uab-h7e-17o\" class=\"li\">\n<p id=\"c3be5fc30azcf\">为了保证控制面的稳定性，当前仅<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"ec02f1765ekyy\" data-ref-searchable=\"yes\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK<span class=\"help-letter-space\"></span>托管集群<span class=\"help-letter-space\"></span>Pro<span class=\"help-letter-space\"></span>版</span>、<span data-tag=\"ph\" id=\"145729e51cd4x\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Serverless<span class=\"help-letter-space\"></span>集群<span class=\"help-letter-space\"></span>Pro<span class=\"help-letter-space\"></span>版</span>、<span data-tag=\"ph\" id=\"a19c065ec37v6\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群<span class=\"help-letter-space\"></span>Pro<span class=\"help-letter-space\"></span>版</span>、<span data-tag=\"ph\" id=\"7564fb821egni\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK<span class=\"help-letter-space\"></span>灵骏集群</span>支持自定义部分控制面核心组件参数。</p>\n<p id=\"2d2c035b21tkk\">关于支持自定义的参数，请参见<a href=\"#section-pkr-afx-2z7\" id=\"7fd7244766iq2\" title=\"\" class=\"xref\">默认参数列表</a>（具体请以控制台界面为准）。</p>\n<p id=\"9c902c33e3ppa\">部分参数仅支持特定版本的集群，如需升级集群，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/update-the-kubernetes-version-of-an-ack-cluster\" id=\"03f026dfecmpy\" title=\"\" class=\"xref\">手动升级集群</a>。</p>\n</li>\n<li id=\"6c4c436046evx\">\n<p id=\"6c4c1c5046o6t\">修改参数后，控制面会重启，请在业务低谷期操作。</p>\n</li>\n<li data-tag=\"li\" id=\"li-27h-f3s-oxq\" class=\"li\">\n<p id=\"c3be5fc20arjf\">自定义的参数会覆盖原集群的默认参数。自定义参数时，请确保输入的参数正确且完整，避免参数错误导致控制面启动失败。关于参数设置的详细信息，请根据集群版本参见<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>官方文档<span class=\"help-letter-space\"></span><a href=\"https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/\" id=\"xref-xnu-v2f-bfn\" class=\"\" target=\"_blank\">kube-apiserver</a>、<a href=\"https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/\" id=\"xref-lt4-llt-hvt\" class=\"\" target=\"_blank\">kube-controller-manager</a>、<a class=\"\" href=\"https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/\" id=\"62df84c146qoo\">kube-scheduler</a>。</p>\n</li>\n</ul>\n</div>\n</section>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-26f-us6-6gu\" class=\"section\">\n<h2 data-tag=\"title\" id=\"title-wzz-b0d-vq7\" class=\"title\">自定义控制面组件参数</h2>\n<p data-tag=\"p\" id=\"p-8eh-8v2-qxt\" class=\"p\">控制面组件参数修改的步骤类似。下文以修改<span class=\"help-letter-space\"></span>Kube API Server<span class=\"help-letter-space\"></span>组件为例，说明如何修改组件参数。</p>\n<ol data-tag=\"steps\" id=\"steps-8vt-qa2-5gm\" class=\"steps\">\n<li data-tag=\"step\" id=\"0ff81c5e5625i\" docid=\"3660168\" is-conref=\"true\" class=\"step\"><p id=\"7bdb0bf11b631\"><span data-tag=\"cmd\" id=\"cmd-mto-t3v-p7d\" class=\"cmd\">登录<span props=\"china intl\"><a href=\"https://cs.console.aliyun.com\" id=\"xref-c6s-99d-s5k\" class=\"\" target=\"_blank\">容器服务管理控制台</a></span>，在左侧导航栏选择<b id=\"uicontrol-42p-agm-35k\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>。</span></p></li>\n<li data-tag=\"step\" id=\"df58826b27scs\" docid=\"3660168\" is-conref=\"true\" class=\"step\"><p id=\"7bdd2ed11b34d\"><span data-tag=\"cmd\" id=\"cmd-d1d-v28-ljg\" class=\"cmd\">在<b id=\"wintitle-jd8-5r6-4m0\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，单击<b id=\"uicontrol-qjz-2sq-947\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">组件管理</b>。</span></p></li>\n<li id=\"6145dc138bdnh\">\n<p id=\"d3e6aaebfdpx7\">在<b id=\"b91c05d05cl8v\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">核心组件</b>区域，找到目标组件，然后单击卡片右下方的<b id=\"c66164605crq0\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">配置</b>。</p>\n</li>\n<li data-tag=\"step\" id=\"step-rtj-935-jxy\" class=\"step\">\n<p id=\"c3beade10ao3c\">在<span class=\"help-letter-space\"></span><b id=\"uicontrol-ydz-bfn-alk\">Kube API Server 参数配置</b>对话框中，输入自定义参数并确保参数完整且正确，按照页面提示完成配置的提交。</p>\n</li>\n</ol>\n</section>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-pkr-afx-2z7\" class=\"section\">\n<h2 data-tag=\"title\" id=\"title-742-3hd-cmt\" class=\"title\">默认参数列表</h2>\n<div data-tag=\"p\" id=\"p-f49-ezg-wuc\" class=\"p\">\n<section data-tag=\"tabbed-content-box\" id=\"b533e93046znj\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n<section id=\"b533e93246fue\" class=\"section\">\n<h2 id=\"b533e931466lz\"><span data-tag=\"ph\" id=\"bd65d78146b6n\" data-ref-searchable=\"yes\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK<span class=\"help-letter-space\"></span>托管集群<span class=\"help-letter-space\"></span>Pro<span class=\"help-letter-space\"></span>版</span></h2>\n<table autofit=\"true\" id=\"59b7fff046hzl\" tablecolswidth=\"20.03 37.34 42.629999999999995\" tablewidth=\"100\" class=\"table\">\n<colgroup colwidth=\"0.61*\" style=\"width:20.03%\"></colgroup>\n<colgroup colwidth=\"1.13*\" style=\"width:37.34%\"></colgroup>\n<colgroup colwidth=\"1.29*\" style=\"width:42.63%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"59b7fff1461d5\">\n<td id=\"59b7fff246eu8\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"59b7fff346o4q\"><b>组件名</b></p>\n</td>\n<td id=\"59b7fff446npr\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"59b7fff546614\"><b>参数</b></p>\n</td>\n<td id=\"59b7fff646rk1\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"59b7fff7467ab\"><b>参数说明</b></p>\n</td>\n</tr>\n<tr id=\"59b7fff846gvm\">\n<td id=\"59b7fff946kph\" rowspan=\"19\" colspan=\"1\">\n<p id=\"59b7fffa466bi\">Kube API Server</p>\n</td>\n<td id=\"59b7fffb465ua\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b7fffc46j6b\">enableAdmissionPlugins</p>\n</td>\n<td id=\"59b7fffd467r0\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b7fffe4626a\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"59b7ffff4634a\">\n<td id=\"59b80002463o4\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b800034661o\">serviceNodePortRange</p>\n</td>\n<td id=\"59b8000646vy5\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8000746xf1\">可选范围<span class=\"help-letter-space\"></span>10000～65535，默认为空。</p>\n<div id=\"59b8000846l21\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n<p id=\"59b80009467wq\">请谨慎修改<span class=\"help-letter-space\"></span>NodePort<span class=\"help-letter-space\"></span>端口范围，务必保证<span class=\"help-letter-space\"></span>NodePort<span class=\"help-letter-space\"></span>端口范围与集群节点上<span class=\"help-letter-space\"></span>Linux<span class=\"help-letter-space\"></span>内核提供的<code code-type=\"xCode\" data-tag=\"code\" class=\"code\">net.ipv4.ip_local_port_range</code>参数的端口范围不冲突。更多信息，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/faq-about-network-management#023c3ce009sv0\" id=\"59b9d4b046o5p\" title=\"\" class=\"xref\">如何正确配置<span class=\"help-letter-space\"></span>NodePort<span class=\"help-letter-space\"></span>范围？</a>。</p>\n</div></div>\n</td>\n</tr>\n<tr id=\"59b8000a46365\">\n<td id=\"59b8000d460hx\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8000e46dvj\">requestTimeout</p>\n</td>\n<td id=\"59b8000f46hal\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8001046lcd\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"59b8001146jmk\">\n<td id=\"59b80014469ok\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8001546l5e\">defaultNotReadyTolerationSeconds</p>\n</td>\n<td id=\"59b8001646154\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b80017469x1\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"59b8001846523\">\n<td id=\"59b8001b46x8q\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8001c46yqa\">defaultUnreachableTolerationSeconds</p>\n</td>\n<td id=\"59b8001d46gad\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8001e46pbw\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"59b8001f46t5x\">\n<td id=\"59b8002246uhq\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b80023465sr\">maxMutatingRequestsInflight</p>\n</td>\n<td id=\"59b800244666c\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b80025469j4\">可选范围<span class=\"help-letter-space\"></span>1~1000，默认为空。</p>\n</td>\n</tr>\n<tr id=\"59b80026469oy\">\n<td id=\"59b8002946nyv\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8002a4682v\">maxRequestsInflight</p>\n</td>\n<td id=\"59b8002b46g9e\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8002c467db\">可选范围<span class=\"help-letter-space\"></span>1~3000，默认为空。</p>\n</td>\n</tr>\n<tr id=\"59b8002d46mea\">\n<td id=\"59b8003046fyh\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8003146u91\">featureGates</p>\n</td>\n<td id=\"59b8003246ono\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8003346jab\">可选参数包括<span data-tag=\"ph\" id=\"59b8003446815\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">ServerSideApply</code></span>、<span data-tag=\"ph\" id=\"59b800354669y\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">TTLAfterFinished</code></span>、<span data-tag=\"ph\" id=\"59b80036469yz\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">EphemeralContainers</code></span>、<span data-tag=\"ph\" id=\"59b800374666q\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">RemoveSelfLink</code></span>、<span data-tag=\"ph\" id=\"59b8003846bkv\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">HPAScaleToZero</code></span>，默认为空。</p>\n<div data-tag=\"note\" id=\"59b8003946anl\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n<p id=\"59b8003a46b3s\">支持在<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群中使用<span data-tag=\"ph\" id=\"59b8003b46opy\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">HPAScaleToZero</code></span>，不支持在<span class=\"help-letter-space\"></span>1.24<span class=\"help-letter-space\"></span>及以上集群中修改<span data-tag=\"ph\" id=\"59b8003c46gom\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">RemoveSelfLink</code></span>。</p>\n</div></div>\n</td>\n</tr>\n<tr id=\"59b8003d462mi\">\n<td id=\"59b8004046fkj\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8004146gr2\">oidcIssuerURL</p>\n</td>\n<td id=\"59b8004246j85\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8004346ujv\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n<div id=\"c8e5486bc2ehi\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n<ul id=\"cf1327087e951\">\n<li id=\"68f490ad13d62\">\n<p id=\"51c436251cjfz\">配置<span class=\"help-letter-space\"></span>oidcIssuerURL<span class=\"help-letter-space\"></span>后，集群中<span class=\"help-letter-space\"></span>API Server<span class=\"help-letter-space\"></span>会访问<span class=\"help-letter-space\"></span>oidcIssuerURL<span class=\"help-letter-space\"></span>配置项对应的地址，如果您的服务域名为公网域名，请确保集群已开启公网访问能力，具体操作请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/enable-an-existing-ack-cluster-to-access-the-internet\" id=\"de0ae6e7bcldr\" title=\"\" class=\"xref\">为集群开启访问公网的能力</a>。</p>\n</li>\n<li id=\"29dd5a1937zk0\">\n<p id=\"7719218fe8i58\">如果集群开启公网访问后，API Server<span class=\"help-letter-space\"></span>仍无法访问<span class=\"help-letter-space\"></span>oidcIssuerURL<span class=\"help-letter-space\"></span>配置项中的地址，您可以通过<code code-type=\"xCode\" data-tag=\"code\" class=\"code\">kubectl get endpoints</code>来检查<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>后端的<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>数量。</p>\n<ul id=\"4eb8b8812e2td\">\n<li id=\"4f50ee1f00wyw\">\n<p id=\"2d294fbdd8k65\">如果<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>大于<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>个，请登录<span class=\"help-letter-space\"></span>Worker<span class=\"help-letter-space\"></span>节点尝试访问<span class=\"help-letter-space\"></span>oidcIssuerURL，并检查公网配置、安全组规则等。</p>\n</li>\n<li id=\"3ef3b14483etd\">\n<p id=\"e0494e906awje\">如果只有<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>个<span class=\"help-letter-space\"></span>IP，请<span data-tag=\"ph\" id=\"551ecc8b6054s\" docid=\"2252239\" is-conref=\"true\" class=\"ph\"><span props=\"china\"><a href=\"https://selfservice.console.aliyun.com/ticket/createIndex\" id=\"xref-8ma-qmy-t8i\" class=\"\" target=\"_blank\">提交工单</a></span></span>处理。</p>\n</li>\n</ul>\n</li>\n</ul>\n</div></div>\n</td>\n</tr>\n<tr id=\"59b80044467tt\">\n<td id=\"59b8004746r63\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b80048465qs\">oidcClientId</p>\n</td>\n<td id=\"59b8004946vdv\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8004a467r3\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"59b8004b460ed\">\n<td id=\"59b8004e4668q\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8004f468ag\">oidcUsernameClaim</p>\n</td>\n<td id=\"59b8005046xdo\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8005146wi6\">默认值为<span data-tag=\"ph\" id=\"59b8005246vyq\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">sub</code></span>。支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>以上集群。</p>\n</td>\n</tr>\n<tr id=\"59b80053464lc\">\n<td id=\"59b8005646290\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b80057466sn\">oidcUsernamePrefix</p>\n</td>\n<td id=\"59b8005846n3q\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8005946iy5\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"59b8005a462fo\">\n<td id=\"59b8005d46p4t\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8005e469v7\">oidcGroupsPrefix</p>\n</td>\n<td id=\"59b8005f46o9i\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8006046iyn\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"59b8006146vep\">\n<td id=\"59b8006446acz\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b800654680x\">oidcGroupsClaim</p>\n</td>\n<td id=\"59b8006646wn1\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b80067464xa\">默认为空。支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"59b8006846mu1\">\n<td id=\"59b8006b46vna\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8006c46492\">oidcRequiredClaim</p>\n</td>\n<td id=\"59b8006d46x3g\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8006e463s0\">默认为空。支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"59b8006f46k3f\">\n<td id=\"59b8007246zpw\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b80073469c7\">oidcCAContent</p>\n</td>\n<td id=\"59b8007446op9\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8007546r2h\">默认为空。支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"58c4c2a254mvx\">\n<td id=\"f1c0112f7c1xn\" rowspan=\"1\" colspan=\"1\">\n<p id=\"3a2ce9b54br8j\">hostAliases</p>\n</td>\n<td id=\"0a641605cf2yh\" rowspan=\"1\" colspan=\"1\">\n<p id=\"f14cc56c77rat\">默认为空。支持<span class=\"help-letter-space\"></span>1.26<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"d6521c01a3wnl\">\n<td id=\"523b742affk4y\" rowspan=\"1\" colspan=\"1\">\n<p id=\"37e142a44997q\">enableTrace</p>\n</td>\n<td id=\"1a37d6da2dpjy\" rowspan=\"2\" colspan=\"1\">\n<p id=\"03597fb510bt4\">默认为空。支持<span class=\"help-letter-space\"></span>1.28<span class=\"help-letter-space\"></span>及以上集群。</p>\n<blockquote id=\"cb6dcbcfb6nt4\">相关操作文档，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/enable-tracing-for-control-plane-components\" id=\"f2181e6351hj4\" title=\"\" class=\"xref\">为集群控制面组件启用链路追踪</a>。</blockquote>\n</td>\n</tr>\n<tr id=\"f011d29a00p46\">\n<td id=\"93e0cb182ej7l\" rowspan=\"1\" colspan=\"1\">\n<p id=\"9f93a1a5d762f\">samplingRatePerMillion</p>\n</td>\n</tr>\n<tr id=\"59b8007646mto\">\n<td id=\"59b80077469g9\" rowspan=\"14\" colspan=\"1\">\n<p id=\"59b8007846v0w\">Kube Controller Manager</p>\n</td>\n<td id=\"59b8007946tag\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8007a46j5d\">horizontalPodAutoscalerSyncPeriod</p>\n</td>\n<td id=\"59b8007b460sb\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8007c4619j\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"59b8007d466kn\">\n<td id=\"59b8008046kct\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b800814660l\">horizontalPodAutoscalerTolerance</p>\n</td>\n<td id=\"59b8008246p95\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8008346moy\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"59b8008446l55\">\n<td id=\"59b80087461p5\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b800884678a\">concurrentTTLAfterFinishedSyncs</p>\n</td>\n<td id=\"59b80089466rp\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8008a469xy\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"2c19ff48bdcbu\">\n<td id=\"886725663co4i\" rowspan=\"1\" colspan=\"1\">\n<p id=\"2017d5e1635lq\">concurrentHorizontalPodAutoscalerSyncs</p>\n</td>\n<td id=\"92b7ee62c93r8\" rowspan=\"1\" colspan=\"1\">\n<p id=\"7e4a8e43bdloi\">默认为空。支持<span class=\"help-letter-space\"></span>1.26<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"59b8008b46ymo\">\n<td id=\"59b8008e46ft0\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8008f46qyb\">largeClusterSizeThreshold</p>\n</td>\n<td id=\"59b8270046dyn\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8270146vwx\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"59b8270246h4c\">\n<td id=\"59b8270546k1n\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b82706467wp\">unhealthyZoneThreshold</p>\n</td>\n<td id=\"59b8270746pdx\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8270846ox0\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"59b8270946w82\">\n<td id=\"59b8270c4642y\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8270d46f0m\">secondaryNodeEvictionRate</p>\n</td>\n<td id=\"59b8270e4630y\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8270f4601r\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"59b82710460fc\">\n<td id=\"59b8271346y46\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8271446ehp\">nodeEvictionRate</p>\n</td>\n<td id=\"59b8271546xla\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8271646p8v\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"c048062340fag\">\n<td id=\"09290d4671f4z\" rowspan=\"1\" colspan=\"1\">\n<p id=\"87d2f784bbktn\">terminatedPodGCThreshold</p>\n</td>\n<td id=\"61c39fa6bbmak\" rowspan=\"1\" colspan=\"1\">\n<p id=\"f2996dc23akhh\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"59b8271e464sa\">\n<td id=\"59b8272146f70\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b82722464cv\">kubeAPIQPS</p>\n</td>\n<td id=\"59b82723467ex\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8272446v0r\">可选范围<span class=\"help-letter-space\"></span>1~1000，默认为空。</p>\n</td>\n</tr>\n<tr id=\"59b8272546zz8\">\n<td id=\"59b8272846mkc\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8272946e71\">kubeAPIBurst</p>\n</td>\n<td id=\"59b8272a461uy\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8272b46hw9\">可选范围<span class=\"help-letter-space\"></span>1~1000，默认为空。</p>\n</td>\n</tr>\n<tr id=\"87d9faa40c5wc\">\n<td id=\"d80dbac0fbmcq\" rowspan=\"1\" colspan=\"1\">\n<p id=\"a5c7c0003fijn\">concurrentCSRSyncs</p>\n</td>\n<td id=\"ec83968694bf5\" rowspan=\"1\" colspan=\"1\">\n<p id=\"6cc104cb51qw1\">默认为空。支持<span class=\"help-letter-space\"></span>1.32<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"a2070d430cqkc\">\n<td id=\"d9dcbc07d9x8i\" rowspan=\"1\" colspan=\"1\">\n<p id=\"26ef19ee1012t\">concurrentNodeTaintSyncs</p>\n</td>\n<td id=\"595d1d1f70yb9\" rowspan=\"1\" colspan=\"1\">\n<p id=\"30cf02f2f2stj\">默认为空。支持<span class=\"help-letter-space\"></span>1.32<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"59b8272c46abn\">\n<td id=\"59b8272f46hz3\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8273046ch7\">featureGates</p>\n</td>\n<td id=\"59b82731464e5\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b82732461ju\">可选参数为<span data-tag=\"ph\" id=\"59b82733463k8\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">TTLAfterFinished</code></span>，默认为空。</p>\n</td>\n</tr>\n<tr id=\"59b8273446gkj\">\n<td id=\"59b8273546hfq\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b82736463fp\">Cloud Controller Manager</p>\n</td>\n<td id=\"59b8273746m0b\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b82738467ku\">routeTableIDs</p>\n</td>\n<td id=\"59b8273946w23\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8273a46ioh\">默认为空。如果<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>内有多个路由表，可以手动设置<span class=\"help-letter-space\"></span>CCM<span class=\"help-letter-space\"></span>支持多个路由表<span class=\"help-letter-space\"></span>ID，以半角逗号（,）分隔，例如<span data-tag=\"ph\" id=\"59b8273b46fdu\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">vtb-**,vtb***</code></span>。</p>\n</td>\n</tr>\n<tr id=\"59b8273c46rg9\">\n<td id=\"59b8273d46z5d\" rowspan=\"1\" colspan=\"1\">\n<p id=\"59b8273e46f3v\">Kube Scheduler</p>\n</td>\n<td id=\"59b8273f46zij\" rowspan=\"1\" colspan=\"2\">\n<p id=\"59b8274246fh3\">关于通过<span class=\"help-letter-space\"></span>Kube Scheduler<span class=\"help-letter-space\"></span>自定义参数，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/customize-the-scheduler-parameters\" id=\"59b9fbc0468yw\" title=\"\" class=\"xref\">自定义调度器参数</a>。</p>\n</td>\n</tr>\n</tbody>\n</table>\n</section>\n<section id=\"b533e93546cnq\" class=\"section\">\n<h2 id=\"b533e93446kzp\"><span data-tag=\"ph\" id=\"c4cafff146p9m\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Serverless<span class=\"help-letter-space\"></span>集群<span class=\"help-letter-space\"></span>Pro<span class=\"help-letter-space\"></span>版</span></h2>\n<table autofit=\"true\" id=\"d3a2059046z02\" tablecolswidth=\"20.03 40.06 39.91\" tablewidth=\"100\" class=\"table\">\n<colgroup colwidth=\"0.61*\" style=\"width:20.03%\"></colgroup>\n<colgroup colwidth=\"1.21*\" style=\"width:40.06%\"></colgroup>\n<colgroup colwidth=\"1.21*\" style=\"width:39.91%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"d3a2059146xs1\">\n<td id=\"d3a20592467rb\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"d3a2059346mft\"><b>组件名</b></p>\n</td>\n<td id=\"d3a20594462vc\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"d3a20595464fq\"><b>参数</b></p>\n</td>\n<td id=\"d3a2059646g3i\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"d3a20597466kf\"><b>参数说明</b></p>\n</td>\n</tr>\n<tr id=\"d3a2059846t63\">\n<td id=\"d3a20599469jn\" rowspan=\"15\" colspan=\"1\">\n<p id=\"d3a2059a46xc2\">Kube API Server</p>\n</td>\n<td id=\"d3a2059b46wqf\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a2059c469su\">enableAdmissionPlugins</p>\n</td>\n<td id=\"d3a2059d46kl2\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a2059e46s7y\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"d3a205aa46o3f\">\n<td id=\"d3a205ad46yu2\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a205ae46vhh\">requestTimeout</p>\n</td>\n<td id=\"d3a205af46pja\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a205b046wmm\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"d3a205b146j6x\">\n<td id=\"d3a205b446xpa\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a205b546u1y\">defaultNotReadyTolerationSeconds</p>\n</td>\n<td id=\"d3a205b646vnn\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a205b746ego\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"d3a205b846le2\">\n<td id=\"d3a205bb46f0h\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a205bc46p7r\">defaultUnreachableTolerationSeconds</p>\n</td>\n<td id=\"d3a205bd46i03\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a205be467v9\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"d3a205bf464l0\">\n<td id=\"d3a205c246a71\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a205c346ypv\">maxMutatingRequestsInflight</p>\n</td>\n<td id=\"d3a205c446323\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a205c5463j1\">可选范围<span class=\"help-letter-space\"></span>1~1000，默认为空。</p>\n</td>\n</tr>\n<tr id=\"d3a205c646g0j\">\n<td id=\"d3a205c946qr8\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a205ca46utr\">maxRequestsInflight</p>\n</td>\n<td id=\"d3a205cb46nj6\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a205cc4611t\">可选范围<span class=\"help-letter-space\"></span>1~3000，默认为空。</p>\n</td>\n</tr>\n<tr id=\"d3a205cd46ptn\">\n<td id=\"d3a205d046fvr\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a205d146tt3\">featureGates</p>\n</td>\n<td id=\"d3a205d246aow\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a205d346k5m\">可选参数包括<span data-tag=\"ph\" id=\"d3a205d446kb5\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">ServerSideApply</code></span>、<span data-tag=\"ph\" id=\"d3a205d546iw1\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">TTLAfterFinished</code></span>、<span data-tag=\"ph\" id=\"d3a205d646kfi\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">EphemeralContainers</code></span>、<span data-tag=\"ph\" id=\"d3a205d746l2w\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">RemoveSelfLink</code></span>、<span data-tag=\"ph\" id=\"d3a205d8462ri\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">HPAScaleToZero</code></span>，默认为空。</p>\n<div data-tag=\"note\" id=\"d3a205d94613e\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n<p id=\"d3a205da46wzu\">支持在<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群中使用<span data-tag=\"ph\" id=\"d3a205db46npm\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">HPAScaleToZero</code></span>，不支持在<span class=\"help-letter-space\"></span>1.24<span class=\"help-letter-space\"></span>及以上集群中修改<span data-tag=\"ph\" id=\"d3a205dc46j9s\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">RemoveSelfLink</code></span>。</p>\n</div></div>\n</td>\n</tr>\n<tr id=\"d3a205dd46q1z\">\n<td id=\"d3a205e046fuc\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a205e146gu9\">oidcIssuerURL</p>\n</td>\n<td id=\"d3a205e2461nh\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a205e346wpx\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"d3a205e4466ze\">\n<td id=\"d3a205e746pgu\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a205e846cpu\">oidcClientId</p>\n</td>\n<td id=\"d3a205e94608g\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a205ea46wb8\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"d3a205eb468jd\">\n<td id=\"d3a22ca046cfp\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22ca146l2t\">oidcUsernameClaim</p>\n</td>\n<td id=\"d3a22ca246njx\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22ca346mer\">默认值为<span data-tag=\"ph\" id=\"d3a22ca446wci\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">sub</code></span>。支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>以上集群。</p>\n</td>\n</tr>\n<tr id=\"d3a22ca546vdv\">\n<td id=\"d3a22ca846y3i\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22ca946jnn\">oidcUsernamePrefix</p>\n</td>\n<td id=\"d3a22caa469nx\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22cab465e3\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"d3a22cac46d14\">\n<td id=\"d3a22caf4675c\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22cb0468kv\">oidcGroupsPrefix</p>\n</td>\n<td id=\"d3a22cb146wxb\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22cb2469it\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"d3a22cb346hja\">\n<td id=\"d3a22cb6463rr\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22cb746eb5\">oidcGroupsClaim</p>\n</td>\n<td id=\"d3a22cb846hng\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22cb946he4\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"d3a22cba469a2\">\n<td id=\"d3a22cbd46e4r\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22cbe46j6j\">oidcRequiredClaim</p>\n</td>\n<td id=\"d3a22cbf46xhl\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22cc0460zn\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"d3a22cc146ar5\">\n<td id=\"d3a22cc4469sh\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22cc5462r8\">oidcCAContent</p>\n</td>\n<td id=\"d3a22cc646ojq\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22cc746s7d\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"d3a22cc846z1f\">\n<td id=\"d3a22cc946etp\" rowspan=\"6\" colspan=\"1\">\n<p id=\"d3a22cca4600s\">Kube Controller Manager</p>\n</td>\n<td id=\"d3a22ccb46iif\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22ccc460v8\">horizontalPodAutoscalerSyncPeriod</p>\n</td>\n<td id=\"d3a22ccd46gqb\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22cce46qio\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"d3a22ccf466oz\">\n<td id=\"d3a22cd246s4s\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22cd346wg7\">horizontalPodAutoscalerTolerance</p>\n</td>\n<td id=\"d3a22cd446nfp\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22cd546gbg\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"d3a22cd646en4\">\n<td id=\"d3a22cd946m53\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22cda46ox4\">concurrentTTLAfterFinishedSyncs</p>\n</td>\n<td id=\"d3a22cdb46n4n\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22cdc465lh\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"d3a22d00460e9\">\n<td id=\"d3a22d0346zg4\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22d0446559\">kubeAPIQPS</p>\n</td>\n<td id=\"d3a22d0546m6a\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22d0646se4\">可选范围<span class=\"help-letter-space\"></span>1~1000，默认为空。</p>\n</td>\n</tr>\n<tr id=\"d3a22d0746fin\">\n<td id=\"d3a22d0a46l25\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22d0b46dqq\">kubeAPIBurst</p>\n</td>\n<td id=\"d3a22d0c4643o\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22d0d46z51\">可选范围<span class=\"help-letter-space\"></span>1~1000，默认为空。</p>\n</td>\n</tr>\n<tr id=\"d3a22d0e46byp\">\n<td id=\"d3a22d11469n3\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22d124634h\">featureGates</p>\n</td>\n<td id=\"d3a22d13463zl\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22d1446dd8\">可选参数为<span data-tag=\"ph\" id=\"d3a22d1546c8g\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">TTLAfterFinished</code></span>，默认为空。</p>\n</td>\n</tr>\n<tr id=\"d3a22d1e46sve\">\n<td id=\"d3a22d1f46083\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22d2046ciu\">Kube Scheduler</p>\n</td>\n<td id=\"d3a22d2146pjv\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22d22460xi\">涉及多个。目前白名单开放中。</p>\n</td>\n<td id=\"d3a22d2346rzo\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3a22d2446wsn\">关于通过<span class=\"help-letter-space\"></span>Kube Scheduler<span class=\"help-letter-space\"></span>自定义参数，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/customize-the-scheduler-parameters\" id=\"d3a4287146aw7\" title=\"\" class=\"xref\">自定义调度器参数</a>。</p>\n</td>\n</tr>\n</tbody>\n</table>\n</section>\n<section id=\"c96bd84046xwd\" class=\"section\">\n<h2 id=\"c96bd84146q5q\"><span data-tag=\"ph\" id=\"d1ec0da1461dh\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群<span class=\"help-letter-space\"></span>Pro<span class=\"help-letter-space\"></span>版</span></h2>\n<table autofit=\"true\" id=\"fb1fbb804689q\" tablecolswidth=\"20.03 40.06 39.91\" tablewidth=\"100\" class=\"table\">\n<colgroup colwidth=\"0.61*\" style=\"width:20.03%\"></colgroup>\n<colgroup colwidth=\"1.21*\" style=\"width:40.06%\"></colgroup>\n<colgroup colwidth=\"1.21*\" style=\"width:39.91%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"fb1fbb8146g2b\">\n<td id=\"fb1fbb8246ret\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"fb1fbb8346gkz\"><b>组件名</b></p>\n</td>\n<td id=\"fb1fbb8446zev\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"fb1fbb8546r65\"><b>参数</b></p>\n</td>\n<td id=\"fb1fbb8646mv8\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"fb1fbb8746gmj\"><b>参数说明</b></p>\n</td>\n</tr>\n<tr id=\"fb1fbb8846gl8\" style=\"height:42px\">\n<td id=\"fb1fbb8946rte\" rowspan=\"16\" colspan=\"1\">\n<p id=\"fb1fbb8a46pdu\">Kube API Server</p>\n</td>\n<td id=\"fb1fbb8b46p3c\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb1fbb8c462q8\">enableAdmissionPlugins</p>\n</td>\n<td id=\"fb1fbb8d461tg\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb1fbb8e46296\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"fb1fbb8f46oig\">\n<td id=\"fb1fbb9246zv7\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb1fbb93469tz\">serviceNodePortRange</p>\n</td>\n<td id=\"fb1fbb9646p59\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb1fbb9746hdq\">可选范围<span class=\"help-letter-space\"></span>10000～65535，默认为空。</p>\n<div id=\"fb1fbb98462ij\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n<p id=\"fb1fbb9946ion\">您在修改<span class=\"help-letter-space\"></span>NodePort<span class=\"help-letter-space\"></span>端口范围时必须十分谨慎。务必保证<span class=\"help-letter-space\"></span>NodePort<span class=\"help-letter-space\"></span>端口范围与集群节点上<span class=\"help-letter-space\"></span>Linux<span class=\"help-letter-space\"></span>内核提供的<code code-type=\"xCode\" data-tag=\"code\" class=\"code\">net.ipv4.ip_local_port_range</code>参数的端口范围不冲突。更多信息，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/faq-about-network-management#023c3ce009sv0\" id=\"fb22057046298\" title=\"\" class=\"xref\">如何正确配置<span class=\"help-letter-space\"></span>NodePort<span class=\"help-letter-space\"></span>范围？</a>。</p>\n</div></div>\n</td>\n</tr>\n<tr id=\"fb1fbb9a46fzj\">\n<td id=\"fb1fbb9d46ftj\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb1fbb9e46pfc\">requestTimeout</p>\n</td>\n<td id=\"fb1fbb9f461u3\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb1fbba0461la\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"fb1fbba146vvj\">\n<td id=\"fb1fbba446wex\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb1fbba546gou\">defaultNotReadyTolerationSeconds</p>\n</td>\n<td id=\"fb1fbba646xdw\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb1fbba746tv4\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"fb1fe290467ib\">\n<td id=\"fb1fe29346xqm\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb1fe29446dri\">defaultUnreachableTolerationSeconds</p>\n</td>\n<td id=\"fb1fe29546g2z\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb1fe29646utt\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"fb1fe29746ifc\">\n<td id=\"fb1fe29a46feb\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb1fe29b46xtq\">maxMutatingRequestsInflight</p>\n</td>\n<td id=\"fb1fe29c46eq4\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb1fe29d46d3l\">可选范围<span class=\"help-letter-space\"></span>1~1000，默认为空。</p>\n</td>\n</tr>\n<tr id=\"fb1fe29e4668h\">\n<td id=\"fb1fe2a14679y\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb1fe2a246h5f\">maxRequestsInflight</p>\n</td>\n<td id=\"fb1fe2a346b80\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb1fe2a446ibp\">可选范围<span class=\"help-letter-space\"></span>1~3000，默认为空。</p>\n</td>\n</tr>\n<tr id=\"fb1fe2a5465tw\">\n<td id=\"fb1fe2a846u2y\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb1fe2a9464sq\">featureGates</p>\n</td>\n<td id=\"fb1fe2aa46es3\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb1fe2ab46o74\">可选参数包括<span data-tag=\"ph\" id=\"fb1fe2ac46ksy\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">ServerSideApply</code></span>、<span data-tag=\"ph\" id=\"fb1fe2ad46x6g\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">TTLAfterFinished</code></span>、<span data-tag=\"ph\" id=\"fb1fe2ae4673c\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">EphemeralContainers</code></span>、<span data-tag=\"ph\" id=\"fb1fe2af46oal\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">RemoveSelfLink</code></span>、<span data-tag=\"ph\" id=\"fb1fe2b046wxa\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">HPAScaleToZero</code></span>，默认为空。</p>\n<div data-tag=\"note\" id=\"fb2030b046t9x\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n<p id=\"fb2030b146aec\">支持在<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群中使用<span data-tag=\"ph\" id=\"fb2030b246ekl\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">HPAScaleToZero</code></span>，不支持在<span class=\"help-letter-space\"></span>1.24<span class=\"help-letter-space\"></span>及以上集群中修改<span data-tag=\"ph\" id=\"fb2030b346rat\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">RemoveSelfLink</code></span>。</p>\n</div></div>\n</td>\n</tr>\n<tr id=\"66421921cdpr8\">\n<td id=\"72064fd848xbi\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"cb14b08346avv\">oidcIssuerURL</p>\n</td>\n<td id=\"7065f4efb7e3d\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"26f3507e17p76\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"b63d90cf3ceja\">\n<td id=\"dc83e2eafanxt\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"ec70d9fcd3b4q\">oidcClientId</p>\n</td>\n<td id=\"4aaf9e58d4o4p\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"50d762e043ccg\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"12f104db1421w\">\n<td id=\"b231dc3c04j7t\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"09fbed6bec5sh\">oidcUsernameClaim</p>\n</td>\n<td id=\"9047f017afe8q\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"2bc8e5b100qwt\">默认值为<span data-tag=\"ph\" id=\"f5e435f0baeuu\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">sub</code></span>。支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>以上集群。</p>\n</td>\n</tr>\n<tr id=\"8404ae8badf55\">\n<td id=\"692588af61yiu\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"ac42cc2c8e0hc\">oidcUsernamePrefix</p>\n</td>\n<td id=\"1c4d101a1avpu\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"0c3742f205gbx\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"01f88e4908rsf\">\n<td id=\"8e78f48c9dp2y\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"fc3e198410miz\">oidcGroupsPrefix</p>\n</td>\n<td id=\"a1c8f33b35fbk\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"d24222b73fdnd\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"444a743386svz\">\n<td id=\"c8f8ccabb0ppq\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"934d6c9c27hqz\">oidcGroupsClaim</p>\n</td>\n<td id=\"9c07288e829j6\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"210cc34f26jml\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"b363b1c800sf0\">\n<td id=\"cf1da15eaat6x\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"9b59e55fb0g1u\">oidcRequiredClaim</p>\n</td>\n<td id=\"11bfc2a2fdl23\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"f5edb6f146bed\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"1a7d06779c353\">\n<td id=\"58c1735b70wv5\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"273873ab49kny\">oidcCAContent</p>\n</td>\n<td id=\"ec72b22fb7kkv\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"a5406e195asyj\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"fb2057e146old\">\n<td id=\"fb2057e246zwk\" rowspan=\"10\" colspan=\"1\">\n<p id=\"fb2057e346fmk\">Kube Controller Manager</p>\n</td>\n<td id=\"fb2057e446dat\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb2057e546q1u\">horizontalPodAutoscalerSyncPeriod</p>\n</td>\n<td id=\"fb2057e6468fa\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb2057e746phy\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"fb2057ef46nyl\">\n<td id=\"fb2057f246dh3\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb2057f346ukz\">concurrentTTLAfterFinishedSyncs</p>\n</td>\n<td id=\"fb2057f446ski\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb2057f546v3r\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"fb2057f646356\">\n<td id=\"fb2057f946klz\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb2057fa46xl0\">largeClusterSizeThreshold</p>\n</td>\n<td id=\"fb2057fb468jj\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb2057fc46gku\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"fb2057fd46a7p\">\n<td id=\"fb2058004625h\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb205801465jc\">unhealthyZoneThreshold</p>\n</td>\n<td id=\"fb20580246qu1\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb20580346foc\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"fb20580446897\">\n<td id=\"fb205807467pe\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb20580846l5b\">secondaryNodeEvictionRate</p>\n</td>\n<td id=\"fb20580946non\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb20580a46wfg\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"fb20580b46vla\">\n<td id=\"fb20580e46qys\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb20580f46ykn\">nodeEvictionRate</p>\n</td>\n<td id=\"fb20581046wyd\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb20581146r0k\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"fb20581246nn9\">\n<td id=\"fb20581546ltl\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb20581646q22\">podEvictionTimeout</p>\n</td>\n<td id=\"fb20581746t4u\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb20581846rtu\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"fb205819462yw\">\n<td id=\"fb20581c46xfb\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb20581d46va8\">kubeAPIQPS</p>\n</td>\n<td id=\"fb20581e46tnx\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb20581f461xv\">可选范围<span class=\"help-letter-space\"></span>1~1000，默认为空。</p>\n</td>\n</tr>\n<tr id=\"fb20582046o5j\">\n<td id=\"fb20582346ley\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb20582446mrg\">kubeAPIBurst</p>\n</td>\n<td id=\"fb20582546wj4\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb20582646cp9\">可选范围<span class=\"help-letter-space\"></span>1~1000，默认为空。</p>\n</td>\n</tr>\n<tr id=\"fb20582746jdt\">\n<td id=\"fb20582a46xij\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb20582b46nwj\">featureGates</p>\n</td>\n<td id=\"fb20582c46e0j\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb20582d46ymd\">可选参数为<span data-tag=\"ph\" id=\"fb20582e46zv6\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">TTLAfterFinished</code></span>，默认为空。</p>\n</td>\n</tr>\n<tr id=\"fb20582f46uk7\">\n<td id=\"fb20583046lwu\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb20583146upb\">Cloud Controller Manager</p>\n</td>\n<td id=\"fb205832460nr\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb205833462s3\">routeTableIDs</p>\n</td>\n<td id=\"fb20583446841\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb20583546l9b\">默认为空。如果<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>内有多个路由表，可以手动设置<span class=\"help-letter-space\"></span>CCM<span class=\"help-letter-space\"></span>支持多个路由表<span class=\"help-letter-space\"></span>ID，以半角逗号（,）分隔，例如<span data-tag=\"ph\" id=\"fb205836464q4\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">vtb-**,vtb***</code></span>。</p>\n</td>\n</tr>\n<tr id=\"fb20583746s2q\">\n<td id=\"fb205838462ue\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fb20583946oax\">Kube Scheduler</p>\n</td>\n<td id=\"fb20583a46rcv\" rowspan=\"1\" colspan=\"2\">\n<p id=\"fb20583d46hfo\">关于通过<span class=\"help-letter-space\"></span>Kube Scheduler<span class=\"help-letter-space\"></span>自定义参数，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/customize-the-scheduler-parameters\" id=\"fb22057146fk5\" title=\"\" class=\"xref\">自定义调度器参数</a>。</p>\n</td>\n</tr>\n</tbody>\n</table>\n</section>\n<section id=\"d44a48f046eg1\" class=\"section\">\n<h2 id=\"d44a48f1464dh\"><span data-tag=\"ph\" id=\"db8a844146wve\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK<span class=\"help-letter-space\"></span>灵骏集群</span></h2>\n<table autofit=\"true\" id=\"table-a0u-fvs-4ps\" tablecolswidth=\"20.03 36.22 43.75\" tablewidth=\"100\" class=\"table\">\n<colgroup colwidth=\"0.61*\" style=\"width:20.03%\"></colgroup>\n<colgroup colwidth=\"1.1*\" style=\"width:36.22%\"></colgroup>\n<colgroup colwidth=\"1.33*\" style=\"width:43.75%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"row-kdn-bzs-zr6\">\n<td id=\"task-2025933-entry-835-1gc-noc\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"c3bed4f10ax14\"><b>组件名</b></p>\n</td>\n<td id=\"task-2025933-entry-pdc-q9l-xe8\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"c3bed4f20a9f8\"><b>参数</b></p>\n</td>\n<td id=\"task-2025933-entry-ukp-x6r-udr\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"c3bed4f30astn\"><b>参数说明</b></p>\n</td>\n</tr>\n<tr id=\"b7ee366046sjc\">\n<td id=\"b7ee5d70461ex\" rowspan=\"16\" colspan=\"1\">\n<p id=\"c3befc000amvt\">Kube API Server</p>\n</td>\n<td id=\"b7ee5d7246tnz\" rowspan=\"1\" colspan=\"1\">\n<p id=\"be69e93046785\">enableAdmissionPlugins</p>\n</td>\n<td id=\"b7ee5d7446isa\" rowspan=\"1\" colspan=\"1\">\n<p id=\"bfcf93b046m56\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"row-g56-xs3-tpu\">\n<td id=\"entry-lvv-38j-jcq\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3befc010ageq\">serviceNodePortRange</p>\n</td>\n<td id=\"entry-d0a-pvy-imj\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3befc020acnx\">可选范围<span class=\"help-letter-space\"></span>10000～65535，默认为空。</p>\n<div id=\"004d26b00arpo\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n<p id=\"eb96b8d00aoud\">请谨慎修改<span class=\"help-letter-space\"></span>NodePort<span class=\"help-letter-space\"></span>端口范围，务必保证<span class=\"help-letter-space\"></span>NodePort<span class=\"help-letter-space\"></span>端口范围与集群节点上<span class=\"help-letter-space\"></span>Linux<span class=\"help-letter-space\"></span>内核提供的<code code-type=\"xCode\" data-tag=\"code\" class=\"code\">net.ipv4.ip_local_port_range</code>参数的端口范围不冲突。更多信息，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/faq-about-network-management#023c3ce009sv0\" id=\"112342d046mhm\" title=\"\" class=\"xref\">如何正确配置<span class=\"help-letter-space\"></span>NodePort<span class=\"help-letter-space\"></span>范围？</a>。</p>\n</div></div>\n</td>\n</tr>\n<tr id=\"row-fa3-blw-yxi\">\n<td id=\"entry-l2l-ue6-t4z\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3bf23140aipy\">requestTimeout</p>\n</td>\n<td id=\"entry-15f-cye-8bf\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3bf4a200am1q\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"row-qnm-in3-gci\">\n<td id=\"entry-af7-ky1-uto\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3bf71300au0o\">defaultNotReadyTolerationSeconds</p>\n</td>\n<td id=\"entry-p6z-q5v-dxc\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3bf71310afbf\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"row-66t-dyr-fw7\">\n<td id=\"entry-wv1-7dh-3aj\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3bf98400a60f\">defaultUnreachableTolerationSeconds</p>\n</td>\n<td id=\"entry-f5b-wgj-i2g\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3bf98410abp2\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"row-koy-31s-tff\">\n<td id=\"entry-c3i-hyj-f6o\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3bfbf510aesq\">maxMutatingRequestsInflight</p>\n</td>\n<td id=\"entry-fv2-66q-8ma\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3bfbf520akjx\">可选范围<span class=\"help-letter-space\"></span>1~1000，默认为空。</p>\n</td>\n</tr>\n<tr id=\"e40e725046lgi\">\n<td id=\"e40e725346izw\" rowspan=\"1\" colspan=\"1\">\n<p id=\"e5a69e804662j\">maxRequestsInflight</p>\n</td>\n<td id=\"e40e7255469bh\" rowspan=\"1\" colspan=\"1\">\n<p id=\"e7845f3046zhp\">可选范围<span class=\"help-letter-space\"></span>1~3000，默认为空。</p>\n</td>\n</tr>\n<tr id=\"d0a014d046cux\">\n<td id=\"d0a014d346rs6\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d3c856e046133\">featureGates</p>\n</td>\n<td id=\"d0a03be1466mx\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d0a03be246jwr\">可选参数包括<span data-tag=\"ph\" id=\"codeph-1a0-4en-uze\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">ServerSideApply</code></span>、<span data-tag=\"ph\" id=\"codeph-563-ngb-1b1\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">TTLAfterFinished</code></span>、<span data-tag=\"ph\" id=\"codeph-muz-aqe-jq6\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">EphemeralContainers</code></span>、<span data-tag=\"ph\" id=\"codeph-iqb-ljn-axn\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">RemoveSelfLink</code></span>、<span data-tag=\"ph\" id=\"codeph-iyy-blb-591\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">HPAScaleToZero</code></span>，默认为空。</p>\n<div data-tag=\"note\" id=\"note-n3k-z0f-u50\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n<p id=\"c3c034860ad00\">支持在<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群中使用<span data-tag=\"ph\" id=\"codeph-el8-p0t-8uv\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">HPAScaleToZero</code></span>，不支持在<span class=\"help-letter-space\"></span>1.24<span class=\"help-letter-space\"></span>及以上集群中修改<span data-tag=\"ph\" id=\"codeph-52l-ioq-pqi\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">RemoveSelfLink</code></span>。</p>\n</div></div>\n</td>\n</tr>\n<tr id=\"row-v79-bdd-uas\">\n<td id=\"entry-rx1-5ep-gev\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3bfbf590ayr8\">oidcIssuerURL</p>\n</td>\n<td id=\"entry-x0o-is9-mvr\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3bfbf5a0aoi9\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"row-p2w-y9f-c6j\">\n<td id=\"entry-kxl-6am-ud8\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3bfe6620a8r1\">oidcClientId</p>\n</td>\n<td id=\"entry-xj8-3ys-hu7\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3bfe6630af2y\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"row-szm-znr-eh8\">\n<td id=\"entry-5b1-yck-t5z\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3bfe66a0aneb\">oidcUsernameClaim</p>\n</td>\n<td id=\"entry-hhf-mu9-6h2\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3bfe66b0afgz\">默认值为<span data-tag=\"ph\" id=\"codeph-ja5-yax-tke\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">sub</code></span>。支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>以上集群。</p>\n</td>\n</tr>\n<tr id=\"row-490-8ch-jvb\">\n<td id=\"entry-5ux-f3a-duc\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c00d720aax1\">oidcUsernamePrefix</p>\n</td>\n<td id=\"entry-y1d-jd9-gmd\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c00d730aytd\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"09b852a046zq2\">\n<td id=\"09b852a346jax\" rowspan=\"1\" colspan=\"1\">\n<p id=\"0ad5a98046lkx\">oidcGroupsPrefix</p>\n</td>\n<td id=\"09b852a5465fi\" rowspan=\"1\" colspan=\"1\">\n<p id=\"0cc396d0462qj\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"row-mul-xhj-4qq\">\n<td id=\"entry-d90-oth-fni\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c00d760a607\">oidcGroupsClaim</p>\n</td>\n<td id=\"entry-s5l-v7y-s7g\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c00d770anxk\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"row-uen-ghb-l52\">\n<td id=\"entry-fw7-va0-tvp\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c034800ao5z\">oidcRequiredClaim</p>\n</td>\n<td id=\"entry-urx-puv-z4o\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c034810az83\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"row-p0a-y3f-56r\">\n<td id=\"entry-u9l-iou-hcy\" rowspan=\"1\" colspan=\"1\">\n<p id=\"14e7063046b6q\">oidcCAContent</p>\n</td>\n<td id=\"entry-zbc-s92-33e\" rowspan=\"1\" colspan=\"1\">\n<p id=\"18811ce046bok\">默认为空。 支持<span class=\"help-letter-space\"></span>1.18<span class=\"help-letter-space\"></span>及以上集群。</p>\n</td>\n</tr>\n<tr id=\"row-pd6-9a7-blj\">\n<td id=\"entry-5wm-zrk-sal\" rowspan=\"11\" colspan=\"1\">\n<p id=\"c3c05b900awsz\">Kube Controller Manager</p>\n</td>\n<td id=\"entry-hwu-pg7-vrp\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c05b910a9ir\">horizontalPodAutoscalerSyncPeriod</p>\n</td>\n<td id=\"entry-yhh-7b2-pw1\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c05b920ahal\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"row-ay0-k7e-8eh\">\n<td id=\"entry-tx9-z5g-57x\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c05b950aykc\">horizontalPodAutoscalerTolerance</p>\n</td>\n<td id=\"entry-7dk-9v0-50r\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c05b960axb9\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"row-tjr-8x5-avl\">\n<td id=\"entry-l4v-utj-2be\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c05b990a97n\">concurrentTTLAfterFinishedSyncs</p>\n</td>\n<td id=\"entry-vkw-bkv-18i\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c05b9a0ax1c\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"row-159-g02-emq\">\n<td id=\"entry-ivg-rx2-pg3\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c082a10ash4\">largeClusterSizeThreshold</p>\n</td>\n<td id=\"entry-q8g-b8n-g6c\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c082a20alhv\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"row-9jf-xs1-jwr\">\n<td id=\"entry-nn0-dl2-4qw\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c082a50a55y\">unhealthyZoneThreshold</p>\n</td>\n<td id=\"entry-qau-xx6-5ld\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c082a60anii\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"row-cqp-b5o-c7s\">\n<td id=\"entry-yzg-3sw-ye9\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c082a90acwd\">secondaryNodeEvictionRate</p>\n</td>\n<td id=\"entry-l81-3ww-wh0\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c082aa0a0u9\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"row-1z4-7jg-5s8\">\n<td id=\"entry-j7d-q0i-ecz\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c0a9b00akbf\">nodeEvictionRate</p>\n</td>\n<td id=\"entry-rmx-idy-41c\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c0a9b10aawl\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"row-6zc-jrb-0ut\">\n<td id=\"entry-pyi-76g-4q6\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c0a9b40a705\">podEvictionTimeout</p>\n</td>\n<td id=\"entry-z6b-uks-qzp\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c0a9b50aboo\">默认为空。</p>\n</td>\n</tr>\n<tr id=\"row-qkh-w8g-uk3\">\n<td id=\"entry-fen-os5-h0c\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c0a9b80amwh\">kubeAPIQPS</p>\n</td>\n<td id=\"entry-rfg-r1r-0cg\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c0a9b90axkh\">可选范围<span class=\"help-letter-space\"></span>1~1000，默认为空。</p>\n</td>\n</tr>\n<tr id=\"row-xgh-c2g-u49\">\n<td id=\"entry-sp7-twu-8nz\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c0a9bc0a8od\">kubeAPIBurst</p>\n</td>\n<td id=\"entry-fy2-qja-wv6\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c0d0c00ac55\">可选范围<span class=\"help-letter-space\"></span>1~1000，默认为空。</p>\n</td>\n</tr>\n<tr id=\"row-jk7-70j-uf6\">\n<td id=\"entry-nw5-9x8-wuo\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c0d0c30axq9\">featureGates</p>\n</td>\n<td id=\"entry-s9p-so1-8ri\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c0d0c40am7n\">可选参数为<span data-tag=\"ph\" id=\"codeph-2er-nax-vfw\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">TTLAfterFinished</code></span>，默认为空。</p>\n</td>\n</tr>\n<tr id=\"row-q4p-1nt-xra\">\n<td id=\"entry-adn-zc9-006\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c0d0c50aseu\">Cloud Controller Manager</p>\n</td>\n<td id=\"entry-ai5-40b-45e\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c0d0c60azct\">routeTableIDs</p>\n</td>\n<td id=\"entry-ihb-7lu-nny\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c3c0d0c70angt\">默认为空。如果<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>内有多个路由表，可以手动设置<span class=\"help-letter-space\"></span>CCM<span class=\"help-letter-space\"></span>支持多个路由表<span class=\"help-letter-space\"></span>ID，以半角逗号（,）分隔，例如<span data-tag=\"ph\" id=\"codeph-5sv-yzv-nso\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" class=\"code\">vtb-**,vtb***</code></span>。</p>\n</td>\n</tr>\n<tr id=\"4ceb9c004677j\">\n<td id=\"4ceb9c0146hnf\" rowspan=\"1\" colspan=\"1\">\n<p id=\"4ceb9c02464qy\">Kube Scheduler</p>\n</td>\n<td id=\"4ceb9c0346m3q\" rowspan=\"1\" colspan=\"2\">\n<p id=\"4cebc31046r5s\">关于通过<span class=\"help-letter-space\"></span>Kube Scheduler<span class=\"help-letter-space\"></span>自定义参数，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/customize-the-scheduler-parameters\" id=\"112342d146fsf\" title=\"\" class=\"xref\">自定义调度器参数</a>。</p>\n</td>\n</tr>\n</tbody>\n</table>\n</section>\n</section>\n</div>\n</section>\n</div>\n</main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/customize-ack-pro-control-plane-component-parameters-1693464061811","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"alias":"/ack/ack-managed-and-ack-dedicated/user-guide/customize-ack-pro-control-plane-component-parameters-1693464061811","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":8,"developerUrl":"https://developer.aliyun.com/group/kubernetes/","nodeType":1,"version":28,"url":"/zh/ack/ack-managed-and-ack-dedicated/user-guide/customize-ack-pro-control-plane-component-parameters-1693464061811","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":199588,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":8,"validDocument":true,"headNavEnable":false,"docTitle":"自定义Pro版集群的控制面组件参数","id":199588,"title":"自定义Pro版集群的控制面组件参数","url":"/zh/ack/ack-managed-and-ack-dedicated/user-guide/customize-ack-pro-control-plane-component-parameters-1693464061811"}],"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"管理集群","id":127540,"title":"管理集群","url":"/zh/ack/ack-managed-and-ack-dedicated/user-guide/manage-clusters/"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"集群","id":86987,"title":"集群","url":"/zh/ack/ack-managed-and-ack-dedicated/user-guide/ack-cluster-overview/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"操作指南","id":2391836,"title":"操作指南","url":"/zh/ack/ack-managed-and-ack-dedicated/user-guide/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"ACK托管与专有集群","id":126295,"title":"ACK托管与专有集群","url":"/zh/ack/ack-managed-and-ack-dedicated/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"productUrl":"https://www.aliyun.com/product/kubernetes","nodeId":199588,"desc":"为了满足生产环境调整控制面参数的需求，容器服务 Kubernetes 版提供控制面参数自定义功能。您可以根据需要修改Kube API Server、Kube Controller Manager（KCM）、Cloud Controller Manager（CCM）、Kube Scheduler等核心托管组件的参数。本文介绍如何在容器服务管理控制台自定义控制面参数。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"ACK托管与专有集群","id":126295,"title":"ACK托管与专有集群","url":"/zh/ack/ack-managed-and-ack-dedicated/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"操作指南","id":2391836,"title":"操作指南","url":"/zh/ack/ack-managed-and-ack-dedicated/user-guide/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"集群","id":86987,"title":"集群","url":"/zh/ack/ack-managed-and-ack-dedicated/user-guide/ack-cluster-overview/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"管理集群","id":127540,"title":"管理集群","url":"/zh/ack/ack-managed-and-ack-dedicated/user-guide/manage-clusters/"},{"emptyNode":false,"level":8,"validDocument":true,"headNavEnable":false,"docTitle":"自定义Pro版集群的控制面组件参数","id":199588,"title":"自定义Pro版集群的控制面组件参数","url":"/zh/ack/ack-managed-and-ack-dedicated/user-guide/customize-ack-pro-control-plane-component-parameters-1693464061811"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=215041a017825422033198517e2315&asid=AQAAAAB7bz9qh3gUZQAAAACHMiJt7O04yw==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"><div class="help-subproduct-container"></div></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2391827" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/product-overview/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品概述</span>
+</a>
+</li>
+ <li id="2391837" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/getting-started/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">快速入门</span>
+</a>
+</li>
+ <li id="2391836" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">操作指南</span>
+</a>
+</li>
+ <li id="2391840" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/use-cases/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">实践教程</span>
+</a>
+</li>
+ <li id="2543123" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="2391838" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2391839" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/support/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">服务支持</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>自定义Pro版集群的控制面组件参数</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/kubernetes" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+<main id="task-2025933">
+
+
+<p data-tag="shortdesc" id="shortdesc-noc-zmz-es3" class="shortdesc">为了满足生产环境调整控制面参数的需求，<span id="3ebedb8046a2r" outputclass="productName" data-tag="ph" data-ref-searchable="yes" data-reuse-tag="productName" data-type="productName" data-product-code="csk" docid="4265392" is-conref="true" class="ph productName">容器服务 Kubernetes 版</span>提供控制面参数自定义功能。您可以根据需要修改<span class="help-letter-space"></span>Kube API Server、Kube Controller Manager（KCM）、Cloud Controller Manager（CCM）、Kube Scheduler<span class="help-letter-space"></span>等核心托管组件的参数。本文介绍如何在容器服务管理控制台自定义控制面参数。</p>
+<div data-tag="taskbody" id="taskbody-bpq-rbo-3ve" class="taskbody">
+<section data-tag="section" data-type="section" id="section-79o-xc7-hik" class="section">
+<h2 data-tag="title" id="title-v7j-uoh-5oq" class="title">注意事项</h2>
+<div data-tag="p" id="p-luh-u6c-djk" class="p">
+<ul data-tag="ul" id="ul-udp-neo-0tl" class="ul">
+<li data-tag="li" id="li-uab-h7e-17o" class="li">
+<p id="c3be5fc30azcf">为了保证控制面的稳定性，当前仅<span class="help-letter-space"></span><span data-tag="ph" id="ec02f1765ekyy" data-ref-searchable="yes" docid="4431993" is-conref="true" class="ph">ACK<span class="help-letter-space"></span>托管集群<span class="help-letter-space"></span>Pro<span class="help-letter-space"></span>版</span>、<span data-tag="ph" id="145729e51cd4x" docid="4431993" is-conref="true" class="ph">ACK Serverless<span class="help-letter-space"></span>集群<span class="help-letter-space"></span>Pro<span class="help-letter-space"></span>版</span>、<span data-tag="ph" id="a19c065ec37v6" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群<span class="help-letter-space"></span>Pro<span class="help-letter-space"></span>版</span>、<span data-tag="ph" id="7564fb821egni" docid="4431993" is-conref="true" class="ph">ACK<span class="help-letter-space"></span>灵骏集群</span>支持自定义部分控制面核心组件参数。</p>
+<p id="2d2c035b21tkk">关于支持自定义的参数，请参见<a href="#section-pkr-afx-2z7" id="7fd7244766iq2" title="" class="xref">默认参数列表</a>（具体请以控制台界面为准）。</p>
+<p id="9c902c33e3ppa">部分参数仅支持特定版本的集群，如需升级集群，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/update-the-kubernetes-version-of-an-ack-cluster" id="03f026dfecmpy" title="" class="xref">手动升级集群</a>。</p>
+</li>
+<li id="6c4c436046evx">
+<p id="6c4c1c5046o6t">修改参数后，控制面会重启，请在业务低谷期操作。</p>
+</li>
+<li data-tag="li" id="li-27h-f3s-oxq" class="li">
+<p id="c3be5fc20arjf">自定义的参数会覆盖原集群的默认参数。自定义参数时，请确保输入的参数正确且完整，避免参数错误导致控制面启动失败。关于参数设置的详细信息，请根据集群版本参见<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>官方文档<span class="help-letter-space"></span><a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/" id="xref-xnu-v2f-bfn" class="" target="_blank">kube-apiserver</a>、<a href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-controller-manager/" id="xref-lt4-llt-hvt" class="" target="_blank">kube-controller-manager</a>、<a class="" href="https://kubernetes.io/docs/reference/command-line-tools-reference/kube-scheduler/" id="62df84c146qoo">kube-scheduler</a>。</p>
+</li>
+</ul>
+</div>
+</section>
+<section data-tag="section" data-type="section" id="section-26f-us6-6gu" class="section">
+<h2 data-tag="title" id="title-wzz-b0d-vq7" class="title">自定义控制面组件参数</h2>
+<p data-tag="p" id="p-8eh-8v2-qxt" class="p">控制面组件参数修改的步骤类似。下文以修改<span class="help-letter-space"></span>Kube API Server<span class="help-letter-space"></span>组件为例，说明如何修改组件参数。</p>
+<ol data-tag="steps" id="steps-8vt-qa2-5gm" class="steps">
+<li data-tag="step" id="0ff81c5e5625i" docid="3660168" is-conref="true" class="step"><p id="7bdb0bf11b631"><span data-tag="cmd" id="cmd-mto-t3v-p7d" class="cmd">登录<span props="china intl"><a href="https://cs.console.aliyun.com" id="xref-c6s-99d-s5k" class="" target="_blank">容器服务管理控制台</a></span>，在左侧导航栏选择<b id="uicontrol-42p-agm-35k" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>。</span></p></li>
+<li data-tag="step" id="df58826b27scs" docid="3660168" is-conref="true" class="step"><p id="7bdd2ed11b34d"><span data-tag="cmd" id="cmd-d1d-v28-ljg" class="cmd">在<b id="wintitle-jd8-5r6-4m0" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，单击<b id="uicontrol-qjz-2sq-947" data-tag="uicontrol" data-isbold="true" class="uicontrol">组件管理</b>。</span></p></li>
+<li id="6145dc138bdnh">
+<p id="d3e6aaebfdpx7">在<b id="b91c05d05cl8v" data-tag="uicontrol" data-isbold="true" class="uicontrol">核心组件</b>区域，找到目标组件，然后单击卡片右下方的<b id="c66164605crq0" data-tag="uicontrol" data-isbold="true" class="uicontrol">配置</b>。</p>
+</li>
+<li data-tag="step" id="step-rtj-935-jxy" class="step">
+<p id="c3beade10ao3c">在<span class="help-letter-space"></span><b id="uicontrol-ydz-bfn-alk">Kube API Server 参数配置</b>对话框中，输入自定义参数并确保参数完整且正确，按照页面提示完成配置的提交。</p>
+</li>
+</ol>
+</section>
+<section data-tag="section" data-type="section" id="section-pkr-afx-2z7" class="section">
+<h2 data-tag="title" id="title-742-3hd-cmt" class="title">默认参数列表</h2>
+<div data-tag="p" id="p-f49-ezg-wuc" class="p">
+<section data-tag="tabbed-content-box" id="b533e93046znj" outputclass="tabbed-content-box" class="tabbed-content-box section">
+<section id="b533e93246fue" class="section">
+<h2 id="b533e931466lz"><span data-tag="ph" id="bd65d78146b6n" data-ref-searchable="yes" docid="4431993" is-conref="true" class="ph">ACK<span class="help-letter-space"></span>托管集群<span class="help-letter-space"></span>Pro<span class="help-letter-space"></span>版</span></h2>
+<table autofit="true" id="59b7fff046hzl" tablecolswidth="20.03 37.34 42.629999999999995" tablewidth="100" class="table">
+<colgroup colwidth="0.61*" style="width:20.03%"></colgroup>
+<colgroup colwidth="1.13*" style="width:37.34%"></colgroup>
+<colgroup colwidth="1.29*" style="width:42.63%"></colgroup>
+<tbody class="tbody">
+<tr id="59b7fff1461d5">
+<td id="59b7fff246eu8" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="59b7fff346o4q"><b>组件名</b></p>
+</td>
+<td id="59b7fff446npr" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="59b7fff546614"><b>参数</b></p>
+</td>
+<td id="59b7fff646rk1" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="59b7fff7467ab"><b>参数说明</b></p>
+</td>
+</tr>
+<tr id="59b7fff846gvm">
+<td id="59b7fff946kph" rowspan="19" colspan="1">
+<p id="59b7fffa466bi">Kube API Server</p>
+</td>
+<td id="59b7fffb465ua" rowspan="1" colspan="1">
+<p id="59b7fffc46j6b">enableAdmissionPlugins</p>
+</td>
+<td id="59b7fffd467r0" rowspan="1" colspan="1">
+<p id="59b7fffe4626a">默认为空。</p>
+</td>
+</tr>
+<tr id="59b7ffff4634a">
+<td id="59b80002463o4" rowspan="1" colspan="1">
+<p id="59b800034661o">serviceNodePortRange</p>
+</td>
+<td id="59b8000646vy5" rowspan="1" colspan="1">
+<p id="59b8000746xf1">可选范围<span class="help-letter-space"></span>10000～65535，默认为空。</p>
+<div id="59b8000846l21" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+<p id="59b80009467wq">请谨慎修改<span class="help-letter-space"></span>NodePort<span class="help-letter-space"></span>端口范围，务必保证<span class="help-letter-space"></span>NodePort<span class="help-letter-space"></span>端口范围与集群节点上<span class="help-letter-space"></span>Linux<span class="help-letter-space"></span>内核提供的<code code-type="xCode" data-tag="code" class="code">net.ipv4.ip_local_port_range</code>参数的端口范围不冲突。更多信息，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/faq-about-network-management#023c3ce009sv0" id="59b9d4b046o5p" title="" class="xref">如何正确配置<span class="help-letter-space"></span>NodePort<span class="help-letter-space"></span>范围？</a>。</p>
+</div></div>
+</td>
+</tr>
+<tr id="59b8000a46365">
+<td id="59b8000d460hx" rowspan="1" colspan="1">
+<p id="59b8000e46dvj">requestTimeout</p>
+</td>
+<td id="59b8000f46hal" rowspan="1" colspan="1">
+<p id="59b8001046lcd">默认为空。</p>
+</td>
+</tr>
+<tr id="59b8001146jmk">
+<td id="59b80014469ok" rowspan="1" colspan="1">
+<p id="59b8001546l5e">defaultNotReadyTolerationSeconds</p>
+</td>
+<td id="59b8001646154" rowspan="1" colspan="1">
+<p id="59b80017469x1">默认为空。</p>
+</td>
+</tr>
+<tr id="59b8001846523">
+<td id="59b8001b46x8q" rowspan="1" colspan="1">
+<p id="59b8001c46yqa">defaultUnreachableTolerationSeconds</p>
+</td>
+<td id="59b8001d46gad" rowspan="1" colspan="1">
+<p id="59b8001e46pbw">默认为空。</p>
+</td>
+</tr>
+<tr id="59b8001f46t5x">
+<td id="59b8002246uhq" rowspan="1" colspan="1">
+<p id="59b80023465sr">maxMutatingRequestsInflight</p>
+</td>
+<td id="59b800244666c" rowspan="1" colspan="1">
+<p id="59b80025469j4">可选范围<span class="help-letter-space"></span>1~1000，默认为空。</p>
+</td>
+</tr>
+<tr id="59b80026469oy">
+<td id="59b8002946nyv" rowspan="1" colspan="1">
+<p id="59b8002a4682v">maxRequestsInflight</p>
+</td>
+<td id="59b8002b46g9e" rowspan="1" colspan="1">
+<p id="59b8002c467db">可选范围<span class="help-letter-space"></span>1~3000，默认为空。</p>
+</td>
+</tr>
+<tr id="59b8002d46mea">
+<td id="59b8003046fyh" rowspan="1" colspan="1">
+<p id="59b8003146u91">featureGates</p>
+</td>
+<td id="59b8003246ono" rowspan="1" colspan="1">
+<p id="59b8003346jab">可选参数包括<span data-tag="ph" id="59b8003446815" class="ph"><code code-type="xCode" data-tag="code" class="code">ServerSideApply</code></span>、<span data-tag="ph" id="59b800354669y" class="ph"><code code-type="xCode" data-tag="code" class="code">TTLAfterFinished</code></span>、<span data-tag="ph" id="59b80036469yz" class="ph"><code code-type="xCode" data-tag="code" class="code">EphemeralContainers</code></span>、<span data-tag="ph" id="59b800374666q" class="ph"><code code-type="xCode" data-tag="code" class="code">RemoveSelfLink</code></span>、<span data-tag="ph" id="59b8003846bkv" class="ph"><code code-type="xCode" data-tag="code" class="code">HPAScaleToZero</code></span>，默认为空。</p>
+<div data-tag="note" id="59b8003946anl" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+<p id="59b8003a46b3s">支持在<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群中使用<span data-tag="ph" id="59b8003b46opy" class="ph"><code code-type="xCode" data-tag="code" class="code">HPAScaleToZero</code></span>，不支持在<span class="help-letter-space"></span>1.24<span class="help-letter-space"></span>及以上集群中修改<span data-tag="ph" id="59b8003c46gom" class="ph"><code code-type="xCode" data-tag="code" class="code">RemoveSelfLink</code></span>。</p>
+</div></div>
+</td>
+</tr>
+<tr id="59b8003d462mi">
+<td id="59b8004046fkj" rowspan="1" colspan="1">
+<p id="59b8004146gr2">oidcIssuerURL</p>
+</td>
+<td id="59b8004246j85" rowspan="1" colspan="1">
+<p id="59b8004346ujv">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+<div id="c8e5486bc2ehi" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+<ul id="cf1327087e951">
+<li id="68f490ad13d62">
+<p id="51c436251cjfz">配置<span class="help-letter-space"></span>oidcIssuerURL<span class="help-letter-space"></span>后，集群中<span class="help-letter-space"></span>API Server<span class="help-letter-space"></span>会访问<span class="help-letter-space"></span>oidcIssuerURL<span class="help-letter-space"></span>配置项对应的地址，如果您的服务域名为公网域名，请确保集群已开启公网访问能力，具体操作请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/enable-an-existing-ack-cluster-to-access-the-internet" id="de0ae6e7bcldr" title="" class="xref">为集群开启访问公网的能力</a>。</p>
+</li>
+<li id="29dd5a1937zk0">
+<p id="7719218fe8i58">如果集群开启公网访问后，API Server<span class="help-letter-space"></span>仍无法访问<span class="help-letter-space"></span>oidcIssuerURL<span class="help-letter-space"></span>配置项中的地址，您可以通过<code code-type="xCode" data-tag="code" class="code">kubectl get endpoints</code>来检查<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>后端的<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>数量。</p>
+<ul id="4eb8b8812e2td">
+<li id="4f50ee1f00wyw">
+<p id="2d294fbdd8k65">如果<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>大于<span class="help-letter-space"></span>1<span class="help-letter-space"></span>个，请登录<span class="help-letter-space"></span>Worker<span class="help-letter-space"></span>节点尝试访问<span class="help-letter-space"></span>oidcIssuerURL，并检查公网配置、安全组规则等。</p>
+</li>
+<li id="3ef3b14483etd">
+<p id="e0494e906awje">如果只有<span class="help-letter-space"></span>1<span class="help-letter-space"></span>个<span class="help-letter-space"></span>IP，请<span data-tag="ph" id="551ecc8b6054s" docid="2252239" is-conref="true" class="ph"><span props="china"><a href="https://selfservice.console.aliyun.com/ticket/createIndex" id="xref-8ma-qmy-t8i" class="" target="_blank">提交工单</a></span></span>处理。</p>
+</li>
+</ul>
+</li>
+</ul>
+</div></div>
+</td>
+</tr>
+<tr id="59b80044467tt">
+<td id="59b8004746r63" rowspan="1" colspan="1">
+<p id="59b80048465qs">oidcClientId</p>
+</td>
+<td id="59b8004946vdv" rowspan="1" colspan="1">
+<p id="59b8004a467r3">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="59b8004b460ed">
+<td id="59b8004e4668q" rowspan="1" colspan="1">
+<p id="59b8004f468ag">oidcUsernameClaim</p>
+</td>
+<td id="59b8005046xdo" rowspan="1" colspan="1">
+<p id="59b8005146wi6">默认值为<span data-tag="ph" id="59b8005246vyq" class="ph"><code code-type="xCode" data-tag="code" class="code">sub</code></span>。支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>以上集群。</p>
+</td>
+</tr>
+<tr id="59b80053464lc">
+<td id="59b8005646290" rowspan="1" colspan="1">
+<p id="59b80057466sn">oidcUsernamePrefix</p>
+</td>
+<td id="59b8005846n3q" rowspan="1" colspan="1">
+<p id="59b8005946iy5">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="59b8005a462fo">
+<td id="59b8005d46p4t" rowspan="1" colspan="1">
+<p id="59b8005e469v7">oidcGroupsPrefix</p>
+</td>
+<td id="59b8005f46o9i" rowspan="1" colspan="1">
+<p id="59b8006046iyn">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="59b8006146vep">
+<td id="59b8006446acz" rowspan="1" colspan="1">
+<p id="59b800654680x">oidcGroupsClaim</p>
+</td>
+<td id="59b8006646wn1" rowspan="1" colspan="1">
+<p id="59b80067464xa">默认为空。支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="59b8006846mu1">
+<td id="59b8006b46vna" rowspan="1" colspan="1">
+<p id="59b8006c46492">oidcRequiredClaim</p>
+</td>
+<td id="59b8006d46x3g" rowspan="1" colspan="1">
+<p id="59b8006e463s0">默认为空。支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="59b8006f46k3f">
+<td id="59b8007246zpw" rowspan="1" colspan="1">
+<p id="59b80073469c7">oidcCAContent</p>
+</td>
+<td id="59b8007446op9" rowspan="1" colspan="1">
+<p id="59b8007546r2h">默认为空。支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="58c4c2a254mvx">
+<td id="f1c0112f7c1xn" rowspan="1" colspan="1">
+<p id="3a2ce9b54br8j">hostAliases</p>
+</td>
+<td id="0a641605cf2yh" rowspan="1" colspan="1">
+<p id="f14cc56c77rat">默认为空。支持<span class="help-letter-space"></span>1.26<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="d6521c01a3wnl">
+<td id="523b742affk4y" rowspan="1" colspan="1">
+<p id="37e142a44997q">enableTrace</p>
+</td>
+<td id="1a37d6da2dpjy" rowspan="2" colspan="1">
+<p id="03597fb510bt4">默认为空。支持<span class="help-letter-space"></span>1.28<span class="help-letter-space"></span>及以上集群。</p>
+<blockquote id="cb6dcbcfb6nt4">相关操作文档，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/enable-tracing-for-control-plane-components" id="f2181e6351hj4" title="" class="xref">为集群控制面组件启用链路追踪</a>。</blockquote>
+</td>
+</tr>
+<tr id="f011d29a00p46">
+<td id="93e0cb182ej7l" rowspan="1" colspan="1">
+<p id="9f93a1a5d762f">samplingRatePerMillion</p>
+</td>
+</tr>
+<tr id="59b8007646mto">
+<td id="59b80077469g9" rowspan="14" colspan="1">
+<p id="59b8007846v0w">Kube Controller Manager</p>
+</td>
+<td id="59b8007946tag" rowspan="1" colspan="1">
+<p id="59b8007a46j5d">horizontalPodAutoscalerSyncPeriod</p>
+</td>
+<td id="59b8007b460sb" rowspan="1" colspan="1">
+<p id="59b8007c4619j">默认为空。</p>
+</td>
+</tr>
+<tr id="59b8007d466kn">
+<td id="59b8008046kct" rowspan="1" colspan="1">
+<p id="59b800814660l">horizontalPodAutoscalerTolerance</p>
+</td>
+<td id="59b8008246p95" rowspan="1" colspan="1">
+<p id="59b8008346moy">默认为空。</p>
+</td>
+</tr>
+<tr id="59b8008446l55">
+<td id="59b80087461p5" rowspan="1" colspan="1">
+<p id="59b800884678a">concurrentTTLAfterFinishedSyncs</p>
+</td>
+<td id="59b80089466rp" rowspan="1" colspan="1">
+<p id="59b8008a469xy">默认为空。</p>
+</td>
+</tr>
+<tr id="2c19ff48bdcbu">
+<td id="886725663co4i" rowspan="1" colspan="1">
+<p id="2017d5e1635lq">concurrentHorizontalPodAutoscalerSyncs</p>
+</td>
+<td id="92b7ee62c93r8" rowspan="1" colspan="1">
+<p id="7e4a8e43bdloi">默认为空。支持<span class="help-letter-space"></span>1.26<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="59b8008b46ymo">
+<td id="59b8008e46ft0" rowspan="1" colspan="1">
+<p id="59b8008f46qyb">largeClusterSizeThreshold</p>
+</td>
+<td id="59b8270046dyn" rowspan="1" colspan="1">
+<p id="59b8270146vwx">默认为空。</p>
+</td>
+</tr>
+<tr id="59b8270246h4c">
+<td id="59b8270546k1n" rowspan="1" colspan="1">
+<p id="59b82706467wp">unhealthyZoneThreshold</p>
+</td>
+<td id="59b8270746pdx" rowspan="1" colspan="1">
+<p id="59b8270846ox0">默认为空。</p>
+</td>
+</tr>
+<tr id="59b8270946w82">
+<td id="59b8270c4642y" rowspan="1" colspan="1">
+<p id="59b8270d46f0m">secondaryNodeEvictionRate</p>
+</td>
+<td id="59b8270e4630y" rowspan="1" colspan="1">
+<p id="59b8270f4601r">默认为空。</p>
+</td>
+</tr>
+<tr id="59b82710460fc">
+<td id="59b8271346y46" rowspan="1" colspan="1">
+<p id="59b8271446ehp">nodeEvictionRate</p>
+</td>
+<td id="59b8271546xla" rowspan="1" colspan="1">
+<p id="59b8271646p8v">默认为空。</p>
+</td>
+</tr>
+<tr id="c048062340fag">
+<td id="09290d4671f4z" rowspan="1" colspan="1">
+<p id="87d2f784bbktn">terminatedPodGCThreshold</p>
+</td>
+<td id="61c39fa6bbmak" rowspan="1" colspan="1">
+<p id="f2996dc23akhh">默认为空。</p>
+</td>
+</tr>
+<tr id="59b8271e464sa">
+<td id="59b8272146f70" rowspan="1" colspan="1">
+<p id="59b82722464cv">kubeAPIQPS</p>
+</td>
+<td id="59b82723467ex" rowspan="1" colspan="1">
+<p id="59b8272446v0r">可选范围<span class="help-letter-space"></span>1~1000，默认为空。</p>
+</td>
+</tr>
+<tr id="59b8272546zz8">
+<td id="59b8272846mkc" rowspan="1" colspan="1">
+<p id="59b8272946e71">kubeAPIBurst</p>
+</td>
+<td id="59b8272a461uy" rowspan="1" colspan="1">
+<p id="59b8272b46hw9">可选范围<span class="help-letter-space"></span>1~1000，默认为空。</p>
+</td>
+</tr>
+<tr id="87d9faa40c5wc">
+<td id="d80dbac0fbmcq" rowspan="1" colspan="1">
+<p id="a5c7c0003fijn">concurrentCSRSyncs</p>
+</td>
+<td id="ec83968694bf5" rowspan="1" colspan="1">
+<p id="6cc104cb51qw1">默认为空。支持<span class="help-letter-space"></span>1.32<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="a2070d430cqkc">
+<td id="d9dcbc07d9x8i" rowspan="1" colspan="1">
+<p id="26ef19ee1012t">concurrentNodeTaintSyncs</p>
+</td>
+<td id="595d1d1f70yb9" rowspan="1" colspan="1">
+<p id="30cf02f2f2stj">默认为空。支持<span class="help-letter-space"></span>1.32<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="59b8272c46abn">
+<td id="59b8272f46hz3" rowspan="1" colspan="1">
+<p id="59b8273046ch7">featureGates</p>
+</td>
+<td id="59b82731464e5" rowspan="1" colspan="1">
+<p id="59b82732461ju">可选参数为<span data-tag="ph" id="59b82733463k8" class="ph"><code code-type="xCode" data-tag="code" class="code">TTLAfterFinished</code></span>，默认为空。</p>
+</td>
+</tr>
+<tr id="59b8273446gkj">
+<td id="59b8273546hfq" rowspan="1" colspan="1">
+<p id="59b82736463fp">Cloud Controller Manager</p>
+</td>
+<td id="59b8273746m0b" rowspan="1" colspan="1">
+<p id="59b82738467ku">routeTableIDs</p>
+</td>
+<td id="59b8273946w23" rowspan="1" colspan="1">
+<p id="59b8273a46ioh">默认为空。如果<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>内有多个路由表，可以手动设置<span class="help-letter-space"></span>CCM<span class="help-letter-space"></span>支持多个路由表<span class="help-letter-space"></span>ID，以半角逗号（,）分隔，例如<span data-tag="ph" id="59b8273b46fdu" class="ph"><code code-type="xCode" data-tag="code" class="code">vtb-**,vtb***</code></span>。</p>
+</td>
+</tr>
+<tr id="59b8273c46rg9">
+<td id="59b8273d46z5d" rowspan="1" colspan="1">
+<p id="59b8273e46f3v">Kube Scheduler</p>
+</td>
+<td id="59b8273f46zij" rowspan="1" colspan="2">
+<p id="59b8274246fh3">关于通过<span class="help-letter-space"></span>Kube Scheduler<span class="help-letter-space"></span>自定义参数，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/customize-the-scheduler-parameters" id="59b9fbc0468yw" title="" class="xref">自定义调度器参数</a>。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="b533e93546cnq" class="section">
+<h2 id="b533e93446kzp"><span data-tag="ph" id="c4cafff146p9m" docid="4431993" is-conref="true" class="ph">ACK Serverless<span class="help-letter-space"></span>集群<span class="help-letter-space"></span>Pro<span class="help-letter-space"></span>版</span></h2>
+<table autofit="true" id="d3a2059046z02" tablecolswidth="20.03 40.06 39.91" tablewidth="100" class="table">
+<colgroup colwidth="0.61*" style="width:20.03%"></colgroup>
+<colgroup colwidth="1.21*" style="width:40.06%"></colgroup>
+<colgroup colwidth="1.21*" style="width:39.91%"></colgroup>
+<tbody class="tbody">
+<tr id="d3a2059146xs1">
+<td id="d3a20592467rb" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="d3a2059346mft"><b>组件名</b></p>
+</td>
+<td id="d3a20594462vc" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="d3a20595464fq"><b>参数</b></p>
+</td>
+<td id="d3a2059646g3i" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="d3a20597466kf"><b>参数说明</b></p>
+</td>
+</tr>
+<tr id="d3a2059846t63">
+<td id="d3a20599469jn" rowspan="15" colspan="1">
+<p id="d3a2059a46xc2">Kube API Server</p>
+</td>
+<td id="d3a2059b46wqf" rowspan="1" colspan="1">
+<p id="d3a2059c469su">enableAdmissionPlugins</p>
+</td>
+<td id="d3a2059d46kl2" rowspan="1" colspan="1">
+<p id="d3a2059e46s7y">默认为空。</p>
+</td>
+</tr>
+<tr id="d3a205aa46o3f">
+<td id="d3a205ad46yu2" rowspan="1" colspan="1">
+<p id="d3a205ae46vhh">requestTimeout</p>
+</td>
+<td id="d3a205af46pja" rowspan="1" colspan="1">
+<p id="d3a205b046wmm">默认为空。</p>
+</td>
+</tr>
+<tr id="d3a205b146j6x">
+<td id="d3a205b446xpa" rowspan="1" colspan="1">
+<p id="d3a205b546u1y">defaultNotReadyTolerationSeconds</p>
+</td>
+<td id="d3a205b646vnn" rowspan="1" colspan="1">
+<p id="d3a205b746ego">默认为空。</p>
+</td>
+</tr>
+<tr id="d3a205b846le2">
+<td id="d3a205bb46f0h" rowspan="1" colspan="1">
+<p id="d3a205bc46p7r">defaultUnreachableTolerationSeconds</p>
+</td>
+<td id="d3a205bd46i03" rowspan="1" colspan="1">
+<p id="d3a205be467v9">默认为空。</p>
+</td>
+</tr>
+<tr id="d3a205bf464l0">
+<td id="d3a205c246a71" rowspan="1" colspan="1">
+<p id="d3a205c346ypv">maxMutatingRequestsInflight</p>
+</td>
+<td id="d3a205c446323" rowspan="1" colspan="1">
+<p id="d3a205c5463j1">可选范围<span class="help-letter-space"></span>1~1000，默认为空。</p>
+</td>
+</tr>
+<tr id="d3a205c646g0j">
+<td id="d3a205c946qr8" rowspan="1" colspan="1">
+<p id="d3a205ca46utr">maxRequestsInflight</p>
+</td>
+<td id="d3a205cb46nj6" rowspan="1" colspan="1">
+<p id="d3a205cc4611t">可选范围<span class="help-letter-space"></span>1~3000，默认为空。</p>
+</td>
+</tr>
+<tr id="d3a205cd46ptn">
+<td id="d3a205d046fvr" rowspan="1" colspan="1">
+<p id="d3a205d146tt3">featureGates</p>
+</td>
+<td id="d3a205d246aow" rowspan="1" colspan="1">
+<p id="d3a205d346k5m">可选参数包括<span data-tag="ph" id="d3a205d446kb5" class="ph"><code code-type="xCode" data-tag="code" class="code">ServerSideApply</code></span>、<span data-tag="ph" id="d3a205d546iw1" class="ph"><code code-type="xCode" data-tag="code" class="code">TTLAfterFinished</code></span>、<span data-tag="ph" id="d3a205d646kfi" class="ph"><code code-type="xCode" data-tag="code" class="code">EphemeralContainers</code></span>、<span data-tag="ph" id="d3a205d746l2w" class="ph"><code code-type="xCode" data-tag="code" class="code">RemoveSelfLink</code></span>、<span data-tag="ph" id="d3a205d8462ri" class="ph"><code code-type="xCode" data-tag="code" class="code">HPAScaleToZero</code></span>，默认为空。</p>
+<div data-tag="note" id="d3a205d94613e" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+<p id="d3a205da46wzu">支持在<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群中使用<span data-tag="ph" id="d3a205db46npm" class="ph"><code code-type="xCode" data-tag="code" class="code">HPAScaleToZero</code></span>，不支持在<span class="help-letter-space"></span>1.24<span class="help-letter-space"></span>及以上集群中修改<span data-tag="ph" id="d3a205dc46j9s" class="ph"><code code-type="xCode" data-tag="code" class="code">RemoveSelfLink</code></span>。</p>
+</div></div>
+</td>
+</tr>
+<tr id="d3a205dd46q1z">
+<td id="d3a205e046fuc" rowspan="1" colspan="1">
+<p id="d3a205e146gu9">oidcIssuerURL</p>
+</td>
+<td id="d3a205e2461nh" rowspan="1" colspan="1">
+<p id="d3a205e346wpx">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="d3a205e4466ze">
+<td id="d3a205e746pgu" rowspan="1" colspan="1">
+<p id="d3a205e846cpu">oidcClientId</p>
+</td>
+<td id="d3a205e94608g" rowspan="1" colspan="1">
+<p id="d3a205ea46wb8">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="d3a205eb468jd">
+<td id="d3a22ca046cfp" rowspan="1" colspan="1">
+<p id="d3a22ca146l2t">oidcUsernameClaim</p>
+</td>
+<td id="d3a22ca246njx" rowspan="1" colspan="1">
+<p id="d3a22ca346mer">默认值为<span data-tag="ph" id="d3a22ca446wci" class="ph"><code code-type="xCode" data-tag="code" class="code">sub</code></span>。支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>以上集群。</p>
+</td>
+</tr>
+<tr id="d3a22ca546vdv">
+<td id="d3a22ca846y3i" rowspan="1" colspan="1">
+<p id="d3a22ca946jnn">oidcUsernamePrefix</p>
+</td>
+<td id="d3a22caa469nx" rowspan="1" colspan="1">
+<p id="d3a22cab465e3">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="d3a22cac46d14">
+<td id="d3a22caf4675c" rowspan="1" colspan="1">
+<p id="d3a22cb0468kv">oidcGroupsPrefix</p>
+</td>
+<td id="d3a22cb146wxb" rowspan="1" colspan="1">
+<p id="d3a22cb2469it">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="d3a22cb346hja">
+<td id="d3a22cb6463rr" rowspan="1" colspan="1">
+<p id="d3a22cb746eb5">oidcGroupsClaim</p>
+</td>
+<td id="d3a22cb846hng" rowspan="1" colspan="1">
+<p id="d3a22cb946he4">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="d3a22cba469a2">
+<td id="d3a22cbd46e4r" rowspan="1" colspan="1">
+<p id="d3a22cbe46j6j">oidcRequiredClaim</p>
+</td>
+<td id="d3a22cbf46xhl" rowspan="1" colspan="1">
+<p id="d3a22cc0460zn">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="d3a22cc146ar5">
+<td id="d3a22cc4469sh" rowspan="1" colspan="1">
+<p id="d3a22cc5462r8">oidcCAContent</p>
+</td>
+<td id="d3a22cc646ojq" rowspan="1" colspan="1">
+<p id="d3a22cc746s7d">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="d3a22cc846z1f">
+<td id="d3a22cc946etp" rowspan="6" colspan="1">
+<p id="d3a22cca4600s">Kube Controller Manager</p>
+</td>
+<td id="d3a22ccb46iif" rowspan="1" colspan="1">
+<p id="d3a22ccc460v8">horizontalPodAutoscalerSyncPeriod</p>
+</td>
+<td id="d3a22ccd46gqb" rowspan="1" colspan="1">
+<p id="d3a22cce46qio">默认为空。</p>
+</td>
+</tr>
+<tr id="d3a22ccf466oz">
+<td id="d3a22cd246s4s" rowspan="1" colspan="1">
+<p id="d3a22cd346wg7">horizontalPodAutoscalerTolerance</p>
+</td>
+<td id="d3a22cd446nfp" rowspan="1" colspan="1">
+<p id="d3a22cd546gbg">默认为空。</p>
+</td>
+</tr>
+<tr id="d3a22cd646en4">
+<td id="d3a22cd946m53" rowspan="1" colspan="1">
+<p id="d3a22cda46ox4">concurrentTTLAfterFinishedSyncs</p>
+</td>
+<td id="d3a22cdb46n4n" rowspan="1" colspan="1">
+<p id="d3a22cdc465lh">默认为空。</p>
+</td>
+</tr>
+<tr id="d3a22d00460e9">
+<td id="d3a22d0346zg4" rowspan="1" colspan="1">
+<p id="d3a22d0446559">kubeAPIQPS</p>
+</td>
+<td id="d3a22d0546m6a" rowspan="1" colspan="1">
+<p id="d3a22d0646se4">可选范围<span class="help-letter-space"></span>1~1000，默认为空。</p>
+</td>
+</tr>
+<tr id="d3a22d0746fin">
+<td id="d3a22d0a46l25" rowspan="1" colspan="1">
+<p id="d3a22d0b46dqq">kubeAPIBurst</p>
+</td>
+<td id="d3a22d0c4643o" rowspan="1" colspan="1">
+<p id="d3a22d0d46z51">可选范围<span class="help-letter-space"></span>1~1000，默认为空。</p>
+</td>
+</tr>
+<tr id="d3a22d0e46byp">
+<td id="d3a22d11469n3" rowspan="1" colspan="1">
+<p id="d3a22d124634h">featureGates</p>
+</td>
+<td id="d3a22d13463zl" rowspan="1" colspan="1">
+<p id="d3a22d1446dd8">可选参数为<span data-tag="ph" id="d3a22d1546c8g" class="ph"><code code-type="xCode" data-tag="code" class="code">TTLAfterFinished</code></span>，默认为空。</p>
+</td>
+</tr>
+<tr id="d3a22d1e46sve">
+<td id="d3a22d1f46083" rowspan="1" colspan="1">
+<p id="d3a22d2046ciu">Kube Scheduler</p>
+</td>
+<td id="d3a22d2146pjv" rowspan="1" colspan="1">
+<p id="d3a22d22460xi">涉及多个。目前白名单开放中。</p>
+</td>
+<td id="d3a22d2346rzo" rowspan="1" colspan="1">
+<p id="d3a22d2446wsn">关于通过<span class="help-letter-space"></span>Kube Scheduler<span class="help-letter-space"></span>自定义参数，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/customize-the-scheduler-parameters" id="d3a4287146aw7" title="" class="xref">自定义调度器参数</a>。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="c96bd84046xwd" class="section">
+<h2 id="c96bd84146q5q"><span data-tag="ph" id="d1ec0da1461dh" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群<span class="help-letter-space"></span>Pro<span class="help-letter-space"></span>版</span></h2>
+<table autofit="true" id="fb1fbb804689q" tablecolswidth="20.03 40.06 39.91" tablewidth="100" class="table">
+<colgroup colwidth="0.61*" style="width:20.03%"></colgroup>
+<colgroup colwidth="1.21*" style="width:40.06%"></colgroup>
+<colgroup colwidth="1.21*" style="width:39.91%"></colgroup>
+<tbody class="tbody">
+<tr id="fb1fbb8146g2b">
+<td id="fb1fbb8246ret" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="fb1fbb8346gkz"><b>组件名</b></p>
+</td>
+<td id="fb1fbb8446zev" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="fb1fbb8546r65"><b>参数</b></p>
+</td>
+<td id="fb1fbb8646mv8" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="fb1fbb8746gmj"><b>参数说明</b></p>
+</td>
+</tr>
+<tr id="fb1fbb8846gl8" style="height:42px">
+<td id="fb1fbb8946rte" rowspan="16" colspan="1">
+<p id="fb1fbb8a46pdu">Kube API Server</p>
+</td>
+<td id="fb1fbb8b46p3c" rowspan="1" colspan="1">
+<p id="fb1fbb8c462q8">enableAdmissionPlugins</p>
+</td>
+<td id="fb1fbb8d461tg" rowspan="1" colspan="1">
+<p id="fb1fbb8e46296">默认为空。</p>
+</td>
+</tr>
+<tr id="fb1fbb8f46oig">
+<td id="fb1fbb9246zv7" rowspan="1" colspan="1">
+<p id="fb1fbb93469tz">serviceNodePortRange</p>
+</td>
+<td id="fb1fbb9646p59" rowspan="1" colspan="1">
+<p id="fb1fbb9746hdq">可选范围<span class="help-letter-space"></span>10000～65535，默认为空。</p>
+<div id="fb1fbb98462ij" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+<p id="fb1fbb9946ion">您在修改<span class="help-letter-space"></span>NodePort<span class="help-letter-space"></span>端口范围时必须十分谨慎。务必保证<span class="help-letter-space"></span>NodePort<span class="help-letter-space"></span>端口范围与集群节点上<span class="help-letter-space"></span>Linux<span class="help-letter-space"></span>内核提供的<code code-type="xCode" data-tag="code" class="code">net.ipv4.ip_local_port_range</code>参数的端口范围不冲突。更多信息，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/faq-about-network-management#023c3ce009sv0" id="fb22057046298" title="" class="xref">如何正确配置<span class="help-letter-space"></span>NodePort<span class="help-letter-space"></span>范围？</a>。</p>
+</div></div>
+</td>
+</tr>
+<tr id="fb1fbb9a46fzj">
+<td id="fb1fbb9d46ftj" rowspan="1" colspan="1">
+<p id="fb1fbb9e46pfc">requestTimeout</p>
+</td>
+<td id="fb1fbb9f461u3" rowspan="1" colspan="1">
+<p id="fb1fbba0461la">默认为空。</p>
+</td>
+</tr>
+<tr id="fb1fbba146vvj">
+<td id="fb1fbba446wex" rowspan="1" colspan="1">
+<p id="fb1fbba546gou">defaultNotReadyTolerationSeconds</p>
+</td>
+<td id="fb1fbba646xdw" rowspan="1" colspan="1">
+<p id="fb1fbba746tv4">默认为空。</p>
+</td>
+</tr>
+<tr id="fb1fe290467ib">
+<td id="fb1fe29346xqm" rowspan="1" colspan="1">
+<p id="fb1fe29446dri">defaultUnreachableTolerationSeconds</p>
+</td>
+<td id="fb1fe29546g2z" rowspan="1" colspan="1">
+<p id="fb1fe29646utt">默认为空。</p>
+</td>
+</tr>
+<tr id="fb1fe29746ifc">
+<td id="fb1fe29a46feb" rowspan="1" colspan="1">
+<p id="fb1fe29b46xtq">maxMutatingRequestsInflight</p>
+</td>
+<td id="fb1fe29c46eq4" rowspan="1" colspan="1">
+<p id="fb1fe29d46d3l">可选范围<span class="help-letter-space"></span>1~1000，默认为空。</p>
+</td>
+</tr>
+<tr id="fb1fe29e4668h">
+<td id="fb1fe2a14679y" rowspan="1" colspan="1">
+<p id="fb1fe2a246h5f">maxRequestsInflight</p>
+</td>
+<td id="fb1fe2a346b80" rowspan="1" colspan="1">
+<p id="fb1fe2a446ibp">可选范围<span class="help-letter-space"></span>1~3000，默认为空。</p>
+</td>
+</tr>
+<tr id="fb1fe2a5465tw">
+<td id="fb1fe2a846u2y" rowspan="1" colspan="1">
+<p id="fb1fe2a9464sq">featureGates</p>
+</td>
+<td id="fb1fe2aa46es3" rowspan="1" colspan="1">
+<p id="fb1fe2ab46o74">可选参数包括<span data-tag="ph" id="fb1fe2ac46ksy" class="ph"><code code-type="xCode" data-tag="code" class="code">ServerSideApply</code></span>、<span data-tag="ph" id="fb1fe2ad46x6g" class="ph"><code code-type="xCode" data-tag="code" class="code">TTLAfterFinished</code></span>、<span data-tag="ph" id="fb1fe2ae4673c" class="ph"><code code-type="xCode" data-tag="code" class="code">EphemeralContainers</code></span>、<span data-tag="ph" id="fb1fe2af46oal" class="ph"><code code-type="xCode" data-tag="code" class="code">RemoveSelfLink</code></span>、<span data-tag="ph" id="fb1fe2b046wxa" class="ph"><code code-type="xCode" data-tag="code" class="code">HPAScaleToZero</code></span>，默认为空。</p>
+<div data-tag="note" id="fb2030b046t9x" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+<p id="fb2030b146aec">支持在<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群中使用<span data-tag="ph" id="fb2030b246ekl" class="ph"><code code-type="xCode" data-tag="code" class="code">HPAScaleToZero</code></span>，不支持在<span class="help-letter-space"></span>1.24<span class="help-letter-space"></span>及以上集群中修改<span data-tag="ph" id="fb2030b346rat" class="ph"><code code-type="xCode" data-tag="code" class="code">RemoveSelfLink</code></span>。</p>
+</div></div>
+</td>
+</tr>
+<tr id="66421921cdpr8">
+<td id="72064fd848xbi" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="cb14b08346avv">oidcIssuerURL</p>
+</td>
+<td id="7065f4efb7e3d" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="26f3507e17p76">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="b63d90cf3ceja">
+<td id="dc83e2eafanxt" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="ec70d9fcd3b4q">oidcClientId</p>
+</td>
+<td id="4aaf9e58d4o4p" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="50d762e043ccg">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="12f104db1421w">
+<td id="b231dc3c04j7t" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="09fbed6bec5sh">oidcUsernameClaim</p>
+</td>
+<td id="9047f017afe8q" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="2bc8e5b100qwt">默认值为<span data-tag="ph" id="f5e435f0baeuu" class="ph"><code code-type="xCode" data-tag="code" class="code">sub</code></span>。支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>以上集群。</p>
+</td>
+</tr>
+<tr id="8404ae8badf55">
+<td id="692588af61yiu" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="ac42cc2c8e0hc">oidcUsernamePrefix</p>
+</td>
+<td id="1c4d101a1avpu" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="0c3742f205gbx">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="01f88e4908rsf">
+<td id="8e78f48c9dp2y" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="fc3e198410miz">oidcGroupsPrefix</p>
+</td>
+<td id="a1c8f33b35fbk" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="d24222b73fdnd">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="444a743386svz">
+<td id="c8f8ccabb0ppq" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="934d6c9c27hqz">oidcGroupsClaim</p>
+</td>
+<td id="9c07288e829j6" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="210cc34f26jml">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="b363b1c800sf0">
+<td id="cf1da15eaat6x" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="9b59e55fb0g1u">oidcRequiredClaim</p>
+</td>
+<td id="11bfc2a2fdl23" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="f5edb6f146bed">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="1a7d06779c353">
+<td id="58c1735b70wv5" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="273873ab49kny">oidcCAContent</p>
+</td>
+<td id="ec72b22fb7kkv" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="a5406e195asyj">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="fb2057e146old">
+<td id="fb2057e246zwk" rowspan="10" colspan="1">
+<p id="fb2057e346fmk">Kube Controller Manager</p>
+</td>
+<td id="fb2057e446dat" rowspan="1" colspan="1">
+<p id="fb2057e546q1u">horizontalPodAutoscalerSyncPeriod</p>
+</td>
+<td id="fb2057e6468fa" rowspan="1" colspan="1">
+<p id="fb2057e746phy">默认为空。</p>
+</td>
+</tr>
+<tr id="fb2057ef46nyl">
+<td id="fb2057f246dh3" rowspan="1" colspan="1">
+<p id="fb2057f346ukz">concurrentTTLAfterFinishedSyncs</p>
+</td>
+<td id="fb2057f446ski" rowspan="1" colspan="1">
+<p id="fb2057f546v3r">默认为空。</p>
+</td>
+</tr>
+<tr id="fb2057f646356">
+<td id="fb2057f946klz" rowspan="1" colspan="1">
+<p id="fb2057fa46xl0">largeClusterSizeThreshold</p>
+</td>
+<td id="fb2057fb468jj" rowspan="1" colspan="1">
+<p id="fb2057fc46gku">默认为空。</p>
+</td>
+</tr>
+<tr id="fb2057fd46a7p">
+<td id="fb2058004625h" rowspan="1" colspan="1">
+<p id="fb205801465jc">unhealthyZoneThreshold</p>
+</td>
+<td id="fb20580246qu1" rowspan="1" colspan="1">
+<p id="fb20580346foc">默认为空。</p>
+</td>
+</tr>
+<tr id="fb20580446897">
+<td id="fb205807467pe" rowspan="1" colspan="1">
+<p id="fb20580846l5b">secondaryNodeEvictionRate</p>
+</td>
+<td id="fb20580946non" rowspan="1" colspan="1">
+<p id="fb20580a46wfg">默认为空。</p>
+</td>
+</tr>
+<tr id="fb20580b46vla">
+<td id="fb20580e46qys" rowspan="1" colspan="1">
+<p id="fb20580f46ykn">nodeEvictionRate</p>
+</td>
+<td id="fb20581046wyd" rowspan="1" colspan="1">
+<p id="fb20581146r0k">默认为空。</p>
+</td>
+</tr>
+<tr id="fb20581246nn9">
+<td id="fb20581546ltl" rowspan="1" colspan="1">
+<p id="fb20581646q22">podEvictionTimeout</p>
+</td>
+<td id="fb20581746t4u" rowspan="1" colspan="1">
+<p id="fb20581846rtu">默认为空。</p>
+</td>
+</tr>
+<tr id="fb205819462yw">
+<td id="fb20581c46xfb" rowspan="1" colspan="1">
+<p id="fb20581d46va8">kubeAPIQPS</p>
+</td>
+<td id="fb20581e46tnx" rowspan="1" colspan="1">
+<p id="fb20581f461xv">可选范围<span class="help-letter-space"></span>1~1000，默认为空。</p>
+</td>
+</tr>
+<tr id="fb20582046o5j">
+<td id="fb20582346ley" rowspan="1" colspan="1">
+<p id="fb20582446mrg">kubeAPIBurst</p>
+</td>
+<td id="fb20582546wj4" rowspan="1" colspan="1">
+<p id="fb20582646cp9">可选范围<span class="help-letter-space"></span>1~1000，默认为空。</p>
+</td>
+</tr>
+<tr id="fb20582746jdt">
+<td id="fb20582a46xij" rowspan="1" colspan="1">
+<p id="fb20582b46nwj">featureGates</p>
+</td>
+<td id="fb20582c46e0j" rowspan="1" colspan="1">
+<p id="fb20582d46ymd">可选参数为<span data-tag="ph" id="fb20582e46zv6" class="ph"><code code-type="xCode" data-tag="code" class="code">TTLAfterFinished</code></span>，默认为空。</p>
+</td>
+</tr>
+<tr id="fb20582f46uk7">
+<td id="fb20583046lwu" rowspan="1" colspan="1">
+<p id="fb20583146upb">Cloud Controller Manager</p>
+</td>
+<td id="fb205832460nr" rowspan="1" colspan="1">
+<p id="fb205833462s3">routeTableIDs</p>
+</td>
+<td id="fb20583446841" rowspan="1" colspan="1">
+<p id="fb20583546l9b">默认为空。如果<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>内有多个路由表，可以手动设置<span class="help-letter-space"></span>CCM<span class="help-letter-space"></span>支持多个路由表<span class="help-letter-space"></span>ID，以半角逗号（,）分隔，例如<span data-tag="ph" id="fb205836464q4" class="ph"><code code-type="xCode" data-tag="code" class="code">vtb-**,vtb***</code></span>。</p>
+</td>
+</tr>
+<tr id="fb20583746s2q">
+<td id="fb205838462ue" rowspan="1" colspan="1">
+<p id="fb20583946oax">Kube Scheduler</p>
+</td>
+<td id="fb20583a46rcv" rowspan="1" colspan="2">
+<p id="fb20583d46hfo">关于通过<span class="help-letter-space"></span>Kube Scheduler<span class="help-letter-space"></span>自定义参数，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/customize-the-scheduler-parameters" id="fb22057146fk5" title="" class="xref">自定义调度器参数</a>。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="d44a48f046eg1" class="section">
+<h2 id="d44a48f1464dh"><span data-tag="ph" id="db8a844146wve" docid="4431993" is-conref="true" class="ph">ACK<span class="help-letter-space"></span>灵骏集群</span></h2>
+<table autofit="true" id="table-a0u-fvs-4ps" tablecolswidth="20.03 36.22 43.75" tablewidth="100" class="table">
+<colgroup colwidth="0.61*" style="width:20.03%"></colgroup>
+<colgroup colwidth="1.1*" style="width:36.22%"></colgroup>
+<colgroup colwidth="1.33*" style="width:43.75%"></colgroup>
+<tbody class="tbody">
+<tr id="row-kdn-bzs-zr6">
+<td id="task-2025933-entry-835-1gc-noc" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="c3bed4f10ax14"><b>组件名</b></p>
+</td>
+<td id="task-2025933-entry-pdc-q9l-xe8" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="c3bed4f20a9f8"><b>参数</b></p>
+</td>
+<td id="task-2025933-entry-ukp-x6r-udr" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="c3bed4f30astn"><b>参数说明</b></p>
+</td>
+</tr>
+<tr id="b7ee366046sjc">
+<td id="b7ee5d70461ex" rowspan="16" colspan="1">
+<p id="c3befc000amvt">Kube API Server</p>
+</td>
+<td id="b7ee5d7246tnz" rowspan="1" colspan="1">
+<p id="be69e93046785">enableAdmissionPlugins</p>
+</td>
+<td id="b7ee5d7446isa" rowspan="1" colspan="1">
+<p id="bfcf93b046m56">默认为空。</p>
+</td>
+</tr>
+<tr id="row-g56-xs3-tpu">
+<td id="entry-lvv-38j-jcq" rowspan="1" colspan="1">
+<p id="c3befc010ageq">serviceNodePortRange</p>
+</td>
+<td id="entry-d0a-pvy-imj" rowspan="1" colspan="1">
+<p id="c3befc020acnx">可选范围<span class="help-letter-space"></span>10000～65535，默认为空。</p>
+<div id="004d26b00arpo" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+<p id="eb96b8d00aoud">请谨慎修改<span class="help-letter-space"></span>NodePort<span class="help-letter-space"></span>端口范围，务必保证<span class="help-letter-space"></span>NodePort<span class="help-letter-space"></span>端口范围与集群节点上<span class="help-letter-space"></span>Linux<span class="help-letter-space"></span>内核提供的<code code-type="xCode" data-tag="code" class="code">net.ipv4.ip_local_port_range</code>参数的端口范围不冲突。更多信息，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/faq-about-network-management#023c3ce009sv0" id="112342d046mhm" title="" class="xref">如何正确配置<span class="help-letter-space"></span>NodePort<span class="help-letter-space"></span>范围？</a>。</p>
+</div></div>
+</td>
+</tr>
+<tr id="row-fa3-blw-yxi">
+<td id="entry-l2l-ue6-t4z" rowspan="1" colspan="1">
+<p id="c3bf23140aipy">requestTimeout</p>
+</td>
+<td id="entry-15f-cye-8bf" rowspan="1" colspan="1">
+<p id="c3bf4a200am1q">默认为空。</p>
+</td>
+</tr>
+<tr id="row-qnm-in3-gci">
+<td id="entry-af7-ky1-uto" rowspan="1" colspan="1">
+<p id="c3bf71300au0o">defaultNotReadyTolerationSeconds</p>
+</td>
+<td id="entry-p6z-q5v-dxc" rowspan="1" colspan="1">
+<p id="c3bf71310afbf">默认为空。</p>
+</td>
+</tr>
+<tr id="row-66t-dyr-fw7">
+<td id="entry-wv1-7dh-3aj" rowspan="1" colspan="1">
+<p id="c3bf98400a60f">defaultUnreachableTolerationSeconds</p>
+</td>
+<td id="entry-f5b-wgj-i2g" rowspan="1" colspan="1">
+<p id="c3bf98410abp2">默认为空。</p>
+</td>
+</tr>
+<tr id="row-koy-31s-tff">
+<td id="entry-c3i-hyj-f6o" rowspan="1" colspan="1">
+<p id="c3bfbf510aesq">maxMutatingRequestsInflight</p>
+</td>
+<td id="entry-fv2-66q-8ma" rowspan="1" colspan="1">
+<p id="c3bfbf520akjx">可选范围<span class="help-letter-space"></span>1~1000，默认为空。</p>
+</td>
+</tr>
+<tr id="e40e725046lgi">
+<td id="e40e725346izw" rowspan="1" colspan="1">
+<p id="e5a69e804662j">maxRequestsInflight</p>
+</td>
+<td id="e40e7255469bh" rowspan="1" colspan="1">
+<p id="e7845f3046zhp">可选范围<span class="help-letter-space"></span>1~3000，默认为空。</p>
+</td>
+</tr>
+<tr id="d0a014d046cux">
+<td id="d0a014d346rs6" rowspan="1" colspan="1">
+<p id="d3c856e046133">featureGates</p>
+</td>
+<td id="d0a03be1466mx" rowspan="1" colspan="1">
+<p id="d0a03be246jwr">可选参数包括<span data-tag="ph" id="codeph-1a0-4en-uze" class="ph"><code code-type="xCode" data-tag="code" class="code">ServerSideApply</code></span>、<span data-tag="ph" id="codeph-563-ngb-1b1" class="ph"><code code-type="xCode" data-tag="code" class="code">TTLAfterFinished</code></span>、<span data-tag="ph" id="codeph-muz-aqe-jq6" class="ph"><code code-type="xCode" data-tag="code" class="code">EphemeralContainers</code></span>、<span data-tag="ph" id="codeph-iqb-ljn-axn" class="ph"><code code-type="xCode" data-tag="code" class="code">RemoveSelfLink</code></span>、<span data-tag="ph" id="codeph-iyy-blb-591" class="ph"><code code-type="xCode" data-tag="code" class="code">HPAScaleToZero</code></span>，默认为空。</p>
+<div data-tag="note" id="note-n3k-z0f-u50" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+<p id="c3c034860ad00">支持在<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群中使用<span data-tag="ph" id="codeph-el8-p0t-8uv" class="ph"><code code-type="xCode" data-tag="code" class="code">HPAScaleToZero</code></span>，不支持在<span class="help-letter-space"></span>1.24<span class="help-letter-space"></span>及以上集群中修改<span data-tag="ph" id="codeph-52l-ioq-pqi" class="ph"><code code-type="xCode" data-tag="code" class="code">RemoveSelfLink</code></span>。</p>
+</div></div>
+</td>
+</tr>
+<tr id="row-v79-bdd-uas">
+<td id="entry-rx1-5ep-gev" rowspan="1" colspan="1">
+<p id="c3bfbf590ayr8">oidcIssuerURL</p>
+</td>
+<td id="entry-x0o-is9-mvr" rowspan="1" colspan="1">
+<p id="c3bfbf5a0aoi9">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="row-p2w-y9f-c6j">
+<td id="entry-kxl-6am-ud8" rowspan="1" colspan="1">
+<p id="c3bfe6620a8r1">oidcClientId</p>
+</td>
+<td id="entry-xj8-3ys-hu7" rowspan="1" colspan="1">
+<p id="c3bfe6630af2y">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="row-szm-znr-eh8">
+<td id="entry-5b1-yck-t5z" rowspan="1" colspan="1">
+<p id="c3bfe66a0aneb">oidcUsernameClaim</p>
+</td>
+<td id="entry-hhf-mu9-6h2" rowspan="1" colspan="1">
+<p id="c3bfe66b0afgz">默认值为<span data-tag="ph" id="codeph-ja5-yax-tke" class="ph"><code code-type="xCode" data-tag="code" class="code">sub</code></span>。支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>以上集群。</p>
+</td>
+</tr>
+<tr id="row-490-8ch-jvb">
+<td id="entry-5ux-f3a-duc" rowspan="1" colspan="1">
+<p id="c3c00d720aax1">oidcUsernamePrefix</p>
+</td>
+<td id="entry-y1d-jd9-gmd" rowspan="1" colspan="1">
+<p id="c3c00d730aytd">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="09b852a046zq2">
+<td id="09b852a346jax" rowspan="1" colspan="1">
+<p id="0ad5a98046lkx">oidcGroupsPrefix</p>
+</td>
+<td id="09b852a5465fi" rowspan="1" colspan="1">
+<p id="0cc396d0462qj">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="row-mul-xhj-4qq">
+<td id="entry-d90-oth-fni" rowspan="1" colspan="1">
+<p id="c3c00d760a607">oidcGroupsClaim</p>
+</td>
+<td id="entry-s5l-v7y-s7g" rowspan="1" colspan="1">
+<p id="c3c00d770anxk">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="row-uen-ghb-l52">
+<td id="entry-fw7-va0-tvp" rowspan="1" colspan="1">
+<p id="c3c034800ao5z">oidcRequiredClaim</p>
+</td>
+<td id="entry-urx-puv-z4o" rowspan="1" colspan="1">
+<p id="c3c034810az83">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="row-p0a-y3f-56r">
+<td id="entry-u9l-iou-hcy" rowspan="1" colspan="1">
+<p id="14e7063046b6q">oidcCAContent</p>
+</td>
+<td id="entry-zbc-s92-33e" rowspan="1" colspan="1">
+<p id="18811ce046bok">默认为空。 支持<span class="help-letter-space"></span>1.18<span class="help-letter-space"></span>及以上集群。</p>
+</td>
+</tr>
+<tr id="row-pd6-9a7-blj">
+<td id="entry-5wm-zrk-sal" rowspan="11" colspan="1">
+<p id="c3c05b900awsz">Kube Controller Manager</p>
+</td>
+<td id="entry-hwu-pg7-vrp" rowspan="1" colspan="1">
+<p id="c3c05b910a9ir">horizontalPodAutoscalerSyncPeriod</p>
+</td>
+<td id="entry-yhh-7b2-pw1" rowspan="1" colspan="1">
+<p id="c3c05b920ahal">默认为空。</p>
+</td>
+</tr>
+<tr id="row-ay0-k7e-8eh">
+<td id="entry-tx9-z5g-57x" rowspan="1" colspan="1">
+<p id="c3c05b950aykc">horizontalPodAutoscalerTolerance</p>
+</td>
+<td id="entry-7dk-9v0-50r" rowspan="1" colspan="1">
+<p id="c3c05b960axb9">默认为空。</p>
+</td>
+</tr>
+<tr id="row-tjr-8x5-avl">
+<td id="entry-l4v-utj-2be" rowspan="1" colspan="1">
+<p id="c3c05b990a97n">concurrentTTLAfterFinishedSyncs</p>
+</td>
+<td id="entry-vkw-bkv-18i" rowspan="1" colspan="1">
+<p id="c3c05b9a0ax1c">默认为空。</p>
+</td>
+</tr>
+<tr id="row-159-g02-emq">
+<td id="entry-ivg-rx2-pg3" rowspan="1" colspan="1">
+<p id="c3c082a10ash4">largeClusterSizeThreshold</p>
+</td>
+<td id="entry-q8g-b8n-g6c" rowspan="1" colspan="1">
+<p id="c3c082a20alhv">默认为空。</p>
+</td>
+</tr>
+<tr id="row-9jf-xs1-jwr">
+<td id="entry-nn0-dl2-4qw" rowspan="1" colspan="1">
+<p id="c3c082a50a55y">unhealthyZoneThreshold</p>
+</td>
+<td id="entry-qau-xx6-5ld" rowspan="1" colspan="1">
+<p id="c3c082a60anii">默认为空。</p>
+</td>
+</tr>
+<tr id="row-cqp-b5o-c7s">
+<td id="entry-yzg-3sw-ye9" rowspan="1" colspan="1">
+<p id="c3c082a90acwd">secondaryNodeEvictionRate</p>
+</td>
+<td id="entry-l81-3ww-wh0" rowspan="1" colspan="1">
+<p id="c3c082aa0a0u9">默认为空。</p>
+</td>
+</tr>
+<tr id="row-1z4-7jg-5s8">
+<td id="entry-j7d-q0i-ecz" rowspan="1" colspan="1">
+<p id="c3c0a9b00akbf">nodeEvictionRate</p>
+</td>
+<td id="entry-rmx-idy-41c" rowspan="1" colspan="1">
+<p id="c3c0a9b10aawl">默认为空。</p>
+</td>
+</tr>
+<tr id="row-6zc-jrb-0ut">
+<td id="entry-pyi-76g-4q6" rowspan="1" colspan="1">
+<p id="c3c0a9b40a705">podEvictionTimeout</p>
+</td>
+<td id="entry-z6b-uks-qzp" rowspan="1" colspan="1">
+<p id="c3c0a9b50aboo">默认为空。</p>
+</td>
+</tr>
+<tr id="row-qkh-w8g-uk3">
+<td id="entry-fen-os5-h0c" rowspan="1" colspan="1">
+<p id="c3c0a9b80amwh">kubeAPIQPS</p>
+</td>
+<td id="entry-rfg-r1r-0cg" rowspan="1" colspan="1">
+<p id="c3c0a9b90axkh">可选范围<span class="help-letter-space"></span>1~1000，默认为空。</p>
+</td>
+</tr>
+<tr id="row-xgh-c2g-u49">
+<td id="entry-sp7-twu-8nz" rowspan="1" colspan="1">
+<p id="c3c0a9bc0a8od">kubeAPIBurst</p>
+</td>
+<td id="entry-fy2-qja-wv6" rowspan="1" colspan="1">
+<p id="c3c0d0c00ac55">可选范围<span class="help-letter-space"></span>1~1000，默认为空。</p>
+</td>
+</tr>
+<tr id="row-jk7-70j-uf6">
+<td id="entry-nw5-9x8-wuo" rowspan="1" colspan="1">
+<p id="c3c0d0c30axq9">featureGates</p>
+</td>
+<td id="entry-s9p-so1-8ri" rowspan="1" colspan="1">
+<p id="c3c0d0c40am7n">可选参数为<span data-tag="ph" id="codeph-2er-nax-vfw" class="ph"><code code-type="xCode" data-tag="code" class="code">TTLAfterFinished</code></span>，默认为空。</p>
+</td>
+</tr>
+<tr id="row-q4p-1nt-xra">
+<td id="entry-adn-zc9-006" rowspan="1" colspan="1">
+<p id="c3c0d0c50aseu">Cloud Controller Manager</p>
+</td>
+<td id="entry-ai5-40b-45e" rowspan="1" colspan="1">
+<p id="c3c0d0c60azct">routeTableIDs</p>
+</td>
+<td id="entry-ihb-7lu-nny" rowspan="1" colspan="1">
+<p id="c3c0d0c70angt">默认为空。如果<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>内有多个路由表，可以手动设置<span class="help-letter-space"></span>CCM<span class="help-letter-space"></span>支持多个路由表<span class="help-letter-space"></span>ID，以半角逗号（,）分隔，例如<span data-tag="ph" id="codeph-5sv-yzv-nso" class="ph"><code code-type="xCode" data-tag="code" class="code">vtb-**,vtb***</code></span>。</p>
+</td>
+</tr>
+<tr id="4ceb9c004677j">
+<td id="4ceb9c0146hnf" rowspan="1" colspan="1">
+<p id="4ceb9c02464qy">Kube Scheduler</p>
+</td>
+<td id="4ceb9c0346m3q" rowspan="1" colspan="2">
+<p id="4cebc31046r5s">关于通过<span class="help-letter-space"></span>Kube Scheduler<span class="help-letter-space"></span>自定义参数，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/customize-the-scheduler-parameters" id="112342d146fsf" title="" class="xref">自定义调度器参数</a>。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</div>
+</section>
+</div>
+</main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/ack/ack-managed-and-ack-dedicated/user-guide/manage-namespaces-and-resource-quotas-1" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：管理命名空间与配额</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/ack/ack-managed-and-ack-dedicated/user-guide/hot-migration-from-ack-standard-clusters-to-ack-pro-clusters" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：热迁移ACK托管集群基础版至ACK托管集群Pro版<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

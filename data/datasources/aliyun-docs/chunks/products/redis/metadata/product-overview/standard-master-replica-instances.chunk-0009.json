@@ -1,0 +1,14 @@
+{
+  "id": "redis:product-overview/standard-master-replica-instances:9",
+  "document_id": "redis:product-overview/standard-master-replica-instances",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "selection",
+  "title": "标准架构的分类详解与适用场景-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/standard-master-replica-instances",
+  "chunk_index": 9,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/product-overview/standard-master-replica-instances.chunk-0009.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/standard-master-replica-instances.md",
+  "heading_path": "标准架构 > 相关文档 > 权益",
+  "char_count": 257
+}

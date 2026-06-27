@@ -1,0 +1,6 @@
+02-bdab599-dirty-284af3 name: tensorflow ports: - containerPort: 2222 name: tfjob-port resources: limits: cpu: '1' workingDir: /opt/tf-benchmarks/scripts/tf_cnn_benchmarks restartPolicy: OnFailure Worker: replicas: 4 template: metadata: creationTimestamp: null labels: pod-group.scheduling.sigs.k8s.io/name: tf-smoke-gpu pod-group.scheduling.sigs.k8s.io/min-available: "5" spec: containers: - args: - python - tf_cnn_benchmarks.py - --batch_size=32 - --model=resnet50 - --variable_update=parameter_server - --flush_stdout=true - --num_gpus=1 - --local_parameter_device=cpu - --device=gpu - --data_format=NHWC image: registry.cn-hangzhou.aliyuncs.com/kubeflow-images-public/tf-benchmarks-gpu:v20171202-bdab599-dirty-284af3 name: tensorflow ports: - containerPort: 2222 name: tfjob-port resources: limits: nvidia.com/gpu: 2 workingDir: /opt/tf-benchmarks/scripts/tf_cnn_benchmarks restartPolicy: OnFailure
+不使用Gang scheduling功能
+执行以下命令查看Pod状态。
+kubectl get pods
+系统输出类似以下结果，表示集群中只有2个Worker类型的Pod处于Running状态，剩余2个Worker类型的Pod处于Pending状态。
+NAME READY STATUS RESTARTS AGE tf-smoke-gpu-ps-0 1/1 Running 0 6m43s tf-smoke-gpu-worker-0 1/1 Running 0 6m43s tf-smoke-gpu-worker-1 1/1 Running 0 6m43s tf-smoke-gpu-work

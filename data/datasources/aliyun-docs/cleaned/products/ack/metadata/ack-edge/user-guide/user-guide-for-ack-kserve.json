@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-edge/user-guide/user-guide-for-ack-kserve",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "deployment",
+  "title": "在ACK Edge集群中部署和管理ack-kserve组件-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/user-guide/user-guide-for-ack-kserve",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-edge/user-guide/user-guide-for-ack-kserve.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/user-guide/user-guide-for-ack-kserve.md",
+  "word_count": 982,
+  "text_units": 2321,
+  "local_links": 1,
+  "external_links": 75,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

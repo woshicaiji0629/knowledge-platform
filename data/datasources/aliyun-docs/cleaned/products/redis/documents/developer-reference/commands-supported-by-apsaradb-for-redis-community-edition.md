@@ -1,0 +1,428 @@
+# 命令支持范围与使用限制-云数据库 Tair（兼容 Redis®）-阿里云
+
+Source: https://help.aliyun.com/zh/redis/developer-reference/commands-supported-by-apsaradb-for-redis-community-edition
+
+# Redis开源版命令支持
+Redis开源版支持多个引擎版本和架构类型，不同的引擎版本和架构类型对Redis命令的支持度有所不同。本文以Redis的相关命令为基准，介绍详细的命令支持情况和使用限制，为您的实例选型提供相关参考。
+## 命令支持
+云数据库 Tair（兼容 Redis）兼容多个原生Redis版本：
+Tair（企业版）[内存型](../product-overview/dram-based-instances.md)（兼容Redis 7.0）：完全兼容Redis7.0版本及以下版本接口，额外支持Tair扩展数据结构。
+Tair（企业版）[内存型](../product-overview/dram-based-instances.md)（兼容Redis 6.0）：完全兼容Redis6.2版本及以下版本接口，额外支持Tair扩展数据结构。
+Tair（企业版）[内存型](../product-overview/dram-based-instances.md)（兼容Redis 5.0）：完全兼容Redis5.0版本及以下版本接口，额外支持Tair扩展数据结构。
+Tair（企业版）[持久内存型](../product-overview/persistent-memory-optimized-instances-1.md)：兼容Redis6.0版本及以下版本接口，部分限制请参见[Tair（企业版）命令支持与限制](limits-on-commands-supported-by-apsaradb-for-redis-enhanced-edition.md)。
+Tair（企业版）[磁盘型](../product-overview/essd-based-instances-1.md)：兼容Redis6.0版本及以下版本接口，部分限制请参见[Tair（企业版）命令支持与限制](limits-on-commands-supported-by-apsaradb-for-redis-enhanced-edition.md)。
+Redis开源版：可选择7.0、6.0、5.0，完全兼容社区大版本并向下兼容。
+为便于浏览和内容表达，本文的表格约定使用下述注释：
+✔️表示支持该命令。
+❌表示不支持该命令。
+➖表示在原生Redis的该版本下，该命令尚未开始支持。例如原生Redis中，TOUCH命令在3.2.1及以上版本才开始支持，表格中的2.8版本下该命令即被标记为➖。
+数字标记①：集群架构实例在执行该命令时，需要开通直连访问并使用直连地址连接至实例，详情请参见[使用直连模式连接实例](../user-guide/use-a-private-endpoint-to-connect-to-an-apsaradb-for-redis-instance.md)。通过Proxy节点的连接地址连接至实例时，也兼容支持该命令。
+数字标记②：为兼容某些客户端框架，执行CONFIG SET命令时仅返回OK，不会真正地修改参数。
+本文以最新内核小版本进行介绍，部分命令可能在指定小版本后开放支持，详情请参见[Redis](../support/apsaradb-for-redis-community-edition.md)[开源版小版本发布日志](../support/apsaradb-for-redis-community-edition.md)和[Proxy](../support/apsaradb-for-redis-proxy-nodes.md)[小版本发布日志](../support/apsaradb-for-redis-proxy-nodes.md)。
+说明
+各命令族中的命令，如无特殊备注和说明，默认支持Redis实例的所有架构，即标准架构、集群架构及读写分离架构。集群架构与读写分离架构在使用某些特定的命令时存在一些限制，更多信息请参见[集群架构与读写分离实例的命令限制](limits-on-commands-supported-by-cluster-and-read-write-splitting-instances.md)。
+### Bitmap
+| 命令 | 2.8 版本 | 4.0 版本 | 5.0 版本 | 6.0 版本 | 7.0 版本 |
+| --- | --- | --- | --- | --- | --- |
+| BITCOUNT | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| BITFIELD | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| BITFIELD_RO | ➖ | ➖ | ➖ | ✔️ | ✔️ |
+| BITOP | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| BITPOS | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| GETBIT | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SETBIT | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+### Cluster management
+Cluster命令族的命令不适用于标准架构。
+通过代理节点连接实例时，会兼容支持部分Cluster命令族的命令，具体为CLUSTER INFO、CLUSTER KEYSLOT、CLUSTER NODES、CLUSTER SLAVES、CLUSTER SLOTS。
+Redis开源版5.0版自5.1.3版本、Redis开源版6.0版自0.1.14版本开始支持READONLY与READWRITE命令，之前版本不支持。
+| 命令 | 2.8 版本 | 4.0 版本 | 5.0 版本 | 6.0 版本 | 7.0 版本 |
+| --- | --- | --- | --- | --- | --- |
+| CLUSTER ADDSLOTS | ➖ | ❌ | ❌ | ❌ | ❌ |
+| CLUSTER ADDSLOTSRANGE | ➖ | ➖ | ➖ | ➖ | ❌ |
+| CLUSTER BUMPEPOCH | ➖ | ❌ | ❌ | ❌ | ❌ |
+| CLUSTER COUNT-FAILURE-REPORTS | ➖ | ❌ | ❌ | ❌ | ❌ |
+| CLUSTER COUNTKEYSINSLOT ① | ➖ | ❌ | ❌ | ❌ | ❌ |
+| CLUSTER DELSLOTS | ➖ | ❌ | ❌ | ❌ | ❌ |
+| CLUSTER DELSLOTSRANGE | ➖ | ➖ | ➖ | ➖ | ❌ |
+| CLUSTER FAILOVER | ➖ | ❌ | ❌ | ❌ | ❌ |
+| CLUSTER FLUSHSLOTS | ➖ | ❌ | ❌ | ❌ | ❌ |
+| CLUSTER FORGET | ➖ | ❌ | ❌ | ❌ | ❌ |
+| CLUSTER GETKEYSINSLOT | ➖️ | ❌ | ❌ | ❌ | ❌ |
+| CLUSTER INFO ① | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| CLUSTER KEYSLOT ① | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| CLUSTER LINKS | ➖️ | ➖️ | ➖️ | ➖️ | ❌ |
+| CLUSTER MEET | ➖ | ❌ | ❌ | ❌ | ❌ |
+| CLUSTER MYID | ➖ | ❌ | ❌ | ❌ | ❌ |
+| CLUSTER NODES ① | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| CLUSTER REPLICAS | ➖ | ➖ | ❌ | ❌ | ❌ |
+| CLUSTER REPLICATE | ➖ | ❌ | ❌ | ❌ | ❌ |
+| CLUSTER RESET | ➖ | ❌ | ❌ | ❌ | ❌ |
+| CLUSTER SAVECONFIG | ➖ | ❌ | ❌ | ❌ | ❌ |
+| CLUSTER SET-CONFIG-EPOCH | ➖ | ❌ | ❌ | ❌ | ❌ |
+| CLUSTER SETSLOT | ➖ | ❌ | ❌ | ❌ | ❌ |
+| CLUSTER SHARDS | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| CLUSTER SLAVES | ➖ | ❌ | ❌ | ❌ | ❌ |
+| CLUSTER SLOTS | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| READONLY | ➖ | ❌ | ✔️️ | ✔️ | ✔️ |
+| READWRITE | ➖ | ❌ | ✔️ | ✔️ | ✔️ |
+### Connection management
+| 命令 | 2.8 版本 | 4.0 版本 | 5.0 版本 | 6.0 版本 | 7.0 版本 |
+| --- | --- | --- | --- | --- | --- |
+| AUTH | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| CLIENT CACHING | ➖ | ➖ | ➖ | ✔️ | ✔️ |
+| CLIENT GETNAME | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| CLIENT GETREDIR | ➖ | ➖ | ➖ | ✔️ | ✔️ |
+| CLIENT ID | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| CLIENT INFO | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| CLIENT KILL | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| CLIENT LIST | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| CLIENT NO-EVICT | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| CLIENT PAUSE | ➖ | ❌ | ❌ | ❌ | ❌ |
+| CLIENT REPLY | ➖ | ❌ | ❌ | ❌ | ❌ |
+| CLIENT SETNAME | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| CLIENT TRACKING | ➖ | ➖ | ➖ | ✔️ | ✔️ |
+| CLIENT TRACKINGINFO | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| CLIENT UNBLOCK | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| CLIENT UNPAUSE | ➖ | ➖ | ➖ | ➖ | ❌ |
+| ECHO | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| HELLO | ➖ | ➖ | ➖ | ✔️ | ✔️ |
+| PING | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| QUIT | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| RESET | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| SELECT | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+### Generic
+| 命令 | 2.8 版本 | 4.0 版本 | 5.0 版本 | 6.0 版本 | 7.0 版本 |
+| --- | --- | --- | --- | --- | --- |
+| COPY | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| DEL | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| DUMP | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| EXISTS | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| EXPIRE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| EXPIREAT | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| EXPIRETIME | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| KEYS | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| MIGRATE | ❌ | ❌ | ❌ | ❌ | ❌ |
+| MOVE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| OBJECT | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| OBJECT HELP | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| PERSIST | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| PEXPIRE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| PEXPIREAT | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| PEXPIRETIME | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| PTTL | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| RANDOMKEY | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| RENAME | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| RENAMENX | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| RESTORE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SCAN | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SORT | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SORT_RO | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| TOUCH | ➖ | ✔️ | ✔️ | ✔️ | ✔️ |
+| TTL | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| TYPE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| UNLINK | ➖ | ✔️ | ✔️ | ✔️ | ✔️ |
+| WAIT | ➖ | ✔️ | ✔️ | ✔️ | ✔️ |
+### Geospatial indices
+| 命令 | 2.8 版本 | 4.0 版本 | 5.0 版本 | 6.0 版本 | 7.0 版本 |
+| --- | --- | --- | --- | --- | --- |
+| GEOADD | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| GEODIST | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| GEOHASH | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| GEOPOS | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| GEORADIUS | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| GEORADIUSBYMEMBER | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| GEOSEARCH | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| GEOSEARCHSTORE | ➖ | ➖ | ➖ | ➖ | ✔️ |
+### Hash
+| 命令 | 2.8 版本 | 4.0 版本 | 5.0 版本 | 6.0 版本 | 7.0 版本 |
+| --- | --- | --- | --- | --- | --- |
+| HDEL | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| HEXISTS | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| HGET | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| HGETALL | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| HINCRBY | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| HINCRBYFLOAT | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| HKEYS | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| HLEN | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| HMGET | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| HMSET | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| HRANDFIELD | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| HSCAN | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| HSET | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| HSETNX | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| HSTRLEN | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| HVALS | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+### HyperLogLog
+| 命令 | 2.8 版本 | 4.0 版本 | 5.0 版本 | 6.0 版本 | 7.0 版本 |
+| --- | --- | --- | --- | --- | --- |
+| PFADD | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| PFCOUNT | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| PFMERGE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+### Lists
+| 命令 | 2.8 版本 | 4.0 版本 | 5.0 版本 | 6.0 版本 | 7.0 版本 |
+| --- | --- | --- | --- | --- | --- |
+| BLPOP | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| BLMOVE | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| BLMPOP | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| BRPOP | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| BRPOPLPUSH | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| LINDEX | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| LINSERT | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| LLEN | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| LMOVE | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| LMPOP | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| LPOP | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| LPOS | ➖ | ➖ | ➖ | ✔️ | ✔️ |
+| LPUSH | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| LPUSHX | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| LRANGE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| LREM | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| LSET | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| LTRIM | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| RPOP | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| RPOPLPUSH | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| RPUSH | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| RPUSHX | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+### Pub/Sub
+| 命令 | 2.8 版本 | 4.0 版本 | 5.0 版本 | 6.0 版本 | 7.0 版本 |
+| --- | --- | --- | --- | --- | --- |
+| PSUBSCRIBE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| PUBLISH | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| PUBSUB | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| PUBSUB HELP | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| PUBSUB SHARDCHANNELS | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| PUBSUB SHARDNUMSUB | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| PUNSUBSCRIBE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SPUBLISH | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| SUBSCRIBE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SSUBSCRIBE | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| SUNSUBSCRIBE | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| UNSUBSCRIBE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+### Scripting and Functions
+| 命令 | 2.8 版本 | 4.0 版本 | 5.0 版本 | 6.0 版本 | 7.0 版本 |
+| --- | --- | --- | --- | --- | --- |
+| EVAL | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| EVAL_RO | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| EVALSHA | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| EVALSHA_RO | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FCALL | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FCALL_RO | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FUNCTION DELETE | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FUNCTION DUMP | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FUNCTION FLUSH | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FUNCTION HELP | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FUNCTION KILL | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FUNCTION LIST | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FUNCTION LOAD | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FUNCTION RESTORE | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| FUNCTION STATS | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| SCRIPT DEBUG | ➖ | ❌ | ❌ | ❌ | ❌ |
+| SCRIPT EXISTS | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SCRIPT FLUSH | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SCRIPT KILL | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SCRIPT LOAD | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+### Server management
+| 命令 | 2.8 版本 | 4.0 版本 | 5.0 版本 | 6.0 版本 | 7.0 版本 |
+| --- | --- | --- | --- | --- | --- |
+| ACL CAT | ➖ | ➖ | ➖ | ❌ | ❌ |
+| ACL DELUSER | ➖ | ➖ | ➖ | ❌ | ❌ |
+| ACL DRYRUN | ➖ | ➖ | ➖ | ➖ | ❌ |
+| ACL GENPASS | ➖ | ➖ | ➖ | ❌ | ❌ |
+| ACL GETUSER | ➖ | ➖ | ➖ | ❌ | ❌ |
+| ACL HELP | ➖ | ➖ | ➖ | ❌ | ❌ |
+| ACL LIST | ➖ | ➖ | ➖ | ❌ | ❌ |
+| ACL LOAD | ➖ | ➖ | ➖ | ❌ | ❌ |
+| ACL LOG | ➖ | ➖ | ➖ | ❌ | ❌ |
+| ACL SAVE | ➖ | ➖ | ➖ | ❌ | ❌ |
+| ACL SETUSER | ➖ | ➖ | ➖ | ❌ | ❌ |
+| ACL USERS | ➖ | ➖ | ➖ | ❌ | ❌ |
+| ACL WHOAMI | ➖ | ➖ | ➖ | ❌ | ✔️ |
+| BGREWRITEAOF | ❌ | ❌ | ❌ | ❌ | ❌ |
+| BGSAVE | ❌ | ❌ | ❌ | ❌ | ❌ |
+| COMMAND | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| COMMAND COUNT | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| COMMAND DOCS | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| COMMAND GETKEYS | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| COMMAND GETKEYSANDFLAGS | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| COMMAND INFO | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| COMMAND LIST | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| CONFIG GET | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| CONFIG HELP | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| CONFIG RESETSTAT | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| CONFIG REWRITE | ❌ | ❌ | ❌ | ❌ | ❌ |
+| CONFIG SET ② | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| DBSIZE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| DEBUG OBJECT | ❌ | ❌ | ❌ | ❌ | ❌ |
+| DEBUG SEGFAULT | ❌ | ❌ | ❌ | ❌ | ❌ |
+| FAILOVER | ➖ | ➖ | ➖ | ➖ | ❌ |
+| FLUSHALL | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| FLUSHDB | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| INFO | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| LASTSAVE | ❌ | ❌ | ❌ | ❌ | ❌ |
+| LATENCY DOCTOR | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| LATENCY GRAPH | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| LATENCY HELP | ❌ | ❌ | ✔️ | ✔️ | ✔️ |
+| LATENCY HISTOGRAM | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| LATENCY HISTORY | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| LATENCY LATEST | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| LATENCY RESET | ✔️ | ✔️ | ✔️ | ✔️ | ➖ |
+| LOLWUT | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| MEMORY DOCTOR | ➖ | ✔️ | ✔️ | ✔️ | ✔️ |
+| MEMORY HELP | ➖ | ✔️ | ✔️ | ✔️ | ✔️ |
+| MEMORY MALLOC-STATS | ➖ | ✔️ | ✔️ | ✔️ | ✔️ |
+| MEMORY PURGE | ➖ | ✔️ | ✔️ | ✔️ | ✔️ |
+| MEMORY STATS | ➖ | ✔️ | ✔️ | ✔️ | ✔️ |
+| MEMORY USAGE | ➖ | ✔️ | ✔️ | ✔️ | ✔️ |
+| MODULE LIST | ➖ | ❌ | ❌ | ❌ | ❌ |
+| MODULE LOAD | ➖ | ❌ | ❌ | ❌ | ❌ |
+| MODULE LOADEX | ➖ | ➖ | ➖ | ➖ | ❌ |
+| MODULE UNLOAD | ➖ | ❌ | ❌ | ❌ | ❌ |
+| MONITOR | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| PSYNC | ❌ | ❌ | ❌ | ❌ | ❌ |
+| REPLICAOF | ➖ | ➖ | ❌ | ❌ | ❌ |
+| ROLE | ❌ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SAVE | ❌ | ❌ | ❌ | ❌ | ❌ |
+| SHUTDOWN | ❌ | ❌ | ❌ | ❌ | ❌ |
+| SLAVEOF | ❌ | ❌ | ❌ | ❌ | ❌ |
+| SLOWLOG | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SLOWLOG HELP | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| SLOWLOG RESET | ❌ | ❌ | ❌ | ❌ | ❌ |
+| SWAPDB | ➖ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SYNC | ❌ | ❌ | ❌ | ❌ | ❌ |
+| TIME | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+### Sentinel
+| 命令 | 2.8 版本 | 4.0 版本 | 5.0 版本 | 6.0 版本 | 7.0 版本 |
+| --- | --- | --- | --- | --- | --- |
+| SENTINEL sentinels | ❌ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SENTINEL get-master-addr-by-name | ❌ | ✔️ | ✔️ | ✔️ | ✔️ |
+### Set
+| 命令 | 2.8 版本 | 4.0 版本 | 5.0 版本 | 6.0 版本 | 7.0 版本 |
+| --- | --- | --- | --- | --- | --- |
+| SADD | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SCARD | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SDIFF | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SDIFFSTORE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SINTER | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SINTERCARD | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| SINTERSTORE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SISMEMBER | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SMEMBERS | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SMISMEMBER | ❌ | ❌ | ❌ | ❌️ | ✔️ |
+| SMOVE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SPOP | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SRANDMEMBER | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SREM | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SSCAN | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SUNION | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SUNIONSTORE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+### Sorted Set
+| 命令 | 2.8 版本 | 4.0 版本 | 5.0 版本 | 6.0 版本 | 7.0 版本 |
+| --- | --- | --- | --- | --- | --- |
+| BZMPOP | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| BZPOPMAX | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| BZPOPMIN | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| ZADD | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZCARD | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZCOUNT | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZDIFF | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| ZDIFFSTORE | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| ZINCRBY | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZINTER | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| ZINTERCARD | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| ZINTERSTORE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZLEXCOUNT | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZMPOP | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| ZMSCORE | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| ZPOPMAX | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| ZPOPMIN | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| ZRANDMEMBER | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| ZRANGE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZRANGEBYLEX | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZRANGEBYSCORE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZRANGESTORE | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| ZRANK | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZREM | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZREMRANGEBYLEX | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZREMRANGEBYRANK | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZREMRANGEBYSCORE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZREVRANGE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZREVRANGEBYLEX | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZREVRANGEBYSCORE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZREVRANK | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZSCAN | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZSCORE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| ZUNION | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| ZUNIONSTORE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+### Stream
+| 命令 | 2.8 版本 | 4.0 版本 | 5.0 版本 | 6.0 版本 | 7.0 版本 |
+| --- | --- | --- | --- | --- | --- |
+| XACK | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| XADD | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| XAUTOCLAIM | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| XCLAIM | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| XDEL | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| XGROUP | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| XGROUP CREATECONSUMER | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| XINFO | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| XLEN | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| XPENDING | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| XRANGE | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| XREAD | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| XREADGROUP | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| XREVRANGE | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+| XTRIM | ➖ | ➖ | ✔️ | ✔️ | ✔️ |
+### String
+| 命令 | 2.8 版本 | 4.0 版本 | 5.0 版本 | 6.0 版本 | 7.0 版本 |
+| --- | --- | --- | --- | --- | --- |
+| APPEND | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| DECR | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| DECRBY | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| GET | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| GETDEL | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| GETEX | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| GETRANGE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| GETSET | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| LCS | ➖ | ➖ | ➖ | ➖ | ✔️ |
+| INCR | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| INCRBY | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| INCRBYFLOAT | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| MGET | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| MSET | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| MSETNX | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| PSETEX | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SET | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SETEX | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SETNX | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| SETRANGE | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| STRALGO | ➖ | ➖ | ➖ | ✔️ | ➖ |
+| STRLEN | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+### Transactions
+| 命令 | 2.8 版本 | 4.0 版本 | 5.0 版本 | 6.0 版本 | 7.0 版本 |
+| --- | --- | --- | --- | --- | --- |
+| DISCARD | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| EXEC | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| MULTI | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| UNWATCH | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| WATCH | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+该文章对您有帮助吗？
+反馈
+### 为什么选择阿里云
+[什么是云计算](https://www.aliyun.com/about/what-is-cloud-computing)[全球基础设施](https://infrastructure.aliyun.com/)[技术领先](https://www.aliyun.com/why-us/leading-technology)[稳定可靠](https://www.aliyun.com/why-us/reliability)[安全合规](https://www.aliyun.com/why-us/security-compliance)[分析师报告](https://www.aliyun.com/analyst-reports)
+### 大模型
+[千问大模型](https://www.aliyun.com/product/tongyi)[大模型服务](https://bailian.console.aliyun.com/?tab=model#/model-market)[AI应用构建](https://bailian.console.aliyun.com/app-center?tab=app#/app-center)
+### 产品和定价
+[全部产品](https://www.aliyun.com/product/list)[免费试用](https://free.aliyun.com/)[产品动态](https://www.aliyun.com/product/news/)[产品定价](https://www.aliyun.com/price/detail)[配置报价器](https://www.aliyun.com/price/cpq/list)[云上成本管理](https://www.aliyun.com/price/cost-management)
+### 技术内容
+[技术解决方案](https://www.aliyun.com/solution/tech-solution)[帮助文档](https://help.aliyun.com/)[开发者社区](https://developer.aliyun.com/)[天池大赛](https://tianchi.aliyun.com/)[阿里云认证](https://edu.aliyun.com/)
+### 权益
+[免费试用](https://free.aliyun.com/)[解决方案免费试用](https://www.aliyun.com/solution/free)[高校计划](https://university.aliyun.com/)[5亿算力补贴](https://www.aliyun.com/benefit/form/index)[推荐返现计划](https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&pageCode=yunparterIndex)
+### 服务
+[基础服务](https://www.aliyun.com/service)[企业增值服务](https://www.aliyun.com/service/supportplans)[迁云服务](https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn)[官网公告](https://www.aliyun.com/notice/)[健康看板](https://status.aliyun.com/)[信任中心](https://security.aliyun.com/trust-center)
+### 关注阿里云
+关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务
+联系我们：4008013260
+[法律声明](https://help.aliyun.com/product/67275.html)[Cookies 政策](https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html)[廉正举报](https://aliyun.jubao.alibaba.com/)[安全举报](https://report.aliyun.com/)[联系我们](https://www.aliyun.com/contact)[加入我们](https://careers.aliyun.com/)
+### 友情链接
+[阿里巴巴集团](https://www.alibabagroup.com/cn/global/home)[淘宝网](https://www.taobao.com/)[天猫](https://www.tmall.com/)[全球速卖通](https://www.aliexpress.com/)[阿里巴巴国际交易市场](https://www.alibaba.com/)[1688](https://www.1688.com/)[阿里妈妈](https://www.alimama.com/index.htm)[飞猪](https://www.fliggy.com/)[阿里云计算](https://www.aliyun.com/)[万网](https://wanwang.aliyun.com/)[高德](https://mobile.amap.com/)[UC](https://www.uc.cn/)[友盟](https://www.umeng.com/)[优酷](https://www.youku.com/)[钉钉](https://www.dingtalk.com/)[支付宝](https://www.alipay.com/)[达摩院](https://damo.alibaba.com/)[淘宝海外](https://world.taobao.com/)[阿里云盘](https://www.aliyundrive.com/)[淘宝闪购](https://www.ele.me/)
+© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证：[浙B2-20080101](http://beian.miit.gov.cn/)域名注册服务机构许可：[浙D3-20210002](https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 )
+[浙公网安备 33010602009975号](http://www.beian.gov.cn/portal/registerSystemInfo)[浙B2-20080101-4](https://beian.miit.gov.cn/)

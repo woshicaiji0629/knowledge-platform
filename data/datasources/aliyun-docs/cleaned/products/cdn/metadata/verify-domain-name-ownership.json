@@ -1,0 +1,17 @@
+{
+  "id": "cdn:verify-domain-name-ownership",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "添加CDN域名时完成域名归属权验证-CDN-阿里云",
+  "source_url": "https://help.aliyun.com/zh/cdn/verify-domain-name-ownership",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/verify-domain-name-ownership.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/verify-domain-name-ownership.md",
+  "word_count": 649,
+  "text_units": 2006,
+  "local_links": 0,
+  "external_links": 65,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

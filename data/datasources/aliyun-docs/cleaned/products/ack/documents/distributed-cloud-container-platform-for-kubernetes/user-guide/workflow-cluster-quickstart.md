@@ -1,0 +1,46 @@
+# 工作流集群快速入门-容器服务 Kubernetes 版 ACK-阿里云
+
+Source: https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/workflow-cluster-quickstart
+
+# 工作流集群快速入门
+分布式工作流Argo集群（简称工作流集群）采用无服务器模式，使用阿里云弹性容器实例ECI运行工作流。通过优化Kubernetes集群参数，同时配合抢占式ECI实例，实现大规模工作流的高效弹性调度及成本优化。本文介绍工作流集群的快速使用流程和文档使用指引。
+## 快速使用流程
+## 文档使用指引
+基础功能
+| 功能 | 相关文档 |
+| --- | --- |
+| 创建工作流集群并获取集群 Kubeconfig | [创建工作流集群](create-a-workflow-cluster.md) |
+| 创建工作流 | [创建工作流](create-a-workflow.md) |
+| 访问 Argo Server 控制台 | [开启](enable-argo-server-for-a-workflow-cluster.md) [Argo Server](enable-argo-server-for-a-workflow-cluster.md) [访问工作流集群](enable-argo-server-for-a-workflow-cluster.md) [开通](enable-public-access-to-the-argo-server.md) [Argo Server](enable-public-access-to-the-argo-server.md) [公网访问](enable-public-access-to-the-argo-server.md) |
+进阶功能
+| 功能 | 相关文档 |
+| --- | --- |
+| 管理工作流集群 | [通过自定义域名访问工作流集群控制台](access-the-workflow-cluster-console-through-a-custom-domain-name.md) [使用](use-rds-to-offload-large-workflows.md) [RDS MySQL](use-rds-to-offload-large-workflows.md) [转移大规模工作流](use-rds-to-offload-large-workflows.md) [修改工作流集群配置](modify-the-configuration-of-a-workflow-cluster.md) |
+| 管理工作流 | [使用指定](run-a-workflow-using-a-specified-ecs-specification.md) [ECS](run-a-workflow-using-a-specified-ecs-specification.md) [规格运行工作流](run-a-workflow-using-a-specified-ecs-specification.md) [使用存储卷](use-volumes.md) [配置](configure-artifacts.md) [Artifacts](configure-artifacts.md) [配置](images.md) [workflow](images.md) [免密拉取镜像](images.md) [使用钉钉机器人发送事件通知](use-dingtalk-robots-to-send-event-notifications.md) |
+| 事件驱动 | [开启事件驱动功能](turn-on-event-driven-functions.md) [通过轻量消息队列（原 MNS）触发工作流](use-mns-messages-to-trigger-workflows.md) [通过向](trigger-a-workflow-by-uploading-a-file-to-oss.md) [OSS](trigger-a-workflow-by-uploading-a-file-to-oss.md) [上传文件触发工作流](trigger-a-workflow-by-uploading-a-file-to-oss.md) |
+| 可观测性 | [使用](monitoring-services-with-prometheus.md) [Prometheus](monitoring-services-with-prometheus.md) [监控服务](monitoring-services-with-prometheus.md) [使用日志服务](configure-log-service.md) |
+## 相关文档
+若您想了解工作流集群的功能优势、工作原理和网络规划信息，请参见[分布式工作流](overview-12.md)[Argo](overview-12.md)[集群概述](overview-12.md)。
+工作流集群不收取集群管理费用，如果您在使用过程中使用了其他的阿里云云产品资源，需要按照各产品的计费规则付费。具体计费信息，请参见[ACK One](../product-overview/ack-one-billing.md)[计费说明](../product-overview/ack-one-billing.md)。
+该文章对您有帮助吗？
+反馈
+### 为什么选择阿里云
+[什么是云计算](https://www.aliyun.com/about/what-is-cloud-computing)[全球基础设施](https://infrastructure.aliyun.com/)[技术领先](https://www.aliyun.com/why-us/leading-technology)[稳定可靠](https://www.aliyun.com/why-us/reliability)[安全合规](https://www.aliyun.com/why-us/security-compliance)[分析师报告](https://www.aliyun.com/analyst-reports)
+### 大模型
+[千问大模型](https://www.aliyun.com/product/tongyi)[大模型服务](https://bailian.console.aliyun.com/?tab=model#/model-market)[AI应用构建](https://bailian.console.aliyun.com/app-center?tab=app#/app-center)
+### 产品和定价
+[全部产品](https://www.aliyun.com/product/list)[免费试用](https://free.aliyun.com/)[产品动态](https://www.aliyun.com/product/news/)[产品定价](https://www.aliyun.com/price/detail)[配置报价器](https://www.aliyun.com/price/cpq/list)[云上成本管理](https://www.aliyun.com/price/cost-management)
+### 技术内容
+[技术解决方案](https://www.aliyun.com/solution/tech-solution)[帮助文档](https://help.aliyun.com/)[开发者社区](https://developer.aliyun.com/)[天池大赛](https://tianchi.aliyun.com/)[阿里云认证](https://edu.aliyun.com/)
+### 权益
+[免费试用](https://free.aliyun.com/)[解决方案免费试用](https://www.aliyun.com/solution/free)[高校计划](https://university.aliyun.com/)[5亿算力补贴](https://www.aliyun.com/benefit/form/index)[推荐返现计划](https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&pageCode=yunparterIndex)
+### 服务
+[基础服务](https://www.aliyun.com/service)[企业增值服务](https://www.aliyun.com/service/supportplans)[迁云服务](https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn)[官网公告](https://www.aliyun.com/notice/)[健康看板](https://status.aliyun.com/)[信任中心](https://security.aliyun.com/trust-center)
+### 关注阿里云
+关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务
+联系我们：4008013260
+[法律声明](https://help.aliyun.com/product/67275.html)[Cookies 政策](https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html)[廉正举报](https://aliyun.jubao.alibaba.com/)[安全举报](https://report.aliyun.com/)[联系我们](https://www.aliyun.com/contact)[加入我们](https://careers.aliyun.com/)
+### 友情链接
+[阿里巴巴集团](https://www.alibabagroup.com/cn/global/home)[淘宝网](https://www.taobao.com/)[天猫](https://www.tmall.com/)[全球速卖通](https://www.aliexpress.com/)[阿里巴巴国际交易市场](https://www.alibaba.com/)[1688](https://www.1688.com/)[阿里妈妈](https://www.alimama.com/index.htm)[飞猪](https://www.fliggy.com/)[阿里云计算](https://www.aliyun.com/)[万网](https://wanwang.aliyun.com/)[高德](https://mobile.amap.com/)[UC](https://www.uc.cn/)[友盟](https://www.umeng.com/)[优酷](https://www.youku.com/)[钉钉](https://www.dingtalk.com/)[支付宝](https://www.alipay.com/)[达摩院](https://damo.alibaba.com/)[淘宝海外](https://world.taobao.com/)[阿里云盘](https://www.aliyundrive.com/)[淘宝闪购](https://www.ele.me/)
+© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证：[浙B2-20080101](http://beian.miit.gov.cn/)域名注册服务机构许可：[浙D3-20210002](https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 )
+[浙公网安备 33010602009975号](http://www.beian.gov.cn/portal/registerSystemInfo)[浙B2-20080101-4](https://beian.miit.gov.cn/)

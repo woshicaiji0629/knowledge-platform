@@ -1,0 +1,17 @@
+{
+  "id": "ack:product-overview/release-notes-for-os-images",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "容器服务 Kubernetes 版操作系统镜像发布记录-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/product-overview/release-notes-for-os-images",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/product-overview/release-notes-for-os-images.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/product-overview/release-notes-for-os-images.md",
+  "word_count": 5197,
+  "text_units": 7401,
+  "local_links": 39,
+  "external_links": 156,
+  "has_tables": true,
+  "table_count": 233,
+  "quality": "accepted"
+}

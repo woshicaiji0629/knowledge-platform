@@ -1,0 +1,14 @@
+{
+  "id": "ecs:user-guide/view-instance-metadata:12",
+  "document_id": "ecs:user-guide/view-instance-metadata",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "通过元数据服务从ECS实例内部获取实例属性等信息-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/view-instance-metadata",
+  "chunk_index": 12,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ecs/documents/user-guide/view-instance-metadata.chunk-0012.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/view-instance-metadata.md",
+  "heading_path": "直接发送GET请求获取实例ID。 Invoke-RestMethod -Uri http://100.100.100.200/latest/meta-data/instance-id -Method Get > 实例元数据明细",
+  "char_count": 131
+}

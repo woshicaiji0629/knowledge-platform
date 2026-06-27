@@ -1,0 +1,17 @@
+{
+  "id": "ecs:purchase-savings-plan",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "购买ECS节省计划-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/purchase-savings-plan",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/purchase-savings-plan.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/purchase-savings-plan.md",
+  "word_count": 1075,
+  "text_units": 4605,
+  "local_links": 3,
+  "external_links": 75,
+  "has_tables": true,
+  "table_count": 18,
+  "quality": "accepted"
+}

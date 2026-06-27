@@ -1,0 +1,560 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    加速容器运行启动-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/ack/ack-edge/user-guide/load-resources-of-a-container-image-on-demand">
+  <meta name="keywords" content="镜像加速,访问凭证,加速标签,镜像转换">
+  <meta name="description" content="传统容器运行需要将全量镜像数据下载后再解包，然而容器启动可能仅使用其中部分的内容，导致容器启动耗时长。通过容器镜像服务企业版的按需加载功能，允许仅下载和解压容器启动所必需的部分，而不是整个镜像，从而大幅提高应用部署速度和提升弹性体验。">
+  <meta name="last-modified" content="2026-04-28T17:43:37+08:00">
+  <meta name="date" content="2024-12-06T05:15:08+08:00">
+  <meta property="og:title" content="按需加载容器镜像">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/ack/ack-edge/user-guide/load-resources-of-a-container-image-on-demand">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="传统容器运行需要将全量镜像数据下载后再解包，然而容器启动可能仅使用其中部分的内容，导致容器启动耗时长。通过容器镜像服务企业版的按需加载功能，允许仅下载和解压容器启动所必需的部分，而不是整个镜像，从而大幅提高应用部署速度和提升弹性体验。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/ack/ack-edge/user-guide/load-resources-of-a-container-image-on-demand",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "2861229",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/ack/ack-edge/user-guide/load-resources-of-a-container-image-on-demand","nodeId":null,"data":{"lastModifiedTime":1777369417000,"keywords":"镜像加速,访问凭证,加速标签,镜像转换","docTitle":"按需加载容器镜像","language":"zh","seoTitle":"加速容器运行启动-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心","title":"按需加载容器镜像","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n<main id=\"task-1955391\">\n\n\n<p data-tag=\"shortdesc\" id=\"shortdesc-lv9-8po-0bf\" class=\"shortdesc\">传统容器运行需要将全量镜像数据下载后再解包，然而容器启动可能仅使用其中部分的内容，导致容器启动耗时长。通过容器镜像服务企业版的按需加载功能，允许仅下载和解压容器启动所必需的部分，而不是整个镜像，从而大幅提高应用部署速度和提升弹性体验。</p>\n<div data-tag=\"taskbody\" id=\"taskbody-84a-frd-qim\" class=\"taskbody\">\n<section data-tag=\"prereq\" data-type=\"prereq\" id=\"prereq-vcg-wnf-b8i\" class=\"section prereq\">\n<h2 id=\"d41e23\">前提条件</h2>\n<ul data-tag=\"ul\" id=\"ul-5nq-55b-tve\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-bms-8s8-hs3\" class=\"li\">\n<p id=\"e797c2c0f2bc9\">支持<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>集群版本及类型。</p>\n<div data-tag=\"note\" id=\"note-9ru-ng9-b4e\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n<p id=\"e797c2c1f23d8\">支持在版本≥1.16.9<span class=\"help-letter-space\"></span>的托管版、专有版，≥1.26.3<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"be6374bcb7hm7\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群</span>和<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"143d7d935cocl\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Serverless<span class=\"help-letter-space\"></span>集群</span>、<span data-tag=\"ph\" id=\"cbd6f9f17fv7d\" docid=\"4107896\" is-conref=\"true\" class=\"ph\">ACK<span class=\"help-letter-space\"></span>灵骏集群</span>和容器计算服务<span class=\"help-letter-space\"></span>ACS<span class=\"help-letter-space\"></span>上使用加速镜像。且创建集群时操作系统为<span class=\"help-letter-space\"></span>Alibaba Cloud Linux 2.1903、Alibaba Cloud Linux 3.2104、Alibaba Cloud Linux 3.2104 LTS 64 bit ARM edition、Alibaba Cloud Linux UEFI 2.1903、CentOS 7.9。</p>\n</div></div>\n</li>\n<li data-tag=\"li\" id=\"li-vz6-zly-kxz\" class=\"li\">\n<p id=\"e797c2c2f2ify\">已创建企业版实例，更多信息，请参见<a href=\"https://help.aliyun.com/zh/acr/user-guide/create-a-container-registry-enterprise-edition-instance#task488\" id=\"xref-hj9-zfm-mj6\" title=\"\" class=\"xref\">创建企业版实例</a>。</p>\n<div data-tag=\"note\" id=\"note-r8t-81u-g1i\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n<p id=\"d26097b5d01sd\">在镜像加速中，两种模式支持的企业版实例规格有所不同：</p>\n<ul id=\"4c253e30d4goy\">\n<li id=\"f756f5842dqr7\">\n<p id=\"33b3ca103d3e3\">完整模式：支持的企业版实例为标准版或高级版。</p>\n</li>\n<li data-spm-anchor-id=\"0.0.0.i55.369e3d33E49f6S\" id=\"5d341cd081u28\">\n<p id=\"ae89fae1c4o7k\">仅索引模式：支持的企业版实例为基础版、标准版或高级版。</p>\n</li>\n</ul>\n</div></div>\n</li>\n<li data-tag=\"li\" id=\"li-qc1-ey2-rlv\" class=\"li\">\n<p id=\"e797c2c4f2ok7\">已在企业版实例中配置<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>或<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"143d7d955cgzd\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Serverless<span class=\"help-letter-space\"></span>集群</span>对应的专有网络。加速镜像需要在专有网络中使用，更多信息，请参见<a href=\"https://help.aliyun.com/zh/acr/user-guide/configure-access-over-vpcs#task1305\" id=\"xref-me0-2br-ish\" title=\"\" class=\"xref\">配置专有网络的访问控制</a>。</p>\n</li>\n</ul>\n</section>\n<section data-tag=\"context\" data-type=\"context\" id=\"context-8bu-evm-uvy\" class=\"context section\">\n<h2 id=\"d41e41\">背景信息</h2>\n<p id=\"e797e9d0f23eb\">通过容器镜像服务企业版的按需加载功能，您可以在业务部署中使用加速镜像版本，实现镜像数据免全量下载和在线解压，大幅提升应用分发效率和弹性体验。镜像的加速效果与镜像大小、镜像仓库网络等因素有关。经实测，基于<span class=\"help-letter-space\"></span>Docker Hub<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span><a class=\"\" href=\"https://github.com/NodeBB/NodeBB\" id=\"2e0ec449bd2gm\">NodeBB</a><span class=\"help-letter-space\"></span>镜像（1.34 GB）启动应用在镜像拉取阶段需耗费<span class=\"help-letter-space\"></span>36s，整体应用启动时间<span class=\"help-letter-space\"></span>38s。基于加速镜像启动应用在镜像拉取阶段仅需<span class=\"help-letter-space\"></span>4s，整体应用启动时间仅需<span class=\"help-letter-space\"></span>9s。</p>\n</section>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-y2g-c0o-xt7\" class=\"section\">\n<h2 data-tag=\"title\" id=\"title-nsd-9jm-vw6\" class=\"title\">使用限制</h2>\n<ul id=\"d5207e63f7u0v\">\n<li id=\"7ef779e982t5m\">\n<p data-tag=\"p\" id=\"p-jbe-x92-h8c\" class=\"p\">如果您的容器运行时为<span class=\"help-letter-space\"></span>Containerd，则支持加速镜像仓库使用自定义域名，而<span class=\"help-letter-space\"></span>Docker<span class=\"help-letter-space\"></span>由于自身限制暂不支持加速镜像仓库自定义域名的使用。更多信息，请参见<a href=\"https://help.aliyun.com/zh/acr/user-guide/use-a-custom-domain-name-to-access-a-container-registry-enterprise-edition-instance#task-1955575\" id=\"xref-c2r-5en-6qj\" title=\"\" class=\"xref\">通过自定义域名访问容器镜像服务企业版实例</a>。</p>\n</li>\n<li id=\"511f46c984zhn\">\n<p id=\"e5df2c716937y\">仅索引模式不支持在<span class=\"help-letter-space\"></span>FC<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>SAE<span class=\"help-letter-space\"></span>的场景下使用。</p>\n</li>\n<li id=\"530431da0eqx2\">\n<p id=\"f9877e5aab5w3\">存量镜像需要手动触发加速镜像转换。</p>\n</li>\n</ul>\n</section>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-47t-7v6-bm3\" class=\"section\">\n<h2 data-tag=\"title\" id=\"title-3qe-irc-x3o\" class=\"title\">地域限制</h2>\n<p data-tag=\"p\" id=\"p-o0f-7z0-rp2\" class=\"p\">金融云与政务云地域不支持按需加载功能。</p>\n</section>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-87k-i16-i5g\" class=\"section\">\n<h2 data-tag=\"title\" id=\"title-8tn-eah-7db\" class=\"title\">转换加速镜像</h2>\n<div data-tag=\"p\" id=\"p-h6p-ubn-yz2\" class=\"p\">\n<p id=\"e797e9d1f228d\">目前支持仓库级别配置，自动将推送的原始镜像转换为加速镜像。镜像转换时间取决于您的镜像大小，原始镜像不受任何影响。</p>\n<div data-tag=\"note\" id=\"note-h9h-fio-g1w\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n<p id=\"e797e9d2f2hjx\">加速镜像的命名空间和仓库名称与原始镜像保持一致，Tag<span class=\"help-letter-space\"></span>格式为：</p>\n<ul id=\"c16186d44faty\">\n<li id=\"3716ef8ff0vjj\">\n<p id=\"79690ac46cbji\">仅索引模式：原始镜像<span class=\"help-letter-space\"></span>tag+<code code-type=\"xCode\" data-tag=\"code\" id=\"b1b034d64eypl\" class=\"code\">_accelerated</code>后缀的加速镜像仅支持<span class=\"help-letter-space\"></span>Containerd<span class=\"help-letter-space\"></span>运行时，且使用时原始镜像<span class=\"help-letter-space\"></span>tag<span class=\"help-letter-space\"></span>不可删除。</p>\n</li>\n<li id=\"4e6c6ae88cmd2\">\n<p id=\"770d43242bp3f\">完整模式：</p>\n<ul id=\"8ccc4f4460hsc\">\n<li id=\"bebe1acc0a9y7\">\n<p id=\"5da3c1f292xxx\">原始镜像<span class=\"help-letter-space\"></span>tag+<code code-type=\"xCode\" data-tag=\"code\" id=\"e8f3ff51b6eoh\" class=\"code\">_accelerated</code>后缀的加速镜像。支持<span class=\"help-letter-space\"></span>Docker<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>Containerd<span class=\"help-letter-space\"></span>运行时</p>\n</li>\n<li id=\"f4680c6093xmr\">\n<p id=\"19d60203d9bei\">原始镜像<span class=\"help-letter-space\"></span>tag+<code code-type=\"xCode\" data-tag=\"code\" id=\"5944aad848vz7\" class=\"code\">_containerd_accelerated</code>后缀的加速镜像仅适用于<span class=\"help-letter-space\"></span>Containerd<span class=\"help-letter-space\"></span>运行时。</p>\n<p id=\"42a006016bz6c\">注意使用时<code code-type=\"xCode\" data-tag=\"code\" id=\"5a33dd895bsuu\" class=\"code\">_containerd_accelerated</code>后缀的镜像和其原始镜像均不可删除。</p>\n</li>\n</ul>\n</li>\n</ul>\n</div></div>\n</div>\n<ol data-tag=\"steps\" id=\"steps-dd7-4vw-ijz\" class=\"steps\">\n<li data-tag=\"step\" id=\"step-uly-6nj-fhy\" props=\"china intl\" is-conref=\"true\" data-cond-props=\"china intl\" class=\"step\"><p id=\"bdd02d4569416\"><span data-tag=\"cmd\" id=\"cmd-h00-gt2-zil\" class=\"cmd\">登录<a href=\"https://cr.console.aliyun.com\" id=\"xref-jzs-nxc-yrb\" class=\"\" target=\"_blank\">容器镜像服务控制台</a>。</span></p></li>\n\n<li data-tag=\"step\" id=\"step-i5k-q08-b31\" is-conref=\"true\" class=\"step\"><p id=\"bdd02d4769lp4\"><span data-tag=\"cmd\" id=\"cmd-l3m-863-2ac\" class=\"cmd\">在顶部菜单栏，选择所需地域。</span></p></li>\n<li data-tag=\"step\" id=\"step-31y-fyh-vmd\" class=\"step\">\n<p id=\"e79810e1f2cmm\"><span data-tag=\"cmd\" id=\"cmd-vzo-6tj-rxq\" class=\"cmd\">在左侧导航栏，选择<b id=\"uicontrol-1c2-h4p-6eq\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">实例列表</b>。</span></p>\n</li>\n<li data-tag=\"step\" id=\"step-sen-d17-1f2\" is-conref=\"true\" class=\"step\"><p id=\"bdd0545069yhw\"><span data-tag=\"cmd\" id=\"cmd-7ff-b8l-lsk\" class=\"cmd\">在<b id=\"wintitle-i7d-zro-w8e\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">实例列表</b>页面单击目标企业版实例。</span></p></li>\n<li data-tag=\"step\" id=\"step-x9y-m6d-4h2\" class=\"step\">\n<p id=\"e79810e3f2rfh\"><span data-tag=\"cmd\" id=\"cmd-lb0-4rz-1nt\" class=\"cmd\">在企业版实例管理页左侧导航栏中选择<span data-tag=\"menucascade\" id=\"menucascade-374-cz9-iw1\" class=\"menucascade\"><b id=\"uicontrol-6yt-1da-3ec\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">仓库管理</b> &gt; <b id=\"uicontrol-z4i-i0w-f0r\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">镜像仓库</b></span>。</span></p>\n</li>\n<li data-tag=\"step\" id=\"step-1wu-yr8-ius\" class=\"step\">\n<p id=\"e79837f0f2wf5\"><span data-tag=\"cmd\" id=\"cmd-0db-lid-2v4\" class=\"cmd\">在镜像仓库页面单击目标镜像仓库名称或目标镜像仓库右侧<b id=\"uicontrol-f8a-f86-ctf\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">操作</b>列下的<b id=\"uicontrol-1i4-1rv-ych\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">管理</b>。</span>然后<span data-tag=\"cmd\" id=\"cmd-vof-gel-d3k\" class=\"cmd\">在基本信息页面左上角单击<b id=\"uicontrol-n78-d04-0xa\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">编辑</b>。</span></p>\n</li>\n<li data-tag=\"step\" id=\"step-jk0-w17-fdp\" class=\"step\">\n<p id=\"e7985f00f2ey3\"><span data-tag=\"cmd\" id=\"cmd-j4x-vqo-653\" class=\"cmd\">在<b id=\"uicontrol-mon-to1-nno\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">修改基本信息</b>对话框中，开启<b id=\"uicontrol-mqq-dhq-qlt\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">镜像加速</b>，并选择所需模式后，单击<b id=\"b8210cae83g65\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>。</span></p>\n<section id=\"189770511b9qk\" class=\"section\">\n<ul id=\"8c6c9be9a2ek9\">\n<li id=\"373bca86faij2\">\n<p id=\"aad15f1bab3la\"><b id=\"a091d1edbdfki\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">完整模式</b>：容器启动的加速效果较为显著，转换生成的加速镜像体积约为原镜像体积的<span class=\"help-letter-space\"></span>130%，1GB<span class=\"help-letter-space\"></span>原始镜像生成加速镜像的时间约为<span class=\"help-letter-space\"></span>25<span class=\"help-letter-space\"></span>秒，已生成的镜像层不会重复生成。</p>\n</li>\n<li id=\"2f8baaffc4otq\">\n<p id=\"7cdc0f69ba2y7\"><b id=\"754432c750e0r\">仅索引模式</b>：容器启动的加速效果约为<span class=\"help-letter-space\"></span>70%完整模式加速效果，加速镜像体积约为<span class=\"help-letter-space\"></span>3%原镜像体积，1GB<span class=\"help-letter-space\"></span>原始镜像生成加速镜像时间约为<span class=\"help-letter-space\"></span>3<span class=\"help-letter-space\"></span>秒，已生成索引的镜像层不会重复生成。</p>\n<div id=\"b1e362df9etsy\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n<p id=\"fcfffdce1500r\">仅索引模式正在公测中，建议您使用前先在测试环境进行验证，验证适用您的业务场景后再应用到生产环境中。</p>\n</div></div>\n<div id=\"95d627567cfxb\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n<ul class=\"ne-ol\" id=\"282c2c9aa4m2w\">\n<li data-lake-index-type=\"0\" id=\"u5a76fd08\">\n<p id=\"c847a3d8c2w69\">仅索引模式目前仅适用于<code code-type=\"xCode\" data-tag=\"code\" id=\"7cd40b57daoax\" class=\"code\">tar</code>和<code code-type=\"xCode\" data-tag=\"code\" id=\"7b3466f2d51l5\" class=\"code\">tgz</code>压缩的镜像，不适用于其他压缩方式（如<code code-type=\"xCode\" data-tag=\"code\" id=\"530965f859q8q\" class=\"code\">zstd</code>压缩）的镜像。</p>\n</li>\n<li data-lake-index-type=\"0\" id=\"ud1c5cc19\">\n<p id=\"4a2aafc2a7gae\">仅索引模式需要绑定原始镜像使用，使用时原始镜像不可删除，完整模式可以独立使用加速镜像。</p>\n</li>\n<li data-lake-index-type=\"0\" id=\"u051b1e6f\">\n<p id=\"353560a4dctyo\">仅索引模式不支持<span class=\"help-letter-space\"></span>Docker<span class=\"help-letter-space\"></span>运行时使用。</p>\n</li>\n</ul>\n</div></div>\n</li>\n</ul>\n</section>\n<div data-tag=\"stepresult\" id=\"stepresult-k71-8sr-0ll\" class=\"stepresult\">\n<p id=\"e7985f01f2nk3\">在完成镜像加速转换设置后，您后续推送的镜像将自动触发镜像转换任务。若您希望接收镜像转换完成的通知，可以配置事件通知。例如将表达式设置为<code code-type=\"xCode\" data-tag=\"code\" id=\"2a813bf8f6jie\" class=\"code\">_accelerated$</code>，更多信息，请参见<a href=\"https://help.aliyun.com/zh/acr/user-guide/event-notification/\" id=\"28d3756070mjv\" title=\"\" class=\"xref\">事件通知</a>。</p>\n</div>\n</li>\n<li id=\"a191dced3eo2h\">\n<p id=\"3371859bd11y6\">（可选）指定<b id=\"52585feaf915q\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">预取文件列表</b>。该列表中出现的文件项将在加速镜像启动的时候被优先预取，推荐在容器启动需要读取大文件时使用该功能。</p>\n<div id=\"85382933116o1\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n<p id=\"8ce591b4f6uzz\">格式为每行一个文件绝对路径，如果为目录则需要以<code data-tag=\"code\" id=\"6e611cb2b6vgl\" class=\"code\">/</code>结尾。</p>\n</div></div>\n</li>\n</ol>\n</section>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-v3k-p71-euy\" class=\"section\">\n<h2 data-tag=\"title\" id=\"title-ogm-t6f-yb7\" class=\"title\">安装镜像加速组件</h2>\n<p data-tag=\"p\" id=\"p-sa1-x6z-mvk\" class=\"p\">为了启动加速容器，需要在<span class=\"help-letter-space\"></span>Worker<span class=\"help-letter-space\"></span>节点安装按需加载相关的镜像存储插件。</p>\n<ol data-tag=\"steps\" id=\"steps-osm-2fj-vva\" class=\"steps\">\n<li data-tag=\"step\" id=\"step-wtz-tln-5qg\" class=\"step\">\n<section id=\"d189791f79aqh\" tagname=\"section\" class=\"section\">\n<p id=\"b87d0c526aygp\" docid=\"5418074\" is-conref=\"true\">为了支持<span class=\"help-letter-space\"></span>DADI<span class=\"help-letter-space\"></span>加速镜像，可以在<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>控制台中，通过节点池的<b id=\"e09130c22343r\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">容器镜像加速</b>开关，为新建节点池或存量节点池启用节点的镜像加速功能。</p>\n<section data-tag=\"tabbed-content-box\" id=\"50fc1a2ae1duf\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n<section id=\"8c23d0cf93t8i\" class=\"section\">\n<h2 id=\"9f28d525d7afa\">ACK<span class=\"help-letter-space\"></span>托管版与专有集群</h2>\n<section data-tag=\"tabbed-content-box\" id=\"f3f128af872rz\" outputclass=\"tabbed-content-box\" docid=\"5418074\" is-conref=\"true\" class=\"tabbed-content-box section\">\n<section id=\"b0975a46d3ard\" class=\"section\">\n<h3 id=\"6fad7ca3519a1\"><b>为新建节点池时开启</b></h3>\n<ol id=\"b848bc81bd1ag\">\n<li data-tag=\"step\" id=\"c99eadf951r2v\" docid=\"4755056\" is-conref=\"true\" class=\"step\"><p id=\"7bdb0bf11b631\"><span data-tag=\"cmd\" id=\"cmd-mto-t3v-p7d\" class=\"cmd\">登录<span props=\"china intl\"><a href=\"https://cs.console.aliyun.com\" id=\"xref-c6s-99d-s5k\" class=\"\" target=\"_blank\">容器服务管理控制台</a></span>，在左侧导航栏选择<b id=\"uicontrol-42p-agm-35k\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>。</span></p></li>\n<li data-tag=\"step\" id=\"3b8b5e0f39xyp\" docid=\"4755056\" is-conref=\"true\" class=\"step\"><p id=\"7bdc92911bc9v\"><span data-tag=\"cmd\" id=\"cmd-ii7-eeg-kh4\" class=\"cmd\">在<b id=\"wintitle-fn3-axj-tzc\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，选择<span data-tag=\"menucascade\" id=\"menucascade-dfn-udl-5fn\" class=\"menucascade\"><b id=\"uicontrol-9zu-45h-837\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">节点管理</b> &gt; <b id=\"uicontrol-ubc-ky8-5bx\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">节点池</b></span>。</span></p></li>\n<li data-lake-index-type=\"0\" id=\"uf9e2e511\">\n<p id=\"9ddbb51b53av3\">在<b id=\"5f3bf41252gwh\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">节点池</b>页面，参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/create-a-node-pool\" id=\"aa53c64bd1csh\" title=\"\" class=\"xref\">创建和管理节点池</a>完成配置并勾选<b id=\"f87adef3c06bd\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">高级选项</b>中<b id=\"eaa8af7bd02cw\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">容器镜像加速</b>。</p>\n</li>\n</ol>\n</section>\n<section id=\"6d672b9eedk6v\" class=\"section\">\n<h3 id=\"0c1f55ecafom8\"><b>为已有节点池开启</b></h3>\n<p id=\"19a9ba28d0wo7\">开启或关闭节点池<b id=\"422bb7b3a4w01\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">容器镜像加速</b>开关后，仅对新增节点生效。如需针对存量节点生效，需要将节点移除出节点池后，重新添加回节点池，相关操作，请参见<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/remove-a-node-11\" id=\"b6ba0a02afbg1\" title=\"\" class=\"xref\">移除节点</a>并<a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/add-existing-ecs-instances-to-an-ack-cluster\" id=\"cb66307bc6k9h\" title=\"\" class=\"xref\">添加已有节点</a>。</p>\n<ol id=\"7733646b9deou\">\n<li data-tag=\"step\" id=\"2e0f4bec7d1hh\" docid=\"4755056\" is-conref=\"true\" class=\"step\"><p id=\"7bdb0bf11b631\"><span data-tag=\"cmd\" id=\"cmd-mto-t3v-p7d\" class=\"cmd\">登录<span props=\"china intl\"><a href=\"https://cs.console.aliyun.com\" id=\"xref-c6s-99d-s5k\" class=\"\" target=\"_blank\">容器服务管理控制台</a></span>，在左侧导航栏选择<b id=\"uicontrol-42p-agm-35k\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>。</span></p></li>\n<li data-tag=\"step\" id=\"d520215e38t88\" docid=\"4755056\" is-conref=\"true\" class=\"step\"><p id=\"7bdc92911bc9v\"><span data-tag=\"cmd\" id=\"cmd-ii7-eeg-kh4\" class=\"cmd\">在<b id=\"wintitle-fn3-axj-tzc\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，选择<span data-tag=\"menucascade\" id=\"menucascade-dfn-udl-5fn\" class=\"menucascade\"><b id=\"uicontrol-9zu-45h-837\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">节点管理</b> &gt; <b id=\"uicontrol-ubc-ky8-5bx\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">节点池</b></span>。</span></p></li>\n<li data-lake-index-type=\"0\" id=\"u0855a4ab\">\n<p id=\"9f2b279c5652c\">在节点池列表页面，单击目标节点池所在行<b id=\"f5bfc19ec2b86\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">操作</b>列的<b id=\"2ae755be81c3n\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">编辑</b>，在高级选项中，勾选<b id=\"916e822389s2l\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">容器镜像加速</b>，按照页面提示更新节点池的配置项。</p>\n<p id=\"646082651dafq\">在节点池列表，如果节点池状态显示<b id=\"a4f576b278tds\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">更新中</b>，表明节点池正在变更中。显示<b id=\"f06c029ca2ihk\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">已激活</b>，表明变更已完成。</p>\n</li>\n</ol>\n</section>\n</section>\n</section>\n<section id=\"91002d2cab86c\" class=\"section\">\n<h2 id=\"a371a76af2eju\">其它类型集群</h2>\n<p id=\"b51f48498d3a5\">您需要为节点添加镜像加速标签&nbsp;<code class=\"code blog-code\" data-tag=\"code\" id=\"60674ea4a1kz1\">alibabacloud.com/image-accelerate-enabled: true</code>，以在节点初始化时自动开启镜像加速功能并安装镜像存储插件。</p>\n<p id=\"fb52410d5bacn\">不同类型集群的标签设置方式如下：</p>\n<table autofit=\"true\" id=\"77b26bbbeaot0\" tablecolswidth=\"23.75 76.25\" tablewidth=\"100\" class=\"table\">\n<colgroup colwidth=\"0.47*\" style=\"width:23.75%\"></colgroup>\n<colgroup colwidth=\"1.52*\" style=\"width:76.25%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"41e3d82f5381a\">\n<td id=\"4f70dd0ec0rf1\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"5ba72085c2w0m\"><b>集群类型</b></p>\n</td>\n<td id=\"fd647e4a92yu6\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"821907e196xu4\"><b>配置方式及文档链接</b></p>\n</td>\n</tr>\n<tr id=\"626012b3c7kku\">\n<td id=\"af00223b26g0t\" rowspan=\"1\" colspan=\"1\">\n<p id=\"f6aee06aedyfe\"><span data-tag=\"ph\" id=\"a4e51c9d31xw4\" data-init-id=\"143d7d935cocl\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Serverless<span class=\"help-letter-space\"></span>集群</span></p>\n</td>\n<td id=\"9bbbfecfe6am4\" rowspan=\"1\" colspan=\"1\">\n<ul id=\"964fff08fa17w\">\n<li id=\"e6409967516jq\">\n<p id=\"7b220327d7bl2\"><a href=\"https://help.aliyun.com/zh/ack/serverless-kubernetes/developer-reference/api-cs-2015-12-15-createclusternodepool-serverless\" id=\"14076621db13z\" title=\"\" class=\"xref\">创建节点池</a></p>\n</li>\n<li id=\"c0a6f15e6cpbo\">\n<p id=\"f17e31a35a1dg\"><a href=\"https://help.aliyun.com/zh/ack/serverless-kubernetes/developer-reference/api-cs-2015-12-15-modifyclusternodepool-serverless\" id=\"a7377d6877nd0\" title=\"\" class=\"xref\">修改节点池配置</a></p>\n</li>\n</ul>\n</td>\n</tr>\n<tr id=\"d56d47a51db83\">\n<td id=\"63ecef1d1fsdn\" rowspan=\"1\" colspan=\"1\">\n<p id=\"f01fdf2ac1f84\"><span data-tag=\"ph\" id=\"bd22d6b8ber2u\" data-init-id=\"be6374bcb7hm7\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群</span></p>\n</td>\n<td id=\"d4f57128fct67\" rowspan=\"1\" colspan=\"1\">\n<ul id=\"3b006f98c5iwn\">\n<li id=\"0904f3188fk0f\">\n<p id=\"371ac088a5f1p\">云端节点池请参见<a href=\"https://help.aliyun.com/zh/ack/ack-edge/user-guide/create-a-node-pool\" id=\"97c3d07bd1zdq\" title=\"\" class=\"xref\">创建和管理节点池</a></p>\n</li>\n<li id=\"5a412b6deapjk\">\n<p id=\"22f6440fc0t4d\">边缘节点池请参见<a href=\"https://help.aliyun.com/zh/ack/ack-edge/user-guide/edge-node-pool-management#2287db2fa0h5o\" id=\"7a8138661c9gv\" title=\"\" class=\"xref\">创建边缘节点池</a></p>\n</li>\n</ul>\n</td>\n</tr>\n<tr id=\"9b5d4b2acavda\">\n<td id=\"b3b20b2a3b6hw\" rowspan=\"1\" colspan=\"1\">\n<p id=\"0d987525b1gce\"><span data-tag=\"ph\" id=\"fe3b3982e6tzm\" data-init-id=\"cbd6f9f17fv7d\" docid=\"4107896\" is-conref=\"true\" class=\"ph\">ACK<span class=\"help-letter-space\"></span>灵骏集群</span></p>\n</td>\n<td id=\"5cd5ccd155fy8\" rowspan=\"1\" colspan=\"1\">\n<p id=\"e4014dd579nkt\"><a href=\"https://help.aliyun.com/zh/ack/ack-lingjun-managed-clusters/user-guide/overview-of-lingjun-node-pools#section-ksb-b56-0a0\" id=\"880628c50433r\" title=\"\" class=\"xref\">灵骏节点池</a></p>\n</td>\n</tr>\n<tr id=\"31b77511d6ga4\">\n<td id=\"7fe740bbebhg3\" rowspan=\"1\" colspan=\"1\">\n<p id=\"b7e0bda88a3an\">容器计算服务<span class=\"help-letter-space\"></span>ACS</p>\n</td>\n<td id=\"619ae58bfcfx8\" rowspan=\"1\" colspan=\"1\">\n<p id=\"109f1926a43kb\"><a href=\"https://help.aliyun.com/zh/cs/user-guide/node-label-and-taint-management\" id=\"c433bae27deb4\" title=\"\" class=\"xref\">节点标签和污点管理</a></p>\n</td>\n</tr>\n</tbody>\n</table>\n</section>\n</section>\n</section>\n</li>\n<li data-tag=\"step\" id=\"step-qjo-7t1-omg\" class=\"step\">\n<p id=\"e798d432f2vry\"><span data-tag=\"cmd\" id=\"cmd-7xr-til-8xj\" class=\"cmd\">安装镜像加速组件。</span></p>\n<ol data-tag=\"substeps\" id=\"substeps-msc-649-hoq\" type=\"a\" class=\"substeps\">\n<li data-tag=\"step\" id=\"0d8760ee1206b\" docid=\"4755056\" sourcekey=\"1975\" is-conref=\"true\" class=\"step\"><p id=\"7bdb0bf11b631\"><span data-tag=\"cmd\" id=\"cmd-mto-t3v-p7d\" class=\"cmd\">登录<span props=\"china intl\"><a href=\"https://cs.console.aliyun.com\" id=\"xref-c6s-99d-s5k\" class=\"\" target=\"_blank\">容器服务管理控制台</a></span>，在左侧导航栏选择<b id=\"uicontrol-42p-agm-35k\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>。</span></p></li>\n<li id=\"16af4763ebsh1\">\n<p id=\"0b0c6c0647dtw\"><span data-tag=\"ph\" id=\"9c9d1f7d7b3ml\" docid=\"3660168\" is-conref=\"true\" class=\"ph\">在<b id=\"wintitle-gva-los-xh1\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，单击<b id=\"uicontrol-9zv-cyp-vgu\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">组件管理</b>。</span></p>\n</li>\n<li data-tag=\"substep\" id=\"substep-57j-yc0-1ws\" class=\"substep\">\n<p id=\"e7992250f2s2z\"><span data-tag=\"cmd\" id=\"cmd-y4s-qrm-ehe\" class=\"cmd\">在<b id=\"wintitle-087-qpq-s6z\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">组件管理</b>页面的<b id=\"uicontrol-m9n-j5e-srg\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">其他</b>区域找到<span class=\"help-letter-space\"></span><b data-tag=\"uicontrol\" id=\"uicontrol-x0h-pvm-0zr\" class=\"uicontrol\">aliyun-acr-acceleration-suite</b>，单击右侧的<b id=\"uicontrol-m5h-9sx-390\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">安装</b>。</span></p>\n</li>\n<li data-tag=\"substep\" id=\"substep-efi-ch7-rfx\" class=\"substep\">\n<p id=\"e7992251f2ljx\"><span data-tag=\"cmd\" id=\"cmd-fkc-qki-27q\" class=\"cmd\">在<b id=\"uicontrol-tz9-l3e-iz3\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">提示</b>对话框中单击<b id=\"uicontrol-5wz-57p-0hz\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确认</b>。</span></p>\n<section id=\"f995fc3dfbnqy\" class=\"section\">\n<ul id=\"e81abaeaaf1re\">\n<li id=\"e59ad31fba0py\">\n<p id=\"4f7dbcd22bjck\">在左侧导航栏，选择<span data-tag=\"menucascade\" id=\"31dcbdc5f1o32\" class=\"menucascade\"><b id=\"a20e718c5b1hp\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">工作负载</b> &gt; <b id=\"a5e5e2431dllv\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">守护进程集</b></span>，在<b id=\"df82c0fa54qdj\" data-status=\"unpublished\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">守护进程集</b>页面，查看组件守护进程安装详情。</p>\n</li>\n<li id=\"8130f3bf8d43u\">\n<p id=\"89350d880fqra\">在左侧导航栏，选择<span data-tag=\"menucascade\" id=\"876c072020np7\" class=\"menucascade\"><b id=\"c06d8d8d8a6sf\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">工作负载</b> &gt; <b id=\"eb9adb1653rjb\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">无状态</b></span>，在<b id=\"537f8b11fbz3l\" data-status=\"unpublished\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">无状态</b>页面查看组件无状态应用安装详情。</p>\n</li>\n</ul>\n</section>\n<div data-tag=\"stepresult\" id=\"stepresult-i6q-zo7-qkl\" class=\"stepresult\">\n<p id=\"e7994960f2oxq\">当目标组件的容器组数量显示全部启动完成，表示组件安装成功。</p>\n</div>\n</li>\n</ol>\n</li>\n</ol>\n</section>\n\n<section data-tag=\"section\" data-type=\"section\" id=\"section-1hk-1q6-yyk\" class=\"section\">\n<h2 data-tag=\"title\" id=\"title-px1-1r1-bn0\" class=\"title\">启用加速镜像</h2>\n<ol data-tag=\"steps\" id=\"steps-ad8-8z1-dzf\" class=\"steps\">\n<li data-tag=\"step\" id=\"step-tkf-1r6-btd\" class=\"step\">\n<p id=\"e799be90f26ml\"><span data-tag=\"cmd\" id=\"cmd-4sd-pox-sc8\" class=\"cmd\">设置镜像仓库访问凭证。</span></p>\n<div id=\"f349fd3638p2z\" type=\"warning\" class=\"note note-warning\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note warning\"></i></div><div class=\"noteContentSpan\"><strong>警告 </strong>\n<p id=\"bf52c81b0ffpr\">请确保您的镜像拉取密钥权限按最小权限原则配置，仅包含拉取本集群所需业务镜像的权限。更多详情，请参见<a href=\"https://help.aliyun.com/zh/acr/user-guide/attach-a-custom-policy-to-a-ram-user\" id=\"02600fd0a2mxa\" title=\"\" class=\"xref\">授予<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>用户自定义策略</a>。</p>\n</div></div>\n<div data-tag=\"info\" id=\"info-h2g-bqq-di0\" class=\"info\">\n<ul data-tag=\"ul\" id=\"ul-arr-dhy-zb0\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-23e-c4d-i6q\" class=\"li\">\n<p id=\"e799be91f25qj\">镜像免密插件方式。</p>\n<ul data-tag=\"ul\" id=\"ul-wrv-qat-cye\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-58a-qjn-uke\" class=\"li\">\n<p id=\"e799be92f2p3d\">若已使用免密插件，且企业版实例的免密配置正确，无需其他操作。</p>\n</li>\n<li data-tag=\"li\" id=\"li-5jf-v8v-1mn\" class=\"li\">\n<p id=\"e799be93f2cxe\">若未使用免密插件，您可使用免密插件，更多信息，请参见<a href=\"https://help.aliyun.com/zh/acr/use-the-aliyun-acr-credential-helper-component-to-pull-images-without-using-secrets#task-2456294\" id=\"xref-1v8-fk2-l6a\" title=\"\" class=\"xref\">使用免密组件拉取容器镜像</a>。</p>\n</li>\n</ul>\n</li>\n<li id=\"3d59181530tlg\">\n<p id=\"359b2626b1g1c\">指定镜像拉取凭证<span class=\"help-letter-space\"></span>Secret<span class=\"help-letter-space\"></span>的标签方式。</p>\n<div id=\"7f363059293ux\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n<p id=\"49760865c8e0s\">仅镜像加速组件的版本不小于<span class=\"help-letter-space\"></span>0.2.6<span class=\"help-letter-space\"></span>支持该方式。</p>\n</div></div>\n<p id=\"1dcd6c682dc5g\">创建<span class=\"help-letter-space\"></span>kubernetes.io/dockerconfigjson<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>Secret，并为其打上<span class=\"help-letter-space\"></span>images.alibabacloud.com/accelerated: true<span class=\"help-letter-space\"></span>的标签。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"67a48ae314f25\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>kubectl create secret docker-registry &lt;SecretName&gt; --docker-server=&lt;RegistryVpcDomain&gt; --docker-username=&lt;UserName&gt; --docker-password=&lt;Password&gt;</code></pre><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"9fa09425cejq9\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>kubectl label secrets &lt;SecretName&gt;  images.alibabacloud.com/accelerated=\"true\"</code></pre>\n</li>\n</ul>\n</div>\n</li>\n<li data-tag=\"step\" id=\"step-9mn-0gz-all\" class=\"step\">\n<p id=\"e799e5a2f2qq3\"><span data-tag=\"cmd\" id=\"cmd-hov-i5q-tdl\" class=\"cmd\">添加镜像加速标签。</span></p>\n<div data-tag=\"info\" id=\"info-vff-y3o-9f1\" class=\"info\">\n<div data-tag=\"p\" id=\"p-99p-6ii-zzh\" class=\"p\">\n<p id=\"e799e5a3f219p\">您可以为应用负载添加镜像加速标签，例如<span class=\"help-letter-space\"></span>Pod、Deployment<span class=\"help-letter-space\"></span>等。也可以为<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>或<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"143d7d9f5cyxw\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Serverless<span class=\"help-letter-space\"></span>集群</span>的命名空间设置标签，该命名空间内的所有符合加速条件的应用负载会启用按需加载容器镜像，无需再修改所有符合加速条件的应用负载的<span class=\"help-letter-space\"></span>YAML<span class=\"help-letter-space\"></span>文件。根据实际情况选择任一方式添加镜像加速标签。</p>\n<div data-tag=\"note\" id=\"note-xd2-tgg-jnt\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n<p id=\"e799e5a4f201s\">标签的名称为<span data-tag=\"ph\" id=\"codeph-5wj-ruo-whp\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" id=\"e34eb01c24wls\" class=\"code\">k8s.aliyun.com/image-accelerate-mode</code></span>，值为<span data-tag=\"ph\" id=\"codeph-myk-3qx-t4i\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" id=\"4f508e346dhw4\" class=\"code\">on-demand</code></span>。</p>\n</div></div>\n</div>\n<ul data-tag=\"ul\" id=\"ul-yc5-ink-ru8\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-qhv-vz4-qpp\" class=\"li\">\n<p id=\"e79a0cb0f2zrx\">为应用负载添加镜像加速标签。</p>\n<div data-tag=\"p\" id=\"p-fv9-ju7-r1p\" class=\"p\">\n<p id=\"e79a0cb1f2v2l\">以下以<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>为例设置标签。执行以下命令，为<span class=\"help-letter-space\"></span>Deployment<span class=\"help-letter-space\"></span>管理的<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>设置标签。</p><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"codeblock-gi8-5l4-zdg\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>kubectl edit deployment &lt;Deployment<span class=\"help-letter-space\"></span>名称&gt; -n  &lt;Deployment<span class=\"help-letter-space\"></span>命名空间&gt; </code></pre>\n<p id=\"e79a0cb2f2b72\">在<span class=\"help-letter-space\"></span>Deployment<span class=\"help-letter-space\"></span>的<span class=\"help-letter-space\"></span>YAML<span class=\"help-letter-space\"></span>描述文件中添加标签<span data-tag=\"ph\" id=\"codeph-k9o-w5d-0u0\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" id=\"4c88400d519b3\" class=\"code\"> k8s.aliyun.com/image-accelerate-mode: on-demand</code></span>。</p>\n</div><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"codeblock-1bl-js2-ma3\" outputclass=\"language-yaml\" class=\"pre codeblock language-yaml\"><code>apiVersion: apps/v1\nkind: Deployment\nmetadata:\n  name: nginx-deployment\n  labels:\n    app: nginx\nspec:\n  replicas: 1\n  selector:\n    matchLabels:\n      app: nginx\n  template:\n    metadata:\n      labels:\n        app: nginx\n        # enable on-demand mode\n        k8s.aliyun.com/image-accelerate-mode: on-demand\n    spec:\n      containers:\n       # your ACR instacne image\n       - image: test-registry-vpc.cn-hangzhou.cr.aliyuncs.com/test/nginx:latest\n         name: test\n         command: [\"sleep\", \"3600\"]</code></pre>\n</li>\n<li data-tag=\"li\" id=\"li-wot-1qx-dyl\" class=\"li\">\n<p id=\"e79a0cb3f2rj0\">为命名空间添加镜像加速标签</p>\n<ul data-tag=\"ul\" id=\"ul-cz7-0ij-8l0\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-0yr-9d4-g44\" class=\"li\">\n<p id=\"e79a0cb4f2vdy\">通过控制台添加镜像加速标签。</p>\n<ol data-tag=\"ol\" id=\"ol-4cv-syw-mva\" type=\"a\" class=\"ol\">\n<li id=\"fa6e4ed7efrj9\">\n<p id=\"9e60bd2e0acrq\"><span data-tag=\"cmd\" id=\"4f09aa6d9aomf\" docid=\"4869437\" is-conref=\"true\" class=\"cmd\">登录<span props=\"china intl\"><a href=\"https://cs.console.aliyun.com\" id=\"xref-c6s-99d-s5k\" class=\"\" target=\"_blank\">容器服务管理控制台</a></span>，在左侧导航栏选择<b id=\"uicontrol-42p-agm-35k\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>。</span></p>\n</li>\n<li data-tag=\"step\" id=\"46494dfc1e8ly\" docid=\"4869437\" is-conref=\"true\" class=\"step\"><p id=\"7bdce0b11bffv\"><span data-tag=\"cmd\" id=\"cmd-wgc-jsb-rla\" class=\"cmd\">在<b id=\"wintitle-yhg-txb-jht\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，选择<b id=\"uicontrol-3ik-4h1-p9e\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">命名空间与配额</b>。</span></p></li>\n<li data-tag=\"li\" id=\"li-cmq-ml6-qyo\" class=\"li\">\n<p id=\"e79a5ad1f21hf\">在<b id=\"wintitle-1d0-cq9-1kz\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">命名空间</b>页面单击目标命名空间<b id=\"uicontrol-iqw-e1t-iwd\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">操作</b>列的<b id=\"uicontrol-sxg-3dn-ou9\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">编辑</b>。</p>\n</li>\n<li data-tag=\"li\" id=\"li-s37-762-7ck\" class=\"li\">\n<p id=\"e79a5ad2f23y7\">在<b id=\"uicontrol-fd0-115-uqe\" data-status=\"unpublished\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">编辑命名空间</b>对话框中设置<b id=\"uicontrol-54q-4uo-j7b\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">标签</b>的<b id=\"uicontrol-hhr-8h2-n5o\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">变量名称</b>为<span data-tag=\"ph\" id=\"codeph-6na-ebj-8c4\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" id=\"f8073f5fe8evb\" class=\"code\">k8s.aliyun.com/image-accelerate-mode</code></span>，<b id=\"uicontrol-cm0-vrn-doh\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">标签</b>的<b id=\"uicontrol-acl-qfl-tvd\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">变量值</b>为<span data-tag=\"ph\" id=\"codeph-v8t-kn9-y7d\" class=\"ph\"><code code-type=\"xCode\" data-tag=\"code\" id=\"bf57bcf9548vf\" class=\"code\">on-demand</code></span>，然后单击<b id=\"uicontrol-xge-6hs-5b2\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确定</b>。</p>\n</li>\n</ol>\n</li>\n<li data-tag=\"li\" id=\"li-edd-0dp-kea\" class=\"li\">\n<p id=\"e79a81e0f2n53\">通过命令行添加镜像加速标签。</p>\n</li>\n</ul>\n</li>\n</ul><pre code-type=\"xCode\" data-tag=\"codeblock\" id=\"codeblock-psj-en0-my3\" outputclass=\"language-shell\" class=\"pre codeblock language-shell\"><code>kubectl label namespaces &lt;YOUR-NAMESPACE&gt; k8s.aliyun.com/image-accelerate-mode=on-demand</code></pre>\n</div>\n<div data-tag=\"stepresult\" id=\"stepresult-1m4-7ed-53v\" class=\"stepresult\">\n<p id=\"e79a81e1f2tof\">设置加速标签后，如果您已完成普通镜像到加速镜像的转换，在相应命名空间内创建和更新<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>时，加速组件会自动将<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>的原始镜像地址替换为加速镜像地址，并添加<span class=\"help-letter-space\"></span>nodeSelector，将<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>调度到加速节点。</p>\n</div>\n</li>\n</ol>\n</section>\n<p id=\"ed4cb9bc19t3j\"></p>\n</div>\n</main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/ack/ack-edge/user-guide/load-resources-of-a-container-image-on-demand","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"alias":"/ack/ack-edge/user-guide/load-resources-of-a-container-image-on-demand","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":7,"developerUrl":"https://developer.aliyun.com/group/kubernetes/","nodeType":1,"version":12,"url":"/zh/ack/ack-edge/user-guide/load-resources-of-a-container-image-on-demand","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":2861229,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"按需加载容器镜像","id":2861229,"title":"按需加载容器镜像","url":"/zh/ack/ack-edge/user-guide/load-resources-of-a-container-image-on-demand"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"容器镜像","id":2861224,"title":"容器镜像","url":"/zh/ack/ack-edge/user-guide/container-mirrors/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"操作指南","id":2391816,"title":"操作指南","url":"/zh/ack/ack-edge/user-guide/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"ACK Edge集群","id":181471,"title":"ACK Edge集群","url":"/zh/ack/ack-edge/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"productUrl":"https://www.aliyun.com/product/kubernetes","nodeId":2861229,"desc":"传统容器运行需要将全量镜像数据下载后再解包，然而容器启动可能仅使用其中部分的内容，导致容器启动耗时长。通过容器镜像服务企业版的按需加载功能，允许仅下载和解压容器启动所必需的部分，而不是整个镜像，从而大幅提高应用部署速度和提升弹性体验。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"ACK Edge集群","id":181471,"title":"ACK Edge集群","url":"/zh/ack/ack-edge/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"操作指南","id":2391816,"title":"操作指南","url":"/zh/ack/ack-edge/user-guide/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"容器镜像","id":2861224,"title":"容器镜像","url":"/zh/ack/ack-edge/user-guide/container-mirrors/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"按需加载容器镜像","id":2861229,"title":"按需加载容器镜像","url":"/zh/ack/ack-edge/user-guide/load-resources-of-a-container-image-on-demand"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=213e02f417825459124345759e531b&asid=AQAAAAD4fT9q34LsLAAAAAA/O7hF/mfnVw==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"><div class="help-subproduct-container"></div></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2391815" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/product-overview/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品概述</span>
+</a>
+</li>
+ <li id="2870142" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/quick-start">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">快速入门</span>
+</a>
+</li>
+ <li id="2391816" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">操作指南</span>
+</a>
+</li>
+ <li id="2865114" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/use-cases/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">实践教程</span>
+</a>
+</li>
+ <li id="2852069" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/security-and-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="2391824" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2391859" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-edge/support/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">服务支持</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>按需加载容器镜像</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/kubernetes" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+<main id="task-1955391">
+
+
+<p data-tag="shortdesc" id="shortdesc-lv9-8po-0bf" class="shortdesc">传统容器运行需要将全量镜像数据下载后再解包，然而容器启动可能仅使用其中部分的内容，导致容器启动耗时长。通过容器镜像服务企业版的按需加载功能，允许仅下载和解压容器启动所必需的部分，而不是整个镜像，从而大幅提高应用部署速度和提升弹性体验。</p>
+<div data-tag="taskbody" id="taskbody-84a-frd-qim" class="taskbody">
+<section data-tag="prereq" data-type="prereq" id="prereq-vcg-wnf-b8i" class="section prereq">
+<h2 id="d41e23">前提条件</h2>
+<ul data-tag="ul" id="ul-5nq-55b-tve" class="ul">
+<li data-tag="li" id="li-bms-8s8-hs3" class="li">
+<p id="e797c2c0f2bc9">支持<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>集群版本及类型。</p>
+<div data-tag="note" id="note-9ru-ng9-b4e" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+<p id="e797c2c1f23d8">支持在版本≥1.16.9<span class="help-letter-space"></span>的托管版、专有版，≥1.26.3<span class="help-letter-space"></span>的<span class="help-letter-space"></span><span data-tag="ph" id="be6374bcb7hm7" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群</span>和<span class="help-letter-space"></span><span data-tag="ph" id="143d7d935cocl" docid="4431993" is-conref="true" class="ph">ACK Serverless<span class="help-letter-space"></span>集群</span>、<span data-tag="ph" id="cbd6f9f17fv7d" docid="4107896" is-conref="true" class="ph">ACK<span class="help-letter-space"></span>灵骏集群</span>和容器计算服务<span class="help-letter-space"></span>ACS<span class="help-letter-space"></span>上使用加速镜像。且创建集群时操作系统为<span class="help-letter-space"></span>Alibaba Cloud Linux 2.1903、Alibaba Cloud Linux 3.2104、Alibaba Cloud Linux 3.2104 LTS 64 bit ARM edition、Alibaba Cloud Linux UEFI 2.1903、CentOS 7.9。</p>
+</div></div>
+</li>
+<li data-tag="li" id="li-vz6-zly-kxz" class="li">
+<p id="e797c2c2f2ify">已创建企业版实例，更多信息，请参见<a href="https://help.aliyun.com/zh/acr/user-guide/create-a-container-registry-enterprise-edition-instance#task488" id="xref-hj9-zfm-mj6" title="" class="xref">创建企业版实例</a>。</p>
+<div data-tag="note" id="note-r8t-81u-g1i" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+<p id="d26097b5d01sd">在镜像加速中，两种模式支持的企业版实例规格有所不同：</p>
+<ul id="4c253e30d4goy">
+<li id="f756f5842dqr7">
+<p id="33b3ca103d3e3">完整模式：支持的企业版实例为标准版或高级版。</p>
+</li>
+<li data-spm-anchor-id="0.0.0.i55.369e3d33E49f6S" id="5d341cd081u28">
+<p id="ae89fae1c4o7k">仅索引模式：支持的企业版实例为基础版、标准版或高级版。</p>
+</li>
+</ul>
+</div></div>
+</li>
+<li data-tag="li" id="li-qc1-ey2-rlv" class="li">
+<p id="e797c2c4f2ok7">已在企业版实例中配置<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>或<span class="help-letter-space"></span><span data-tag="ph" id="143d7d955cgzd" docid="4431993" is-conref="true" class="ph">ACK Serverless<span class="help-letter-space"></span>集群</span>对应的专有网络。加速镜像需要在专有网络中使用，更多信息，请参见<a href="https://help.aliyun.com/zh/acr/user-guide/configure-access-over-vpcs#task1305" id="xref-me0-2br-ish" title="" class="xref">配置专有网络的访问控制</a>。</p>
+</li>
+</ul>
+</section>
+<section data-tag="context" data-type="context" id="context-8bu-evm-uvy" class="context section">
+<h2 id="d41e41">背景信息</h2>
+<p id="e797e9d0f23eb">通过容器镜像服务企业版的按需加载功能，您可以在业务部署中使用加速镜像版本，实现镜像数据免全量下载和在线解压，大幅提升应用分发效率和弹性体验。镜像的加速效果与镜像大小、镜像仓库网络等因素有关。经实测，基于<span class="help-letter-space"></span>Docker Hub<span class="help-letter-space"></span>的<span class="help-letter-space"></span><a class="" href="https://github.com/NodeBB/NodeBB" id="2e0ec449bd2gm">NodeBB</a><span class="help-letter-space"></span>镜像（1.34 GB）启动应用在镜像拉取阶段需耗费<span class="help-letter-space"></span>36s，整体应用启动时间<span class="help-letter-space"></span>38s。基于加速镜像启动应用在镜像拉取阶段仅需<span class="help-letter-space"></span>4s，整体应用启动时间仅需<span class="help-letter-space"></span>9s。</p>
+</section>
+<section data-tag="section" data-type="section" id="section-y2g-c0o-xt7" class="section">
+<h2 data-tag="title" id="title-nsd-9jm-vw6" class="title">使用限制</h2>
+<ul id="d5207e63f7u0v">
+<li id="7ef779e982t5m">
+<p data-tag="p" id="p-jbe-x92-h8c" class="p">如果您的容器运行时为<span class="help-letter-space"></span>Containerd，则支持加速镜像仓库使用自定义域名，而<span class="help-letter-space"></span>Docker<span class="help-letter-space"></span>由于自身限制暂不支持加速镜像仓库自定义域名的使用。更多信息，请参见<a href="https://help.aliyun.com/zh/acr/user-guide/use-a-custom-domain-name-to-access-a-container-registry-enterprise-edition-instance#task-1955575" id="xref-c2r-5en-6qj" title="" class="xref">通过自定义域名访问容器镜像服务企业版实例</a>。</p>
+</li>
+<li id="511f46c984zhn">
+<p id="e5df2c716937y">仅索引模式不支持在<span class="help-letter-space"></span>FC<span class="help-letter-space"></span>和<span class="help-letter-space"></span>SAE<span class="help-letter-space"></span>的场景下使用。</p>
+</li>
+<li id="530431da0eqx2">
+<p id="f9877e5aab5w3">存量镜像需要手动触发加速镜像转换。</p>
+</li>
+</ul>
+</section>
+<section data-tag="section" data-type="section" id="section-47t-7v6-bm3" class="section">
+<h2 data-tag="title" id="title-3qe-irc-x3o" class="title">地域限制</h2>
+<p data-tag="p" id="p-o0f-7z0-rp2" class="p">金融云与政务云地域不支持按需加载功能。</p>
+</section>
+<section data-tag="section" data-type="section" id="section-87k-i16-i5g" class="section">
+<h2 data-tag="title" id="title-8tn-eah-7db" class="title">转换加速镜像</h2>
+<div data-tag="p" id="p-h6p-ubn-yz2" class="p">
+<p id="e797e9d1f228d">目前支持仓库级别配置，自动将推送的原始镜像转换为加速镜像。镜像转换时间取决于您的镜像大小，原始镜像不受任何影响。</p>
+<div data-tag="note" id="note-h9h-fio-g1w" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+<p id="e797e9d2f2hjx">加速镜像的命名空间和仓库名称与原始镜像保持一致，Tag<span class="help-letter-space"></span>格式为：</p>
+<ul id="c16186d44faty">
+<li id="3716ef8ff0vjj">
+<p id="79690ac46cbji">仅索引模式：原始镜像<span class="help-letter-space"></span>tag+<code code-type="xCode" data-tag="code" id="b1b034d64eypl" class="code">_accelerated</code>后缀的加速镜像仅支持<span class="help-letter-space"></span>Containerd<span class="help-letter-space"></span>运行时，且使用时原始镜像<span class="help-letter-space"></span>tag<span class="help-letter-space"></span>不可删除。</p>
+</li>
+<li id="4e6c6ae88cmd2">
+<p id="770d43242bp3f">完整模式：</p>
+<ul id="8ccc4f4460hsc">
+<li id="bebe1acc0a9y7">
+<p id="5da3c1f292xxx">原始镜像<span class="help-letter-space"></span>tag+<code code-type="xCode" data-tag="code" id="e8f3ff51b6eoh" class="code">_accelerated</code>后缀的加速镜像。支持<span class="help-letter-space"></span>Docker<span class="help-letter-space"></span>和<span class="help-letter-space"></span>Containerd<span class="help-letter-space"></span>运行时</p>
+</li>
+<li id="f4680c6093xmr">
+<p id="19d60203d9bei">原始镜像<span class="help-letter-space"></span>tag+<code code-type="xCode" data-tag="code" id="5944aad848vz7" class="code">_containerd_accelerated</code>后缀的加速镜像仅适用于<span class="help-letter-space"></span>Containerd<span class="help-letter-space"></span>运行时。</p>
+<p id="42a006016bz6c">注意使用时<code code-type="xCode" data-tag="code" id="5a33dd895bsuu" class="code">_containerd_accelerated</code>后缀的镜像和其原始镜像均不可删除。</p>
+</li>
+</ul>
+</li>
+</ul>
+</div></div>
+</div>
+<ol data-tag="steps" id="steps-dd7-4vw-ijz" class="steps">
+<li data-tag="step" id="step-uly-6nj-fhy" props="china intl" is-conref="true" data-cond-props="china intl" class="step"><p id="bdd02d4569416"><span data-tag="cmd" id="cmd-h00-gt2-zil" class="cmd">登录<a href="https://cr.console.aliyun.com" id="xref-jzs-nxc-yrb" class="" target="_blank">容器镜像服务控制台</a>。</span></p></li>
+
+<li data-tag="step" id="step-i5k-q08-b31" is-conref="true" class="step"><p id="bdd02d4769lp4"><span data-tag="cmd" id="cmd-l3m-863-2ac" class="cmd">在顶部菜单栏，选择所需地域。</span></p></li>
+<li data-tag="step" id="step-31y-fyh-vmd" class="step">
+<p id="e79810e1f2cmm"><span data-tag="cmd" id="cmd-vzo-6tj-rxq" class="cmd">在左侧导航栏，选择<b id="uicontrol-1c2-h4p-6eq" data-tag="uicontrol" data-isbold="true" class="uicontrol">实例列表</b>。</span></p>
+</li>
+<li data-tag="step" id="step-sen-d17-1f2" is-conref="true" class="step"><p id="bdd0545069yhw"><span data-tag="cmd" id="cmd-7ff-b8l-lsk" class="cmd">在<b id="wintitle-i7d-zro-w8e" data-tag="uicontrol" data-isbold="true" class="uicontrol">实例列表</b>页面单击目标企业版实例。</span></p></li>
+<li data-tag="step" id="step-x9y-m6d-4h2" class="step">
+<p id="e79810e3f2rfh"><span data-tag="cmd" id="cmd-lb0-4rz-1nt" class="cmd">在企业版实例管理页左侧导航栏中选择<span data-tag="menucascade" id="menucascade-374-cz9-iw1" class="menucascade"><b id="uicontrol-6yt-1da-3ec" data-tag="uicontrol" data-isbold="true" class="uicontrol">仓库管理</b> &gt; <b id="uicontrol-z4i-i0w-f0r" data-tag="uicontrol" data-isbold="true" class="uicontrol">镜像仓库</b></span>。</span></p>
+</li>
+<li data-tag="step" id="step-1wu-yr8-ius" class="step">
+<p id="e79837f0f2wf5"><span data-tag="cmd" id="cmd-0db-lid-2v4" class="cmd">在镜像仓库页面单击目标镜像仓库名称或目标镜像仓库右侧<b id="uicontrol-f8a-f86-ctf" data-tag="uicontrol" data-isbold="true" class="uicontrol">操作</b>列下的<b id="uicontrol-1i4-1rv-ych" data-tag="uicontrol" data-isbold="true" class="uicontrol">管理</b>。</span>然后<span data-tag="cmd" id="cmd-vof-gel-d3k" class="cmd">在基本信息页面左上角单击<b id="uicontrol-n78-d04-0xa" data-tag="uicontrol" data-isbold="true" class="uicontrol">编辑</b>。</span></p>
+</li>
+<li data-tag="step" id="step-jk0-w17-fdp" class="step">
+<p id="e7985f00f2ey3"><span data-tag="cmd" id="cmd-j4x-vqo-653" class="cmd">在<b id="uicontrol-mon-to1-nno" data-tag="uicontrol" data-isbold="true" class="uicontrol">修改基本信息</b>对话框中，开启<b id="uicontrol-mqq-dhq-qlt" data-tag="uicontrol" data-isbold="true" class="uicontrol">镜像加速</b>，并选择所需模式后，单击<b id="b8210cae83g65" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>。</span></p>
+<section id="189770511b9qk" class="section">
+<ul id="8c6c9be9a2ek9">
+<li id="373bca86faij2">
+<p id="aad15f1bab3la"><b id="a091d1edbdfki" data-tag="uicontrol" data-isbold="true" class="uicontrol">完整模式</b>：容器启动的加速效果较为显著，转换生成的加速镜像体积约为原镜像体积的<span class="help-letter-space"></span>130%，1GB<span class="help-letter-space"></span>原始镜像生成加速镜像的时间约为<span class="help-letter-space"></span>25<span class="help-letter-space"></span>秒，已生成的镜像层不会重复生成。</p>
+</li>
+<li id="2f8baaffc4otq">
+<p id="7cdc0f69ba2y7"><b id="754432c750e0r">仅索引模式</b>：容器启动的加速效果约为<span class="help-letter-space"></span>70%完整模式加速效果，加速镜像体积约为<span class="help-letter-space"></span>3%原镜像体积，1GB<span class="help-letter-space"></span>原始镜像生成加速镜像时间约为<span class="help-letter-space"></span>3<span class="help-letter-space"></span>秒，已生成索引的镜像层不会重复生成。</p>
+<div id="b1e362df9etsy" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+<p id="fcfffdce1500r">仅索引模式正在公测中，建议您使用前先在测试环境进行验证，验证适用您的业务场景后再应用到生产环境中。</p>
+</div></div>
+<div id="95d627567cfxb" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+<ul class="ne-ol" id="282c2c9aa4m2w">
+<li data-lake-index-type="0" id="u5a76fd08">
+<p id="c847a3d8c2w69">仅索引模式目前仅适用于<code code-type="xCode" data-tag="code" id="7cd40b57daoax" class="code">tar</code>和<code code-type="xCode" data-tag="code" id="7b3466f2d51l5" class="code">tgz</code>压缩的镜像，不适用于其他压缩方式（如<code code-type="xCode" data-tag="code" id="530965f859q8q" class="code">zstd</code>压缩）的镜像。</p>
+</li>
+<li data-lake-index-type="0" id="ud1c5cc19">
+<p id="4a2aafc2a7gae">仅索引模式需要绑定原始镜像使用，使用时原始镜像不可删除，完整模式可以独立使用加速镜像。</p>
+</li>
+<li data-lake-index-type="0" id="u051b1e6f">
+<p id="353560a4dctyo">仅索引模式不支持<span class="help-letter-space"></span>Docker<span class="help-letter-space"></span>运行时使用。</p>
+</li>
+</ul>
+</div></div>
+</li>
+</ul>
+</section>
+<div data-tag="stepresult" id="stepresult-k71-8sr-0ll" class="stepresult">
+<p id="e7985f01f2nk3">在完成镜像加速转换设置后，您后续推送的镜像将自动触发镜像转换任务。若您希望接收镜像转换完成的通知，可以配置事件通知。例如将表达式设置为<code code-type="xCode" data-tag="code" id="2a813bf8f6jie" class="code">_accelerated$</code>，更多信息，请参见<a href="https://help.aliyun.com/zh/acr/user-guide/event-notification/" id="28d3756070mjv" title="" class="xref">事件通知</a>。</p>
+</div>
+</li>
+<li id="a191dced3eo2h">
+<p id="3371859bd11y6">（可选）指定<b id="52585feaf915q" data-tag="uicontrol" data-isbold="true" class="uicontrol">预取文件列表</b>。该列表中出现的文件项将在加速镜像启动的时候被优先预取，推荐在容器启动需要读取大文件时使用该功能。</p>
+<div id="85382933116o1" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+<p id="8ce591b4f6uzz">格式为每行一个文件绝对路径，如果为目录则需要以<code data-tag="code" id="6e611cb2b6vgl" class="code">/</code>结尾。</p>
+</div></div>
+</li>
+</ol>
+</section>
+<section data-tag="section" data-type="section" id="section-v3k-p71-euy" class="section">
+<h2 data-tag="title" id="title-ogm-t6f-yb7" class="title">安装镜像加速组件</h2>
+<p data-tag="p" id="p-sa1-x6z-mvk" class="p">为了启动加速容器，需要在<span class="help-letter-space"></span>Worker<span class="help-letter-space"></span>节点安装按需加载相关的镜像存储插件。</p>
+<ol data-tag="steps" id="steps-osm-2fj-vva" class="steps">
+<li data-tag="step" id="step-wtz-tln-5qg" class="step">
+<section id="d189791f79aqh" tagname="section" class="section">
+<p id="b87d0c526aygp" docid="5418074" is-conref="true">为了支持<span class="help-letter-space"></span>DADI<span class="help-letter-space"></span>加速镜像，可以在<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>控制台中，通过节点池的<b id="e09130c22343r" data-tag="uicontrol" data-isbold="true" class="uicontrol">容器镜像加速</b>开关，为新建节点池或存量节点池启用节点的镜像加速功能。</p>
+<section data-tag="tabbed-content-box" id="50fc1a2ae1duf" outputclass="tabbed-content-box" class="tabbed-content-box section">
+<section id="8c23d0cf93t8i" class="section">
+<h2 id="9f28d525d7afa">ACK<span class="help-letter-space"></span>托管版与专有集群</h2>
+<section data-tag="tabbed-content-box" id="f3f128af872rz" outputclass="tabbed-content-box" docid="5418074" is-conref="true" class="tabbed-content-box section">
+<section id="b0975a46d3ard" class="section">
+<h3 id="6fad7ca3519a1"><b>为新建节点池时开启</b></h3>
+<ol id="b848bc81bd1ag">
+<li data-tag="step" id="c99eadf951r2v" docid="4755056" is-conref="true" class="step"><p id="7bdb0bf11b631"><span data-tag="cmd" id="cmd-mto-t3v-p7d" class="cmd">登录<span props="china intl"><a href="https://cs.console.aliyun.com" id="xref-c6s-99d-s5k" class="" target="_blank">容器服务管理控制台</a></span>，在左侧导航栏选择<b id="uicontrol-42p-agm-35k" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>。</span></p></li>
+<li data-tag="step" id="3b8b5e0f39xyp" docid="4755056" is-conref="true" class="step"><p id="7bdc92911bc9v"><span data-tag="cmd" id="cmd-ii7-eeg-kh4" class="cmd">在<b id="wintitle-fn3-axj-tzc" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，选择<span data-tag="menucascade" id="menucascade-dfn-udl-5fn" class="menucascade"><b id="uicontrol-9zu-45h-837" data-tag="uicontrol" data-isbold="true" class="uicontrol">节点管理</b> &gt; <b id="uicontrol-ubc-ky8-5bx" data-tag="uicontrol" data-isbold="true" class="uicontrol">节点池</b></span>。</span></p></li>
+<li data-lake-index-type="0" id="uf9e2e511">
+<p id="9ddbb51b53av3">在<b id="5f3bf41252gwh" data-tag="uicontrol" data-isbold="true" class="uicontrol">节点池</b>页面，参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/create-a-node-pool" id="aa53c64bd1csh" title="" class="xref">创建和管理节点池</a>完成配置并勾选<b id="f87adef3c06bd" data-tag="uicontrol" data-isbold="true" class="uicontrol">高级选项</b>中<b id="eaa8af7bd02cw" data-tag="uicontrol" data-isbold="true" class="uicontrol">容器镜像加速</b>。</p>
+</li>
+</ol>
+</section>
+<section id="6d672b9eedk6v" class="section">
+<h3 id="0c1f55ecafom8"><b>为已有节点池开启</b></h3>
+<p id="19a9ba28d0wo7">开启或关闭节点池<b id="422bb7b3a4w01" data-tag="uicontrol" data-isbold="true" class="uicontrol">容器镜像加速</b>开关后，仅对新增节点生效。如需针对存量节点生效，需要将节点移除出节点池后，重新添加回节点池，相关操作，请参见<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/remove-a-node-11" id="b6ba0a02afbg1" title="" class="xref">移除节点</a>并<a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/add-existing-ecs-instances-to-an-ack-cluster" id="cb66307bc6k9h" title="" class="xref">添加已有节点</a>。</p>
+<ol id="7733646b9deou">
+<li data-tag="step" id="2e0f4bec7d1hh" docid="4755056" is-conref="true" class="step"><p id="7bdb0bf11b631"><span data-tag="cmd" id="cmd-mto-t3v-p7d" class="cmd">登录<span props="china intl"><a href="https://cs.console.aliyun.com" id="xref-c6s-99d-s5k" class="" target="_blank">容器服务管理控制台</a></span>，在左侧导航栏选择<b id="uicontrol-42p-agm-35k" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>。</span></p></li>
+<li data-tag="step" id="d520215e38t88" docid="4755056" is-conref="true" class="step"><p id="7bdc92911bc9v"><span data-tag="cmd" id="cmd-ii7-eeg-kh4" class="cmd">在<b id="wintitle-fn3-axj-tzc" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，选择<span data-tag="menucascade" id="menucascade-dfn-udl-5fn" class="menucascade"><b id="uicontrol-9zu-45h-837" data-tag="uicontrol" data-isbold="true" class="uicontrol">节点管理</b> &gt; <b id="uicontrol-ubc-ky8-5bx" data-tag="uicontrol" data-isbold="true" class="uicontrol">节点池</b></span>。</span></p></li>
+<li data-lake-index-type="0" id="u0855a4ab">
+<p id="9f2b279c5652c">在节点池列表页面，单击目标节点池所在行<b id="f5bfc19ec2b86" data-tag="uicontrol" data-isbold="true" class="uicontrol">操作</b>列的<b id="2ae755be81c3n" data-tag="uicontrol" data-isbold="true" class="uicontrol">编辑</b>，在高级选项中，勾选<b id="916e822389s2l" data-tag="uicontrol" data-isbold="true" class="uicontrol">容器镜像加速</b>，按照页面提示更新节点池的配置项。</p>
+<p id="646082651dafq">在节点池列表，如果节点池状态显示<b id="a4f576b278tds" data-tag="uicontrol" data-isbold="true" class="uicontrol">更新中</b>，表明节点池正在变更中。显示<b id="f06c029ca2ihk" data-tag="uicontrol" data-isbold="true" class="uicontrol">已激活</b>，表明变更已完成。</p>
+</li>
+</ol>
+</section>
+</section>
+</section>
+<section id="91002d2cab86c" class="section">
+<h2 id="a371a76af2eju">其它类型集群</h2>
+<p id="b51f48498d3a5">您需要为节点添加镜像加速标签&nbsp;<code class="code blog-code" data-tag="code" id="60674ea4a1kz1">alibabacloud.com/image-accelerate-enabled: true</code>，以在节点初始化时自动开启镜像加速功能并安装镜像存储插件。</p>
+<p id="fb52410d5bacn">不同类型集群的标签设置方式如下：</p>
+<table autofit="true" id="77b26bbbeaot0" tablecolswidth="23.75 76.25" tablewidth="100" class="table">
+<colgroup colwidth="0.47*" style="width:23.75%"></colgroup>
+<colgroup colwidth="1.52*" style="width:76.25%"></colgroup>
+<tbody class="tbody">
+<tr id="41e3d82f5381a">
+<td id="4f70dd0ec0rf1" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="5ba72085c2w0m"><b>集群类型</b></p>
+</td>
+<td id="fd647e4a92yu6" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="821907e196xu4"><b>配置方式及文档链接</b></p>
+</td>
+</tr>
+<tr id="626012b3c7kku">
+<td id="af00223b26g0t" rowspan="1" colspan="1">
+<p id="f6aee06aedyfe"><span data-tag="ph" id="a4e51c9d31xw4" data-init-id="143d7d935cocl" docid="4431993" is-conref="true" class="ph">ACK Serverless<span class="help-letter-space"></span>集群</span></p>
+</td>
+<td id="9bbbfecfe6am4" rowspan="1" colspan="1">
+<ul id="964fff08fa17w">
+<li id="e6409967516jq">
+<p id="7b220327d7bl2"><a href="https://help.aliyun.com/zh/ack/serverless-kubernetes/developer-reference/api-cs-2015-12-15-createclusternodepool-serverless" id="14076621db13z" title="" class="xref">创建节点池</a></p>
+</li>
+<li id="c0a6f15e6cpbo">
+<p id="f17e31a35a1dg"><a href="https://help.aliyun.com/zh/ack/serverless-kubernetes/developer-reference/api-cs-2015-12-15-modifyclusternodepool-serverless" id="a7377d6877nd0" title="" class="xref">修改节点池配置</a></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr id="d56d47a51db83">
+<td id="63ecef1d1fsdn" rowspan="1" colspan="1">
+<p id="f01fdf2ac1f84"><span data-tag="ph" id="bd22d6b8ber2u" data-init-id="be6374bcb7hm7" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群</span></p>
+</td>
+<td id="d4f57128fct67" rowspan="1" colspan="1">
+<ul id="3b006f98c5iwn">
+<li id="0904f3188fk0f">
+<p id="371ac088a5f1p">云端节点池请参见<a href="https://help.aliyun.com/zh/ack/ack-edge/user-guide/create-a-node-pool" id="97c3d07bd1zdq" title="" class="xref">创建和管理节点池</a></p>
+</li>
+<li id="5a412b6deapjk">
+<p id="22f6440fc0t4d">边缘节点池请参见<a href="https://help.aliyun.com/zh/ack/ack-edge/user-guide/edge-node-pool-management#2287db2fa0h5o" id="7a8138661c9gv" title="" class="xref">创建边缘节点池</a></p>
+</li>
+</ul>
+</td>
+</tr>
+<tr id="9b5d4b2acavda">
+<td id="b3b20b2a3b6hw" rowspan="1" colspan="1">
+<p id="0d987525b1gce"><span data-tag="ph" id="fe3b3982e6tzm" data-init-id="cbd6f9f17fv7d" docid="4107896" is-conref="true" class="ph">ACK<span class="help-letter-space"></span>灵骏集群</span></p>
+</td>
+<td id="5cd5ccd155fy8" rowspan="1" colspan="1">
+<p id="e4014dd579nkt"><a href="https://help.aliyun.com/zh/ack/ack-lingjun-managed-clusters/user-guide/overview-of-lingjun-node-pools#section-ksb-b56-0a0" id="880628c50433r" title="" class="xref">灵骏节点池</a></p>
+</td>
+</tr>
+<tr id="31b77511d6ga4">
+<td id="7fe740bbebhg3" rowspan="1" colspan="1">
+<p id="b7e0bda88a3an">容器计算服务<span class="help-letter-space"></span>ACS</p>
+</td>
+<td id="619ae58bfcfx8" rowspan="1" colspan="1">
+<p id="109f1926a43kb"><a href="https://help.aliyun.com/zh/cs/user-guide/node-label-and-taint-management" id="c433bae27deb4" title="" class="xref">节点标签和污点管理</a></p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+</section>
+</li>
+<li data-tag="step" id="step-qjo-7t1-omg" class="step">
+<p id="e798d432f2vry"><span data-tag="cmd" id="cmd-7xr-til-8xj" class="cmd">安装镜像加速组件。</span></p>
+<ol data-tag="substeps" id="substeps-msc-649-hoq" type="a" class="substeps">
+<li data-tag="step" id="0d8760ee1206b" docid="4755056" sourcekey="1975" is-conref="true" class="step"><p id="7bdb0bf11b631"><span data-tag="cmd" id="cmd-mto-t3v-p7d" class="cmd">登录<span props="china intl"><a href="https://cs.console.aliyun.com" id="xref-c6s-99d-s5k" class="" target="_blank">容器服务管理控制台</a></span>，在左侧导航栏选择<b id="uicontrol-42p-agm-35k" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>。</span></p></li>
+<li id="16af4763ebsh1">
+<p id="0b0c6c0647dtw"><span data-tag="ph" id="9c9d1f7d7b3ml" docid="3660168" is-conref="true" class="ph">在<b id="wintitle-gva-los-xh1" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，单击<b id="uicontrol-9zv-cyp-vgu" data-tag="uicontrol" data-isbold="true" class="uicontrol">组件管理</b>。</span></p>
+</li>
+<li data-tag="substep" id="substep-57j-yc0-1ws" class="substep">
+<p id="e7992250f2s2z"><span data-tag="cmd" id="cmd-y4s-qrm-ehe" class="cmd">在<b id="wintitle-087-qpq-s6z" data-tag="uicontrol" data-isbold="true" class="uicontrol">组件管理</b>页面的<b id="uicontrol-m9n-j5e-srg" data-tag="uicontrol" data-isbold="true" class="uicontrol">其他</b>区域找到<span class="help-letter-space"></span><b data-tag="uicontrol" id="uicontrol-x0h-pvm-0zr" class="uicontrol">aliyun-acr-acceleration-suite</b>，单击右侧的<b id="uicontrol-m5h-9sx-390" data-tag="uicontrol" data-isbold="true" class="uicontrol">安装</b>。</span></p>
+</li>
+<li data-tag="substep" id="substep-efi-ch7-rfx" class="substep">
+<p id="e7992251f2ljx"><span data-tag="cmd" id="cmd-fkc-qki-27q" class="cmd">在<b id="uicontrol-tz9-l3e-iz3" data-tag="uicontrol" data-isbold="true" class="uicontrol">提示</b>对话框中单击<b id="uicontrol-5wz-57p-0hz" data-tag="uicontrol" data-isbold="true" class="uicontrol">确认</b>。</span></p>
+<section id="f995fc3dfbnqy" class="section">
+<ul id="e81abaeaaf1re">
+<li id="e59ad31fba0py">
+<p id="4f7dbcd22bjck">在左侧导航栏，选择<span data-tag="menucascade" id="31dcbdc5f1o32" class="menucascade"><b id="a20e718c5b1hp" data-tag="uicontrol" data-isbold="true" class="uicontrol">工作负载</b> &gt; <b id="a5e5e2431dllv" data-tag="uicontrol" data-isbold="true" class="uicontrol">守护进程集</b></span>，在<b id="df82c0fa54qdj" data-status="unpublished" data-tag="uicontrol" data-isbold="true" class="uicontrol">守护进程集</b>页面，查看组件守护进程安装详情。</p>
+</li>
+<li id="8130f3bf8d43u">
+<p id="89350d880fqra">在左侧导航栏，选择<span data-tag="menucascade" id="876c072020np7" class="menucascade"><b id="c06d8d8d8a6sf" data-tag="uicontrol" data-isbold="true" class="uicontrol">工作负载</b> &gt; <b id="eb9adb1653rjb" data-tag="uicontrol" data-isbold="true" class="uicontrol">无状态</b></span>，在<b id="537f8b11fbz3l" data-status="unpublished" data-tag="uicontrol" data-isbold="true" class="uicontrol">无状态</b>页面查看组件无状态应用安装详情。</p>
+</li>
+</ul>
+</section>
+<div data-tag="stepresult" id="stepresult-i6q-zo7-qkl" class="stepresult">
+<p id="e7994960f2oxq">当目标组件的容器组数量显示全部启动完成，表示组件安装成功。</p>
+</div>
+</li>
+</ol>
+</li>
+</ol>
+</section>
+
+<section data-tag="section" data-type="section" id="section-1hk-1q6-yyk" class="section">
+<h2 data-tag="title" id="title-px1-1r1-bn0" class="title">启用加速镜像</h2>
+<ol data-tag="steps" id="steps-ad8-8z1-dzf" class="steps">
+<li data-tag="step" id="step-tkf-1r6-btd" class="step">
+<p id="e799be90f26ml"><span data-tag="cmd" id="cmd-4sd-pox-sc8" class="cmd">设置镜像仓库访问凭证。</span></p>
+<div id="f349fd3638p2z" type="warning" class="note note-warning"><div class="note-icon-wrapper"><i class="icon-note note warning"></i></div><div class="noteContentSpan"><strong>警告 </strong>
+<p id="bf52c81b0ffpr">请确保您的镜像拉取密钥权限按最小权限原则配置，仅包含拉取本集群所需业务镜像的权限。更多详情，请参见<a href="https://help.aliyun.com/zh/acr/user-guide/attach-a-custom-policy-to-a-ram-user" id="02600fd0a2mxa" title="" class="xref">授予<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>用户自定义策略</a>。</p>
+</div></div>
+<div data-tag="info" id="info-h2g-bqq-di0" class="info">
+<ul data-tag="ul" id="ul-arr-dhy-zb0" class="ul">
+<li data-tag="li" id="li-23e-c4d-i6q" class="li">
+<p id="e799be91f25qj">镜像免密插件方式。</p>
+<ul data-tag="ul" id="ul-wrv-qat-cye" class="ul">
+<li data-tag="li" id="li-58a-qjn-uke" class="li">
+<p id="e799be92f2p3d">若已使用免密插件，且企业版实例的免密配置正确，无需其他操作。</p>
+</li>
+<li data-tag="li" id="li-5jf-v8v-1mn" class="li">
+<p id="e799be93f2cxe">若未使用免密插件，您可使用免密插件，更多信息，请参见<a href="https://help.aliyun.com/zh/acr/use-the-aliyun-acr-credential-helper-component-to-pull-images-without-using-secrets#task-2456294" id="xref-1v8-fk2-l6a" title="" class="xref">使用免密组件拉取容器镜像</a>。</p>
+</li>
+</ul>
+</li>
+<li id="3d59181530tlg">
+<p id="359b2626b1g1c">指定镜像拉取凭证<span class="help-letter-space"></span>Secret<span class="help-letter-space"></span>的标签方式。</p>
+<div id="7f363059293ux" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+<p id="49760865c8e0s">仅镜像加速组件的版本不小于<span class="help-letter-space"></span>0.2.6<span class="help-letter-space"></span>支持该方式。</p>
+</div></div>
+<p id="1dcd6c682dc5g">创建<span class="help-letter-space"></span>kubernetes.io/dockerconfigjson<span class="help-letter-space"></span>的<span class="help-letter-space"></span>Secret，并为其打上<span class="help-letter-space"></span>images.alibabacloud.com/accelerated: true<span class="help-letter-space"></span>的标签。</p><pre code-type="xCode" data-tag="codeblock" id="67a48ae314f25" outputclass="language-shell" class="pre codeblock language-shell"><code>kubectl create secret docker-registry &lt;SecretName&gt; --docker-server=&lt;RegistryVpcDomain&gt; --docker-username=&lt;UserName&gt; --docker-password=&lt;Password&gt;</code></pre><pre code-type="xCode" data-tag="codeblock" id="9fa09425cejq9" outputclass="language-shell" class="pre codeblock language-shell"><code>kubectl label secrets &lt;SecretName&gt;  images.alibabacloud.com/accelerated="true"</code></pre>
+</li>
+</ul>
+</div>
+</li>
+<li data-tag="step" id="step-9mn-0gz-all" class="step">
+<p id="e799e5a2f2qq3"><span data-tag="cmd" id="cmd-hov-i5q-tdl" class="cmd">添加镜像加速标签。</span></p>
+<div data-tag="info" id="info-vff-y3o-9f1" class="info">
+<div data-tag="p" id="p-99p-6ii-zzh" class="p">
+<p id="e799e5a3f219p">您可以为应用负载添加镜像加速标签，例如<span class="help-letter-space"></span>Pod、Deployment<span class="help-letter-space"></span>等。也可以为<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>或<span class="help-letter-space"></span><span data-tag="ph" id="143d7d9f5cyxw" docid="4431993" is-conref="true" class="ph">ACK Serverless<span class="help-letter-space"></span>集群</span>的命名空间设置标签，该命名空间内的所有符合加速条件的应用负载会启用按需加载容器镜像，无需再修改所有符合加速条件的应用负载的<span class="help-letter-space"></span>YAML<span class="help-letter-space"></span>文件。根据实际情况选择任一方式添加镜像加速标签。</p>
+<div data-tag="note" id="note-xd2-tgg-jnt" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+<p id="e799e5a4f201s">标签的名称为<span data-tag="ph" id="codeph-5wj-ruo-whp" class="ph"><code code-type="xCode" data-tag="code" id="e34eb01c24wls" class="code">k8s.aliyun.com/image-accelerate-mode</code></span>，值为<span data-tag="ph" id="codeph-myk-3qx-t4i" class="ph"><code code-type="xCode" data-tag="code" id="4f508e346dhw4" class="code">on-demand</code></span>。</p>
+</div></div>
+</div>
+<ul data-tag="ul" id="ul-yc5-ink-ru8" class="ul">
+<li data-tag="li" id="li-qhv-vz4-qpp" class="li">
+<p id="e79a0cb0f2zrx">为应用负载添加镜像加速标签。</p>
+<div data-tag="p" id="p-fv9-ju7-r1p" class="p">
+<p id="e79a0cb1f2v2l">以下以<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>为例设置标签。执行以下命令，为<span class="help-letter-space"></span>Deployment<span class="help-letter-space"></span>管理的<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>设置标签。</p><pre code-type="xCode" data-tag="codeblock" id="codeblock-gi8-5l4-zdg" outputclass="language-shell" class="pre codeblock language-shell"><code>kubectl edit deployment &lt;Deployment<span class="help-letter-space"></span>名称&gt; -n  &lt;Deployment<span class="help-letter-space"></span>命名空间&gt; </code></pre>
+<p id="e79a0cb2f2b72">在<span class="help-letter-space"></span>Deployment<span class="help-letter-space"></span>的<span class="help-letter-space"></span>YAML<span class="help-letter-space"></span>描述文件中添加标签<span data-tag="ph" id="codeph-k9o-w5d-0u0" class="ph"><code code-type="xCode" data-tag="code" id="4c88400d519b3" class="code"> k8s.aliyun.com/image-accelerate-mode: on-demand</code></span>。</p>
+</div><pre code-type="xCode" data-tag="codeblock" id="codeblock-1bl-js2-ma3" outputclass="language-yaml" class="pre codeblock language-yaml"><code>apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+        # enable on-demand mode
+        k8s.aliyun.com/image-accelerate-mode: on-demand
+    spec:
+      containers:
+       # your ACR instacne image
+       - image: test-registry-vpc.cn-hangzhou.cr.aliyuncs.com/test/nginx:latest
+         name: test
+         command: ["sleep", "3600"]</code></pre>
+</li>
+<li data-tag="li" id="li-wot-1qx-dyl" class="li">
+<p id="e79a0cb3f2rj0">为命名空间添加镜像加速标签</p>
+<ul data-tag="ul" id="ul-cz7-0ij-8l0" class="ul">
+<li data-tag="li" id="li-0yr-9d4-g44" class="li">
+<p id="e79a0cb4f2vdy">通过控制台添加镜像加速标签。</p>
+<ol data-tag="ol" id="ol-4cv-syw-mva" type="a" class="ol">
+<li id="fa6e4ed7efrj9">
+<p id="9e60bd2e0acrq"><span data-tag="cmd" id="4f09aa6d9aomf" docid="4869437" is-conref="true" class="cmd">登录<span props="china intl"><a href="https://cs.console.aliyun.com" id="xref-c6s-99d-s5k" class="" target="_blank">容器服务管理控制台</a></span>，在左侧导航栏选择<b id="uicontrol-42p-agm-35k" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>。</span></p>
+</li>
+<li data-tag="step" id="46494dfc1e8ly" docid="4869437" is-conref="true" class="step"><p id="7bdce0b11bffv"><span data-tag="cmd" id="cmd-wgc-jsb-rla" class="cmd">在<b id="wintitle-yhg-txb-jht" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，选择<b id="uicontrol-3ik-4h1-p9e" data-tag="uicontrol" data-isbold="true" class="uicontrol">命名空间与配额</b>。</span></p></li>
+<li data-tag="li" id="li-cmq-ml6-qyo" class="li">
+<p id="e79a5ad1f21hf">在<b id="wintitle-1d0-cq9-1kz" data-tag="uicontrol" data-isbold="true" class="uicontrol">命名空间</b>页面单击目标命名空间<b id="uicontrol-iqw-e1t-iwd" data-tag="uicontrol" data-isbold="true" class="uicontrol">操作</b>列的<b id="uicontrol-sxg-3dn-ou9" data-tag="uicontrol" data-isbold="true" class="uicontrol">编辑</b>。</p>
+</li>
+<li data-tag="li" id="li-s37-762-7ck" class="li">
+<p id="e79a5ad2f23y7">在<b id="uicontrol-fd0-115-uqe" data-status="unpublished" data-tag="uicontrol" data-isbold="true" class="uicontrol">编辑命名空间</b>对话框中设置<b id="uicontrol-54q-4uo-j7b" data-tag="uicontrol" data-isbold="true" class="uicontrol">标签</b>的<b id="uicontrol-hhr-8h2-n5o" data-tag="uicontrol" data-isbold="true" class="uicontrol">变量名称</b>为<span data-tag="ph" id="codeph-6na-ebj-8c4" class="ph"><code code-type="xCode" data-tag="code" id="f8073f5fe8evb" class="code">k8s.aliyun.com/image-accelerate-mode</code></span>，<b id="uicontrol-cm0-vrn-doh" data-tag="uicontrol" data-isbold="true" class="uicontrol">标签</b>的<b id="uicontrol-acl-qfl-tvd" data-tag="uicontrol" data-isbold="true" class="uicontrol">变量值</b>为<span data-tag="ph" id="codeph-v8t-kn9-y7d" class="ph"><code code-type="xCode" data-tag="code" id="bf57bcf9548vf" class="code">on-demand</code></span>，然后单击<b id="uicontrol-xge-6hs-5b2" data-tag="uicontrol" data-isbold="true" class="uicontrol">确定</b>。</p>
+</li>
+</ol>
+</li>
+<li data-tag="li" id="li-edd-0dp-kea" class="li">
+<p id="e79a81e0f2n53">通过命令行添加镜像加速标签。</p>
+</li>
+</ul>
+</li>
+</ul><pre code-type="xCode" data-tag="codeblock" id="codeblock-psj-en0-my3" outputclass="language-shell" class="pre codeblock language-shell"><code>kubectl label namespaces &lt;YOUR-NAMESPACE&gt; k8s.aliyun.com/image-accelerate-mode=on-demand</code></pre>
+</div>
+<div data-tag="stepresult" id="stepresult-1m4-7ed-53v" class="stepresult">
+<p id="e79a81e1f2tof">设置加速标签后，如果您已完成普通镜像到加速镜像的转换，在相应命名空间内创建和更新<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>时，加速组件会自动将<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>的原始镜像地址替换为加速镜像地址，并添加<span class="help-letter-space"></span>nodeSelector，将<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>调度到加速节点。</p>
+</div>
+</li>
+</ol>
+</section>
+<p id="ed4cb9bc19t3j"></p>
+</div>
+</main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/ack/ack-edge/user-guide/container-mirrors/" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：容器镜像</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/ack/ack-edge/user-guide/install-p2p-acceleration-kit-in-ack-clusters" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：在ACK Edge集群中安装P2P加速套件<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

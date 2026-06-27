@@ -1,0 +1,1018 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    管理ACK托管集群的相关组件-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/component-overview">
+  <meta name="keywords" content="集群组件,容器服务,ACK,组件">
+  <meta name="description" content="容器服务 Kubernetes 版提供应用管理、日志监控、网络等多种组件，便于您管理和运维集群。某些组件由ACK自动升级，部分组件需要您手动升级，或按需进行更小粒度的配置。本文介绍如何升级、安装、卸载组件，以及组件概览参考。">
+  <meta name="last-modified" content="2026-03-10T11:37:27+08:00">
+  <meta name="date" content="2021-07-16T10:19:19+08:00">
+  <meta property="og:title" content="组件">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/component-overview">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="容器服务 Kubernetes 版提供应用管理、日志监控、网络等多种组件，便于您管理和运维集群。某些组件由ACK自动升级，部分组件需要您手动升级，或按需进行更小粒度的配置。本文介绍如何升级、安装、卸载组件，以及组件概览参考。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/component-overview",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "277412",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/ack/ack-managed-and-ack-dedicated/user-guide/component-overview","nodeId":null,"data":{"lastModifiedTime":1773113847000,"keywords":"集群组件,容器服务,ACK,组件","docTitle":"管理ACK托管集群的相关组件","language":"zh","seoTitle":"管理ACK托管集群的相关组件-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心","title":"组件","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n<main id=\"task-2094293\">\n\n\n<p data-tag=\"shortdesc\" id=\"shortdesc-hhz-6tz-3j6\" class=\"shortdesc\"><span id=\"76b0bbd006z3p\" outputclass=\"productName\" data-tag=\"ph\" data-ref-searchable=\"yes\" data-reuse-tag=\"productName\" data-type=\"productName\" data-product-code=\"csk\" docid=\"4265392\" is-conref=\"true\" class=\"ph productName\">容器服务 Kubernetes 版</span>提供应用管理、日志监控、网络等多种组件，便于您管理和运维集群。某些组件由<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>自动升级，部分组件需要您手动升级，或按需进行更小粒度的配置。本文介绍如何升级、安装、卸载组件，以及组件概览参考。</p>\n<div data-tag=\"taskbody\" id=\"taskbody-g3k-qeb-ta5\" class=\"taskbody\">\n<section data-tag=\"prereq\" data-type=\"prereq\" id=\"prereq-mb3-ybl-2gb\" class=\"section prereq\">\n<h2 id=\"d41e25\">前提条件</h2>\n<p id=\"657f132045cdq\"><a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/create-an-ack-managed-cluster-2/#task-skz-qwk-qfb\" id=\"10fcb82f5bg2v\" title=\"\" class=\"xref\">创建<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>托管集群</a></p>\n\n\n</section>\n<section data-tag=\"steps\" data-type=\"steps\" id=\"steps-xb7-sjl-gtc\" class=\"section steps\">\n<h2 id=\"d41e32\">操作步骤</h2>\n<ol data-tag=\"steps\" id=\"64b9a0404533x\" class=\"steps\">\n<li data-tag=\"step\" id=\"9399274134afx\" docid=\"3660168\" is-conref=\"true\" class=\"step\"><p id=\"7bdb0bf11b631\"><span data-tag=\"cmd\" id=\"cmd-mto-t3v-p7d\" class=\"cmd\">登录<span props=\"china intl\"><a href=\"https://cs.console.aliyun.com\" id=\"xref-c6s-99d-s5k\" class=\"\" target=\"_blank\">容器服务管理控制台</a></span>，在左侧导航栏选择<b id=\"uicontrol-42p-agm-35k\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>。</span></p></li>\n<li id=\"87370c2b34tf5\">\n<p id=\"a07c4cccc9rml\" docid=\"3660168\" is-conref=\"true\">在<b id=\"wintitle-cnt-jjr-xv7\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，单击<b id=\"uicontrol-p88-4n6-25o\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">组件管理</b>。</p>\n</li>\n<li data-tag=\"step\" id=\"step-1ct-gmv-cti\" class=\"step\">\n<p id=\"657f3a3045gry\">在<b id=\"uicontrol-bgu-4p4-5ai\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">组件管理</b>页面，您可以搜索并定位目标组件，在组件卡片上按需进行安装、卸载、升级、修改组件参数等操作。</p>\n<div id=\"7504f66045yel\" type=\"note\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n<p id=\"f0169883fdwn0\" docid=\"2739508\" is-conref=\"true\">为了保证控制面的稳定性，当前仅<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"ec02f1765ekyy\" data-ref-searchable=\"yes\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK<span class=\"help-letter-space\"></span>托管集群<span class=\"help-letter-space\"></span>Pro<span class=\"help-letter-space\"></span>版</span>、<span data-tag=\"ph\" id=\"145729e51cd4x\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Serverless<span class=\"help-letter-space\"></span>集群<span class=\"help-letter-space\"></span>Pro<span class=\"help-letter-space\"></span>版</span>、<span data-tag=\"ph\" id=\"a19c065ec37v6\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Edge<span class=\"help-letter-space\"></span>集群<span class=\"help-letter-space\"></span>Pro<span class=\"help-letter-space\"></span>版</span>、<span data-tag=\"ph\" id=\"7564fb821egni\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK<span class=\"help-letter-space\"></span>灵骏集群</span>支持自定义部分控制面核心组件参数。</p>\n</div></div>\n</li>\n</ol>\n</section>\n<h2 id=\"097036b923225\"><b>参考信息</b></h2>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-6b1-88l-j1x\" class=\"section\">\n<h3 data-tag=\"title\" id=\"title-bi9-1fc-htj\" class=\"title\"><b>组件类型</b></h3>\n<div data-tag=\"p\" id=\"p-a11-k5i-335\" class=\"p\">\n<p id=\"6045ee602buvg\">容器服务<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>管理的集群组件类型包括系统组件和可选组件：</p>\n<ul data-tag=\"ul\" id=\"ul-gl7-hkf-89e\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-kfc-wzs-29b\" class=\"li\">\n<p id=\"6045ee612b39e\">系统组件：创建<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>集群时，默认安装的组件。</p>\n</li>\n<li data-tag=\"li\" id=\"li-215-i2j-pcn\" class=\"li\">\n<p id=\"6045ee622b4fo\">可选组件：创建<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>集群时，可选择安装的组件，用于扩展集群功能。</p>\n</li>\n</ul>\n</div>\n</section>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-mnj-5dk-gwd\" class=\"section\">\n<h3 data-tag=\"title\" id=\"title-20w-588-aeh\" class=\"title\"><b>核心组件</b></h3>\n<table autofit=\"false\" id=\"table-e6u-53p-uhd\" tablecolswidth=\"193 129 387\" tablewidth=\"709\" class=\"table\">\n<colgroup colwidth=\"0.82*\" style=\"width:27.22%\"></colgroup>\n<colgroup colwidth=\"0.55*\" style=\"width:18.19%\"></colgroup>\n<colgroup colwidth=\"1.64*\" style=\"width:54.58%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"row-u72-su6-got\">\n<td id=\"task-2094293-entry-pcj-wf8-qp8\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"6045ee632bbtl\"><b>组件名称</b></p>\n</td>\n<td id=\"task-2094293-entry-ilo-q8y-e3n\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"6045ee642b6so\"><b>组件类型</b></p>\n</td>\n<td id=\"task-2094293-entry-rnn-ytn-mmz\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"604615702b20g\"><b>描述</b></p>\n</td>\n</tr>\n<tr id=\"fb9a8779d9mgx\">\n<td id=\"7b0045fdd7ff0\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d0c5f3f48drvl\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/kube-scheduler\" id=\"1c1e901a656tw\" title=\"\" class=\"xref\">Kube Scheduler</a></p>\n</td>\n<td id=\"b6e42c5ed9511\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1438bf4ae4w4n\">系统组件</p>\n</td>\n<td id=\"11ba24c2e38ev\" rowspan=\"1\" colspan=\"1\">\n<p id=\"6f06ec439exb6\">控制面组件，负责结合节点资源使用情况和<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>的调度要求将<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>调度到集群的合适节点上。</p>\n</td>\n</tr>\n<tr id=\"6f6f92357fxsp\">\n<td id=\"686690c5fafxs\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604663922bf32\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/cloud-controller-manager#concept-wk1-grd-qfb\" id=\"b56d3a9b01xkt\" title=\"\" class=\"xref\">Cloud Controller Manager</a></p>\n</td>\n<td id=\"1ae67539d5mgu\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"60468aa02bga8\">系统组件</p>\n</td>\n<td id=\"146a6f86edtq6\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"60468aa12bart\">在<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>集群中提供管理负载均衡实现跨节点通信的功能。提供<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>与阿里云网络产品的对接能力，例如<span class=\"help-letter-space\"></span>CLB、NLB、VPC<span class=\"help-letter-space\"></span>等。</p>\n</td>\n</tr>\n<tr id=\"row-090-is8-t1l\">\n<td id=\"entry-yc5-3tn-nni\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604615712b382\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/kube-api-server#task-2088866\" id=\"xref-sin-kt0-dzo\" title=\"\" class=\"xref\">Kube API Server</a></p>\n</td>\n<td id=\"entry-kx5-1xw-va7\" rowspan=\"1\" colspan=\"1\">\n<p id=\"60463c802bcxu\">系统组件</p>\n</td>\n<td id=\"entry-qbv-qdz-6n4\" rowspan=\"1\" colspan=\"1\">\n<p id=\"60463c812bf81\">Kubernetes<span class=\"help-letter-space\"></span>集群的总线和入口网关。</p>\n</td>\n</tr>\n<tr id=\"row-boz-f8t-o9t\">\n<td id=\"entry-k4q-n5r-hfj\" rowspan=\"1\" colspan=\"1\">\n<p id=\"60463c822b5jm\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/kube-controller-manager#task-2088870\" id=\"xref-jcy-9wq-8np\" title=\"\" class=\"xref\">Kube Controller Manager</a></p>\n</td>\n<td id=\"entry-mpd-d5z-j46\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604663902btjq\">系统组件</p>\n</td>\n<td id=\"entry-5bt-kpw-b4r\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604663912biqr\">Kubernetes<span class=\"help-letter-space\"></span>集群内部资源的管理器。</p>\n</td>\n</tr>\n<tr id=\"c89b0b94574dt\">\n<td id=\"4b984741a7a7e\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604e04b22bgov\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/ack-virtual-node#task-2441973\" id=\"a3f5a45806uwv\" title=\"\" class=\"xref\">ACK Virtual Node</a></p>\n</td>\n<td id=\"fdd941baa9d80\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604e2bc02bl4u\">可选组件</p>\n</td>\n<td id=\"89b9f0c93do10\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604e2bc12b7hl\">基于社区开源项目<span class=\"help-letter-space\"></span>Virtual Kubelet，扩展了对<span class=\"help-letter-space\"></span>Aliyun Provider<span class=\"help-letter-space\"></span>的支持，并做了大量优化，实现<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>与<span class=\"help-letter-space\"></span>ACS<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>ECI<span class=\"help-letter-space\"></span>的无缝连接。</p>\n</td>\n</tr>\n\n</tbody>\n</table>\n</section>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-z0v-ccl-5r5\" class=\"section\">\n<h3 data-tag=\"title\" id=\"title-n2u-dpc-r0w\" class=\"title\"><b>应用管理</b></h3>\n<table autofit=\"false\" id=\"table-7i5-l54-z93\" tablecolswidth=\"193 129 387\" tablewidth=\"709\" class=\"table\">\n<colgroup colwidth=\"0.82*\" style=\"width:27.22%\"></colgroup>\n<colgroup colwidth=\"0.55*\" style=\"width:18.19%\"></colgroup>\n<colgroup colwidth=\"1.64*\" style=\"width:54.58%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"row-795-wbd-om6\">\n<td id=\"task-2094293-entry-ls4-6zp-t2q\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"6046b1b22bj53\"><b>组件名称</b></p>\n</td>\n<td id=\"task-2094293-entry-f2s-fqa-3ek\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"6046d8c02bxeu\"><b>组件类型</b></p>\n</td>\n<td id=\"task-2094293-entry-35b-lmf-77m\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"6046d8c12bji0\"><b>描述</b></p>\n</td>\n</tr>\n<tr id=\"row-ks2-tg5-nng\">\n<td id=\"entry-7gj-fs4-bgl\" rowspan=\"1\" colspan=\"1\">\n<p id=\"6046d8c22b96j\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/appcenter#concept-1918228\" id=\"xref-4ku-0qb-cyj\" title=\"\" class=\"xref\">【停止维护】appcenter</a></p>\n</td>\n<td id=\"entry-2js-708-wer\" rowspan=\"1\" colspan=\"1\">\n<p id=\"6046d8c32bkqa\">可选组件</p>\n</td>\n<td id=\"entry-gs3-212-phu\" rowspan=\"1\" colspan=\"1\">\n<p id=\"6046ffd02brm6\">提供统一管理多集群应用部署和应用生命周期的应用中心组件。</p>\n<p id=\"f23b3ae219mzi\" jc=\"left\" style=\"text-align:left\">后续可以使用<span data-tag=\"ph\" id=\"f2dcb4b943qqi\" class=\"ph\">分布式云容器平台 ACK One</span><span class=\"help-letter-space\"></span>提供的<a href=\"https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/application-distribution-overview\" id=\"ce8622776cxr2\" title=\"\" class=\"xref\">应用分发</a>功能来获取多集群应用部署能力。</p>\n</td>\n</tr>\n<tr id=\"row-sli-grn-rw8\">\n<td id=\"entry-3e4-on3-6z3\" rowspan=\"1\" colspan=\"1\">\n<p id=\"6046ffd12bcxw\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/openkruise#task-2097121\" id=\"xref-g6v-qg6-jnu\" title=\"\" class=\"xref\">ack-kruise</a></p>\n</td>\n<td id=\"entry-1je-ewl-27z\" rowspan=\"1\" colspan=\"1\">\n<p id=\"6046ffd22bl8s\">可选组件</p>\n</td>\n<td id=\"entry-7m5-ynb-meu\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604726e02bm8j\">提供高效管理应用容器、Sidecar<span class=\"help-letter-space\"></span>容器及镜像分发功能。</p>\n</td>\n</tr>\n<tr id=\"1168876ec45mp\">\n<td id=\"26b956ec7cy2y\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604f64402bfg8\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/migrate-controller#task-1955070\" id=\"df3c74e7577t0\" title=\"\" class=\"xref\">migrate-controller</a></p>\n</td>\n<td id=\"920bcbac326c5\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604f64412bxd8\">可选组件</p>\n</td>\n<td id=\"5839ca97e3ysm\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604f8b502b5gc\">基于开源项目<span class=\"help-letter-space\"></span>Velero<span class=\"help-letter-space\"></span>开发的一个用于备份与迁移<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>应用和<span class=\"help-letter-space\"></span>PV<span class=\"help-letter-space\"></span>数据的组件。</p>\n</td>\n</tr>\n</tbody>\n</table>\n</section>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-woy-spc-8qt\" class=\"section\">\n<h3 data-tag=\"title\" id=\"title-4dt-ge1-nd0\" class=\"title\"><b>日志与监控</b></h3>\n<table autofit=\"false\" id=\"table-75x-da9-esu\" tablecolswidth=\"193 129 387\" tablewidth=\"709\" class=\"table\">\n<colgroup colwidth=\"0.82*\" style=\"width:27.22%\"></colgroup>\n<colgroup colwidth=\"0.55*\" style=\"width:18.19%\"></colgroup>\n<colgroup colwidth=\"1.64*\" style=\"width:54.58%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"row-sdr-8w3-q4c\">\n<td id=\"task-2094293-entry-28v-ct9-1lg\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"60474df02bw7b\"><b>组件名称</b></p>\n</td>\n<td id=\"task-2094293-entry-spc-7fk-tkq\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"60474df12b62p\"><b>组件类型</b></p>\n</td>\n<td id=\"task-2094293-entry-z7f-9px-due\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"60474df22bo25\"><b>描述</b></p>\n</td>\n</tr>\n<tr id=\"bc0c4077eca11\">\n<td id=\"75b127cf94c1r\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"60474df32bp69\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/alicloud-monitor-controller#concept-1918110\" id=\"eca0247115jtw\" title=\"\" class=\"xref\">alicloud-monitor-controller</a></p>\n</td>\n<td id=\"e2ddab1b27ete\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604775002bmwc\">系统组件</p>\n</td>\n<td id=\"3fb96801bc68f\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604775012bymp\">ACK<span class=\"help-letter-space\"></span>提供对接云监控的系统组件。</p>\n</td>\n</tr>\n<tr id=\"d10e933affje7\">\n<td id=\"1561a56b47hzw\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604775022bu7h\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/metrics-server#concept-w5w-q3q-zdb\" id=\"7c0a79c89cxw2\" title=\"\" class=\"xref\">metrics-server</a></p>\n</td>\n<td id=\"92ab32913ffy1\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"60479c102b25f\">系统组件</p>\n</td>\n<td id=\"a75471daef5k4\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"60479c112bilt\">ACK<span class=\"help-letter-space\"></span>基于社区开源监控组件进行改造和增强的监控采集和离线组件，并提供<span class=\"help-letter-space\"></span>Metrics API<span class=\"help-letter-space\"></span>进行数据消费，提供<span class=\"help-letter-space\"></span>HPA<span class=\"help-letter-space\"></span>的能力。</p>\n</td>\n</tr>\n<tr id=\"1e378aec84slf\">\n<td id=\"0ed2111add2x3\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"6049bef22b5mu\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/ack-cost-exporter#task-2078872\" id=\"1c53d6cb2c7y0\" title=\"\" class=\"xref\">ack-cost-exporter</a></p>\n</td>\n<td id=\"8c4fe75ef1i22\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"6049e6002b7rk\">可选组件</p>\n</td>\n<td id=\"c58c6ed8dbczd\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"6049e6012b64t\">ACK<span class=\"help-letter-space\"></span>成本分析功能进行数据处理的组件。</p>\n</td>\n</tr>\n<tr id=\"69694cddf5syz\">\n<td id=\"ac8a836cbbbf1\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"60479c122bu2b\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/ack-node-problem-detector#concept-1935269\" id=\"08251c79aab5y\" title=\"\" class=\"xref\">ack-node-problem-detector</a></p>\n</td>\n<td id=\"2d7125a33954p\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"6047c3202bswj\">可选组件</p>\n</td>\n<td id=\"d827413e0ekdp\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"6047c3212bpk6\">ACK<span class=\"help-letter-space\"></span>基于社区开源项目进行改造和增强的集群节点异常事件监控组件，以及对接第三方监控平台功能的组件。</p>\n</td>\n</tr>\n<tr id=\"4807245b8boyk\">\n<td id=\"794ed4a349bqx\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"a61c9127f17bz\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/ack-onepilot\" id=\"fec3e1b6e6acb\" title=\"\" class=\"xref\">ack-onepilot</a></p>\n</td>\n<td id=\"fe7bee0df6m9a\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"51572d0f6egnc\">可选组件</p>\n</td>\n<td id=\"08ac3c78e6vha\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"fd2fbc4d26adt\">ack-onepilot<span class=\"help-letter-space\"></span>是阿里云<span class=\"help-letter-space\"></span>ARMS<span class=\"help-letter-space\"></span>针对<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>应用接入场景提供的探针接入助手，实现容器环境中对<span class=\"help-letter-space\"></span>Java、Golang、Python<span class=\"help-letter-space\"></span>应用的监控。</p>\n</td>\n</tr>\n<tr id=\"2ad33a8fe0fcn\">\n<td id=\"3a88dcd268o6a\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"33cb18ac9ft1f\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/ack-sysom-monitor\" id=\"19f0736618tq7\" title=\"\" class=\"xref\">ack-sysom-monitor</a></p>\n</td>\n<td id=\"3840b4599bk07\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"6312a9b86b95g\">可选组件</p>\n</td>\n<td id=\"d05d35c4ed7qh\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"28061d4eeegq9\">ACK<span class=\"help-letter-space\"></span>集群操作系统内核层的容器监控组件。</p>\n</td>\n</tr>\n\n<tr id=\"1c5306006ewmt\">\n<td id=\"ca1baf8515kiz\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"a226e613b32lq\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/ack-arms-cmonitor\" id=\"dd38a4d166sp5\" title=\"\" class=\"xref\">ack-arms-cmonitor</a></p>\n</td>\n<td id=\"c16f132ab1im0\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"d64953e4445fm\">可选组件</p>\n</td>\n<td id=\"2f61b4b4759j5\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"538ea18424lob\">使用<span class=\"help-letter-space\"></span>ARMS<span class=\"help-letter-space\"></span>应用监控<span class=\"help-letter-space\"></span>eBPF<span class=\"help-letter-space\"></span>版无侵入监控容器部署的应用。</p>\n</td>\n</tr>\n<tr id=\"0e8d5f585e5xb\">\n<td id=\"8c03f69843b9h\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604838522btak\"><a href=\"https://help.aliyun.com/zh/arms/prometheus-monitoring/prometheus-monitoring-change-records#concept-2473006\" id=\"c96d32a512j39\" title=\"\" class=\"xref\">ack-arms-prometheus</a></p>\n</td>\n<td id=\"cc48f181543gh\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"60485f602bdft\">可选组件</p>\n</td>\n<td id=\"efb84214dexjw\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"60485f612bk4f\">使用<span data-tag=\"ph\" id=\"a5fbf1f81bcwd\" is-conref=\"true\" class=\"ph\">阿里云<span class=\"help-letter-space\"></span>Prometheus</span><span class=\"help-letter-space\"></span>实现容器服务集群监控。</p>\n</td>\n</tr>\n<tr id=\"8d90ac6e9cj1e\">\n<td id=\"f9ef5b6755llm\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604997e02bt2k\"><a href=\"https://help.aliyun.com/zh/sls/sls-release-notes#concept-w5w-q3q-zdb\" id=\"5578f3169bozp\" title=\"\" class=\"xref\">logtail-ds</a></p>\n</td>\n<td id=\"935f844dffy8a\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604997e12blnb\">可选组件</p>\n</td>\n<td id=\"55138d5676gxs\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604997e22b2ny\">使用日志服务采集<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>容器日志。</p>\n</td>\n</tr>\n\n\n</tbody>\n</table>\n</section>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-vb4-ane-hxl\" class=\"section\">\n<h3 data-tag=\"title\" id=\"title-nr3-1m2-d83\" class=\"title\"><b>存储</b></h3>\n<table autofit=\"false\" id=\"table-ti5-34b-vs2\" tablecolswidth=\"193 129 387\" tablewidth=\"709\" class=\"table\">\n<colgroup colwidth=\"0.82*\" style=\"width:27.22%\"></colgroup>\n<colgroup colwidth=\"0.55*\" style=\"width:18.19%\"></colgroup>\n<colgroup colwidth=\"1.64*\" style=\"width:54.58%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"row-0k8-x6c-2td\">\n<td id=\"task-2094293-entry-1z9-w9d-h3x\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"6049e6022b5po\"><b>组件名称</b></p>\n</td>\n<td id=\"task-2094293-entry-qng-jxp-dc3\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"6049e6032bdj9\"><b>组件类型</b></p>\n</td>\n<td id=\"task-2094293-entry-1nk-nop-ohs\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"6049e6042bu89\"><b>描述</b></p>\n</td>\n</tr>\n<tr id=\"cb44348129c9s\">\n<td id=\"bafeaa71d018d\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604a34222b950\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/storage-operator#task-2061194\" id=\"4681df6af8tft\" title=\"\" class=\"xref\">storage-operator</a></p>\n</td>\n<td id=\"16ac2cfeecoh5\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604a5b302bj6c\">系统组件</p>\n</td>\n<td id=\"d146c877ab89h\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604a5b312bayc\">用于管理存储组件的生命周期。</p>\n</td>\n</tr>\n<tr id=\"row-75n-pz2-8ma\">\n<td id=\"entry-cfo-x4p-0sc\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604a0d102bpi6\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/csi-plugin#concept-2043905\" id=\"xref-rjm-xvc-b6v\" title=\"\" class=\"xref\">csi-plugin</a></p>\n</td>\n<td id=\"entry-cjp-ely-fu6\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604a0d112bxsm\">可选组件</p>\n</td>\n<td id=\"entry-21i-1u6-7fk\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604a0d122b11b\">支持存储卷的挂载、卸载功能。</p>\n<p data-tag=\"p\" id=\"p-c55-et0-jdc\" class=\"p\">创建集群时，默认安装该组件。</p>\n</td>\n</tr>\n<tr id=\"row-5ap-fu5-bcj\">\n<td id=\"entry-x4p-x26-vl9\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604a0d132bltt\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/csi-provisioner#concept-2043907\" id=\"xref-2qo-xxg-h56\" title=\"\" class=\"xref\">csi-provisioner</a></p>\n</td>\n<td id=\"entry-9yh-5ts-h23\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604a34202bvgf\">可选组件</p>\n</td>\n<td id=\"entry-6al-vnt-1ut\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604a34212baxv\">支持存储卷的自动创建能力。</p>\n<p data-tag=\"p\" id=\"p-1g0-64o-807\" class=\"p\">创建集群时，如果选择<span class=\"help-letter-space\"></span>CSI<span class=\"help-letter-space\"></span>插件实现阿里云存储的接入能力，默认安装该组件。</p>\n</td>\n</tr>\n<tr id=\"0f1e50c399vtj\">\n<td id=\"25f4b548f55mf\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"d4862b1694cuk\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/csi-compatible-controller\" id=\"5aff151859dyi\" title=\"\" class=\"xref\">csi-compatible-controller</a></p>\n</td>\n<td id=\"d82c0d5049u0m\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"db540e4e9cq1h\">可选组件</p>\n</td>\n<td id=\"5b32dd73708c5\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"0c4b2a791114w\">可以使<span class=\"help-letter-space\"></span>csi-plugin<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>Flexvolume<span class=\"help-letter-space\"></span>存储组件实现共存。</p>\n</td>\n</tr>\n\n\n\n\n\n</tbody>\n</table>\n</section>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-75j-tbs-ece\" class=\"section\">\n<h3 data-tag=\"title\" id=\"title-505-ohr-k59\" class=\"title\"><b>网络</b></h3>\n<table autofit=\"false\" id=\"table-adm-271-awl\" tablecolswidth=\"193 129 387\" tablewidth=\"709\" class=\"table\">\n<colgroup colwidth=\"0.82*\" style=\"width:27.22%\"></colgroup>\n<colgroup colwidth=\"0.55*\" style=\"width:18.19%\"></colgroup>\n<colgroup colwidth=\"1.64*\" style=\"width:54.58%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"row-mrv-wie-nzb\">\n<td id=\"task-2094293-entry-1bw-83y-8m2\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"604b1e822br16\"><b>组件名称</b></p>\n</td>\n<td id=\"task-2094293-entry-s59-90h-iin\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"604b1e832ba1w\"><b>组件类型</b></p>\n</td>\n<td id=\"task-2094293-entry-xol-cfb-urn\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"604b1e842bbkv\"><b>描述</b></p>\n</td>\n</tr>\n<tr id=\"00be3d8dbbpll\">\n<td id=\"706cf7de26kqp\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604b1e852bzdw\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/coredns\" id=\"0efe2c5d51zoz\" title=\"\" class=\"xref\">CoreDNS</a></p>\n</td>\n<td id=\"1b4f0555b6sr4\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604b45902b525\">系统组件</p>\n</td>\n<td id=\"801107744efiz\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604b45912bza7\">ACK<span class=\"help-letter-space\"></span>集群中默认采用的<span class=\"help-letter-space\"></span>DNS<span class=\"help-letter-space\"></span>服务发现插件，其遵循<span class=\"help-letter-space\"></span>Kubernetes DNS-Based Service Discovery<span class=\"help-letter-space\"></span>规范。</p>\n</td>\n</tr>\n<tr id=\"9f3cc7d4eal5q\">\n<td id=\"3ef7ed24c2w80\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"1d4766122bt6x\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/gateway-api#concept-2070185\" id=\"27c88972c3uw3\" title=\"\" class=\"xref\">Gateway API</a></p>\n</td>\n<td id=\"4b92824d44jgz\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"1d4766142b0w3\">系统组件</p>\n</td>\n<td id=\"94435846986ha\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"2a8c9d902bawb\">Kubernetes<span class=\"help-letter-space\"></span>中用于对服务网络流量进行建模的一系列资源，目标是建立一套表现力强、易扩展、面向角色的服务网络模型。</p>\n</td>\n</tr>\n<tr id=\"a9aee0ede5cow\">\n<td id=\"5f6bcf4ef7rhy\" rowspan=\"1\" colspan=\"1\">\n<p id=\"ee5d1ddbbbq9t\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/ack-erdma-controller\" id=\"25661515bf56v\" title=\"\" class=\"xref\">ACK eRDMA Controller</a></p>\n</td>\n<td id=\"cc4344ebe8dpo\" rowspan=\"1\" colspan=\"1\">\n<p id=\"ff44fc380dhmi\">可选组件</p>\n</td>\n<td id=\"79a9ef9f3cxlf\" rowspan=\"1\" colspan=\"1\">\n<p id=\"6e79207b0fzxz\">使用<span class=\"help-letter-space\"></span>eRDMA<span class=\"help-letter-space\"></span>控制器管理<span class=\"help-letter-space\"></span>eRDMA<span class=\"help-letter-space\"></span>网卡。</p>\n</td>\n</tr>\n<tr id=\"28ae113310oqq\">\n<td id=\"a5b88fd7b1q9e\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604be1d22b28w\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/ack-nodelocal-dnscache#concept-2070185\" id=\"94ca95984ffl8\" title=\"\" class=\"xref\">ACK NodeLocal DNSCache</a></p>\n</td>\n<td id=\"03de83b1a5w1y\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604c57002bruu\">可选组件</p>\n</td>\n<td id=\"96dcbf33a89x2\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604c57012bqll\">基于社区开源项目<span class=\"help-letter-space\"></span>NodeLocal DNSCache<span class=\"help-letter-space\"></span>的一套<span class=\"help-letter-space\"></span>DNS<span class=\"help-letter-space\"></span>本地缓存解决方案。</p>\n</td>\n</tr>\n<tr id=\"5fce04acf35un\">\n<td id=\"5248c1ec791gn\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"69109a422b2zh\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/alb-ingress-controller\" id=\"7ac47596a4n4r\" title=\"\" class=\"xref\">ALB Ingress Controller</a></p>\n</td>\n<td id=\"93e5ba1d293e6\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"f8e2d7002bm6e\">可选组件</p>\n</td>\n<td id=\"b8f4b22e8f0h3\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"07322b802b76m\">基于阿里云应用型负载均衡<span class=\"help-letter-space\"></span>ALB（Application Load Balancer） ，提供更为强大的<span class=\"help-letter-space\"></span>Ingress<span class=\"help-letter-space\"></span>流量管理方式，兼容<span class=\"help-letter-space\"></span>Nginx Ingress，具备处理复杂业务路由和证书自动发现的能力，支持<span class=\"help-letter-space\"></span>HTTP、HTTPS<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>QUIC<span class=\"help-letter-space\"></span>协议，满足在云原生应用场景下对超强弹性和大规模七层流量处理能力的需求。</p>\n</td>\n</tr>\n<tr id=\"6ff59f1ed1qvx\">\n<td id=\"738fcd2697tr6\" rowspan=\"1\" colspan=\"1\">\n<p id=\"78e65e7a4e9a9\"><a href=\"https://help.aliyun.com/zh/mse/user-guide/manage-the-mse-ingress-controller-component\" id=\"c6e0db335bhn7\" title=\"\" class=\"xref\">MSE Ingress Controller</a></p>\n</td>\n<td id=\"e9fc8bbc0829a\" rowspan=\"1\" colspan=\"1\">\n<p id=\"dbf80036d2g8o\">可选组件</p>\n</td>\n<td id=\"4084583239oyk\" rowspan=\"1\" colspan=\"1\">\n<p id=\"4047acf6fbsw7\">基于<span class=\"help-letter-space\"></span>MSE<span class=\"help-letter-space\"></span>云原生网关，适用于微服务场景，兼容<span class=\"help-letter-space\"></span>Nginx&nbsp;Ingress。支持多种服务发现、认证鉴权以及多语言插件扩展，提供灰度发布、预热和限流等<span class=\"help-letter-space\"></span>Ingress<span class=\"help-letter-space\"></span>流量管理能力。</p>\n</td>\n</tr>\n<tr id=\"6abc56f8a7g4v\">\n<td id=\"00254e36d16f2\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604b93b22b4bx\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/terway\" id=\"2aab931e303er\" title=\"\" class=\"xref\">Terway</a></p>\n\n</td>\n<td id=\"6a2752ebccngc\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604bbac02btch\">可选组件</p>\n</td>\n<td id=\"030ef67a0f0pe\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604bbac12b0rf\">阿里云开源的<span class=\"help-letter-space\"></span>Terway CNI<span class=\"help-letter-space\"></span>插件支持<span class=\"help-letter-space\"></span>eBPF<span class=\"help-letter-space\"></span>网络加速和<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>标准的<span class=\"help-letter-space\"></span>NetworkPolicy，用于定义容器间的访问策略。使用<span class=\"help-letter-space\"></span>Terway<span class=\"help-letter-space\"></span>可以实现<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>集群内部的网络互通。创建集群时，选择<span class=\"help-letter-space\"></span>Terway<span class=\"help-letter-space\"></span>网络插件会默认安装该组件。</p>\n</td>\n</tr>\n<tr id=\"ce6c8a05c59s7\">\n<td id=\"8751011a88hat\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604bbac22be3v\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/flannel#concept-2461414\" id=\"606c4daabdlcl\" title=\"\" class=\"xref\">Flannel</a></p>\n</td>\n<td id=\"61db9d95c4arf\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604be1d02bpmd\">可选组件</p>\n</td>\n<td id=\"30cfb53bb0lxn\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604be1d12bbfh\">一种容器网络接口<span class=\"help-letter-space\"></span>CNI（Container Network Interface）插件，在阿里云上使用的<span class=\"help-letter-space\"></span>Flannel<span class=\"help-letter-space\"></span>网络模式采用阿里云<span class=\"help-letter-space\"></span>VPC<span class=\"help-letter-space\"></span>模式。</p>\n<p data-tag=\"p\" id=\"p-uim-fmt-uhh\" class=\"p\">创建集群时，如果选择<span class=\"help-letter-space\"></span>Flannel<span class=\"help-letter-space\"></span>网络插件实现集群内部网络互通的话，默认安装该组件。</p>\n</td>\n</tr>\n<tr id=\"row-nst-fe0-mo5\">\n<td id=\"entry-4i7-gl0-q3y\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604b45922bnop\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/nginx-ingress-controller#concept-2461414\" id=\"xref-zuw-xr5-e9c\" title=\"\" class=\"xref\">Nginx Ingress Controller</a></p>\n</td>\n<td id=\"entry-r3h-1hr-x27\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604b6ca02bjd0\">可选组件</p>\n</td>\n<td id=\"entry-ohl-otd-yqq\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604b6ca12bkr6\">Nginx Ingress Controller<span class=\"help-letter-space\"></span>解析<span class=\"help-letter-space\"></span>Ingress<span class=\"help-letter-space\"></span>的转发规则。Ingress Controller<span class=\"help-letter-space\"></span>收到请求，匹配<span class=\"help-letter-space\"></span>Ingress<span class=\"help-letter-space\"></span>转发规则转发到后端<span class=\"help-letter-space\"></span>Service。</p>\n</td>\n</tr>\n<tr id=\"d7e232addd55r\">\n<td id=\"4a8139eb841ym\" rowspan=\"1\" colspan=\"1\">\n<p id=\"8267445c13x80\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/poseidon\" id=\"0b739a9f98fnk\" title=\"\" class=\"xref\">Poseidon</a></p>\n</td>\n<td id=\"3f04cace9bd3a\" rowspan=\"1\" colspan=\"1\">\n<p id=\"d7fbec3393pjy\">可选组件</p>\n</td>\n<td id=\"6a1a3d707ft6j\" rowspan=\"1\" colspan=\"1\">\n<p id=\"f87411ccc1ddg\">ACK<span class=\"help-letter-space\"></span>自研的容器<span class=\"help-letter-space\"></span>NetworkPolicy<span class=\"help-letter-space\"></span>插件。支持<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>标准的<span class=\"help-letter-space\"></span>NetworkPolicy<span class=\"help-letter-space\"></span>功能。</p>\n<ul id=\"979dc154e9wtf\">\n<li id=\"903d4810c6jpo\">\n<p id=\"bbac45c6596e8\">针对<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"7be41a6e4aduc\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK Serverless<span class=\"help-letter-space\"></span>集群</span>以及在<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>集群中使用<span class=\"help-letter-space\"></span>ECI<span class=\"help-letter-space\"></span>实例的场景，如需使用<span class=\"help-letter-space\"></span>NetworkPolicy<span class=\"help-letter-space\"></span>功能，则需安装<span class=\"help-letter-space\"></span>Poseidon<span class=\"help-letter-space\"></span>组件。</p>\n</li>\n<li id=\"37b8aa6eeab73\">\n<p id=\"d732046ed68dq\">针对<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>集群的其他场景，如需使用<span class=\"help-letter-space\"></span>NetworkPolicy<span class=\"help-letter-space\"></span>功能，则需安装<span class=\"help-letter-space\"></span>Terway<span class=\"help-letter-space\"></span>组件。</p>\n</li>\n</ul>\n</td>\n</tr>\n\n<tr id=\"9246e1087aaal\">\n<td id=\"937fadd68d3gi\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"9bc18a0651da2\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/sidecar-acceleration-using-ebpf\" id=\"af9104b4352lc\" title=\"\" class=\"xref\">Sidecar Acceleration using eBPF</a></p>\n</td>\n<td id=\"343641389ad0p\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"50a65b79ba90j\">可选组件</p>\n</td>\n<td id=\"029d908e9f0m3\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"368a988df0l59\">使用<span class=\"help-letter-space\"></span>Sidecar<span class=\"help-letter-space\"></span>加速来减少阿里云服务网格中的网络延迟。</p>\n</td>\n</tr>\n\n<tr id=\"a2af84478admn\">\n<td id=\"c6f77649cbyf0\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"ed3a797432u7b\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/ack-gateway-with-inference-extension\" id=\"0aa4da2271u6j\" title=\"\" class=\"xref\">Gateway with Inference Extension</a></p>\n</td>\n<td id=\"575062eba8crg\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"3aec9bc180vbj\">可选组件</p>\n</td>\n<td id=\"9d3f4c3391vz8\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"f7fe5de0f61mk\">基于<span class=\"help-letter-space\"></span>Envoy Gateway<span class=\"help-letter-space\"></span>开源项目构建，支持<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>四层/七层路由服务，并提供面向<span class=\"help-letter-space\"></span>AI<span class=\"help-letter-space\"></span>大语言模型（LLM）推理场景的智能负载均衡能力。</p>\n</td>\n</tr>\n</tbody>\n</table>\n</section>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-kz9-ul7-c9f\" class=\"section\">\n<h3 data-tag=\"title\" id=\"title-nq4-jps-k41\" class=\"title\"><b>安全</b></h3>\n<table autofit=\"false\" id=\"table-x13-qza-q12\" tablecolswidth=\"193 129 387\" tablewidth=\"709\" class=\"table\">\n<colgroup colwidth=\"0.82*\" style=\"width:27.22%\"></colgroup>\n<colgroup colwidth=\"0.55*\" style=\"width:18.19%\"></colgroup>\n<colgroup colwidth=\"1.64*\" style=\"width:54.58%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"row-ayx-qqc-fkf\">\n<td id=\"task-2094293-entry-dsh-vyg-dlc\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"604c7e112blbm\"><b>组件名称</b></p>\n</td>\n<td id=\"task-2094293-entry-rhi-m2r-zuk\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"604c7e122b2br\"><b>组件类型</b></p>\n</td>\n<td id=\"task-2094293-entry-gdt-6ce-3m9\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"604c7e132bnnv\"><b>描述</b></p>\n</td>\n</tr>\n<tr id=\"2dbefb056d0ib\">\n<td id=\"7f939017ac8zx\" rowspan=\"1\" colspan=\"1\">\n<p id=\"bdb0a24638zmi\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/ack-advanced-audit\" id=\"98b3677ffflhd\" title=\"\" class=\"xref\">ack-advanced-audit</a></p>\n</td>\n<td id=\"fb5f140595qbr\" rowspan=\"1\" colspan=\"1\">\n<p id=\"bcf909f962lwf\">可选组件</p>\n</td>\n<td id=\"61a0100187mqa\" rowspan=\"1\" colspan=\"1\">\n<p data-tag=\"p\" id=\"85b03aadfdsf9\" docid=\"4028772\" is-conref=\"true\" class=\"p\">ack-advanced-audit<span class=\"help-letter-space\"></span>组件基于开源项目<span class=\"help-letter-space\"></span><a href=\"https://falco.org/\" id=\"xref-4ou-i2m-8ge\" class=\"\" target=\"_blank\">Falco</a>，使用内核提供的<span class=\"help-letter-space\"></span>eBPF<span class=\"help-letter-space\"></span>特性，实现了容器内操作的系统调用审计能力。通过<span class=\"help-letter-space\"></span>ack-advanced-audit<span class=\"help-letter-space\"></span>组件实现的容器内部操作审计功能，可以方便您审计组织内成员或应用程序进入容器后执行的命令操作。</p>\n</td>\n</tr>\n<tr id=\"75c8bf61d2huq\">\n<td id=\"32ee5283b8fmh\" rowspan=\"1\" colspan=\"1\">\n<p id=\"1c2c584eddfw6\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/ack-pod-identity-webhook\" id=\"da9a6ca3dc6yn\" title=\"\" class=\"xref\">ack-pod-identity-webhook</a></p>\n</td>\n<td id=\"0c262efa9frw2\" rowspan=\"1\" colspan=\"1\">\n<p id=\"62d57e1607e6h\">可选组件</p>\n</td>\n<td id=\"90bfcd1b92jj9\" rowspan=\"1\" colspan=\"1\">\n<p id=\"03406d6490b5k\">ack-pod-identity-webhook<span class=\"help-letter-space\"></span>组件可以帮您更便捷地使用容器服务提供的<span class=\"help-letter-space\"></span>RRSA（RAM Roles for Service Accounts）特性，它可以为您的应用<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>自动注入应用依赖的挂载<span class=\"help-letter-space\"></span>OIDC Token<span class=\"help-letter-space\"></span>和环境变量配置，免去繁琐的手动配置工作。</p>\n</td>\n</tr>\n<tr id=\"977b4112970va\">\n<td id=\"299c67f9a1z3v\" rowspan=\"1\" colspan=\"1\">\n<p id=\"afadd4611c9td\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/ack-ram-authenticator\" id=\"7974326d86sd0\" title=\"\" class=\"xref\">ack-ram-authenticator</a></p>\n</td>\n<td id=\"7811a08e1b12x\" rowspan=\"1\" colspan=\"1\">\n<p id=\"fae99527bfwqs\">系统组件</p>\n</td>\n<td id=\"2b15104f27qip\" rowspan=\"1\" colspan=\"1\">\n<p id=\"c2e92006f22hz\" docid=\"4232490\" is-conref=\"true\">ack-ram-authenticator<span class=\"help-letter-space\"></span>组件是面向<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"d67aaa48ffu9f\" docid=\"4431993\" is-conref=\"true\" class=\"ph\">ACK<span class=\"help-letter-space\"></span>托管集群</span>的认证插件，基于<span class=\"help-letter-space\"></span>Kubernetes<span class=\"help-letter-space\"></span>原生<span class=\"help-letter-space\"></span><a href=\"https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication\" id=\"12ab242015qf1\" class=\"ne-link\" target=\"_blank\">Webhook Token<span class=\"help-letter-space\"></span>认证</a>方式，实现通过<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>完成集群<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"cab8303bb52w9\" docid=\"4860423\" is-conref=\"true\" class=\"ph\">API Server</span><span class=\"help-letter-space\"></span>的请求认证。同时，该组件通过<span class=\"help-letter-space\"></span>CRD<span class=\"help-letter-space\"></span>形式提供<span class=\"help-letter-space\"></span>RAM<span class=\"help-letter-space\"></span>身份和<span class=\"help-letter-space\"></span>RBAC<span class=\"help-letter-space\"></span>权限的映射关系，帮您更灵活地配置<span class=\"help-letter-space\"></span>RBAC<span class=\"help-letter-space\"></span>鉴权。</p>\n</td>\n</tr>\n<tr id=\"row-ie5-xsi-qvu\">\n<td id=\"entry-fat-qql-sjg\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604ca5222bjn9\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/gatekeeper#task-1938542\" id=\"xref-ld9-zmj-ose\" title=\"\" class=\"xref\">gatekeeper</a></p>\n</td>\n<td id=\"entry-zft-5ct-v22\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604ccc302bqan\">可选组件</p>\n</td>\n<td id=\"entry-5u2-hvl-4aj\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604ccc312bkbh\">帮助您方便地管理和应用集群内的<span class=\"help-letter-space\"></span>Open Policy Agent（OPA）策略，实现命名空间标签管理等功能。</p>\n</td>\n</tr>\n<tr id=\"row-n53-m6d-9l6\">\n<td id=\"entry-eez-4uo-0q5\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604ccc322bciv\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/kritis-validation-hook#task-2445014\" id=\"xref-5q5-e5w-g44\" title=\"\" class=\"xref\">kritis-validation-hook</a></p>\n</td>\n<td id=\"entry-fqo-xck-ikq\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604cf3402bo3p\">可选组件</p>\n</td>\n<td id=\"entry-51r-6p9-gpf\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604cf3412bi9h\">部署可信容器环节中进行容器镜像签名验证的关键组件。</p>\n</td>\n</tr>\n<tr id=\"cbfcb96bedtoe\">\n<td id=\"b706561b66xdl\" rowspan=\"1\" colspan=\"1\">\n<p id=\"42f46c6f2cdg1\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/aliyun-acr-credential-helper\" id=\"f423d48370xii\" title=\"\" class=\"xref\">aliyun-acr-credential-helper</a></p>\n</td>\n<td id=\"5ba41dea47mbg\" rowspan=\"1\" colspan=\"1\">\n<p id=\"70f0563294c0l\">可选组件</p>\n</td>\n<td id=\"80ee5ae03d08t\" rowspan=\"1\" colspan=\"1\">\n<div data-tag=\"p\" id=\"6ffde1608dker\" docid=\"2433897\" is-conref=\"true\" class=\"p\"><p id=\"14255efc848g9\">aliyun-acr-credential-helper<span class=\"help-letter-space\"></span>通过读取<span class=\"help-letter-space\"></span>ACK<span class=\"help-letter-space\"></span>集群内的<span class=\"help-letter-space\"></span>kube-system<span class=\"help-letter-space\"></span>命名空间中的<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-yav-cze-mva\" class=\"parmname\">acr-configuration</span><span class=\"help-letter-space\"></span>的配置，进行私有镜像拉取。支持以下功能：</p><ul data-tag=\"ul\" id=\"ul-d9g-ome-b8u\" class=\"ul\"><li data-tag=\"li\" id=\"li-af7-ots-nur\" class=\"li\"><p id=\"8861d2cf31vz7\">免密组件目前仅支持与<span class=\"help-letter-space\"></span>ACR<span class=\"help-letter-space\"></span>企业版及<span class=\"help-letter-space\"></span>2024<span class=\"help-letter-space\"></span>年<span class=\"help-letter-space\"></span>09<span class=\"help-letter-space\"></span>月<span class=\"help-letter-space\"></span>08<span class=\"help-letter-space\"></span>日及更早创建的<span class=\"help-letter-space\"></span>ACR<span class=\"help-letter-space\"></span>个人版配合使用。</p></li><li data-tag=\"li\" id=\"li-wz4-5fq-wr8\" class=\"li\"><p id=\"c8505597ec1qd\">支持拉取集群当前用户容器镜像服务中的私有镜像，通过跨账号授权或<span class=\"help-letter-space\"></span>AccessKey ID<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>AccessKey Secret<span class=\"help-letter-space\"></span>配置可以拉取其他用户的私有镜像。</p></li><li data-tag=\"li\" id=\"li-ht0-e3i-qtb\" class=\"li\"><p id=\"1ccc7e8154sen\">支持跨地域拉取容器镜像服务中的私有镜像。</p></li></ul></div>\n</td>\n</tr>\n<tr id=\"fe76e1bbe09o5\">\n<td id=\"4776dd663craa\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604d41622bzi2\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/policy-template-controller#task-2185042\" id=\"47ca675ba1stp\" title=\"\" class=\"xref\">policy-template-controller</a></p>\n</td>\n<td id=\"dc34da91664hb\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604d68702bunb\">可选组件</p>\n</td>\n<td id=\"f6c3a551c0m2l\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604d68712b67z\">实现策略管理功能的关键组件。</p>\n</td>\n</tr>\n<tr id=\"row-l0r-lla-buf\">\n<td id=\"entry-dr5-7d8-wnc\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604cf3422bhph\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/security-inspector#task-2552166\" id=\"xref-h9o-p7k-5q9\" title=\"\" class=\"xref\">security-inspector</a></p>\n</td>\n<td id=\"entry-jo9-j7d-qt6\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604d1a502be1b\">可选组件</p>\n</td>\n<td id=\"entry-mdw-e79-0m7\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604d1a512bncf\">实现安全巡检功能的关键组件。</p>\n</td>\n</tr>\n\n</tbody>\n</table>\n</section>\n\n<section id=\"75edd9b5c3nn9\" class=\"section\">\n<h3 id=\"5ac89abc2dain\"><b>弹性与调度</b></h3>\n<table autofit=\"false\" id=\"f873becb86hj1\" tablecolswidth=\"193 129 387\" tablewidth=\"709\" class=\"table\">\n<colgroup colwidth=\"0.82*\" style=\"width:27.22%\"></colgroup>\n<colgroup colwidth=\"0.55*\" style=\"width:18.19%\"></colgroup>\n<colgroup colwidth=\"1.64*\" style=\"width:54.58%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"4828bda927ar2\">\n<td id=\"134438b9045eq\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n<p id=\"092ed9e3ecunr\"><b>组件名称</b></p>\n</td>\n<td id=\"b53152a462ebs\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n<p id=\"fe234d5446ros\"><b>组件类型</b></p>\n</td>\n<td id=\"11eb378c16ug8\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n<p id=\"544075527ath6\"><b>描述</b></p>\n</td>\n</tr>\n<tr id=\"82515f97e8u1j\">\n<td id=\"3cb529de433mj\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"6737fdf3619uc\"><a href=\"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/instant-elasticity\" id=\"7d5f3c500ehyj\" title=\"\" class=\"xref\">ACK GOATScaler</a></p>\n</td>\n<td id=\"7ee437cc111iy\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"9958fc2602edi\">可选组件</p>\n</td>\n<td id=\"9dfb90aa4fyv3\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"71f60e77c4ln0\">提供节点即时弹性功能。</p>\n</td>\n</tr>\n<tr id=\"4d4c40eb813ol\">\n<td id=\"9e6cb9602c8yz\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604ddda22beht\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/ack-kubernetes-cronhpa-controller#task-2095127\" id=\"8d36d3ba48tod\" title=\"\" class=\"xref\">ack-kubernetes-cronhpa-controller</a></p>\n</td>\n<td id=\"d8d62d9d19bpt\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604e04b02bqtk\">可选组件</p>\n</td>\n<td id=\"f34e497413j9b\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604e04b12bdgp\">使用<span class=\"help-letter-space\"></span>ack-kubernetes-cronhpa-controller<span class=\"help-letter-space\"></span>实现应用负载定时伸缩。</p>\n</td>\n</tr>\n<tr id=\"c6635c82cc40s\">\n<td id=\"1796cc7886sh6\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"e2aeeb33d4lla\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/ack-vertical-pod-autoscaler\" id=\"6e6fa2ec1avbk\" title=\"\" class=\"xref\">ack-vertical-pod-autoscaler</a></p>\n</td>\n<td id=\"de1576eeb4and\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"25aa92ca746kq\">可选组件</p>\n</td>\n<td id=\"fb8fcb3b4blfg\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"76a4482014bwe\" docid=\"4926451\" is-conref=\"true\">ack-vertical-pod-autoscaler<span class=\"help-letter-space\"></span>组件能够监控<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>的资源消耗模式，灵活推荐<span class=\"help-letter-space\"></span>CPU<span class=\"help-letter-space\"></span>和内存资源分配的配置，并在适当的情况下自动进行调整，而不调整<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>的副本数量。这种能力更适用于需要稳定资源配置的有状态应用的扩容等场景。</p>\n</td>\n</tr>\n<tr id=\"e9d9a6d939u36\">\n<td id=\"4e57476b52hfm\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"b4199a73cfaaj\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/application-intelligence-controller\" id=\"046dea39ecsmc\" title=\"\" class=\"xref\">AHPA Controller</a></p>\n</td>\n<td id=\"7f42a07b56exf\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"9a9a01ac9d8cn\">可选组件</p>\n</td>\n<td id=\"4edbc02d450gy\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p data-tag=\"p\" id=\"1e4e0e92a6atq\" docid=\"3801940\" is-conref=\"true\" class=\"p\">AHPA<span class=\"help-letter-space\"></span>基于应用历史指标预测未来<span class=\"help-letter-space\"></span>Pod<span class=\"help-letter-space\"></span>实例数量，帮助您解决弹性滞后的问题。AHPA<span class=\"help-letter-space\"></span>通过主动预测和被动预测相结合，实时调整资源实例数，并且增加了兜底保护策略，通过设置时间区间的实例数上下界值，实现弹性兜底。</p>\n</td>\n</tr>\n<tr id=\"83956c0069r6e\">\n<td id=\"dc917890787t5\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"60504ea22bpls\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/ack-koordinator-fka-ack-slo-manager#task-2172306\" id=\"11ab358b05jg1\" title=\"\" class=\"xref\">ack-koordinator（ack-slo-manager）</a></p>\n</td>\n<td id=\"e6aaf5c0730ul\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"605075b02brtc\">可选组件</p>\n</td>\n<td id=\"b2e1f8af31dcf\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"605075b12b6gc\">ACK<span class=\"help-letter-space\"></span>支持差异化<span class=\"help-letter-space\"></span>SLO（Service Level Objectives）能力的核心应用，可以在保证应用服务质量的同时，充分提升资源使用效率。</p>\n</td>\n</tr>\n</tbody>\n</table>\n</section>\n<section data-tag=\"section\" data-type=\"section\" id=\"section-fc9-cij-gwv\" class=\"section\">\n<h3 data-tag=\"title\" id=\"title-iib-fx3-2hl\" class=\"title\"><b>其他</b></h3>\n<table autofit=\"false\" id=\"table-ai8-0vp-el0\" tablecolswidth=\"193 129 387\" tablewidth=\"709\" class=\"table\">\n<colgroup colwidth=\"0.82*\" style=\"width:27.22%\"></colgroup>\n<colgroup colwidth=\"0.55*\" style=\"width:18.19%\"></colgroup>\n<colgroup colwidth=\"1.64*\" style=\"width:54.58%\"></colgroup>\n<tbody class=\"tbody\">\n<tr id=\"row-sfv-5jd-3of\">\n<td id=\"task-2094293-entry-60e-cqw-8cm\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"604db6922bu8z\"><b>组件名称</b></p>\n</td>\n<td id=\"task-2094293-entry-fkq-iln-qhs\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"604db6932bt4k\"><b>组件类型</b></p>\n</td>\n<td id=\"task-2094293-entry-5yq-j5n-fee\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n<p id=\"604db6942bodb\"><b>描述</b></p>\n</td>\n</tr>\n\n\n<tr id=\"fea8b8fafc3k3\">\n<td id=\"64ea6e9c69z13\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604726e12biyl\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/ack-helm-manager#task-2206291\" id=\"b6f29634b82he\" title=\"\" class=\"xref\">ack-helm-manager</a></p>\n</td>\n<td id=\"3a99657880da7\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604726e22brdw\">可选组件</p>\n</td>\n<td id=\"9dd7e736bcc6y\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604726e32bm7o\">提供管理自定义组件的能力。</p>\n</td>\n</tr>\n<tr id=\"0f37ea8a2dcjz\">\n<td id=\"e3965b70bbec2\" rowspan=\"1\" colspan=\"1\">\n<p id=\"39c031e9ee1ff\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/ack-cgpu\" id=\"d746480ad5539\" title=\"\" class=\"xref\">ack-cgpu</a></p>\n</td>\n<td id=\"0568934d18q4r\" rowspan=\"1\" colspan=\"1\">\n<p id=\"55412f5466gsq\">可选组件</p>\n</td>\n<td id=\"21b37b067d0xx\" rowspan=\"1\" colspan=\"1\">\n<p id=\"2fc9c9b07c1rw\">通过<span class=\"help-letter-space\"></span>GPU<span class=\"help-letter-space\"></span>共享调度框架，实现多个容器共享同一<span class=\"help-letter-space\"></span>GPU<span class=\"help-letter-space\"></span>设备。</p>\n</td>\n</tr>\n<tr id=\"2ccd8b09a6pus\">\n<td id=\"1a40e17ccc61a\" rowspan=\"1\" colspan=\"1\">\n<p id=\"430ba1d509xtx\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/argo-workflows\" id=\"78875cec3dn0w\" title=\"\" class=\"xref\">Argo Workflows</a></p>\n</td>\n<td id=\"0a213b56e4w5w\" rowspan=\"1\" colspan=\"1\">\n<p id=\"f2155e3c766an\">可选组件</p>\n</td>\n<td id=\"42aa5fbea9qok\" rowspan=\"1\" colspan=\"1\">\n<p data-tag=\"p\" id=\"3c4eb6f712d10\" docid=\"3533822\" is-conref=\"true\" class=\"p\">该组件基于原生<span class=\"help-letter-space\"></span>Argo Workflows<span class=\"help-letter-space\"></span>开发，并在其基础上有稳定性和性能等方面的增强，支持您在集群中部署大型工作流。主要面向标准化的工作流场景，例如机器学习<span class=\"help-letter-space\"></span>Pipeline、自动驾驶仿真、基因测序任务、批量数据处理、CI/CD、基础设施自动化等。</p>\n</td>\n</tr>\n<tr id=\"8a5726e33fih4\">\n<td id=\"37a611dc34h67\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604f8b512bryw\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/aliyun-acr-acceleration-suite#concept-1955815\" id=\"dbca2cee0aqcv\" title=\"\" class=\"xref\">aliyun-acr-acceleration-suite</a></p>\n</td>\n<td id=\"ab9fe6f275he1\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604fb2602beaw\">可选组件</p>\n</td>\n<td id=\"99a33b6677yca\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604fb2612btu1\">提供镜像按需加载加速能力的客户端插件，以<span class=\"help-letter-space\"></span>DaemonSet<span class=\"help-letter-space\"></span>形式部署在<span class=\"help-letter-space\"></span>Worker<span class=\"help-letter-space\"></span>节点上。</p>\n</td>\n</tr>\n\n<tr id=\"ea4a624b15ys1\">\n<td id=\"bfdb02eac9ebk\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604ea0f22bg6f\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/sandboxed-container-controller#task-2453572\" id=\"f0a8ec9050krv\" title=\"\" class=\"xref\">sandboxed-container-controller</a></p>\n</td>\n<td id=\"06f35c707faf5\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604ec8002bkyg\">可选组件</p>\n</td>\n<td id=\"6a5f30a0a86dz\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604ec8012bkxe\">安全沙箱运行时提供的专用控制器组件，旨在增强和扩展安全沙箱的基本功能。</p>\n</td>\n</tr>\n<tr id=\"956c4f7ffc6k2\">\n<td id=\"f9e38d304ayqd\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604ec8022bn8k\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/sandboxed-container-helper#concept-2495792\" id=\"0d8792b87cpt1\" title=\"\" class=\"xref\">sandboxed-container-helper</a></p>\n</td>\n<td id=\"2cd7de4b8exu4\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604eef102bec5\">可选组件</p>\n</td>\n<td id=\"c777408a87ul2\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n<p id=\"604eef112b1rl\">为安全沙箱提供诊断和运维的组件。</p>\n</td>\n</tr>\n<tr id=\"row-530-0z9-hsp\">\n<td id=\"entry-3n8-hra-cfn\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604e2bc22b95e\"><a href=\"https://help.aliyun.com/zh/ack/product-overview/sgx-device-plugin#task-1930888\" id=\"xref-eai-scq-vwg\" title=\"\" class=\"xref\">sgx-device-plugin</a></p>\n</td>\n<td id=\"entry-efq-cxu-wmw\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604e52d02bhan\">可选组件</p>\n</td>\n<td id=\"entry-isv-1r7-82p\" rowspan=\"1\" colspan=\"1\">\n<p id=\"604e52d12bn81\">由阿里云容器服务团队和蚂蚁金服安全计算团队针对<span class=\"help-letter-space\"></span>Intel SGX<span class=\"help-letter-space\"></span>联合开发的<span class=\"help-letter-space\"></span>Kubernetes Device Plugin，可以让您更容易地在容器中使用<span class=\"help-letter-space\"></span>SGX。</p>\n</td>\n</tr>\n\n\n\n\n\n\n\n</tbody>\n</table>\n</section>\n</div>\n</main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/component-overview","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"alias":"/ack/ack-managed-and-ack-dedicated/user-guide/component-overview","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":6,"developerUrl":"https://developer.aliyun.com/group/kubernetes/","nodeType":1,"version":15,"url":"/zh/ack/ack-managed-and-ack-dedicated/user-guide/component-overview","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":277412,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"组件","id":277412,"title":"组件","url":"/zh/ack/ack-managed-and-ack-dedicated/user-guide/component-overview"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"操作指南","id":2391836,"title":"操作指南","url":"/zh/ack/ack-managed-and-ack-dedicated/user-guide/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"ACK托管与专有集群","id":126295,"title":"ACK托管与专有集群","url":"/zh/ack/ack-managed-and-ack-dedicated/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},"productUrl":"https://www.aliyun.com/product/kubernetes","nodeId":277412,"desc":"容器服务 Kubernetes 版提供应用管理、日志监控、网络等多种组件，便于您管理和运维集群。某些组件由ACK自动升级，部分组件需要您手动升级，或按需进行更小粒度的配置。本文介绍如何升级、安装、卸载组件，以及组件概览参考。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"容器服务 Kubernetes 版 ACK","id":85222,"title":"容器服务 Kubernetes 版 ACK","url":"/zh/ack/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"ACK托管与专有集群","id":126295,"title":"ACK托管与专有集群","url":"/zh/ack/ack-managed-and-ack-dedicated/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"操作指南","id":2391836,"title":"操作指南","url":"/zh/ack/ack-managed-and-ack-dedicated/user-guide/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"组件","id":277412,"title":"组件","url":"/zh/ack/ack-managed-and-ack-dedicated/user-guide/component-overview"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=213e053617825535932114501e8d8f&asid=AQAAAAD5mz9qB8WZawAAAAAMvWVqW8wr8A==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"><div class="help-subproduct-container"></div></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2391827" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/product-overview/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品概述</span>
+</a>
+</li>
+ <li id="2391837" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/getting-started/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">快速入门</span>
+</a>
+</li>
+ <li id="2391836" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">操作指南</span>
+</a>
+</li>
+ <li id="2391840" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/use-cases/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">实践教程</span>
+</a>
+</li>
+ <li id="2543123" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="2391838" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2391839" class="Menu--level1--UN3zYr3">
+<a href="/zh/ack/ack-managed-and-ack-dedicated/support/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">服务支持</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>管理ACK托管集群的相关组件</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/kubernetes" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+<main id="task-2094293">
+
+
+<p data-tag="shortdesc" id="shortdesc-hhz-6tz-3j6" class="shortdesc"><span id="76b0bbd006z3p" outputclass="productName" data-tag="ph" data-ref-searchable="yes" data-reuse-tag="productName" data-type="productName" data-product-code="csk" docid="4265392" is-conref="true" class="ph productName">容器服务 Kubernetes 版</span>提供应用管理、日志监控、网络等多种组件，便于您管理和运维集群。某些组件由<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>自动升级，部分组件需要您手动升级，或按需进行更小粒度的配置。本文介绍如何升级、安装、卸载组件，以及组件概览参考。</p>
+<div data-tag="taskbody" id="taskbody-g3k-qeb-ta5" class="taskbody">
+<section data-tag="prereq" data-type="prereq" id="prereq-mb3-ybl-2gb" class="section prereq">
+<h2 id="d41e25">前提条件</h2>
+<p id="657f132045cdq"><a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/create-an-ack-managed-cluster-2/#task-skz-qwk-qfb" id="10fcb82f5bg2v" title="" class="xref">创建<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>托管集群</a></p>
+
+
+</section>
+<section data-tag="steps" data-type="steps" id="steps-xb7-sjl-gtc" class="section steps">
+<h2 id="d41e32">操作步骤</h2>
+<ol data-tag="steps" id="64b9a0404533x" class="steps">
+<li data-tag="step" id="9399274134afx" docid="3660168" is-conref="true" class="step"><p id="7bdb0bf11b631"><span data-tag="cmd" id="cmd-mto-t3v-p7d" class="cmd">登录<span props="china intl"><a href="https://cs.console.aliyun.com" id="xref-c6s-99d-s5k" class="" target="_blank">容器服务管理控制台</a></span>，在左侧导航栏选择<b id="uicontrol-42p-agm-35k" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>。</span></p></li>
+<li id="87370c2b34tf5">
+<p id="a07c4cccc9rml" docid="3660168" is-conref="true">在<b id="wintitle-cnt-jjr-xv7" data-tag="uicontrol" data-isbold="true" class="uicontrol">集群列表</b>页面，单击目标集群名称，然后在左侧导航栏，单击<b id="uicontrol-p88-4n6-25o" data-tag="uicontrol" data-isbold="true" class="uicontrol">组件管理</b>。</p>
+</li>
+<li data-tag="step" id="step-1ct-gmv-cti" class="step">
+<p id="657f3a3045gry">在<b id="uicontrol-bgu-4p4-5ai" data-tag="uicontrol" data-isbold="true" class="uicontrol">组件管理</b>页面，您可以搜索并定位目标组件，在组件卡片上按需进行安装、卸载、升级、修改组件参数等操作。</p>
+<div id="7504f66045yel" type="note" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+<p id="f0169883fdwn0" docid="2739508" is-conref="true">为了保证控制面的稳定性，当前仅<span class="help-letter-space"></span><span data-tag="ph" id="ec02f1765ekyy" data-ref-searchable="yes" docid="4431993" is-conref="true" class="ph">ACK<span class="help-letter-space"></span>托管集群<span class="help-letter-space"></span>Pro<span class="help-letter-space"></span>版</span>、<span data-tag="ph" id="145729e51cd4x" docid="4431993" is-conref="true" class="ph">ACK Serverless<span class="help-letter-space"></span>集群<span class="help-letter-space"></span>Pro<span class="help-letter-space"></span>版</span>、<span data-tag="ph" id="a19c065ec37v6" docid="4431993" is-conref="true" class="ph">ACK Edge<span class="help-letter-space"></span>集群<span class="help-letter-space"></span>Pro<span class="help-letter-space"></span>版</span>、<span data-tag="ph" id="7564fb821egni" docid="4431993" is-conref="true" class="ph">ACK<span class="help-letter-space"></span>灵骏集群</span>支持自定义部分控制面核心组件参数。</p>
+</div></div>
+</li>
+</ol>
+</section>
+<h2 id="097036b923225"><b>参考信息</b></h2>
+<section data-tag="section" data-type="section" id="section-6b1-88l-j1x" class="section">
+<h3 data-tag="title" id="title-bi9-1fc-htj" class="title"><b>组件类型</b></h3>
+<div data-tag="p" id="p-a11-k5i-335" class="p">
+<p id="6045ee602buvg">容器服务<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>管理的集群组件类型包括系统组件和可选组件：</p>
+<ul data-tag="ul" id="ul-gl7-hkf-89e" class="ul">
+<li data-tag="li" id="li-kfc-wzs-29b" class="li">
+<p id="6045ee612b39e">系统组件：创建<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>集群时，默认安装的组件。</p>
+</li>
+<li data-tag="li" id="li-215-i2j-pcn" class="li">
+<p id="6045ee622b4fo">可选组件：创建<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>集群时，可选择安装的组件，用于扩展集群功能。</p>
+</li>
+</ul>
+</div>
+</section>
+<section data-tag="section" data-type="section" id="section-mnj-5dk-gwd" class="section">
+<h3 data-tag="title" id="title-20w-588-aeh" class="title"><b>核心组件</b></h3>
+<table autofit="false" id="table-e6u-53p-uhd" tablecolswidth="193 129 387" tablewidth="709" class="table">
+<colgroup colwidth="0.82*" style="width:27.22%"></colgroup>
+<colgroup colwidth="0.55*" style="width:18.19%"></colgroup>
+<colgroup colwidth="1.64*" style="width:54.58%"></colgroup>
+<tbody class="tbody">
+<tr id="row-u72-su6-got">
+<td id="task-2094293-entry-pcj-wf8-qp8" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="6045ee632bbtl"><b>组件名称</b></p>
+</td>
+<td id="task-2094293-entry-ilo-q8y-e3n" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="6045ee642b6so"><b>组件类型</b></p>
+</td>
+<td id="task-2094293-entry-rnn-ytn-mmz" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="604615702b20g"><b>描述</b></p>
+</td>
+</tr>
+<tr id="fb9a8779d9mgx">
+<td id="7b0045fdd7ff0" rowspan="1" colspan="1">
+<p id="d0c5f3f48drvl"><a href="https://help.aliyun.com/zh/ack/product-overview/kube-scheduler" id="1c1e901a656tw" title="" class="xref">Kube Scheduler</a></p>
+</td>
+<td id="b6e42c5ed9511" rowspan="1" colspan="1">
+<p id="1438bf4ae4w4n">系统组件</p>
+</td>
+<td id="11ba24c2e38ev" rowspan="1" colspan="1">
+<p id="6f06ec439exb6">控制面组件，负责结合节点资源使用情况和<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>的调度要求将<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>调度到集群的合适节点上。</p>
+</td>
+</tr>
+<tr id="6f6f92357fxsp">
+<td id="686690c5fafxs" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604663922bf32"><a href="https://help.aliyun.com/zh/ack/product-overview/cloud-controller-manager#concept-wk1-grd-qfb" id="b56d3a9b01xkt" title="" class="xref">Cloud Controller Manager</a></p>
+</td>
+<td id="1ae67539d5mgu" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="60468aa02bga8">系统组件</p>
+</td>
+<td id="146a6f86edtq6" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="60468aa12bart">在<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>集群中提供管理负载均衡实现跨节点通信的功能。提供<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>与阿里云网络产品的对接能力，例如<span class="help-letter-space"></span>CLB、NLB、VPC<span class="help-letter-space"></span>等。</p>
+</td>
+</tr>
+<tr id="row-090-is8-t1l">
+<td id="entry-yc5-3tn-nni" rowspan="1" colspan="1">
+<p id="604615712b382"><a href="https://help.aliyun.com/zh/ack/product-overview/kube-api-server#task-2088866" id="xref-sin-kt0-dzo" title="" class="xref">Kube API Server</a></p>
+</td>
+<td id="entry-kx5-1xw-va7" rowspan="1" colspan="1">
+<p id="60463c802bcxu">系统组件</p>
+</td>
+<td id="entry-qbv-qdz-6n4" rowspan="1" colspan="1">
+<p id="60463c812bf81">Kubernetes<span class="help-letter-space"></span>集群的总线和入口网关。</p>
+</td>
+</tr>
+<tr id="row-boz-f8t-o9t">
+<td id="entry-k4q-n5r-hfj" rowspan="1" colspan="1">
+<p id="60463c822b5jm"><a href="https://help.aliyun.com/zh/ack/product-overview/kube-controller-manager#task-2088870" id="xref-jcy-9wq-8np" title="" class="xref">Kube Controller Manager</a></p>
+</td>
+<td id="entry-mpd-d5z-j46" rowspan="1" colspan="1">
+<p id="604663902btjq">系统组件</p>
+</td>
+<td id="entry-5bt-kpw-b4r" rowspan="1" colspan="1">
+<p id="604663912biqr">Kubernetes<span class="help-letter-space"></span>集群内部资源的管理器。</p>
+</td>
+</tr>
+<tr id="c89b0b94574dt">
+<td id="4b984741a7a7e" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604e04b22bgov"><a href="https://help.aliyun.com/zh/ack/product-overview/ack-virtual-node#task-2441973" id="a3f5a45806uwv" title="" class="xref">ACK Virtual Node</a></p>
+</td>
+<td id="fdd941baa9d80" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604e2bc02bl4u">可选组件</p>
+</td>
+<td id="89b9f0c93do10" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604e2bc12b7hl">基于社区开源项目<span class="help-letter-space"></span>Virtual Kubelet，扩展了对<span class="help-letter-space"></span>Aliyun Provider<span class="help-letter-space"></span>的支持，并做了大量优化，实现<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>与<span class="help-letter-space"></span>ACS<span class="help-letter-space"></span>和<span class="help-letter-space"></span>ECI<span class="help-letter-space"></span>的无缝连接。</p>
+</td>
+</tr>
+
+</tbody>
+</table>
+</section>
+<section data-tag="section" data-type="section" id="section-z0v-ccl-5r5" class="section">
+<h3 data-tag="title" id="title-n2u-dpc-r0w" class="title"><b>应用管理</b></h3>
+<table autofit="false" id="table-7i5-l54-z93" tablecolswidth="193 129 387" tablewidth="709" class="table">
+<colgroup colwidth="0.82*" style="width:27.22%"></colgroup>
+<colgroup colwidth="0.55*" style="width:18.19%"></colgroup>
+<colgroup colwidth="1.64*" style="width:54.58%"></colgroup>
+<tbody class="tbody">
+<tr id="row-795-wbd-om6">
+<td id="task-2094293-entry-ls4-6zp-t2q" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="6046b1b22bj53"><b>组件名称</b></p>
+</td>
+<td id="task-2094293-entry-f2s-fqa-3ek" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="6046d8c02bxeu"><b>组件类型</b></p>
+</td>
+<td id="task-2094293-entry-35b-lmf-77m" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="6046d8c12bji0"><b>描述</b></p>
+</td>
+</tr>
+<tr id="row-ks2-tg5-nng">
+<td id="entry-7gj-fs4-bgl" rowspan="1" colspan="1">
+<p id="6046d8c22b96j"><a href="https://help.aliyun.com/zh/ack/product-overview/appcenter#concept-1918228" id="xref-4ku-0qb-cyj" title="" class="xref">【停止维护】appcenter</a></p>
+</td>
+<td id="entry-2js-708-wer" rowspan="1" colspan="1">
+<p id="6046d8c32bkqa">可选组件</p>
+</td>
+<td id="entry-gs3-212-phu" rowspan="1" colspan="1">
+<p id="6046ffd02brm6">提供统一管理多集群应用部署和应用生命周期的应用中心组件。</p>
+<p id="f23b3ae219mzi" jc="left" style="text-align:left">后续可以使用<span data-tag="ph" id="f2dcb4b943qqi" class="ph">分布式云容器平台 ACK One</span><span class="help-letter-space"></span>提供的<a href="https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/application-distribution-overview" id="ce8622776cxr2" title="" class="xref">应用分发</a>功能来获取多集群应用部署能力。</p>
+</td>
+</tr>
+<tr id="row-sli-grn-rw8">
+<td id="entry-3e4-on3-6z3" rowspan="1" colspan="1">
+<p id="6046ffd12bcxw"><a href="https://help.aliyun.com/zh/ack/product-overview/openkruise#task-2097121" id="xref-g6v-qg6-jnu" title="" class="xref">ack-kruise</a></p>
+</td>
+<td id="entry-1je-ewl-27z" rowspan="1" colspan="1">
+<p id="6046ffd22bl8s">可选组件</p>
+</td>
+<td id="entry-7m5-ynb-meu" rowspan="1" colspan="1">
+<p id="604726e02bm8j">提供高效管理应用容器、Sidecar<span class="help-letter-space"></span>容器及镜像分发功能。</p>
+</td>
+</tr>
+<tr id="1168876ec45mp">
+<td id="26b956ec7cy2y" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604f64402bfg8"><a href="https://help.aliyun.com/zh/ack/product-overview/migrate-controller#task-1955070" id="df3c74e7577t0" title="" class="xref">migrate-controller</a></p>
+</td>
+<td id="920bcbac326c5" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604f64412bxd8">可选组件</p>
+</td>
+<td id="5839ca97e3ysm" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604f8b502b5gc">基于开源项目<span class="help-letter-space"></span>Velero<span class="help-letter-space"></span>开发的一个用于备份与迁移<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>应用和<span class="help-letter-space"></span>PV<span class="help-letter-space"></span>数据的组件。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section data-tag="section" data-type="section" id="section-woy-spc-8qt" class="section">
+<h3 data-tag="title" id="title-4dt-ge1-nd0" class="title"><b>日志与监控</b></h3>
+<table autofit="false" id="table-75x-da9-esu" tablecolswidth="193 129 387" tablewidth="709" class="table">
+<colgroup colwidth="0.82*" style="width:27.22%"></colgroup>
+<colgroup colwidth="0.55*" style="width:18.19%"></colgroup>
+<colgroup colwidth="1.64*" style="width:54.58%"></colgroup>
+<tbody class="tbody">
+<tr id="row-sdr-8w3-q4c">
+<td id="task-2094293-entry-28v-ct9-1lg" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="60474df02bw7b"><b>组件名称</b></p>
+</td>
+<td id="task-2094293-entry-spc-7fk-tkq" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="60474df12b62p"><b>组件类型</b></p>
+</td>
+<td id="task-2094293-entry-z7f-9px-due" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="60474df22bo25"><b>描述</b></p>
+</td>
+</tr>
+<tr id="bc0c4077eca11">
+<td id="75b127cf94c1r" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="60474df32bp69"><a href="https://help.aliyun.com/zh/ack/product-overview/alicloud-monitor-controller#concept-1918110" id="eca0247115jtw" title="" class="xref">alicloud-monitor-controller</a></p>
+</td>
+<td id="e2ddab1b27ete" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604775002bmwc">系统组件</p>
+</td>
+<td id="3fb96801bc68f" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604775012bymp">ACK<span class="help-letter-space"></span>提供对接云监控的系统组件。</p>
+</td>
+</tr>
+<tr id="d10e933affje7">
+<td id="1561a56b47hzw" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604775022bu7h"><a href="https://help.aliyun.com/zh/ack/product-overview/metrics-server#concept-w5w-q3q-zdb" id="7c0a79c89cxw2" title="" class="xref">metrics-server</a></p>
+</td>
+<td id="92ab32913ffy1" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="60479c102b25f">系统组件</p>
+</td>
+<td id="a75471daef5k4" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="60479c112bilt">ACK<span class="help-letter-space"></span>基于社区开源监控组件进行改造和增强的监控采集和离线组件，并提供<span class="help-letter-space"></span>Metrics API<span class="help-letter-space"></span>进行数据消费，提供<span class="help-letter-space"></span>HPA<span class="help-letter-space"></span>的能力。</p>
+</td>
+</tr>
+<tr id="1e378aec84slf">
+<td id="0ed2111add2x3" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="6049bef22b5mu"><a href="https://help.aliyun.com/zh/ack/product-overview/ack-cost-exporter#task-2078872" id="1c53d6cb2c7y0" title="" class="xref">ack-cost-exporter</a></p>
+</td>
+<td id="8c4fe75ef1i22" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="6049e6002b7rk">可选组件</p>
+</td>
+<td id="c58c6ed8dbczd" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="6049e6012b64t">ACK<span class="help-letter-space"></span>成本分析功能进行数据处理的组件。</p>
+</td>
+</tr>
+<tr id="69694cddf5syz">
+<td id="ac8a836cbbbf1" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="60479c122bu2b"><a href="https://help.aliyun.com/zh/ack/product-overview/ack-node-problem-detector#concept-1935269" id="08251c79aab5y" title="" class="xref">ack-node-problem-detector</a></p>
+</td>
+<td id="2d7125a33954p" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="6047c3202bswj">可选组件</p>
+</td>
+<td id="d827413e0ekdp" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="6047c3212bpk6">ACK<span class="help-letter-space"></span>基于社区开源项目进行改造和增强的集群节点异常事件监控组件，以及对接第三方监控平台功能的组件。</p>
+</td>
+</tr>
+<tr id="4807245b8boyk">
+<td id="794ed4a349bqx" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="a61c9127f17bz"><a href="https://help.aliyun.com/zh/ack/product-overview/ack-onepilot" id="fec3e1b6e6acb" title="" class="xref">ack-onepilot</a></p>
+</td>
+<td id="fe7bee0df6m9a" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="51572d0f6egnc">可选组件</p>
+</td>
+<td id="08ac3c78e6vha" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="fd2fbc4d26adt">ack-onepilot<span class="help-letter-space"></span>是阿里云<span class="help-letter-space"></span>ARMS<span class="help-letter-space"></span>针对<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>应用接入场景提供的探针接入助手，实现容器环境中对<span class="help-letter-space"></span>Java、Golang、Python<span class="help-letter-space"></span>应用的监控。</p>
+</td>
+</tr>
+<tr id="2ad33a8fe0fcn">
+<td id="3a88dcd268o6a" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="33cb18ac9ft1f"><a href="https://help.aliyun.com/zh/ack/product-overview/ack-sysom-monitor" id="19f0736618tq7" title="" class="xref">ack-sysom-monitor</a></p>
+</td>
+<td id="3840b4599bk07" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="6312a9b86b95g">可选组件</p>
+</td>
+<td id="d05d35c4ed7qh" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="28061d4eeegq9">ACK<span class="help-letter-space"></span>集群操作系统内核层的容器监控组件。</p>
+</td>
+</tr>
+
+<tr id="1c5306006ewmt">
+<td id="ca1baf8515kiz" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="a226e613b32lq"><a href="https://help.aliyun.com/zh/ack/product-overview/ack-arms-cmonitor" id="dd38a4d166sp5" title="" class="xref">ack-arms-cmonitor</a></p>
+</td>
+<td id="c16f132ab1im0" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="d64953e4445fm">可选组件</p>
+</td>
+<td id="2f61b4b4759j5" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="538ea18424lob">使用<span class="help-letter-space"></span>ARMS<span class="help-letter-space"></span>应用监控<span class="help-letter-space"></span>eBPF<span class="help-letter-space"></span>版无侵入监控容器部署的应用。</p>
+</td>
+</tr>
+<tr id="0e8d5f585e5xb">
+<td id="8c03f69843b9h" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604838522btak"><a href="https://help.aliyun.com/zh/arms/prometheus-monitoring/prometheus-monitoring-change-records#concept-2473006" id="c96d32a512j39" title="" class="xref">ack-arms-prometheus</a></p>
+</td>
+<td id="cc48f181543gh" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="60485f602bdft">可选组件</p>
+</td>
+<td id="efb84214dexjw" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="60485f612bk4f">使用<span data-tag="ph" id="a5fbf1f81bcwd" is-conref="true" class="ph">阿里云<span class="help-letter-space"></span>Prometheus</span><span class="help-letter-space"></span>实现容器服务集群监控。</p>
+</td>
+</tr>
+<tr id="8d90ac6e9cj1e">
+<td id="f9ef5b6755llm" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604997e02bt2k"><a href="https://help.aliyun.com/zh/sls/sls-release-notes#concept-w5w-q3q-zdb" id="5578f3169bozp" title="" class="xref">logtail-ds</a></p>
+</td>
+<td id="935f844dffy8a" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604997e12blnb">可选组件</p>
+</td>
+<td id="55138d5676gxs" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604997e22b2ny">使用日志服务采集<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>容器日志。</p>
+</td>
+</tr>
+
+
+</tbody>
+</table>
+</section>
+<section data-tag="section" data-type="section" id="section-vb4-ane-hxl" class="section">
+<h3 data-tag="title" id="title-nr3-1m2-d83" class="title"><b>存储</b></h3>
+<table autofit="false" id="table-ti5-34b-vs2" tablecolswidth="193 129 387" tablewidth="709" class="table">
+<colgroup colwidth="0.82*" style="width:27.22%"></colgroup>
+<colgroup colwidth="0.55*" style="width:18.19%"></colgroup>
+<colgroup colwidth="1.64*" style="width:54.58%"></colgroup>
+<tbody class="tbody">
+<tr id="row-0k8-x6c-2td">
+<td id="task-2094293-entry-1z9-w9d-h3x" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="6049e6022b5po"><b>组件名称</b></p>
+</td>
+<td id="task-2094293-entry-qng-jxp-dc3" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="6049e6032bdj9"><b>组件类型</b></p>
+</td>
+<td id="task-2094293-entry-1nk-nop-ohs" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="6049e6042bu89"><b>描述</b></p>
+</td>
+</tr>
+<tr id="cb44348129c9s">
+<td id="bafeaa71d018d" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604a34222b950"><a href="https://help.aliyun.com/zh/ack/product-overview/storage-operator#task-2061194" id="4681df6af8tft" title="" class="xref">storage-operator</a></p>
+</td>
+<td id="16ac2cfeecoh5" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604a5b302bj6c">系统组件</p>
+</td>
+<td id="d146c877ab89h" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604a5b312bayc">用于管理存储组件的生命周期。</p>
+</td>
+</tr>
+<tr id="row-75n-pz2-8ma">
+<td id="entry-cfo-x4p-0sc" rowspan="1" colspan="1">
+<p id="604a0d102bpi6"><a href="https://help.aliyun.com/zh/ack/product-overview/csi-plugin#concept-2043905" id="xref-rjm-xvc-b6v" title="" class="xref">csi-plugin</a></p>
+</td>
+<td id="entry-cjp-ely-fu6" rowspan="1" colspan="1">
+<p id="604a0d112bxsm">可选组件</p>
+</td>
+<td id="entry-21i-1u6-7fk" rowspan="1" colspan="1">
+<p id="604a0d122b11b">支持存储卷的挂载、卸载功能。</p>
+<p data-tag="p" id="p-c55-et0-jdc" class="p">创建集群时，默认安装该组件。</p>
+</td>
+</tr>
+<tr id="row-5ap-fu5-bcj">
+<td id="entry-x4p-x26-vl9" rowspan="1" colspan="1">
+<p id="604a0d132bltt"><a href="https://help.aliyun.com/zh/ack/product-overview/csi-provisioner#concept-2043907" id="xref-2qo-xxg-h56" title="" class="xref">csi-provisioner</a></p>
+</td>
+<td id="entry-9yh-5ts-h23" rowspan="1" colspan="1">
+<p id="604a34202bvgf">可选组件</p>
+</td>
+<td id="entry-6al-vnt-1ut" rowspan="1" colspan="1">
+<p id="604a34212baxv">支持存储卷的自动创建能力。</p>
+<p data-tag="p" id="p-1g0-64o-807" class="p">创建集群时，如果选择<span class="help-letter-space"></span>CSI<span class="help-letter-space"></span>插件实现阿里云存储的接入能力，默认安装该组件。</p>
+</td>
+</tr>
+<tr id="0f1e50c399vtj">
+<td id="25f4b548f55mf" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="d4862b1694cuk"><a href="https://help.aliyun.com/zh/ack/product-overview/csi-compatible-controller" id="5aff151859dyi" title="" class="xref">csi-compatible-controller</a></p>
+</td>
+<td id="d82c0d5049u0m" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="db540e4e9cq1h">可选组件</p>
+</td>
+<td id="5b32dd73708c5" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="0c4b2a791114w">可以使<span class="help-letter-space"></span>csi-plugin<span class="help-letter-space"></span>和<span class="help-letter-space"></span>Flexvolume<span class="help-letter-space"></span>存储组件实现共存。</p>
+</td>
+</tr>
+
+
+
+
+
+</tbody>
+</table>
+</section>
+<section data-tag="section" data-type="section" id="section-75j-tbs-ece" class="section">
+<h3 data-tag="title" id="title-505-ohr-k59" class="title"><b>网络</b></h3>
+<table autofit="false" id="table-adm-271-awl" tablecolswidth="193 129 387" tablewidth="709" class="table">
+<colgroup colwidth="0.82*" style="width:27.22%"></colgroup>
+<colgroup colwidth="0.55*" style="width:18.19%"></colgroup>
+<colgroup colwidth="1.64*" style="width:54.58%"></colgroup>
+<tbody class="tbody">
+<tr id="row-mrv-wie-nzb">
+<td id="task-2094293-entry-1bw-83y-8m2" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="604b1e822br16"><b>组件名称</b></p>
+</td>
+<td id="task-2094293-entry-s59-90h-iin" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="604b1e832ba1w"><b>组件类型</b></p>
+</td>
+<td id="task-2094293-entry-xol-cfb-urn" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="604b1e842bbkv"><b>描述</b></p>
+</td>
+</tr>
+<tr id="00be3d8dbbpll">
+<td id="706cf7de26kqp" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604b1e852bzdw"><a href="https://help.aliyun.com/zh/ack/product-overview/coredns" id="0efe2c5d51zoz" title="" class="xref">CoreDNS</a></p>
+</td>
+<td id="1b4f0555b6sr4" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604b45902b525">系统组件</p>
+</td>
+<td id="801107744efiz" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604b45912bza7">ACK<span class="help-letter-space"></span>集群中默认采用的<span class="help-letter-space"></span>DNS<span class="help-letter-space"></span>服务发现插件，其遵循<span class="help-letter-space"></span>Kubernetes DNS-Based Service Discovery<span class="help-letter-space"></span>规范。</p>
+</td>
+</tr>
+<tr id="9f3cc7d4eal5q">
+<td id="3ef7ed24c2w80" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="1d4766122bt6x"><a href="https://help.aliyun.com/zh/ack/product-overview/gateway-api#concept-2070185" id="27c88972c3uw3" title="" class="xref">Gateway API</a></p>
+</td>
+<td id="4b92824d44jgz" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="1d4766142b0w3">系统组件</p>
+</td>
+<td id="94435846986ha" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="2a8c9d902bawb">Kubernetes<span class="help-letter-space"></span>中用于对服务网络流量进行建模的一系列资源，目标是建立一套表现力强、易扩展、面向角色的服务网络模型。</p>
+</td>
+</tr>
+<tr id="a9aee0ede5cow">
+<td id="5f6bcf4ef7rhy" rowspan="1" colspan="1">
+<p id="ee5d1ddbbbq9t"><a href="https://help.aliyun.com/zh/ack/product-overview/ack-erdma-controller" id="25661515bf56v" title="" class="xref">ACK eRDMA Controller</a></p>
+</td>
+<td id="cc4344ebe8dpo" rowspan="1" colspan="1">
+<p id="ff44fc380dhmi">可选组件</p>
+</td>
+<td id="79a9ef9f3cxlf" rowspan="1" colspan="1">
+<p id="6e79207b0fzxz">使用<span class="help-letter-space"></span>eRDMA<span class="help-letter-space"></span>控制器管理<span class="help-letter-space"></span>eRDMA<span class="help-letter-space"></span>网卡。</p>
+</td>
+</tr>
+<tr id="28ae113310oqq">
+<td id="a5b88fd7b1q9e" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604be1d22b28w"><a href="https://help.aliyun.com/zh/ack/product-overview/ack-nodelocal-dnscache#concept-2070185" id="94ca95984ffl8" title="" class="xref">ACK NodeLocal DNSCache</a></p>
+</td>
+<td id="03de83b1a5w1y" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604c57002bruu">可选组件</p>
+</td>
+<td id="96dcbf33a89x2" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604c57012bqll">基于社区开源项目<span class="help-letter-space"></span>NodeLocal DNSCache<span class="help-letter-space"></span>的一套<span class="help-letter-space"></span>DNS<span class="help-letter-space"></span>本地缓存解决方案。</p>
+</td>
+</tr>
+<tr id="5fce04acf35un">
+<td id="5248c1ec791gn" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="69109a422b2zh"><a href="https://help.aliyun.com/zh/ack/product-overview/alb-ingress-controller" id="7ac47596a4n4r" title="" class="xref">ALB Ingress Controller</a></p>
+</td>
+<td id="93e5ba1d293e6" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="f8e2d7002bm6e">可选组件</p>
+</td>
+<td id="b8f4b22e8f0h3" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="07322b802b76m">基于阿里云应用型负载均衡<span class="help-letter-space"></span>ALB（Application Load Balancer） ，提供更为强大的<span class="help-letter-space"></span>Ingress<span class="help-letter-space"></span>流量管理方式，兼容<span class="help-letter-space"></span>Nginx Ingress，具备处理复杂业务路由和证书自动发现的能力，支持<span class="help-letter-space"></span>HTTP、HTTPS<span class="help-letter-space"></span>和<span class="help-letter-space"></span>QUIC<span class="help-letter-space"></span>协议，满足在云原生应用场景下对超强弹性和大规模七层流量处理能力的需求。</p>
+</td>
+</tr>
+<tr id="6ff59f1ed1qvx">
+<td id="738fcd2697tr6" rowspan="1" colspan="1">
+<p id="78e65e7a4e9a9"><a href="https://help.aliyun.com/zh/mse/user-guide/manage-the-mse-ingress-controller-component" id="c6e0db335bhn7" title="" class="xref">MSE Ingress Controller</a></p>
+</td>
+<td id="e9fc8bbc0829a" rowspan="1" colspan="1">
+<p id="dbf80036d2g8o">可选组件</p>
+</td>
+<td id="4084583239oyk" rowspan="1" colspan="1">
+<p id="4047acf6fbsw7">基于<span class="help-letter-space"></span>MSE<span class="help-letter-space"></span>云原生网关，适用于微服务场景，兼容<span class="help-letter-space"></span>Nginx&nbsp;Ingress。支持多种服务发现、认证鉴权以及多语言插件扩展，提供灰度发布、预热和限流等<span class="help-letter-space"></span>Ingress<span class="help-letter-space"></span>流量管理能力。</p>
+</td>
+</tr>
+<tr id="6abc56f8a7g4v">
+<td id="00254e36d16f2" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604b93b22b4bx"><a href="https://help.aliyun.com/zh/ack/product-overview/terway" id="2aab931e303er" title="" class="xref">Terway</a></p>
+
+</td>
+<td id="6a2752ebccngc" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604bbac02btch">可选组件</p>
+</td>
+<td id="030ef67a0f0pe" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604bbac12b0rf">阿里云开源的<span class="help-letter-space"></span>Terway CNI<span class="help-letter-space"></span>插件支持<span class="help-letter-space"></span>eBPF<span class="help-letter-space"></span>网络加速和<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>标准的<span class="help-letter-space"></span>NetworkPolicy，用于定义容器间的访问策略。使用<span class="help-letter-space"></span>Terway<span class="help-letter-space"></span>可以实现<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>集群内部的网络互通。创建集群时，选择<span class="help-letter-space"></span>Terway<span class="help-letter-space"></span>网络插件会默认安装该组件。</p>
+</td>
+</tr>
+<tr id="ce6c8a05c59s7">
+<td id="8751011a88hat" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604bbac22be3v"><a href="https://help.aliyun.com/zh/ack/product-overview/flannel#concept-2461414" id="606c4daabdlcl" title="" class="xref">Flannel</a></p>
+</td>
+<td id="61db9d95c4arf" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604be1d02bpmd">可选组件</p>
+</td>
+<td id="30cfb53bb0lxn" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604be1d12bbfh">一种容器网络接口<span class="help-letter-space"></span>CNI（Container Network Interface）插件，在阿里云上使用的<span class="help-letter-space"></span>Flannel<span class="help-letter-space"></span>网络模式采用阿里云<span class="help-letter-space"></span>VPC<span class="help-letter-space"></span>模式。</p>
+<p data-tag="p" id="p-uim-fmt-uhh" class="p">创建集群时，如果选择<span class="help-letter-space"></span>Flannel<span class="help-letter-space"></span>网络插件实现集群内部网络互通的话，默认安装该组件。</p>
+</td>
+</tr>
+<tr id="row-nst-fe0-mo5">
+<td id="entry-4i7-gl0-q3y" rowspan="1" colspan="1">
+<p id="604b45922bnop"><a href="https://help.aliyun.com/zh/ack/product-overview/nginx-ingress-controller#concept-2461414" id="xref-zuw-xr5-e9c" title="" class="xref">Nginx Ingress Controller</a></p>
+</td>
+<td id="entry-r3h-1hr-x27" rowspan="1" colspan="1">
+<p id="604b6ca02bjd0">可选组件</p>
+</td>
+<td id="entry-ohl-otd-yqq" rowspan="1" colspan="1">
+<p id="604b6ca12bkr6">Nginx Ingress Controller<span class="help-letter-space"></span>解析<span class="help-letter-space"></span>Ingress<span class="help-letter-space"></span>的转发规则。Ingress Controller<span class="help-letter-space"></span>收到请求，匹配<span class="help-letter-space"></span>Ingress<span class="help-letter-space"></span>转发规则转发到后端<span class="help-letter-space"></span>Service。</p>
+</td>
+</tr>
+<tr id="d7e232addd55r">
+<td id="4a8139eb841ym" rowspan="1" colspan="1">
+<p id="8267445c13x80"><a href="https://help.aliyun.com/zh/ack/product-overview/poseidon" id="0b739a9f98fnk" title="" class="xref">Poseidon</a></p>
+</td>
+<td id="3f04cace9bd3a" rowspan="1" colspan="1">
+<p id="d7fbec3393pjy">可选组件</p>
+</td>
+<td id="6a1a3d707ft6j" rowspan="1" colspan="1">
+<p id="f87411ccc1ddg">ACK<span class="help-letter-space"></span>自研的容器<span class="help-letter-space"></span>NetworkPolicy<span class="help-letter-space"></span>插件。支持<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>标准的<span class="help-letter-space"></span>NetworkPolicy<span class="help-letter-space"></span>功能。</p>
+<ul id="979dc154e9wtf">
+<li id="903d4810c6jpo">
+<p id="bbac45c6596e8">针对<span class="help-letter-space"></span><span data-tag="ph" id="7be41a6e4aduc" docid="4431993" is-conref="true" class="ph">ACK Serverless<span class="help-letter-space"></span>集群</span>以及在<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>集群中使用<span class="help-letter-space"></span>ECI<span class="help-letter-space"></span>实例的场景，如需使用<span class="help-letter-space"></span>NetworkPolicy<span class="help-letter-space"></span>功能，则需安装<span class="help-letter-space"></span>Poseidon<span class="help-letter-space"></span>组件。</p>
+</li>
+<li id="37b8aa6eeab73">
+<p id="d732046ed68dq">针对<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>集群的其他场景，如需使用<span class="help-letter-space"></span>NetworkPolicy<span class="help-letter-space"></span>功能，则需安装<span class="help-letter-space"></span>Terway<span class="help-letter-space"></span>组件。</p>
+</li>
+</ul>
+</td>
+</tr>
+
+<tr id="9246e1087aaal">
+<td id="937fadd68d3gi" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="9bc18a0651da2"><a href="https://help.aliyun.com/zh/ack/product-overview/sidecar-acceleration-using-ebpf" id="af9104b4352lc" title="" class="xref">Sidecar Acceleration using eBPF</a></p>
+</td>
+<td id="343641389ad0p" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="50a65b79ba90j">可选组件</p>
+</td>
+<td id="029d908e9f0m3" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="368a988df0l59">使用<span class="help-letter-space"></span>Sidecar<span class="help-letter-space"></span>加速来减少阿里云服务网格中的网络延迟。</p>
+</td>
+</tr>
+
+<tr id="a2af84478admn">
+<td id="c6f77649cbyf0" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="ed3a797432u7b"><a href="https://help.aliyun.com/zh/ack/product-overview/ack-gateway-with-inference-extension" id="0aa4da2271u6j" title="" class="xref">Gateway with Inference Extension</a></p>
+</td>
+<td id="575062eba8crg" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="3aec9bc180vbj">可选组件</p>
+</td>
+<td id="9d3f4c3391vz8" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="f7fe5de0f61mk">基于<span class="help-letter-space"></span>Envoy Gateway<span class="help-letter-space"></span>开源项目构建，支持<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>四层/七层路由服务，并提供面向<span class="help-letter-space"></span>AI<span class="help-letter-space"></span>大语言模型（LLM）推理场景的智能负载均衡能力。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section data-tag="section" data-type="section" id="section-kz9-ul7-c9f" class="section">
+<h3 data-tag="title" id="title-nq4-jps-k41" class="title"><b>安全</b></h3>
+<table autofit="false" id="table-x13-qza-q12" tablecolswidth="193 129 387" tablewidth="709" class="table">
+<colgroup colwidth="0.82*" style="width:27.22%"></colgroup>
+<colgroup colwidth="0.55*" style="width:18.19%"></colgroup>
+<colgroup colwidth="1.64*" style="width:54.58%"></colgroup>
+<tbody class="tbody">
+<tr id="row-ayx-qqc-fkf">
+<td id="task-2094293-entry-dsh-vyg-dlc" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="604c7e112blbm"><b>组件名称</b></p>
+</td>
+<td id="task-2094293-entry-rhi-m2r-zuk" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="604c7e122b2br"><b>组件类型</b></p>
+</td>
+<td id="task-2094293-entry-gdt-6ce-3m9" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="604c7e132bnnv"><b>描述</b></p>
+</td>
+</tr>
+<tr id="2dbefb056d0ib">
+<td id="7f939017ac8zx" rowspan="1" colspan="1">
+<p id="bdb0a24638zmi"><a href="https://help.aliyun.com/zh/ack/product-overview/ack-advanced-audit" id="98b3677ffflhd" title="" class="xref">ack-advanced-audit</a></p>
+</td>
+<td id="fb5f140595qbr" rowspan="1" colspan="1">
+<p id="bcf909f962lwf">可选组件</p>
+</td>
+<td id="61a0100187mqa" rowspan="1" colspan="1">
+<p data-tag="p" id="85b03aadfdsf9" docid="4028772" is-conref="true" class="p">ack-advanced-audit<span class="help-letter-space"></span>组件基于开源项目<span class="help-letter-space"></span><a href="https://falco.org/" id="xref-4ou-i2m-8ge" class="" target="_blank">Falco</a>，使用内核提供的<span class="help-letter-space"></span>eBPF<span class="help-letter-space"></span>特性，实现了容器内操作的系统调用审计能力。通过<span class="help-letter-space"></span>ack-advanced-audit<span class="help-letter-space"></span>组件实现的容器内部操作审计功能，可以方便您审计组织内成员或应用程序进入容器后执行的命令操作。</p>
+</td>
+</tr>
+<tr id="75c8bf61d2huq">
+<td id="32ee5283b8fmh" rowspan="1" colspan="1">
+<p id="1c2c584eddfw6"><a href="https://help.aliyun.com/zh/ack/product-overview/ack-pod-identity-webhook" id="da9a6ca3dc6yn" title="" class="xref">ack-pod-identity-webhook</a></p>
+</td>
+<td id="0c262efa9frw2" rowspan="1" colspan="1">
+<p id="62d57e1607e6h">可选组件</p>
+</td>
+<td id="90bfcd1b92jj9" rowspan="1" colspan="1">
+<p id="03406d6490b5k">ack-pod-identity-webhook<span class="help-letter-space"></span>组件可以帮您更便捷地使用容器服务提供的<span class="help-letter-space"></span>RRSA（RAM Roles for Service Accounts）特性，它可以为您的应用<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>自动注入应用依赖的挂载<span class="help-letter-space"></span>OIDC Token<span class="help-letter-space"></span>和环境变量配置，免去繁琐的手动配置工作。</p>
+</td>
+</tr>
+<tr id="977b4112970va">
+<td id="299c67f9a1z3v" rowspan="1" colspan="1">
+<p id="afadd4611c9td"><a href="https://help.aliyun.com/zh/ack/product-overview/ack-ram-authenticator" id="7974326d86sd0" title="" class="xref">ack-ram-authenticator</a></p>
+</td>
+<td id="7811a08e1b12x" rowspan="1" colspan="1">
+<p id="fae99527bfwqs">系统组件</p>
+</td>
+<td id="2b15104f27qip" rowspan="1" colspan="1">
+<p id="c2e92006f22hz" docid="4232490" is-conref="true">ack-ram-authenticator<span class="help-letter-space"></span>组件是面向<span class="help-letter-space"></span><span data-tag="ph" id="d67aaa48ffu9f" docid="4431993" is-conref="true" class="ph">ACK<span class="help-letter-space"></span>托管集群</span>的认证插件，基于<span class="help-letter-space"></span>Kubernetes<span class="help-letter-space"></span>原生<span class="help-letter-space"></span><a href="https://kubernetes.io/docs/reference/access-authn-authz/authentication/#webhook-token-authentication" id="12ab242015qf1" class="ne-link" target="_blank">Webhook Token<span class="help-letter-space"></span>认证</a>方式，实现通过<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>完成集群<span class="help-letter-space"></span><span data-tag="ph" id="cab8303bb52w9" docid="4860423" is-conref="true" class="ph">API Server</span><span class="help-letter-space"></span>的请求认证。同时，该组件通过<span class="help-letter-space"></span>CRD<span class="help-letter-space"></span>形式提供<span class="help-letter-space"></span>RAM<span class="help-letter-space"></span>身份和<span class="help-letter-space"></span>RBAC<span class="help-letter-space"></span>权限的映射关系，帮您更灵活地配置<span class="help-letter-space"></span>RBAC<span class="help-letter-space"></span>鉴权。</p>
+</td>
+</tr>
+<tr id="row-ie5-xsi-qvu">
+<td id="entry-fat-qql-sjg" rowspan="1" colspan="1">
+<p id="604ca5222bjn9"><a href="https://help.aliyun.com/zh/ack/product-overview/gatekeeper#task-1938542" id="xref-ld9-zmj-ose" title="" class="xref">gatekeeper</a></p>
+</td>
+<td id="entry-zft-5ct-v22" rowspan="1" colspan="1">
+<p id="604ccc302bqan">可选组件</p>
+</td>
+<td id="entry-5u2-hvl-4aj" rowspan="1" colspan="1">
+<p id="604ccc312bkbh">帮助您方便地管理和应用集群内的<span class="help-letter-space"></span>Open Policy Agent（OPA）策略，实现命名空间标签管理等功能。</p>
+</td>
+</tr>
+<tr id="row-n53-m6d-9l6">
+<td id="entry-eez-4uo-0q5" rowspan="1" colspan="1">
+<p id="604ccc322bciv"><a href="https://help.aliyun.com/zh/ack/product-overview/kritis-validation-hook#task-2445014" id="xref-5q5-e5w-g44" title="" class="xref">kritis-validation-hook</a></p>
+</td>
+<td id="entry-fqo-xck-ikq" rowspan="1" colspan="1">
+<p id="604cf3402bo3p">可选组件</p>
+</td>
+<td id="entry-51r-6p9-gpf" rowspan="1" colspan="1">
+<p id="604cf3412bi9h">部署可信容器环节中进行容器镜像签名验证的关键组件。</p>
+</td>
+</tr>
+<tr id="cbfcb96bedtoe">
+<td id="b706561b66xdl" rowspan="1" colspan="1">
+<p id="42f46c6f2cdg1"><a href="https://help.aliyun.com/zh/ack/product-overview/aliyun-acr-credential-helper" id="f423d48370xii" title="" class="xref">aliyun-acr-credential-helper</a></p>
+</td>
+<td id="5ba41dea47mbg" rowspan="1" colspan="1">
+<p id="70f0563294c0l">可选组件</p>
+</td>
+<td id="80ee5ae03d08t" rowspan="1" colspan="1">
+<div data-tag="p" id="6ffde1608dker" docid="2433897" is-conref="true" class="p"><p id="14255efc848g9">aliyun-acr-credential-helper<span class="help-letter-space"></span>通过读取<span class="help-letter-space"></span>ACK<span class="help-letter-space"></span>集群内的<span class="help-letter-space"></span>kube-system<span class="help-letter-space"></span>命名空间中的<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-yav-cze-mva" class="parmname">acr-configuration</span><span class="help-letter-space"></span>的配置，进行私有镜像拉取。支持以下功能：</p><ul data-tag="ul" id="ul-d9g-ome-b8u" class="ul"><li data-tag="li" id="li-af7-ots-nur" class="li"><p id="8861d2cf31vz7">免密组件目前仅支持与<span class="help-letter-space"></span>ACR<span class="help-letter-space"></span>企业版及<span class="help-letter-space"></span>2024<span class="help-letter-space"></span>年<span class="help-letter-space"></span>09<span class="help-letter-space"></span>月<span class="help-letter-space"></span>08<span class="help-letter-space"></span>日及更早创建的<span class="help-letter-space"></span>ACR<span class="help-letter-space"></span>个人版配合使用。</p></li><li data-tag="li" id="li-wz4-5fq-wr8" class="li"><p id="c8505597ec1qd">支持拉取集群当前用户容器镜像服务中的私有镜像，通过跨账号授权或<span class="help-letter-space"></span>AccessKey ID<span class="help-letter-space"></span>和<span class="help-letter-space"></span>AccessKey Secret<span class="help-letter-space"></span>配置可以拉取其他用户的私有镜像。</p></li><li data-tag="li" id="li-ht0-e3i-qtb" class="li"><p id="1ccc7e8154sen">支持跨地域拉取容器镜像服务中的私有镜像。</p></li></ul></div>
+</td>
+</tr>
+<tr id="fe76e1bbe09o5">
+<td id="4776dd663craa" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604d41622bzi2"><a href="https://help.aliyun.com/zh/ack/product-overview/policy-template-controller#task-2185042" id="47ca675ba1stp" title="" class="xref">policy-template-controller</a></p>
+</td>
+<td id="dc34da91664hb" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604d68702bunb">可选组件</p>
+</td>
+<td id="f6c3a551c0m2l" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604d68712b67z">实现策略管理功能的关键组件。</p>
+</td>
+</tr>
+<tr id="row-l0r-lla-buf">
+<td id="entry-dr5-7d8-wnc" rowspan="1" colspan="1">
+<p id="604cf3422bhph"><a href="https://help.aliyun.com/zh/ack/product-overview/security-inspector#task-2552166" id="xref-h9o-p7k-5q9" title="" class="xref">security-inspector</a></p>
+</td>
+<td id="entry-jo9-j7d-qt6" rowspan="1" colspan="1">
+<p id="604d1a502be1b">可选组件</p>
+</td>
+<td id="entry-mdw-e79-0m7" rowspan="1" colspan="1">
+<p id="604d1a512bncf">实现安全巡检功能的关键组件。</p>
+</td>
+</tr>
+
+</tbody>
+</table>
+</section>
+
+<section id="75edd9b5c3nn9" class="section">
+<h3 id="5ac89abc2dain"><b>弹性与调度</b></h3>
+<table autofit="false" id="f873becb86hj1" tablecolswidth="193 129 387" tablewidth="709" class="table">
+<colgroup colwidth="0.82*" style="width:27.22%"></colgroup>
+<colgroup colwidth="0.55*" style="width:18.19%"></colgroup>
+<colgroup colwidth="1.64*" style="width:54.58%"></colgroup>
+<tbody class="tbody">
+<tr id="4828bda927ar2">
+<td id="134438b9045eq" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+<p id="092ed9e3ecunr"><b>组件名称</b></p>
+</td>
+<td id="b53152a462ebs" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+<p id="fe234d5446ros"><b>组件类型</b></p>
+</td>
+<td id="11eb378c16ug8" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+<p id="544075527ath6"><b>描述</b></p>
+</td>
+</tr>
+<tr id="82515f97e8u1j">
+<td id="3cb529de433mj" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="6737fdf3619uc"><a href="https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/instant-elasticity" id="7d5f3c500ehyj" title="" class="xref">ACK GOATScaler</a></p>
+</td>
+<td id="7ee437cc111iy" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="9958fc2602edi">可选组件</p>
+</td>
+<td id="9dfb90aa4fyv3" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="71f60e77c4ln0">提供节点即时弹性功能。</p>
+</td>
+</tr>
+<tr id="4d4c40eb813ol">
+<td id="9e6cb9602c8yz" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604ddda22beht"><a href="https://help.aliyun.com/zh/ack/product-overview/ack-kubernetes-cronhpa-controller#task-2095127" id="8d36d3ba48tod" title="" class="xref">ack-kubernetes-cronhpa-controller</a></p>
+</td>
+<td id="d8d62d9d19bpt" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604e04b02bqtk">可选组件</p>
+</td>
+<td id="f34e497413j9b" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604e04b12bdgp">使用<span class="help-letter-space"></span>ack-kubernetes-cronhpa-controller<span class="help-letter-space"></span>实现应用负载定时伸缩。</p>
+</td>
+</tr>
+<tr id="c6635c82cc40s">
+<td id="1796cc7886sh6" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="e2aeeb33d4lla"><a href="https://help.aliyun.com/zh/ack/product-overview/ack-vertical-pod-autoscaler" id="6e6fa2ec1avbk" title="" class="xref">ack-vertical-pod-autoscaler</a></p>
+</td>
+<td id="de1576eeb4and" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="25aa92ca746kq">可选组件</p>
+</td>
+<td id="fb8fcb3b4blfg" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="76a4482014bwe" docid="4926451" is-conref="true">ack-vertical-pod-autoscaler<span class="help-letter-space"></span>组件能够监控<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>的资源消耗模式，灵活推荐<span class="help-letter-space"></span>CPU<span class="help-letter-space"></span>和内存资源分配的配置，并在适当的情况下自动进行调整，而不调整<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>的副本数量。这种能力更适用于需要稳定资源配置的有状态应用的扩容等场景。</p>
+</td>
+</tr>
+<tr id="e9d9a6d939u36">
+<td id="4e57476b52hfm" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="b4199a73cfaaj"><a href="https://help.aliyun.com/zh/ack/product-overview/application-intelligence-controller" id="046dea39ecsmc" title="" class="xref">AHPA Controller</a></p>
+</td>
+<td id="7f42a07b56exf" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="9a9a01ac9d8cn">可选组件</p>
+</td>
+<td id="4edbc02d450gy" rowspan="1" style="vertical-align:middle" colspan="1">
+<p data-tag="p" id="1e4e0e92a6atq" docid="3801940" is-conref="true" class="p">AHPA<span class="help-letter-space"></span>基于应用历史指标预测未来<span class="help-letter-space"></span>Pod<span class="help-letter-space"></span>实例数量，帮助您解决弹性滞后的问题。AHPA<span class="help-letter-space"></span>通过主动预测和被动预测相结合，实时调整资源实例数，并且增加了兜底保护策略，通过设置时间区间的实例数上下界值，实现弹性兜底。</p>
+</td>
+</tr>
+<tr id="83956c0069r6e">
+<td id="dc917890787t5" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="60504ea22bpls"><a href="https://help.aliyun.com/zh/ack/product-overview/ack-koordinator-fka-ack-slo-manager#task-2172306" id="11ab358b05jg1" title="" class="xref">ack-koordinator（ack-slo-manager）</a></p>
+</td>
+<td id="e6aaf5c0730ul" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="605075b02brtc">可选组件</p>
+</td>
+<td id="b2e1f8af31dcf" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="605075b12b6gc">ACK<span class="help-letter-space"></span>支持差异化<span class="help-letter-space"></span>SLO（Service Level Objectives）能力的核心应用，可以在保证应用服务质量的同时，充分提升资源使用效率。</p>
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section data-tag="section" data-type="section" id="section-fc9-cij-gwv" class="section">
+<h3 data-tag="title" id="title-iib-fx3-2hl" class="title"><b>其他</b></h3>
+<table autofit="false" id="table-ai8-0vp-el0" tablecolswidth="193 129 387" tablewidth="709" class="table">
+<colgroup colwidth="0.82*" style="width:27.22%"></colgroup>
+<colgroup colwidth="0.55*" style="width:18.19%"></colgroup>
+<colgroup colwidth="1.64*" style="width:54.58%"></colgroup>
+<tbody class="tbody">
+<tr id="row-sfv-5jd-3of">
+<td id="task-2094293-entry-60e-cqw-8cm" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="604db6922bu8z"><b>组件名称</b></p>
+</td>
+<td id="task-2094293-entry-fkq-iln-qhs" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="604db6932bt4k"><b>组件类型</b></p>
+</td>
+<td id="task-2094293-entry-5yq-j5n-fee" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+<p id="604db6942bodb"><b>描述</b></p>
+</td>
+</tr>
+
+
+<tr id="fea8b8fafc3k3">
+<td id="64ea6e9c69z13" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604726e12biyl"><a href="https://help.aliyun.com/zh/ack/product-overview/ack-helm-manager#task-2206291" id="b6f29634b82he" title="" class="xref">ack-helm-manager</a></p>
+</td>
+<td id="3a99657880da7" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604726e22brdw">可选组件</p>
+</td>
+<td id="9dd7e736bcc6y" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604726e32bm7o">提供管理自定义组件的能力。</p>
+</td>
+</tr>
+<tr id="0f37ea8a2dcjz">
+<td id="e3965b70bbec2" rowspan="1" colspan="1">
+<p id="39c031e9ee1ff"><a href="https://help.aliyun.com/zh/ack/product-overview/ack-cgpu" id="d746480ad5539" title="" class="xref">ack-cgpu</a></p>
+</td>
+<td id="0568934d18q4r" rowspan="1" colspan="1">
+<p id="55412f5466gsq">可选组件</p>
+</td>
+<td id="21b37b067d0xx" rowspan="1" colspan="1">
+<p id="2fc9c9b07c1rw">通过<span class="help-letter-space"></span>GPU<span class="help-letter-space"></span>共享调度框架，实现多个容器共享同一<span class="help-letter-space"></span>GPU<span class="help-letter-space"></span>设备。</p>
+</td>
+</tr>
+<tr id="2ccd8b09a6pus">
+<td id="1a40e17ccc61a" rowspan="1" colspan="1">
+<p id="430ba1d509xtx"><a href="https://help.aliyun.com/zh/ack/product-overview/argo-workflows" id="78875cec3dn0w" title="" class="xref">Argo Workflows</a></p>
+</td>
+<td id="0a213b56e4w5w" rowspan="1" colspan="1">
+<p id="f2155e3c766an">可选组件</p>
+</td>
+<td id="42aa5fbea9qok" rowspan="1" colspan="1">
+<p data-tag="p" id="3c4eb6f712d10" docid="3533822" is-conref="true" class="p">该组件基于原生<span class="help-letter-space"></span>Argo Workflows<span class="help-letter-space"></span>开发，并在其基础上有稳定性和性能等方面的增强，支持您在集群中部署大型工作流。主要面向标准化的工作流场景，例如机器学习<span class="help-letter-space"></span>Pipeline、自动驾驶仿真、基因测序任务、批量数据处理、CI/CD、基础设施自动化等。</p>
+</td>
+</tr>
+<tr id="8a5726e33fih4">
+<td id="37a611dc34h67" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604f8b512bryw"><a href="https://help.aliyun.com/zh/ack/product-overview/aliyun-acr-acceleration-suite#concept-1955815" id="dbca2cee0aqcv" title="" class="xref">aliyun-acr-acceleration-suite</a></p>
+</td>
+<td id="ab9fe6f275he1" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604fb2602beaw">可选组件</p>
+</td>
+<td id="99a33b6677yca" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604fb2612btu1">提供镜像按需加载加速能力的客户端插件，以<span class="help-letter-space"></span>DaemonSet<span class="help-letter-space"></span>形式部署在<span class="help-letter-space"></span>Worker<span class="help-letter-space"></span>节点上。</p>
+</td>
+</tr>
+
+<tr id="ea4a624b15ys1">
+<td id="bfdb02eac9ebk" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604ea0f22bg6f"><a href="https://help.aliyun.com/zh/ack/product-overview/sandboxed-container-controller#task-2453572" id="f0a8ec9050krv" title="" class="xref">sandboxed-container-controller</a></p>
+</td>
+<td id="06f35c707faf5" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604ec8002bkyg">可选组件</p>
+</td>
+<td id="6a5f30a0a86dz" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604ec8012bkxe">安全沙箱运行时提供的专用控制器组件，旨在增强和扩展安全沙箱的基本功能。</p>
+</td>
+</tr>
+<tr id="956c4f7ffc6k2">
+<td id="f9e38d304ayqd" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604ec8022bn8k"><a href="https://help.aliyun.com/zh/ack/product-overview/sandboxed-container-helper#concept-2495792" id="0d8792b87cpt1" title="" class="xref">sandboxed-container-helper</a></p>
+</td>
+<td id="2cd7de4b8exu4" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604eef102bec5">可选组件</p>
+</td>
+<td id="c777408a87ul2" rowspan="1" style="vertical-align:middle" colspan="1">
+<p id="604eef112b1rl">为安全沙箱提供诊断和运维的组件。</p>
+</td>
+</tr>
+<tr id="row-530-0z9-hsp">
+<td id="entry-3n8-hra-cfn" rowspan="1" colspan="1">
+<p id="604e2bc22b95e"><a href="https://help.aliyun.com/zh/ack/product-overview/sgx-device-plugin#task-1930888" id="xref-eai-scq-vwg" title="" class="xref">sgx-device-plugin</a></p>
+</td>
+<td id="entry-efq-cxu-wmw" rowspan="1" colspan="1">
+<p id="604e52d02bhan">可选组件</p>
+</td>
+<td id="entry-isv-1r7-82p" rowspan="1" colspan="1">
+<p id="604e52d12bn81">由阿里云容器服务团队和蚂蚁金服安全计算团队针对<span class="help-letter-space"></span>Intel SGX<span class="help-letter-space"></span>联合开发的<span class="help-letter-space"></span>Kubernetes Device Plugin，可以让您更容易地在容器中使用<span class="help-letter-space"></span>SGX。</p>
+</td>
+</tr>
+
+
+
+
+
+
+
+</tbody>
+</table>
+</section>
+</div>
+</main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/ack/ack-managed-and-ack-dedicated/user-guide/faq-about-authorization-management" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：授权管理FAQ</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/ack/ack-managed-and-ack-dedicated/user-guide/backup-center-overview/" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：备份中心<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

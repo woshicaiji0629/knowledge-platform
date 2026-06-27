@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/security-and-compliance/faq-about-container-security:5",
+  "document_id": "ack:ack-managed-and-ack-dedicated/security-and-compliance/faq-about-container-security",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "troubleshoot",
+  "title": "容器安全常见问题-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/faq-about-container-security",
+  "chunk_index": 5,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-managed-and-ack-dedicated/security-and-compliance/faq-about-container-security.chunk-0005.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/security-and-compliance/faq-about-container-security.md",
+  "heading_path": "容器安全FAQ > Kubernetes专有版本集群如何更换证书有效期，以及如何更换各个组件的证书？",
+  "char_count": 583
+}

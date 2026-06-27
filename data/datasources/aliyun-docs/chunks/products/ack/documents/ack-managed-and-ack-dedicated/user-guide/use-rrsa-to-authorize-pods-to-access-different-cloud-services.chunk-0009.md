@@ -1,0 +1,6 @@
+为[步骤](use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[2](use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)创建的角色授予测试应用所需的AliyunCSReadOnlyAccess系统策略权限。具体操作，请参见[管理](../../../../ram/documents/user-guide/grant-permissions-to-a-ram-role.md)[RAM](../../../../ram/documents/user-guide/grant-permissions-to-a-ram-role.md)[角色的权限](../../../../ram/documents/user-guide/grant-permissions-to-a-ram-role.md)。
+部署测试应用。关于测试应用的参考代码，请参见[阿里云官方](use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[SDK](use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[使用](use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[RRSA OIDC Token](use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)[的参考代码](use-rrsa-to-authorize-pods-to-access-different-cloud-services.md)。
+使用以下内容，创建demo.yaml文件。
+如下YAML示例中，为命名空间增加标签pod-identity.alibabacloud.com/injection: 'on'，并为服务账户增加注解pod-identity.alibabacloud.com/role-name: demo-role-for-rrsa，启用ack-pod-identity-webhook组件的配置自动注入功能。关于ack-pod-identity-webhook组件配置的更多说明，请参见[ack-pod-identity-webhook](../../product-overview/ack-pod-identity-webhook.md)。
+展开查看示例代码
+--- apiVersion: v1 kind: Namespace metadata: name: rrsa

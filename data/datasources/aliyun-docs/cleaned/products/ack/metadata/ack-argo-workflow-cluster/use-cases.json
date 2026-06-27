@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-argo-workflow-cluster/use-cases",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "实践教程-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/use-cases",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-argo-workflow-cluster/use-cases.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-argo-workflow-cluster/use-cases.md",
+  "word_count": 555,
+  "text_units": 900,
+  "local_links": 0,
+  "external_links": 70,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

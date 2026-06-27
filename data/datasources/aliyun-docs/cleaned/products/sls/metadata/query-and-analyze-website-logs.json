@@ -1,0 +1,17 @@
+{
+  "id": "sls:query-and-analyze-website-logs",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "如何快速上手查询和分析操作-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/query-and-analyze-website-logs",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/query-and-analyze-website-logs.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/query-and-analyze-website-logs.md",
+  "word_count": 1124,
+  "text_units": 2503,
+  "local_links": 0,
+  "external_links": 91,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

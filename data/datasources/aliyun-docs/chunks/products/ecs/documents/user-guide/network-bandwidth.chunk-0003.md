@@ -1,0 +1,4 @@
+### 带宽安全
+云安全中心默认为ECS实例免费提供最大5 Gbps的流量攻击的防护，不同实例规格的免费防护流量不同。更多信息，请参见[DDoS](https://help.aliyun.com/zh/anti-ddos/basic-ddos-protection/product-overview/view-the-thresholds-that-trigger-blackhole-filtering-in-anti-ddos-origin-basic#concept-40033-zh)[基础防护黑洞阈值](https://help.aliyun.com/zh/anti-ddos/basic-ddos-protection/product-overview/view-the-thresholds-that-trigger-blackhole-filtering-in-anti-ddos-origin-basic#concept-40033-zh)。
+启用DDoS基础防护后，云安全中心会实时监控进入ECS实例的流量。当监测到超大流量或者包括DDoS攻击在内的异常流量时，在不影响正常业务的前提下，云安全中心会将可疑流量从原始网络路径中重定向到净化产品上，识别并剥离恶意流量，并将还原的合法流量回注到原始网络中转发给目标ECS实例。更多信息，请参见[DDoS](https://help.aliyun.com/zh/anti-ddos/anti-ddos-origin/product-overview/what-is-anti-ddos-origin#concept-63643-zh)[原生防护](https://help.aliyun.com/zh/anti-ddos/anti-ddos-origin/product-overview/what-is-anti-ddos-origin#concept-63643-zh)。
+当ECS实例遭受DDoS攻击时，您可以根据推送的事件及时进行处理。更多信息，请参见[DDoS](summary.md)[安全攻击事件](summary.md)。

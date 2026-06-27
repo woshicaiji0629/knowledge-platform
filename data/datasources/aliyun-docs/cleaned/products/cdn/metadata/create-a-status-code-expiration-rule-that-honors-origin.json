@@ -1,0 +1,17 @@
+{
+  "id": "cdn:create-a-status-code-expiration-rule-that-honors-origin",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "配置状态码缓存过期时间（源站优先）-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/create-a-status-code-expiration-rule-that-honors-origin",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/create-a-status-code-expiration-rule-that-honors-origin.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/create-a-status-code-expiration-rule-that-honors-origin.md",
+  "word_count": 527,
+  "text_units": 1157,
+  "local_links": 0,
+  "external_links": 64,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

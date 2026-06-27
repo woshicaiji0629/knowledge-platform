@@ -1,0 +1,4 @@
+## 工作原理
+服务器端检查每个请求的Referer字段，如果Referer字段不是来自白名单配置，就拒绝提供服务，从而节省带宽和服务器资源。CDN的Referer请求规则如下：
+如果浏览器携带的Referer与黑名单Referer匹配，或与白名单Referer不匹配，则CDN将拒绝该请求的访问。
+如果浏览器携带的Referer与白名单Referer匹配，则CDN将允许该请求的访问。

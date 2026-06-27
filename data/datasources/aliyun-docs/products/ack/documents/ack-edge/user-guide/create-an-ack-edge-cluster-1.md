@@ -1,0 +1,503 @@
+# 创建ACK Edge集群-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心
+
+Source: https://help.aliyun.com/zh/ack/ack-edge/user-guide/create-an-ack-edge-cluster-1
+
+[大模型](https://www.aliyun.com/product/tongyi)[产品](https://www.aliyun.com/product/list)[解决方案](https://www.aliyun.com/solution/tech-solution/)[权益](https://www.aliyun.com/benefit)[定价](https://www.aliyun.com/price)[云市场](https://market.aliyun.com/)[伙伴](https://partner.aliyun.com/management/v2)[服务](https://www.aliyun.com/service)[了解阿里云](https://www.aliyun.com/about)
+
+查看 "" 全部搜索结果
+
+[AI 助理](https://www.aliyun.com/ai-assistant?displayMode=side)
+
+[文档](https://help.aliyun.com/)[备案](https://beian.aliyun.com/)[控制台](https://home.console.aliyun.com/home/dashboard/ProductAndService)
+
+[官方文档](https://help.aliyun.com/zh)
+
+- [产品概述](products/ack/documents/ack-edge/product-overview.md)
+
+- [快速入门](products/ack/documents/ack-edge/quick-start.md)
+
+- [操作指南](products/ack/documents/ack-edge/user-guide.md)
+
+- [实践教程](products/ack/documents/ack-edge/use-cases.md)
+
+- [安全合规](products/ack/documents/ack-edge/security-and-compliance.md)
+
+- [开发参考](products/ack/documents/ack-edge/developer-reference.md)
+
+- [服务支持](products/ack/documents/ack-edge/support.md)
+
+[首页](https://help.aliyun.com/zh)
+
+# 创建ACK Edge集群
+
+更新时间：
+
+复制 MD 格式
+
+[产品详情](https://www.aliyun.com/product/kubernetes)
+
+[我的收藏](https://help.aliyun.com/my_favorites.html)
+
+本文介绍如何通过控制台创建ACK Edge集群，帮您实现云边一体化协同管理。
+
+## 前提条件
+
+- 
+
+[已开通容器服务](products/ack/documents/ack-managed-and-ack-dedicated/getting-started/quick-start-for-first-time-users.md)[ACK](products/ack/documents/ack-managed-and-ack-dedicated/getting-started/quick-start-for-first-time-users.md)。
+
+- 
+
+[已开通弹性伸缩](https://www.aliyun.com/product/ecs/ess)[ESS](https://www.aliyun.com/product/ecs/ess)。
+
+- 
+
+[已开通访问控制](https://www.aliyun.com/product/ram)[RAM](https://www.aliyun.com/product/ram)。
+
+## 使用限制
+
+| 限制项 | 说明 | 配额申请链接/相关文档 |  |
+| --- | --- | --- | --- |
+| 费用 | 用户账户至少需要有 100 元的余额并通过实名认证，否则无法创建按量付费的 ECS 实例和负载均衡。 | [配额与限制](products/ack/documents/product-overview/limits.md) |  |
+| 网络 | ACK 集群仅支持专有网络 VPC。 | [什么是专有网络](products/vpc/documents/what-is-vpc.md) [VPC](products/vpc/documents/what-is-vpc.md) |  |
+| 云资源 | ECS 实例 | 支持按量付费、包年包月和抢占式实例三种付费类型。实例创建后，您可以通过 ECS 管理控制台将按量付费转预付费。 | [按量付费转包年包月](products/ecs/documents/change-the-billing-method-of-an-ecs-instance-from-pay-as-you-go-to-subscription-1.md) |
+| VPC 路由条目 | 每个账户初始默认状况下 VPC 路由条目不超过 200 条，当 ACK 集群的网络模式是 Flannel 时，集群的路由条目最大不能超过 200 个（网络模式是 Terway 则不受该影响）。如集群需要更多路由条目数，您需要对目标 VPC 申请提高配额 。 | [配额中心](https://quotas.console.aliyun.com/products/vpc/quotas) |  |
+| 安全组 | 每个账号默认最多可以创建 100 个安全组。 | [安全组](products/ecs/documents/user-guide/limitations.md) |  |
+| 负载均衡实例 | 每个账号默认最多可以创建 60 个按量付费的负载均衡实例。 | [配额中心](https://quotas.console.aliyun.com/products/slb/quotas) |  |
+| EIP | 每个账号默认最多可以创建 20 个 EIP。 | [配额中心](https://quotas.console.aliyun.com/products/eip/quotas) |  |
+
+
+## 步骤一：登录容器服务管理控制台
+
+- 
+
+登录[容器服务管理控制台](https://cs.console.aliyun.com)，在左侧导航栏选择集群列表。
+
+- 
+
+在页面左侧顶部，选择目标资源所在的资源组和地域。
+
+- 
+
+在集群列表页面，单击创建集群。
+
+- 
+
+在创建集群页面，单击ACK Edge 集群页签。
+
+## 步骤二：配置集群
+
+在ACK Edge 集群页面，完成集群基础选项配置和高级选项配置。
+
+### 集群基础配置
+
+- 
+
+- 
+
+| 配置项 | 描述 |
+| --- | --- |
+| 集群名称 | 自定义集群名称。 |
+| 集群规格 | Pro 版：提供 SLA 保障，适用于企业生产和测试环境。 基础版： [配额](products/ack/documents/product-overview/limits.md) 有限（每个账号支持创建 2 个集群），仅供个人学习与测试。 关于两者差异对比，请参见 [集群管理](products/ack/documents/ack-edge/user-guide/cluster-management.md) 。 |
+| 地域 | 集群资源（ECS 实例、云盘等）所处 [地域](products/ack/documents/product-overview/supported-regions.md) 。地域与 用户和资源部署地域的距离越近，网络时延越低。 |
+| Kubernetes 版本 | 仅支持创建最近三个 [次要版本](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/support-for-kubernetes-versions.md) ，推荐使用当前最新版本。请参见 [ACK](products/ack/documents/product-overview/release-notes-for-kubernetes-versions.md) [版本支持概览](products/ack/documents/product-overview/release-notes-for-kubernetes-versions.md) 了解 ACK 的版本支持情况。 |
+| 集群维护窗口 | ACK 将在维护窗口期内进行托管节点池的自动化运维操作，例如 OS CVE 漏洞自动修复等。您可以单击 设置 ，配置具体的维护策略。 |
+
+
+### 网络配置
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+| 专有网络 | 集群的专有网络 VPC。为保障高可用，建议选择 2 个及以上不同可用区。 自动创建：ACK 在已选择的可用区下创建对应 vSwitch。 使用已有：选择 vSwitch，指定集群的可用区，可新建或使用已有 vSwitch。 推荐集群 VPC 使用标准私有地址（如 10.0.0.0/8、172.16.0.0/12 和 192.168.0.0/16）。如有特殊需求，请前往 [配额中心](https://quotas.console.aliyun.com/white-list-products/csk/quotas) 申请（ 使用公网网段 VPC 创建集群 ）。 云资源及计费说明： [VPC](products/vpc/documents/what-is-vpc.md) |
+| --- | --- |
+| 为专有网络配置 SNAT | 使用共享 VPC 时请勿勾选 节点需访问公网（拉取公网镜像或访问外部服务）时勾选此项，ACK 将自动配置 NAT 网关和 SNAT 规则，确保集群内资源可以访问公网。 VPC 中没有 NAT 网关：ACK 自动创建 NAT 网关，新购 EIP，并为集群使用的 vSwitch 配置 SNAT 规则。 VPC 已有 NAT 网关：ACK 判断是否需要额外新购 EIP 以及配置 SNAT 规则。当无可用 EIP 时，将自动新购 EIP；当不存在 VPC 级别的 SNAT 规则时，将为集群使用的 vSwitch 配置 SNAT 规则。 若不勾选，也可在创建集群后自行配置 NAT 网关和 SNAT 规则，请参见 [公网 NAT 网关](products/nat-gateway/documents/user-guide/use-internet-nat-gateway-for-public-network-access.md) 。 云资源及计费说明： [NAT](products/nat-gateway/documents/nat-gateway-billing.md) [网关](products/nat-gateway/documents/nat-gateway-billing.md) 、 [EIP](products/eip/documents/billing-overview.md) |
+| 交换机 | 在列表中根据可用区选择已有 vSwitch 交换机，或单击 创建虚拟交换机 创建新的 vSwitch。集群控制面与默认节点池将使用此处指定的 vSwitch。推荐选择多个不同可用区的 vSwitch，更好地保障集群高可用。 |
+| 安全组 | 使用已有 VPC 时，支持使用 选择已有安全组 此 [安全组](products/ecs/documents/user-guide/overview-44.md) 应用于集群控制面、默认节点池和未指定自定义安全组的节点池。 相较于普通安全组，企业级安全组可以容纳更多私网 IP 地址数量，但不支持组内互通功能，详见 [安全组分类](products/ecs/documents/user-guide/overview-44.md) 。 自动创建：出方向默认全部允许，入方向基于 [推荐配置](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/configure-security-group-rules-to-enforce-access-control-on-ack-clusters.md) 放行。后续如需修改，请确保在入方向已放行 100.64.0.0/10 网段。 该网段用于访问阿里云其他服务，以执行镜像拉取、查询 ECS 基础信息等操作。 使用已有：ACK 默认不会为安全组配置额外的访问规则。需自行管理安全组规则，以避免访问异常，请参见 [配置集群安全组](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/configure-security-group-rules-to-enforce-access-control-on-ack-clusters.md) 。 |
+| API server 访问 | ACK 自动新建一个按量付费的私网 CLB 实例作为 API Server 的内网连接端点。该 CLB 实例不可复用且不可删除，删除后 API Server 将无法访问且无法恢复。 若需使用已有 CLB 实例，请 [提交工单](https://selfservice.console.aliyun.com/ticket/createIndex) 申请。选择 使用已有 的 专有网络 后，可选择 负载均衡来源 为 使用已有 。 可选开启 使用 EIP 暴露 API server 。 开放：为 API Server 私网 CLB 实例绑定 EIP，支持从公网访问 API Server，连接并管理集群。 这并不代表集群内资源可以访问公网。如需让集群内资源访问公网，需勾选 为专有网络配置 SNAT 。 不开放：仅能在 VPC 内使用 KubeConfig 连接并操作集群。 如需后续启用，请参见 [实现从公网访问](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/control-public-access-to-the-api-server-of-a-cluster.md) [API Server](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/control-public-access-to-the-api-server-of-a-cluster.md) 。 自 2024 年 12 月 01 日起，新建 CLB 实例 不再支持 包年包月 付费类型，同时 将新增收取实例费，请参见 [【产品公告】关于取消新增集群](products/ack/documents/product-overview/product-announcement-announcement-on-adding-cluster-api-server-load-balancing-clb-to-stop-supporting-annual-and-monthly-payment-types.md) [API Server](products/ack/documents/product-overview/product-announcement-announcement-on-adding-cluster-api-server-load-balancing-clb-to-stop-supporting-annual-and-monthly-payment-types.md) [负载均衡](products/ack/documents/product-overview/product-announcement-announcement-on-adding-cluster-api-server-load-balancing-clb-to-stop-supporting-annual-and-monthly-payment-types.md) [CLB](products/ack/documents/product-overview/product-announcement-announcement-on-adding-cluster-api-server-load-balancing-clb-to-stop-supporting-annual-and-monthly-payment-types.md) [包年包月付费的公告](products/ack/documents/product-overview/product-announcement-announcement-on-adding-cluster-api-server-load-balancing-clb-to-stop-supporting-annual-and-monthly-payment-types.md) 、 [传统型负载均衡](products/slb/documents/product-overview/announcement-on-adjustment-of-traditional-load-balancing-clb-billing-items.md) [CLB](products/slb/documents/product-overview/announcement-on-adjustment-of-traditional-load-balancing-clb-billing-items.md) [计费项调整公告](products/slb/documents/product-overview/announcement-on-adjustment-of-traditional-load-balancing-clb-billing-items.md) 。 云资源及计费说明： [CLB](products/slb/documents/classic-load-balancer/product-overview/billing-overview.md) 、 [EIP](products/eip/documents/billing-overview.md) 警告 通常边缘节点需要通过公网和云端 API Server 交互，建议勾选 使用 EIP 暴露 API server 。边缘节点依赖 EIP 接入，如果您创建时忘记勾选，集群创建之后您可以将 EIP 绑定到 API Server 。相关操作，请参见 [实现从公网访问](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/control-public-access-to-the-api-server-of-a-cluster.md) [API Server](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/control-public-access-to-the-api-server-of-a-cluster.md) 。 ACK Edge 集群 不支持更换和解绑 EIP。 |
+| 网络插件 | 设置启用的网络插件和插件配置，支持 Flannel 和 Terway-edge 网络插件。详细信息，请参见 [网络管理](products/ack/documents/ack-edge/user-guide/network-management-overview.md) 及 [如何选择网络插件](products/ack/documents/ack-edge/user-guide/how-to-choose-a-network-plug-in.md) 。 Flannel ：基于社区的、简单稳定的 Flannel CNI 插件，采用了 VXLAN 模式，为 Overlay 容器网络，功能较为简单。 Terway-edge ：阿里云容器服务自研的网络插件。 在云端将阿里云的弹性网卡分配给容器。 在边缘侧从预先配置的容器网段给容器分配地址，通过主机路由进行转发。 |
+| Pod 交换机 | 网络插件选择 Terway-edge 时，您需要为云端节点池内 Pod 分配 IP 的虚拟交换机。每个 Pod 虚拟交换机分别对应一个 Worker 节点的虚拟交换机，Pod 虚拟交换机和 Worker 节点的虚拟交换机的可用区需保持一致。 |
+| 边缘 容器网段 | 容器地址从容器网段中分配。 网络插件选择为 Flannel 时，集群云端、边缘的容器从这个网段中分配地址。 网络插件选择为 Terway-edge 时，集群的边缘侧容器从这个网段中分配地址。 |
+| 节点 Pod 数量 | 定义单个节点上可容纳的最大 Pod 数量。 |
+| 服务网段 | 即 Service CIDR，为集群内部 Service 分配 IP 地址的地址池。此网段不能与 VPC 及 VPC 内已有集群使用的网段重复，且不能与 容器网段 重复。 |
+
+
+### 集群高级配置
+
+单击高级选项（选填），配置服务转发模式。
+
+- 
+
+- 
+
+| 配置项 | 描述 |
+| --- | --- |
+| 服务转发模式 | 选择 kube-proxy 代理模式，即集群 Service 如何将请求分发至后端 Pod。 iptables：基于 Linux 防火墙规则实现流量转发，使用稳定但性能有限。Service 数量增加时，防火墙规则也会成倍增长，导致请求处理变慢，适用于存在少量 Service 的集群。 IPVS：高性能的流量分发方案，采用哈希表方式快速定位目标 Pod，处理大量 Service 请求时延时更低。适用于大规模生产集群或对网络性能要求较高的场景。 |
+
+
+单击高级选项（选填），配置集群高级选项。
+
+展开查看高级选项设置
+
+| 配置项 | 描述 |
+| --- | --- |
+| 集群删除保护 | 推荐开启，防止通过控制台或 OpenAPI 误删除集群。 |
+| 资源组 | 将集群归属于选择的 [资源组](products/ecs/documents/user-guide/resource-groups.md) ，便于权限管理和成本分摊。 一个资源只能归属于一个资源组。 |
+| 标签 | 为集群绑定键值对 [标签](https://help.aliyun.com/zh/resource-management/tag/product-overview/tag-overview) ，作为云资源的标识。 |
+| Secret 落盘加密 | 选中 选择 KMS 密钥 可以使用在阿里云 [KMS](products/kms/documents/product-overview/what-is-kms.md) 中创建的密钥加密 Kubernetes Secret 密钥。使用说明，请参见 [使用阿里云](products/ack/documents/ack-edge/security-and-compliance/use-kms-to-encrypt-kubernetes-secrets-1.md) [KMS](products/ack/documents/ack-edge/security-and-compliance/use-kms-to-encrypt-kubernetes-secrets-1.md) [进行](products/ack/documents/ack-edge/security-and-compliance/use-kms-to-encrypt-kubernetes-secrets-1.md) [Secret](products/ack/documents/ack-edge/security-and-compliance/use-kms-to-encrypt-kubernetes-secrets-1.md) [的落盘加密](products/ack/documents/ack-edge/security-and-compliance/use-kms-to-encrypt-kubernetes-secrets-1.md) 。 |
+| RRSA OIDC | 集群将创建一个 OIDC Provider。利用其 ServiceAccount 的临时 OIDC Token，应用 Pod 可以调用阿里云 RAM 服务并扮演指定 RAM 角色，从而安全地获取访问云资源的临时授权，实现 Pod 级别的权限最小化管理。 如需后续启用，请参见 [通过](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md) [RRSA](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md) [配置](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md) [ServiceAccount](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md) [的](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md) [RAM](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md) [权限实现](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md) [Pod](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md) [权限隔离](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/use-rrsa-to-authorize-pods-to-access-different-cloud-services.md) 。 |
+
+
+## 步骤三：配置云端节点池
+
+重要
+
+在云端节点池中，至少需要配置2个Worker节点，用于部署云端的控制面组件。
+
+### 节点池基础配置
+
+- 
+
+- 
+
+| 配置项 | 描述 |  |
+| --- | --- | --- |
+| 节点池名称 | 自定义节点池名称。 |  |
+| 容器运行时 | 根据 Kubernetes 版本 选择 容器运行时 。 containerd （推荐）：支持所有集群版本。 docker ：支持 1.22 及以下集群版本。 |  |
+| 托管节点池相关配置 | 托管节点池 | 启用托管节点池，使用 ACK 提供的 [自动化运维能力](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/node-pool-overview.md) 。 如业务对底层节点的变更比较敏感，无法容忍节点的重启以及业务 Pod 的迁移，不推荐启用。 如需后续启用，可 [编辑节点池](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/create-a-node-pool.md) 开启。 |
+| 节点自愈 | ACK 将自动监控节点状态，并在节点发生异常时自动执行自愈任务。如勾选 当节点故障时重启节点 ，节点自愈过程中可能涉及节点排水、替盘等操作。触发条件、相关事件等，请参见 [开启节点自愈](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/auto-repair.md) 。 |  |
+| 自动升级规则 | 当有可用 kubelet 版本时，ACK 会自动升级，请参见 [升级节点池](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/node-pool-updates.md) 。 |  |
+| 自动修复安全漏洞 | [修复节点池操作系统](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/cve-patching.md) [CVE](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/cve-patching.md) [漏洞](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/cve-patching.md) ，支持配置安全漏洞修复级别。 云资源及计费说明： [云安全中心](https://help.aliyun.com/zh/security-center/product-overview/billing-overview) |  |
+| 集群维护窗口 | ACK 会且仅会在定义的维护窗口期内执行托管节点池的自动化运维操作。 |  |
+
+
+### 实例和镜像配置
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+| 配置项 | 描述 |
+| --- | --- |
+| 付费类型 | 节点池扩容节点时默认采用的付费类型。 按量付费 ：可按需启用和释放。 包年包月 ：需配置 购买时长 以及 自动续费 。 抢占式实例 ：目前仅支持具有保护期的 [抢占式实例](products/ecs/documents/user-guide/what-is-a-spot-instance.md) 。需同时配置 单台实例上限价格 。 当指定实例规格的实时价格低于单台实例的最高出价时，实例将成功创建。保护期（1 小时）过后，系统将每 5 分钟检查一次实例规格的实时价格与库存。若市场价格高于出价或库存不足，抢占式实例将被释放。使用建议， 请参见 [抢占式实例节点池最佳实践](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/best-practices-for-preemptible-instance-based-node-pools.md) 。 为保证节点池统一，不支持将 按量付费 、 包年包月 节点池修改为 抢占式实例 节点池，反之亦然。 |
+| 实例相关的配置项 | 节点池扩容时，会从配置的 [ECS](products/ecs/documents/user-guide/overview-of-instance-families.md) [实例规格族](products/ecs/documents/user-guide/overview-of-instance-families.md) 中分配。为提高扩容成功率，请 选择多个可用区下的多种实例规格，避免规格不可用或库存不足 。具体扩容的实例规格由配置的 扩缩容策略 决定。 为确保业务稳定性和资源调度的准确性，请勿在同一个节点池中混合使用 GPU 和非 GPU 实例规格。 可通过以下两种方式配置扩容时使用的实例规格： 具体规格：基于 vCPU、内存、规格族、CPU 架构（实例的 CPU 架构需与 [操作系统镜像架构](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/overview-of-os-images.md) 一致）等维度指定实例规格。 使用 Terway 时，可在实例规格列表中查看目标实例规格提供的 [节点最大](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/adjusting-the-number-of-node-pods.md) [Pod](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/adjusting-the-number-of-node-pods.md) [数](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/adjusting-the-number-of-node-pods.md) 。 [泛化配置](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/configure-a-node-pool-using-the-specified-instance-attributes.md) ：根据属性（vCPU、内存等）选择 待使用或需排除的实例规格列表 ，进一步提升扩容成功率。 可参考控制台的弹性强度建议来配置，或在 节点池创建后 [查看节点池弹性强度](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/check-the-scalability-of-a-node-pool.md) 。 关于 ACK 不支持的实例规格及节点配置建议，请参见 [ECS](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/select-ecs-instances-to-create-the-master-and-worker-nodes-of-an-ack-cluster.md) [实例规格配置建议](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/select-ecs-instances-to-create-the-master-and-worker-nodes-of-an-ack-cluster.md) 。 云资源及计费说明： [ECS](products/ecs/documents/instance-types.md) [实例](products/ecs/documents/instance-types.md) 、 [GPU](https://help.aliyun.com/zh/egs/billing-2) [实例](https://help.aliyun.com/zh/egs/billing-2) 说明 ACK Edge 集群 的日志、监控、反向通道等一些增强特性需要在云端部署组件，因此请默认创建至少一个 ECS 实例作为 Worker 节点。 |
+| 操作系统 | 云市场镜像 处于灰度发布中。 公共镜像 ： 容器服务 Kubernetes 版 提供的 [Alibaba Cloud Linux 3](https://help.aliyun.com/zh/alinux/alibaba-cloud-linux-3-container-optimized-images) [容器优化版](https://help.aliyun.com/zh/alinux/alibaba-cloud-linux-3-container-optimized-images) 、 [ContainerOS](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/containeros-overview.md) 、 [Alibaba Cloud Linux 3](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/use-alibaba-cloud-linux-3.md) 、Ubuntu 等操作系统的公共镜像。详细信息请参见 [操作系统](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/overview-of-os-images.md) 。 自定义镜像 ：使用自定义操作系统镜像，详细信息请参见 [如何基于创建好的](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/create-a-node-pool.md) [ECS](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/create-a-node-pool.md) [实例创建自定义镜像，并使用该镜像创建节点？](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/create-a-node-pool.md) 。 云市场镜像 ：使用阿里云 [云市场镜像](products/ecs/documents/user-guide/alibaba-cloud-market-mirror-images.md) 。 云资源及计费说明： [ECS](products/ecs/documents/images.md) [云市场镜像](products/ecs/documents/images.md) 后续如需升级或更换操作系统，请参见 [更换操作系统](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/replace-the-operating-system.md) 。 |
+| 安全加固 | 创建节点时，ACK 会应用选择的安全基线策略。 不开启 ：不对 ECS 实例进行安全加固。 等保加固 ：阿里云为 Alibaba Cloud Linux 等保 2.0 三级版镜像提供了符合等保合规要求的基线检查标准和扫描工具。在确保原生镜像兼容性和性能的同时，进行了等保合规适配，满足《GB/T22239-2019 信息安全技术网络安全等级保护基本要求》，详情请参见 [ACK](products/ack/documents/ack-managed-and-ack-dedicated/security-and-compliance/ack-reinforcement-based-on-classified-protection.md) [等保加固使用说明](products/ack/documents/ack-managed-and-ack-dedicated/security-and-compliance/ack-reinforcement-based-on-classified-protection.md) 。 但在此模式下，Root 用户无法通过 SSH 远程登录。您可以通过 ECS 控制台 [通过](products/ecs/documents/user-guide/log-on-to-an-instance-by-using-vnc.md) [VNC](products/ecs/documents/user-guide/log-on-to-an-instance-by-using-vnc.md) [连接实例](products/ecs/documents/user-guide/log-on-to-an-instance-by-using-vnc.md) ，并创建一个支持 SSH 登录的普通用户。 阿里云 OS 加固 ：仅支持 Alibaba Cloud Linux 2 或 Alibaba Cloud Linux 3。 |
+| 登录方式 | 设置密钥 ：阿里云 [SSH](products/ecs/documents/user-guide/ssh-key-pairs.md) [密钥对](products/ecs/documents/user-guide/ssh-key-pairs.md) 是一种安全便捷的登录认证方式，由公钥和私钥组成，仅支持 Linux 实例。 请同时配置 登录名 （ root 或 ecs-user ）和所需的 密钥对 。 设置密码 ：配置 登录名 （ root 或 ecs-user ）和密码。 |
+
+
+### 存储配置
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+| 配置项 | 描述 |
+| --- | --- |
+| 系统盘 | 根据业务需求选择 [云盘](products/ecs/documents/user-guide/elastic-block-storage-devices.md) 类型，包括 ESSD AutoPL、ESSD 云盘、ESSD Entry 以及上一代云盘（SSD 云盘和高效云盘），配置容量和 IOPS 等。 可用系统盘类型取决于所选的 [实例规格族](products/ecs/documents/user-guide/overview-of-instance-families.md) 。未展示的云盘类型即为不支持使用。 ESSD 云盘自定义性能和加密能力 支持自定义性能级别。云盘容量越大，可选择的性能级别越高（460 GiB 容量以上可选 PL2，1260 GiB 以上可选 PL3），详情请参见 [容量范围与性能级别的关系](products/ecs/documents/user-guide/essds.md) 。 系统盘中仅 ESSD 云盘支持 加密 。选择密钥时，阿里云默认使用服务密钥（Default Service CMK）进行加密；您也可以选择在 KMS 服务中预先创建的自定义密钥（BYOK）进行加密。 支持选择 配置更多系统盘类型 ，配置与 系统盘 不同的磁盘类型，提高扩容成功率。创建节点时，ACK 将根据指定的磁盘类型顺序，选择第一个匹配的类型。 云资源及计费说明： [ECS](products/ecs/documents/block-storage-devices.md) [块存储](products/ecs/documents/block-storage-devices.md) |
+| 数据盘 | 根据业务需求选择 [云盘](products/ecs/documents/user-guide/elastic-block-storage-devices.md) 类型，包括 ESSD AutoPL、ESSD 云盘、ESSD Entry 以及上一代云盘（SSD 云盘和高效云盘），配置容量和 IOPS 等。 可用数据盘类型取决于所选的 [实例规格族](products/ecs/documents/user-guide/overview-of-instance-families.md) 。未展示的云盘类型即为不支持使用。 ESSD AutoPL 支持 预配置性能：在存储容量大小不变的情况下，可根据实际业务需求灵活配置云盘的预配置性能，从而实现云盘容量与性能的解耦。 性能突发：当业务面临突发的数据读写压力时，云盘会临时提升性能 以应对峰值需求 ，直至业务恢复平稳。 ESSD 云盘支持 支持自定义性能级别。云盘容量越大，可选择的性能级别越高（460 GiB 容量以上可选 PL2，1260 GiB 以上可选 PL3），详情请参见 [容量范围与性能级别的关系](products/ecs/documents/user-guide/essds.md) 。 挂载数据盘时，所有云盘类型均支持 加密 。选择密钥时，阿里云默认使用服务密钥（Default Service CMK）进行加密；您也可以选择在 KMS 服务中预先创建的自定义密钥（BYOK）进行加密。 节点创建过程中，将自动格式化最后一块数据盘，并将 /var/lib/container 挂载到该数据盘，将 /var/lib/kubelet 、 /var/lib/containerd 挂载到 /var/lib/container 。 如需自定义挂载目录，请调整数据盘的初始化配置，最多可选择一块数据盘作为容器运行时占用目录，详情请参见 [ACK](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/faq-about-node-management.md) [节点池中数据盘可以自定义目录挂载吗？](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/faq-about-node-management.md) 在需要容器镜像加速、大模型快速加载等场景下，还可以使用快照创建数据盘，提升系统的响应速度和处理能力。 可选择 配置更多数据盘类型 ，配置与 数据盘 不同的磁盘类型，提高扩容成功率。创建节点时，ACK 将根据指定的磁盘类型顺序，选择第一个匹配的类型。 一台 ECS 实例最多可挂载 64 块数据盘，具体可挂载数量上限因实例规格而异。可调用 [DescribeInstanceTypes](products/ecs/documents/developer-reference/api-ecs-2014-05-26-describeinstancetypes.md) 查询对应实例规格的云盘数量上限（ DiskQuantity ）。 云资源及计费说明： [ECS](products/ecs/documents/block-storage-devices.md) [块存储](products/ecs/documents/block-storage-devices.md) |
+| 弹性临时盘 | 白名单功能， [提交工单](https://selfservice.console.aliyun.com/ticket/createIndex) 申请 [弹性临时盘](products/ecs/documents/user-guide/elastic-ephemeral-disks.md) 为 ECS 实例提供高性能、高性价比的临时数据存储空间，适用于存放临时数据（如临时计算中间结果、缓存数据、临时文件等）、高性能计算（对 IOPS 和吞吐量要求较高）等场景。 仅支持在部分地域和部分 ECS 实例规格中使用，请参见 [地域限制](products/ecs/documents/user-guide/elastic-ephemeral-disks.md) 、 [实例规格限制](products/ecs/documents/user-guide/elastic-ephemeral-disks.md) 。 您可以选择是否对弹性临时盘进行 [初始化](products/ecs/documents/user-guide/overview-27.md) 设置，自定义其挂载目录。 云资源及计费说明： [ECS](products/ecs/documents/block-storage-devices.md) [块存储](products/ecs/documents/block-storage-devices.md) |
+
+
+### 实例数量
+
+| 配置项 | 描述 |
+| --- | --- |
+| 期望节点数 | 节点池应该维持的总节点数量。您可以通过调整期望节点数，达到扩容或缩容节点池的目的。云端节点池建议至少应存在两个节点。 |
+
+
+### 节点池高级配置
+
+展开高级选项（选填），配置节点扩缩容策略。
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+| 配置项 | 描述 |
+| --- | --- |
+| 扩缩容策略 | 配置节点池在节点扩缩容时如何选择实例。 优先级策略 ：按集群配置的 vSwitch 优先级（vSwitch 顺序由上到下优先级递减）扩缩容。优先级较高的 vSwitch 所在可用区无法创建实例时，自动使用下一优先级 vSwitch。 成本优化策略 ：按 vCPU 单价从低到高扩缩容。 节点池使用 抢占式实例 时，则抢占式实例优先。支持同时配置 按量实例所占比例（% ），当抢占式实例规格因库存等原因无法创建时，自动使用按量付费实例来补充。 均衡分布策略 ：在且仅在多可用区场景下将 ECS 实例均匀分配至多可用区。如果由于库存不足等原因造成可用区分布不平衡，可再次进行均衡操作。 |
+| 使用按量实例补充抢占式容量 | 需同时选择付费类型为抢占式实例。 开启后，如果因价格或库存等原因无法创建足够的抢占式实例，ACK 将自动尝试创建按量实例作为补充。 云资源及计费说明： [ECS](products/ecs/documents/instance-types.md) [实例](products/ecs/documents/instance-types.md) |
+| 开启抢占式实例补偿 | 需同时选择付费类型为抢占式实例。 开启后，当收到抢占式实例将被回收的系统消息时（即抢占式实例被回收前 5 分钟），ACK 将尝试扩容新实例进行补偿。 补偿成功：ACK 对旧节点执行排水并从集群中移除。 补偿失败：ACK 不会对旧节点执行排水，到期实例仍然会在 5 分钟后被回收释放。当库存恢复或满足价格条件时，ACK 将自动购买实例以保证期望节点数，详情请参见 [抢占式实例节点池最佳实践](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/best-practices-for-preemptible-instance-based-node-pools.md) 。 抢占式实例的主动释放可能导致业务异常，为提高补偿成功率，建议同时开启 使用按量实例补充抢占式容量 。 云资源及计费说明： [ECS](products/ecs/documents/instance-types.md) [实例](products/ecs/documents/instance-types.md) |
+
+
+展开高级选项（选填），配置ECS标签、污点等信息。
+
+展开查看高级选项
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+| 配置项 | 描述 |
+| --- | --- |
+| ECS 标签 | 为 ACK 自动创建的 ECS 实例添加标签，作为云资源标识。每台 ECS 最多可绑定 20 个标签。如需提高上限，请到 [配额平台](https://quotas.console.aliyun.com/products/tag/quotas) 提交申请。由于 ACK 和 ESS 会占用部分标签，您最多可为实例指定 17 个自定义标签。 展开查看标签占用说明 ACK 默认占用两个 ECS 标签。 ack.aliyun.com:<您的集群 ID> ack.alibabacloud.com/nodepool-id:<您的节点池 ID> ESS 默认占用 1 个 ECS 标签： acs:autoscaling:scalingGroupId:<您的节点池伸缩组 ID> 。 开启 [节点自动伸缩](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/auto-scaling-of-nodes.md) 后， 弹性伸缩将默认占用两个 ECS 标签，因此 节点池会额外占用两个 ECS 标签： k8s.io/cluster-autoscaler:true 和 k8s.aliyun.com:true 。 开启 [节点自动伸缩](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/auto-scaling-of-nodes.md) 后，组件通过 ECS 标签记录节点的标签和污点，以预检测弹出节点的调度行为。 节点的每个标签会被转为 k8s.io/cluster-autoscaler/node-template/label/<标签键>：<标签值> 。 节点的每个污点会被转为 k8s.io/cluster-autoscaler/node-template/taint/<污点键>/<污点值>：<污点效果> 。 |
+| 污点 （Taints） | 为节点添加键值对 [污点](https://kubernetes.io/docs/concepts/scheduling-eviction/taint-and-toleration?spm=a2c4g.11186623.0.0.76f068derYLXgN) 。有效污点键包含前缀（可选）和名称。如果有前缀，用正斜线（/）分隔。 展开查看详细说明 键 ：名称长度为 1~63 个字符，必须以字母、数字或字符 [a-z0-9A-Z] 开头和结尾，中间可包含字母、数字、短划线（-）、下划线（_）、英文半角句号（.）。 如果指定前缀，必须为 [DNS](https://kubernetes.io/zh-cn/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names) [子域](https://kubernetes.io/zh-cn/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names) ，即一系列由英文半角句号（.）分隔的 DNS 标签，不超过 253 个字符，并以正斜线（/）结尾。 值 ：污点值可以为空，不超过 63 个字符，必须以字母、数字或字符 [a-z0-9A-Z] 开头和结尾，可包含字母、数字、短划线（-）、下划线（_）、英文半角句号（.）。 Effect ： NoSchedule ：不接受任何新的、不容忍此污点的 Pod 被调度到该节点，但已在运行的 Pod 不受影响。 NoExecute ：不仅不接受任何新的、不容忍此污点的 Pod 被调度到该节点，还会驱逐节点上任何已在运行的、不容忍此污点的 Pod。 PreferNoSchedule ：ACK 会尽量避免将 Pod 调度到存在其不能容忍污点的节点上，但不会强制执行。 |
+| 节点标签（Labels） | 为节点添加键值对标签。有效 Key 包含前缀（可选）和名称。如有前缀，前缀和名称之间用正斜线（/）分隔。 展开查看详细说明 Key：名称长度为 1~63 个字符，必须以字母数字字符 [a-z0-9A-Z] 开头和结尾，中间可包含字母、数字、短划线（-）、下划线（_）、英文半角句号（.）。 如果指定前缀，必须为 [DNS](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names) [子域](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names) ，即一系列由英文半角句号（.）分隔的 DNS 标签，不超过 253 个字符，以正斜线（/）结尾。 以下前缀由 Kubernetes 核心组件保留，不支持指定 kubernetes.io/ k8s.io/ 以 kubernetes.io/ 和 k8s.io/ 结尾的前缀。例如 test.kubernetes.io/ 。 以下除外： kubelet.kubernetes.io/ node.kubernetes.io 以 kubelet.kubernetes.io/ 结尾的前缀。 以 node.kubernetes.io 结尾的前缀。 Value：可以为空，不超过 63 个字符，必须以字母数字字符 [a-z0-9A-Z] 开头和结尾，可包含字母、数字、短划线（-）、下划线（_）和英文半角句号（.）。 |
+| 设置为不可调度 | 新添加的节点注册到集群时默认会被设置为不可调度。需在节点列表手动调整 [节点调度状态](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/overview-of-node-management.md) 。 本配置仅对 1.34 以下版本集群生效，详情请参见 [Kubernetes 1.34](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/kubernetes-1-34-release-notes.md) [版本说明](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/kubernetes-1-34-release-notes.md) 。 |
+| CPU Policy | 指定 kubelet 节点的 [CPU](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/?spm=5176.2020520152.0.0.49fd16ddxL871D) [管理策略](https://kubernetes.io/docs/tasks/administer-cluster/cpu-management-policies/?spm=5176.2020520152.0.0.49fd16ddxL871D) 。 [None](https://kubernetes.io/zh-cn/docs/tasks/administer-cluster/cpu-management-policies/?spm=5176.2020520152.0.0.49fd16ddxL871D#none-policy) ：默认策略。 [Static](https://kubernetes.io/zh-cn/docs/tasks/administer-cluster/cpu-management-policies/?spm=5176.2020520152.0.0.49fd16ddxL871D#static-policy) ：允许为节点上具有某些资源特征的 Pod 赋予增强的 CPU 亲和性和独占性。 推荐使用 [自定义节点池](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/customize-the-kubelet-configurations-of-a-node-pool.md) [kubelet](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/customize-the-kubelet-configurations-of-a-node-pool.md) [配置](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/customize-the-kubelet-configurations-of-a-node-pool.md) 。 |
+| 自定义节点名称 | 默认情况下，节点名称自动生成。如需统一命名规则以便于节点管理和运维识别，可启用此配置。启用后，节点名称、ECS 实例名称及 Hostname 均会发生变化。 方式三仅适用于灵骏节点池，灵骏节点池也仅支持使用方式三 方式一：完整 IP 地址 + 前后缀 说明：节点名称由前缀、节点 IP 地址及后缀三部分组成。启用后，节点名称、ECS 实例名称、ECS 实例 Hostname 也将发生变化。 示例：节点 IP 地址为 192.XX.YY.55 ，指定前缀为 aliyun.com ，后缀为 test 。 Linux 节点：节点名称、ECS 实例名称、ECS 实例 Hostname 均为 aliyun.com192.XX.YY.55test 。 Windows 节点：其 Hostname 固定为 IP 地址，使用 - 代替 IP 地址中的 . ，且不包含前缀和后缀。 因此，ECS 实例 Hostname 为 192-XX-YY-55 ，节点名称、ECS 实例名称均为 aliyun.com192.XX.YY.55test 。 方式二：指定位数 IP 地址 + 前后缀 白名单功能 说明：节点名称由前缀、指定位数的节点 IP 地址、后缀三部分组成。启用后，节点名称、ECS 实例名称及 ECS 实例 Hostname 均会相应变化。 示例： 节点 IP 地址为 192.XX.YY.55 ，前缀为 aliyun.com ，后缀为 test ，IP 地址截取位数为 6 ，则节点名称为 aliyun.com0YY055test 。 重要 当自定义节点名称格式依赖于截取部分 IP 地址时，若 VPC 网段范围较大而截取的 IP 位数（ lenOfIP ）不足，可能会导致节点名称冲突，从而造成 [节点即时弹性](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/instant-elasticity.md) 场景下节点扩容失败。 请根据 VPC 网段，参见以下建议设置 IP 地址的截取位数： 针对 10.0.0.0/8 和 172.16.0.0/12 等大规模网段，建议 lenOfIP 至少为 9。 针对 192.168.0.0/16 网段，建议 lenOfIP 至少为 6。 方式三：同步实例 Hostname（仅灵骏节点池支持） 白名单功能，不适用于非灵骏节点池 说明：将灵骏节点的 Hostname 直接同步为节点的 NodeName。 示例： 实例 Hostname 为 test ，则节点 NodeName 为 test 。 方式四：递增 ID + 前后缀（仅 ECS 节点池支持） 白名单功能 启用此方式后不支持同时开启 [节点伸缩](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/overview-of-node-scaling.md) （即 扩缩容模式 为 自动 ）；已开启自动伸缩的节点池不支持切换为此方式。 说明：节点名称由前缀、递增 ID 及后缀三部分组成，格式为 auto_increment,name_prefix(AUTO_INCREMENT)[begin_number,bits]name_suffix （ [begin_number,bits] 之间不存在空格）。参数说明如下，规则详见 [固定增长排序](https://help.aliyun.com/zh/auto-scaling/user-guide/configure-naming-rules-for-ecs-instances#section-176-bta-c6q) 。 beginNumber ：起始编号，取值范围 [0, 999999] 。首次扩容时，指定的起始值生效；未设置时，默认为 0 。非首次扩容时，起始值在伸缩组内已有编号最大值的基础上递增。 bits ：编号位数，取值范围 [1, 6] 。当 beginNumber 的位数超过 bits 的取值时， bits 默认为 6；未设置 beginNumber 或 bits 时，两者分别默认为 0 和 6 。建议 bits 至少设置为 3 ，否则容易达到编号上限。达到上限后如仍有扩容需求，扩容将报错并停止，此时需重新设置命名规则。 系统默认依次递增，但若扩容的 ECS 实例无法启动，该实例会在移除后重新扩容，因此编号可能断续递增。 示例： 命名格式为 auto_increment,start(AUTO_INCREMENT)[1,3]end ， beginNumber 为 1 ， bits 为 3 ，则节点名称按顺序生成： 第 1 个实例： start001end 第 2 个实例： start002end …… |
+| 实例预自定义数据 | 节点加入集群前，将运行指定的实例预自定义 [User-Data](products/ecs/documents/user-guide/manage-the-user-data-of-linux-instances.md) [脚本](products/ecs/documents/user-guide/manage-the-user-data-of-linux-instances.md) 。 例如，指定预自定义数据为 touch /tmp/pre-script ，则节点上组合后的脚本执行顺序如下。 #!/bin/bash # 输入的实例预自定义数据在此处执行 touch /tmp/pre-script # ACK 节点初始化脚本在此处执行 节点初始化时此配置的生效逻辑，请参见 [节点初始化流程介绍](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/introduction-to-node-initialization.md) 。 |
+| 实例自定义数据 | 节点加入集群后，将运行指定的实例自定义 [User-Data](products/ecs/documents/user-guide/manage-the-user-data-of-linux-instances.md) [脚本](products/ecs/documents/user-guide/manage-the-user-data-of-linux-instances.md) 。 例如，指定实例自定义数据为 touch /tmp/post-script ，则节点上组合后的脚本执行顺序如下。 #!/bin/bash # ACK 节点初始化脚本在此处执行 # 输入的实例自定义数据在此处执行 touch /tmp/post-script 节点初始化时此配置的生效逻辑，请参见 [节点初始化流程介绍](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/introduction-to-node-initialization.md) 。 创建集群或扩容节点成功不代表实例自定义脚本执行成功。可登录节点执行 grep cloud-init /var/log/messages 查看执行日志。 |
+| 云监控插件 | 可在 [云监控控制台](https://cloudmonitornext.console.aliyun.com/) 查看并 监控节点和应用运行状态。 本配置仅对节点池中新增的节点生效，不对节点池存量节点生效。 已有节点如需启用，请通过 [云监控控制台](https://cloudmonitornext.console.aliyun.com/) 安装。 云资源及计费说明： [云监控](https://help.aliyun.com/zh/cms/cloudmonitor-1-0/product-overview/billing-overview) |
+| 公网 IP | ACK 将为节点分配 IPv4 公网 IP 地址。 本配置仅对节点池中新增的节点生效，不对节点池存量节点生效。已有节点如需访问公网，需配置并绑定 EIP，请参见 [EIP 绑定云资源](products/eip/documents/bind-an-eip-to-a-cloud-resource.md) 。 云资源及计费说明： [ECS](products/ecs/documents/public-bandwidth.md) [公网](products/ecs/documents/public-bandwidth.md) |
+| 自定义安全组 | 为节点池指定普通安全组或企业级安全组。ACK 默认不会为安全组配置额外的访问规则。需自行管理安全组规则，避免访问异常，请参见 [配置集群安全组](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/configure-security-group-rules-to-enforce-access-control-on-ack-clusters.md) 。 每台 ECS 实例支持加入的安全组存在上限，请确保 [安全组配额](products/ecs/documents/user-guide/limitations.md) 充足。 |
+| RDS 白名单 | 将节点 IP 添加至 RDS 实例的白名单。 |
+| 【废弃】私有池类型 | 配置项已废弃，请切换使用 资源池策略 来指定私有池 当前所选可用区和实例规格下可使用的 [私有池](products/ecs/documents/user-guide/private-pools.md) 资源。类型包括： 开放 ：实例将会自动匹配开放类型的私有容量池，如果没有符合条件的私有池，则使用公共池资源启动。 不使用 ：实例不会使用任何私有池容量，直接使用公共池资源启动。 指定 ：需要进一步选择私有池 ID 来指定实例只使用该私有池容量启动。如果该私有池不可用，则实例启动失败。 |
+
+
+## 步骤四：组件配置
+
+单击下一步：组件配置，完成组件基础选项配置和高级选项配置。
+
+- 
+
+- 
+
+| 配置项 | 描述 |
+| --- | --- |
+| 云边通信组件 | Raven 组件通过公网构建网络通道实现云边跨域通信，支持边缘节点监控和运维等。如果您的集群已采用专线打通云边网络通信，可不安装 Raven 组件。相关信息，请参见 [跨域运维通信组件](products/ack/documents/ack-edge/user-guide/cloud-edge-communication-component-raven-overview.md) [Raven](products/ack/documents/ack-edge/user-guide/cloud-edge-communication-component-raven-overview.md) 。 |
+| 云监控插件 | 可在 [云监控控制台](https://cloudmonitornext.console.aliyun.com/) 查看并 监控节点和应用运行状态。 本配置仅对节点池中新增的节点生效，不对节点池存量节点生效。 已有节点如需启用，请通过 [云监控控制台](https://cloudmonitornext.console.aliyun.com/) 安装。 云资源及计费说明： [云监控](https://help.aliyun.com/zh/cms/cloudmonitor-1-0/product-overview/billing-overview) |
+| 日志服务 | 使用已有 SLS Project 或新建一个 SLS Project，用于收集集群应用日志。 同时将启用集群 API Server 审计功能，收集对 Kubernetes API 的请求以及请求结果。 如需后续启用，请参见 [采集](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/collect-text-logs-from-ack-clusters-using-daemonset-deployed-logtail-agents.md) [ACK](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/collect-text-logs-from-ack-clusters-using-daemonset-deployed-logtail-agents.md) [集群容器日志](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/collect-text-logs-from-ack-clusters-using-daemonset-deployed-logtail-agents.md) 、 [使用集群](products/ack/documents/ack-managed-and-ack-dedicated/security-and-compliance/work-with-cluster-auditing.md) [API Server](products/ack/documents/ack-managed-and-ack-dedicated/security-and-compliance/work-with-cluster-auditing.md) [审计功能](products/ack/documents/ack-managed-and-ack-dedicated/security-and-compliance/work-with-cluster-auditing.md) 。 创建 Ingress Dashboard： 在 SLS 控制台创建 Ingress Dashboard，可收集 Nginx Ingress 访问日志，请参见 [Nginx Ingress](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/analyze-and-monitor-the-access-log-of-nginx-ingress.md) [访问日志分析与监控](products/ack/documents/ack-managed-and-ack-dedicated/user-guide/analyze-and-monitor-the-access-log-of-nginx-ingress.md) 。 安装 node-problem-detector 并创建事件中心： 在 SLS 控制台中添加事件中心，实时收集集群中的所有 Kubernetes Event，请参见 [创建并使用](products/sls/documents/create-and-use-an-event-center.md) [K8s](products/sls/documents/create-and-use-an-event-center.md) [事件中心](products/sls/documents/create-and-use-an-event-center.md) 。 云资源及计费说明： [SLS](products/sls/documents/billing-overview.md) |
+
+
+## 步骤五：确认配置和计费信息
+
+在确认配置页面，确认集群的配置信息，包括功能配置、资源计费、云产品依赖检查等，并阅读服务协议。
+
+ACK Edge集群涉及集群管理费用（仅Pro版收取）和云产品费用。您可以在创建页面下方查看集群涉及的费用总览，也可以查看[ACK Edge](products/ack/documents/ack-edge/product-overview/billing-of-ack-edge-clusters.md)[集群计费说明](products/ack/documents/ack-edge/product-overview/billing-of-ack-edge-clusters.md)。
+
+您还可以在确认配置页面的右上角单击同等代码，生成当前集群配置对应的Terraform或SDK示例参数。
+
+## 产品计费
+
+ACK Edge集群计费相关信息请参见[ACK Edge](products/ack/documents/ack-edge/product-overview/billing-of-ack-edge-clusters.md)[集群计费说明](products/ack/documents/ack-edge/product-overview/billing-of-ack-edge-clusters.md)。
+
+## 相关文档
+
+更多ACK Edge集群创建方式请参见：
+
+- 
+
+[通过](products/ack/documents/ack-edge/user-guide/create-an-ack-edge-cluster.md)[OpenAPI](products/ack/documents/ack-edge/user-guide/create-an-ack-edge-cluster.md)[创建](products/ack/documents/ack-edge/user-guide/create-an-ack-edge-cluster.md)[ACK Edge](products/ack/documents/ack-edge/user-guide/create-an-ack-edge-cluster.md)[集群](products/ack/documents/ack-edge/user-guide/create-an-ack-edge-cluster.md)
+
+- 
+
+[通过](products/ack/documents/ack-edge/developer-reference/use-terraform-to-create-an-ack-edge-cluster.md)[Terraform](products/ack/documents/ack-edge/developer-reference/use-terraform-to-create-an-ack-edge-cluster.md)[创建](products/ack/documents/ack-edge/developer-reference/use-terraform-to-create-an-ack-edge-cluster.md)[ACK Edge](products/ack/documents/ack-edge/developer-reference/use-terraform-to-create-an-ack-edge-cluster.md)[集群](products/ack/documents/ack-edge/developer-reference/use-terraform-to-create-an-ack-edge-cluster.md)
+
+- 
+
+[通过](products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/java-sdk-call-example.md)[SDK](products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/java-sdk-call-example.md)[创建](products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/java-sdk-call-example.md)[ACK Edge](products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/java-sdk-call-example.md)[集群](products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/java-sdk-call-example.md)
+
+- 
+
+[通过](products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/create-a-cluster-2.md)[CLI](products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/create-a-cluster-2.md)[创建](products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/create-a-cluster-2.md)[ACK Edge](products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/create-a-cluster-2.md)[集群](products/ack/documents/ack-managed-and-ack-dedicated/developer-reference/create-a-cluster-2.md)
+
+集群创建完成后，您可以创建节点池，并添加边缘节点进行管理。
+
+- 
+
+[节点池管理](products/ack/documents/ack-edge/user-guide/overview-of-cell-based-management-at-the-edge.md)
+
+- 
+
+[添加边缘节点](products/ack/documents/ack-edge/user-guide/add-an-edge-node.md)
+
+[上一篇：集群管理](products/ack/documents/ack-edge/user-guide/cluster-management.md)[下一篇：删除集群](products/ack/documents/ack-edge/user-guide/untitled-document.md)
+
+该文章对您有帮助吗？
+
+反馈
+
+### 为什么选择阿里云
+
+[什么是云计算](https://www.aliyun.com/about/what-is-cloud-computing)[全球基础设施](https://infrastructure.aliyun.com/)[技术领先](https://www.aliyun.com/why-us/leading-technology)[稳定可靠](https://www.aliyun.com/why-us/reliability)[安全合规](https://www.aliyun.com/why-us/security-compliance)[分析师报告](https://www.aliyun.com/analyst-reports)
+
+### 大模型
+
+[千问大模型](https://www.aliyun.com/product/tongyi)[大模型服务](https://bailian.console.aliyun.com/?tab=model#/model-market)[AI应用构建](https://bailian.console.aliyun.com/app-center?tab=app#/app-center)
+
+### 产品和定价
+
+[全部产品](https://www.aliyun.com/product/list)[免费试用](https://free.aliyun.com/)[产品动态](https://www.aliyun.com/product/news/)[产品定价](https://www.aliyun.com/price/detail)[配置报价器](https://www.aliyun.com/price/cpq/list)[云上成本管理](https://www.aliyun.com/price/cost-management)
+
+### 技术内容
+
+[技术解决方案](https://www.aliyun.com/solution/tech-solution)[帮助文档](https://help.aliyun.com/)[开发者社区](https://developer.aliyun.com/)[天池大赛](https://tianchi.aliyun.com/)[阿里云认证](https://edu.aliyun.com/)
+
+### 权益
+
+[免费试用](https://free.aliyun.com/)[解决方案免费试用](https://www.aliyun.com/solution/free)[高校计划](https://university.aliyun.com/)[5亿算力补贴](https://www.aliyun.com/benefit/form/index)[推荐返现计划](https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&pageCode=yunparterIndex)
+
+### 服务
+
+[基础服务](https://www.aliyun.com/service)[企业增值服务](https://www.aliyun.com/service/supportplans)[迁云服务](https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn)[官网公告](https://www.aliyun.com/notice/)[健康看板](https://status.aliyun.com/)[信任中心](https://security.aliyun.com/trust-center)
+
+### 关注阿里云
+
+关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务
+
+联系我们：4008013260
+
+[法律声明](https://help.aliyun.com/product/67275.html)[Cookies 政策](https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html)[廉正举报](https://aliyun.jubao.alibaba.com/)[安全举报](https://report.aliyun.com/)[联系我们](https://www.aliyun.com/contact)[加入我们](https://careers.aliyun.com/)
+
+### 友情链接
+
+[阿里巴巴集团](https://www.alibabagroup.com/cn/global/home)[淘宝网](https://www.taobao.com/)[天猫](https://www.tmall.com/)[全球速卖通](https://www.aliexpress.com/)[阿里巴巴国际交易市场](https://www.alibaba.com/)[1688](https://www.1688.com/)[阿里妈妈](https://www.alimama.com/index.htm)[飞猪](https://www.fliggy.com/)[阿里云计算](https://www.aliyun.com/)[万网](https://wanwang.aliyun.com/)[高德](https://mobile.amap.com/)[UC](https://www.uc.cn/)[友盟](https://www.umeng.com/)[优酷](https://www.youku.com/)[钉钉](https://www.dingtalk.com/)[支付宝](https://www.alipay.com/)[达摩院](https://damo.alibaba.com/)[淘宝海外](https://world.taobao.com/)[阿里云盘](https://www.aliyundrive.com/)[淘宝闪购](https://www.ele.me/)
+
+© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证：[浙B2-20080101](http://beian.miit.gov.cn/)域名注册服务机构许可：[浙D3-20210002](https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 )
+
+[浙公网安备 33010602009975号](http://www.beian.gov.cn/portal/registerSystemInfo)[浙B2-20080101-4](https://beian.miit.gov.cn/)

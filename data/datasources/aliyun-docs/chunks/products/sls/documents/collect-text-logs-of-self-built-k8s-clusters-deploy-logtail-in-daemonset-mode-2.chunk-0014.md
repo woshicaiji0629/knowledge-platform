@@ -1,0 +1,1 @@
+输出插件。 Type String （必选） 插件类型，固定为 flusher_sls 。 LogStore String （必选） 目标 Logstrore 名称，决定日志的实际存储位置。 说明 指定 LogStore 必须存在或已在 [spec.LogStores](kubernetes-cr-parameter-description.md) 中声明。 配置多个输出目标后，该采集配置将不再显示在当前 LogStore 的采集配置列表中。如需查看、修改或删除多目标分发配置，请参考 [如何管理多目标分发配置？](collect-text-logs-of-self-built-k8s-clusters-deploy-logtail-in-daemonset-mode-2.md) 。 |  |

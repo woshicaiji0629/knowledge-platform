@@ -1,0 +1,2 @@
+### 步骤一： VPC与交换机开通IPv6
+首先，您需要确保ECS实例所在的VPC与交换机开通了IPv6，具体操作步骤，请参见[为](https://help.aliyun.com/zh/ipv6-gateway/user-guide/enable-ipv6-for-a-vpc)[VPC](https://help.aliyun.com/zh/ipv6-gateway/user-guide/enable-ipv6-for-a-vpc)[开启](https://help.aliyun.com/zh/ipv6-gateway/user-guide/enable-ipv6-for-a-vpc)[IPv6](https://help.aliyun.com/zh/ipv6-gateway/user-guide/enable-ipv6-for-a-vpc)与[交换机开通](https://help.aliyun.com/zh/ipv6-gateway/user-guide/enable-ipv6-for-a-vswitch-1)[IPv6](https://help.aliyun.com/zh/ipv6-gateway/user-guide/enable-ipv6-for-a-vswitch-1)。

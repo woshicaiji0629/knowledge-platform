@@ -1,0 +1,736 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    如何通过Logtail采集ping和tcping数据到日志服务-日志服务(SLS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/sls/collect-ping-and-tcping-data">
+  <meta name="keywords" content="采集ping数据,采集tcping数据,netping插件配置,网络探测指标说明">
+  <meta name="description" content="本文介绍通过Logtail采集ping和tcping数据到日志服务Metricstore的操作步骤。">
+  <meta name="last-modified" content="2026-05-21T01:08:00+08:00">
+  <meta name="date" content="2022-04-28T10:06:35+08:00">
+  <meta property="og:title" content="采集ping和tcping数据">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/sls/collect-ping-and-tcping-data">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="本文介绍通过Logtail采集ping和tcping数据到日志服务Metricstore的操作步骤。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/sls/collect-ping-and-tcping-data",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "427031",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/sls/collect-ping-and-tcping-data","nodeId":null,"data":{"lastModifiedTime":1779296880000,"keywords":"采集ping数据,采集tcping数据,netping插件配置,网络探测指标说明","docTitle":"采集ping和tcping数据","language":"zh","seoTitle":"如何通过Logtail采集ping和tcping数据到日志服务-日志服务(SLS)-阿里云帮助中心","title":"采集ping和tcping数据","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"task-2209895\">\n    \n    <p id=\"shortdesc-fc6-6cb-010\" data-tag=\"shortdesc\" class=\"shortdesc\">本文介绍通过<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>采集<span class=\"help-letter-space\"></span>ping<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>tcping<span class=\"help-letter-space\"></span>数据到日志服务<span class=\"help-letter-space\"></span>Metricstore<span class=\"help-letter-space\"></span>的操作步骤。</p>\n    <div data-tag=\"taskbody\" id=\"taskbody-isr-x5o-cge\" class=\"taskbody\">\n      <section data-tag=\"prereq\" id=\"prereq-2kx-6c1-uo1\" data-type=\"prereq\" class=\"section prereq\">\n        <h2 id=\"d41e14\">前提条件</h2>\n        <p id=\"10cbeeb13fcsf\"><span data-tag=\"ph\" id=\"ph-uc3-5ie-09n\" is-conref=\"true\" class=\"ph\">已创建<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>MetricStore。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/manage-a-project/#section-ahq-ggx-ndb\" id=\"xref-xjq-6i6-1dm\" title=\"\" class=\"xref\">管理<span class=\"help-letter-space\"></span>Project</a><span class=\"help-letter-space\"></span>和<a href=\"https://help.aliyun.com/zh/sls/manage-a-metricstore#section-8ju-apk-egg\" id=\"xref-91w-3t1-3ez\" title=\"\" class=\"xref\">创建<span class=\"help-letter-space\"></span>MetricStore</a>。</span></p>\n      </section>\n      <section data-tag=\"section\" id=\"section-yda-7es-2ol\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-ilw-2hv-lsv\" class=\"title\">使用限制</h2>\n        <p data-tag=\"p\" id=\"p-6yc-7ih-zdu\" class=\"p\">只有<span class=\"help-letter-space\"></span>Linux Logtail 1.0.31<span class=\"help-letter-space\"></span>及以上版本的<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>支持采集<span class=\"help-letter-space\"></span>ping<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>tcping<span class=\"help-letter-space\"></span>数据。如果您已在服务器上安装旧版本的<span class=\"help-letter-space\"></span>Logtail，需先升级。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/install-logtail-on-a-linux-server#section-jcz-xmv-vdb\" id=\"xref-muz-5lh-tye\" title=\"\" class=\"xref\">安装<span class=\"help-letter-space\"></span>Logtail（Linux<span class=\"help-letter-space\"></span>系统）</a>。</p>\n      </section>\n      <section data-tag=\"section\" id=\"section-snt-bzy-leb\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-lsw-3vz-pi1\" class=\"title\">操作步骤</h2>\n        <ol data-tag=\"steps\" id=\"steps-7oa-nqc-7ny\" class=\"steps\">\n          <li data-tag=\"step\" id=\"step-mcw-d2g-wfe\" is-conref=\"true\" class=\"step\"><p id=\"6a7cc970501ga\"><span data-tag=\"ph\" id=\"ph-q0d-de9-ecs\" class=\"ph\">登录<span data-tag=\"ph\" id=\"ph-i3r-pp7-fzx\" props=\"china intl\" data-cond-props=\"china intl\" class=\"ph\"><a href=\"https://sls.console.aliyun.com\" id=\"xref-ivv-0k8-uct\" class=\"\" target=\"_blank\">日志服务控制台</a></span>。</span></p></li>\n          <li data-tag=\"step\" id=\"step-d7s-vt9-ygz\" is-conref=\"true\" class=\"step\"><p id=\"6a7cf08050vb9\">在<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>列表区域，单击目标<span class=\"help-letter-space\"></span>Project。</p><p id=\"bda792c94bjlg\"><img id=\"fffd2c11d911u\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8797827471/p955209.png\" alt=\"image\" placement=\"break\" class=\"image break\"></p></li>\n          <li data-tag=\"step\" id=\"step-u5p-utl-qpp\" class=\"step\">\n            <p id=\"10cf23003fs7v\">在<span data-tag=\"menucascade\" id=\"menucascade-p3z-29v-x22\" class=\"menucascade\"><b id=\"uicontrol-j85-d7l-zus\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">时序存储</b> &gt; <b id=\"uicontrol-o09-r5z-2sp\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">时序库</b></span>页签中，在目标<span class=\"help-letter-space\"></span>MetricStore<span class=\"help-letter-space\"></span>下面选择<span data-tag=\"menucascade\" id=\"menucascade-4i8-8qf-64u\" class=\"menucascade\"><b id=\"uicontrol-rws-c1u-s2s\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">数据接入</b> &gt; <b data-tag=\"uicontrol\" id=\"uicontrol-dyy-w0b-1w7\" class=\"uicontrol\">logtail<span class=\"help-letter-space\"></span>配置</b></span>，然后在右侧页面单击<b id=\"48c190ea63hvq\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">添加<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>配置</b>。</p>\n          </li>\n          <li data-tag=\"step\" id=\"step-ag8-oyq-0gx\" class=\"step\">\n            <p id=\"10cf4a113f5hh\">在<b id=\"wintitle-ab0-te6-143\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">快速数据接入</b>对话框中，单击<span class=\"help-letter-space\"></span><b id=\"64d5b6ef0di9k\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">Ping 监控</b>。</p>\n          </li>\n          <li data-tag=\"step\" id=\"step-xlf-u8v-t7y\" is-conref=\"true\" class=\"step\">\n            <p id=\"6f5071426focq\">在<b id=\"60f3c54476vdz\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建机器组</b>页签中。</p>\n            <div id=\"info-beh-ihl-g9o\" data-tag=\"info\" class=\"info\">\n              <ul id=\"ul-y5l-g49-5la\" data-tag=\"ul\" class=\"ul\">\n                <li id=\"li-503-p44-2wj\">\n                  <p id=\"253250b5924o5\" tagname=\"p\">如果已有可用的机器组，请单击<b id=\"8acf5fc1a0aej\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">使用现有机器组</b>。<img id=\"b41bf24066o8v\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4680345271/p844129.png\" alt=\"image\" placement=\"break\" class=\"image break\"></p>\n                </li>\n                <li data-tag=\"li\" id=\"li-51j-892-c4c\" class=\"li\">\n                  <p id=\"6f5098516fwfm\">如果您还没有可用的机器组，请执行以下操作（以<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>为例）。 </p>\n                  <ol data-tag=\"ol\" type=\"a\" id=\"ol-flh-1mo-o5i\" class=\"ol\">\n                    <li data-tag=\"li\" id=\"li-8vj-ghx-m0m\" class=\"li\">\n                      <p id=\"6f50e6706funq\">在<span class=\"help-letter-space\"></span><b id=\"wintitle-bfn-b6r-s4j\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">ECS<span class=\"help-letter-space\"></span>机器</b>页签中，通过<b data-tag=\"uicontrol\" id=\"ce5fbbefc1ugl\" class=\"uicontrol\">手动选择实例</b>方式选择目标<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例，单击<b id=\"uicontrol-brc-ce3-hj2\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建</b>。</p>\n                      <div data-tag=\"p\" id=\"p-q7w-9uf-wrb\" class=\"p\">\n                        <p id=\"6f510d806fi39\">具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/install-logtail-on-ecs-instances#task-2561331\" id=\"xref-naj-trw-1xy\" title=\"\" class=\"xref\">安装<span class=\"help-letter-space\"></span>Logtail（ECS<span class=\"help-letter-space\"></span>实例）</a>。</p>\n                        <div data-tag=\"note\" id=\"note-jjo-4y0-6my\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                          <p id=\"6f510d816f5ky\">如果您的服务器是与日志服务属于不同账号的<span class=\"help-letter-space\"></span>ECS、其他云厂商的服务器和自建<span class=\"help-letter-space\"></span>IDC<span class=\"help-letter-space\"></span>时，您需要手动安装<span class=\"help-letter-space\"></span>Logtail。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/install-logtail-on-a-linux-server#concept-u5y-3lv-vdb\" id=\"xref-kio-ee9-lr4\" title=\"\" class=\"xref\">安装<span class=\"help-letter-space\"></span>Logtail（Linux<span class=\"help-letter-space\"></span>系统）</a>。手动安装<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>后，您必须在该服务器上手动配置用户标识。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/configure-a-user-identifier#task-arl-ynt-qy\" id=\"xref-z1s-tqz-xvr\" title=\"\" class=\"xref\">配置用户标识</a>。</p>\n                        </div></div>\n                      </div>\n                    </li>\n                    <li id=\"li-52z-xtm-iug\">\n                      <p id=\"6c0079ba2cnlf\">安装完成后，单击<b id=\"c649cf6fde422\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">确认安装完毕</b>。</p>\n                    </li>\n                    <li id=\"li-j62-tmi-0bo\">\n                      <p id=\"ab902d1610sgs\">在<b id=\"wintitle-ij1-uqd-98u\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">创建机器组</b>页面，输入<b id=\"uicontrol-0as-xks-2o6\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">名称</b>，单击<b id=\"uicontrol-out-a5o-e7r\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">下一步</b>。</p>\n                      <p id=\"f2cce900fczri\">日志服务支持创建<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址机器组和用户自定义标识机器组，具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/manage-machine-groups#cd2f956f8d4oz\" id=\"9302045c6b0h6\" title=\"\" class=\"xref\">创建机器组</a>。</p>\n                    </li>\n                  </ol>\n                </li>\n              </ul>\n            </div>\n          </li>\n          <li data-tag=\"step\" id=\"step-wft-dbm-qd0\" is-conref=\"true\" class=\"step\">\n<p id=\"e97e28f06bxf8\">确认目标机器组已在<b id=\"1e7015a06b9a7\">应用机器组</b>区域，单击<b id=\"uicontrol-wl7-12t-60c\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">下一步</b>。</p>\n<div data-tag=\"info\" id=\"info-s83-204-0ue\" class=\"info\">\n<div data-tag=\"note\" id=\"note-yxn-dz8-2lr\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n<p id=\"e97e50006bwcw\">创建机器组后立刻应用，可能因为连接未生效，导致心跳为<span class=\"help-letter-space\"></span><b id=\"uicontrol-ers-oks-r01\">FAIL</b>，您可单击<b id=\"uicontrol-1yw-iv1-32x\">自动重试</b>。如果还未解决，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/sls/troubleshoot-the-errors-related-to-logtail-machine-groups#concept-nfs-hs3-bfb\" id=\"xref-t8a-6cq-v15\" title=\"\" class=\"xref\">Logtail<span class=\"help-letter-space\"></span>机器组无心跳</a>进行排查。</p>\n</div></div>\n</div>\n</li>\n          <li data-tag=\"step\" id=\"step-iix-3ub-wjd\" class=\"step\">\n            <p id=\"10d2f3903fze7\"><span data-tag=\"cmd\" id=\"cmd-48j-ais-vyz\" class=\"cmd\">在<b id=\"wintitle-m3a-sjs-4cm\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">数据源设置</b>页签中，设置<b id=\"uicontrol-nj7-xol-w81\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">配置名称</b>和<b id=\"uicontrol-yge-dyd-dss\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">插件配置</b>，然后单击<b id=\"uicontrol-xtj-fqm-0yt\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">下一步</b>。</span></p>\n            <div data-tag=\"info\" id=\"info-sis-3qf-92w\" class=\"info\">\n              <div data-tag=\"p\" id=\"p-gpg-qk8-sq2\" is-conref=\"true\" class=\"p\">\n                <div data-tag=\"note\" id=\"note-43e-gyt-995\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                  <p id=\"6f51a9c06fkqg\">inputs<span class=\"help-letter-space\"></span>为数据源配置，必选项。一个<span class=\"help-letter-space\"></span>inputs<span class=\"help-letter-space\"></span>中只允许配置一个类型的数据源。</p>\n                </div></div>\n              </div><pre data-tag=\"codeblock\" id=\"codeblock-kcu-74f-cb5\" outputclass=\"language-json\" class=\"pre codeblock language-json\"><code>{\n<pre data-tag=\"codeblock\" id=\"codeblock-kcu-74f-cb5\" outputclass=\"language-json\" class=\"pre codeblock language-json\"><code>{\n    \"inputs\": [\n        {\n            \"detail\": {\n                \"tcp\": [\n                    {\n                        \"port\": 80,\n                        \"src\": \"192.XX.XX.103\",\n                        \"count\": 3,\n                        \"target\": \"www.aliyun.com\"\n                    }\n                ],\n                \"interval_seconds\": 60,\n                \"icmp\": [\n                    {\n                        \"src\": \"192.XX.XX.103\",\n                        \"count\": 3,\n                        \"target\": \"www.aliyun.com\"\n                    }\n                ],\n                \"http\": [\n     \t\t\t\t{\n         \t\t\t\t\"src\": \"192.XX.XX.103\",\n         \t\t\t\t\"expect_code\": 200,\n        \t\t\t\t\"target\": \"www.aliyun.com\"\n      \t\t\t\t}\n          \t\t]\n            },\n            \"type\": \"metric_input_netping\"\n        }\n    ]\n}</code></pre>\n              <table id=\"table-r39-93i-ohw\" tablewidth=\"709\" tablecolswidth=\"129 129 129 322\" autofit=\"false\" class=\"table\">\n                <colgroup colwidth=\"0.73*\" style=\"width:18.19%\"></colgroup>\n                <colgroup colwidth=\"0.73*\" style=\"width:18.19%\"></colgroup>\n                <colgroup colwidth=\"0.73*\" style=\"width:18.19%\"></colgroup>\n                <colgroup colwidth=\"1.82*\" style=\"width:45.42%\"></colgroup>\n                <tbody class=\"tbody\">\n                  <tr id=\"row-8rt-xx8-stn\">\n                    <td id=\"task-2209895-entry-hpz-mmf-txx\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"10d405003fauv\"><b>参数</b></p>\n                    </td>\n                    <td id=\"task-2209895-entry-pr1-4y6-sdp\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"10d405013fnhm\"><b>类型</b></p>\n                    </td>\n                    <td id=\"task-2209895-entry-boj-nbl-y0n\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"10d405023f6av\"><b>是否必选</b></p>\n                    </td>\n                    <td id=\"task-2209895-entry-jw8-dla-q7q\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                      <p id=\"10d405033f9hy\"><b>参数说明</b></p>\n                    </td>\n                  </tr>\n                  <tr id=\"row-4dc-kok-3tu\">\n                    <td id=\"entry-b49-ilk-vn2\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"10d405043foty\"><span data-tag=\"parmname\" id=\"parmname-m8n-j5x-me9\" class=\"parmname\">tcp</span></p>\n                    </td>\n                    <td id=\"entry-6jj-iux-53w\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"10d42c103fb7w\">array</p>\n                    </td>\n                    <td id=\"entry-0rh-0vu-z8x\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"10d42c113f1hi\">是</p>\n                    </td>\n                    <td id=\"entry-f0i-2dz-5d0\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"10d42c123fs04\">采集<span class=\"help-letter-space\"></span>TCP ping<span class=\"help-letter-space\"></span>数据。详细参数说明如下，参数值需根据实际值替换。</p>\n                      <ul data-tag=\"ul\" id=\"ul-aqh-7rn-t89\" class=\"ul\">\n                        <li data-tag=\"li\" id=\"li-v80-hy5-db7\" class=\"li\">\n                          <p id=\"10d47a303fin4\"><code data-tag=\"code\" class=\"code\">port</code>：端口号。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-ele-h9y-zpo\" class=\"li\">\n                          <p id=\"10d47a313fuv4\"><code data-tag=\"code\" class=\"code\">src</code>：执行<span class=\"help-letter-space\"></span>ping<span class=\"help-letter-space\"></span>命令的服务器的<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址。即由<code data-tag=\"code\" class=\"code\">src</code>字段决定在机器组的哪台机器中执行<span class=\"help-letter-space\"></span>ping<span class=\"help-letter-space\"></span>命令。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-3a0-fm6-qct\" class=\"li\">\n                          <p id=\"10d47a323fhcw\"><code data-tag=\"code\" class=\"code\">count</code>：限制执行一次<span class=\"help-letter-space\"></span>ping<span class=\"help-letter-space\"></span>命令发送的数据包数量。建议使用默认值<span class=\"help-letter-space\"></span>3，取值范围为(0,10)。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-5iq-h4t-732\" class=\"li\">\n                          <p id=\"10d4a1403fbat\"><code data-tag=\"code\" class=\"code\">target</code>：目标主机名或<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址。即由<code data-tag=\"code\" class=\"code\">target</code>字段决定<span class=\"help-letter-space\"></span>ping<span class=\"help-letter-space\"></span>的目标主机名或<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址。</p>\n                        </li>\n                        <li id=\"ff9bfd913fy3n\">\n                          <p id=\"ff9bfd923f7tq\"><code data-tag=\"code\" class=\"code\">name</code>：名称，默认为{src}-&gt;{target}。</p>\n                        </li>\n                        <li id=\"ff9bfd933fokz\">\n                          <p id=\"ff9bfd943fmvb\"><code data-tag=\"code\" class=\"code\">labels</code>：标签，支持增加指标标签。</p>\n                        </li>\n                      </ul>\n                      <div data-tag=\"p\" id=\"p-agu-5f5-qz5\" class=\"p\">\n                        <p id=\"10d4a1413f47e\">支持添加多个<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址，示例如下：</p><pre data-tag=\"codeblock\" id=\"codeblock-nd2-rol-5lq\" outputclass=\"language-http\" class=\"pre codeblock language-http\"><code>\"tcp\": [\n    {\n         \"port\": 80,\n         \"src\": \"192.XX.XX.103\",\n         \"count\": 3,\n         \"target\": \"www.aliyun.com\"\n     },\n     {\n          \"port\": 80,\n          \"src\": \"192.XX.XX.104\",\n          \"count\": 3,\n          \"target\": \"www.aliyun.com\"\n      }\n        ]</code></pre>\n                      </div>\n                    </td>\n                  </tr>\n                  <tr id=\"row-9ul-0h5-7yq\">\n                    <td id=\"entry-eqo-bmq-4av\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"10d4a1423fgl7\"><span data-tag=\"parmname\" id=\"parmname-re3-n07-r5b\" class=\"parmname\">icmp</span></p>\n                    </td>\n                    <td id=\"entry-es0-c9x-k50\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"10d4a1433fno6\">array</p>\n                    </td>\n                    <td id=\"entry-o65-jh4-zbj\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"10d4a1443ff4e\">是</p>\n                    </td>\n                    <td id=\"entry-dwn-n1u-5zs\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"10d4a1453f2fz\">采集<span class=\"help-letter-space\"></span>ICMP ping<span class=\"help-letter-space\"></span>数据。详细参数说明如下，参数值需根据实际值替换。</p>\n                      <ul data-tag=\"ul\" id=\"ul-o9c-w0g-8vg\" class=\"ul\">\n                        <li data-tag=\"li\" id=\"li-i80-b98-g7q\" class=\"li\">\n                          <p id=\"10d4c8503fxnd\"><code data-tag=\"code\" class=\"code\">src</code>：执行<span class=\"help-letter-space\"></span>ping<span class=\"help-letter-space\"></span>命令的服务器的<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址。即由<code data-tag=\"code\" class=\"code\">src</code>字段决定在机器组的哪台机器中执行<span class=\"help-letter-space\"></span>ping<span class=\"help-letter-space\"></span>命令。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-ai5-4xo-z9l\" class=\"li\">\n                          <p id=\"10d4c8513fl5o\"><code data-tag=\"code\" class=\"code\">count</code>：限制执行一次<span class=\"help-letter-space\"></span>ping<span class=\"help-letter-space\"></span>命令发送的数据包数量。建议使用默认值<span class=\"help-letter-space\"></span>3，取值范围为(0,10)。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-uvf-991-wpj\" class=\"li\">\n                          <p id=\"10d4c8523f2zi\"><code data-tag=\"code\" class=\"code\">target</code>：目标的主机名或<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址。即由<code data-tag=\"code\" class=\"code\">target</code>字段决定<span class=\"help-letter-space\"></span>ping<span class=\"help-letter-space\"></span>的目标主机名或<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址。</p>\n                        </li>\n                        <li id=\"fd5e69a13f52g\">\n                          <p id=\"fd5e69a23fcym\"><code data-tag=\"code\" class=\"code\">name</code>：名称，默认为{src}-&gt;{target}。</p>\n                        </li>\n                        <li id=\"fd5e69a33fqpm\">\n                          <p id=\"fd5e69a43fjs3\"><code data-tag=\"code\" class=\"code\">labels</code>：标签，支持增加指标标签。</p>\n                        </li>\n                      </ul>\n                      <div data-tag=\"p\" id=\"p-11s-fdl-tha\" class=\"p\">\n                        <p id=\"10d4c8533f93z\">支持添加多个<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址，示例如下：</p><pre data-tag=\"codeblock\" id=\"codeblock-wur-s2s-k5j\" outputclass=\"language-http\" class=\"pre codeblock language-http\"><code>\"icmp\": [\n     {\n         \"src\": \"192.XX.XX.103\",\n         \"count\": 3,\n         \"target\": \"www.aliyun.com\"\n      },\n      {\n           \"src\": \"192.XX.XX.104\",\n           \"count\": 3,\n           \"target\": \"www.aliyun.com\"\n       }\n          ]</code></pre>\n                      </div>\n                    </td>\n                  </tr>\n                  <tr id=\"7ccff3803fzp8\" style=\"height:634px\">\n                    <td id=\"7ccff3813f3tm\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"7ccff3823fz2c\">http</p>\n                    </td>\n                    <td id=\"7ccff3833fiyf\" rowspan=\"1\" colspan=\"1\">\n                      <p uuid=\"llk7pf0tgo8wbngs3mc\" id=\"81baf4303fchv\">array</p>\n                    </td>\n                    <td id=\"7ccff3853f4xa\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"7ccff3863fif8\">是</p>\n                    </td>\n                    <td id=\"7ccff3873ff2s\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"7ccff3883fwaj\">采集<span class=\"help-letter-space\"></span>HTTP ping<span class=\"help-letter-space\"></span>数据。详细参数说明如下，参数值需根据实际值替换。</p>\n                      <ul id=\"86c627103fgh9\">\n                        <li id=\"86c627113faa1\">\n                          <p id=\"86c627123flat\"><code data-tag=\"code\" class=\"code\">src</code>：执行<span class=\"help-letter-space\"></span>ping<span class=\"help-letter-space\"></span>命令的服务器的<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址。即由<span class=\"help-letter-space\"></span>src<span class=\"help-letter-space\"></span>字段决定在机器组的哪台机器中执行<span class=\"help-letter-space\"></span>ping<span class=\"help-letter-space\"></span>命令。</p>\n                        </li>\n                        <li id=\"86c627133fr5v\">\n                          <p id=\"86c627143flkk\"><code data-tag=\"code\" class=\"code\">method</code>：执行请求的<span class=\"help-letter-space\"></span>http method，默认<span class=\"help-letter-space\"></span>get。</p>\n                        </li>\n                        <li id=\"86c627153f49h\">\n                          <p id=\"86c627163fooq\"><code data-tag=\"code\" class=\"code\">expect_response_contains</code>： 预期结果包含内容。</p>\n                        </li>\n                        <li id=\"86c627173fotf\">\n                          <p id=\"86c627183frch\"><code data-tag=\"code\" class=\"code\">expect_code</code>：预期状态码。</p>\n                        </li>\n                        <li id=\"86c64e203f4b8\">\n                          <p id=\"86c64e213fayv\"><code data-tag=\"code\" class=\"code\">target</code>：目的地址，支持<span class=\"help-letter-space\"></span>https。</p>\n                        </li>\n                        <li id=\"86c64e223fwex\">\n                          <p id=\"86c64e233fqps\"><code data-tag=\"code\" class=\"code\">name</code>：名称，默认为{src}-&gt;{target}。</p>\n                        </li>\n                        <li id=\"86c64e243fa4v\">\n                          <p id=\"86c64e253f9pj\"><code data-tag=\"code\" class=\"code\">labels</code>：标签，支持增加指标标签。</p>\n                        </li>\n                      </ul><pre id=\"ni4egm\" title=\"\" uuid=\"llk7qdn6c2d6tb0xfp4\" code=\"&quot;http&quot;: [\n     {\n         &quot;src&quot;: &quot;192.XX.XX.103&quot;,\n         &quot;expect_code&quot;: 200,\n         &quot;target&quot;: &quot;www.aliyun.com&quot;\n      }\n          ]\" data-tag=\"codeblock\" outputclass=\"language-http\" class=\"pre codeblock language-http\"><code>\"http\": [\n     {\n         \"src\": \"192.XX.XX.103\",\n         \"expect_code\": 200,\n         \"target\": \"www.aliyun.com\"\n      }\n          ]</code></pre>\n                    </td>\n                  </tr>\n                  <tr id=\"row-m2g-4jv-sg4\">\n                    <td id=\"entry-n6n-b2n-pbe\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"10d4c8543fgx7\"><span data-tag=\"parmname\" id=\"parmname-peu-pg6-2wk\" class=\"parmname\">interval_seconds</span></p>\n                    </td>\n                    <td id=\"entry-3k7-m84-7xz\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"10d4c8553fy0q\">int</p>\n                    </td>\n                    <td id=\"entry-ut5-ft2-n1e\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"10d4c8563fi15\">是</p>\n                    </td>\n                    <td id=\"entry-wiy-20m-ken\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"10d4ef603fmv0\">执行<span class=\"help-letter-space\"></span>ping<span class=\"help-letter-space\"></span>命令的时间间隔，单位：秒。</p>\n                      <ul data-tag=\"ul\" id=\"ul-471-udv-zpm\" class=\"ul\">\n                        <li data-tag=\"li\" id=\"li-i8v-ozu-xau\" class=\"li\">\n                          <p id=\"10d4ef613f8vr\">默认值：60。</p>\n                        </li>\n                        <li data-tag=\"li\" id=\"li-afs-xbt-wct\" class=\"li\">\n                          <p id=\"10d4ef623f7ru\">取值范围：[10, 86400)</p>\n                        </li>\n                      </ul>\n                    </td>\n                  </tr>\n                  <tr id=\"row-c8m-ekw-4jq\" style=\"height:92px\">\n                    <td id=\"entry-96t-f3d-61m\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"10d4ef633fp21\"><span data-tag=\"parmname\" id=\"parmname-462-uvu-cla\" class=\"parmname\">type</span></p>\n                    </td>\n                    <td id=\"entry-9bh-p4c-16q\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"10d4ef643fmta\">string</p>\n                    </td>\n                    <td id=\"entry-qvs-bro-007\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"10d4ef653fc0s\">是</p>\n                    </td>\n                    <td id=\"entry-zcq-qoq-zb6\" rowspan=\"1\" colspan=\"1\">\n                      <p id=\"10d4ef663fbdn\">数据源类型，固定为<span class=\"help-letter-space\"></span>metric_input_netping。</p>\n                    </td>\n                  </tr>\n                </tbody>\n              </table>\n            </code></pre></div>\n          </li>\n        </ol>\n      </section>\n      <section data-tag=\"postreq\" id=\"postreq-wae-fka-bvm\" data-type=\"postreq\" class=\"postreq section\">\n        <h2 id=\"d41e194\">后续步骤</h2>\n        <p id=\"10d4ef673fml1\">采集<span class=\"help-letter-space\"></span>ping<span class=\"help-letter-space\"></span>数据后，您可以在<span class=\"help-letter-space\"></span>Metricstore<span class=\"help-letter-space\"></span>中进行查询分析。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/query-and-analyze-metric-data#task-2539642\" id=\"xref-uog-84h-mko\" title=\"\" class=\"xref\">查询和分析时序数据</a>。在日志服务<span class=\"help-letter-space\"></span>SLS<span class=\"help-letter-space\"></span>的查询分析页面中，可通过<span class=\"help-letter-space\"></span>PromQL<span class=\"help-letter-space\"></span>查询相关指标，并以折线图形式展示<span class=\"help-letter-space\"></span>ping<span class=\"help-letter-space\"></span>延迟数据的变化趋势。</p>\n        <p data-tag=\"p\" id=\"p-lsd-drn-6f8\" class=\"p\">相关指标说明如下表所示。</p>\n        <table id=\"table-2uz-sli-src\" tablewidth=\"708\" tablecolswidth=\"157 157 394\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.67*\" style=\"width:22.18%\"></colgroup>\n          <colgroup colwidth=\"0.67*\" style=\"width:22.18%\"></colgroup>\n          <colgroup colwidth=\"1.67*\" style=\"width:55.65%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-n31-4sx-w3y\">\n              <td id=\"task-2209895-entry-cnk-35s-9pu\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"10d516703f0lh\"><b>分类</b></p>\n              </td>\n              <td id=\"task-2209895-entry-nvf-klh-m91\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"10d516713f78d\"><b>指标名</b></p>\n              </td>\n              <td id=\"task-2209895-entry-53g-z1o-w8m\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"10d516723f41b\"><b>说明</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-wge-p78-dwo\">\n              <td id=\"entry-c29-llp-ggf\" rowspan=\"8\" colspan=\"1\">\n                <p id=\"10d516733f403\">ICMP ping</p>\n              </td>\n              <td id=\"entry-t7r-i3e-ozc\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"10d516743fyxy\">ping_failed</p>\n              </td>\n              <td id=\"entry-w9y-fkg-xh1\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"10d516753fty2\">单次执行<span class=\"help-letter-space\"></span>icmp ping<span class=\"help-letter-space\"></span>命令，发送失败的数据包数量。</p>\n              </td>\n            </tr>\n            <tr id=\"row-cmh-08c-l2d\">\n              <td id=\"entry-qjc-ufd-n9s\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"10d53d813frsr\">ping_rtt_avg_ms</p>\n              </td>\n              <td id=\"entry-fyf-fu1-05g\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"10d53d823frb6\">单次执行<span class=\"help-letter-space\"></span>icmp ping<span class=\"help-letter-space\"></span>命令的平均响应时间，单位：毫秒。</p>\n              </td>\n            </tr>\n            <tr id=\"row-ss9-xkc-gdq\">\n              <td id=\"entry-zuk-frk-xuz\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"10d53d853f6hm\">ping_rtt_max_ms</p>\n              </td>\n              <td id=\"entry-srf-633-uaq\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"10d53d863fjf7\">单次执行<span class=\"help-letter-space\"></span>icmp ping<span class=\"help-letter-space\"></span>命令的最大响应时间，单位：毫秒。</p>\n              </td>\n            </tr>\n            <tr id=\"row-xu9-2md-qv9\">\n              <td id=\"entry-v55-q3w-bo3\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"10d53d893frd4\">ping_rtt_min_ms</p>\n              </td>\n              <td id=\"entry-5ub-1x9-7tk\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"10d564903fwgh\">单次执行<span class=\"help-letter-space\"></span>icmp ping<span class=\"help-letter-space\"></span>命令的最小响应时间，单位：毫秒。</p>\n              </td>\n            </tr>\n            <tr id=\"row-yvw-ip5-hvr\">\n              <td id=\"entry-zqh-vyk-sn6\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"10d564933fay0\">ping_rtt_stddev_ms</p>\n              </td>\n              <td id=\"entry-75x-81k-0aq\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"10d564943feqf\">单次执行<span class=\"help-letter-space\"></span>icmp ping<span class=\"help-letter-space\"></span>命令的标准差时间，单位：毫秒。</p>\n              </td>\n            </tr>\n            <tr id=\"row-o7p-9xh-45j\">\n              <td id=\"entry-ikr-kmm-zbb\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"10d564973fywv\">ping_rtt_total_ms</p>\n              </td>\n              <td id=\"entry-r45-p9i-niu\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"10d564983fwew\">单次执行<span class=\"help-letter-space\"></span>icmp ping<span class=\"help-letter-space\"></span>命令的总响应时间，单位：毫秒。</p>\n              </td>\n            </tr>\n            <tr id=\"row-loh-oz3-fsb\">\n              <td id=\"entry-eua-prk-28w\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"10d58ba13fn0a\">ping_succcess</p>\n              </td>\n              <td id=\"entry-ne2-vqu-an4\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"10d58ba23fp95\">单次执行<span class=\"help-letter-space\"></span>icmp ping<span class=\"help-letter-space\"></span>命令，发送成功的数据包数量。</p>\n              </td>\n            </tr>\n            <tr id=\"row-xaq-fz4-r36\">\n              <td id=\"entry-juv-j28-8zm\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"10d58ba53f8q9\">ping_total</p>\n              </td>\n              <td id=\"entry-hjr-c5c-80k\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"10d58ba63fzec\">单次执行<span class=\"help-letter-space\"></span>icmp ping<span class=\"help-letter-space\"></span>命令，发送的数据包总数。</p>\n              </td>\n            </tr>\n            <tr id=\"26d2a6203fdjt\">\n              <td id=\"26d2a6213fkgf\" rowspan=\"8\" colspan=\"1\">\n                <p id=\"2b2bee203fu2i\">TCP ping</p>\n              </td>\n              <td id=\"26d2a6233ffu4\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"31db0d003f8w8\">tcping_failed</p>\n              </td>\n              <td id=\"26d2cd303fpe2\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"29031ab03f7kd\">单次执行<span class=\"help-letter-space\"></span>tcp ping<span class=\"help-letter-space\"></span>命令，发送失败的数据包数量。</p>\n              </td>\n            </tr>\n            <tr id=\"2fb67f503fpwp\">\n              <td id=\"2fb6a6623fg43\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"357300d03fpn8\">tcping_rtt_avg_ms</p>\n              </td>\n              <td id=\"2fb6a6643f14f\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"3869f9b03ff26\">单次执行<span class=\"help-letter-space\"></span>tcp ping<span class=\"help-letter-space\"></span>命令的平均响应时间，单位：毫秒。</p>\n              </td>\n            </tr>\n            <tr id=\"2f9933503f7tx\">\n              <td id=\"2f9933533fs6f\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"3bef4fe03fayq\">tcping_rtt_max_ms</p>\n              </td>\n              <td id=\"2f9933553fipf\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"50cf17b03fu43\">单次执行<span class=\"help-letter-space\"></span>tcp ping<span class=\"help-letter-space\"></span>命令的最大响应时间，单位：毫秒。</p>\n              </td>\n            </tr>\n            <tr id=\"2f7c35703f9f0\" style=\"height:42px\">\n              <td id=\"2f7c5c823foh0\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"3e24cd803f2mf\">tcping_rtt_min_ms</p>\n              </td>\n              <td id=\"2f7c5c843fmmp\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"642161b03fdtd\">单次执行<span class=\"help-letter-space\"></span>tcp ping<span class=\"help-letter-space\"></span>命令的最小响应时间，单位：毫秒。</p>\n              </td>\n            </tr>\n            <tr id=\"2f31e6003f0de\" style=\"height:67px\">\n              <td id=\"2f31e6033facd\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"40743bc03fodl\">tcpping_rtt_stddev_ms</p>\n              </td>\n              <td id=\"2f31e6053f724\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"5744b0003fy66\">单次执行<span class=\"help-letter-space\"></span>tcp ping<span class=\"help-letter-space\"></span>命令的标准差时间，单位：毫秒。</p>\n              </td>\n            </tr>\n            <tr id=\"41a5b6e03fex6\">\n              <td id=\"41a605003f3zw\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"462943303fddp\">tcping_rtt_total_ms</p>\n              </td>\n              <td id=\"41a605023f042\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"5a6578003frpo\">单次执行<span class=\"help-letter-space\"></span>tcp ping<span class=\"help-letter-space\"></span>命令的总响应时间，单位：毫秒。</p>\n              </td>\n            </tr>\n            <tr id=\"416fb2c03f7ak\">\n              <td id=\"416fb2c33fnbo\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"4886bb303fh2a\">tcping_succcess</p>\n              </td>\n              <td id=\"416fb2c53fl8n\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6a653ba03fkpj\">单次执行<span class=\"help-letter-space\"></span>tcp ping<span class=\"help-letter-space\"></span>命令，发送成功的数据包数量。</p>\n              </td>\n            </tr>\n            <tr id=\"4924a8e03fadj\">\n              <td id=\"4924f7003fz96\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"4ae8a0003fzvr\">tcping_total</p>\n              </td>\n              <td id=\"4924f7023fep7\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6c9932a03fejr\">单次执行<span class=\"help-letter-space\"></span>tcp ping<span class=\"help-letter-space\"></span>命令，发送的数据包总数。</p>\n              </td>\n            </tr>\n            <tr id=\"bfc40cd03ffwz\">\n              <td id=\"bfc40cd13fmdt\" rowspan=\"6\" colspan=\"1\">\n                <p id=\"da136ea03fw4q\" uuid=\"llkbh6cqacnscj3zzxr\">HTTP ping</p>\n              </td>\n              <td id=\"bfc40cd33fyhg\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"dc8866403fjma\" uuid=\"llkbh6cqknva6gpssgd\">httping_failed</p>\n              </td>\n              <td id=\"bfc40cd53f32x\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"eb22f4903fdxb\" uuid=\"llkbh6cq62yd7dkp7u\">单次执行<span class=\"help-letter-space\"></span>http ping<span class=\"help-letter-space\"></span>命令，发送失败的数量。</p>\n              </td>\n            </tr>\n            <tr id=\"deadb7403f8ks\">\n              <td id=\"deae05603f6so\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"e0ada5f03fu8c\" uuid=\"llkbi1u40w2pajfanmo\">httping_succcess</p>\n              </td>\n              <td id=\"deae2c703f1qg\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"ed13c8103fqxs\" uuid=\"llkbi1u59sy995upuoa\">单次执行<span class=\"help-letter-space\"></span>http ping<span class=\"help-letter-space\"></span>命令，发送成功的数量。</p>\n              </td>\n            </tr>\n            <tr id=\"de840f303f29e\">\n              <td id=\"de8436403f950\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"e2bf96003ft9p\" uuid=\"llkbi1u717ihph1am26\">httping_total</p>\n              </td>\n              <td id=\"de8436423f4wa\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"ef10a9803fkqp\" uuid=\"llkbi1u8g3gjuwwkm1g\">单次执行<span class=\"help-letter-space\"></span>http ping<span class=\"help-letter-space\"></span>命令，发送的总数。</p>\n              </td>\n            </tr>\n            <tr id=\"de4cab803fe3u\">\n              <td id=\"de4cd2913fsy7\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"e493b9c03fmsw\" uuid=\"llkbh6cq8cv25g95v6\">httping_rt_ms</p>\n              </td>\n              <td id=\"de4cd2933foud\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f18071003ftjf\" uuid=\"llkbh6cqz8yhf9xq3x\">单次执行<span class=\"help-letter-space\"></span>http ping<span class=\"help-letter-space\"></span>命令延迟，单位：毫秒。</p>\n              </td>\n            </tr>\n            <tr id=\"de0f2d503fm4u\">\n              <td id=\"de0f54613f22q\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"e61f14b03f34g\" uuid=\"llkbh6cqrz0sxjk5upo\">httping_response_bytes</p>\n              </td>\n              <td id=\"de0f54633fyw0\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f3c1ae703fz9v\" uuid=\"llkbh6cqp88nkj45dei\">单次执行<span class=\"help-letter-space\"></span>http ping<span class=\"help-letter-space\"></span>命令响应值大小，单位：Byte。</p>\n              </td>\n            </tr>\n            <tr id=\"e73fc6f03fdld\">\n              <td id=\"e73fee013fu25\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"e8eed6803fgqv\" uuid=\"llkbh6cq4tb23sgymy4\">httping_cert_ttl_days</p>\n              </td>\n              <td id=\"e73fee033fws7\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f63e47303fz3x\" uuid=\"llkbh6cqpzepyj74hgq\">单次执行<span class=\"help-letter-space\"></span>http ping<span class=\"help-letter-space\"></span>命令证书过期时间，单位：Day。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </section>\n    </div>\n  </main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/sls/collect-ping-and-tcping-data","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"alias":"/sls/collect-ping-and-tcping-data","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":6,"developerUrl":"https://developer.aliyun.com/group/sls/","nodeType":1,"version":10,"url":"/zh/sls/collect-ping-and-tcping-data","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":427031,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"采集ping和tcping数据","id":427031,"title":"采集ping和tcping数据","url":"/zh/sls/collect-ping-and-tcping-data"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"指标数据采集（Metric）","id":174967,"title":"指标数据采集（Metric）","url":"/zh/sls/data-collection/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据采集","id":128134,"title":"数据采集","url":"/zh/sls/data-collection-1/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"productUrl":"https://www.aliyun.com/product/sls","nodeId":427031,"desc":"本文介绍通过Logtail采集ping和tcping数据到日志服务Metricstore的操作步骤。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据采集","id":128134,"title":"数据采集","url":"/zh/sls/data-collection-1/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"指标数据采集（Metric）","id":174967,"title":"指标数据采集（Metric）","url":"/zh/sls/data-collection/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"采集ping和tcping数据","id":427031,"title":"采集ping和tcping数据","url":"/zh/sls/collect-ping-and-tcping-data"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=2150472817825533975815344e0642&asid=AQAAAAA1mz9qPAe/CAAAAAA/8jXe1Nw7wg==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2929180" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/start-using-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开始使用</span>
+</a>
+</li>
+ <li id="128096" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/resource-management/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">资源管理</span>
+</a>
+</li>
+ <li id="128134" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-collection-1/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据采集</span>
+</a>
+</li>
+ <li id="2842370" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-processing-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据处理</span>
+</a>
+</li>
+ <li id="270795" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-storage/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据存储</span>
+</a>
+</li>
+ <li id="128135" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/index-and-query/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">查询与分析</span>
+</a>
+</li>
+ <li id="2928734" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-monitoring/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据监控</span>
+</a>
+</li>
+ <li id="2928732" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-log-output-and-integration/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据输出与集成</span>
+</a>
+</li>
+ <li id="2928739" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-technical-solutions/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">技术解决方案</span>
+</a>
+</li>
+ <li id="154068" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2528763" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/security-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="169976" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/faq-15">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>采集ping和tcping数据</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/sls" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="task-2209895">
+    
+    <p id="shortdesc-fc6-6cb-010" data-tag="shortdesc" class="shortdesc">本文介绍通过<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>采集<span class="help-letter-space"></span>ping<span class="help-letter-space"></span>和<span class="help-letter-space"></span>tcping<span class="help-letter-space"></span>数据到日志服务<span class="help-letter-space"></span>Metricstore<span class="help-letter-space"></span>的操作步骤。</p>
+    <div data-tag="taskbody" id="taskbody-isr-x5o-cge" class="taskbody">
+      <section data-tag="prereq" id="prereq-2kx-6c1-uo1" data-type="prereq" class="section prereq">
+        <h2 id="d41e14">前提条件</h2>
+        <p id="10cbeeb13fcsf"><span data-tag="ph" id="ph-uc3-5ie-09n" is-conref="true" class="ph">已创建<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>和<span class="help-letter-space"></span>MetricStore。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/manage-a-project/#section-ahq-ggx-ndb" id="xref-xjq-6i6-1dm" title="" class="xref">管理<span class="help-letter-space"></span>Project</a><span class="help-letter-space"></span>和<a href="https://help.aliyun.com/zh/sls/manage-a-metricstore#section-8ju-apk-egg" id="xref-91w-3t1-3ez" title="" class="xref">创建<span class="help-letter-space"></span>MetricStore</a>。</span></p>
+      </section>
+      <section data-tag="section" id="section-yda-7es-2ol" data-type="section" class="section">
+        <h2 data-tag="title" id="title-ilw-2hv-lsv" class="title">使用限制</h2>
+        <p data-tag="p" id="p-6yc-7ih-zdu" class="p">只有<span class="help-letter-space"></span>Linux Logtail 1.0.31<span class="help-letter-space"></span>及以上版本的<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>支持采集<span class="help-letter-space"></span>ping<span class="help-letter-space"></span>和<span class="help-letter-space"></span>tcping<span class="help-letter-space"></span>数据。如果您已在服务器上安装旧版本的<span class="help-letter-space"></span>Logtail，需先升级。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/install-logtail-on-a-linux-server#section-jcz-xmv-vdb" id="xref-muz-5lh-tye" title="" class="xref">安装<span class="help-letter-space"></span>Logtail（Linux<span class="help-letter-space"></span>系统）</a>。</p>
+      </section>
+      <section data-tag="section" id="section-snt-bzy-leb" data-type="section" class="section">
+        <h2 data-tag="title" id="title-lsw-3vz-pi1" class="title">操作步骤</h2>
+        <ol data-tag="steps" id="steps-7oa-nqc-7ny" class="steps">
+          <li data-tag="step" id="step-mcw-d2g-wfe" is-conref="true" class="step"><p id="6a7cc970501ga"><span data-tag="ph" id="ph-q0d-de9-ecs" class="ph">登录<span data-tag="ph" id="ph-i3r-pp7-fzx" props="china intl" data-cond-props="china intl" class="ph"><a href="https://sls.console.aliyun.com" id="xref-ivv-0k8-uct" class="" target="_blank">日志服务控制台</a></span>。</span></p></li>
+          <li data-tag="step" id="step-d7s-vt9-ygz" is-conref="true" class="step"><p id="6a7cf08050vb9">在<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>列表区域，单击目标<span class="help-letter-space"></span>Project。</p><p id="bda792c94bjlg"><img id="fffd2c11d911u" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/8797827471/p955209.png" alt="image" placement="break" class="image break"></p></li>
+          <li data-tag="step" id="step-u5p-utl-qpp" class="step">
+            <p id="10cf23003fs7v">在<span data-tag="menucascade" id="menucascade-p3z-29v-x22" class="menucascade"><b id="uicontrol-j85-d7l-zus" data-tag="uicontrol" data-isbold="true" class="uicontrol">时序存储</b> &gt; <b id="uicontrol-o09-r5z-2sp" data-tag="uicontrol" data-isbold="true" class="uicontrol">时序库</b></span>页签中，在目标<span class="help-letter-space"></span>MetricStore<span class="help-letter-space"></span>下面选择<span data-tag="menucascade" id="menucascade-4i8-8qf-64u" class="menucascade"><b id="uicontrol-rws-c1u-s2s" data-tag="uicontrol" data-isbold="true" class="uicontrol">数据接入</b> &gt; <b data-tag="uicontrol" id="uicontrol-dyy-w0b-1w7" class="uicontrol">logtail<span class="help-letter-space"></span>配置</b></span>，然后在右侧页面单击<b id="48c190ea63hvq" data-tag="uicontrol" data-isbold="true" class="uicontrol">添加<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>配置</b>。</p>
+          </li>
+          <li data-tag="step" id="step-ag8-oyq-0gx" class="step">
+            <p id="10cf4a113f5hh">在<b id="wintitle-ab0-te6-143" data-tag="uicontrol" data-isbold="true" class="uicontrol">快速数据接入</b>对话框中，单击<span class="help-letter-space"></span><b id="64d5b6ef0di9k" data-tag="uicontrol" data-isbold="true" class="uicontrol">Ping 监控</b>。</p>
+          </li>
+          <li data-tag="step" id="step-xlf-u8v-t7y" is-conref="true" class="step">
+            <p id="6f5071426focq">在<b id="60f3c54476vdz" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建机器组</b>页签中。</p>
+            <div id="info-beh-ihl-g9o" data-tag="info" class="info">
+              <ul id="ul-y5l-g49-5la" data-tag="ul" class="ul">
+                <li id="li-503-p44-2wj">
+                  <p id="253250b5924o5" tagname="p">如果已有可用的机器组，请单击<b id="8acf5fc1a0aej" data-tag="uicontrol" data-isbold="true" class="uicontrol">使用现有机器组</b>。<img id="b41bf24066o8v" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/4680345271/p844129.png" alt="image" placement="break" class="image break"></p>
+                </li>
+                <li data-tag="li" id="li-51j-892-c4c" class="li">
+                  <p id="6f5098516fwfm">如果您还没有可用的机器组，请执行以下操作（以<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>为例）。 </p>
+                  <ol data-tag="ol" type="a" id="ol-flh-1mo-o5i" class="ol">
+                    <li data-tag="li" id="li-8vj-ghx-m0m" class="li">
+                      <p id="6f50e6706funq">在<span class="help-letter-space"></span><b id="wintitle-bfn-b6r-s4j" data-tag="uicontrol" data-isbold="true" class="uicontrol">ECS<span class="help-letter-space"></span>机器</b>页签中，通过<b data-tag="uicontrol" id="ce5fbbefc1ugl" class="uicontrol">手动选择实例</b>方式选择目标<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例，单击<b id="uicontrol-brc-ce3-hj2" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建</b>。</p>
+                      <div data-tag="p" id="p-q7w-9uf-wrb" class="p">
+                        <p id="6f510d806fi39">具体操作，请参见<a href="https://help.aliyun.com/zh/sls/install-logtail-on-ecs-instances#task-2561331" id="xref-naj-trw-1xy" title="" class="xref">安装<span class="help-letter-space"></span>Logtail（ECS<span class="help-letter-space"></span>实例）</a>。</p>
+                        <div data-tag="note" id="note-jjo-4y0-6my" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                          <p id="6f510d816f5ky">如果您的服务器是与日志服务属于不同账号的<span class="help-letter-space"></span>ECS、其他云厂商的服务器和自建<span class="help-letter-space"></span>IDC<span class="help-letter-space"></span>时，您需要手动安装<span class="help-letter-space"></span>Logtail。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/install-logtail-on-a-linux-server#concept-u5y-3lv-vdb" id="xref-kio-ee9-lr4" title="" class="xref">安装<span class="help-letter-space"></span>Logtail（Linux<span class="help-letter-space"></span>系统）</a>。手动安装<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>后，您必须在该服务器上手动配置用户标识。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/configure-a-user-identifier#task-arl-ynt-qy" id="xref-z1s-tqz-xvr" title="" class="xref">配置用户标识</a>。</p>
+                        </div></div>
+                      </div>
+                    </li>
+                    <li id="li-52z-xtm-iug">
+                      <p id="6c0079ba2cnlf">安装完成后，单击<b id="c649cf6fde422" data-tag="uicontrol" data-isbold="true" class="uicontrol">确认安装完毕</b>。</p>
+                    </li>
+                    <li id="li-j62-tmi-0bo">
+                      <p id="ab902d1610sgs">在<b id="wintitle-ij1-uqd-98u" data-tag="uicontrol" data-isbold="true" class="uicontrol">创建机器组</b>页面，输入<b id="uicontrol-0as-xks-2o6" data-tag="uicontrol" data-isbold="true" class="uicontrol">名称</b>，单击<b id="uicontrol-out-a5o-e7r" data-tag="uicontrol" data-isbold="true" class="uicontrol">下一步</b>。</p>
+                      <p id="f2cce900fczri">日志服务支持创建<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址机器组和用户自定义标识机器组，具体操作，请参见<a href="https://help.aliyun.com/zh/sls/manage-machine-groups#cd2f956f8d4oz" id="9302045c6b0h6" title="" class="xref">创建机器组</a>。</p>
+                    </li>
+                  </ol>
+                </li>
+              </ul>
+            </div>
+          </li>
+          <li data-tag="step" id="step-wft-dbm-qd0" is-conref="true" class="step">
+<p id="e97e28f06bxf8">确认目标机器组已在<b id="1e7015a06b9a7">应用机器组</b>区域，单击<b id="uicontrol-wl7-12t-60c" data-tag="uicontrol" data-isbold="true" class="uicontrol">下一步</b>。</p>
+<div data-tag="info" id="info-s83-204-0ue" class="info">
+<div data-tag="note" id="note-yxn-dz8-2lr" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+<p id="e97e50006bwcw">创建机器组后立刻应用，可能因为连接未生效，导致心跳为<span class="help-letter-space"></span><b id="uicontrol-ers-oks-r01">FAIL</b>，您可单击<b id="uicontrol-1yw-iv1-32x">自动重试</b>。如果还未解决，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/sls/troubleshoot-the-errors-related-to-logtail-machine-groups#concept-nfs-hs3-bfb" id="xref-t8a-6cq-v15" title="" class="xref">Logtail<span class="help-letter-space"></span>机器组无心跳</a>进行排查。</p>
+</div></div>
+</div>
+</li>
+          <li data-tag="step" id="step-iix-3ub-wjd" class="step">
+            <p id="10d2f3903fze7"><span data-tag="cmd" id="cmd-48j-ais-vyz" class="cmd">在<b id="wintitle-m3a-sjs-4cm" data-tag="uicontrol" data-isbold="true" class="uicontrol">数据源设置</b>页签中，设置<b id="uicontrol-nj7-xol-w81" data-tag="uicontrol" data-isbold="true" class="uicontrol">配置名称</b>和<b id="uicontrol-yge-dyd-dss" data-tag="uicontrol" data-isbold="true" class="uicontrol">插件配置</b>，然后单击<b id="uicontrol-xtj-fqm-0yt" data-tag="uicontrol" data-isbold="true" class="uicontrol">下一步</b>。</span></p>
+            <div data-tag="info" id="info-sis-3qf-92w" class="info">
+              <div data-tag="p" id="p-gpg-qk8-sq2" is-conref="true" class="p">
+                <div data-tag="note" id="note-43e-gyt-995" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                  <p id="6f51a9c06fkqg">inputs<span class="help-letter-space"></span>为数据源配置，必选项。一个<span class="help-letter-space"></span>inputs<span class="help-letter-space"></span>中只允许配置一个类型的数据源。</p>
+                </div></div>
+              </div><pre data-tag="codeblock" id="codeblock-kcu-74f-cb5" outputclass="language-json" class="pre codeblock language-json"><code>{
+<pre data-tag="codeblock" id="codeblock-kcu-74f-cb5" outputclass="language-json" class="pre codeblock language-json"><code>{
+    "inputs": [
+        {
+            "detail": {
+                "tcp": [
+                    {
+                        "port": 80,
+                        "src": "192.XX.XX.103",
+                        "count": 3,
+                        "target": "www.aliyun.com"
+                    }
+                ],
+                "interval_seconds": 60,
+                "icmp": [
+                    {
+                        "src": "192.XX.XX.103",
+                        "count": 3,
+                        "target": "www.aliyun.com"
+                    }
+                ],
+                "http": [
+     				{
+         				"src": "192.XX.XX.103",
+         				"expect_code": 200,
+        				"target": "www.aliyun.com"
+      				}
+          		]
+            },
+            "type": "metric_input_netping"
+        }
+    ]
+}</code></pre>
+              <table id="table-r39-93i-ohw" tablewidth="709" tablecolswidth="129 129 129 322" autofit="false" class="table">
+                <colgroup colwidth="0.73*" style="width:18.19%"></colgroup>
+                <colgroup colwidth="0.73*" style="width:18.19%"></colgroup>
+                <colgroup colwidth="0.73*" style="width:18.19%"></colgroup>
+                <colgroup colwidth="1.82*" style="width:45.42%"></colgroup>
+                <tbody class="tbody">
+                  <tr id="row-8rt-xx8-stn">
+                    <td id="task-2209895-entry-hpz-mmf-txx" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="10d405003fauv"><b>参数</b></p>
+                    </td>
+                    <td id="task-2209895-entry-pr1-4y6-sdp" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="10d405013fnhm"><b>类型</b></p>
+                    </td>
+                    <td id="task-2209895-entry-boj-nbl-y0n" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="10d405023f6av"><b>是否必选</b></p>
+                    </td>
+                    <td id="task-2209895-entry-jw8-dla-q7q" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                      <p id="10d405033f9hy"><b>参数说明</b></p>
+                    </td>
+                  </tr>
+                  <tr id="row-4dc-kok-3tu">
+                    <td id="entry-b49-ilk-vn2" rowspan="1" colspan="1">
+                      <p id="10d405043foty"><span data-tag="parmname" id="parmname-m8n-j5x-me9" class="parmname">tcp</span></p>
+                    </td>
+                    <td id="entry-6jj-iux-53w" rowspan="1" colspan="1">
+                      <p id="10d42c103fb7w">array</p>
+                    </td>
+                    <td id="entry-0rh-0vu-z8x" rowspan="1" colspan="1">
+                      <p id="10d42c113f1hi">是</p>
+                    </td>
+                    <td id="entry-f0i-2dz-5d0" rowspan="1" colspan="1">
+                      <p id="10d42c123fs04">采集<span class="help-letter-space"></span>TCP ping<span class="help-letter-space"></span>数据。详细参数说明如下，参数值需根据实际值替换。</p>
+                      <ul data-tag="ul" id="ul-aqh-7rn-t89" class="ul">
+                        <li data-tag="li" id="li-v80-hy5-db7" class="li">
+                          <p id="10d47a303fin4"><code data-tag="code" class="code">port</code>：端口号。</p>
+                        </li>
+                        <li data-tag="li" id="li-ele-h9y-zpo" class="li">
+                          <p id="10d47a313fuv4"><code data-tag="code" class="code">src</code>：执行<span class="help-letter-space"></span>ping<span class="help-letter-space"></span>命令的服务器的<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址。即由<code data-tag="code" class="code">src</code>字段决定在机器组的哪台机器中执行<span class="help-letter-space"></span>ping<span class="help-letter-space"></span>命令。</p>
+                        </li>
+                        <li data-tag="li" id="li-3a0-fm6-qct" class="li">
+                          <p id="10d47a323fhcw"><code data-tag="code" class="code">count</code>：限制执行一次<span class="help-letter-space"></span>ping<span class="help-letter-space"></span>命令发送的数据包数量。建议使用默认值<span class="help-letter-space"></span>3，取值范围为(0,10)。</p>
+                        </li>
+                        <li data-tag="li" id="li-5iq-h4t-732" class="li">
+                          <p id="10d4a1403fbat"><code data-tag="code" class="code">target</code>：目标主机名或<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址。即由<code data-tag="code" class="code">target</code>字段决定<span class="help-letter-space"></span>ping<span class="help-letter-space"></span>的目标主机名或<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址。</p>
+                        </li>
+                        <li id="ff9bfd913fy3n">
+                          <p id="ff9bfd923f7tq"><code data-tag="code" class="code">name</code>：名称，默认为{src}-&gt;{target}。</p>
+                        </li>
+                        <li id="ff9bfd933fokz">
+                          <p id="ff9bfd943fmvb"><code data-tag="code" class="code">labels</code>：标签，支持增加指标标签。</p>
+                        </li>
+                      </ul>
+                      <div data-tag="p" id="p-agu-5f5-qz5" class="p">
+                        <p id="10d4a1413f47e">支持添加多个<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址，示例如下：</p><pre data-tag="codeblock" id="codeblock-nd2-rol-5lq" outputclass="language-http" class="pre codeblock language-http"><code>"tcp": [
+    {
+         "port": 80,
+         "src": "192.XX.XX.103",
+         "count": 3,
+         "target": "www.aliyun.com"
+     },
+     {
+          "port": 80,
+          "src": "192.XX.XX.104",
+          "count": 3,
+          "target": "www.aliyun.com"
+      }
+        ]</code></pre>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr id="row-9ul-0h5-7yq">
+                    <td id="entry-eqo-bmq-4av" rowspan="1" colspan="1">
+                      <p id="10d4a1423fgl7"><span data-tag="parmname" id="parmname-re3-n07-r5b" class="parmname">icmp</span></p>
+                    </td>
+                    <td id="entry-es0-c9x-k50" rowspan="1" colspan="1">
+                      <p id="10d4a1433fno6">array</p>
+                    </td>
+                    <td id="entry-o65-jh4-zbj" rowspan="1" colspan="1">
+                      <p id="10d4a1443ff4e">是</p>
+                    </td>
+                    <td id="entry-dwn-n1u-5zs" rowspan="1" colspan="1">
+                      <p id="10d4a1453f2fz">采集<span class="help-letter-space"></span>ICMP ping<span class="help-letter-space"></span>数据。详细参数说明如下，参数值需根据实际值替换。</p>
+                      <ul data-tag="ul" id="ul-o9c-w0g-8vg" class="ul">
+                        <li data-tag="li" id="li-i80-b98-g7q" class="li">
+                          <p id="10d4c8503fxnd"><code data-tag="code" class="code">src</code>：执行<span class="help-letter-space"></span>ping<span class="help-letter-space"></span>命令的服务器的<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址。即由<code data-tag="code" class="code">src</code>字段决定在机器组的哪台机器中执行<span class="help-letter-space"></span>ping<span class="help-letter-space"></span>命令。</p>
+                        </li>
+                        <li data-tag="li" id="li-ai5-4xo-z9l" class="li">
+                          <p id="10d4c8513fl5o"><code data-tag="code" class="code">count</code>：限制执行一次<span class="help-letter-space"></span>ping<span class="help-letter-space"></span>命令发送的数据包数量。建议使用默认值<span class="help-letter-space"></span>3，取值范围为(0,10)。</p>
+                        </li>
+                        <li data-tag="li" id="li-uvf-991-wpj" class="li">
+                          <p id="10d4c8523f2zi"><code data-tag="code" class="code">target</code>：目标的主机名或<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址。即由<code data-tag="code" class="code">target</code>字段决定<span class="help-letter-space"></span>ping<span class="help-letter-space"></span>的目标主机名或<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址。</p>
+                        </li>
+                        <li id="fd5e69a13f52g">
+                          <p id="fd5e69a23fcym"><code data-tag="code" class="code">name</code>：名称，默认为{src}-&gt;{target}。</p>
+                        </li>
+                        <li id="fd5e69a33fqpm">
+                          <p id="fd5e69a43fjs3"><code data-tag="code" class="code">labels</code>：标签，支持增加指标标签。</p>
+                        </li>
+                      </ul>
+                      <div data-tag="p" id="p-11s-fdl-tha" class="p">
+                        <p id="10d4c8533f93z">支持添加多个<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址，示例如下：</p><pre data-tag="codeblock" id="codeblock-wur-s2s-k5j" outputclass="language-http" class="pre codeblock language-http"><code>"icmp": [
+     {
+         "src": "192.XX.XX.103",
+         "count": 3,
+         "target": "www.aliyun.com"
+      },
+      {
+           "src": "192.XX.XX.104",
+           "count": 3,
+           "target": "www.aliyun.com"
+       }
+          ]</code></pre>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr id="7ccff3803fzp8" style="height:634px">
+                    <td id="7ccff3813f3tm" rowspan="1" colspan="1">
+                      <p id="7ccff3823fz2c">http</p>
+                    </td>
+                    <td id="7ccff3833fiyf" rowspan="1" colspan="1">
+                      <p uuid="llk7pf0tgo8wbngs3mc" id="81baf4303fchv">array</p>
+                    </td>
+                    <td id="7ccff3853f4xa" rowspan="1" colspan="1">
+                      <p id="7ccff3863fif8">是</p>
+                    </td>
+                    <td id="7ccff3873ff2s" rowspan="1" colspan="1">
+                      <p id="7ccff3883fwaj">采集<span class="help-letter-space"></span>HTTP ping<span class="help-letter-space"></span>数据。详细参数说明如下，参数值需根据实际值替换。</p>
+                      <ul id="86c627103fgh9">
+                        <li id="86c627113faa1">
+                          <p id="86c627123flat"><code data-tag="code" class="code">src</code>：执行<span class="help-letter-space"></span>ping<span class="help-letter-space"></span>命令的服务器的<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址。即由<span class="help-letter-space"></span>src<span class="help-letter-space"></span>字段决定在机器组的哪台机器中执行<span class="help-letter-space"></span>ping<span class="help-letter-space"></span>命令。</p>
+                        </li>
+                        <li id="86c627133fr5v">
+                          <p id="86c627143flkk"><code data-tag="code" class="code">method</code>：执行请求的<span class="help-letter-space"></span>http method，默认<span class="help-letter-space"></span>get。</p>
+                        </li>
+                        <li id="86c627153f49h">
+                          <p id="86c627163fooq"><code data-tag="code" class="code">expect_response_contains</code>： 预期结果包含内容。</p>
+                        </li>
+                        <li id="86c627173fotf">
+                          <p id="86c627183frch"><code data-tag="code" class="code">expect_code</code>：预期状态码。</p>
+                        </li>
+                        <li id="86c64e203f4b8">
+                          <p id="86c64e213fayv"><code data-tag="code" class="code">target</code>：目的地址，支持<span class="help-letter-space"></span>https。</p>
+                        </li>
+                        <li id="86c64e223fwex">
+                          <p id="86c64e233fqps"><code data-tag="code" class="code">name</code>：名称，默认为{src}-&gt;{target}。</p>
+                        </li>
+                        <li id="86c64e243fa4v">
+                          <p id="86c64e253f9pj"><code data-tag="code" class="code">labels</code>：标签，支持增加指标标签。</p>
+                        </li>
+                      </ul><pre id="ni4egm" title="" uuid="llk7qdn6c2d6tb0xfp4" code="&quot;http&quot;: [
+     {
+         &quot;src&quot;: &quot;192.XX.XX.103&quot;,
+         &quot;expect_code&quot;: 200,
+         &quot;target&quot;: &quot;www.aliyun.com&quot;
+      }
+          ]" data-tag="codeblock" outputclass="language-http" class="pre codeblock language-http"><code>"http": [
+     {
+         "src": "192.XX.XX.103",
+         "expect_code": 200,
+         "target": "www.aliyun.com"
+      }
+          ]</code></pre>
+                    </td>
+                  </tr>
+                  <tr id="row-m2g-4jv-sg4">
+                    <td id="entry-n6n-b2n-pbe" rowspan="1" colspan="1">
+                      <p id="10d4c8543fgx7"><span data-tag="parmname" id="parmname-peu-pg6-2wk" class="parmname">interval_seconds</span></p>
+                    </td>
+                    <td id="entry-3k7-m84-7xz" rowspan="1" colspan="1">
+                      <p id="10d4c8553fy0q">int</p>
+                    </td>
+                    <td id="entry-ut5-ft2-n1e" rowspan="1" colspan="1">
+                      <p id="10d4c8563fi15">是</p>
+                    </td>
+                    <td id="entry-wiy-20m-ken" rowspan="1" colspan="1">
+                      <p id="10d4ef603fmv0">执行<span class="help-letter-space"></span>ping<span class="help-letter-space"></span>命令的时间间隔，单位：秒。</p>
+                      <ul data-tag="ul" id="ul-471-udv-zpm" class="ul">
+                        <li data-tag="li" id="li-i8v-ozu-xau" class="li">
+                          <p id="10d4ef613f8vr">默认值：60。</p>
+                        </li>
+                        <li data-tag="li" id="li-afs-xbt-wct" class="li">
+                          <p id="10d4ef623f7ru">取值范围：[10, 86400)</p>
+                        </li>
+                      </ul>
+                    </td>
+                  </tr>
+                  <tr id="row-c8m-ekw-4jq" style="height:92px">
+                    <td id="entry-96t-f3d-61m" rowspan="1" colspan="1">
+                      <p id="10d4ef633fp21"><span data-tag="parmname" id="parmname-462-uvu-cla" class="parmname">type</span></p>
+                    </td>
+                    <td id="entry-9bh-p4c-16q" rowspan="1" colspan="1">
+                      <p id="10d4ef643fmta">string</p>
+                    </td>
+                    <td id="entry-qvs-bro-007" rowspan="1" colspan="1">
+                      <p id="10d4ef653fc0s">是</p>
+                    </td>
+                    <td id="entry-zcq-qoq-zb6" rowspan="1" colspan="1">
+                      <p id="10d4ef663fbdn">数据源类型，固定为<span class="help-letter-space"></span>metric_input_netping。</p>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </code></pre></div>
+          </li>
+        </ol>
+      </section>
+      <section data-tag="postreq" id="postreq-wae-fka-bvm" data-type="postreq" class="postreq section">
+        <h2 id="d41e194">后续步骤</h2>
+        <p id="10d4ef673fml1">采集<span class="help-letter-space"></span>ping<span class="help-letter-space"></span>数据后，您可以在<span class="help-letter-space"></span>Metricstore<span class="help-letter-space"></span>中进行查询分析。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/query-and-analyze-metric-data#task-2539642" id="xref-uog-84h-mko" title="" class="xref">查询和分析时序数据</a>。在日志服务<span class="help-letter-space"></span>SLS<span class="help-letter-space"></span>的查询分析页面中，可通过<span class="help-letter-space"></span>PromQL<span class="help-letter-space"></span>查询相关指标，并以折线图形式展示<span class="help-letter-space"></span>ping<span class="help-letter-space"></span>延迟数据的变化趋势。</p>
+        <p data-tag="p" id="p-lsd-drn-6f8" class="p">相关指标说明如下表所示。</p>
+        <table id="table-2uz-sli-src" tablewidth="708" tablecolswidth="157 157 394" autofit="false" class="table">
+          <colgroup colwidth="0.67*" style="width:22.18%"></colgroup>
+          <colgroup colwidth="0.67*" style="width:22.18%"></colgroup>
+          <colgroup colwidth="1.67*" style="width:55.65%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-n31-4sx-w3y">
+              <td id="task-2209895-entry-cnk-35s-9pu" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="10d516703f0lh"><b>分类</b></p>
+              </td>
+              <td id="task-2209895-entry-nvf-klh-m91" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="10d516713f78d"><b>指标名</b></p>
+              </td>
+              <td id="task-2209895-entry-53g-z1o-w8m" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="10d516723f41b"><b>说明</b></p>
+              </td>
+            </tr>
+            <tr id="row-wge-p78-dwo">
+              <td id="entry-c29-llp-ggf" rowspan="8" colspan="1">
+                <p id="10d516733f403">ICMP ping</p>
+              </td>
+              <td id="entry-t7r-i3e-ozc" rowspan="1" colspan="1">
+                <p id="10d516743fyxy">ping_failed</p>
+              </td>
+              <td id="entry-w9y-fkg-xh1" rowspan="1" colspan="1">
+                <p id="10d516753fty2">单次执行<span class="help-letter-space"></span>icmp ping<span class="help-letter-space"></span>命令，发送失败的数据包数量。</p>
+              </td>
+            </tr>
+            <tr id="row-cmh-08c-l2d">
+              <td id="entry-qjc-ufd-n9s" rowspan="1" colspan="1">
+                <p id="10d53d813frsr">ping_rtt_avg_ms</p>
+              </td>
+              <td id="entry-fyf-fu1-05g" rowspan="1" colspan="1">
+                <p id="10d53d823frb6">单次执行<span class="help-letter-space"></span>icmp ping<span class="help-letter-space"></span>命令的平均响应时间，单位：毫秒。</p>
+              </td>
+            </tr>
+            <tr id="row-ss9-xkc-gdq">
+              <td id="entry-zuk-frk-xuz" rowspan="1" colspan="1">
+                <p id="10d53d853f6hm">ping_rtt_max_ms</p>
+              </td>
+              <td id="entry-srf-633-uaq" rowspan="1" colspan="1">
+                <p id="10d53d863fjf7">单次执行<span class="help-letter-space"></span>icmp ping<span class="help-letter-space"></span>命令的最大响应时间，单位：毫秒。</p>
+              </td>
+            </tr>
+            <tr id="row-xu9-2md-qv9">
+              <td id="entry-v55-q3w-bo3" rowspan="1" colspan="1">
+                <p id="10d53d893frd4">ping_rtt_min_ms</p>
+              </td>
+              <td id="entry-5ub-1x9-7tk" rowspan="1" colspan="1">
+                <p id="10d564903fwgh">单次执行<span class="help-letter-space"></span>icmp ping<span class="help-letter-space"></span>命令的最小响应时间，单位：毫秒。</p>
+              </td>
+            </tr>
+            <tr id="row-yvw-ip5-hvr">
+              <td id="entry-zqh-vyk-sn6" rowspan="1" colspan="1">
+                <p id="10d564933fay0">ping_rtt_stddev_ms</p>
+              </td>
+              <td id="entry-75x-81k-0aq" rowspan="1" colspan="1">
+                <p id="10d564943feqf">单次执行<span class="help-letter-space"></span>icmp ping<span class="help-letter-space"></span>命令的标准差时间，单位：毫秒。</p>
+              </td>
+            </tr>
+            <tr id="row-o7p-9xh-45j">
+              <td id="entry-ikr-kmm-zbb" rowspan="1" colspan="1">
+                <p id="10d564973fywv">ping_rtt_total_ms</p>
+              </td>
+              <td id="entry-r45-p9i-niu" rowspan="1" colspan="1">
+                <p id="10d564983fwew">单次执行<span class="help-letter-space"></span>icmp ping<span class="help-letter-space"></span>命令的总响应时间，单位：毫秒。</p>
+              </td>
+            </tr>
+            <tr id="row-loh-oz3-fsb">
+              <td id="entry-eua-prk-28w" rowspan="1" colspan="1">
+                <p id="10d58ba13fn0a">ping_succcess</p>
+              </td>
+              <td id="entry-ne2-vqu-an4" rowspan="1" colspan="1">
+                <p id="10d58ba23fp95">单次执行<span class="help-letter-space"></span>icmp ping<span class="help-letter-space"></span>命令，发送成功的数据包数量。</p>
+              </td>
+            </tr>
+            <tr id="row-xaq-fz4-r36">
+              <td id="entry-juv-j28-8zm" rowspan="1" colspan="1">
+                <p id="10d58ba53f8q9">ping_total</p>
+              </td>
+              <td id="entry-hjr-c5c-80k" rowspan="1" colspan="1">
+                <p id="10d58ba63fzec">单次执行<span class="help-letter-space"></span>icmp ping<span class="help-letter-space"></span>命令，发送的数据包总数。</p>
+              </td>
+            </tr>
+            <tr id="26d2a6203fdjt">
+              <td id="26d2a6213fkgf" rowspan="8" colspan="1">
+                <p id="2b2bee203fu2i">TCP ping</p>
+              </td>
+              <td id="26d2a6233ffu4" rowspan="1" colspan="1">
+                <p id="31db0d003f8w8">tcping_failed</p>
+              </td>
+              <td id="26d2cd303fpe2" rowspan="1" colspan="1">
+                <p id="29031ab03f7kd">单次执行<span class="help-letter-space"></span>tcp ping<span class="help-letter-space"></span>命令，发送失败的数据包数量。</p>
+              </td>
+            </tr>
+            <tr id="2fb67f503fpwp">
+              <td id="2fb6a6623fg43" rowspan="1" colspan="1">
+                <p id="357300d03fpn8">tcping_rtt_avg_ms</p>
+              </td>
+              <td id="2fb6a6643f14f" rowspan="1" colspan="1">
+                <p id="3869f9b03ff26">单次执行<span class="help-letter-space"></span>tcp ping<span class="help-letter-space"></span>命令的平均响应时间，单位：毫秒。</p>
+              </td>
+            </tr>
+            <tr id="2f9933503f7tx">
+              <td id="2f9933533fs6f" rowspan="1" colspan="1">
+                <p id="3bef4fe03fayq">tcping_rtt_max_ms</p>
+              </td>
+              <td id="2f9933553fipf" rowspan="1" colspan="1">
+                <p id="50cf17b03fu43">单次执行<span class="help-letter-space"></span>tcp ping<span class="help-letter-space"></span>命令的最大响应时间，单位：毫秒。</p>
+              </td>
+            </tr>
+            <tr id="2f7c35703f9f0" style="height:42px">
+              <td id="2f7c5c823foh0" rowspan="1" colspan="1">
+                <p id="3e24cd803f2mf">tcping_rtt_min_ms</p>
+              </td>
+              <td id="2f7c5c843fmmp" rowspan="1" colspan="1">
+                <p id="642161b03fdtd">单次执行<span class="help-letter-space"></span>tcp ping<span class="help-letter-space"></span>命令的最小响应时间，单位：毫秒。</p>
+              </td>
+            </tr>
+            <tr id="2f31e6003f0de" style="height:67px">
+              <td id="2f31e6033facd" rowspan="1" colspan="1">
+                <p id="40743bc03fodl">tcpping_rtt_stddev_ms</p>
+              </td>
+              <td id="2f31e6053f724" rowspan="1" colspan="1">
+                <p id="5744b0003fy66">单次执行<span class="help-letter-space"></span>tcp ping<span class="help-letter-space"></span>命令的标准差时间，单位：毫秒。</p>
+              </td>
+            </tr>
+            <tr id="41a5b6e03fex6">
+              <td id="41a605003f3zw" rowspan="1" colspan="1">
+                <p id="462943303fddp">tcping_rtt_total_ms</p>
+              </td>
+              <td id="41a605023f042" rowspan="1" colspan="1">
+                <p id="5a6578003frpo">单次执行<span class="help-letter-space"></span>tcp ping<span class="help-letter-space"></span>命令的总响应时间，单位：毫秒。</p>
+              </td>
+            </tr>
+            <tr id="416fb2c03f7ak">
+              <td id="416fb2c33fnbo" rowspan="1" colspan="1">
+                <p id="4886bb303fh2a">tcping_succcess</p>
+              </td>
+              <td id="416fb2c53fl8n" rowspan="1" colspan="1">
+                <p id="6a653ba03fkpj">单次执行<span class="help-letter-space"></span>tcp ping<span class="help-letter-space"></span>命令，发送成功的数据包数量。</p>
+              </td>
+            </tr>
+            <tr id="4924a8e03fadj">
+              <td id="4924f7003fz96" rowspan="1" colspan="1">
+                <p id="4ae8a0003fzvr">tcping_total</p>
+              </td>
+              <td id="4924f7023fep7" rowspan="1" colspan="1">
+                <p id="6c9932a03fejr">单次执行<span class="help-letter-space"></span>tcp ping<span class="help-letter-space"></span>命令，发送的数据包总数。</p>
+              </td>
+            </tr>
+            <tr id="bfc40cd03ffwz">
+              <td id="bfc40cd13fmdt" rowspan="6" colspan="1">
+                <p id="da136ea03fw4q" uuid="llkbh6cqacnscj3zzxr">HTTP ping</p>
+              </td>
+              <td id="bfc40cd33fyhg" rowspan="1" colspan="1">
+                <p id="dc8866403fjma" uuid="llkbh6cqknva6gpssgd">httping_failed</p>
+              </td>
+              <td id="bfc40cd53f32x" rowspan="1" colspan="1">
+                <p id="eb22f4903fdxb" uuid="llkbh6cq62yd7dkp7u">单次执行<span class="help-letter-space"></span>http ping<span class="help-letter-space"></span>命令，发送失败的数量。</p>
+              </td>
+            </tr>
+            <tr id="deadb7403f8ks">
+              <td id="deae05603f6so" rowspan="1" colspan="1">
+                <p id="e0ada5f03fu8c" uuid="llkbi1u40w2pajfanmo">httping_succcess</p>
+              </td>
+              <td id="deae2c703f1qg" rowspan="1" colspan="1">
+                <p id="ed13c8103fqxs" uuid="llkbi1u59sy995upuoa">单次执行<span class="help-letter-space"></span>http ping<span class="help-letter-space"></span>命令，发送成功的数量。</p>
+              </td>
+            </tr>
+            <tr id="de840f303f29e">
+              <td id="de8436403f950" rowspan="1" colspan="1">
+                <p id="e2bf96003ft9p" uuid="llkbi1u717ihph1am26">httping_total</p>
+              </td>
+              <td id="de8436423f4wa" rowspan="1" colspan="1">
+                <p id="ef10a9803fkqp" uuid="llkbi1u8g3gjuwwkm1g">单次执行<span class="help-letter-space"></span>http ping<span class="help-letter-space"></span>命令，发送的总数。</p>
+              </td>
+            </tr>
+            <tr id="de4cab803fe3u">
+              <td id="de4cd2913fsy7" rowspan="1" colspan="1">
+                <p id="e493b9c03fmsw" uuid="llkbh6cq8cv25g95v6">httping_rt_ms</p>
+              </td>
+              <td id="de4cd2933foud" rowspan="1" colspan="1">
+                <p id="f18071003ftjf" uuid="llkbh6cqz8yhf9xq3x">单次执行<span class="help-letter-space"></span>http ping<span class="help-letter-space"></span>命令延迟，单位：毫秒。</p>
+              </td>
+            </tr>
+            <tr id="de0f2d503fm4u">
+              <td id="de0f54613f22q" rowspan="1" colspan="1">
+                <p id="e61f14b03f34g" uuid="llkbh6cqrz0sxjk5upo">httping_response_bytes</p>
+              </td>
+              <td id="de0f54633fyw0" rowspan="1" colspan="1">
+                <p id="f3c1ae703fz9v" uuid="llkbh6cqp88nkj45dei">单次执行<span class="help-letter-space"></span>http ping<span class="help-letter-space"></span>命令响应值大小，单位：Byte。</p>
+              </td>
+            </tr>
+            <tr id="e73fc6f03fdld">
+              <td id="e73fee013fu25" rowspan="1" colspan="1">
+                <p id="e8eed6803fgqv" uuid="llkbh6cq4tb23sgymy4">httping_cert_ttl_days</p>
+              </td>
+              <td id="e73fee033fws7" rowspan="1" colspan="1">
+                <p id="f63e47303fz3x" uuid="llkbh6cqpzepyj74hgq">单次执行<span class="help-letter-space"></span>http ping<span class="help-letter-space"></span>命令证书过期时间，单位：Day。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/sls/collect-metric-data-from-open-falcon" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：采集Open-Falcon数据</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/sls/use-prometheus-to-collect-kubernetes-metric-data" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：使用Prometheus采集Kubernetes监控数据<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

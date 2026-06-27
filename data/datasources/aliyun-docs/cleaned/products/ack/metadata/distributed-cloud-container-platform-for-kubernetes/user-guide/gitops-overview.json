@@ -1,0 +1,17 @@
+{
+  "id": "ack:distributed-cloud-container-platform-for-kubernetes/user-guide/gitops-overview",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "什么是ACK One GitOps-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/distributed-cloud-container-platform-for-kubernetes/user-guide/gitops-overview",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/distributed-cloud-container-platform-for-kubernetes/user-guide/gitops-overview.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/distributed-cloud-container-platform-for-kubernetes/user-guide/gitops-overview.md",
+  "word_count": 1056,
+  "text_units": 2125,
+  "local_links": 0,
+  "external_links": 106,
+  "has_tables": true,
+  "table_count": 3,
+  "quality": "accepted"
+}

@@ -1,0 +1,14 @@
+{
+  "id": "cdn:use-cases/accelerate-the-retrieval-of-resources-from-an-oss-bucket-in-the-alibaba-cloud-cdn-console:0",
+  "document_id": "cdn:use-cases/accelerate-the-retrieval-of-resources-from-an-oss-bucket-in-the-alibaba-cloud-cdn-console",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "本文档详细说明了如何通过阿里云CDN加速OSS静态资源访问，包括技术架构、配置流程及优化建议，帮助用户提升访问速度并降低源站负载。-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/use-cases/accelerate-the-retrieval-of-resources-from-an-oss-bucket-in-the-alibaba-cloud-cdn-console",
+  "chunk_index": 0,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/cdn/documents/use-cases/accelerate-the-retrieval-of-resources-from-an-oss-bucket-in-the-alibaba-cloud-cdn-console.chunk-0000.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/use-cases/accelerate-the-retrieval-of-resources-from-an-oss-bucket-in-the-alibaba-cloud-cdn-console.md",
+  "heading_path": "CDN 加速 OSS 资源",
+  "char_count": 272
+}

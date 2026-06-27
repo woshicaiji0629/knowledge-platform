@@ -1,0 +1,5 @@
+### [AliyunCSManagedCostRole](../../../../ram/documents/developer-reference/aliyuncsmanagedcostrolepolicy.md)
+说明：
+ACK托管集群、ACK Edge集群和ACK Serverless集群的成本分析组件使用该角色访问您在账单管理API、ECS和ECI服务中的资源。
+授权代码：
+{ name = "AliyunCSManagedCostRole" policy_document = "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":[\"cs.aliyuncs.com\"]}}],\"Version\":\"1\"}" description = "集群的成本分析组件使用该角色访问您在账单管理API、ECS和ECI服务中的资源。" policy_name = "AliyunCSManagedCostRolePolicy" }

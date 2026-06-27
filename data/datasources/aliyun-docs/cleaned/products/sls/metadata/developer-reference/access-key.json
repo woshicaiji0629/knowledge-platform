@@ -1,0 +1,17 @@
+{
+  "id": "sls:developer-reference/access-key",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "了解并创建RAM用户的AccessKey-日志服务-阿里云",
+  "source_url": "https://help.aliyun.com/zh/sls/developer-reference/access-key",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/developer-reference/access-key.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/developer-reference/access-key.md",
+  "word_count": 563,
+  "text_units": 1287,
+  "local_links": 3,
+  "external_links": 63,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

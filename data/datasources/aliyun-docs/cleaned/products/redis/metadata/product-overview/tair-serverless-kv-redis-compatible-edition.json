@@ -1,0 +1,17 @@
+{
+  "id": "redis:product-overview/tair-serverless-kv-redis-compatible-edition",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "Tair Serverless KV实例,Redis Serverless KV-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/tair-serverless-kv-redis-compatible-edition",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/product-overview/tair-serverless-kv-redis-compatible-edition.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/tair-serverless-kv-redis-compatible-edition.md",
+  "word_count": 857,
+  "text_units": 2322,
+  "local_links": 3,
+  "external_links": 73,
+  "has_tables": true,
+  "table_count": 5,
+  "quality": "accepted"
+}

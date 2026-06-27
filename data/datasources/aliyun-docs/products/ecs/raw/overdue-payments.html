@@ -1,0 +1,426 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    欠费对ECS资源的影响、欠费原因和欠费处理方式-云服务器 ECS(ECS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/ecs/overdue-payments">
+  <meta name="keywords" content="欠费说明,阿里云欠费,ECS欠费,包年包月,按量付费">
+  <meta name="description" content="如果您账号的可用额度（含阿里云账户余额和代金券）小于待结算的账单，账号会进入欠费状态。本文主要介绍欠费对ECS资源的影响、如何结清欠费账单以及如何避免欠费等。">
+  <meta name="last-modified" content="2026-04-23T20:23:47+08:00">
+  <meta name="date" content="2021-10-29T05:53:14+08:00">
+  <meta property="og:title" content="欠费说明">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/ecs/overdue-payments">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="如果您账号的可用额度（含阿里云账户余额和代金券）小于待结算的账单，账号会进入欠费状态。本文主要介绍欠费对ECS资源的影响、如何结清欠费账单以及如何避免欠费等。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/ecs/overdue-payments",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "333532",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/ecs/overdue-payments","nodeId":null,"data":{"lastModifiedTime":1776947027000,"keywords":"欠费说明,阿里云欠费,ECS欠费,包年包月,按量付费","docTitle":"ECS欠费说明","language":"zh","seoTitle":"欠费对ECS资源的影响、欠费原因和欠费处理方式-云服务器 ECS(ECS)-阿里云帮助中心","title":"欠费说明","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"concept-2128819\">\n    \n    \n    <p id=\"shortdesc-kva-5hv-7x3\" data-tag=\"shortdesc\" class=\"shortdesc\">如果您账号的可用额度（含阿里云账户余额和代金券）小于待结算的账单，账号会进入欠费状态。本文主要介绍欠费对<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>资源的影响、如何结清欠费账单以及如何避免欠费等。</p>\n    <div data-tag=\"conbody\" id=\"conbody-hef-iun-0vk\" class=\"conbody\">\n      <div id=\"7d6a5025e62ow\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n        <p id=\"504658da7erys\">出现欠费后有停机风险，系统会提醒或通知您，请及时结清欠费账单，避免对您的服务造成影响。</p>\n      </div></div>\n      <section id=\"section-hd6-fsq-yy5\" data-tag=\"section\" props=\"china\" data-type=\"section\" data-cond-props=\"china\" class=\"section\">\n        <h2 id=\"46598f803casb\"><b>欠费影响</b></h2>\n        <section id=\"dba98fd047omb\" class=\"section\">\n          <h3 id=\"7ba4e6d03cfb4\"><b>包年包月<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>资源</b></h3>\n          <div type=\"note\" id=\"c79d452d138so\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n            <p uuid=\"m0nhaawnfk0xlemrrwl\" id=\"10b769e713x9v\">包年包月<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>资源有使用期限。到期对资源的影响，可参见<a href=\"https://help.aliyun.com/zh/ecs/subscription#section-n4y-1zm-7kc\" id=\"79b2284900zj7\" title=\"\" class=\"xref\">包年包月</a>。</p>\n          </div></div>\n          <p id=\"90a8d8703cbv4\">账号欠费后，您仍可以使用已有的包年包月<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>资源，但存在以下限制：</p>\n          <ul id=\"d5f21312f4fdx\">\n            <li id=\"36ac7d827bb0k\">\n              <p id=\"fcfae20f1d83q\">无法执行涉及费用的操作，例如新购、升级或续费实例、扩容云盘等。</p>\n            </li>\n            <li id=\"6287eb33b0336\">\n              <p id=\"218b4152ddc19\">如果包年包月<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例挂载了按量付费云盘，或使用的公网带宽为按使用流量计费，欠费后无法正常使用对应云盘和公网带宽服务。欠费对按量付费云盘和公网的影响，请参见<a href=\"#b55b39603c7b6\" id=\"ddb7591cbel2x\" title=\"\" class=\"xref\">按量付费<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>资源</a>。</p>\n              <p id=\"b2a4239c57prc\">若欠费超过<span class=\"help-letter-space\"></span>15<span class=\"help-letter-space\"></span>天，系统会卸载并释放该云盘。根据您的使用方式不同，卸载云盘可能会失败。卸载失败后，该云盘也不会继续产生费用，但存在数据丢失的风险，建议您不再使用这些云盘。</p>\n            </li>\n          </ul>\n        </section>\n        <section id=\"1bc6ad3faeo93\" class=\"section\">\n          <h3 id=\"b55b39603c7b6\"><b>按量付费<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>资源</b></h3>\n          <p id=\"b123002c38530\">账号欠费后，系统会自动停止服务，欠费停机期间<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>资源暂停计费；持续欠费<span class=\"help-letter-space\"></span>15<span class=\"help-letter-space\"></span>天后，系统将释放或解绑所有<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>资源。</p>\n          <div id=\"456d86a041k89\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n            <ul id=\"65e3470b23fme\">\n              <li id=\"f7e72dcc8eai3\">\n                <p id=\"ddc043b1413m1\">如果您的账户欠费，即使已经设置自动释放时间，按量付费实例也不会按照设置的时间释放。</p>\n              </li>\n              <li id=\"ac34f41f27mg5\">\n                <p id=\"88127958b9vt1\">若您的实例已启用节省停机模式，计算资源（vCPU<span class=\"help-letter-space\"></span>和内存）会被回收。账号欠费后，再次启动该实例时会启动失败。<a href=\"https://help.aliyun.com/zh/ecs/user-guide/economical-mode#section-y82-e8u-176\" id=\"dfce191a39yv8\" title=\"\" class=\"xref\">什么是节省停机模式？</a></p>\n              </li>\n            </ul>\n          </div></div>\n          <p id=\"8d2d8c903dcu8\">欠费停机后，ECS<span class=\"help-letter-space\"></span>各资源保留情况如下：</p>\n          <table id=\"table-zrt-bpf-vsx\" tablewidth=\"710\" tablecolswidth=\"142 284 284\" autofit=\"false\" class=\"table\">\n            <colgroup colwidth=\"0.6*\" style=\"width:20.00%\"></colgroup>\n            <colgroup colwidth=\"1.2*\" style=\"width:40.00%\"></colgroup>\n            <colgroup colwidth=\"1.2*\" style=\"width:40.00%\"></colgroup>\n            <tbody class=\"tbody\">\n              <tr id=\"row-mix-mp6-8tc\">\n                <td id=\"concept-2128819-entry-k1b-enq-zza\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                  <p id=\"c4f8a4152bdcu\"><b>资源类型</b></p>\n                </td>\n                <td id=\"concept-2128819-entry-orw-0fn-0rk\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                  <p id=\"c4f8cb202bxxu\"><b>\n                      欠费后<span class=\"help-letter-space\"></span>15<span class=\"help-letter-space\"></span>天内\n                    </b></p>\n                </td>\n                <td id=\"concept-2128819-entry-3sj-vax-7da\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                  <p id=\"c4f8cb212bujt\"><b>欠费<span class=\"help-letter-space\"></span>15<span class=\"help-letter-space\"></span>天后</b></p>\n                </td>\n              </tr>\n              <tr id=\"row-88h-uej-yqk\">\n                <td id=\"entry-6uo-ut0-vp9\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0);vertical-align:middle\" colspan=\"1\">\n                  <p id=\"c4f8cb222bbtt\">计算资源（vCPU、GPU<span class=\"help-letter-space\"></span>和内存）</p>\n                </td>\n                <td id=\"entry-628-er3-7fn\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0);vertical-align:middle\" colspan=\"1\">\n                  <ul id=\"0ac31ad9c3ers\">\n                    <li id=\"55f4e8772bm1a\">\n                      <p jc=\"left\" uuid=\"mejlz7g95idlxzfp9i2\" id=\"f023fa9d6bet6\" style=\"text-align:left\">实例因欠费被关机并停止服务后会立即进入<b id=\"f447e60c8fcpw\" data-tag=\"uicontrol\" data-isbold=\"true\" data-params-value=\"Expired\" data-format-type=\"icu\" class=\"uicontrol\">已过期</b>状态。</p>\n                    </li>\n                    <li id=\"604d006997uo0\">\n                      <p jc=\"left\" uuid=\"metslj1e1aapgqruav7\" id=\"ea73dfdc0f5ih\" style=\"text-align:left\">实例停止服务后<span class=\"help-letter-space\"></span>48<span class=\"help-letter-space\"></span>小时内阿里云会释放实例的计算资源，此时，实例会进入<b id=\"a19a7b86158es\" data-tag=\"uicontrol\" data-isbold=\"true\" data-params-value=\"Recycling\" data-format-type=\"icu\" class=\"uicontrol\">欠费回收中</b>状态。</p>\n                      <ul id=\"c070f2616802g\">\n                        <li id=\"9d43fc632a74b\">\n                          <p id=\"64e0e08262fzw\">若实例状态为<b>已过期</b>，保留计算资源（vCPU、内存和<span class=\"help-letter-space\"></span>GPU）。</p>\n                        </li>\n                        <li id=\"5d3ab1c1795ag\">\n                          <p id=\"bda258ccf1aab\">若实例状态为<b>欠费回收中</b>，释放计算资源（vCPU、内存和<span class=\"help-letter-space\"></span>GPU）。</p>\n                        </li>\n                      </ul>\n                    </li>\n                  </ul>\n                </td>\n                <td id=\"entry-wat-dhi-ueb\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0);vertical-align:middle\" colspan=\"1\">\n                  <p id=\"c4f8cb252bf3a\">计算资源（vCPU、GPU<span class=\"help-letter-space\"></span>和内存）已被释放，无法恢复。 </p>\n                </td>\n              </tr>\n              <tr id=\"row-ltc-5mj-nh3\">\n                <td id=\"entry-tkn-o5t-nd1\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0);vertical-align:middle\" colspan=\"1\">\n                  <p id=\"c4f8cb262ba39\">块存储</p>\n                </td>\n                <td id=\"entry-7kc-h3p-dvp\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0);vertical-align:middle\" colspan=\"1\">\n                  <ul data-tag=\"ul\" id=\"ul-3k0-lru-z7h\" class=\"ul\">\n                    <li data-tag=\"li\" id=\"li-8es-tyx-ce6\" class=\"li\">\n                      <p id=\"c4f8cb272brrq\">保留云盘和云盘数据。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-hvv-3gj-p4l\" class=\"li\">\n                      <p id=\"a40914104688a\">保留本地盘，但本地盘数据可能随时被释放。</p>\n                    </li>\n                  </ul>\n                </td>\n                <td id=\"entry-0g3-fog-noe\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0);vertical-align:middle\" colspan=\"1\">\n                  <ul data-tag=\"ul\" id=\"ul-ceq-n3a-nw5\" class=\"ul\">\n                    <li data-tag=\"li\" id=\"li-isn-4hr-9tg\" class=\"li\">\n                      <p id=\"c4f8cb292bqhs\">释放云盘和云盘数据，数据无法恢复。 </p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-s7l-k0w-rj0\" class=\"li\">\n                      <p id=\"c4f8cb2a2bhdt\">释放本地盘，数据无法恢复 。</p>\n                    </li>\n                  </ul>\n                </td>\n              </tr>\n              <tr id=\"row-uvn-yo1-zc8\">\n                <td id=\"entry-snh-x57-sxn\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0);vertical-align:middle\" colspan=\"1\">\n                  <p id=\"c4f8f2302bdii\">公网<span class=\"help-letter-space\"></span>IP</p>\n                </td>\n                <td id=\"entry-bt1-yn2-kth\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0);vertical-align:middle\" colspan=\"1\">\n                  <ul data-tag=\"ul\" id=\"ul-8bv-yew-ffc\" class=\"ul\">\n                    <li data-tag=\"li\" id=\"li-gt9-pir-hz8\" class=\"li\">\n                      <p id=\"c4f8f2312bdoj\">保留固定公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址。 </p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-qbv-vie-wr3\" class=\"li\">\n                      <p id=\"c4f8f2332bvo7\">EIP<span class=\"help-letter-space\"></span>与<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例的生命周期相互独立，如果您使用了<span class=\"help-letter-space\"></span>EIP，账号欠费对<span class=\"help-letter-space\"></span>EIP<span class=\"help-letter-space\"></span>的影响，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/eip/overdue-payments\" id=\"c0744e929bgw0\" title=\"\" class=\"xref\">EIP<span class=\"help-letter-space\"></span>欠费说明</a>。</p>\n                    </li>\n                  </ul>\n                </td>\n                <td id=\"entry-4su-hq3-icp\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0);vertical-align:middle\" colspan=\"1\">\n                  <ul data-tag=\"ul\" id=\"ul-ay5-sdy-vk8\" class=\"ul\">\n                    <li data-tag=\"li\" id=\"li-30w-6bp-4kw\" class=\"li\">\n                      <p id=\"c4f8f2342b8md\">释放固定公网<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-fe2-ysy-79q\" class=\"li\">\n                      <p id=\"c4f8f2352b1tn\">EIP<span class=\"help-letter-space\"></span>与<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例的生命周期相互独立，如果您使用了<span class=\"help-letter-space\"></span>EIP，账号欠费对<span class=\"help-letter-space\"></span>EIP<span class=\"help-letter-space\"></span>的影响，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/eip/overdue-payments\" id=\"cec6a30e0as6a\" title=\"\" class=\"xref\">EIP<span class=\"help-letter-space\"></span>欠费说明</a>。</p>\n                    </li>\n                  </ul>\n                </td>\n              </tr>\n              <tr id=\"row-59t-aau-nd0\">\n                <td id=\"entry-hc3-zfb-0xz\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0);vertical-align:middle\" colspan=\"1\">\n                  <p id=\"c4f8f2362bpnm\">快照</p>\n                </td>\n                <td id=\"entry-uda-dox-7a7\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0);vertical-align:middle\" colspan=\"1\">\n                  <section id=\"40beb22447mqj\" class=\"section\">\n                    <ul id=\"ff8b3c70f29zk\">\n                      <li id=\"85624ff9002xo\">\n                        <p id=\"f345b3a8046xb\">保留所有快照和自定义镜像，但不允许使用已有快照创建新云盘或自定义镜像。</p>\n                      </li>\n                      <li id=\"f39674b3d8oty\">\n                        <p id=\"b926b02e87z70\">不允许再手动新建快照、自动快照停止创建、基于实例创建自定义镜像的操作会因为无法创建快照而失败。</p>\n                      </li>\n                      <li id=\"67396b6b9ag0f\">\n                        <p id=\"3e9f265275cem\">如果您充值补足欠款，可以继续使用已有快照、自动快照策略也将自动启用。</p>\n                      </li>\n                    </ul>\n                  </section>\n                </td>\n                <td id=\"entry-wwc-y9z-a84\" rowspan=\"1\" style=\"background-color:rgba(0, 0, 0, 0);vertical-align:middle\" colspan=\"1\">\n                  <section id=\"44c7578a0fwnw\" class=\"section\">\n                    <ul id=\"efea15a6fdbss\">\n                      <li id=\"9122c4b2f9olj\">\n                        <p id=\"5750b3ae3druu\">用户保有的快照资源都会被清理删除（包含快照、快照组、自定义镜像关联的快照等），清理后数据不可恢复。</p>\n                      </li>\n                      <li id=\"ba2332b084l4h\">\n                        <p id=\"3864639da36zu\">若快照关联了自定义镜像，关联的自定义镜像也会被删除，不可恢复。</p>\n                      </li>\n                      <li id=\"c9dfd007779zc\">\n                        <p id=\"c3e97133f3ase\">如果您充值补足欠款，自动快照策略将自动启用。</p>\n                      </li>\n                    </ul>\n                    <div type=\"important\" id=\"b146e6edfay1d\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n                      <ul id=\"d5d991f6f1wiz\">\n                        <li id=\"91dc06a90fgsa\">\n                          <p id=\"c615a7a52eavx\">如果存在基于自定义镜像创建的包年包月实例，自定义镜像删除后不影响包年包月实例的正常使用，但无法重新初始化系统盘。</p>\n                        </li>\n                        <li id=\"c021b5588585d\" docid=\"9710\" is-conref=\"true\">\n                        <p id=\"ea4db43716w8c\">如果自定义镜像已共享给他人，则自定义镜像删除后，被共享者无法再看到并使用该镜像创建<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例，基于共享镜像创建的<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例无法重新初始化系统盘。</p>\n                      </li>\n                        <li id=\"e8ba81d6d7lbs\" docid=\"9710\" is-conref=\"true\">\n                        <p id=\"707442108agru\">如果自定义镜像已发布为社区镜像，则自定义镜像删除后，社区镜像会同步删除，无法再用于创建<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例，已使用该社区镜像创建的<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例无法重新初始化系统盘。</p>\n                      </li>\n                      </ul>\n                    </div></div>\n                  </section>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </section>\n      </section>\n      \n      <section id=\"5c146e3bbfrzo\" class=\"section\">\n        <h2 id=\"2a2cccf26agts\"><b>结清欠费账单</b></h2>\n        <p id=\"a7b24b2078ckb\">账号欠费会导致按量付费<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例停机，请及时结清欠费账单，避免对您的服务造成影响。<span data-tag=\"ph\" id=\"2c143a8956dqz\" props=\"china\" data-cond-props=\"china\" class=\"ph\">具体操作，请参见<a href=\"https://help.aliyun.com/zh/user-center/use-alipay-online-banking-to-recharge-online\" id=\"7eb2d15335es0\" title=\"\" class=\"xref\">在线充值</a>。</span></p>\n        <p id=\"3ca01005c8kft\">结清欠费账单后，系统会自动重启因欠费导致停机实例。如果偶尔出现自动重开机失败的情况，您也可以手动启动实例。具体操作，请参见<a href=\"https://help.aliyun.com/zh/ecs/user-guide/start-an-instance#concept-mnp-lsl-xdb\" id=\"9c3368284bkjy\" title=\"\" class=\"xref\">启动实例</a>。</p>\n      </section>\n      <section id=\"f65a4a6fc79su\" class=\"section\">\n        <h2 id=\"6b2fb714917em\"><b>如何避免欠费停服</b></h2>\n        <ul id=\"259d47823dgw4\">\n          <li id=\"441d33a13d5qt\">\n            <p id=\"441d33a03diji\"><b>释放无用资源</b></p>\n            <p id=\"4d6b87103d7ph\">若<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>资源不需要再使用，建议您及时备份删除，以免继续扣费。</p>\n          </li>\n          <li id=\"5878b0403dc20\">\n            <p id=\"587889303dcug\"><b>设置额度预警</b></p>\n            <p id=\"4e5a53e03dsd8\" props=\"china\" data-cond-props=\"china\">基于账户的可用金额，设置预警阈值，当可用额度低于该阈值时，系统自动触发提醒。具体操作，可参见<span props=\"china\"><a href=\"https://help.aliyun.com/zh/user-center/monitor-account-balances\" id=\"44d967f663vjz\" title=\"\" class=\"xref\">监控账户余额</a></span>。</p>\n            \n          </li>\n          <li id=\"daa18be0404zh\">\n            <p id=\"daa164d0408n6\"><b>设置自动释放时间</b></p>\n            <p data-tag=\"p\" id=\"p-im1-ix9-7eb\" class=\"p\">为按量付费实例开启自动释放功能，避免超出预期开通时长产生不必要的费用或欠费。具体操作，请参见<a href=\"https://help.aliyun.com/zh/ecs/user-guide/release-an-instance#section-ji6-zag-f52\" id=\"f3c3a15497392\" title=\"\" class=\"xref\">释放实例</a>。</p>\n          </li>\n          <li id=\"d382f2f03dqzo\" props=\"china\" data-cond-props=\"china\">\n            <p id=\"24aa217339lz2\" data-spm-anchor-id=\"a2c4g.11186623.0.i3.1bbd50c1i5kG6T\"><b>开启延期免停权益</b></p>\n            <p data-tag=\"p\" id=\"3dbb466530ge5\" props=\"china\" docid=\"123261\" is-conref=\"true\" data-cond-props=\"china\" class=\"p\">阿里云提供延期免停权益，即当按量付费的资源发生欠费后，提供一定额度或时长继续使用云服务的权益，延停期间正常计费。具体使用说明和规则，请参见<a href=\"https://help.aliyun.com/zh/user-center/exemption-of-suspension-after-delinquency\" id=\"xref-4ok-g5q-p6h\" class=\"\" target=\"_blank\">延期免停权益</a>。</p>\n          </li>\n        </ul>\n      </section>\n      <section id=\"section-gpz-j19-v1j\" data-type=\"section\" props=\"china\" data-tag=\"section\" data-cond-props=\"china\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-016-gaq-xxh\" class=\"title\"><b>查看欠费金额</b></h2>\n        <ol data-tag=\"ol\" id=\"ol-3rs-qsj-8pf\" class=\"ol\">\n          <li data-tag=\"li\" id=\"li-b48-z7u-1w6\" class=\"li\">\n            <p id=\"c4f9dc902bejs\">登录<a href=\"https://billing-cost.console.aliyun.com/home\" id=\"ba5cc7803drjy\" class=\"\" target=\"_blank\">费用与成本控制台</a></p>\n          </li>\n          <li id=\"li-0su-1tg-hw9\" data-tag=\"li\" class=\"li\">\n            <p id=\"c4fa03a02bicv\">在<b id=\"uicontrol-jwo-twz-8ke\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">首页</b>的<b data-tag=\"uicontrol\" id=\"f815777b1d0vc\" class=\"uicontrol\">总览</b>区域，查看欠费金额。</p>\n            <p id=\"74730f14513v5\"></p>\n          </li>\n        </ol>\n      </section>\n      <section id=\"section-sqg-vt1-f5z\" data-type=\"section\" props=\"china\" data-tag=\"section\" data-cond-props=\"china\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-al9-5dj-2i8\" class=\"title\">常见问题</h2>\n        <ul data-tag=\"ul\" id=\"ul-2fs-xg1-9d4\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-2cw-i6x-d7k\" class=\"li\">\n            <p id=\"c4fa03a12bcxt\"><a href=\"https://help.aliyun.com/zh/user-center/use-alipay-online-banking-to-recharge-online\" id=\"4fa500803d2sk\" title=\"\" class=\"xref\">如何充值缴费？</a></p>\n          </li>\n          <li id=\"72a6a0703a10p\">\n            <p id=\"72a679603aand\"><a href=\"https://help.aliyun.com/zh/ecs/billing-faq#section-bbw-4ux-593\" id=\"4fa500813dmw9\" title=\"\" class=\"xref\">如果我的账号余额不足，系统会提醒我吗？什么时候提示？</a></p>\n          </li>\n          <li data-tag=\"li\" id=\"li-mta-a80-jhh\" class=\"li\">\n            <p id=\"c4fa2ab02b7u7\"><a href=\"https://help.aliyun.com/zh/ecs/billing-faq#section-72e-z2l-uw0\" id=\"4fa500823dl0c\" title=\"\" class=\"xref\">账号余额不足时，按量付费实例上的数据会受到影响吗？</a></p>\n          </li>\n          <li data-tag=\"li\" id=\"li-rzq-zfl-kze\" class=\"li\">\n            <p id=\"c4fa51c12bxgi\"><a href=\"https://help.aliyun.com/zh/ecs/billing-faq#section-llt-oq3-fnq\" id=\"4fa500833dxqk\" title=\"\" class=\"xref\">购买<span class=\"help-letter-space\"></span>ECS<span class=\"help-letter-space\"></span>实例后提出了退款，为什么还是扣了费用？</a></p>\n          </li>\n          <li id=\"be1064a03awvq\">\n            <p id=\"be103d903avdw\"><a href=\"https://help.aliyun.com/zh/user-center/support/why-do-overdue-bills-exist-when-my-account-has-a-balance\" id=\"4fa500843dwu1\" title=\"\" class=\"xref\">为什么我的账户有余额仍然显示欠费了？</a></p>\n          </li>\n        </ul>\n      </section>\n      <p id=\"8faf25403a58c\"></p>\n    </div>\n  </main>\n\n\n\n\n</div>","path":"https://help.aliyun.com/zh/ecs/overdue-payments","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云服务器 ECS","id":25365,"title":"云服务器 ECS","url":"/zh/ecs/"},"alias":"/ecs/overdue-payments","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":6,"developerUrl":"https://developer.aliyun.com/group/ecs/","nodeType":1,"version":29,"url":"/zh/ecs/overdue-payments","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":333532,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"欠费说明","id":333532,"title":"欠费说明","url":"/zh/ecs/overdue-payments"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"账单与费用管理","id":2986290,"title":"账单与费用管理","url":"/zh/ecs/billing-and-cost-management/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云服务器 ECS","id":25365,"title":"云服务器 ECS","url":"/zh/ecs/"},"productUrl":"https://www.aliyun.com/product/ecs","nodeId":333532,"desc":"如果您账号的可用额度（含阿里云账户余额和代金券）小于待结算的账单，账号会进入欠费状态。本文主要介绍欠费对ECS资源的影响、如何结清欠费账单以及如何避免欠费等。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"云服务器 ECS","id":25365,"title":"云服务器 ECS","url":"/zh/ecs/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"账单与费用管理","id":2986290,"title":"账单与费用管理","url":"/zh/ecs/billing-and-cost-management/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"欠费说明","id":333532,"title":"欠费说明","url":"/zh/ecs/overdue-payments"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=213e02ec17825359653474345ea587&asid=AQAAAAAdVz9q8SM4bwAAAABsdOUOLabUEw==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2399509" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/user-guide/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">用户指南</span>
+</a>
+</li>
+ <li id="2399511" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="25396" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/billing-2/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">产品计费</span>
+</a>
+</li>
+ <li id="2983136" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/faqs/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+ <li id="117482" class="Menu--level1--UN3zYr3">
+<a href="/zh/ecs/announcements-and-updates/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">动态与公告</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>ECS欠费说明</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/ecs" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="concept-2128819">
+    
+    
+    <p id="shortdesc-kva-5hv-7x3" data-tag="shortdesc" class="shortdesc">如果您账号的可用额度（含阿里云账户余额和代金券）小于待结算的账单，账号会进入欠费状态。本文主要介绍欠费对<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>资源的影响、如何结清欠费账单以及如何避免欠费等。</p>
+    <div data-tag="conbody" id="conbody-hef-iun-0vk" class="conbody">
+      <div id="7d6a5025e62ow" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+        <p id="504658da7erys">出现欠费后有停机风险，系统会提醒或通知您，请及时结清欠费账单，避免对您的服务造成影响。</p>
+      </div></div>
+      <section id="section-hd6-fsq-yy5" data-tag="section" props="china" data-type="section" data-cond-props="china" class="section">
+        <h2 id="46598f803casb"><b>欠费影响</b></h2>
+        <section id="dba98fd047omb" class="section">
+          <h3 id="7ba4e6d03cfb4"><b>包年包月<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>资源</b></h3>
+          <div type="note" id="c79d452d138so" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+            <p uuid="m0nhaawnfk0xlemrrwl" id="10b769e713x9v">包年包月<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>资源有使用期限。到期对资源的影响，可参见<a href="https://help.aliyun.com/zh/ecs/subscription#section-n4y-1zm-7kc" id="79b2284900zj7" title="" class="xref">包年包月</a>。</p>
+          </div></div>
+          <p id="90a8d8703cbv4">账号欠费后，您仍可以使用已有的包年包月<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>资源，但存在以下限制：</p>
+          <ul id="d5f21312f4fdx">
+            <li id="36ac7d827bb0k">
+              <p id="fcfae20f1d83q">无法执行涉及费用的操作，例如新购、升级或续费实例、扩容云盘等。</p>
+            </li>
+            <li id="6287eb33b0336">
+              <p id="218b4152ddc19">如果包年包月<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例挂载了按量付费云盘，或使用的公网带宽为按使用流量计费，欠费后无法正常使用对应云盘和公网带宽服务。欠费对按量付费云盘和公网的影响，请参见<a href="#b55b39603c7b6" id="ddb7591cbel2x" title="" class="xref">按量付费<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>资源</a>。</p>
+              <p id="b2a4239c57prc">若欠费超过<span class="help-letter-space"></span>15<span class="help-letter-space"></span>天，系统会卸载并释放该云盘。根据您的使用方式不同，卸载云盘可能会失败。卸载失败后，该云盘也不会继续产生费用，但存在数据丢失的风险，建议您不再使用这些云盘。</p>
+            </li>
+          </ul>
+        </section>
+        <section id="1bc6ad3faeo93" class="section">
+          <h3 id="b55b39603c7b6"><b>按量付费<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>资源</b></h3>
+          <p id="b123002c38530">账号欠费后，系统会自动停止服务，欠费停机期间<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>资源暂停计费；持续欠费<span class="help-letter-space"></span>15<span class="help-letter-space"></span>天后，系统将释放或解绑所有<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>资源。</p>
+          <div id="456d86a041k89" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+            <ul id="65e3470b23fme">
+              <li id="f7e72dcc8eai3">
+                <p id="ddc043b1413m1">如果您的账户欠费，即使已经设置自动释放时间，按量付费实例也不会按照设置的时间释放。</p>
+              </li>
+              <li id="ac34f41f27mg5">
+                <p id="88127958b9vt1">若您的实例已启用节省停机模式，计算资源（vCPU<span class="help-letter-space"></span>和内存）会被回收。账号欠费后，再次启动该实例时会启动失败。<a href="https://help.aliyun.com/zh/ecs/user-guide/economical-mode#section-y82-e8u-176" id="dfce191a39yv8" title="" class="xref">什么是节省停机模式？</a></p>
+              </li>
+            </ul>
+          </div></div>
+          <p id="8d2d8c903dcu8">欠费停机后，ECS<span class="help-letter-space"></span>各资源保留情况如下：</p>
+          <table id="table-zrt-bpf-vsx" tablewidth="710" tablecolswidth="142 284 284" autofit="false" class="table">
+            <colgroup colwidth="0.6*" style="width:20.00%"></colgroup>
+            <colgroup colwidth="1.2*" style="width:40.00%"></colgroup>
+            <colgroup colwidth="1.2*" style="width:40.00%"></colgroup>
+            <tbody class="tbody">
+              <tr id="row-mix-mp6-8tc">
+                <td id="concept-2128819-entry-k1b-enq-zza" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                  <p id="c4f8a4152bdcu"><b>资源类型</b></p>
+                </td>
+                <td id="concept-2128819-entry-orw-0fn-0rk" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                  <p id="c4f8cb202bxxu"><b>
+                      欠费后<span class="help-letter-space"></span>15<span class="help-letter-space"></span>天内
+                    </b></p>
+                </td>
+                <td id="concept-2128819-entry-3sj-vax-7da" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                  <p id="c4f8cb212bujt"><b>欠费<span class="help-letter-space"></span>15<span class="help-letter-space"></span>天后</b></p>
+                </td>
+              </tr>
+              <tr id="row-88h-uej-yqk">
+                <td id="entry-6uo-ut0-vp9" rowspan="1" style="background-color:rgba(0, 0, 0, 0);vertical-align:middle" colspan="1">
+                  <p id="c4f8cb222bbtt">计算资源（vCPU、GPU<span class="help-letter-space"></span>和内存）</p>
+                </td>
+                <td id="entry-628-er3-7fn" rowspan="1" style="background-color:rgba(0, 0, 0, 0);vertical-align:middle" colspan="1">
+                  <ul id="0ac31ad9c3ers">
+                    <li id="55f4e8772bm1a">
+                      <p jc="left" uuid="mejlz7g95idlxzfp9i2" id="f023fa9d6bet6" style="text-align:left">实例因欠费被关机并停止服务后会立即进入<b id="f447e60c8fcpw" data-tag="uicontrol" data-isbold="true" data-params-value="Expired" data-format-type="icu" class="uicontrol">已过期</b>状态。</p>
+                    </li>
+                    <li id="604d006997uo0">
+                      <p jc="left" uuid="metslj1e1aapgqruav7" id="ea73dfdc0f5ih" style="text-align:left">实例停止服务后<span class="help-letter-space"></span>48<span class="help-letter-space"></span>小时内阿里云会释放实例的计算资源，此时，实例会进入<b id="a19a7b86158es" data-tag="uicontrol" data-isbold="true" data-params-value="Recycling" data-format-type="icu" class="uicontrol">欠费回收中</b>状态。</p>
+                      <ul id="c070f2616802g">
+                        <li id="9d43fc632a74b">
+                          <p id="64e0e08262fzw">若实例状态为<b>已过期</b>，保留计算资源（vCPU、内存和<span class="help-letter-space"></span>GPU）。</p>
+                        </li>
+                        <li id="5d3ab1c1795ag">
+                          <p id="bda258ccf1aab">若实例状态为<b>欠费回收中</b>，释放计算资源（vCPU、内存和<span class="help-letter-space"></span>GPU）。</p>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </td>
+                <td id="entry-wat-dhi-ueb" rowspan="1" style="background-color:rgba(0, 0, 0, 0);vertical-align:middle" colspan="1">
+                  <p id="c4f8cb252bf3a">计算资源（vCPU、GPU<span class="help-letter-space"></span>和内存）已被释放，无法恢复。 </p>
+                </td>
+              </tr>
+              <tr id="row-ltc-5mj-nh3">
+                <td id="entry-tkn-o5t-nd1" rowspan="1" style="background-color:rgba(0, 0, 0, 0);vertical-align:middle" colspan="1">
+                  <p id="c4f8cb262ba39">块存储</p>
+                </td>
+                <td id="entry-7kc-h3p-dvp" rowspan="1" style="background-color:rgba(0, 0, 0, 0);vertical-align:middle" colspan="1">
+                  <ul data-tag="ul" id="ul-3k0-lru-z7h" class="ul">
+                    <li data-tag="li" id="li-8es-tyx-ce6" class="li">
+                      <p id="c4f8cb272brrq">保留云盘和云盘数据。</p>
+                    </li>
+                    <li data-tag="li" id="li-hvv-3gj-p4l" class="li">
+                      <p id="a40914104688a">保留本地盘，但本地盘数据可能随时被释放。</p>
+                    </li>
+                  </ul>
+                </td>
+                <td id="entry-0g3-fog-noe" rowspan="1" style="background-color:rgba(0, 0, 0, 0);vertical-align:middle" colspan="1">
+                  <ul data-tag="ul" id="ul-ceq-n3a-nw5" class="ul">
+                    <li data-tag="li" id="li-isn-4hr-9tg" class="li">
+                      <p id="c4f8cb292bqhs">释放云盘和云盘数据，数据无法恢复。 </p>
+                    </li>
+                    <li data-tag="li" id="li-s7l-k0w-rj0" class="li">
+                      <p id="c4f8cb2a2bhdt">释放本地盘，数据无法恢复 。</p>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr id="row-uvn-yo1-zc8">
+                <td id="entry-snh-x57-sxn" rowspan="1" style="background-color:rgba(0, 0, 0, 0);vertical-align:middle" colspan="1">
+                  <p id="c4f8f2302bdii">公网<span class="help-letter-space"></span>IP</p>
+                </td>
+                <td id="entry-bt1-yn2-kth" rowspan="1" style="background-color:rgba(0, 0, 0, 0);vertical-align:middle" colspan="1">
+                  <ul data-tag="ul" id="ul-8bv-yew-ffc" class="ul">
+                    <li data-tag="li" id="li-gt9-pir-hz8" class="li">
+                      <p id="c4f8f2312bdoj">保留固定公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址。 </p>
+                    </li>
+                    <li data-tag="li" id="li-qbv-vie-wr3" class="li">
+                      <p id="c4f8f2332bvo7">EIP<span class="help-letter-space"></span>与<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例的生命周期相互独立，如果您使用了<span class="help-letter-space"></span>EIP，账号欠费对<span class="help-letter-space"></span>EIP<span class="help-letter-space"></span>的影响，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/eip/overdue-payments" id="c0744e929bgw0" title="" class="xref">EIP<span class="help-letter-space"></span>欠费说明</a>。</p>
+                    </li>
+                  </ul>
+                </td>
+                <td id="entry-4su-hq3-icp" rowspan="1" style="background-color:rgba(0, 0, 0, 0);vertical-align:middle" colspan="1">
+                  <ul data-tag="ul" id="ul-ay5-sdy-vk8" class="ul">
+                    <li data-tag="li" id="li-30w-6bp-4kw" class="li">
+                      <p id="c4f8f2342b8md">释放固定公网<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址。</p>
+                    </li>
+                    <li data-tag="li" id="li-fe2-ysy-79q" class="li">
+                      <p id="c4f8f2352b1tn">EIP<span class="help-letter-space"></span>与<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例的生命周期相互独立，如果您使用了<span class="help-letter-space"></span>EIP，账号欠费对<span class="help-letter-space"></span>EIP<span class="help-letter-space"></span>的影响，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/eip/overdue-payments" id="cec6a30e0as6a" title="" class="xref">EIP<span class="help-letter-space"></span>欠费说明</a>。</p>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr id="row-59t-aau-nd0">
+                <td id="entry-hc3-zfb-0xz" rowspan="1" style="background-color:rgba(0, 0, 0, 0);vertical-align:middle" colspan="1">
+                  <p id="c4f8f2362bpnm">快照</p>
+                </td>
+                <td id="entry-uda-dox-7a7" rowspan="1" style="background-color:rgba(0, 0, 0, 0);vertical-align:middle" colspan="1">
+                  <section id="40beb22447mqj" class="section">
+                    <ul id="ff8b3c70f29zk">
+                      <li id="85624ff9002xo">
+                        <p id="f345b3a8046xb">保留所有快照和自定义镜像，但不允许使用已有快照创建新云盘或自定义镜像。</p>
+                      </li>
+                      <li id="f39674b3d8oty">
+                        <p id="b926b02e87z70">不允许再手动新建快照、自动快照停止创建、基于实例创建自定义镜像的操作会因为无法创建快照而失败。</p>
+                      </li>
+                      <li id="67396b6b9ag0f">
+                        <p id="3e9f265275cem">如果您充值补足欠款，可以继续使用已有快照、自动快照策略也将自动启用。</p>
+                      </li>
+                    </ul>
+                  </section>
+                </td>
+                <td id="entry-wwc-y9z-a84" rowspan="1" style="background-color:rgba(0, 0, 0, 0);vertical-align:middle" colspan="1">
+                  <section id="44c7578a0fwnw" class="section">
+                    <ul id="efea15a6fdbss">
+                      <li id="9122c4b2f9olj">
+                        <p id="5750b3ae3druu">用户保有的快照资源都会被清理删除（包含快照、快照组、自定义镜像关联的快照等），清理后数据不可恢复。</p>
+                      </li>
+                      <li id="ba2332b084l4h">
+                        <p id="3864639da36zu">若快照关联了自定义镜像，关联的自定义镜像也会被删除，不可恢复。</p>
+                      </li>
+                      <li id="c9dfd007779zc">
+                        <p id="c3e97133f3ase">如果您充值补足欠款，自动快照策略将自动启用。</p>
+                      </li>
+                    </ul>
+                    <div type="important" id="b146e6edfay1d" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+                      <ul id="d5d991f6f1wiz">
+                        <li id="91dc06a90fgsa">
+                          <p id="c615a7a52eavx">如果存在基于自定义镜像创建的包年包月实例，自定义镜像删除后不影响包年包月实例的正常使用，但无法重新初始化系统盘。</p>
+                        </li>
+                        <li id="c021b5588585d" docid="9710" is-conref="true">
+                        <p id="ea4db43716w8c">如果自定义镜像已共享给他人，则自定义镜像删除后，被共享者无法再看到并使用该镜像创建<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例，基于共享镜像创建的<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例无法重新初始化系统盘。</p>
+                      </li>
+                        <li id="e8ba81d6d7lbs" docid="9710" is-conref="true">
+                        <p id="707442108agru">如果自定义镜像已发布为社区镜像，则自定义镜像删除后，社区镜像会同步删除，无法再用于创建<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例，已使用该社区镜像创建的<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例无法重新初始化系统盘。</p>
+                      </li>
+                      </ul>
+                    </div></div>
+                  </section>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+      
+      <section id="5c146e3bbfrzo" class="section">
+        <h2 id="2a2cccf26agts"><b>结清欠费账单</b></h2>
+        <p id="a7b24b2078ckb">账号欠费会导致按量付费<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例停机，请及时结清欠费账单，避免对您的服务造成影响。<span data-tag="ph" id="2c143a8956dqz" props="china" data-cond-props="china" class="ph">具体操作，请参见<a href="https://help.aliyun.com/zh/user-center/use-alipay-online-banking-to-recharge-online" id="7eb2d15335es0" title="" class="xref">在线充值</a>。</span></p>
+        <p id="3ca01005c8kft">结清欠费账单后，系统会自动重启因欠费导致停机实例。如果偶尔出现自动重开机失败的情况，您也可以手动启动实例。具体操作，请参见<a href="https://help.aliyun.com/zh/ecs/user-guide/start-an-instance#concept-mnp-lsl-xdb" id="9c3368284bkjy" title="" class="xref">启动实例</a>。</p>
+      </section>
+      <section id="f65a4a6fc79su" class="section">
+        <h2 id="6b2fb714917em"><b>如何避免欠费停服</b></h2>
+        <ul id="259d47823dgw4">
+          <li id="441d33a13d5qt">
+            <p id="441d33a03diji"><b>释放无用资源</b></p>
+            <p id="4d6b87103d7ph">若<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>资源不需要再使用，建议您及时备份删除，以免继续扣费。</p>
+          </li>
+          <li id="5878b0403dc20">
+            <p id="587889303dcug"><b>设置额度预警</b></p>
+            <p id="4e5a53e03dsd8" props="china" data-cond-props="china">基于账户的可用金额，设置预警阈值，当可用额度低于该阈值时，系统自动触发提醒。具体操作，可参见<span props="china"><a href="https://help.aliyun.com/zh/user-center/monitor-account-balances" id="44d967f663vjz" title="" class="xref">监控账户余额</a></span>。</p>
+            
+          </li>
+          <li id="daa18be0404zh">
+            <p id="daa164d0408n6"><b>设置自动释放时间</b></p>
+            <p data-tag="p" id="p-im1-ix9-7eb" class="p">为按量付费实例开启自动释放功能，避免超出预期开通时长产生不必要的费用或欠费。具体操作，请参见<a href="https://help.aliyun.com/zh/ecs/user-guide/release-an-instance#section-ji6-zag-f52" id="f3c3a15497392" title="" class="xref">释放实例</a>。</p>
+          </li>
+          <li id="d382f2f03dqzo" props="china" data-cond-props="china">
+            <p id="24aa217339lz2" data-spm-anchor-id="a2c4g.11186623.0.i3.1bbd50c1i5kG6T"><b>开启延期免停权益</b></p>
+            <p data-tag="p" id="3dbb466530ge5" props="china" docid="123261" is-conref="true" data-cond-props="china" class="p">阿里云提供延期免停权益，即当按量付费的资源发生欠费后，提供一定额度或时长继续使用云服务的权益，延停期间正常计费。具体使用说明和规则，请参见<a href="https://help.aliyun.com/zh/user-center/exemption-of-suspension-after-delinquency" id="xref-4ok-g5q-p6h" class="" target="_blank">延期免停权益</a>。</p>
+          </li>
+        </ul>
+      </section>
+      <section id="section-gpz-j19-v1j" data-type="section" props="china" data-tag="section" data-cond-props="china" class="section">
+        <h2 data-tag="title" id="title-016-gaq-xxh" class="title"><b>查看欠费金额</b></h2>
+        <ol data-tag="ol" id="ol-3rs-qsj-8pf" class="ol">
+          <li data-tag="li" id="li-b48-z7u-1w6" class="li">
+            <p id="c4f9dc902bejs">登录<a href="https://billing-cost.console.aliyun.com/home" id="ba5cc7803drjy" class="" target="_blank">费用与成本控制台</a></p>
+          </li>
+          <li id="li-0su-1tg-hw9" data-tag="li" class="li">
+            <p id="c4fa03a02bicv">在<b id="uicontrol-jwo-twz-8ke" data-tag="uicontrol" data-isbold="true" class="uicontrol">首页</b>的<b data-tag="uicontrol" id="f815777b1d0vc" class="uicontrol">总览</b>区域，查看欠费金额。</p>
+            <p id="74730f14513v5"></p>
+          </li>
+        </ol>
+      </section>
+      <section id="section-sqg-vt1-f5z" data-type="section" props="china" data-tag="section" data-cond-props="china" class="section">
+        <h2 data-tag="title" id="title-al9-5dj-2i8" class="title">常见问题</h2>
+        <ul data-tag="ul" id="ul-2fs-xg1-9d4" class="ul">
+          <li data-tag="li" id="li-2cw-i6x-d7k" class="li">
+            <p id="c4fa03a12bcxt"><a href="https://help.aliyun.com/zh/user-center/use-alipay-online-banking-to-recharge-online" id="4fa500803d2sk" title="" class="xref">如何充值缴费？</a></p>
+          </li>
+          <li id="72a6a0703a10p">
+            <p id="72a679603aand"><a href="https://help.aliyun.com/zh/ecs/billing-faq#section-bbw-4ux-593" id="4fa500813dmw9" title="" class="xref">如果我的账号余额不足，系统会提醒我吗？什么时候提示？</a></p>
+          </li>
+          <li data-tag="li" id="li-mta-a80-jhh" class="li">
+            <p id="c4fa2ab02b7u7"><a href="https://help.aliyun.com/zh/ecs/billing-faq#section-72e-z2l-uw0" id="4fa500823dl0c" title="" class="xref">账号余额不足时，按量付费实例上的数据会受到影响吗？</a></p>
+          </li>
+          <li data-tag="li" id="li-rzq-zfl-kze" class="li">
+            <p id="c4fa51c12bxgi"><a href="https://help.aliyun.com/zh/ecs/billing-faq#section-llt-oq3-fnq" id="4fa500833dxqk" title="" class="xref">购买<span class="help-letter-space"></span>ECS<span class="help-letter-space"></span>实例后提出了退款，为什么还是扣了费用？</a></p>
+          </li>
+          <li id="be1064a03awvq">
+            <p id="be103d903avdw"><a href="https://help.aliyun.com/zh/user-center/support/why-do-overdue-bills-exist-when-my-account-has-a-balance" id="4fa500843dwu1" title="" class="xref">为什么我的账户有余额仍然显示欠费了？</a></p>
+          </li>
+        </ul>
+      </section>
+      <p id="8faf25403a58c"></p>
+    </div>
+  </main>
+
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/ecs/view-billing-details" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：账单查询</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/ecs/refund-instructions" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：退订说明<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

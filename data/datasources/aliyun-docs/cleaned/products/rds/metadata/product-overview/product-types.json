@@ -1,0 +1,17 @@
+{
+  "id": "rds:product-overview/product-types",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "selection",
+  "title": "产品类型划分与特性对比-云数据库 RDS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/rds/product-overview/product-types",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/product-overview/product-types.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/product-overview/product-types.md",
+  "word_count": 828,
+  "text_units": 1460,
+  "local_links": 18,
+  "external_links": 63,
+  "has_tables": true,
+  "table_count": 3,
+  "quality": "accepted"
+}

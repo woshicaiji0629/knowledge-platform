@@ -1,0 +1,17 @@
+{
+  "id": "vpc:vpc-custom-permission-policy-reference",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "专有网络VPC如何使用自定义权限策略-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/vpc-custom-permission-policy-reference",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/vpc-custom-permission-policy-reference.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/vpc-custom-permission-policy-reference.md",
+  "word_count": 652,
+  "text_units": 1536,
+  "local_links": 5,
+  "external_links": 61,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

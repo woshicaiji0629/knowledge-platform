@@ -1,0 +1,19 @@
+## 建站步骤
+准备服务器。
+不同网站类型需要的ECS配置不同，请您确认网站规模与访问人数。一般情况下，小型网站只需要选择基础配置即可。具体操作，请参见[自定义购买实例](create-an-instance-by-using-the-wizard.md)。
+了解实例规格族与如何选型，请参见[实例规格族](overview-of-instance-families.md)与[实例规格选型指导](best-practices-for-instance-type-selection.md)。
+您可以根据业务进展产生的不同需求，对实例做相应的升降配调整。更多信息，请参见[规格变更限制与自检](instance-families-that-support-instance-type-changes.md)。
+配置安全组规则。
+远程连接实例所需的22、3389端口在创建安全组时默认为开启状态，访问网站时需要开启80、443端口，您需要确认安全组的入方向已开放这些端口。如果未开放，请手动配置。具体操作，请参见[添加安全组规则](add-a-security-group-rule.md)。
+部署网站。
+当前节点下的文档包含了众多常用网站的部署方案，您可以根据需求，自行设计、开发并部署属于您的各类网站。
+购买域名。
+注册域名。
+输入想要的域名，未被占用即可注册。具体操作，请参见[域名注册基本流程](https://help.aliyun.com/zh/dws/user-guide/how-to-register-a-domain-name#task-1830383)。
+域名后缀通常为.com或.cn。更多后缀信息，请参见[域名区别](https://help.aliyun.com/zh/dws/support/domain-name-differences#concept-wvr-zcd-b2b)。
+实名认证。具体操作，请参见[域名实名认证概述](https://help.aliyun.com/zh/dws/overview-of-real-name-verification-for-domain-names#concept-uhk-w5v-12b)。
+备案域名。
+重要
+使用中国内地地域中的服务器托管您的网站时，需要进行备案。否则，请跳过此步骤。
+准备备案。
+各省管局要求资料有所不同，请根据[各地区管局](https://help.aliyun.com/zh/icp-filing/basic-icp-service/user-guide/icp-filing-regulations-of-the-miit-for-different-regions#concept-wl4-tql-zdb)[ICP](https://help.aliyun.com/zh/icp-filing

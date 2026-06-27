@@ -1,0 +1,2 @@
+进行加密。 支持选择 配置更多系统盘类型 ，配置与 系统盘 不同的磁盘类型，提高扩容成功率。创建节点时，ACK 将根据指定的磁盘类型顺序，选择第一个匹配的类型。 云资源及计费说明： [ECS](../../../../ecs/documents/block-storage-devices.md) [块存储](../../../../ecs/documents/block-storage-devices.md) |
+| 部署集 | 通过 ECS 控制台 [创建部署集](../../../../ecs/documents/user-guide/overview-43.md) 后，为节点池指定部署集，使得节点池弹出的节点可分散部署在不同的物理服务器上，提升高可用性。 部署集默认支持的节点上限为 20 * 可用区数量 （可用区数量由 vSwitch 决定），节点池内最大节点数将受到限制，需确保部署集内配额充足。 后续如需启用，请参见 [节点池部署集最佳实践](best-practices-for-associating-deployment-sets-with-node-pools.md) 。 |

@@ -1,0 +1,14 @@
+{
+  "id": "vpc:address-planning:3",
+  "document_id": "vpc:address-planning",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "地址规划-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/address-planning",
+  "chunk_index": 3,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/address-planning.chunk-0003.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/address-planning.md",
+  "heading_path": "地址规划 > 地址规划设计 > 混合云组网和多云互联网络设计",
+  "char_count": 119
+}

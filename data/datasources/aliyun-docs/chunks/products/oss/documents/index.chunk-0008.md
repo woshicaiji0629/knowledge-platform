@@ -1,0 +1,5 @@
+### [快速学会使用图形化管理工具ossbrowser](https://developer.aliyun.com/adc/scenario/18ddbf01c8ca4b5ab87e7a52d4813fc5?spm=a2c4g.11186623.0.0.f8cd6aae3lTXpW)
+[上传文件](https://developer.aliyun.com/adc/scenario/18ddbf01c8ca4b5ab87e7a52d4813fc5?spm=a2c4g.11186623.0.0.f8cd6aae3lTXpW)
+[下载文件](https://developer.aliyun.com/adc/scenario/18ddbf01c8ca4b5ab87e7a52d4813fc5?spm=a2c4g.11186623.0.0.f8cd6aae3lTXpW)
+[分享文件](https://developer.aliyun.com/adc/scenario/18ddbf01c8ca4b5ab87e7a52d4813fc5?spm=a2c4g.11186623.0.0.f8cd6aae3lTXpW)
+[删除文件](https://developer.aliyun.com/adc/scenario/18ddbf01c8ca4b5ab87e7a52d4813fc5?spm=a2c4g.11186623.0.0.f8cd6aae3lTXpW)

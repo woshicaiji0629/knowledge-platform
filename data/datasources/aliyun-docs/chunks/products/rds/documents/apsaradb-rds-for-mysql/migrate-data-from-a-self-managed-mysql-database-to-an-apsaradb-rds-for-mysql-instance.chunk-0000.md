@@ -1,0 +1,2 @@
+# 从自建MySQL迁移至RDS MySQL实例
+数据传输服务DTS（Data Transmission Service）支持在不影响业务正常运行的情况下，将部署在本地、ECS或其他云上的MySQL数据库迁移至RDS MySQL实例。DTS支持库表结构迁移、全量迁移以及增量迁移，同时使用这三种迁移类型可以实现在自建应用不停服的情况下，平滑地完成自建MySQL数据库的迁移上云。

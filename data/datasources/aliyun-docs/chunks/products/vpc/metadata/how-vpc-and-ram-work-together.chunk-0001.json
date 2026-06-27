@@ -1,0 +1,14 @@
+{
+  "id": "vpc:how-vpc-and-ram-work-together:1",
+  "document_id": "vpc:how-vpc-and-ram-work-together",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "基于RAM的访问控制工作原理-专有网络VPC-阿里云",
+  "source_url": "https://help.aliyun.com/zh/vpc/how-vpc-and-ram-work-together",
+  "chunk_index": 1,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/how-vpc-and-ram-work-together.chunk-0001.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/how-vpc-and-ram-work-together.md",
+  "heading_path": "专有网络VPC如何与RAM协同工作 > 概述",
+  "char_count": 96
+}

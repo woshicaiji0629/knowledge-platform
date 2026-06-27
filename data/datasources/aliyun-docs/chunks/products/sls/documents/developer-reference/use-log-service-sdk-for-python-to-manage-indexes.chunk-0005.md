@@ -1,0 +1,2 @@
+## 原始日志样例
+body_bytes_sent:1750 host:www.example.com http_referer:www.example.com http_user_agent:Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_6; it-it) AppleWebKit/533.20.25 (KHTML, like Gecko) Version/5.0.4 Safari/533.20.27 http_x_forwarded_for:203.0.XX.XX remote_addr:203.0.XX.XX remote_user:p288 request_length:13741 request_method:GET request_time:71 request_uri:/request/path-1/file-1 http_code:200 time_local:11/Aug/2021:06:52:27 upstream_response_time:0.66

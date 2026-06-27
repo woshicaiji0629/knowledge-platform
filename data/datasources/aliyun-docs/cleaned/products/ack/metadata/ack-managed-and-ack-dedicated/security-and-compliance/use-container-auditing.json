@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/security-and-compliance/use-container-auditing",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "使用和管理容器内部操作审计功能收集并分析审计日志-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/use-container-auditing",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-managed-and-ack-dedicated/security-and-compliance/use-container-auditing.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/security-and-compliance/use-container-auditing.md",
+  "word_count": 1431,
+  "text_units": 3975,
+  "local_links": 11,
+  "external_links": 75,
+  "has_tables": true,
+  "table_count": 10,
+  "quality": "accepted"
+}

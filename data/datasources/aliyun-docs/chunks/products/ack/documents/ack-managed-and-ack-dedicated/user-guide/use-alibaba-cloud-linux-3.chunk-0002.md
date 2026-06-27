@@ -1,0 +1,6 @@
+| 优势 | 说明 |
+| --- | --- |
+| 更新的基础软件和应用软件 | 内核：搭载阿里云研发的 Linux kernel 5.10 编译器：默认编译器 GCC 10、LLVM 15、RUST 1.66，同时支持 gcc-toolset-12 语言库：支持 glibc 2.32、OpenJDK 1.8、Python 3.8、Golang 1.19、Nodejs 14.21 主流应用软件： Web 类：支持 Nginx 1.20、HTTPd 2.4.37 数据库类：支持 Redis 6.2.7、MySQL 8.0.32、PostgreSQL 13.10、MariaDB 10.5.16 AI 类：通过 [龙蜥社区](https://openanolis.cn/sig/AI_SIG) [AI](https://openanolis.cn/sig/AI_SIG) [生态软件仓库（epao）](https://openanolis.cn/sig/AI_SIG) 兼容支持 Driver 驱动：支持 CUDA 11.4.4、NVIDIA Driver 470.199.02 Framework 框架：支持 TensorFlow 2.5.0、PyTorch 1.10.1 容器支持：支持 nvidia-container-toolkit 1.13.1、libnvidia-container 1.13.1 |
+| ACK、ECS 实例协同优化 | 通过与 ECS 实例协同优化启动速度、内置环境依赖软件，同时结合 ACK 灵活高效的自动弹性伸缩能力，大大缩短 Alibaba Cloud Linux 3 的单节点创建时间。 |
+| 通过与 ECS 实例深度结合优化，结合内核技术优化、编译器优化、配置优化等，极大提升 ACK 集群中各节点的运行时性能，针对大数据、Webserver、数据库、AI 等场景性能提升超 30%。 |  |
+| 提供大量新的操作系统技术，提升云上体验 | 全面支持 cgroup v2 cgroup v2 是新一代 Linux cgroup 机制的 API，提供对进程或进程组统一的资源控制能力。相较于 cgroup v1，有如下改进： 独立统一的层次结构 更加安全的树形结构设计 新的内核 PSI 能力 资源分配和管理能力的增强 全面支持 eBPF 能力 更便捷的 eBPF 程序编写和调试体验，例如许多指令的限制放宽、性能提升、支持调试可见字节码对应的源代码等 更高性能的 XDP 和内核调测 更多用户态框架支持，例如 BPF skeleton、libbpf-bootstrap 等，优化 BPF 程序编写体验 更好地支持网络和安全项目 Cilium，例如网络带宽控制、流量加密、会话亲和性、BPF 层的路由及代理转发等 针对 BCC、Bpftrace 等工

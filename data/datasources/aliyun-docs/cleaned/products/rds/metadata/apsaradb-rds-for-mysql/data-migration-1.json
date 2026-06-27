@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/data-migration-1",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "数据迁移-云数据库 RDS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/data-migration-1/",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-mysql/data-migration-1.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/data-migration-1.md",
+  "word_count": 1524,
+  "text_units": 2074,
+  "local_links": 0,
+  "external_links": 123,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

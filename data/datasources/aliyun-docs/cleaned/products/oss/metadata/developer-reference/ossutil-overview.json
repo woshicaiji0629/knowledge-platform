@@ -1,0 +1,17 @@
+{
+  "id": "oss:developer-reference/ossutil-overview",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "features",
+  "title": "如何通过Windows、Linux和macOS系统以命令行方式管理OSS数据-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/developer-reference/ossutil-overview/?spm=a2c4g.11186623.help-menu-31815.d_1_2.6a55a784mm3PDj",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/oss/documents/developer-reference/ossutil-overview.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/developer-reference/ossutil-overview.md",
+  "word_count": 4909,
+  "text_units": 12011,
+  "local_links": 33,
+  "external_links": 114,
+  "has_tables": true,
+  "table_count": 48,
+  "quality": "accepted"
+}

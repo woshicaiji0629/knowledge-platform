@@ -1,0 +1,17 @@
+{
+  "id": "ecs:service-announcements",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "服务公告-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/service-announcements",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/service-announcements.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/service-announcements.md",
+  "word_count": 472,
+  "text_units": 764,
+  "local_links": 0,
+  "external_links": 66,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

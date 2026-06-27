@@ -1,0 +1,40 @@
+{
+  "source": "aliyun_docs",
+  "accepted": 1206,
+  "candidate": 0,
+  "discarded": 583,
+  "accepted_by_product": {
+    "ack": 260,
+    "cdn": 147,
+    "ecs": 148,
+    "model-studio": 1,
+    "oss": 76,
+    "rds": 136,
+    "redis": 131,
+    "slb": 1,
+    "sls": 241,
+    "vpc": 65
+  },
+  "candidate_by_product": {},
+  "candidate_by_reason": {},
+  "discarded_by_reason": {
+    "anti_bot_page": 583
+  },
+  "accepted_by_topic": {
+    "deployment": 68,
+    "features": 913,
+    "performance": 60,
+    "pricing": 81,
+    "selection": 40,
+    "troubleshoot": 44
+  },
+  "candidate_by_topic": {},
+  "documents_with_tables": 646,
+  "candidate_documents_with_tables": 0,
+  "total_tables": 10749,
+  "candidate_total_tables": 0,
+  "total_local_links": 6799,
+  "candidate_total_local_links": 0,
+  "total_external_links": 99920,
+  "candidate_total_external_links": 0
+}

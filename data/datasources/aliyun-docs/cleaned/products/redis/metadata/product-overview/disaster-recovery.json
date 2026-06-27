@@ -1,0 +1,17 @@
+{
+  "id": "redis:product-overview/disaster-recovery",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "Tair容灾架构介绍以及如何选择容灾方案-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/disaster-recovery",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/product-overview/disaster-recovery.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/disaster-recovery.md",
+  "word_count": 764,
+  "text_units": 2811,
+  "local_links": 3,
+  "external_links": 67,
+  "has_tables": true,
+  "table_count": 5,
+  "quality": "accepted"
+}

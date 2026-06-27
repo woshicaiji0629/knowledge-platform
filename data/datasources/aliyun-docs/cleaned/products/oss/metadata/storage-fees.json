@@ -1,0 +1,17 @@
+{
+  "id": "oss:storage-fees",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "pricing",
+  "title": "OSS存储费用的计费项-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/storage-fees",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/oss/documents/storage-fees.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/storage-fees.md",
+  "word_count": 1681,
+  "text_units": 4828,
+  "local_links": 0,
+  "external_links": 104,
+  "has_tables": true,
+  "table_count": 22,
+  "quality": "accepted"
+}

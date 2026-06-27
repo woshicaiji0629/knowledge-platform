@@ -1,0 +1,6 @@
+## 问题排查必读指南
+[步骤一：检查](troubleshoot-the-errors-related-to-logtail-machine-groups.md)[Logtail](troubleshoot-the-errors-related-to-logtail-machine-groups.md)[是否正常运行](troubleshoot-the-errors-related-to-logtail-machine-groups.md)：检查Logtail在服务器是否正常运行。
+[步骤二：确认机器组中的](troubleshoot-the-errors-related-to-logtail-machine-groups.md)[IP](troubleshoot-the-errors-related-to-logtail-machine-groups.md)[地址是否为](troubleshoot-the-errors-related-to-logtail-machine-groups.md)[Logtail](troubleshoot-the-errors-related-to-logtail-machine-groups.md)[获取的](troubleshoot-the-errors-related-to-logtail-machine-groups.md)[IP](troubleshoot-the-errors-related-to-logtail-machine-groups.md)[地址](troubleshoot-the-errors-related-to-logtail-machine-groups.md)：确认机器组中的IP地址是否和Logtail的app_info.json文件中的IP地址一致，不一致会导致心跳失败。
+[步骤三：检查](troubleshoot-the-errors-related-to-logtail-machine-groups.md)[Logtail](troubleshoot-the-errors-related-to-logtail-machine-groups.md)[启动参数是否正确](troubleshoot-the-errors-related-to-logtail-machine-groups.md)：检查ilogtail_config.json文件中配置的Project地域是否正确。
+[步骤四：检查网络是否通畅](troubleshoot-the-errors-related-to-logtail-machine-groups.md)：检查服务器与Project之间网络是否通畅。
+[步骤五：检查](troubleshoot-the-errors-related-to-logtail-machine

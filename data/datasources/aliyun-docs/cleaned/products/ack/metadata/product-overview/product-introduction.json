@@ -1,0 +1,17 @@
+{
+  "id": "ack:product-overview/product-introduction",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "Kubernetes容器化应用生命周期管理-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/product-overview/product-introduction",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/product-overview/product-introduction.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/product-overview/product-introduction.md",
+  "word_count": 1042,
+  "text_units": 2704,
+  "local_links": 23,
+  "external_links": 64,
+  "has_tables": true,
+  "table_count": 7,
+  "quality": "accepted"
+}

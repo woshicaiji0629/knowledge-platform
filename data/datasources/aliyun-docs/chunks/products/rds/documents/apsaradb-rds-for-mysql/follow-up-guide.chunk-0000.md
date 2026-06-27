@@ -1,0 +1,6 @@
+## 性能与价格力体验（免费）
+[倚天版（ARM](performance-and-cost-effectiveness-of-cost-effective-rds-instances-that-originally-use-the-arm-architecture.md)[架构）性能&价格力观测](performance-and-cost-effectiveness-of-cost-effective-rds-instances-that-originally-use-the-arm-architecture.md)
+[RDS](rds-bpe-performance-and-cost-simulation.md)[高性能云盘](rds-bpe-performance-and-cost-simulation.md)[Buffer Pool Extension（BPE）性能&价格力观测](rds-bpe-performance-and-cost-simulation.md)
+[免费体验](experience-the-extreme-flexibility-of-serverless-apsaradb-rds-for-mysql-instances-free-of-charge.md)[RDS MySQL Serverless](experience-the-extreme-flexibility-of-serverless-apsaradb-rds-for-mysql-instances-free-of-charge.md)[极致弹性](experience-the-extreme-flexibility-of-serverless-apsaradb-rds-for-mysql-instances-free-of-charge.md)
+[免费体验](free-trial-of-seamless-switchover-based-on-database-proxies.md)[RDS MySQL](free-trial-of-seamless-switchover-based-on-database-proxies.md)[数据库代理无感切换](free-trial-of-seamless-switchover-based-on-database-proxies.md)
+涉及功能：[RDS](../product-overview/product-types.md)[标准版与倚天版](../product-overview/product-types.md)、[Buffer Pool Extension（BPE）功能](buffer-pool-extension-bpe.md)、[RDS MySQL Serverless](rds-mysql-serverl

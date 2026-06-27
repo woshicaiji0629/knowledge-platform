@@ -1,0 +1,4 @@
+Unable to execute HTTP request: The Difference between … is too large | 该报错可能是以下情况导致： 本地机器时间不对，与OSS服务器时间相差15分钟以上，该情况居多。 可能是并发太高，尤其是CPU占用率很高，导致并发上传慢。 | 该问题可以通过以下方法解决： 修改本地时间，与OSS服务器一致。 如果是并发问题，可以调整并发。您可以将 sys.properties 文件的 workerTaskThreadNum 参数值改小。 |
+| 无 | The object key “/xxxxx.jpg” is invalid | 该报错可能是以下情况导致： srcPrefix 作为目录但没有以正斜线（/）结尾。 destPrefix 以正斜线（/）或者反斜线（\）开头。 | 该问题可以通过以下方法解决： 检查 srcPrefix 是否是作为目录但没有以正斜线（/）结尾。如果是目录，请以正斜线（/）结尾。 检查 destPrefix 是否以正斜线（/）或者反斜线（\）开头。如果是，请删除正斜线（/）或反斜线（\）， destPrefix 不能以正斜线（/）或反斜线（\）开头。 |
+| 无 | No route to host | 这种情况一般是本地防火墙或者iptables等原因导致网络不通。 | 通过ping命令测试迁移服务器到源端和目的端网络是否正常。 若网络正常，可检查电脑防火墙和本地的防火墙设备是否有限制，可尝试关闭防火墙测试。 若网络异常，排查原因并处理后重试。 |
+| 无 | Unknown http list file format | 使用HTTP模式迁移时，该问题是因为指定的HTTP列表文件格式不对或内容不符合规范。 | 该问题可以通过以下方法解决： 如果是从其它操作系统上拷过来的文件，Linux系统可以用mac2unix、dos2unix等相关命令转换文件格式；Windows系统可以使用转换工具转换格式。 如果是列表文件内容的格式不正确，请修改为正确的格式。列表文件内容的格式请参见 [列表文件](overview-36.md) 。 |

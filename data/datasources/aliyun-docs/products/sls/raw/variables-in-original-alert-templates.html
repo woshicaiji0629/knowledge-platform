@@ -1,0 +1,1129 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    旧版内容模板支持的变量以及引用方式有哪些-日志服务(SLS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/sls/variables-in-original-alert-templates">
+  <meta name="keywords" content="查询内容模板变量,了解模板变量说明,内容模板变量说明,内容模板变量列表,内容模板变量引用">
+  <meta name="description" content="本文介绍旧版内容模板所支持的变量以及引用方式。">
+  <meta name="last-modified" content="2026-03-13T11:30:55+08:00">
+  <meta name="date" content="2021-03-26T10:45:35+08:00">
+  <meta property="og:title" content="内容模板变量说明（旧版）">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/sls/variables-in-original-alert-templates">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="本文介绍旧版内容模板所支持的变量以及引用方式。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/sls/variables-in-original-alert-templates",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "209465",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/sls/variables-in-original-alert-templates","nodeId":null,"data":{"lastModifiedTime":1773372655000,"keywords":"查询内容模板变量,了解模板变量说明,内容模板变量说明,内容模板变量列表,内容模板变量引用","docTitle":"内容模板变量说明（旧版）","language":"zh","seoTitle":"旧版内容模板支持的变量以及引用方式有哪些-日志服务(SLS)-阿里云帮助中心","title":"内容模板变量说明（旧版）","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"reference-2061590\">\n    \n    \n    <p id=\"shortdesc-a5g-vg0-j96\" data-tag=\"shortdesc\" class=\"shortdesc\">本文介绍旧版内容模板所支持的变量以及引用方式。</p>\n    <div data-tag=\"refbody\" id=\"refbody-tn2-uum-nnx\" class=\"refbody\">\n      <section data-tag=\"section\" id=\"section-b21-w0c-w6q\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-c22-j86-t4w\" class=\"title\">引用方式</h2>\n        <div data-tag=\"note\" id=\"note-fc3-a2a-h84\" type=\"notice\" class=\"note note-notice\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note notice\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n          <p id=\"7bf28ba9288wj\">引用变量时，变量名称必须完全匹配。对于不存在的变量或者不合法的引用默认替换为空字符串。如果引用的值为对象类型，则会转换为<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>字符串。</p>\n        </div></div>\n        <p data-tag=\"p\" id=\"p-erh-g72-9l0\" class=\"p\">配置行动策略时必须选择内容模板，内容模板定义具体的发送内容和主题。您可以在<b data-tag=\"uicontrol\" id=\"uicontrol-ju2-jwf-g6d\" class=\"uicontrol\">发送内容</b>和<b data-tag=\"uicontrol\" id=\"uicontrol-z4o-lyu-0ic\" class=\"uicontrol\">主题</b>中，通过<span data-tag=\"ph\" id=\"codeph-mlb-e93-1bx\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${fieldName}</code></span>方式引用模板变量。日志服务发送告警通知时，会将<b data-tag=\"uicontrol\" id=\"uicontrol-1ke-4pf-4pn\" class=\"uicontrol\">发送内容</b>和<b data-tag=\"uicontrol\" id=\"uicontrol-j3h-9i8-g0a\" class=\"uicontrol\">主题</b>中的模板变量替换为真实值，例如<span data-tag=\"ph\" id=\"codeph-tsf-7i6-991\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${project}</code></span>替换为告警规则所属的<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>名称。</p>\n      </section>\n      <section data-tag=\"section\" id=\"section-ypn-6dq-2bb\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-f8e-key-hi9\" class=\"title\">可用变量及其引用</h2>\n        <div data-tag=\"p\" id=\"p-vht-ifz-n5e\" class=\"p\">\n          <p id=\"5a038f7df9aha\">目前支持的所有可用变量及引用方式如下表所示。</p>\n          <table id=\"table-2s9-9va-wbh\" tablewidth=\"707\" tablecolswidth=\"109 163 109 163 163\" autofit=\"false\" class=\"table\">\n            <colgroup colwidth=\"0.77*\" style=\"width:15.42%\"></colgroup>\n            <colgroup colwidth=\"1.16*\" style=\"width:23.06%\"></colgroup>\n            <colgroup colwidth=\"0.77*\" style=\"width:15.42%\"></colgroup>\n            <colgroup colwidth=\"1.16*\" style=\"width:23.06%\"></colgroup>\n            <colgroup colwidth=\"1.16*\" style=\"width:23.06%\"></colgroup>\n            <tbody class=\"tbody\">\n              <tr id=\"row-15l-jna-kkd\">\n                <td id=\"reference-2061590-entry-iyp-i8i-nlt\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"e01312144d14g\"><b>变量</b></p>\n                </td>\n                <td id=\"reference-2061590-entry-5u2-1rt-re9\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"1686fe554egca\"><b>说明</b></p>\n                </td>\n                <td id=\"reference-2061590-entry-j55-4jb-y1a\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"9abb91af9e5mz\"><b>数据类型</b></p>\n                </td>\n                <td id=\"reference-2061590-entry-kl5-7bh-ju8\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"42cd1dd26aanb\"><b>取值示例</b></p>\n                </td>\n                <td id=\"reference-2061590-entry-tmq-f3p-u39\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"7a18ce67017px\"><b>引用示例</b></p>\n                </td>\n              </tr>\n              <tr id=\"row-14w-9um-9g4\">\n                <td id=\"entry-tl4-wfd-524\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"ff1c2f1053szl\"><span data-tag=\"parmname\" id=\"parmname-uy1-e72-rpp\" class=\"parmname\">aliuid</span></p>\n                </td>\n                <td id=\"entry-xgo-4q9-494\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"b0f86f87c7har\">Project<span class=\"help-letter-space\"></span>所属的阿里云账号<span class=\"help-letter-space\"></span>ID。</p>\n                </td>\n                <td id=\"entry-m09-y8i-ipl\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"ffda54b999kq6\">string</p>\n                </td>\n                <td id=\"entry-hmo-xn8-2s4\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"45f69aa689gxp\">117918664953****</p>\n                </td>\n                <td id=\"entry-q73-4iq-jf2\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"2756c67990lad\"><span data-tag=\"ph\" id=\"codeph-dis-3kp-zh2\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${aliuid}</code></span>用户的告警规则已触发。</p>\n                </td>\n              </tr>\n              <tr id=\"row-r8x-cwb-d0a\">\n                <td id=\"entry-t1x-7qp-y1m\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"a05bfc5853d8w\"><span data-tag=\"parmname\" id=\"parmname-9ts-hon-xe8\" class=\"parmname\">alert_instance_id</span></p>\n                </td>\n                <td id=\"entry-j87-svr-5qc\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"9186739f07yje\">告警触发的实例的<span class=\"help-letter-space\"></span>ID。</p>\n                </td>\n                <td id=\"entry-86x-lh8-cm7\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"a19ee7fa47qyk\">string</p>\n                </td>\n                <td id=\"entry-8lo-2lk-3e1\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"e638332639sqz\">ee16a8f435485f3f-5be6b81edc520-3d6****</p>\n                </td>\n                <td id=\"entry-2n9-kij-r0l\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"2053de317ckop\">实例<span class=\"help-letter-space\"></span>ID<span class=\"help-letter-space\"></span>为<span data-tag=\"ph\" id=\"codeph-kw1-a21-o08\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${alert_instance_id}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-rmu-5ww-s28\">\n                <td id=\"entry-5fp-6u5-54d\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"327e371ddakhn\"><span data-tag=\"parmname\" id=\"parmname-8jg-axx-a3p\" class=\"parmname\">project</span></p>\n                </td>\n                <td id=\"entry-o6b-gk0-7oj\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"80a70ab62dcel\">告警规则所属<span class=\"help-letter-space\"></span>Project。</p>\n                </td>\n                <td id=\"entry-090-ogi-w6n\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"5aa156d621c77\">string</p>\n                </td>\n                <td id=\"entry-p8e-luo-yz3\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"8c13dc8309b5o\">my-project</p>\n                </td>\n                <td id=\"entry-8zo-2oo-jbv\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"05ae07dbddmuw\"><span data-tag=\"ph\" id=\"codeph-xok-kun-6jb\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${project}</code></span>项目中的告警规则已触发。 </p>\n                </td>\n              </tr>\n              <tr id=\"row-x77-a0i-yyy\">\n                <td id=\"entry-zxz-lw0-89r\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"96ca948b47vru\"><span data-tag=\"parmname\" id=\"parmname-x8l-ucz-pht\" class=\"parmname\">alert_id</span></p>\n                </td>\n                <td id=\"entry-241-uu8-e8s\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"31f313ff734nn\">告警规则<span class=\"help-letter-space\"></span>ID，Project<span class=\"help-letter-space\"></span>内唯一。</p>\n                </td>\n                <td id=\"entry-x27-g6o-rfi\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bdbf6ebb71dom\">string</p>\n                </td>\n                <td id=\"entry-o17-3j2-efg\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"90c5e5bc5eec9\">0fdd88063a611aa114938f9371daeeb6-1671a52****</p>\n                </td>\n                <td id=\"entry-lhd-vnv-rqr\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"dd40d9bd30y22\">告警规则<span class=\"help-letter-space\"></span>ID<span class=\"help-letter-space\"></span>是<span data-tag=\"ph\" id=\"codeph-ts0-wfp-14g\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${alert_id}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-vrw-xz9-imc\">\n                <td id=\"entry-p7n-6jx-ley\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"db07c9fd53trt\"><span data-tag=\"parmname\" id=\"parmname-zgn-vd1-al2\" class=\"parmname\">alert_type</span></p>\n                </td>\n                <td id=\"entry-fjx-iyl-x05\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"2027373382zvk\">告警类型。</p>\n                  <ul data-tag=\"ul\" id=\"ul-a9m-6x1-a9e\" class=\"ul\">\n                    <li data-tag=\"li\" id=\"li-drr-ggw-v6i\" class=\"li\">\n                      <p id=\"22500409bdxgc\">sls_alert：由告警监控规则触发的告警。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-68w-e5a-zxd\" class=\"li\">\n                      <p id=\"bda504b8c5uyg\">sls_pub：来自于开放告警中的告警。</p>\n                    </li>\n                  </ul>\n                </td>\n                <td id=\"entry-ley-l62-21y\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"2d6ad02226re0\">string</p>\n                </td>\n                <td id=\"entry-j26-ck2-ozu\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"d55ecbcd5clt3\">sls_alert</p>\n                </td>\n                <td id=\"entry-3df-n4d-q8t\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"18f5c2d5e3v5r\">告警类型是<span data-tag=\"ph\" id=\"codeph-dni-4qc-rkq\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${alert_type}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-a2s-7r1-ulw\">\n                <td id=\"entry-uz8-66g-012\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"618f227347lo7\"><span data-tag=\"parmname\" id=\"parmname-12i-o1c-53y\" class=\"parmname\">alert_name</span></p>\n                </td>\n                <td id=\"entry-h16-2uh-1aj\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"e2571d4f52fth\">告警规则名称。</p>\n                </td>\n                <td id=\"entry-o16-8g1-9sv\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"757abc7632dxt\">string</p>\n                </td>\n                <td id=\"entry-b22-ga4-dyf\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"f9bd7426efx1c\">告警规则<span class=\"help-letter-space\"></span>new2</p>\n                </td>\n                <td id=\"entry-yx0-gia-u2u\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"065df70c7byd2\">告警规则<span data-tag=\"ph\" id=\"codeph-3ot-h8n-7gj\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${alert_name}</code></span>已经触发。</p>\n                </td>\n              </tr>\n              <tr id=\"row-eog-oqs-hrt\">\n                <td id=\"entry-e0v-tb1-d5z\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"8b0f4ce412vc8\"><span data-tag=\"parmname\" id=\"parmname-043-7g5-l3u\" class=\"parmname\">next_eval_interval</span></p>\n                </td>\n                <td id=\"entry-6kd-0w2-qga\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"07cfdfe909lgw\">下一次评估间隔。</p>\n                </td>\n                <td id=\"entry-j7n-2c1-s0l\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"d84ddffde3fmf\">int</p>\n                </td>\n                <td id=\"entry-r0d-sz4-sg4\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"dfd9eec1c3ie0\">900</p>\n                </td>\n                <td id=\"entry-bw8-lj4-92s\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"8eb12f7384toc\">下一次评估时间为<span data-tag=\"ph\" id=\"codeph-b2b-kfe-45j\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${next_eval_interval}</code></span>秒后。</p>\n                </td>\n              </tr>\n              <tr id=\"row-ai1-v12-py4\">\n                <td id=\"entry-22f-8gy-yxv\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"ee700807d4m9p\"><span data-tag=\"parmname\" id=\"parmname-ps5-lwy-d43\" class=\"parmname\">alert_time</span></p>\n                </td>\n                <td id=\"entry-dbg-7iz-0vn\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"145018e234v6t\">本次评估时间。</p>\n                </td>\n                <td id=\"entry-hyt-uc2-nyx\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"8aa260b8d4y95\">int</p>\n                </td>\n                <td id=\"entry-fdm-6mw-of1\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"31422b8aacxd1\">1616744734</p>\n                </td>\n                <td id=\"entry-bqu-eyw-j3x\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"5d8b54524fh44\">本次评估告警的时间为<span data-tag=\"ph\" id=\"codeph-wg6-bw0-7eb\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${alert_time}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-skm-ke2-est\">\n                <td id=\"entry-b7g-3gx-u4h\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"d56ee98f9b37g\"><span data-tag=\"parmname\" id=\"parmname-n36-3qn-0i3\" class=\"parmname\">fire_time</span></p>\n                </td>\n                <td id=\"entry-945-2ed-dp7\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"6f5d960ea1gr1\">首次触发时间。</p>\n                </td>\n                <td id=\"entry-shq-bi8-781\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"2e8d6495ffqe3\">int</p>\n                </td>\n                <td id=\"entry-jve-spy-sfd\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"21a91cb1a1dvi\">1616059834</p>\n                </td>\n                <td id=\"entry-u78-32n-8o8\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"df8828cedca22\">告警首次触发时间为<span data-tag=\"ph\" id=\"codeph-x6k-p5m-m20\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${fire_time}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-xot-1lf-w78\">\n                <td id=\"entry-9zu-rzh-uz9\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"0e7c1efb39s73\"><span data-tag=\"parmname\" id=\"parmname-1p4-dkm-9ka\" class=\"parmname\">status</span></p>\n                </td>\n                <td id=\"entry-ooi-c9f-l51\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"866471703f45e\">告警状态。</p>\n                  <ul data-tag=\"ul\" id=\"ul-bce-uo9-7kq\" class=\"ul\">\n                    <li data-tag=\"li\" id=\"li-pjo-ohd-vcu\" class=\"li\">\n                      <p id=\"896a7cd400x30\">firing：触发告警。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-h4t-4ca-dby\" class=\"li\">\n                      <p id=\"371a6f6ba15bq\">resolved：恢复通知。</p>\n                    </li>\n                  </ul>\n                </td>\n                <td id=\"entry-4eh-x8y-8pp\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"5d132699ccf3i\">string</p>\n                </td>\n                <td id=\"entry-z77-jwe-lav\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"e774199e5f0ce\">firing</p>\n                </td>\n                <td id=\"entry-514-c96-5wc\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"978aa11785lb2\">告警状态为<span data-tag=\"ph\" id=\"codeph-1g2-ua4-de6\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${status}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-wr0-57z-f01\">\n                <td id=\"entry-9e6-5bh-b53\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"d15d0ac30bu5v\"><span data-tag=\"parmname\" id=\"parmname-0w5-8do-54p\" class=\"parmname\">resolve_time</span></p>\n                </td>\n                <td id=\"entry-7wn-zcv-rf6\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"ce08b41fdfr50\">告警恢复时间。</p>\n                  <ul data-tag=\"ul\" id=\"ul-jiz-oyb-j8j\" class=\"ul\">\n                    <li data-tag=\"li\" id=\"li-njg-957-2v9\" class=\"li\">\n                      <p id=\"84b07ac8eauk4\">如果告警状态是<span class=\"help-letter-space\"></span>firing，取值为<span class=\"help-letter-space\"></span>0。</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-uog-owa-i4c\" class=\"li\">\n                      <p id=\"8619c200f80se\">如果告警状态是<span class=\"help-letter-space\"></span>resolved，取值为具体恢复时间。</p>\n                    </li>\n                  </ul>\n                </td>\n                <td id=\"entry-6b4-eip-ksm\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bdea6bb840tf5\">int</p>\n                </td>\n                <td id=\"entry-7ec-yh9-ib8\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bae30b5a7fw1i\">0</p>\n                </td>\n                <td id=\"entry-ff5-6xk-rck\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"2701264dc16wn\">告警恢复的时间为<span data-tag=\"ph\" id=\"codeph-hzf-f8i-iyg\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${resolve_time}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-nn9-lzn-1bt\">\n                <td id=\"entry-iu5-tiu-47i\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"adedf91da4d66\"><span data-tag=\"parmname\" id=\"parmname-alk-wng-uxe\" class=\"parmname\">results</span></p>\n                </td>\n                <td id=\"entry-dxd-jkj-au4\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"0fb45238a3bvj\">查询参数和中间结果，数组类型。变量取值说明，请参见<span class=\"help-letter-space\"></span><a href=\"#section-5op-xn7-tbw\" id=\"xref-xgw-kes-eth\" title=\"\" class=\"xref\">QueryData<span class=\"help-letter-space\"></span>结构</a>。</p>\n                </td>\n                <td id=\"entry-dxb-g6a-ezd\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"661315d259fhh\">array</p>\n                </td>\n                <td id=\"entry-5on-enh-ofb\" rowspan=\"1\" colspan=\"1\"><pre data-tag=\"codeblock\" id=\"codeblock-bek-h5g-g73\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>[\n{\n\"store_type\": \"log\",\n\"region\": \"cn-hangzhou\",\n\"project\": \"sls-alert-test\",\n\"store\": \"test\",\n\"query\": \"* | select count(1) as cnt\",\n\"start_time\": 1616741485,\n\"end_time\": 1616745085,\n\"dashboard_id\": \"mydashboard\",\n\"raw_results\": [{\"cnt\": \"4\"}],\n\"raw_result_count\": 1,\n\"truncated\": false,\n\"role_arn\": \"\"\n}\n]</code></pre></td>\n                <td id=\"entry-y64-1lq-1rv\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"ec0cbb21481wf\">第一个查询的开始时间为<span data-tag=\"ph\" id=\"codeph-drd-2s2-ac4\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${results[0].start_time}</code></span>；结束时间为<span data-tag=\"ph\" id=\"codeph-xp6-97z-gzq\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${results[0].end_time}</code></span>。</p>\n                  <div data-tag=\"note\" id=\"note-72s-ukf-7nm\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                    <p id=\"55d82ab58bxcc\">其中<span class=\"help-letter-space\"></span><span data-tag=\"ph\" id=\"ph-qa2-h03-2d0\" class=\"ph\">0</span><span class=\"help-letter-space\"></span>为图表编号。</p>\n                  </div></div>\n                </td>\n              </tr>\n              <tr id=\"row-pz8-3oy-3bq\">\n                <td id=\"entry-3v3-d04-993\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"d7eb1c6be4pbf\"><span data-tag=\"parmname\" id=\"parmname-w7w-uo5-sqf\" class=\"parmname\">labels</span></p>\n                </td>\n                <td id=\"entry-ice-ng7-cbq\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"c6340bd7b3s5y\">标签列表。</p>\n                </td>\n                <td id=\"entry-119-a4w-ngk\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"941147d47e87p\">map</p>\n                </td>\n                <td id=\"entry-4vs-u5w-xqn\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"9449ae18391f2\">{\"env\":\"test\"}</p>\n                </td>\n                <td id=\"entry-1d1-poj-jhl\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"dfcb0e4cf7lds\">告警标签为<span data-tag=\"ph\" id=\"codeph-fmw-p66-9k9\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${labels}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-ggp-0ga-65x\">\n                <td id=\"entry-1ef-te8-ko8\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"4ac202a8bfktn\"><span data-tag=\"parmname\" id=\"parmname-rbl-tgy-7ts\" class=\"parmname\">annotations</span></p>\n                </td>\n                <td id=\"entry-u0v-4mr-1oi\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"9de56cfcaefhq\">标注列表。</p>\n                </td>\n                <td id=\"entry-458-fcx-12x\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"7d8784eabeuz0\">map</p>\n                </td>\n                <td id=\"entry-4mj-rz3-xfb\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"0547f7381a0ia\">{ \"title\": \"告警标题\",\"desc\": \"告警描述\" }</p>\n                </td>\n                <td id=\"entry-r2c-v6a-dye\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bcc72f2c4005j\">告警标注为<span data-tag=\"ph\" id=\"codeph-lgp-41c-8xt\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${annotations}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-ei9-mfw-h2h\">\n                <td id=\"entry-cfu-gnq-usj\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"a0fc6f0d54l8h\"><span data-tag=\"parmname\" id=\"parmname-ggw-e1v-z70\" class=\"parmname\">severity</span></p>\n                </td>\n                <td id=\"entry-dv8-7n0-dgl\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"8aba573578dq2\">告警严重度。</p>\n                  <ul data-tag=\"ul\" id=\"ul-5ic-ox1-d57\" class=\"ul\">\n                    <li data-tag=\"li\" id=\"li-en7-lqp-kdc\" class=\"li\">\n                      <p id=\"29a29ca2a9bhh\">10：严重</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-olq-0h6-34r\" class=\"li\">\n                      <p id=\"f94468c011qah\">8：高</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-ez6-o27-sj4\" class=\"li\">\n                      <p id=\"51cdbcb6968ug\">6：中</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-6vq-y4j-d2y\" class=\"li\">\n                      <p id=\"ce543038d4qy9\">4：低</p>\n                    </li>\n                    <li data-tag=\"li\" id=\"li-vgo-bld-t1i\" class=\"li\">\n                      <p id=\"4671148329pku\">2：仅报告</p>\n                    </li>\n                  </ul>\n                </td>\n                <td id=\"entry-90a-zew-44k\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"5f0f6aba17uuc\">int</p>\n                </td>\n                <td id=\"entry-egi-7ql-vek\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"2c16ca37e3xlb\">10</p>\n                </td>\n                <td id=\"entry-ozl-jq5-e4i\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"eedef69ebc04y\">告警严重度为<span data-tag=\"ph\" id=\"codeph-2su-iol-f3c\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${severity}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-vur-2gd-she\">\n                <td id=\"entry-b49-7qz-sds\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"a8dbe5477aar5\"><span data-tag=\"parmname\" id=\"parmname-a1q-wwn-nku\" class=\"parmname\">policy</span></p>\n                </td>\n                <td id=\"entry-hq7-pvf-bjb\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"88394c2587fl7\">告警策略或者行动策略。变量取值说明，请参见<span class=\"help-letter-space\"></span><a href=\"#section-el1-n7b-2fy\" id=\"xref-78a-1o6-qfo\" title=\"\" class=\"xref\">Policy<span class=\"help-letter-space\"></span>结构</a>。</p>\n                </td>\n                <td id=\"entry-r5h-lrm-ngx\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"f6ce6e0bb1rsj\">map</p>\n                </td>\n                <td id=\"entry-5cz-sgd-unn\" rowspan=\"1\" colspan=\"1\"><pre data-tag=\"codeblock\" id=\"codeblock-9rl-tth-3wf\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>{\n    \"alert_policy_id\": \"sls.test-alert\",\n    \"action_policy_id\": \"sls.test-action\",\n    \"use_default\": false,\n    \"repeat_interval\": \"6m0s\"\n}</code></pre></td>\n                <td id=\"entry-zvt-b3u-6ax\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"c5d30e18fby76\">告警策略<span class=\"help-letter-space\"></span>ID<span class=\"help-letter-space\"></span>为<span data-tag=\"ph\" id=\"codeph-dnt-eu3-kb5\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${policy.alert_policy_id}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-k1p-ub2-t2g\">\n                <td id=\"entry-b83-wk2-0lq\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"6fa67431987yc\"><span data-tag=\"parmname\" id=\"parmname-yby-9ny-uki\" class=\"parmname\">region</span></p>\n                </td>\n                <td id=\"entry-zn6-sc0-h1k\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"a365627524kuz\">地域。</p>\n                </td>\n                <td id=\"entry-flh-77m-7qx\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"6d8315d5f10g1\">string</p>\n                </td>\n                <td id=\"entry-6bq-j0i-gm6\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"407fc1445dapk\">cn-hangzhou</p>\n                </td>\n                <td id=\"entry-tjd-tzg-kqo\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"074307654fyvt\">告警触发的地域为<span data-tag=\"ph\" id=\"codeph-gem-9vw-i9h\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${region}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-uxe-cjx-3iq\">\n                <td id=\"entry-uoy-90j-grp\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"f89fac2b92l1e\"><span data-tag=\"parmname\" id=\"parmname-7e3-v0u-0pn\" class=\"parmname\">drill_down_query</span></p>\n                </td>\n                <td id=\"entry-l02-1ns-lpt\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"e1ce67e0a8m3m\">用于下钻分析的查询语句。在自定义告警中值为空，目前适用于日志审计服务、成本管家和<span class=\"help-letter-space\"></span>SLB<span class=\"help-letter-space\"></span>日志中心的告警内容模板。</p>\n                </td>\n                <td id=\"entry-6pn-mcp-lws\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"daa41aaee4j8i\">string</p>\n                </td>\n                <td id=\"entry-htl-4jh-pa2\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"b0568ab1738t4\"><span data-tag=\"ph\" id=\"codeph-if4-4sr-mnq\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">* | select count(1) as cnt</code></span></p>\n                </td>\n                <td id=\"entry-el3-sc7-3oy\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"ad67a457f13pn\">无</p>\n                </td>\n              </tr>\n              <tr id=\"row-n21-g04-559\">\n                <td id=\"entry-2gw-sw5-h8y\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"8e8b7bf95cq2a\"><span data-tag=\"parmname\" id=\"parmname-nfp-00o-5va\" class=\"parmname\">alert_url</span></p>\n                </td>\n                <td id=\"entry-cms-jdf-pyq\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"35ca439e583ld\">告警的详细<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>地址。</p>\n                </td>\n                <td id=\"entry-6ad-2dk-jcd\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"1e48a8556665u\">string</p>\n                </td>\n                <td id=\"entry-pxd-14p-5y6\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"7c87c566f9km0\">https://sls.console.aliyun.com/lognext/project/test-xxxx/alert/alert-1617164106-940166</p>\n                </td>\n                <td id=\"entry-9tj-hts-5v3\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"664301fa8aazy\">告警<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>为<span data-tag=\"ph\" id=\"codeph-6yj-wq3-hnp\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${alert_url}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-o0r-m97-om2\">\n                <td id=\"entry-duo-cca-ip6\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"fc1e05ee58t9n\"><span data-tag=\"parmname\" id=\"parmname-nj6-pm4-x0e\" class=\"parmname\">query_url</span></p>\n                </td>\n                <td id=\"entry-feg-0ud-6e6\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bb8981096e46f\">查询统计中第一个查询页面的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>地址。</p>\n                </td>\n                <td id=\"entry-dhc-aky-n75\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"b06a591118g1h\">string</p>\n                </td>\n                <td id=\"entry-mxe-mlv-zvz\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"1ad41e6cb2h7m\">https://sls-stg.console.aliyun.com/lognext/project/test-xxx/logsearch/test-alert-access?encode=base64&amp;endTime=1617175989&amp;queryString=KiB8IHNlbGVjdCBjb3VudCgxKSBhcyBjbnQ%3D&amp;queryTimeType=99&amp;startTime=1617175089</p>\n                </td>\n                <td id=\"entry-275-rne-iju\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"4dbab9d88bfth\">查询统计中第一个查询页面的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>地址为<span data-tag=\"ph\" id=\"codeph-1u3-eyd-91m\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${query_url}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-mn7-rp0-m83\">\n                <td id=\"entry-w0a-3sc-65v\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"88c8588157i7d\"><span data-tag=\"parmname\" id=\"parmname-8xb-qow-ycw\" class=\"parmname\">alert_history_dashboard_url</span></p>\n                </td>\n                <td id=\"entry-qd6-ksn-678\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"0548622e7atjb\">告警历史统计报表的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>地址。</p>\n                </td>\n                <td id=\"entry-v87-un9-d99\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"ca73e987085iy\">string</p>\n                </td>\n                <td id=\"entry-vm9-wlz-20b\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"1315469c692m7\">https://sls.console.aliyun.com/lognext/project/test-xx/dashboard/internal-alert-analysis</p>\n                </td>\n                <td id=\"entry-b6a-2g1-cmy\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"162eeead14ghk\">告警历史统计报表的<span class=\"help-letter-space\"></span>URL<span class=\"help-letter-space\"></span>地址为<span data-tag=\"ph\" id=\"codeph-0kp-hm8-7yk\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${alert_history_dashboard_url}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-sff-x11-dud\">\n                <td id=\"entry-dlt-cbk-2xv\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"7c61dc586070h\"><span data-tag=\"parmname\" id=\"parmname-0qu-34e-88a\" class=\"parmname\">condition</span></p>\n                </td>\n                <td id=\"entry-hmg-vos-hol\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"8f2ae680cczme\">触发告警的评估表达式。其中，以触发告警的值替换您所配置的变量，并使用中括号（[ ]）包裹。格式为<span data-tag=\"ph\" id=\"codeph-4ky-a8u-mas\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">Count:数量表达式; Condition:匹配表达式</code></span>。</p>\n                </td>\n                <td id=\"entry-uk8-sut-993\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"351ae64d734al\">string</p>\n                </td>\n                <td id=\"entry-x0u-ygg-r5p\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"f0faad05b4gck\"><span data-tag=\"ph\" id=\"codeph-ehp-fkn-wkz\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">Count:[5] &gt; 3;Condition:[example.com]=='example.com'</code></span></p>\n                </td>\n                <td id=\"entry-158-4d7-gyy\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"ec36ee540d5ey\">告警评估表达式为<span data-tag=\"ph\" id=\"codeph-cnx-jgq-8tl\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${condition}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-zlo-o10-j69\">\n                <td id=\"entry-1vo-pq5-9n8\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"a3f120e4817sr\"><span data-tag=\"parmname\" id=\"parmname-b0f-mzi-bn6\" class=\"parmname\">raw_condition</span></p>\n                </td>\n                <td id=\"entry-szu-ris-gwz\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"5abe015b13juo\">原始的评估表达式，即变量未被替换为真实值的原始表达式。格式为<span data-tag=\"ph\" id=\"codeph-kfw-y9z-lbq\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">Count:数量表达式; Condition:匹配表达式</code></span>。</p>\n                </td>\n                <td id=\"entry-vna-xof-3a8\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"2378602bc37jd\">string</p>\n                </td>\n                <td id=\"entry-e7z-pw9-cca\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"9beddc67871d5\"><span data-tag=\"ph\" id=\"codeph-12g-p4g-9yh\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">Count:__count__ &gt; 3;Condition:host=='example.com'</code></span></p>\n                </td>\n                <td id=\"entry-qey-lq6-c1q\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bb064e865eem5\">原始评估表达式为<span data-tag=\"ph\" id=\"codeph-4wb-a68-lzm\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${raw_condition}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-tf7-lnf-c42\">\n                <td id=\"entry-fj6-w7t-yqc\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"5161c83f8brcw\"><span data-tag=\"parmname\" id=\"parmname-fzj-s22-w7t\" class=\"parmname\">dashboard</span></p>\n                </td>\n                <td id=\"entry-hg6-q9v-7tv\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"1aed80c520123\">告警关联的仪表盘名称。</p>\n                </td>\n                <td id=\"entry-0b7-ble-nf4\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"f5f253f87d480\">string</p>\n                </td>\n                <td id=\"entry-m7z-e7f-59l\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"1e4d9318222ox\">mydashboard</p>\n                </td>\n                <td id=\"entry-7uc-ehz-clj\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"0ea15bed29wlk\">告警关联的仪表盘名称为<span data-tag=\"ph\" id=\"codeph-t67-06x-xo1\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${dashboard}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-k02-9qa-bij\">\n                <td id=\"entry-6ty-wo0-mmn\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"5bf7e790179d7\"><span data-tag=\"parmname\" id=\"parmname-9eb-3p5-c65\" class=\"parmname\">dashboard_url</span></p>\n                </td>\n                <td id=\"entry-4tx-70w-3ec\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"426cfccbe7luo\">告警关联的仪表盘地址。</p>\n                </td>\n                <td id=\"entry-f0t-w6y-exi\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"ea5de7999avwy\">string</p>\n                </td>\n                <td id=\"entry-65m-mfv-1hg\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"9f67112650u44\">https://sls.console.aliyun.com/next/project/myproject/dashboard/mydashboard</p>\n                </td>\n                <td id=\"entry-vcd-78i-ksh\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"836df4f94dwxb\">告警关联的仪表盘地址为<span data-tag=\"ph\" id=\"codeph-0dz-z3b-oh2\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${dashboard_url}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-jyb-dbc-5sz\">\n                <td id=\"entry-i6w-5cb-iew\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"b3493912feu51\"><span data-tag=\"parmname\" id=\"parmname-isj-jfa-7ur\" class=\"parmname\">fire_results</span></p>\n                </td>\n                <td id=\"entry-hsn-bb9-eyh\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"b654ef85b8abj\">触发告警的数据，即集合操作后的数据，最多<span class=\"help-letter-space\"></span>100<span class=\"help-letter-space\"></span>条。</p>\n                </td>\n                <td id=\"entry-jsj-2ax-vnj\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"43e9c9fb6e5gl\">array</p>\n                </td>\n                <td id=\"entry-ki8-qts-gaz\" rowspan=\"1\" colspan=\"1\"><pre data-tag=\"codeblock\" id=\"codeblock-zq7-266-t91\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>[{\n    \"host\":example.com\",\n    \"host__1\":\"example.com\",\n    \"pv\":\"836\",\n    \"slbid\":\"slb-02\",\n    \"status\":\"200\"},{\n    \"host\":\"example.com\",\n    \"host__1\":\"example.org\",\n    \"pv\":\"836\",\n    \"slbid\":\"slb-02\",\n    \"status\":\"200\"\n},{\n    \"host\":\"example.com\",\n    \"host__1\":\"example.com\",\n    \"pv\":\"836\",\n    \"slbid\":\"slb-02\",\n    \"status\":\"200\"\n},{\n    \"host\":\"example.com\",\n    \"host__1\":\"example.com\",\n    \"pv\":\"836\",\n    \"slbid\":\"slb-02\",\n    \"status\":\"200\"\n},{\n    \"host\":\"example.com\",\n    \"host__1\":\"example.com\",\n    \"pv\":\"780\",\n    \"slbid\":\"slb-01\",\n    \"status\":\"200\"\n}]</code></pre></td>\n                <td id=\"entry-g4s-3jd-jgc\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"b232497e3a83c\">告警触发时产生的数据为<span data-tag=\"ph\" id=\"codeph-xg0-rx4-hy8\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${fire_results}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-sku-p32-cd4\">\n                <td id=\"entry-ken-wwo-flx\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"86bcb3d7fdpg0\"><span data-tag=\"parmname\" id=\"parmname-gh7-2e5-0oh\" class=\"parmname\">fire_results_count</span></p>\n                </td>\n                <td id=\"entry-989-v9x-r7r\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"43c2fa8e57l0a\">触发告警的数据的总条数，可能多于<span class=\"help-letter-space\"></span>100，比如笛卡尔积操作后的总条数。</p>\n                </td>\n                <td id=\"entry-w9k-ihx-d5j\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"2e45440613cyt\">int</p>\n                </td>\n                <td id=\"entry-ux0-hie-idu\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"c3745d607cpkx\">3</p>\n                </td>\n                <td id=\"entry-p1i-xkp-bmf\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"f4cc74654ba2m\">告警触发时产生的总数据条数为<span data-tag=\"ph\" id=\"codeph-gok-5um-60x\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${fire_results_count}</code></span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-9rg-hv5-l6h\">\n                <td id=\"entry-s17-apo-sd5\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"e7cf0cc2eciv0\"><span data-tag=\"parmname\" id=\"parmname-7i0-c1l-vyk\" class=\"parmname\">fire_results_as_kv</span></p>\n                </td>\n                <td id=\"entry-3aw-p8b-jig\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"7a3fb39317z1s\">触发告警的数据，即集合操作后的数据，最多<span class=\"help-letter-space\"></span>100<span class=\"help-letter-space\"></span>条。以<span data-tag=\"ph\" id=\"codeph-nau-e5t-roy\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">[key1:value1,key2:value2]</code></span>形式展示。</p>\n                </td>\n                <td id=\"entry-v93-h97-54g\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"3273f03531e8q\">array</p>\n                </td>\n                <td id=\"entry-4dn-wpx-832\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"4474d14d6dhsq\"><span data-tag=\"ph\" id=\"codeph-pfl-dei-ccl\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">[host:example.com,pv:836,status:200][host:example.com,pv:780,status:200]</code></span></p>\n                </td>\n                <td id=\"entry-alh-dbz-txh\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"3ae84d1350n13\">告警触发时产生的数据详情为<span data-tag=\"ph\" id=\"codeph-wta-92q-nnr\" class=\"ph\"><code data-tag=\"code\" code-type=\"xCode\" class=\"code\">${fire_results_as_kv}</code></span>。</p>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </section>\n      <section data-tag=\"section\" id=\"section-el1-n7b-2fy\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-ntx-hie-ig5\" class=\"title\">Policy<span class=\"help-letter-space\"></span>结构</h2>\n        <p data-tag=\"p\" id=\"p-s5z-pyg-3gr\" class=\"p\"><span data-tag=\"parmname\" id=\"parmname-kt5-2in-oh8\" class=\"parmname\">policy</span><span class=\"help-letter-space\"></span>变量中可引用的变量说明如下表所示。</p>\n        <table id=\"table-drw-xz4-nyv\" tablewidth=\"708\" tablecolswidth=\"133 221 133 221\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.75*\" style=\"width:18.79%\"></colgroup>\n          <colgroup colwidth=\"1.25*\" style=\"width:31.21%\"></colgroup>\n          <colgroup colwidth=\"0.75*\" style=\"width:18.79%\"></colgroup>\n          <colgroup colwidth=\"1.25*\" style=\"width:31.21%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-wy8-xl1-g6s\">\n              <td id=\"reference-2061590-entry-9w6-h3m-rai\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"dcb9358d78cqd\"><b>字段</b></p>\n              </td>\n              <td id=\"reference-2061590-entry-w67-2c4-gn2\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"6ba5e9c793kb8\"><b>说明</b></p>\n              </td>\n              <td id=\"reference-2061590-entry-a4a-ekv-td9\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"48d23258c5biw\"><b>数据类型</b></p>\n              </td>\n              <td id=\"reference-2061590-entry-y62-dnh-wvz\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"dd0de9f4c9tz6\"><b>举例</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-rq5-cfm-4vj\">\n              <td id=\"entry-6zf-5hd-n8i\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"ab29ea0533f0v\"><span data-tag=\"parmname\" id=\"parmname-loh-7g0-zci\" class=\"parmname\">alert_policy_id</span></p>\n              </td>\n              <td id=\"entry-jif-lnd-7g8\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"c703ae3d63ptg\">告警策略<span class=\"help-letter-space\"></span>ID。</p>\n              </td>\n              <td id=\"entry-o17-p8s-0cg\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"00c9c092f918u\">string</p>\n              </td>\n              <td id=\"entry-7e9-agd-ex0\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"875755f8e52ad\">sls.test-alert</p>\n              </td>\n            </tr>\n            <tr id=\"row-gbb-ccu-l8k\">\n              <td id=\"entry-p14-qb7-8v5\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"b2010363e5y5g\"><span data-tag=\"parmname\" id=\"parmname-xot-4ae-wr2\" class=\"parmname\">action_policy_id</span></p>\n              </td>\n              <td id=\"entry-squ-nzj-1vs\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"ec7b6857402v1\">告警监控规则指定的行动策略<span class=\"help-letter-space\"></span>ID，仅在告警策略使用动态行动策略时有用。</p>\n              </td>\n              <td id=\"entry-l54-tgx-jq9\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"d0798c18e8d57\">string</p>\n              </td>\n              <td id=\"entry-y18-jnp-f8h\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"95b81e7d45zkl\">sls.test-action</p>\n              </td>\n            </tr>\n            <tr id=\"row-m9d-0cy-38z\">\n              <td id=\"entry-wbh-rta-y3m\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cfeff2f6f8t22\"><span data-tag=\"parmname\" id=\"parmname-tv8-uye-24p\" class=\"parmname\">repeat_interval</span></p>\n              </td>\n              <td id=\"entry-2wf-bv9-qql\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"7a30ead02d9ni\">重复等待时间，仅在告警策略使用行动策略时有用。</p>\n              </td>\n              <td id=\"entry-639-077-ran\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"6033b6e7baoh8\">string</p>\n              </td>\n              <td id=\"entry-4xs-ln4-mll\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"8e307555acsag\">4h</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n      </section>\n      <section data-tag=\"section\" id=\"section-5op-xn7-tbw\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-6hz-1m4-mwn\" class=\"title\">QueryData<span class=\"help-letter-space\"></span>结构</h2>\n        <p data-tag=\"p\" id=\"p-pf0-ojs-ynw\" class=\"p\"><span data-tag=\"parmname\" id=\"parmname-jus-rke-3s1\" class=\"parmname\">results</span><span class=\"help-letter-space\"></span>变量中可引用的变量说明如下表所示。</p>\n        <table id=\"table-0xw-ujt-bas\" tablewidth=\"708\" tablecolswidth=\"133 221 133 221\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.75*\" style=\"width:18.79%\"></colgroup>\n          <colgroup colwidth=\"1.25*\" style=\"width:31.21%\"></colgroup>\n          <colgroup colwidth=\"0.75*\" style=\"width:18.79%\"></colgroup>\n          <colgroup colwidth=\"1.25*\" style=\"width:31.21%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"row-8gm-qoq-dq9\">\n              <td id=\"reference-2061590-entry-wku-ysu-g0z\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"17fcadc3d9ype\"><b>变量</b></p>\n              </td>\n              <td id=\"reference-2061590-entry-rz2-hwe-a2k\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"eaf170ddfbbv5\"><b>说明</b></p>\n              </td>\n              <td id=\"reference-2061590-entry-zlf-qnd-4ty\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"c82c59a6a9two\"><b>数据类型</b></p>\n              </td>\n              <td id=\"reference-2061590-entry-b3a-wc5-kal\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                <p id=\"b90019cdddr7a\"><b>举例</b></p>\n              </td>\n            </tr>\n            <tr id=\"row-k7p-o78-auo\">\n              <td id=\"entry-49z-a6n-pky\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"3f61dea13a0bw\"><span data-tag=\"parmname\" id=\"parmname-e0x-3pu-q2e\" class=\"parmname\">role_arn</span></p>\n              </td>\n              <td id=\"entry-2xa-7l5-jnz\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"a3403dbad5nm5\">使用服务角色。</p>\n              </td>\n              <td id=\"entry-1sm-x0p-khf\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"a994f65187qq8\">string</p>\n              </td>\n              <td id=\"entry-ym0-057-5oo\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"16dd64ac50q5b\">acs:ram::117918664953****:role/aliyunslsalertmonitorrole</p>\n              </td>\n            </tr>\n            <tr id=\"row-dpo-k2b-bht\">\n              <td id=\"entry-9od-rhf-tl8\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"62f3fa41d5uns\"><span data-tag=\"parmname\" id=\"parmname-1ai-i8f-0p9\" class=\"parmname\">store_type</span></p>\n              </td>\n              <td id=\"entry-gn3-t6s-j5r\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"56215c58b2w4h\">存储类型。</p>\n                <ul data-tag=\"ul\" id=\"ul-xh5-rn3-ka2\" class=\"ul\">\n                  <li data-tag=\"li\" id=\"li-g4h-ke9-rqq\" class=\"li\">\n                    <p id=\"c02fb0f2683ic\">log：日志。</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-o2g-y7i-qsf\" class=\"li\">\n                    <p id=\"59c64ad3355jq\">metric：时序数据。</p>\n                  </li>\n                  <li data-tag=\"li\" id=\"li-cnu-vbk-797\" class=\"li\">\n                    <p id=\"dccd5003902w2\">meta：资源数据。</p>\n                  </li>\n                </ul>\n              </td>\n              <td id=\"entry-tdg-hom-lht\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"fd8c3cc3ed6y0\">string</p>\n              </td>\n              <td id=\"entry-vws-p8l-wwm\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"8c153edbdecx5\">log</p>\n              </td>\n            </tr>\n            <tr id=\"row-z1x-muf-7qb\">\n              <td id=\"entry-yh2-wvm-u5q\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"3643d3d7ae4uh\"><span data-tag=\"parmname\" id=\"parmname-0p9-h2k-b37\" class=\"parmname\">region</span></p>\n              </td>\n              <td id=\"entry-l1q-ma2-7y5\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"b7423de0cfts6\">查询统计目标库所在地域。</p>\n                <p data-tag=\"p\" id=\"p-3v2-ysa-p82\" class=\"p\">存储类型为资源数据时，该变量值为空。</p>\n              </td>\n              <td id=\"entry-f0s-x4o-c6f\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f43f696dd29e0\">string</p>\n              </td>\n              <td id=\"entry-cje-xbi-v77\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"2dbc2383behzq\">cn-hangzhou</p>\n              </td>\n            </tr>\n            <tr id=\"row-887-tg6-jcp\">\n              <td id=\"entry-1ju-rf2-jt0\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"1e1bd367e3che\"><span data-tag=\"parmname\" id=\"parmname-z0i-pym-w51\" class=\"parmname\">project</span></p>\n              </td>\n              <td id=\"entry-1ej-a4d-jr9\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"a161627d3dusv\">查询统计目标库所在<span class=\"help-letter-space\"></span>Project。</p>\n                <p data-tag=\"p\" id=\"p-m79-p4z-dhe\" class=\"p\">存储类型为资源数据时，该变量值为空。</p>\n              </td>\n              <td id=\"entry-qs7-37d-uif\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cef7e0cf723v9\">string</p>\n              </td>\n              <td id=\"entry-f8n-oq1-0l7\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"a0f0dcc6a49ae\">sls-test-alert</p>\n              </td>\n            </tr>\n            <tr id=\"row-ply-e2e-ile\">\n              <td id=\"entry-h5p-z0l-fso\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"350baf8ba6p1k\"><span data-tag=\"parmname\" id=\"parmname-gcm-be3-s80\" class=\"parmname\">store</span></p>\n              </td>\n              <td id=\"entry-5mi-5tw-3z3\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"b0bf985ac1hhl\">查询统计目标库名称。</p>\n              </td>\n              <td id=\"entry-t7l-lpj-xi6\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"b794428425cbp\">string</p>\n              </td>\n              <td id=\"entry-d4f-272-ppc\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"4a0f5bc727dit\">test-LogStore</p>\n              </td>\n            </tr>\n            <tr id=\"row-wib-e3k-twm\">\n              <td id=\"entry-hj5-lmv-ldu\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"9fdaed18da6id\"><span data-tag=\"parmname\" id=\"parmname-6yl-pg8-9gq\" class=\"parmname\">query</span></p>\n              </td>\n              <td id=\"entry-939-3zw-fh5\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"7905a1184c10x\">查询语句。</p>\n              </td>\n              <td id=\"entry-vrk-g25-kkz\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cf9ab9af89co2\">string</p>\n              </td>\n              <td id=\"entry-sp6-3hl-jvs\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"f22282567923c\">error | select count(1) as cnt</p>\n              </td>\n            </tr>\n            <tr id=\"row-eww-owu-2f2\">\n              <td id=\"entry-qon-uud-klh\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"da5a6bac47ezb\"><span data-tag=\"parmname\" id=\"parmname-3ny-t11-oqn\" class=\"parmname\">start_time</span></p>\n              </td>\n              <td id=\"entry-fgy-hqe-n8q\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"dd6bf6a0012k2\">查询开始时间。</p>\n                <p data-tag=\"p\" id=\"p-koz-rt5-f8t\" class=\"p\">存储类型为资源数据时，该变量值为空。</p>\n              </td>\n              <td id=\"entry-ehg-urs-oi0\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"1b02fc6b2cd7d\">int</p>\n              </td>\n              <td id=\"entry-0ya-8nb-jq6\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"0a2f164c34lq0\">2006-01-02 15:04:05</p>\n              </td>\n            </tr>\n            <tr id=\"row-vzw-9hn-8sp\">\n              <td id=\"entry-75v-5pb-r6j\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"72fe65853focz\"><span data-tag=\"parmname\" id=\"parmname-2n6-mcn-iis\" class=\"parmname\">start_time_ts</span></p>\n              </td>\n              <td id=\"entry-hep-p1d-chs\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"c35dc969e3msa\">查询开始时间，Unix<span class=\"help-letter-space\"></span>格式。</p>\n                <p data-tag=\"p\" id=\"p-06q-645-o9y\" class=\"p\">存储类型为资源数据时，该变量值为空。</p>\n              </td>\n              <td id=\"entry-du7-15u-g12\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"7a603a182bn4y\">int</p>\n              </td>\n              <td id=\"entry-nsg-1rd-oyy\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"3a812d9f3f0de\">1616741485</p>\n              </td>\n            </tr>\n            <tr id=\"row-2bk-7jf-ej8\">\n              <td id=\"entry-qqa-1vk-42v\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"efc32b198f22r\"><span data-tag=\"parmname\" id=\"parmname-ly6-8mh-imi\" class=\"parmname\">end_time</span></p>\n              </td>\n              <td id=\"entry-6lm-m85-kg0\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"4e8f99c92d9it\">查询结束时间。</p>\n                <p data-tag=\"p\" id=\"p-0nt-kh4-i60\" class=\"p\">存储类型为资源数据时，该变量值为空。</p>\n              </td>\n              <td id=\"entry-4oo-8ea-mty\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"bca1f9f863ot9\">int</p>\n              </td>\n              <td id=\"entry-g3w-onp-lxu\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"cc2afff67e5g5\">2006-01-02 15:04:05</p>\n              </td>\n            </tr>\n            <tr id=\"row-jda-mpg-ij3\">\n              <td id=\"entry-8hk-m0y-70i\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"2b3c551ff6mlk\"><span data-tag=\"parmname\" id=\"parmname-k7m-re4-qsl\" class=\"parmname\">end_time_ts</span></p>\n              </td>\n              <td id=\"entry-mat-xrf-vw9\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"a00ebc4225gbb\">查询结束时间，Unix<span class=\"help-letter-space\"></span>格式。</p>\n                <p data-tag=\"p\" id=\"p-2il-8z7-j03\" class=\"p\">存储类型为资源数据时，该变量值为空。</p>\n              </td>\n              <td id=\"entry-oxz-1cw-5ok\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"104496a970zut\">int</p>\n              </td>\n              <td id=\"entry-0ld-r13-rd5\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"3afc97e29eku7\">1616745085</p>\n              </td>\n            </tr>\n            <tr id=\"row-tus-gkg-3cw\">\n              <td id=\"entry-7jo-j1n-5tc\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"1e92dac573mfk\"><span data-tag=\"parmname\" id=\"parmname-k3j-ota-04p\" class=\"parmname\">dashboard_id</span></p>\n              </td>\n              <td id=\"entry-3yx-kkt-z6t\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"3ba63d2517esz\">查询时关联的仪表盘<span class=\"help-letter-space\"></span>ID。</p>\n              </td>\n              <td id=\"entry-i9u-2c5-puh\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"c63e209ff51n3\">string</p>\n              </td>\n              <td id=\"entry-6xn-z6g-g8f\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"d2903252a0sbj\">mydashboard</p>\n              </td>\n            </tr>\n            <tr id=\"row-c9m-s0p-yn2\">\n              <td id=\"entry-vn3-zop-hy3\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"b2b14750b1mpi\"><span data-tag=\"parmname\" id=\"parmname-ljb-6cc-nxv\" class=\"parmname\">raw_results</span></p>\n              </td>\n              <td id=\"entry-5it-6fv-hzd\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"e5bfd4149ffvc\">实际查询内容，数组格式，最多<span class=\"help-letter-space\"></span>100<span class=\"help-letter-space\"></span>行。</p>\n              </td>\n              <td id=\"entry-f1w-8eo-uy8\" rowspan=\"1\" colspan=\"1\">\n                <p id=\"897bab255042k\">array</p>\n              </td>\n              <td id=\"entry-bhd-cco-hwk\" rowspan=\"1\" colspan=\"1\"><pre data-tag=\"codeblock\" id=\"codeblock-utn-dhk-qof\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>[{\n    \"host\":\"example.com\",\n    \"slbid\":\"slb-02\",\n    \"status\":\"200\"\n},{\n    \"host\":\"example.com\",\n    \"slbid\":\"slb-01\",\n    \"status\":\"200\"\n},{\n    \"host\":\"example.com\",\n    \"slbid\":\"slb-02\",\n    \"status\":\"306\"\n},{\n    \"host\":\"example.com\",\n    \"slbid\":\"slb-02\",\n    \"status\":\"200\"\n},{\n    \"host\":\"example.com\",\n    \"slbid\":\"slb-01\",\n    \"status\":\"200\"\n},{\n    \"host\":\"example.com\",\n    \"slbid\":\"slb-02\",\n    \"status\":\"200\"\n}]</code></pre></td>\n            </tr>\n          </tbody>\n        </table>\n      </section>\n    </div>\n  </main>\n\n\n\n\n</div>","path":"https://help.aliyun.com/zh/sls/variables-in-original-alert-templates","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"alias":"/sls/variables-in-original-alert-templates","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":8,"developerUrl":"https://developer.aliyun.com/group/sls/","nodeType":1,"version":10,"url":"/zh/sls/variables-in-original-alert-templates","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":209465,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"children":[{"children":[{"emptyNode":false,"level":8,"validDocument":true,"headNavEnable":false,"docTitle":"内容模板变量说明（旧版）","id":209465,"title":"内容模板变量说明（旧版）","url":"/zh/sls/variables-in-original-alert-templates"}],"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"内容模板","id":317764,"title":"内容模板","url":"/zh/sls/alert-template/"}],"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"通知策略","id":207708,"title":"通知策略","url":"/zh/sls/notification-management/"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"告警","id":207608,"title":"告警","url":"/zh/sls/sls-alerting/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据监控","id":2928734,"title":"数据监控","url":"/zh/sls/data-monitoring/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"productUrl":"https://www.aliyun.com/product/sls","nodeId":209465,"desc":"本文介绍旧版内容模板所支持的变量以及引用方式。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据监控","id":2928734,"title":"数据监控","url":"/zh/sls/data-monitoring/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"告警","id":207608,"title":"告警","url":"/zh/sls/sls-alerting/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"通知策略","id":207708,"title":"通知策略","url":"/zh/sls/notification-management/"},{"emptyNode":false,"level":7,"validDocument":true,"headNavEnable":false,"docTitle":"内容模板","id":317764,"title":"内容模板","url":"/zh/sls/alert-template/"},{"emptyNode":false,"level":8,"validDocument":true,"headNavEnable":false,"docTitle":"内容模板变量说明（旧版）","id":209465,"title":"内容模板变量说明（旧版）","url":"/zh/sls/variables-in-original-alert-templates"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=2150425e17825532411678738ed1ba&asid=AQAAAACZmj9qBr0iJQAAAABnzqgcdzwc4Q==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2929180" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/start-using-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开始使用</span>
+</a>
+</li>
+ <li id="128096" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/resource-management/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">资源管理</span>
+</a>
+</li>
+ <li id="128134" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-collection-1/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据采集</span>
+</a>
+</li>
+ <li id="2842370" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-processing-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据处理</span>
+</a>
+</li>
+ <li id="270795" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-storage/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据存储</span>
+</a>
+</li>
+ <li id="128135" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/index-and-query/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">查询与分析</span>
+</a>
+</li>
+ <li id="2928734" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-monitoring/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据监控</span>
+</a>
+</li>
+ <li id="2928732" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-log-output-and-integration/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据输出与集成</span>
+</a>
+</li>
+ <li id="2928739" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-technical-solutions/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">技术解决方案</span>
+</a>
+</li>
+ <li id="154068" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2528763" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/security-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="169976" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/faq-15">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>内容模板变量说明（旧版）</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/sls" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="reference-2061590">
+    
+    
+    <p id="shortdesc-a5g-vg0-j96" data-tag="shortdesc" class="shortdesc">本文介绍旧版内容模板所支持的变量以及引用方式。</p>
+    <div data-tag="refbody" id="refbody-tn2-uum-nnx" class="refbody">
+      <section data-tag="section" id="section-b21-w0c-w6q" data-type="section" class="section">
+        <h2 data-tag="title" id="title-c22-j86-t4w" class="title">引用方式</h2>
+        <div data-tag="note" id="note-fc3-a2a-h84" type="notice" class="note note-notice"><div class="note-icon-wrapper"><i class="icon-note note notice"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+          <p id="7bf28ba9288wj">引用变量时，变量名称必须完全匹配。对于不存在的变量或者不合法的引用默认替换为空字符串。如果引用的值为对象类型，则会转换为<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>字符串。</p>
+        </div></div>
+        <p data-tag="p" id="p-erh-g72-9l0" class="p">配置行动策略时必须选择内容模板，内容模板定义具体的发送内容和主题。您可以在<b data-tag="uicontrol" id="uicontrol-ju2-jwf-g6d" class="uicontrol">发送内容</b>和<b data-tag="uicontrol" id="uicontrol-z4o-lyu-0ic" class="uicontrol">主题</b>中，通过<span data-tag="ph" id="codeph-mlb-e93-1bx" class="ph"><code data-tag="code" code-type="xCode" class="code">${fieldName}</code></span>方式引用模板变量。日志服务发送告警通知时，会将<b data-tag="uicontrol" id="uicontrol-1ke-4pf-4pn" class="uicontrol">发送内容</b>和<b data-tag="uicontrol" id="uicontrol-j3h-9i8-g0a" class="uicontrol">主题</b>中的模板变量替换为真实值，例如<span data-tag="ph" id="codeph-tsf-7i6-991" class="ph"><code data-tag="code" code-type="xCode" class="code">${project}</code></span>替换为告警规则所属的<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>名称。</p>
+      </section>
+      <section data-tag="section" id="section-ypn-6dq-2bb" data-type="section" class="section">
+        <h2 data-tag="title" id="title-f8e-key-hi9" class="title">可用变量及其引用</h2>
+        <div data-tag="p" id="p-vht-ifz-n5e" class="p">
+          <p id="5a038f7df9aha">目前支持的所有可用变量及引用方式如下表所示。</p>
+          <table id="table-2s9-9va-wbh" tablewidth="707" tablecolswidth="109 163 109 163 163" autofit="false" class="table">
+            <colgroup colwidth="0.77*" style="width:15.42%"></colgroup>
+            <colgroup colwidth="1.16*" style="width:23.06%"></colgroup>
+            <colgroup colwidth="0.77*" style="width:15.42%"></colgroup>
+            <colgroup colwidth="1.16*" style="width:23.06%"></colgroup>
+            <colgroup colwidth="1.16*" style="width:23.06%"></colgroup>
+            <tbody class="tbody">
+              <tr id="row-15l-jna-kkd">
+                <td id="reference-2061590-entry-iyp-i8i-nlt" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="e01312144d14g"><b>变量</b></p>
+                </td>
+                <td id="reference-2061590-entry-5u2-1rt-re9" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="1686fe554egca"><b>说明</b></p>
+                </td>
+                <td id="reference-2061590-entry-j55-4jb-y1a" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="9abb91af9e5mz"><b>数据类型</b></p>
+                </td>
+                <td id="reference-2061590-entry-kl5-7bh-ju8" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="42cd1dd26aanb"><b>取值示例</b></p>
+                </td>
+                <td id="reference-2061590-entry-tmq-f3p-u39" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="7a18ce67017px"><b>引用示例</b></p>
+                </td>
+              </tr>
+              <tr id="row-14w-9um-9g4">
+                <td id="entry-tl4-wfd-524" rowspan="1" colspan="1">
+                  <p id="ff1c2f1053szl"><span data-tag="parmname" id="parmname-uy1-e72-rpp" class="parmname">aliuid</span></p>
+                </td>
+                <td id="entry-xgo-4q9-494" rowspan="1" colspan="1">
+                  <p id="b0f86f87c7har">Project<span class="help-letter-space"></span>所属的阿里云账号<span class="help-letter-space"></span>ID。</p>
+                </td>
+                <td id="entry-m09-y8i-ipl" rowspan="1" colspan="1">
+                  <p id="ffda54b999kq6">string</p>
+                </td>
+                <td id="entry-hmo-xn8-2s4" rowspan="1" colspan="1">
+                  <p id="45f69aa689gxp">117918664953****</p>
+                </td>
+                <td id="entry-q73-4iq-jf2" rowspan="1" colspan="1">
+                  <p id="2756c67990lad"><span data-tag="ph" id="codeph-dis-3kp-zh2" class="ph"><code data-tag="code" code-type="xCode" class="code">${aliuid}</code></span>用户的告警规则已触发。</p>
+                </td>
+              </tr>
+              <tr id="row-r8x-cwb-d0a">
+                <td id="entry-t1x-7qp-y1m" rowspan="1" colspan="1">
+                  <p id="a05bfc5853d8w"><span data-tag="parmname" id="parmname-9ts-hon-xe8" class="parmname">alert_instance_id</span></p>
+                </td>
+                <td id="entry-j87-svr-5qc" rowspan="1" colspan="1">
+                  <p id="9186739f07yje">告警触发的实例的<span class="help-letter-space"></span>ID。</p>
+                </td>
+                <td id="entry-86x-lh8-cm7" rowspan="1" colspan="1">
+                  <p id="a19ee7fa47qyk">string</p>
+                </td>
+                <td id="entry-8lo-2lk-3e1" rowspan="1" colspan="1">
+                  <p id="e638332639sqz">ee16a8f435485f3f-5be6b81edc520-3d6****</p>
+                </td>
+                <td id="entry-2n9-kij-r0l" rowspan="1" colspan="1">
+                  <p id="2053de317ckop">实例<span class="help-letter-space"></span>ID<span class="help-letter-space"></span>为<span data-tag="ph" id="codeph-kw1-a21-o08" class="ph"><code data-tag="code" code-type="xCode" class="code">${alert_instance_id}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-rmu-5ww-s28">
+                <td id="entry-5fp-6u5-54d" rowspan="1" colspan="1">
+                  <p id="327e371ddakhn"><span data-tag="parmname" id="parmname-8jg-axx-a3p" class="parmname">project</span></p>
+                </td>
+                <td id="entry-o6b-gk0-7oj" rowspan="1" colspan="1">
+                  <p id="80a70ab62dcel">告警规则所属<span class="help-letter-space"></span>Project。</p>
+                </td>
+                <td id="entry-090-ogi-w6n" rowspan="1" colspan="1">
+                  <p id="5aa156d621c77">string</p>
+                </td>
+                <td id="entry-p8e-luo-yz3" rowspan="1" colspan="1">
+                  <p id="8c13dc8309b5o">my-project</p>
+                </td>
+                <td id="entry-8zo-2oo-jbv" rowspan="1" colspan="1">
+                  <p id="05ae07dbddmuw"><span data-tag="ph" id="codeph-xok-kun-6jb" class="ph"><code data-tag="code" code-type="xCode" class="code">${project}</code></span>项目中的告警规则已触发。 </p>
+                </td>
+              </tr>
+              <tr id="row-x77-a0i-yyy">
+                <td id="entry-zxz-lw0-89r" rowspan="1" colspan="1">
+                  <p id="96ca948b47vru"><span data-tag="parmname" id="parmname-x8l-ucz-pht" class="parmname">alert_id</span></p>
+                </td>
+                <td id="entry-241-uu8-e8s" rowspan="1" colspan="1">
+                  <p id="31f313ff734nn">告警规则<span class="help-letter-space"></span>ID，Project<span class="help-letter-space"></span>内唯一。</p>
+                </td>
+                <td id="entry-x27-g6o-rfi" rowspan="1" colspan="1">
+                  <p id="bdbf6ebb71dom">string</p>
+                </td>
+                <td id="entry-o17-3j2-efg" rowspan="1" colspan="1">
+                  <p id="90c5e5bc5eec9">0fdd88063a611aa114938f9371daeeb6-1671a52****</p>
+                </td>
+                <td id="entry-lhd-vnv-rqr" rowspan="1" colspan="1">
+                  <p id="dd40d9bd30y22">告警规则<span class="help-letter-space"></span>ID<span class="help-letter-space"></span>是<span data-tag="ph" id="codeph-ts0-wfp-14g" class="ph"><code data-tag="code" code-type="xCode" class="code">${alert_id}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-vrw-xz9-imc">
+                <td id="entry-p7n-6jx-ley" rowspan="1" colspan="1">
+                  <p id="db07c9fd53trt"><span data-tag="parmname" id="parmname-zgn-vd1-al2" class="parmname">alert_type</span></p>
+                </td>
+                <td id="entry-fjx-iyl-x05" rowspan="1" colspan="1">
+                  <p id="2027373382zvk">告警类型。</p>
+                  <ul data-tag="ul" id="ul-a9m-6x1-a9e" class="ul">
+                    <li data-tag="li" id="li-drr-ggw-v6i" class="li">
+                      <p id="22500409bdxgc">sls_alert：由告警监控规则触发的告警。</p>
+                    </li>
+                    <li data-tag="li" id="li-68w-e5a-zxd" class="li">
+                      <p id="bda504b8c5uyg">sls_pub：来自于开放告警中的告警。</p>
+                    </li>
+                  </ul>
+                </td>
+                <td id="entry-ley-l62-21y" rowspan="1" colspan="1">
+                  <p id="2d6ad02226re0">string</p>
+                </td>
+                <td id="entry-j26-ck2-ozu" rowspan="1" colspan="1">
+                  <p id="d55ecbcd5clt3">sls_alert</p>
+                </td>
+                <td id="entry-3df-n4d-q8t" rowspan="1" colspan="1">
+                  <p id="18f5c2d5e3v5r">告警类型是<span data-tag="ph" id="codeph-dni-4qc-rkq" class="ph"><code data-tag="code" code-type="xCode" class="code">${alert_type}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-a2s-7r1-ulw">
+                <td id="entry-uz8-66g-012" rowspan="1" colspan="1">
+                  <p id="618f227347lo7"><span data-tag="parmname" id="parmname-12i-o1c-53y" class="parmname">alert_name</span></p>
+                </td>
+                <td id="entry-h16-2uh-1aj" rowspan="1" colspan="1">
+                  <p id="e2571d4f52fth">告警规则名称。</p>
+                </td>
+                <td id="entry-o16-8g1-9sv" rowspan="1" colspan="1">
+                  <p id="757abc7632dxt">string</p>
+                </td>
+                <td id="entry-b22-ga4-dyf" rowspan="1" colspan="1">
+                  <p id="f9bd7426efx1c">告警规则<span class="help-letter-space"></span>new2</p>
+                </td>
+                <td id="entry-yx0-gia-u2u" rowspan="1" colspan="1">
+                  <p id="065df70c7byd2">告警规则<span data-tag="ph" id="codeph-3ot-h8n-7gj" class="ph"><code data-tag="code" code-type="xCode" class="code">${alert_name}</code></span>已经触发。</p>
+                </td>
+              </tr>
+              <tr id="row-eog-oqs-hrt">
+                <td id="entry-e0v-tb1-d5z" rowspan="1" colspan="1">
+                  <p id="8b0f4ce412vc8"><span data-tag="parmname" id="parmname-043-7g5-l3u" class="parmname">next_eval_interval</span></p>
+                </td>
+                <td id="entry-6kd-0w2-qga" rowspan="1" colspan="1">
+                  <p id="07cfdfe909lgw">下一次评估间隔。</p>
+                </td>
+                <td id="entry-j7n-2c1-s0l" rowspan="1" colspan="1">
+                  <p id="d84ddffde3fmf">int</p>
+                </td>
+                <td id="entry-r0d-sz4-sg4" rowspan="1" colspan="1">
+                  <p id="dfd9eec1c3ie0">900</p>
+                </td>
+                <td id="entry-bw8-lj4-92s" rowspan="1" colspan="1">
+                  <p id="8eb12f7384toc">下一次评估时间为<span data-tag="ph" id="codeph-b2b-kfe-45j" class="ph"><code data-tag="code" code-type="xCode" class="code">${next_eval_interval}</code></span>秒后。</p>
+                </td>
+              </tr>
+              <tr id="row-ai1-v12-py4">
+                <td id="entry-22f-8gy-yxv" rowspan="1" colspan="1">
+                  <p id="ee700807d4m9p"><span data-tag="parmname" id="parmname-ps5-lwy-d43" class="parmname">alert_time</span></p>
+                </td>
+                <td id="entry-dbg-7iz-0vn" rowspan="1" colspan="1">
+                  <p id="145018e234v6t">本次评估时间。</p>
+                </td>
+                <td id="entry-hyt-uc2-nyx" rowspan="1" colspan="1">
+                  <p id="8aa260b8d4y95">int</p>
+                </td>
+                <td id="entry-fdm-6mw-of1" rowspan="1" colspan="1">
+                  <p id="31422b8aacxd1">1616744734</p>
+                </td>
+                <td id="entry-bqu-eyw-j3x" rowspan="1" colspan="1">
+                  <p id="5d8b54524fh44">本次评估告警的时间为<span data-tag="ph" id="codeph-wg6-bw0-7eb" class="ph"><code data-tag="code" code-type="xCode" class="code">${alert_time}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-skm-ke2-est">
+                <td id="entry-b7g-3gx-u4h" rowspan="1" colspan="1">
+                  <p id="d56ee98f9b37g"><span data-tag="parmname" id="parmname-n36-3qn-0i3" class="parmname">fire_time</span></p>
+                </td>
+                <td id="entry-945-2ed-dp7" rowspan="1" colspan="1">
+                  <p id="6f5d960ea1gr1">首次触发时间。</p>
+                </td>
+                <td id="entry-shq-bi8-781" rowspan="1" colspan="1">
+                  <p id="2e8d6495ffqe3">int</p>
+                </td>
+                <td id="entry-jve-spy-sfd" rowspan="1" colspan="1">
+                  <p id="21a91cb1a1dvi">1616059834</p>
+                </td>
+                <td id="entry-u78-32n-8o8" rowspan="1" colspan="1">
+                  <p id="df8828cedca22">告警首次触发时间为<span data-tag="ph" id="codeph-x6k-p5m-m20" class="ph"><code data-tag="code" code-type="xCode" class="code">${fire_time}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-xot-1lf-w78">
+                <td id="entry-9zu-rzh-uz9" rowspan="1" colspan="1">
+                  <p id="0e7c1efb39s73"><span data-tag="parmname" id="parmname-1p4-dkm-9ka" class="parmname">status</span></p>
+                </td>
+                <td id="entry-ooi-c9f-l51" rowspan="1" colspan="1">
+                  <p id="866471703f45e">告警状态。</p>
+                  <ul data-tag="ul" id="ul-bce-uo9-7kq" class="ul">
+                    <li data-tag="li" id="li-pjo-ohd-vcu" class="li">
+                      <p id="896a7cd400x30">firing：触发告警。</p>
+                    </li>
+                    <li data-tag="li" id="li-h4t-4ca-dby" class="li">
+                      <p id="371a6f6ba15bq">resolved：恢复通知。</p>
+                    </li>
+                  </ul>
+                </td>
+                <td id="entry-4eh-x8y-8pp" rowspan="1" colspan="1">
+                  <p id="5d132699ccf3i">string</p>
+                </td>
+                <td id="entry-z77-jwe-lav" rowspan="1" colspan="1">
+                  <p id="e774199e5f0ce">firing</p>
+                </td>
+                <td id="entry-514-c96-5wc" rowspan="1" colspan="1">
+                  <p id="978aa11785lb2">告警状态为<span data-tag="ph" id="codeph-1g2-ua4-de6" class="ph"><code data-tag="code" code-type="xCode" class="code">${status}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-wr0-57z-f01">
+                <td id="entry-9e6-5bh-b53" rowspan="1" colspan="1">
+                  <p id="d15d0ac30bu5v"><span data-tag="parmname" id="parmname-0w5-8do-54p" class="parmname">resolve_time</span></p>
+                </td>
+                <td id="entry-7wn-zcv-rf6" rowspan="1" colspan="1">
+                  <p id="ce08b41fdfr50">告警恢复时间。</p>
+                  <ul data-tag="ul" id="ul-jiz-oyb-j8j" class="ul">
+                    <li data-tag="li" id="li-njg-957-2v9" class="li">
+                      <p id="84b07ac8eauk4">如果告警状态是<span class="help-letter-space"></span>firing，取值为<span class="help-letter-space"></span>0。</p>
+                    </li>
+                    <li data-tag="li" id="li-uog-owa-i4c" class="li">
+                      <p id="8619c200f80se">如果告警状态是<span class="help-letter-space"></span>resolved，取值为具体恢复时间。</p>
+                    </li>
+                  </ul>
+                </td>
+                <td id="entry-6b4-eip-ksm" rowspan="1" colspan="1">
+                  <p id="bdea6bb840tf5">int</p>
+                </td>
+                <td id="entry-7ec-yh9-ib8" rowspan="1" colspan="1">
+                  <p id="bae30b5a7fw1i">0</p>
+                </td>
+                <td id="entry-ff5-6xk-rck" rowspan="1" colspan="1">
+                  <p id="2701264dc16wn">告警恢复的时间为<span data-tag="ph" id="codeph-hzf-f8i-iyg" class="ph"><code data-tag="code" code-type="xCode" class="code">${resolve_time}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-nn9-lzn-1bt">
+                <td id="entry-iu5-tiu-47i" rowspan="1" colspan="1">
+                  <p id="adedf91da4d66"><span data-tag="parmname" id="parmname-alk-wng-uxe" class="parmname">results</span></p>
+                </td>
+                <td id="entry-dxd-jkj-au4" rowspan="1" colspan="1">
+                  <p id="0fb45238a3bvj">查询参数和中间结果，数组类型。变量取值说明，请参见<span class="help-letter-space"></span><a href="#section-5op-xn7-tbw" id="xref-xgw-kes-eth" title="" class="xref">QueryData<span class="help-letter-space"></span>结构</a>。</p>
+                </td>
+                <td id="entry-dxb-g6a-ezd" rowspan="1" colspan="1">
+                  <p id="661315d259fhh">array</p>
+                </td>
+                <td id="entry-5on-enh-ofb" rowspan="1" colspan="1"><pre data-tag="codeblock" id="codeblock-bek-h5g-g73" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>[
+{
+"store_type": "log",
+"region": "cn-hangzhou",
+"project": "sls-alert-test",
+"store": "test",
+"query": "* | select count(1) as cnt",
+"start_time": 1616741485,
+"end_time": 1616745085,
+"dashboard_id": "mydashboard",
+"raw_results": [{"cnt": "4"}],
+"raw_result_count": 1,
+"truncated": false,
+"role_arn": ""
+}
+]</code></pre></td>
+                <td id="entry-y64-1lq-1rv" rowspan="1" colspan="1">
+                  <p id="ec0cbb21481wf">第一个查询的开始时间为<span data-tag="ph" id="codeph-drd-2s2-ac4" class="ph"><code data-tag="code" code-type="xCode" class="code">${results[0].start_time}</code></span>；结束时间为<span data-tag="ph" id="codeph-xp6-97z-gzq" class="ph"><code data-tag="code" code-type="xCode" class="code">${results[0].end_time}</code></span>。</p>
+                  <div data-tag="note" id="note-72s-ukf-7nm" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                    <p id="55d82ab58bxcc">其中<span class="help-letter-space"></span><span data-tag="ph" id="ph-qa2-h03-2d0" class="ph">0</span><span class="help-letter-space"></span>为图表编号。</p>
+                  </div></div>
+                </td>
+              </tr>
+              <tr id="row-pz8-3oy-3bq">
+                <td id="entry-3v3-d04-993" rowspan="1" colspan="1">
+                  <p id="d7eb1c6be4pbf"><span data-tag="parmname" id="parmname-w7w-uo5-sqf" class="parmname">labels</span></p>
+                </td>
+                <td id="entry-ice-ng7-cbq" rowspan="1" colspan="1">
+                  <p id="c6340bd7b3s5y">标签列表。</p>
+                </td>
+                <td id="entry-119-a4w-ngk" rowspan="1" colspan="1">
+                  <p id="941147d47e87p">map</p>
+                </td>
+                <td id="entry-4vs-u5w-xqn" rowspan="1" colspan="1">
+                  <p id="9449ae18391f2">{"env":"test"}</p>
+                </td>
+                <td id="entry-1d1-poj-jhl" rowspan="1" colspan="1">
+                  <p id="dfcb0e4cf7lds">告警标签为<span data-tag="ph" id="codeph-fmw-p66-9k9" class="ph"><code data-tag="code" code-type="xCode" class="code">${labels}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-ggp-0ga-65x">
+                <td id="entry-1ef-te8-ko8" rowspan="1" colspan="1">
+                  <p id="4ac202a8bfktn"><span data-tag="parmname" id="parmname-rbl-tgy-7ts" class="parmname">annotations</span></p>
+                </td>
+                <td id="entry-u0v-4mr-1oi" rowspan="1" colspan="1">
+                  <p id="9de56cfcaefhq">标注列表。</p>
+                </td>
+                <td id="entry-458-fcx-12x" rowspan="1" colspan="1">
+                  <p id="7d8784eabeuz0">map</p>
+                </td>
+                <td id="entry-4mj-rz3-xfb" rowspan="1" colspan="1">
+                  <p id="0547f7381a0ia">{ "title": "告警标题","desc": "告警描述" }</p>
+                </td>
+                <td id="entry-r2c-v6a-dye" rowspan="1" colspan="1">
+                  <p id="bcc72f2c4005j">告警标注为<span data-tag="ph" id="codeph-lgp-41c-8xt" class="ph"><code data-tag="code" code-type="xCode" class="code">${annotations}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-ei9-mfw-h2h">
+                <td id="entry-cfu-gnq-usj" rowspan="1" colspan="1">
+                  <p id="a0fc6f0d54l8h"><span data-tag="parmname" id="parmname-ggw-e1v-z70" class="parmname">severity</span></p>
+                </td>
+                <td id="entry-dv8-7n0-dgl" rowspan="1" colspan="1">
+                  <p id="8aba573578dq2">告警严重度。</p>
+                  <ul data-tag="ul" id="ul-5ic-ox1-d57" class="ul">
+                    <li data-tag="li" id="li-en7-lqp-kdc" class="li">
+                      <p id="29a29ca2a9bhh">10：严重</p>
+                    </li>
+                    <li data-tag="li" id="li-olq-0h6-34r" class="li">
+                      <p id="f94468c011qah">8：高</p>
+                    </li>
+                    <li data-tag="li" id="li-ez6-o27-sj4" class="li">
+                      <p id="51cdbcb6968ug">6：中</p>
+                    </li>
+                    <li data-tag="li" id="li-6vq-y4j-d2y" class="li">
+                      <p id="ce543038d4qy9">4：低</p>
+                    </li>
+                    <li data-tag="li" id="li-vgo-bld-t1i" class="li">
+                      <p id="4671148329pku">2：仅报告</p>
+                    </li>
+                  </ul>
+                </td>
+                <td id="entry-90a-zew-44k" rowspan="1" colspan="1">
+                  <p id="5f0f6aba17uuc">int</p>
+                </td>
+                <td id="entry-egi-7ql-vek" rowspan="1" colspan="1">
+                  <p id="2c16ca37e3xlb">10</p>
+                </td>
+                <td id="entry-ozl-jq5-e4i" rowspan="1" colspan="1">
+                  <p id="eedef69ebc04y">告警严重度为<span data-tag="ph" id="codeph-2su-iol-f3c" class="ph"><code data-tag="code" code-type="xCode" class="code">${severity}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-vur-2gd-she">
+                <td id="entry-b49-7qz-sds" rowspan="1" colspan="1">
+                  <p id="a8dbe5477aar5"><span data-tag="parmname" id="parmname-a1q-wwn-nku" class="parmname">policy</span></p>
+                </td>
+                <td id="entry-hq7-pvf-bjb" rowspan="1" colspan="1">
+                  <p id="88394c2587fl7">告警策略或者行动策略。变量取值说明，请参见<span class="help-letter-space"></span><a href="#section-el1-n7b-2fy" id="xref-78a-1o6-qfo" title="" class="xref">Policy<span class="help-letter-space"></span>结构</a>。</p>
+                </td>
+                <td id="entry-r5h-lrm-ngx" rowspan="1" colspan="1">
+                  <p id="f6ce6e0bb1rsj">map</p>
+                </td>
+                <td id="entry-5cz-sgd-unn" rowspan="1" colspan="1"><pre data-tag="codeblock" id="codeblock-9rl-tth-3wf" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>{
+    "alert_policy_id": "sls.test-alert",
+    "action_policy_id": "sls.test-action",
+    "use_default": false,
+    "repeat_interval": "6m0s"
+}</code></pre></td>
+                <td id="entry-zvt-b3u-6ax" rowspan="1" colspan="1">
+                  <p id="c5d30e18fby76">告警策略<span class="help-letter-space"></span>ID<span class="help-letter-space"></span>为<span data-tag="ph" id="codeph-dnt-eu3-kb5" class="ph"><code data-tag="code" code-type="xCode" class="code">${policy.alert_policy_id}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-k1p-ub2-t2g">
+                <td id="entry-b83-wk2-0lq" rowspan="1" colspan="1">
+                  <p id="6fa67431987yc"><span data-tag="parmname" id="parmname-yby-9ny-uki" class="parmname">region</span></p>
+                </td>
+                <td id="entry-zn6-sc0-h1k" rowspan="1" colspan="1">
+                  <p id="a365627524kuz">地域。</p>
+                </td>
+                <td id="entry-flh-77m-7qx" rowspan="1" colspan="1">
+                  <p id="6d8315d5f10g1">string</p>
+                </td>
+                <td id="entry-6bq-j0i-gm6" rowspan="1" colspan="1">
+                  <p id="407fc1445dapk">cn-hangzhou</p>
+                </td>
+                <td id="entry-tjd-tzg-kqo" rowspan="1" colspan="1">
+                  <p id="074307654fyvt">告警触发的地域为<span data-tag="ph" id="codeph-gem-9vw-i9h" class="ph"><code data-tag="code" code-type="xCode" class="code">${region}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-uxe-cjx-3iq">
+                <td id="entry-uoy-90j-grp" rowspan="1" colspan="1">
+                  <p id="f89fac2b92l1e"><span data-tag="parmname" id="parmname-7e3-v0u-0pn" class="parmname">drill_down_query</span></p>
+                </td>
+                <td id="entry-l02-1ns-lpt" rowspan="1" colspan="1">
+                  <p id="e1ce67e0a8m3m">用于下钻分析的查询语句。在自定义告警中值为空，目前适用于日志审计服务、成本管家和<span class="help-letter-space"></span>SLB<span class="help-letter-space"></span>日志中心的告警内容模板。</p>
+                </td>
+                <td id="entry-6pn-mcp-lws" rowspan="1" colspan="1">
+                  <p id="daa41aaee4j8i">string</p>
+                </td>
+                <td id="entry-htl-4jh-pa2" rowspan="1" colspan="1">
+                  <p id="b0568ab1738t4"><span data-tag="ph" id="codeph-if4-4sr-mnq" class="ph"><code data-tag="code" code-type="xCode" class="code">* | select count(1) as cnt</code></span></p>
+                </td>
+                <td id="entry-el3-sc7-3oy" rowspan="1" colspan="1">
+                  <p id="ad67a457f13pn">无</p>
+                </td>
+              </tr>
+              <tr id="row-n21-g04-559">
+                <td id="entry-2gw-sw5-h8y" rowspan="1" colspan="1">
+                  <p id="8e8b7bf95cq2a"><span data-tag="parmname" id="parmname-nfp-00o-5va" class="parmname">alert_url</span></p>
+                </td>
+                <td id="entry-cms-jdf-pyq" rowspan="1" colspan="1">
+                  <p id="35ca439e583ld">告警的详细<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>地址。</p>
+                </td>
+                <td id="entry-6ad-2dk-jcd" rowspan="1" colspan="1">
+                  <p id="1e48a8556665u">string</p>
+                </td>
+                <td id="entry-pxd-14p-5y6" rowspan="1" colspan="1">
+                  <p id="7c87c566f9km0">https://sls.console.aliyun.com/lognext/project/test-xxxx/alert/alert-1617164106-940166</p>
+                </td>
+                <td id="entry-9tj-hts-5v3" rowspan="1" colspan="1">
+                  <p id="664301fa8aazy">告警<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>为<span data-tag="ph" id="codeph-6yj-wq3-hnp" class="ph"><code data-tag="code" code-type="xCode" class="code">${alert_url}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-o0r-m97-om2">
+                <td id="entry-duo-cca-ip6" rowspan="1" colspan="1">
+                  <p id="fc1e05ee58t9n"><span data-tag="parmname" id="parmname-nj6-pm4-x0e" class="parmname">query_url</span></p>
+                </td>
+                <td id="entry-feg-0ud-6e6" rowspan="1" colspan="1">
+                  <p id="bb8981096e46f">查询统计中第一个查询页面的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>地址。</p>
+                </td>
+                <td id="entry-dhc-aky-n75" rowspan="1" colspan="1">
+                  <p id="b06a591118g1h">string</p>
+                </td>
+                <td id="entry-mxe-mlv-zvz" rowspan="1" colspan="1">
+                  <p id="1ad41e6cb2h7m">https://sls-stg.console.aliyun.com/lognext/project/test-xxx/logsearch/test-alert-access?encode=base64&amp;endTime=1617175989&amp;queryString=KiB8IHNlbGVjdCBjb3VudCgxKSBhcyBjbnQ%3D&amp;queryTimeType=99&amp;startTime=1617175089</p>
+                </td>
+                <td id="entry-275-rne-iju" rowspan="1" colspan="1">
+                  <p id="4dbab9d88bfth">查询统计中第一个查询页面的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>地址为<span data-tag="ph" id="codeph-1u3-eyd-91m" class="ph"><code data-tag="code" code-type="xCode" class="code">${query_url}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-mn7-rp0-m83">
+                <td id="entry-w0a-3sc-65v" rowspan="1" colspan="1">
+                  <p id="88c8588157i7d"><span data-tag="parmname" id="parmname-8xb-qow-ycw" class="parmname">alert_history_dashboard_url</span></p>
+                </td>
+                <td id="entry-qd6-ksn-678" rowspan="1" colspan="1">
+                  <p id="0548622e7atjb">告警历史统计报表的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>地址。</p>
+                </td>
+                <td id="entry-v87-un9-d99" rowspan="1" colspan="1">
+                  <p id="ca73e987085iy">string</p>
+                </td>
+                <td id="entry-vm9-wlz-20b" rowspan="1" colspan="1">
+                  <p id="1315469c692m7">https://sls.console.aliyun.com/lognext/project/test-xx/dashboard/internal-alert-analysis</p>
+                </td>
+                <td id="entry-b6a-2g1-cmy" rowspan="1" colspan="1">
+                  <p id="162eeead14ghk">告警历史统计报表的<span class="help-letter-space"></span>URL<span class="help-letter-space"></span>地址为<span data-tag="ph" id="codeph-0kp-hm8-7yk" class="ph"><code data-tag="code" code-type="xCode" class="code">${alert_history_dashboard_url}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-sff-x11-dud">
+                <td id="entry-dlt-cbk-2xv" rowspan="1" colspan="1">
+                  <p id="7c61dc586070h"><span data-tag="parmname" id="parmname-0qu-34e-88a" class="parmname">condition</span></p>
+                </td>
+                <td id="entry-hmg-vos-hol" rowspan="1" colspan="1">
+                  <p id="8f2ae680cczme">触发告警的评估表达式。其中，以触发告警的值替换您所配置的变量，并使用中括号（[ ]）包裹。格式为<span data-tag="ph" id="codeph-4ky-a8u-mas" class="ph"><code data-tag="code" code-type="xCode" class="code">Count:数量表达式; Condition:匹配表达式</code></span>。</p>
+                </td>
+                <td id="entry-uk8-sut-993" rowspan="1" colspan="1">
+                  <p id="351ae64d734al">string</p>
+                </td>
+                <td id="entry-x0u-ygg-r5p" rowspan="1" colspan="1">
+                  <p id="f0faad05b4gck"><span data-tag="ph" id="codeph-ehp-fkn-wkz" class="ph"><code data-tag="code" code-type="xCode" class="code">Count:[5] &gt; 3;Condition:[example.com]=='example.com'</code></span></p>
+                </td>
+                <td id="entry-158-4d7-gyy" rowspan="1" colspan="1">
+                  <p id="ec36ee540d5ey">告警评估表达式为<span data-tag="ph" id="codeph-cnx-jgq-8tl" class="ph"><code data-tag="code" code-type="xCode" class="code">${condition}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-zlo-o10-j69">
+                <td id="entry-1vo-pq5-9n8" rowspan="1" colspan="1">
+                  <p id="a3f120e4817sr"><span data-tag="parmname" id="parmname-b0f-mzi-bn6" class="parmname">raw_condition</span></p>
+                </td>
+                <td id="entry-szu-ris-gwz" rowspan="1" colspan="1">
+                  <p id="5abe015b13juo">原始的评估表达式，即变量未被替换为真实值的原始表达式。格式为<span data-tag="ph" id="codeph-kfw-y9z-lbq" class="ph"><code data-tag="code" code-type="xCode" class="code">Count:数量表达式; Condition:匹配表达式</code></span>。</p>
+                </td>
+                <td id="entry-vna-xof-3a8" rowspan="1" colspan="1">
+                  <p id="2378602bc37jd">string</p>
+                </td>
+                <td id="entry-e7z-pw9-cca" rowspan="1" colspan="1">
+                  <p id="9beddc67871d5"><span data-tag="ph" id="codeph-12g-p4g-9yh" class="ph"><code data-tag="code" code-type="xCode" class="code">Count:__count__ &gt; 3;Condition:host=='example.com'</code></span></p>
+                </td>
+                <td id="entry-qey-lq6-c1q" rowspan="1" colspan="1">
+                  <p id="bb064e865eem5">原始评估表达式为<span data-tag="ph" id="codeph-4wb-a68-lzm" class="ph"><code data-tag="code" code-type="xCode" class="code">${raw_condition}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-tf7-lnf-c42">
+                <td id="entry-fj6-w7t-yqc" rowspan="1" colspan="1">
+                  <p id="5161c83f8brcw"><span data-tag="parmname" id="parmname-fzj-s22-w7t" class="parmname">dashboard</span></p>
+                </td>
+                <td id="entry-hg6-q9v-7tv" rowspan="1" colspan="1">
+                  <p id="1aed80c520123">告警关联的仪表盘名称。</p>
+                </td>
+                <td id="entry-0b7-ble-nf4" rowspan="1" colspan="1">
+                  <p id="f5f253f87d480">string</p>
+                </td>
+                <td id="entry-m7z-e7f-59l" rowspan="1" colspan="1">
+                  <p id="1e4d9318222ox">mydashboard</p>
+                </td>
+                <td id="entry-7uc-ehz-clj" rowspan="1" colspan="1">
+                  <p id="0ea15bed29wlk">告警关联的仪表盘名称为<span data-tag="ph" id="codeph-t67-06x-xo1" class="ph"><code data-tag="code" code-type="xCode" class="code">${dashboard}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-k02-9qa-bij">
+                <td id="entry-6ty-wo0-mmn" rowspan="1" colspan="1">
+                  <p id="5bf7e790179d7"><span data-tag="parmname" id="parmname-9eb-3p5-c65" class="parmname">dashboard_url</span></p>
+                </td>
+                <td id="entry-4tx-70w-3ec" rowspan="1" colspan="1">
+                  <p id="426cfccbe7luo">告警关联的仪表盘地址。</p>
+                </td>
+                <td id="entry-f0t-w6y-exi" rowspan="1" colspan="1">
+                  <p id="ea5de7999avwy">string</p>
+                </td>
+                <td id="entry-65m-mfv-1hg" rowspan="1" colspan="1">
+                  <p id="9f67112650u44">https://sls.console.aliyun.com/next/project/myproject/dashboard/mydashboard</p>
+                </td>
+                <td id="entry-vcd-78i-ksh" rowspan="1" colspan="1">
+                  <p id="836df4f94dwxb">告警关联的仪表盘地址为<span data-tag="ph" id="codeph-0dz-z3b-oh2" class="ph"><code data-tag="code" code-type="xCode" class="code">${dashboard_url}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-jyb-dbc-5sz">
+                <td id="entry-i6w-5cb-iew" rowspan="1" colspan="1">
+                  <p id="b3493912feu51"><span data-tag="parmname" id="parmname-isj-jfa-7ur" class="parmname">fire_results</span></p>
+                </td>
+                <td id="entry-hsn-bb9-eyh" rowspan="1" colspan="1">
+                  <p id="b654ef85b8abj">触发告警的数据，即集合操作后的数据，最多<span class="help-letter-space"></span>100<span class="help-letter-space"></span>条。</p>
+                </td>
+                <td id="entry-jsj-2ax-vnj" rowspan="1" colspan="1">
+                  <p id="43e9c9fb6e5gl">array</p>
+                </td>
+                <td id="entry-ki8-qts-gaz" rowspan="1" colspan="1"><pre data-tag="codeblock" id="codeblock-zq7-266-t91" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>[{
+    "host":example.com",
+    "host__1":"example.com",
+    "pv":"836",
+    "slbid":"slb-02",
+    "status":"200"},{
+    "host":"example.com",
+    "host__1":"example.org",
+    "pv":"836",
+    "slbid":"slb-02",
+    "status":"200"
+},{
+    "host":"example.com",
+    "host__1":"example.com",
+    "pv":"836",
+    "slbid":"slb-02",
+    "status":"200"
+},{
+    "host":"example.com",
+    "host__1":"example.com",
+    "pv":"836",
+    "slbid":"slb-02",
+    "status":"200"
+},{
+    "host":"example.com",
+    "host__1":"example.com",
+    "pv":"780",
+    "slbid":"slb-01",
+    "status":"200"
+}]</code></pre></td>
+                <td id="entry-g4s-3jd-jgc" rowspan="1" colspan="1">
+                  <p id="b232497e3a83c">告警触发时产生的数据为<span data-tag="ph" id="codeph-xg0-rx4-hy8" class="ph"><code data-tag="code" code-type="xCode" class="code">${fire_results}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-sku-p32-cd4">
+                <td id="entry-ken-wwo-flx" rowspan="1" colspan="1">
+                  <p id="86bcb3d7fdpg0"><span data-tag="parmname" id="parmname-gh7-2e5-0oh" class="parmname">fire_results_count</span></p>
+                </td>
+                <td id="entry-989-v9x-r7r" rowspan="1" colspan="1">
+                  <p id="43c2fa8e57l0a">触发告警的数据的总条数，可能多于<span class="help-letter-space"></span>100，比如笛卡尔积操作后的总条数。</p>
+                </td>
+                <td id="entry-w9k-ihx-d5j" rowspan="1" colspan="1">
+                  <p id="2e45440613cyt">int</p>
+                </td>
+                <td id="entry-ux0-hie-idu" rowspan="1" colspan="1">
+                  <p id="c3745d607cpkx">3</p>
+                </td>
+                <td id="entry-p1i-xkp-bmf" rowspan="1" colspan="1">
+                  <p id="f4cc74654ba2m">告警触发时产生的总数据条数为<span data-tag="ph" id="codeph-gok-5um-60x" class="ph"><code data-tag="code" code-type="xCode" class="code">${fire_results_count}</code></span>。</p>
+                </td>
+              </tr>
+              <tr id="row-9rg-hv5-l6h">
+                <td id="entry-s17-apo-sd5" rowspan="1" colspan="1">
+                  <p id="e7cf0cc2eciv0"><span data-tag="parmname" id="parmname-7i0-c1l-vyk" class="parmname">fire_results_as_kv</span></p>
+                </td>
+                <td id="entry-3aw-p8b-jig" rowspan="1" colspan="1">
+                  <p id="7a3fb39317z1s">触发告警的数据，即集合操作后的数据，最多<span class="help-letter-space"></span>100<span class="help-letter-space"></span>条。以<span data-tag="ph" id="codeph-nau-e5t-roy" class="ph"><code data-tag="code" code-type="xCode" class="code">[key1:value1,key2:value2]</code></span>形式展示。</p>
+                </td>
+                <td id="entry-v93-h97-54g" rowspan="1" colspan="1">
+                  <p id="3273f03531e8q">array</p>
+                </td>
+                <td id="entry-4dn-wpx-832" rowspan="1" colspan="1">
+                  <p id="4474d14d6dhsq"><span data-tag="ph" id="codeph-pfl-dei-ccl" class="ph"><code data-tag="code" code-type="xCode" class="code">[host:example.com,pv:836,status:200][host:example.com,pv:780,status:200]</code></span></p>
+                </td>
+                <td id="entry-alh-dbz-txh" rowspan="1" colspan="1">
+                  <p id="3ae84d1350n13">告警触发时产生的数据详情为<span data-tag="ph" id="codeph-wta-92q-nnr" class="ph"><code data-tag="code" code-type="xCode" class="code">${fire_results_as_kv}</code></span>。</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+      <section data-tag="section" id="section-el1-n7b-2fy" data-type="section" class="section">
+        <h2 data-tag="title" id="title-ntx-hie-ig5" class="title">Policy<span class="help-letter-space"></span>结构</h2>
+        <p data-tag="p" id="p-s5z-pyg-3gr" class="p"><span data-tag="parmname" id="parmname-kt5-2in-oh8" class="parmname">policy</span><span class="help-letter-space"></span>变量中可引用的变量说明如下表所示。</p>
+        <table id="table-drw-xz4-nyv" tablewidth="708" tablecolswidth="133 221 133 221" autofit="false" class="table">
+          <colgroup colwidth="0.75*" style="width:18.79%"></colgroup>
+          <colgroup colwidth="1.25*" style="width:31.21%"></colgroup>
+          <colgroup colwidth="0.75*" style="width:18.79%"></colgroup>
+          <colgroup colwidth="1.25*" style="width:31.21%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-wy8-xl1-g6s">
+              <td id="reference-2061590-entry-9w6-h3m-rai" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="dcb9358d78cqd"><b>字段</b></p>
+              </td>
+              <td id="reference-2061590-entry-w67-2c4-gn2" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="6ba5e9c793kb8"><b>说明</b></p>
+              </td>
+              <td id="reference-2061590-entry-a4a-ekv-td9" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="48d23258c5biw"><b>数据类型</b></p>
+              </td>
+              <td id="reference-2061590-entry-y62-dnh-wvz" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="dd0de9f4c9tz6"><b>举例</b></p>
+              </td>
+            </tr>
+            <tr id="row-rq5-cfm-4vj">
+              <td id="entry-6zf-5hd-n8i" rowspan="1" colspan="1">
+                <p id="ab29ea0533f0v"><span data-tag="parmname" id="parmname-loh-7g0-zci" class="parmname">alert_policy_id</span></p>
+              </td>
+              <td id="entry-jif-lnd-7g8" rowspan="1" colspan="1">
+                <p id="c703ae3d63ptg">告警策略<span class="help-letter-space"></span>ID。</p>
+              </td>
+              <td id="entry-o17-p8s-0cg" rowspan="1" colspan="1">
+                <p id="00c9c092f918u">string</p>
+              </td>
+              <td id="entry-7e9-agd-ex0" rowspan="1" colspan="1">
+                <p id="875755f8e52ad">sls.test-alert</p>
+              </td>
+            </tr>
+            <tr id="row-gbb-ccu-l8k">
+              <td id="entry-p14-qb7-8v5" rowspan="1" colspan="1">
+                <p id="b2010363e5y5g"><span data-tag="parmname" id="parmname-xot-4ae-wr2" class="parmname">action_policy_id</span></p>
+              </td>
+              <td id="entry-squ-nzj-1vs" rowspan="1" colspan="1">
+                <p id="ec7b6857402v1">告警监控规则指定的行动策略<span class="help-letter-space"></span>ID，仅在告警策略使用动态行动策略时有用。</p>
+              </td>
+              <td id="entry-l54-tgx-jq9" rowspan="1" colspan="1">
+                <p id="d0798c18e8d57">string</p>
+              </td>
+              <td id="entry-y18-jnp-f8h" rowspan="1" colspan="1">
+                <p id="95b81e7d45zkl">sls.test-action</p>
+              </td>
+            </tr>
+            <tr id="row-m9d-0cy-38z">
+              <td id="entry-wbh-rta-y3m" rowspan="1" colspan="1">
+                <p id="cfeff2f6f8t22"><span data-tag="parmname" id="parmname-tv8-uye-24p" class="parmname">repeat_interval</span></p>
+              </td>
+              <td id="entry-2wf-bv9-qql" rowspan="1" colspan="1">
+                <p id="7a30ead02d9ni">重复等待时间，仅在告警策略使用行动策略时有用。</p>
+              </td>
+              <td id="entry-639-077-ran" rowspan="1" colspan="1">
+                <p id="6033b6e7baoh8">string</p>
+              </td>
+              <td id="entry-4xs-ln4-mll" rowspan="1" colspan="1">
+                <p id="8e307555acsag">4h</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section data-tag="section" id="section-5op-xn7-tbw" data-type="section" class="section">
+        <h2 data-tag="title" id="title-6hz-1m4-mwn" class="title">QueryData<span class="help-letter-space"></span>结构</h2>
+        <p data-tag="p" id="p-pf0-ojs-ynw" class="p"><span data-tag="parmname" id="parmname-jus-rke-3s1" class="parmname">results</span><span class="help-letter-space"></span>变量中可引用的变量说明如下表所示。</p>
+        <table id="table-0xw-ujt-bas" tablewidth="708" tablecolswidth="133 221 133 221" autofit="false" class="table">
+          <colgroup colwidth="0.75*" style="width:18.79%"></colgroup>
+          <colgroup colwidth="1.25*" style="width:31.21%"></colgroup>
+          <colgroup colwidth="0.75*" style="width:18.79%"></colgroup>
+          <colgroup colwidth="1.25*" style="width:31.21%"></colgroup>
+          <tbody class="tbody">
+            <tr id="row-8gm-qoq-dq9">
+              <td id="reference-2061590-entry-wku-ysu-g0z" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="17fcadc3d9ype"><b>变量</b></p>
+              </td>
+              <td id="reference-2061590-entry-rz2-hwe-a2k" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="eaf170ddfbbv5"><b>说明</b></p>
+              </td>
+              <td id="reference-2061590-entry-zlf-qnd-4ty" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="c82c59a6a9two"><b>数据类型</b></p>
+              </td>
+              <td id="reference-2061590-entry-b3a-wc5-kal" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                <p id="b90019cdddr7a"><b>举例</b></p>
+              </td>
+            </tr>
+            <tr id="row-k7p-o78-auo">
+              <td id="entry-49z-a6n-pky" rowspan="1" colspan="1">
+                <p id="3f61dea13a0bw"><span data-tag="parmname" id="parmname-e0x-3pu-q2e" class="parmname">role_arn</span></p>
+              </td>
+              <td id="entry-2xa-7l5-jnz" rowspan="1" colspan="1">
+                <p id="a3403dbad5nm5">使用服务角色。</p>
+              </td>
+              <td id="entry-1sm-x0p-khf" rowspan="1" colspan="1">
+                <p id="a994f65187qq8">string</p>
+              </td>
+              <td id="entry-ym0-057-5oo" rowspan="1" colspan="1">
+                <p id="16dd64ac50q5b">acs:ram::117918664953****:role/aliyunslsalertmonitorrole</p>
+              </td>
+            </tr>
+            <tr id="row-dpo-k2b-bht">
+              <td id="entry-9od-rhf-tl8" rowspan="1" colspan="1">
+                <p id="62f3fa41d5uns"><span data-tag="parmname" id="parmname-1ai-i8f-0p9" class="parmname">store_type</span></p>
+              </td>
+              <td id="entry-gn3-t6s-j5r" rowspan="1" colspan="1">
+                <p id="56215c58b2w4h">存储类型。</p>
+                <ul data-tag="ul" id="ul-xh5-rn3-ka2" class="ul">
+                  <li data-tag="li" id="li-g4h-ke9-rqq" class="li">
+                    <p id="c02fb0f2683ic">log：日志。</p>
+                  </li>
+                  <li data-tag="li" id="li-o2g-y7i-qsf" class="li">
+                    <p id="59c64ad3355jq">metric：时序数据。</p>
+                  </li>
+                  <li data-tag="li" id="li-cnu-vbk-797" class="li">
+                    <p id="dccd5003902w2">meta：资源数据。</p>
+                  </li>
+                </ul>
+              </td>
+              <td id="entry-tdg-hom-lht" rowspan="1" colspan="1">
+                <p id="fd8c3cc3ed6y0">string</p>
+              </td>
+              <td id="entry-vws-p8l-wwm" rowspan="1" colspan="1">
+                <p id="8c153edbdecx5">log</p>
+              </td>
+            </tr>
+            <tr id="row-z1x-muf-7qb">
+              <td id="entry-yh2-wvm-u5q" rowspan="1" colspan="1">
+                <p id="3643d3d7ae4uh"><span data-tag="parmname" id="parmname-0p9-h2k-b37" class="parmname">region</span></p>
+              </td>
+              <td id="entry-l1q-ma2-7y5" rowspan="1" colspan="1">
+                <p id="b7423de0cfts6">查询统计目标库所在地域。</p>
+                <p data-tag="p" id="p-3v2-ysa-p82" class="p">存储类型为资源数据时，该变量值为空。</p>
+              </td>
+              <td id="entry-f0s-x4o-c6f" rowspan="1" colspan="1">
+                <p id="f43f696dd29e0">string</p>
+              </td>
+              <td id="entry-cje-xbi-v77" rowspan="1" colspan="1">
+                <p id="2dbc2383behzq">cn-hangzhou</p>
+              </td>
+            </tr>
+            <tr id="row-887-tg6-jcp">
+              <td id="entry-1ju-rf2-jt0" rowspan="1" colspan="1">
+                <p id="1e1bd367e3che"><span data-tag="parmname" id="parmname-z0i-pym-w51" class="parmname">project</span></p>
+              </td>
+              <td id="entry-1ej-a4d-jr9" rowspan="1" colspan="1">
+                <p id="a161627d3dusv">查询统计目标库所在<span class="help-letter-space"></span>Project。</p>
+                <p data-tag="p" id="p-m79-p4z-dhe" class="p">存储类型为资源数据时，该变量值为空。</p>
+              </td>
+              <td id="entry-qs7-37d-uif" rowspan="1" colspan="1">
+                <p id="cef7e0cf723v9">string</p>
+              </td>
+              <td id="entry-f8n-oq1-0l7" rowspan="1" colspan="1">
+                <p id="a0f0dcc6a49ae">sls-test-alert</p>
+              </td>
+            </tr>
+            <tr id="row-ply-e2e-ile">
+              <td id="entry-h5p-z0l-fso" rowspan="1" colspan="1">
+                <p id="350baf8ba6p1k"><span data-tag="parmname" id="parmname-gcm-be3-s80" class="parmname">store</span></p>
+              </td>
+              <td id="entry-5mi-5tw-3z3" rowspan="1" colspan="1">
+                <p id="b0bf985ac1hhl">查询统计目标库名称。</p>
+              </td>
+              <td id="entry-t7l-lpj-xi6" rowspan="1" colspan="1">
+                <p id="b794428425cbp">string</p>
+              </td>
+              <td id="entry-d4f-272-ppc" rowspan="1" colspan="1">
+                <p id="4a0f5bc727dit">test-LogStore</p>
+              </td>
+            </tr>
+            <tr id="row-wib-e3k-twm">
+              <td id="entry-hj5-lmv-ldu" rowspan="1" colspan="1">
+                <p id="9fdaed18da6id"><span data-tag="parmname" id="parmname-6yl-pg8-9gq" class="parmname">query</span></p>
+              </td>
+              <td id="entry-939-3zw-fh5" rowspan="1" colspan="1">
+                <p id="7905a1184c10x">查询语句。</p>
+              </td>
+              <td id="entry-vrk-g25-kkz" rowspan="1" colspan="1">
+                <p id="cf9ab9af89co2">string</p>
+              </td>
+              <td id="entry-sp6-3hl-jvs" rowspan="1" colspan="1">
+                <p id="f22282567923c">error | select count(1) as cnt</p>
+              </td>
+            </tr>
+            <tr id="row-eww-owu-2f2">
+              <td id="entry-qon-uud-klh" rowspan="1" colspan="1">
+                <p id="da5a6bac47ezb"><span data-tag="parmname" id="parmname-3ny-t11-oqn" class="parmname">start_time</span></p>
+              </td>
+              <td id="entry-fgy-hqe-n8q" rowspan="1" colspan="1">
+                <p id="dd6bf6a0012k2">查询开始时间。</p>
+                <p data-tag="p" id="p-koz-rt5-f8t" class="p">存储类型为资源数据时，该变量值为空。</p>
+              </td>
+              <td id="entry-ehg-urs-oi0" rowspan="1" colspan="1">
+                <p id="1b02fc6b2cd7d">int</p>
+              </td>
+              <td id="entry-0ya-8nb-jq6" rowspan="1" colspan="1">
+                <p id="0a2f164c34lq0">2006-01-02 15:04:05</p>
+              </td>
+            </tr>
+            <tr id="row-vzw-9hn-8sp">
+              <td id="entry-75v-5pb-r6j" rowspan="1" colspan="1">
+                <p id="72fe65853focz"><span data-tag="parmname" id="parmname-2n6-mcn-iis" class="parmname">start_time_ts</span></p>
+              </td>
+              <td id="entry-hep-p1d-chs" rowspan="1" colspan="1">
+                <p id="c35dc969e3msa">查询开始时间，Unix<span class="help-letter-space"></span>格式。</p>
+                <p data-tag="p" id="p-06q-645-o9y" class="p">存储类型为资源数据时，该变量值为空。</p>
+              </td>
+              <td id="entry-du7-15u-g12" rowspan="1" colspan="1">
+                <p id="7a603a182bn4y">int</p>
+              </td>
+              <td id="entry-nsg-1rd-oyy" rowspan="1" colspan="1">
+                <p id="3a812d9f3f0de">1616741485</p>
+              </td>
+            </tr>
+            <tr id="row-2bk-7jf-ej8">
+              <td id="entry-qqa-1vk-42v" rowspan="1" colspan="1">
+                <p id="efc32b198f22r"><span data-tag="parmname" id="parmname-ly6-8mh-imi" class="parmname">end_time</span></p>
+              </td>
+              <td id="entry-6lm-m85-kg0" rowspan="1" colspan="1">
+                <p id="4e8f99c92d9it">查询结束时间。</p>
+                <p data-tag="p" id="p-0nt-kh4-i60" class="p">存储类型为资源数据时，该变量值为空。</p>
+              </td>
+              <td id="entry-4oo-8ea-mty" rowspan="1" colspan="1">
+                <p id="bca1f9f863ot9">int</p>
+              </td>
+              <td id="entry-g3w-onp-lxu" rowspan="1" colspan="1">
+                <p id="cc2afff67e5g5">2006-01-02 15:04:05</p>
+              </td>
+            </tr>
+            <tr id="row-jda-mpg-ij3">
+              <td id="entry-8hk-m0y-70i" rowspan="1" colspan="1">
+                <p id="2b3c551ff6mlk"><span data-tag="parmname" id="parmname-k7m-re4-qsl" class="parmname">end_time_ts</span></p>
+              </td>
+              <td id="entry-mat-xrf-vw9" rowspan="1" colspan="1">
+                <p id="a00ebc4225gbb">查询结束时间，Unix<span class="help-letter-space"></span>格式。</p>
+                <p data-tag="p" id="p-2il-8z7-j03" class="p">存储类型为资源数据时，该变量值为空。</p>
+              </td>
+              <td id="entry-oxz-1cw-5ok" rowspan="1" colspan="1">
+                <p id="104496a970zut">int</p>
+              </td>
+              <td id="entry-0ld-r13-rd5" rowspan="1" colspan="1">
+                <p id="3afc97e29eku7">1616745085</p>
+              </td>
+            </tr>
+            <tr id="row-tus-gkg-3cw">
+              <td id="entry-7jo-j1n-5tc" rowspan="1" colspan="1">
+                <p id="1e92dac573mfk"><span data-tag="parmname" id="parmname-k3j-ota-04p" class="parmname">dashboard_id</span></p>
+              </td>
+              <td id="entry-3yx-kkt-z6t" rowspan="1" colspan="1">
+                <p id="3ba63d2517esz">查询时关联的仪表盘<span class="help-letter-space"></span>ID。</p>
+              </td>
+              <td id="entry-i9u-2c5-puh" rowspan="1" colspan="1">
+                <p id="c63e209ff51n3">string</p>
+              </td>
+              <td id="entry-6xn-z6g-g8f" rowspan="1" colspan="1">
+                <p id="d2903252a0sbj">mydashboard</p>
+              </td>
+            </tr>
+            <tr id="row-c9m-s0p-yn2">
+              <td id="entry-vn3-zop-hy3" rowspan="1" colspan="1">
+                <p id="b2b14750b1mpi"><span data-tag="parmname" id="parmname-ljb-6cc-nxv" class="parmname">raw_results</span></p>
+              </td>
+              <td id="entry-5it-6fv-hzd" rowspan="1" colspan="1">
+                <p id="e5bfd4149ffvc">实际查询内容，数组格式，最多<span class="help-letter-space"></span>100<span class="help-letter-space"></span>行。</p>
+              </td>
+              <td id="entry-f1w-8eo-uy8" rowspan="1" colspan="1">
+                <p id="897bab255042k">array</p>
+              </td>
+              <td id="entry-bhd-cco-hwk" rowspan="1" colspan="1"><pre data-tag="codeblock" id="codeblock-utn-dhk-qof" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>[{
+    "host":"example.com",
+    "slbid":"slb-02",
+    "status":"200"
+},{
+    "host":"example.com",
+    "slbid":"slb-01",
+    "status":"200"
+},{
+    "host":"example.com",
+    "slbid":"slb-02",
+    "status":"306"
+},{
+    "host":"example.com",
+    "slbid":"slb-02",
+    "status":"200"
+},{
+    "host":"example.com",
+    "slbid":"slb-01",
+    "status":"200"
+},{
+    "host":"example.com",
+    "slbid":"slb-02",
+    "status":"200"
+}]</code></pre></td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </main>
+
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/sls/variables-in-new-alert-templates" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：内容模板变量说明（新版）</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/sls/view-alert-details-in-logon-free-mode" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：免登录查看告警详情<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

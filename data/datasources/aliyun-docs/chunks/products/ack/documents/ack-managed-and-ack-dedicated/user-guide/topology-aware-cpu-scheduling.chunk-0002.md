@@ -1,0 +1,3 @@
+。
+全局拓扑感知调度：kube-scheduler基于全局拓扑信息，在集群范围内为Pod筛选出当前最优节点，并规划核心分配方案（如在选择最优节点时默认寻找已绑定应用数量最少的核）。该分配方案会作为调度结果写入Pod的Annotation中。
+本地绑核执行：Pod调度至目标节点后，ack-koordinator会根据Pod的 Annotation 并修改其对应Cgroup的cpuset.cpus文件，以完成物理核心的绑定。

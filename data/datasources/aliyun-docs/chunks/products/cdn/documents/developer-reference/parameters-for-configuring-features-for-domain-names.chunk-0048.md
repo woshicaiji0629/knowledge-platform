@@ -1,0 +1,6 @@
+| 参数 | 类型 | 是否必选 | 描述 | 示例值 |
+| --- | --- | --- | --- | --- |
+| regex | String | 是 | 需要重写的 URI，以“/”开头，不含“http://”头及域名。支持 PCRE 正则表达式，例如：^/hello$。 | ^/hello$ |
+| replacement | String | 是 | 执行规则设置为“Break”的情况下，仅支持以/开头的 Path，不含协议头和域名；执行规则设置为“Redirect”的情况下，可以包含协议头和域名。支持 PCRE 正则表达式，例如：常用$1、$2 来捕获待改写 Path 中圆括号内的字符串。 | /hello/test |
+| flag | String | 否 | 指定 CDN 节点在 URI 改写完成之后执行的动作，取值： 空 ：默认为空，指的是不传 flag 参数。在配置了多条规则的情况下，如果请求 URL 匹配了某条规则，执行完当前规则以后，还会继续匹配后续规则。 break ：如果请求 URL 匹配了某条规则，该请求将会被重写为目标 URL（不修改原始 URI 中的参数）。执行完当前规则后，当存在其他配置规则时，将不再匹配剩余规则。 redirect ：如果请求 URL 匹配某条规则，该请求将会被 302 重定向到目标 URL，CDN 节点将返回给客户端的 Location 信息为目标 URL（不修改原始 URI 中的参数）。执行完当前规则后，当存在其他配置规则时，会继续匹配剩余规则。 enhance_break ：和 break 类似，但是会修改包含参数在内的整个 URL。 enhance_redirect ：和 redirect 类似，但是会修改包含参数在内的整个 URL。 说明 不同的执行规则使用的重写方式不同，重写后的 URL 是否支持其他域名、其他协议也存在差异： 空 、 break 、 enhance_break 采用直接重写用户请求 URL 的方式，不支持重写为其他域名，也不支持重写为其他协议（例如从 HTTP 协议重写为 HTTPS 协议）。 redirect 、 enhance_redirect 采用 302 跳转方式实现 URL 重写，支持重写为其他域名，也支持重写为其他协议： 302 Location 地址除了可以设置为当前的加速域名，还支持设置为其他域名，可以实现这样的效果：原始 URL 使用的域名是 example.com，重写后的 URL 使用新的域名 aliyundoc.com。 302 Location 地址支持使用其他协议，可以实现这样的效果：原始 URL 使用 HTTP 协议，重写后的 URL 使用 HTTPS 协议。 | redirect |
+| rewrite_method | Strin

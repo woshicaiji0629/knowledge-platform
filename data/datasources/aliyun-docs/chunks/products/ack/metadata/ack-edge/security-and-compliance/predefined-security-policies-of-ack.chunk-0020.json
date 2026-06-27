@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/security-and-compliance/predefined-security-policies-of-ack:20",
+  "document_id": "ack:ack-edge/security-and-compliance/predefined-security-policies-of-ack",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "集群策略管理内置规则列表与详解-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/security-and-compliance/predefined-security-policies-of-ack",
+  "chunk_index": 20,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/security-and-compliance/predefined-security-policies-of-ack.chunk-0020.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/security-and-compliance/predefined-security-policies-of-ack.md",
+  "heading_path": "容器安全策略规则库说明 > Compliance > ACKProtectCoreDNS",
+  "char_count": 1200
+}

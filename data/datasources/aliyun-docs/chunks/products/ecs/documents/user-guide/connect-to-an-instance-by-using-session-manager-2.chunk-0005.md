@@ -1,0 +1,5 @@
+### 会话管理工作原理
+如图所示，在通过会话管理连接实例时，会话管理客户端和ECS实例将分别与云助手服务端建立WebSocket连接。一旦连接建立，您每次输入的命令都会经过云助手服务端转发至实例，由实例中的云助手Agent代为执行。
+
+| 图中涉及的模块 云助手客户端 ：指您实际操作的客户端工具，如控制台上的会话管理、您本机的 ali-instance-cli 、阿里云客户端等。 云助手服务端 ：会话管理基于云助手实现，负责权限管理、会话状态管理。 ECS 实例中的云助手 Agent ：负责命令的执行。 细节说明 会话管理客户端 与 云助手服务端 建立 WebSocket 连接时（对应 步骤 2~4 ），服务端会进行鉴权，判断操作者是否有通过会话管理连接到该实例的权限。相关权限说明，请参见 [相关权限管理](connect-to-an-instance-by-using-session-manager-2.md) 。 ECS 中的 云助手 Agent 与 云助手服务端 建立 WebSocket 连接时（对应 步骤 5~6 ），是由云助手服务端通知 Agent 建立连接后，云助手 Agent 主动和云助手服务端建立连接。 因此，无需关注 ECS 实例安全组入方向的规则，仅需关注 出方向 上可以访问云助手服务端的对应 WebSocket 连接端口。相关安全组配置说明，请参见 [相关安全组设置](connect-to-an-instance-by-using-session-manager-2.md) 。 安全性 加密 ：会话管理客户端与云助手服务端、云助手服务端与 云助手 Agent 之间通信时，会通过 WSS（Web Socket Secure）协议建立 WebSocket 长连接，WSS 使用 SSL（Secure Socket Layer）加密 WebSocket 长连接，能够保障数据的安全。 鉴权 ：仅使用会话管理功能远程连接实例时无需管理密码，无密码泄露的风险。不同于 SSH、VNC 等需要通过用户名密码进行鉴权，会话管理采用 RAM 进行鉴权。相关权限说明，请参见 [相关权限管理](connect-to-an-instance-by-using-session-manager-2.md) 。 网络 ：由于 云助手 Agent 与云助手服务端之间通过 WebSocket 连接，不需要通过 SSH、VNC 等方式登录 ECS 实例，所以不需要打开 ECS 实例的入方向端口，进一步提高了 ECS 实例的安全性。 |  |
+| --- | --- |

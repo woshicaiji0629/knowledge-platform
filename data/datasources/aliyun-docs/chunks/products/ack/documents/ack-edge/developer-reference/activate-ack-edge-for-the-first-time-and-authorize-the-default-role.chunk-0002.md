@@ -1,0 +1,6 @@
+e-a-ram-user.md)和[创建](../../../../ram/documents/user-guide/create-an-accesskey-pair.md)[AccessKey](../../../../ram/documents/user-guide/create-an-accesskey-pair.md)。
+为运行Terraform命令的RAM用户绑定以下最小权限策略，以获取管理本示例所涉及资源的权限。更多信息，请参见[为](../../../../ram/documents/user-guide/grant-permissions-to-the-ram-user.md)[RAM](../../../../ram/documents/user-guide/grant-permissions-to-the-ram-user.md)[用户授权](../../../../ram/documents/user-guide/grant-permissions-to-the-ram-user.md)。
+该权限策略允许RAM用户进行VPC、交换机、安全组及ACK的创建、查看与删除操作。
+{ "Version": "1", "Statement": [ { "Effect": "Allow", "Action": [ "vpc:CreateVpc", "vpc:CreateVSwitch", "vpc:DescribeVpcAttribute", "vpc:DescribeRouteTableList", "vpc:DescribeVSwitchAttributes", "ecs:CreateSecurityGroup", "ecs:ModifySecurityGroupPolicy", "ecs:DescribeSecurityGroups", "ecs:DescribeSecurityGroupAttribute", "ecs:ListTagResources", "cs:CreateCluster", "cs:DescribeTaskInfo", "cs:DescribeClusterDetail", "vpc:DeleteVpc", "vpc:DeleteVSwitch", "cs:DeleteCluster", "ecs:DeleteSecurityGroup" ], "Resource": "*" } ] }
+准备Terraform运行环境，您可以选择以下任一方式来使用Terraform。
+[在](https://help.aliyun.com/zh/terraform/using-terraform-in-terraform-explorer)[Terraform Explorer](https://help.aliyun.com/zh/

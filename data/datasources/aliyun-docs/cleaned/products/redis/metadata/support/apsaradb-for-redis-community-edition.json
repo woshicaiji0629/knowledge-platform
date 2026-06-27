@@ -1,0 +1,17 @@
+{
+  "id": "redis:support/apsaradb-for-redis-community-edition",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "Redis开源版小版本发布日志-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/support/apsaradb-for-redis-community-edition",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/support/apsaradb-for-redis-community-edition.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/support/apsaradb-for-redis-community-edition.md",
+  "word_count": 5073,
+  "text_units": 12366,
+  "local_links": 37,
+  "external_links": 78,
+  "has_tables": true,
+  "table_count": 50,
+  "quality": "accepted"
+}

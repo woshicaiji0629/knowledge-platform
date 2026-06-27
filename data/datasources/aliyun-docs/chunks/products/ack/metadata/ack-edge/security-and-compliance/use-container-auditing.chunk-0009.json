@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/security-and-compliance/use-container-auditing:9",
+  "document_id": "ack:ack-edge/security-and-compliance/use-container-auditing",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "审计容器内执行的命令并配置告警-容器服务Kubernetes版ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/security-and-compliance/use-container-auditing",
+  "chunk_index": 9,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/security-and-compliance/use-container-auditing.chunk-0009.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/security-and-compliance/use-container-auditing.md",
+  "heading_path": "使用容器内部操作审计功能 > （可选）步骤四：配置操作审计告警",
+  "char_count": 1200
+}

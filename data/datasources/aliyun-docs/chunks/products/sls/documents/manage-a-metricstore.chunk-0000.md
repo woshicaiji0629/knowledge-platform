@@ -1,0 +1,2 @@
+# 管理MetricStore
+删除MetricStore必须提前删除所有Logtail配置，通过减少数据保存时间，实现日志的自动删除。本文介绍如何在日志服务控制台上创建、修改、删除MetricStore与时序数据等操作。

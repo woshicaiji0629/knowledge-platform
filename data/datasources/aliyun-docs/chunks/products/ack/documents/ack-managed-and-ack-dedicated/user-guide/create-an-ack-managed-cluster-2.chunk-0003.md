@@ -1,0 +1,1 @@
+ed-clusters.md) 中的 为专有网络配置 SNAT 配置项。 IPv6 双栈：集群是否需要同时支持 IPv4 与 IPv6 协议。如需启用，集群所处 VPC 必须支持双栈，且需规划 IPv6 网段。 [安全组](../../../../ecs/documents/user-guide/overview-44.md) ：集群资源所在的安全组，以及使用的安全组类型。 集群本地域名： 集群中所有 Service 使用的顶级域名（标准后缀） ，使得 Pod 和其他资源可以通过名称（而不是 IP 地址）相互访问。 默认为 cluster.local ，如需自定义，请参见 [配置集群本地域名（ClusterDomain）有哪些注意事项？](faq-about-container-networks.md) 。 |

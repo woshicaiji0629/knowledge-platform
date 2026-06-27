@@ -1,0 +1,17 @@
+{
+  "id": "cdn:configure-system-recommended-features",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "推荐配置（可选）-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/configure-system-recommended-features",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/configure-system-recommended-features.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/configure-system-recommended-features.md",
+  "word_count": 643,
+  "text_units": 1633,
+  "local_links": 0,
+  "external_links": 73,
+  "has_tables": true,
+  "table_count": 9,
+  "quality": "accepted"
+}

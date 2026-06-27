@@ -1,0 +1,17 @@
+{
+  "id": "sls:manage-a-project",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "管理日志项目Project-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/manage-a-project/",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/manage-a-project.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/manage-a-project.md",
+  "word_count": 1725,
+  "text_units": 5949,
+  "local_links": 1,
+  "external_links": 99,
+  "has_tables": true,
+  "table_count": 8,
+  "quality": "accepted"
+}

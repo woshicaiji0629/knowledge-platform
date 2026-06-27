@@ -1,0 +1,17 @@
+{
+  "id": "cdn:what-is-a-dns-cname-record",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "什么是DNS CNAME记录-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/what-is-a-dns-cname-record",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/what-is-a-dns-cname-record.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/what-is-a-dns-cname-record.md",
+  "word_count": 678,
+  "text_units": 1627,
+  "local_links": 0,
+  "external_links": 63,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

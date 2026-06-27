@@ -1,0 +1,14 @@
+{
+  "id": "sls:collect-docker-container-standard-output:6",
+  "document_id": "sls:collect-docker-container-standard-output",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "deployment",
+  "title": "如何部署Logtail容器采集Docker容器的标准输出-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/collect-docker-container-standard-output",
+  "chunk_index": 6,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/collect-docker-container-standard-output.chunk-0006.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/collect-docker-container-standard-output.md",
+  "heading_path": "启动Logtail容器，替换${region_id}，${aliyun_account_id}，${user_defined_id} docker run -d \\ -v /:/logtail_host:ro \\ -v /var/run/docker.sock:/var/run/docker.sock \\ --env ALIYUN_LOGTAIL_CONFIG=/etc/ilogtail/conf/${region_id}/ilogtail_config.json \\ --env ALIYUN_LOGTAIL_USER_ID=${aliyun_account_id} \\ --env ALIYUN_LOGTAIL_USER_DEFINED_ID=${user_defined_id} \\ registry.${region_id}.aliyuncs.com/log-service/logtail:v2.1.11.0-aliyun > 步骤二：创建Logtail采集配置",
+  "char_count": 443
+}

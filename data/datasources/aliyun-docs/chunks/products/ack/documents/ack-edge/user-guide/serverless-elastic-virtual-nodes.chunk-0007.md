@@ -1,0 +1,2 @@
+## 相关操作
+当您升级集群时，系统会自动校验ECI Platform Version和Kubernetes的兼容情况，对于ECI Platform Version和目标Kubernetes版本不兼容的ECI Pod，需要手动删除重建ECI Pod后，才能升级集群的Kubernetes版本。升级集群前，请确保ECI Platform Version与Kubernetes版本兼容。更多信息，请参见[升级](../../ack-managed-and-ack-dedicated/user-guide/eci-platform-version-compatibility-matrix.md)[ECI Platform Version](../../ack-managed-and-ack-dedicated/user-guide/eci-platform-version-compatibility-matrix.md)。

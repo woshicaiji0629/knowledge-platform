@@ -1,0 +1,14 @@
+{
+  "id": "vpc:route-target-group:2",
+  "document_id": "vpc:route-target-group",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "路由目标组-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/route-target-group",
+  "chunk_index": 2,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/route-target-group.chunk-0002.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/route-target-group.md",
+  "heading_path": "路由目标组 > 适用范围",
+  "char_count": 128
+}

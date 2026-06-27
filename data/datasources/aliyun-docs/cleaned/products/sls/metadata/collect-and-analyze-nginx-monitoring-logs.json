@@ -1,0 +1,17 @@
+{
+  "id": "sls:collect-and-analyze-nginx-monitoring-logs",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "采集及分析Nginx监控日志-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/collect-and-analyze-nginx-monitoring-logs",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/collect-and-analyze-nginx-monitoring-logs.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/collect-and-analyze-nginx-monitoring-logs.md",
+  "word_count": 1186,
+  "text_units": 2552,
+  "local_links": 0,
+  "external_links": 92,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

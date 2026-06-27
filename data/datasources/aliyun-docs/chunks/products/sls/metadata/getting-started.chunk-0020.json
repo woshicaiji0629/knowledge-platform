@@ -1,0 +1,14 @@
+{
+  "id": "sls:getting-started:20",
+  "document_id": "sls:getting-started",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "日志服务SLS快速入门-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/getting-started",
+  "chunk_index": 20,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/getting-started.chunk-0020.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/getting-started.md",
+  "heading_path": "使用LoongCollector采集并分析ECS文本日志 > 常见问题 > 技术内容",
+  "char_count": 201
+}

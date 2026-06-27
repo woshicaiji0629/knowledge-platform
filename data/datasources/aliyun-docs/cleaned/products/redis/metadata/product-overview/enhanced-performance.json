@@ -1,0 +1,17 @@
+{
+  "id": "redis:product-overview/enhanced-performance",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "performance",
+  "title": "Tair内存型云原生版有哪些规格-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/enhanced-performance",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/product-overview/enhanced-performance.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/enhanced-performance.md",
+  "word_count": 1064,
+  "text_units": 2246,
+  "local_links": 8,
+  "external_links": 68,
+  "has_tables": true,
+  "table_count": 21,
+  "quality": "accepted"
+}

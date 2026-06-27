@@ -1,0 +1,17 @@
+{
+  "id": "sls:alert-template",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "日志数据采集处理查询分析-内容模板-日志服务-阿里云",
+  "source_url": "https://help.aliyun.com/zh/sls/alert-template",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/alert-template.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/alert-template.md",
+  "word_count": 503,
+  "text_units": 1075,
+  "local_links": 0,
+  "external_links": 68,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

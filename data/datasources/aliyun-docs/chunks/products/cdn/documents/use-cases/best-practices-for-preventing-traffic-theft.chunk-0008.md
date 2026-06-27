@@ -1,0 +1,2 @@
+### 过滤可疑User-Agent
+攻击者通过伪造User-Agent字段发送大量请求，试图绕过安全检查。伪造的User-Agent可能是空值、随机字符串或常见浏览器的伪造字符串。您可以配置User-Agent白名单或黑名单，拒绝非正常的User-Agent请求。例如，拒绝空User-Agent或不符合规范的随机字符串，您可以使用参数this-is-empty-ua和RandomString分别来表示空User-Agent和随机字符串。具体操作请参见[配置](../user-guide/configure-a-user-agent-blacklist-or-whitelist.md)[UA](../user-guide/configure-a-user-agent-blacklist-or-whitelist.md)[黑白名单](../user-guide/configure-a-user-agent-blacklist-or-whitelist.md)。

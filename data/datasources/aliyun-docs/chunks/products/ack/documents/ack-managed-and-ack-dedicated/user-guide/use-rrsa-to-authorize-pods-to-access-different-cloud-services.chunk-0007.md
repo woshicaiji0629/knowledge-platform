@@ -1,0 +1,1 @@
+a-ram-role-for-a-trusted-idp.md)[身份提供商的](../../../../ram/documents/user-guide/create-a-ram-role-for-a-trusted-idp.md)[RAM](../../../../ram/documents/user-guide/create-a-ram-role-for-a-trusted-idp.md)[角色](../../../../ram/documents/user-guide/create-a-ram-role-for-a-trusted-idp.md)。

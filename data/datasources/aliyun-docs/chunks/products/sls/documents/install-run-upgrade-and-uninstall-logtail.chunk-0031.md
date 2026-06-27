@@ -1,0 +1,6 @@
+| 参数说明 | values.yaml # ===================== 必需要补充的内容 ===================== # 目标 Project 名称。 SlsProjectName: # Project 所属地域。 Region: # Project 所属阿里云账号 ID，需使用双引号（""）包裹。 AliUid: "11099" # 阿里云账号或 RAM 用户的 AccessKey ID 和 AccessKey Secret，需具备 AliyunLogFullAccess 权限。 AccessKeyID: AccessKeySercret: # 自定义集群 ID，命名只支持大小写，数字，短划线(-)。 ClusterID: # ========================================================== # 是否开启指标采集相关组件，可选参数: true、false, 默认 true。 SlsMonitoring: true # 网络类型，可选参数：Internet、Intranet，默认使用 Internet。 Net: Internet # 容器运行时是否为 containerd，可选参数: true, false, 默认 false。 SLS_CONTAINERD_USED: true |
+| --- | --- |
+| SlsProjectName Project 名称，Logtail 将上传日志到该 Project 中。 |  |
+| Region 您的 Project 所在的地域 ID。例如华东 1（杭州）的地域 ID 为 cn-hangzhou 。更多信息，请参见 [开服地域](sls-supported-regions1.md) 。 |  |
+| AliUid Project 所属账号的阿里云主账号 ID，需使用双引号包裹（""），例如 AliUid: "11**99" 。如何获取，请参见 [获取日志服务所在的阿里云账号（主账号）ID](configure-a-user-identifier.md) 。 |  |
+| AccessKeyID Project 所属账号的阿里云账号的 AccessKey ID。推荐使用 RAM 用户的 AccessKey，并授予 RAM 用户 AliyunLogFullAccess 权限。相关操作，请参见 [创建](create-a-ram-user-and-authorize-the-ram-user-to-access-log-service.md) [RAM](create-a-ram-user-and-authorize-the-ram-user-to-access-log-service.md) [用户及授权](create-a

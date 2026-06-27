@@ -1,0 +1,4 @@
+ubernetes/user-guide/enable-log-service-for-an-external-kubernetes-cluster.md)
+阿里云[ACS](https://help.aliyun.com/zh/cs/product-overview/product-introduction)、[ACK Serverless 集群](../../ack/documents/serverless-kubernetes/product-overview/ask-overview.md)无需安装Loongcollector，需要您部署alibaba-log-controller组件，如需采集日志请参考：
+[ACS 集群通过](https://help.aliyun.com/zh/cs/user-guide/use-crd-to-collect-application-logs)[CRD](https://help.aliyun.com/zh/cs/user-guide/use-crd-to-collect-application-logs)[采集应用日志](https://help.aliyun.com/zh/cs/user-guide/use-crd-to-collect-application-logs)
+[ACK Serverless 集群通过](../../ack/documents/serverless-kubernetes/user-guide/enable-log-service-for-an-ask-cluster.md)[CRD](../../ack/documents/serverless-kubernetes/user-guide/enable-log-service-for-an-ask-cluster.md)[采集应用日志](../../ack/documents/serverless-kubernetes/user-guide/enable-log-service-for-an-ask-cluster.md)

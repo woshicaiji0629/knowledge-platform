@@ -1,0 +1,14 @@
+{
+  "id": "sls:collect-ping-and-tcping-data:10",
+  "document_id": "sls:collect-ping-and-tcping-data",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "如何通过Logtail采集ping和tcping数据到日志服务-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/collect-ping-and-tcping-data",
+  "chunk_index": 10,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/collect-ping-and-tcping-data.chunk-0010.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/collect-ping-and-tcping-data.md",
+  "heading_path": "采集ping和tcping数据 > 后续步骤 > 大模型",
+  "char_count": 197
+}

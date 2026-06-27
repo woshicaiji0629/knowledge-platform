@@ -1,0 +1,4 @@
+## BestEffort型
+apiVersion: argoproj.io/v1alpha1 kind: Workflow metadata: generateName: helloworld-- spec: entrypoint: helloworld templates: - name: helloworld metadata: labels: alibabacloud.com/acs: "true" alibabacloud.com/compute-qos: best-effort container: image: mirrors-ssl.aliyuncs.com/busybox:latest resources: # 配置更大的CPU和内存 limits: cpu: 2 memory: "4Gi" requests: cpu: 2 memory: "4Gi" command: - sh - -c args: - echo "Hello, world!"; sleep 30;
+该文章对您有帮助吗？
+反馈

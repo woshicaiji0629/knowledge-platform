@@ -1,0 +1,19 @@
+## 准备工作
+在采集日志前，需规划并创建用于管理与存储日志的Project和LogStore。若已有可用资源，可跳过此步骤，直接进入[配置机器组（安装](one-time-collection-of-host-text-logs.md)[LoongCollector）](one-time-collection-of-host-text-logs.md)。
+创建Project
+登录[日志服务控制台](https://sls.console.aliyun.com/)。
+单击创建Project，并配置：
+所属地域：根据日志来源选择，创建后不可修改。
+Project名称：阿里云内全局唯一，创建后不可修改。
+其他配置保持默认，单击创建。如需了解其他参数，请参见[创建](manage-a-project.md)[Project](manage-a-project.md)。
+创建LogStore
+单击Project名称，进入目标Project。
+在左侧导航栏，选择日志存储，单击+。
+在创建LogStore页面，完成以下核心配置：
+Logstore名称：设置一个在Project内唯一的名称，该名称创建后不可修改。
+Logstore类型：根据规格对比选择标准型或查询型。
+计费模式：
+按使用功能计费：按存储、索引、读写次数等各项资源独立计费。适合小规模或功能使用不确定的场景。
+按写入数据量计费：仅按原始写入数据量计费，提供30天免费存储，以及免费的数据加工、投递等功能。适合存储周期接近30天或数据处理链路复杂的业务场景。
+数据保存时间：设置日志的保留天数（1~3650天，3650为永久保存），默认为30天。
+其他配置保持默认，单击确定。如需了解其他配置信息，请参考[管理](manage-a-logstore.md)[LogStore](manage-a-logstore.md)。

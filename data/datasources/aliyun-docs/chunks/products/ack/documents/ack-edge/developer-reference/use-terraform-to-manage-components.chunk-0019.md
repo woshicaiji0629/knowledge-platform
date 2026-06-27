@@ -1,0 +1,3 @@
+## 配置存储组件
+ACK提供的存储组件，支持Flexvolume和CSI两种。Flexvolume已经停止维护，ACK主要维护CSI存储组件。如果通过Terraform创建集群时，不指定任何存储组件，默认会安装CSI。在Terraform中通过以下方式进行存储组件定义。
+展开查看详细信息

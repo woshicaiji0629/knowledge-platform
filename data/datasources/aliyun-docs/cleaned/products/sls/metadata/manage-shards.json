@@ -1,0 +1,17 @@
+{
+  "id": "sls:manage-shards",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "分裂、合并、删除分区Shard-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/manage-shards",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/manage-shards.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/manage-shards.md",
+  "word_count": 830,
+  "text_units": 2925,
+  "local_links": 0,
+  "external_links": 76,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

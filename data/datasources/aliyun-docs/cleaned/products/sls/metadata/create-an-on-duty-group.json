@@ -1,0 +1,17 @@
+{
+  "id": "sls:create-an-on-duty-group",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "如何创建值班组-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/create-an-on-duty-group",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/create-an-on-duty-group.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/create-an-on-duty-group.md",
+  "word_count": 619,
+  "text_units": 1765,
+  "local_links": 0,
+  "external_links": 64,
+  "has_tables": true,
+  "table_count": 6,
+  "quality": "accepted"
+}

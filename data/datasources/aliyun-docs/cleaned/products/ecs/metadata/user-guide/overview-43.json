@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/overview-43",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "deployment",
+  "title": "通过部署集提高业务可用性或降低ECS实例间通信延时-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/overview-43",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/overview-43.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/overview-43.md",
+  "word_count": 1256,
+  "text_units": 4291,
+  "local_links": 8,
+  "external_links": 76,
+  "has_tables": true,
+  "table_count": 11,
+  "quality": "accepted"
+}

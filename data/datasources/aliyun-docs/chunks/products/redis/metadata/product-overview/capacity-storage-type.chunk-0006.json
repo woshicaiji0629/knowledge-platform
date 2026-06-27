@@ -1,0 +1,14 @@
+{
+  "id": "redis:product-overview/capacity-storage-type:6",
+  "document_id": "redis:product-overview/capacity-storage-type",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "performance",
+  "title": "Tair磁盘型的实例规格-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/redis/product-overview/capacity-storage-type",
+  "chunk_index": 6,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/product-overview/capacity-storage-type.chunk-0006.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/product-overview/capacity-storage-type.md",
+  "heading_path": "磁盘型实例规格 > 最大连接数计算规则",
+  "char_count": 537
+}

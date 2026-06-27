@@ -1,0 +1,14 @@
+{
+  "id": "vpc:public-network-access:6",
+  "document_id": "vpc:public-network-access",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "selection",
+  "title": "公网访问场景与产品解决方案-专有网络VPC-阿里云",
+  "source_url": "https://help.aliyun.com/zh/vpc/public-network-access",
+  "chunk_index": 6,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/public-network-access.chunk-0006.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/public-network-access.md",
+  "heading_path": "公网访问 > IPv6网关",
+  "char_count": 731
+}

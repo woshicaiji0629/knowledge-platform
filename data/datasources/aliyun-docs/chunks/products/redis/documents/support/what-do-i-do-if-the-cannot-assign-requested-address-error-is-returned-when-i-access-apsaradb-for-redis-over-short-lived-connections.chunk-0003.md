@@ -1,0 +1,2 @@
+## 注意事项
+由于tcp_tw_recycle已在Linux 4.12上被弃用，请忽略所有修改tcp_tw_recycle和tcp_tw_reuse的方案，这些方案对于使用了NAT或LVS的服务均不适用。

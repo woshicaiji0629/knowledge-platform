@@ -1,0 +1,17 @@
+{
+  "id": "oss:user-guide/delete-buckets",
+  "source": "aliyun_docs",
+  "product": "oss",
+  "topic": "pricing",
+  "title": "删除Bucket以停止计费-对象存储(OSS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/oss/user-guide/delete-buckets",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/oss/documents/user-guide/delete-buckets.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/oss/documents/user-guide/delete-buckets.md",
+  "word_count": 2421,
+  "text_units": 6134,
+  "local_links": 6,
+  "external_links": 77,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

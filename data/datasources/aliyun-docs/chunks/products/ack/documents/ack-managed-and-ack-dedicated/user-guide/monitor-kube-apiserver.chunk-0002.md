@@ -1,0 +1,6 @@
+| 指标清单 | 类型 | 解释 |
+| --- | --- | --- |
+| apiserver_request_duration_seconds_bucket | Histogram | 该指标用于统计 API Server 客户端对 API Server 不同请求的访问时延分布。 请求的维度包括： Verb：请求的类型，例如 GET、POST、PUT、DELETE 等。 Group：API 组，即相关 API 接口的集合，用于扩展 Kubernetes API。 Version：API 版本，例如 v1、v1beta1 等。 Resource：请求针对的资源类型，例如 Pod、Service、Lease 等。 Subresource：资源的子资源，例如 Pod 详细信息、Pod 日志等。 Scope：请求的范围，例如命名空间维度的资源（Namespace-scoped）或集群维度的资源（Cluster-scoped）。 Component：发起请求的组件的名称，例如 kube-controller-manager 、 kube-scheduler 、 cloud-controller-manager 等。 Client：发起请求的客户端，可能是内部组件或外部服务。 API Server Histogram 的 Bucket 阈值为 {0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.25, 1.5, 1.75, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 40, 50, 60} 。单位：秒。 |
+| apiserver_request_total | Counter | 对 API Server 不同请求的计数。请求的维度包括 Verb、Group、Version、Resource、Scope、Component、HTTP contentType、HTTP code（响应的 HTTP 状态码）和 Client。 |
+| apiserver_request_no_resourceversion_list_total | Counter | 对 API Server 的请求中参数未配置 resourceVersion 的 LIST 请求的计数。评估 Quorum Read 类型的 LIST 请求可以定位是否存在过多的此类请求以及发起相应请求的客户端，以便优化客户端的请求行为，提高集群性能。请求的维度包括 Group、Version、Resource、Scope 和 Client。 |
+| apiserver_current_inflight_requests

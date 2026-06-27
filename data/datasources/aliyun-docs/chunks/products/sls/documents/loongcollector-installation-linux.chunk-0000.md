@@ -1,0 +1,2 @@
+# 安装采集器
+LoongCollector是日志服务提供的采集器。采集Linux服务器上的日志需要先在服务器上安装LoongCollector客户端，请根据服务器与日志服务Project的关系选择合适的安装方式。

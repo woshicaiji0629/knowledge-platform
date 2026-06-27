@@ -1,0 +1,11 @@
+## 软多租
+您可以使用原生Kubernetes特性来实现软多租，例如namespace、roles、role bindings以及network polices，在租户之间实现逻辑分离。例如，RBAC可以防止租户访问或操纵彼此的资源。qoutas和limit ranges控制每个租户可以消耗的集群资源量，而network polices可以防止部署到不同命名空间的应用程序相互通信。
+这些控制措施不能阻止来自不同租户的Pod共享一个节点。您可以使用nodeselector、anti-affinity规则、taints和tolerations来强制将不同租户的Pod调度到不同的节点上，这通常称为独立租户节点。在租户数量很多的场景下，这样做会变得相当复杂且成本过高。
+使用Namespaces实现的软多租不允许您向租户提供命名空间的过滤列表，因为命名空间是全局范围的资源对象。如果租户能够查看指定命名空间，则可以查看集群内的所有命名空间。
+使用软多租，租户保留默认情况下为集群内运行的所有服务查询CoreDNS的能力。攻击者可以在集群中的任何Pod中运行dig SRV..svc.cluster.local来利用此特性。如果您需要限制对集群内运行的服务的DNS记录的访问，请使用CoreDNS的防火墙或策略插件。具体操作，请参见[kubernetes-metadata-multi-tenancy-policy](https://github.com/coredns/policy#kubernetes-metadata-multi-tenancy-policy)。
+企业内部环境
+第一种是在企业环境中，该场景下集群的所有用户均来自企业内部，这也是当前很多K8s集群客户的使用模式，因为服务使用者身份的可控性，相对来说这种业务形态的安全风险是相对可控的。每个租户通常会与一个行政部门（例如部门或团队）保持一致。
+在类似这种场景中，集群管理员通常负责创建命名空间和管理策略。还可以实现托管管理模型，在该模型中，某些个人被赋予对命名空间的监管权，允许他们对非策略相关的对象（如deployments、services、pod、jobs等）执行CRUD操作。
+Docker提供的隔离机制在此场景中是可以接受的，或者需要增加额外的控制，例如Pod安全策略 (PSP)。如果需要更严格的隔离，还需要限制不同命名空间中服务之间的通信。
+Kubernetes即服务（KaaS）
+软多租户可用于您希望提供Kubernetes即服务 (KaaS) 的场景之中。使用KaaS，您的应用程序与提供一组PaaS服务的控制器和CRD集合一起托管在共享集群中。租户直接与Kubernetes API服务器交互，并被允许对非策略对象执行CRUD操作。还有自助功能，例如允许租户创建和管理他们自己的命名空间。在类似此种环境中，租

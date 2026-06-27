@@ -1,0 +1,3 @@
+penVpcIpamService", "vpc:QueryHighReliablePhysicalConnectionPrice", "vpc:QueryPconnTrafficPrice", "vpc:QueryPhysicalConnectionPrice", "vpc:RejectVpcPeerConnection", "vpc:RemoveBandwidthPackageIps", "vpc:RemoveGlobalAccelerationInstanceIp", "vpc:RemoveIPv6TranslatorAclListEntry", "vpc:RevokeInstanceFromCbn", "vpc:TransformEipSegmentToPublicIpAddressPool", "vpc:UnAssociateEipAddress", "vpc:UnassociateGlobalAccelerationInstance", "vpc:UpdateCrossBoarderStatus", "vpc:associatevpccidrblock", "vpc:createvpc", "vpc:deleteBgpNetwork", "vpc:describeVpcs", "vpc:modifyVpcAttribute", "vpc:releaseIpv6Address" ], "Resource": "*" } ] }
+重要
+获得账号级别权限的RAM用户或RAM角色，能够操作整个账号范围内的相关资源。请务必确认所授予的权限是否符合预期，遵从最小授权原则谨慎分配权限。

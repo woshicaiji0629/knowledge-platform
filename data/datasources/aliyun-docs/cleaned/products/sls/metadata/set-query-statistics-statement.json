@@ -1,0 +1,17 @@
+{
+  "id": "sls:set-query-statistics-statement",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "如何多集合操作与无数据告警-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/set-query-statistics-statement",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/set-query-statistics-statement.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/set-query-statistics-statement.md",
+  "word_count": 1693,
+  "text_units": 5047,
+  "local_links": 0,
+  "external_links": 70,
+  "has_tables": true,
+  "table_count": 110,
+  "quality": "accepted"
+}

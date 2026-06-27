@@ -1,0 +1,14 @@
+{
+  "id": "sls:download-logs:6",
+  "document_id": "sls:download-logs",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "下载日志方式及操作步骤-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/download-logs",
+  "chunk_index": 6,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/download-logs.chunk-0006.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/download-logs.md",
+  "heading_path": "下载日志 > 通过OpenAPI下载 > 通过Cloud Shell下载",
+  "char_count": 553
+}

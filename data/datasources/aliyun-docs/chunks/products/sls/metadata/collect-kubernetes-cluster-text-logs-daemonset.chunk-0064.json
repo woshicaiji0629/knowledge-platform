@@ -1,0 +1,14 @@
+{
+  "id": "sls:collect-kubernetes-cluster-text-logs-daemonset:64",
+  "document_id": "sls:collect-kubernetes-cluster-text-logs-daemonset",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "通过控制台采集集群容器日志（标准输出/文件）-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/collect-kubernetes-cluster-text-logs-daemonset",
+  "chunk_index": 64,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/collect-kubernetes-cluster-text-logs-daemonset.chunk-0064.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/collect-kubernetes-cluster-text-logs-daemonset.md",
+  "heading_path": "检查Pod状态 kubectl get po -n kube-system | grep loongcollector-ds >  > 大模型",
+  "char_count": 197
+}

@@ -1,0 +1,12 @@
+{
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "performance",
+  "url": "https://help.aliyun.com/zh/redis/use-cases/prevent-cross-zone-switchover-by-specifying-the-number-of-nodes",
+  "title": "通过自定义节点数规避跨可用区切换-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心",
+  "fetched_at": "2026-06-27T05:03:13.987631+00:00",
+  "status_code": "200",
+  "content_type": "text/html;charset=UTF-8",
+  "raw_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/raw/use-cases/prevent-cross-zone-switchover-by-specifying-the-number-of-nodes.html",
+  "document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/use-cases/prevent-cross-zone-switchover-by-specifying-the-number-of-nodes.md"
+}

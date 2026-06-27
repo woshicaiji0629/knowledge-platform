@@ -1,0 +1,2 @@
+## Nginx Ingress Controller使用说明
+当前Kubernetes官方维护的是Nginx Ingress Controller，ACK Serverless基于社区版的Nginx Ingress Controller进行了优化。当在创建ACK Serverless集群时，您选择安装的Nginx Ingress Controller组件即为ACK Serverless定制版的Nginx Ingress Controller组件。

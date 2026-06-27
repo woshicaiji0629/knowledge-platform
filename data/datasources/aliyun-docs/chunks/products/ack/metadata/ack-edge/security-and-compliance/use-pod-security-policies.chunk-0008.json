@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/security-and-compliance/use-pod-security-policies:8",
+  "document_id": "ack:ack-edge/security-and-compliance/use-pod-security-policies",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "已弃用 管理默认Pod安全策略-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/security-and-compliance/use-pod-security-policies",
+  "chunk_index": 8,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/security-and-compliance/use-pod-security-policies.chunk-0008.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/security-and-compliance/use-pod-security-policies.md",
+  "heading_path": "【已弃用】使用Pod安全策略 > 配置或恢复ACK默认的Pod安全策略",
+  "char_count": 590
+}

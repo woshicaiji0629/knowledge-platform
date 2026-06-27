@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/security-and-compliance/customize-the-san-of-the-api-server-certificate-when-you-create-an-ack-cluster:1",
+  "document_id": "ack:ack-edge/security-and-compliance/customize-the-san-of-the-api-server-certificate-when-you-create-an-ack-cluster",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "自定义集群API Server证书的SAN字段-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/security-and-compliance/customize-the-san-of-the-api-server-certificate-when-you-create-an-ack-cluster",
+  "chunk_index": 1,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/security-and-compliance/customize-the-san-of-the-api-server-certificate-when-you-create-an-ack-cluster.chunk-0001.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/security-and-compliance/customize-the-san-of-the-api-server-certificate-when-you-create-an-ack-cluster.md",
+  "heading_path": "自定义集群API Server证书的SAN字段 > 前提条件",
+  "char_count": 761
+}

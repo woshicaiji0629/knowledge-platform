@@ -1,0 +1,5 @@
+## 最佳实践
+如果您想了解关于CDN的具体实践，请参见以下文档：
+[CDN](../use-cases/accelerate-the-retrieval-of-resources-from-an-oss-bucket-in-the-alibaba-cloud-cdn-console.md)[加速](../use-cases/accelerate-the-retrieval-of-resources-from-an-oss-bucket-in-the-alibaba-cloud-cdn-console.md)[OSS](../use-cases/accelerate-the-retrieval-of-resources-from-an-oss-bucket-in-the-alibaba-cloud-cdn-console.md)[资源](../use-cases/accelerate-the-retrieval-of-resources-from-an-oss-bucket-in-the-alibaba-cloud-cdn-console.md)
+[CDN](../use-cases/use-alibaba-cloud-cdn-to-accelerate-the-retrieval-of-resources-from-an-ecs-instance.md)[加速](../use-cases/use-alibaba-cloud-cdn-to-accelerate-the-retrieval-of-resources-from-an-ecs-instance.md)[ECS](../use-cases/use-alibaba-cloud-cdn-to-accelerate-the-retrieval-of-resources-from-an-ecs-instance.md)[资源](../use-cases/use-alibaba-cloud-cdn-to-accelerate-the-retrieval-of-resources-from-an-ecs-instance.md)
+[提高](../use-cases/increase-the-cache-hit-ratios-of-alibaba-cloud-cdn.md)[CDN](../use-cases/increase-the-cache-hit-ratios-of-alibaba-cloud-cdn.md)[缓存命中率](../use-cases/increase-the-cache-hit-ratios-of-alibaba-cloud-cdn.md)

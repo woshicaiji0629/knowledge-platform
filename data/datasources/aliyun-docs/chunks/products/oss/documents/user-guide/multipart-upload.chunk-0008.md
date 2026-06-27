@@ -1,0 +1,1 @@
+(), completeResult.completeMultipartUpload().key(), completeResult.completeMultipartUpload().location(), completeResult.completeMultipartUpload().eTag()); } catch (Exception e) { System.out.printf("错误:\n%s", e); e.printStackTrace(); } finally { // 关闭客户端连接 try { client.close(); } catch (Exception e) { e.printStackTrace(); } } } }

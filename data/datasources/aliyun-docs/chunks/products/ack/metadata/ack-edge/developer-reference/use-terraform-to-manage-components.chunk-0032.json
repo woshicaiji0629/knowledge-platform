@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-edge/developer-reference/use-terraform-to-manage-components:32",
+  "document_id": "ack:ack-edge/developer-reference/use-terraform-to-manage-components",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "Terraform管理组件配置与生命周期-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/developer-reference/use-terraform-to-manage-components",
+  "chunk_index": 32,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-edge/developer-reference/use-terraform-to-manage-components.chunk-0032.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/developer-reference/use-terraform-to-manage-components.md",
+  "heading_path": "Terway + CSI + nginx-ingress通用模板。 resource \"alicloud_cs_managed_kubernetes\" \"default\" { name = var.name cluster_spec = \"ack.pro.small\" is_enterprise_security_group = true service_cidr = \"172.21.0.0/20\" pod_vswitch_ids = [var.vswitch_id] worker_vswitch_ids = [var.vswitch_id] addons { name = \"terway-eniip\", config = \"{\\\"IPVlan\\\":\\\"true\\\",\\\"NetworkPolicy\\\":\\\"false\\\"}\" } addons { name = \"csi-plugin\" } addons { name = \"csi-provisioner\" } addons { name = \"storage-operator\" config = \"{\\\"CnfsOssEnable\\\":\\\"false\\\",\\\"CnfsNasEnable\\\":\\\"true\\\"}\" } addons { name = \"loongcollector\" config = \"{\\\"IngressDashboardEnabled\\\":\\\"true\\\"}\" } addons { name = \"ack-node-problem-detector\" config = \"{\\\"sls_project_name\\\":\\\"\\\"}\" } addons { name = \"nginx-ingress-controller\" config = \"{\\\"IngressSlbNetworkType\\\":\\\"internet\\\",\\\"IngressSlbSpec\\\":\\\"slb.s2.small\\\"}\" } addons { name = \"ack-node-local-dns\" } addons { name = \"arms-prometheus\" } addons { name = \"alicloud-monitor-controller\" config = \"{\\\"group_contact_ids\\\":\\\"[10619]\\\"}\" } } > 为什么选择阿里云 > 服务",
+  "char_count": 303
+}

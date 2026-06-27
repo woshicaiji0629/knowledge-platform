@@ -1,0 +1,2 @@
+# 云数据库RDS简介
+阿里云关系型数据库RDS（Relational Database Service）是一种安全稳定可靠、高性价比、可弹性伸缩的在线数据库服务。RDS支持[MySQL](../apsaradb-rds-for-mysql/overview-3.md)、[SQL Server](../apsaradb-rds-for-sql-server/overview-of-apsaradb-rds-for-sql-server.md)、[PostgreSQL](../apsaradb-rds-for-postgresql/what-is-apsaradb-rds-for-postgresql.md)和[MariaDB](../apsaradb-rds-for-mariadb/what-is-apsaradb-rds-for-mariadb.md)引擎，并且提供了容灾、备份、恢复、监控、迁移等方面的全套解决方案，帮助您解决数据库运维的烦恼。

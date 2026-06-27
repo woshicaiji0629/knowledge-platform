@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-argo-workflow-cluster/user-guide/configure-computing-resources-for-the-argo-workflow-acs-pods:11",
+  "document_id": "ack:ack-argo-workflow-cluster/user-guide/configure-computing-resources-for-the-argo-workflow-acs-pods",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "配置Argo工作流Pod的计算类型与算力质量-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-argo-workflow-cluster/user-guide/configure-computing-resources-for-the-argo-workflow-acs-pods",
+  "chunk_index": 11,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-argo-workflow-cluster/user-guide/configure-computing-resources-for-the-argo-workflow-acs-pods.chunk-0011.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-argo-workflow-cluster/user-guide/configure-computing-resources-for-the-argo-workflow-acs-pods.md",
+  "heading_path": "配置Argo工作流ACS Pod算力 > BestEffort型 > 产品和定价",
+  "char_count": 272
+}

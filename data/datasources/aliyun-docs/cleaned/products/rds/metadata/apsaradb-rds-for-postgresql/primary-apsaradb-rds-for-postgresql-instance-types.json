@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-postgresql/primary-apsaradb-rds-for-postgresql-instance-types",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "performance",
+  "title": "RDS PostgreSQL可购买的规格列表及性能配置-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/primary-apsaradb-rds-for-postgresql-instance-types",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-postgresql/primary-apsaradb-rds-for-postgresql-instance-types.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-postgresql/primary-apsaradb-rds-for-postgresql-instance-types.md",
+  "word_count": 3113,
+  "text_units": 4683,
+  "local_links": 12,
+  "external_links": 68,
+  "has_tables": true,
+  "table_count": 59,
+  "quality": "accepted"
+}

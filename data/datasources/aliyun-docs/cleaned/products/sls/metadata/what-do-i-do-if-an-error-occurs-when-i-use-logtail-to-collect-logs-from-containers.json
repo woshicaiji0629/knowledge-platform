@@ -1,0 +1,17 @@
+{
+  "id": "sls:what-do-i-do-if-an-error-occurs-when-i-use-logtail-to-collect-logs-from-containers",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "troubleshoot",
+  "title": "排查容器日志采集异常-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/what-do-i-do-if-an-error-occurs-when-i-use-logtail-to-collect-logs-from-containers",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/what-do-i-do-if-an-error-occurs-when-i-use-logtail-to-collect-logs-from-containers.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/what-do-i-do-if-an-error-occurs-when-i-use-logtail-to-collect-logs-from-containers.md",
+  "word_count": 1192,
+  "text_units": 2536,
+  "local_links": 1,
+  "external_links": 79,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

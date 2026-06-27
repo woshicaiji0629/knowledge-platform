@@ -1,0 +1,3 @@
+## 常规库表恢复
+将指定的库、表按备份集或时间点恢复至新实例时需要收取新实例的[RDS](billable-items-billing-methods-and-pricing.md)[规格](billable-items-billing-methods-and-pricing.md)费用和[存储空间](billable-items-billing-methods-and-pricing.md)费用。恢复至原实例，不会产生费用。
+功能详情，请参见[MySQL](../apsaradb-rds-for-mysql/restore-individual-databases-and-tables-of-an-apsaradb-rds-for-mysql-instance.md)[恢复库表](../apsaradb-rds-for-mysql/restore-individual-databases-and-tables-of-an-apsaradb-rds-for-mysql-instance.md)、[PostgreSQL](../apsaradb-rds-for-postgresql/restore-individual-databases-and-tables-of-an-apsaradb-rds-for-postgresql-instance.md)[恢复库表](../apsaradb-rds-for-postgresql/restore-individual-databases-and-tables-of-an-apsaradb-rds-for-postgresql-instance.md)。

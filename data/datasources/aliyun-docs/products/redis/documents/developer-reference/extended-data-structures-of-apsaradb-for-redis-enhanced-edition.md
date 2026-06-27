@@ -1,0 +1,201 @@
+# Tair拓展数据结构及与Redis stack的功能对比-云数据库 Tair（兼容 Redis®）(Tair)-阿里云帮助中心
+
+Source: https://help.aliyun.com/zh/redis/developer-reference/extended-data-structures-of-apsaradb-for-redis-enhanced-edition
+
+[大模型](https://www.aliyun.com/product/tongyi)[产品](https://www.aliyun.com/product/list)[解决方案](https://www.aliyun.com/solution/tech-solution/)[权益](https://www.aliyun.com/benefit)[定价](https://www.aliyun.com/price)[云市场](https://market.aliyun.com/)[伙伴](https://partner.aliyun.com/management/v2)[服务](https://www.aliyun.com/service)[了解阿里云](https://www.aliyun.com/about)
+
+查看 "" 全部搜索结果
+
+[AI 助理](https://www.aliyun.com/ai-assistant?displayMode=side)
+
+[文档](https://help.aliyun.com/)[备案](https://beian.aliyun.com/)[控制台](https://home.console.aliyun.com/home/dashboard/ProductAndService)
+
+[官方文档](https://help.aliyun.com/zh)
+
+- [产品概述](products/redis/documents/product-overview.md)
+
+- [快速入门](products/redis/documents/getting-started.md)
+
+- [Tair AI能力](products/redis/documents/tair-ai-ability.md)
+
+- [操作指南](products/redis/documents/user-guide.md)
+
+- [实践教程](products/redis/documents/use-cases.md)
+
+- [安全合规](products/redis/documents/security-compliance.md)
+
+- [开发参考](products/redis/documents/developer-reference.md)
+
+- [服务支持](products/redis/documents/support.md)
+
+- [视频专区](products/redis/documents/videos.md)
+
+[首页](https://help.aliyun.com/zh)
+
+# Tair扩展数据结构概览
+
+更新时间：
+
+复制 MD 格式
+
+[产品详情](https://www.aliyun.com/product/tair)
+
+[我的收藏](https://help.aliyun.com/my_favorites.html)
+
+云数据库 Tair（兼容 Redis）与开源Redis相同，支持String、List、Hash、Set、Sorted Set、Stream等数据类型，能够满足大部分场景下的开发需求，但无法直接满足一些复杂场景的业务需求，需要通过开发大量代码、使用Lua脚本等复杂的方式实现。Tair（企业版）集成了多个自研的数据结构，包括[exString](products/redis/documents/developer-reference/tairsting-command.md)（包含[Redis String](products/redis/documents/developer-reference/cas-cad-command.md)[命令增强](products/redis/documents/developer-reference/cas-cad-command.md)）、[exHash](products/redis/documents/developer-reference/the-tairhash-command.md)、[exZset](products/redis/documents/developer-reference/tairzset-command.md)、[GIS](products/redis/documents/developer-reference/tairgis-command.md)、[Bloom](products/redis/documents/developer-reference/tairbloom-command.md)、[Doc](products/redis/documents/developer-reference/tairdoc-command.md)、[TS](products/redis/documents/developer-reference/the-tickets-command.md)、[Cpc](products/redis/documents/developer-reference/taircpc-command.md)、[Roaring](products/redis/documents/developer-reference/tairroaring-command.md)、[Search](products/redis/documents/developer-reference/tairsearch.md)和[Vector](products/redis/documents/developer-reference/tairvector.md)，从多方面扩展Redis的适用性，降低复杂场景下业务的开发难度，同时可以帮助您精简大量代码并提高业务整体性能，使您专注于业务创新。
+
+说明
+
+- 
+
+[内存型](products/redis/documents/product-overview/dram-based-instances.md)（兼容Redis 7.0、6.0）兼容所有数据结构。
+
+- 
+
+[内存型](products/redis/documents/product-overview/dram-based-instances.md)（兼容Redis 5.0）兼容除TairVector以外的所有数据结构。
+
+- 
+
+[持久内存型](products/redis/documents/product-overview/persistent-memory-optimized-instances-1.md)兼容[exString](products/redis/documents/developer-reference/tairsting-command.md)（包含[Redis String](products/redis/documents/developer-reference/cas-cad-command.md)[命令增强](products/redis/documents/developer-reference/cas-cad-command.md)）、[exHash](products/redis/documents/developer-reference/the-tairhash-command.md)和[Cpc](products/redis/documents/developer-reference/taircpc-command.md)。
+
+## Tair扩展数据结构与Redis Stack模块（Modules）
+
+如下为Tair集成的数据结构，以及与Redis Stack Server的功能对比。
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+- 
+
+| 类型 | Tair 扩展数据结构 | [Redis Stack Server](https://redis.com/blog/introducing-redis-stack/) （对比项） | 说明 |
+| --- | --- | --- | --- |
+| String 增强 | [exString](products/redis/documents/developer-reference/tairsting-command.md) [Redis String](products/redis/documents/developer-reference/cas-cad-command.md) [命令增强](products/redis/documents/developer-reference/cas-cad-command.md) | 无 | exString 是一种带版本号的 string 类型数据结构，同时还在 Redis String 加减功能的基础上支持了边界设置，可以将 INCRBY、INCRBYFLOAT 的结果限制在一定的范围内，超出范围则提示错误。该数据结构已开源，更多信息请参见 [TairString](https://github.com/tair-opensource/TairString) 。 CAS 和 CAD 命令可实现简洁高效的 [高性能分布式锁](products/redis/documents/use-cases/implementation-of-high-performance-distributed-lock-based-on-tairstring.md) 。 最佳实践： [基于](products/redis/documents/use-cases/implementation-of-high-performance-optimistic-lock-based-on-tairstring.md) [TairString](products/redis/documents/use-cases/implementation-of-high-performance-optimistic-lock-based-on-tairstring.md) [实现高性能乐观锁](products/redis/documents/use-cases/implementation-of-high-performance-optimistic-lock-based-on-tairstring.md) 、 [基于](products/redis/documents/use-cases/implementation-of-high-efficiency-current-limiter-based-on-tairstring.md) [TairString](products/redis/documents/use-cases/implementation-of-high-efficiency-current-limiter-based-on-tairstring.md) [实现高效限流器](products/redis/documents/use-cases/implementation-of-high-efficiency-current-limiter-based-on-tairstring.md) 。 |
+| Hash 增强 | [exHash](products/redis/documents/developer-reference/the-tairhash-command.md) | 无 | TairHash 支持为 field 设置过期时间和版本，提高了 Hash 数据结构的灵活性，简化了很多场景下的业务开发工作。该数据结构已开源，更多信息请参见 [TairHash](https://github.com/tair-opensource/TairHash) 。 最佳实践： [基于](products/redis/documents/use-cases/manage-multi-device-logon-from-a-single-user-by-using-tairhash.md) [TairHash](products/redis/documents/use-cases/manage-multi-device-logon-from-a-single-user-by-using-tairhash.md) [实现用户多设备登录管理](products/redis/documents/use-cases/manage-multi-device-logon-from-a-single-user-by-using-tairhash.md) 。 |
+| Zset 增强 | [exZset](products/redis/documents/developer-reference/tairzset-command.md) | 无 | TairZset 可实现 256 个维度的 double 类型的分值排序，提供普通排行榜和多维排行榜的能力。该数据结构已开源，更多信息请参见 [TairZset](https://github.com/tair-opensource/TairZset) 。 最佳实践： [基于](products/redis/documents/use-cases/tair-multidimensional-and-distributed-ranking-scheme.md) [exZset](products/redis/documents/use-cases/tair-multidimensional-and-distributed-ranking-scheme.md) [轻松实现多维排行榜](products/redis/documents/use-cases/tair-multidimensional-and-distributed-ranking-scheme.md) 、 [基于](products/redis/documents/use-cases/implementation-of-distributed-architecture-ranking-list-based-on-tairzset.md) [exZset](products/redis/documents/use-cases/implementation-of-distributed-architecture-ranking-list-based-on-tairzset.md) [实现分布式架构排行榜](products/redis/documents/use-cases/implementation-of-distributed-architecture-ranking-list-based-on-tairzset.md) 。 |
+| GeoSpatial | [GIS](products/redis/documents/developer-reference/tairgis-command.md) | 无 | TairGIS 是一种使用 R-Tree 做索引，支持地理信息系统 GIS（Geographic Information System）相关接口的数据结构。支持点、线、面的查询，支持包含、被包含、相交等多种关系判断。该数据结构已开源，更多信息请参见 [TairGIS](https://github.com/tair-opensource/TairGis) 。 最佳实践： [基于](products/redis/documents/use-cases/user-trajectory-monitoring-using-tairgis.md) [TairGIS](products/redis/documents/use-cases/user-trajectory-monitoring-using-tairgis.md) [实现电子围栏](products/redis/documents/use-cases/user-trajectory-monitoring-using-tairgis.md) 、 [基于](products/redis/documents/use-cases/implementation-of-the-same-city-purchase-business-based-on-tairgis.md) [TairGIS](products/redis/documents/use-cases/implementation-of-the-same-city-purchase-business-based-on-tairgis.md) [实现同城购业务](products/redis/documents/use-cases/implementation-of-the-same-city-purchase-business-based-on-tairgis.md) 。 |
+| Doc（JSON） | [Doc](products/redis/documents/developer-reference/tairdoc-command.md) | RedisJSON | TairDoc 是一种文档类型的数据结构，支持 JSON 标准，类似 RedisJSON 模块。同时，TairDoc 数据以二进制树的方式存储，支持对 JSON 中子元素进行快速访问。 |
+| Search | [Search](products/redis/documents/developer-reference/tairsearch.md) | RediSearch | TairSearch 提供类似 Elasticsearch（ES-LIKE）的语法，提供种类更多、效果更准确的分词器，查询性能更佳。 最佳实践： [基于](products/redis/documents/use-cases/accelerating-multi-column-index-federated-query-based-on-tairsearch.md) [TairSearch](products/redis/documents/use-cases/accelerating-multi-column-index-federated-query-based-on-tairsearch.md) [加速多列索引联合查询](products/redis/documents/use-cases/accelerating-multi-column-index-federated-query-based-on-tairsearch.md) [基于](products/redis/documents/use-cases/build-a-real-time-calculation-service-for-stock-k-line-based-on.md) [TairSearch](products/redis/documents/use-cases/build-a-real-time-calculation-service-for-stock-k-line-based-on.md) [构建股票](products/redis/documents/use-cases/build-a-real-time-calculation-service-for-stock-k-line-based-on.md) [K](products/redis/documents/use-cases/build-a-real-time-calculation-service-for-stock-k-line-based-on.md) [线实时计算服务](products/redis/documents/use-cases/build-a-real-time-calculation-service-for-stock-k-line-based-on.md) [在](products/redis/documents/use-cases/using-bool-in-tairsearch-for-combined-conditional-queries.md) [TairSearch](products/redis/documents/use-cases/using-bool-in-tairsearch-for-combined-conditional-queries.md) [中使用](products/redis/documents/use-cases/using-bool-in-tairsearch-for-combined-conditional-queries.md) [bool](products/redis/documents/use-cases/using-bool-in-tairsearch-for-combined-conditional-queries.md) [进行组合条件查询](products/redis/documents/use-cases/using-bool-in-tairsearch-for-combined-conditional-queries.md) [在](products/redis/documents/use-cases/using-msearch-to-implement-index-shard-search-in-tairsearch.md) [TairSearch](products/redis/documents/use-cases/using-msearch-to-implement-index-shard-search-in-tairsearch.md) [中使用](products/redis/documents/use-cases/using-msearch-to-implement-index-shard-search-in-tairsearch.md) [Msearch](products/redis/documents/use-cases/using-msearch-to-implement-index-shard-search-in-tairsearch.md) [实现索引分片搜索](products/redis/documents/use-cases/using-msearch-to-implement-index-shard-search-in-tairsearch.md) |
+| Graph | [图数据库](https://help.aliyun.com/zh/gdb/product-overview/what-is-gdb#concept-2419113) [GDB](https://help.aliyun.com/zh/gdb/product-overview/what-is-gdb#concept-2419113) | RedisGraph | 图数据库（Graph Database，简称 GDB）是一种支持 Property Graph 图模型、用于处理高度连接数据查询与存储的实时、可靠的在线数据库服务。更多信息请参见 [图数据库](https://help.aliyun.com/zh/gdb/product-overview/what-is-gdb#concept-2419113) [GDB](https://help.aliyun.com/zh/gdb/product-overview/what-is-gdb#concept-2419113) 。 |
+| TimeSeries | [TS](products/redis/documents/developer-reference/the-tickets-command.md) | RedisTimeSeries | TairTS 相比较 RedisTimeSeries 具备更强的标签（Tag）扩展能力，支持 Skey（Tag）的两级 Hash 结构时间线，支持对 Skey（Tag）进行二级时间线聚合查询，支持对历史时序数据的更新或累加等。 最佳实践： [基于](products/redis/documents/use-cases/realization-of-second-level-monitoring-based-on-tairy.md) [TairTS](products/redis/documents/use-cases/realization-of-second-level-monitoring-based-on-tairy.md) [实现秒级监控](products/redis/documents/use-cases/realization-of-second-level-monitoring-based-on-tairy.md) 。 |
+| Sketches | [Bloom](products/redis/documents/developer-reference/tairbloom-command.md) | RedisBloom | TairBloom 兼容 RedisBloom，支持动态扩容，同时通过 64 位的 Hash 算法降低 Hash 碰撞率，显著降低大数据的冲撞率。 最佳实践：推荐系统、爬虫系统，更多信息请参见 [Bloom](products/redis/documents/developer-reference/tairbloom-command.md) 、 [使用](products/redis/documents/use-cases/use-bloom-filter-to-avoid-repeated-push-to-players.md) [Bloom Filter](products/redis/documents/use-cases/use-bloom-filter-to-avoid-repeated-push-to-players.md) [高效管理游戏活动推送](products/redis/documents/use-cases/use-bloom-filter-to-avoid-repeated-push-to-players.md) 。 |
+| [Cpc](products/redis/documents/developer-reference/taircpc-command.md) | 无 | TairCpc 是基于 CPC（Compressed Probability Counting）压缩算法开发的数据结构，支持仅占用很小的内存空间对采样数据进行高性能计算，支持滚动窗口和滑动窗口，可以更好地支持流式运算，支持大数据分析中常用的聚合算子，如： DISTINCT 、 COUNT 、 MAX 、 MIN 、 FIRST 、 LAST 、 SQUARED 等。 |  |
+| Bitmap | [Roaring](products/redis/documents/developer-reference/tairroaring-command.md) | 无 | TairRoaring 提供高效的计算模块和极高的稳定性，支持多位图运算能力，提升了性能和空间效率。 最佳实践： [基于](products/redis/documents/use-cases/introduction-of-user-filtering-scheme-based-on-tairroaring.md) [TairRoaring](products/redis/documents/use-cases/introduction-of-user-filtering-scheme-based-on-tairroaring.md) [实现人群圈选方案](products/redis/documents/use-cases/introduction-of-user-filtering-scheme-based-on-tairroaring.md) 。 |
+| 向量检索 | [Vector](products/redis/documents/developer-reference/tairvector.md) | Redis Search （Vector Similarity） | TairVector 是 Tair 自研的扩展数据结构，提供高性能、实时，集存储、检索于一体的向量数据库服务。 最佳实践： [基于](products/redis/documents/use-cases/building-enterprise-specific-chatbot-based-on-tair-and-llm.md) [Tair](products/redis/documents/use-cases/building-enterprise-specific-chatbot-based-on-tair-and-llm.md) [向量检索与](products/redis/documents/use-cases/building-enterprise-specific-chatbot-based-on-tair-and-llm.md) [LLM](products/redis/documents/use-cases/building-enterprise-specific-chatbot-based-on-tair-and-llm.md) [构建企业专属](products/redis/documents/use-cases/building-enterprise-specific-chatbot-based-on-tair-and-llm.md) [Chatbot](products/redis/documents/use-cases/building-enterprise-specific-chatbot-based-on-tair-and-llm.md) [TairVector](products/redis/documents/use-cases/tairvector-hybrid-retrieval-practice.md) [实现全文+向量混合检索实践](products/redis/documents/use-cases/tairvector-hybrid-retrieval-practice.md) [基于](products/redis/documents/use-cases/realization-of-multi-modal-retrieval-based-on-tair-vector.md) [TairVector](products/redis/documents/use-cases/realization-of-multi-modal-retrieval-based-on-tair-vector.md) [实现图文多模态向量检索](products/redis/documents/use-cases/realization-of-multi-modal-retrieval-based-on-tair-vector.md) [基于](products/redis/documents/use-cases/implement-approximate-query-for-molecular-geometries-by-using-tairvector.md) [TairVector](products/redis/documents/use-cases/implement-approximate-query-for-molecular-geometries-by-using-tairvector.md) [向量引擎实现分子结构近似检索](products/redis/documents/use-cases/implement-approximate-query-for-molecular-geometries-by-using-tairvector.md) |
+
+
+## Tair企业版客户端
+
+为帮助您更方便地使用Tair扩展数据结构，云数据库 Tair（兼容 Redis）在部分Redis客户端的基础上开发了Tair客户端，您可以通过Tair客户端直接调用Tair扩展数据结构。
+
+您可以在GitHub中获取下述客户端，同时您也可以参考其中的示例（examples）代码。
+
+| Tair 客户端 | 语言 | 说明 |
+| --- | --- | --- |
+| [TairJedis](https://github.com/aliyun/alibabacloud-tairjedis-sdk) | Java | TairJedis 是基于 Jedis 开发的 Tair 客户端。 |
+| [AlibabaCloud.TairSDK](https://github.com/alibaba/AlibabaCloud.TairSDK) | .NET | AlibabaCloud.TairSDK 是基于.NET Core 5.0 和 StackExchange.Redis2.5.61 开发的 Tair 客户端。 |
+| [Tair-go](https://github.com/alibaba/tair-go) | Go | Tair-go 是基于 go-redis 开发的 Tair 客户端。 |
+| [Tair-py](https://github.com/alibaba/tair-py) | Python | Tair-py 是基于 redis-py 开发的 Tair 客户端。 |
+
+
+## 常见问题
+
+- 
+
+Q：云数据库 Tair（兼容 Redis）是否支持Redis stack server？
+
+A：由于Redis开源协议限制，阿里云Redis开源版、Tair（企业版）均不支持Redis stack server。
+
+为解决该问题，Tair（企业版）推出自研的扩展数据结构，包括[exString](products/redis/documents/developer-reference/tairsting-command.md)（包含[Redis String](products/redis/documents/developer-reference/cas-cad-command.md)[命令增强](products/redis/documents/developer-reference/cas-cad-command.md)）、[exHash](products/redis/documents/developer-reference/the-tairhash-command.md)、[exZset](products/redis/documents/developer-reference/tairzset-command.md)、[GIS](products/redis/documents/developer-reference/tairgis-command.md)、[Bloom](products/redis/documents/developer-reference/tairbloom-command.md)、[Doc](products/redis/documents/developer-reference/tairdoc-command.md)、[TS](products/redis/documents/developer-reference/the-tickets-command.md)、[Cpc](products/redis/documents/developer-reference/taircpc-command.md)、[Roaring](products/redis/documents/developer-reference/tairroaring-command.md)、[Search](products/redis/documents/developer-reference/tairsearch.md)和[Vector](products/redis/documents/developer-reference/tairvector.md)，整体比Redis stack server支持更多的数据结构，而部分数据结构在性能上也优于Redis stack server。
+
+- 
+
+Q：如何对Tair扩展数据结构设置过期时间（TTL）？
+
+A：其中exString、exHash、Cpc可通过自身命令直接设置TTL，而其他Tair扩展数据结构均可以通过EXPIRE | EXPIREAT <Keyname>命令（例如EXPIRE foo 60），设置该Key的过期时间。
+
+- 
+
+Q：如何查询已购实例支持哪些扩展数据结构？
+
+A：扩展数据结构的支持范围取决于实例版本和形态。登录Tair控制台，在实例详情页确认实例的版本类型（开源版或企业版）和形态，再对照以下说明确认支持范围：
+
+- 
+
+开源版：仅支持标准Redis命令，不支持Tair扩展数据结构。
+
+- 
+
+[内存型](products/redis/documents/product-overview/dram-based-instances.md)：支持全部Tair扩展数据结构。
+
+- 
+
+[持久内存型](products/redis/documents/product-overview/persistent-memory-optimized-instances-1.md)：仅支持exString（包含Redis String命令增强）、exHash和Cpc。
+
+- 
+
+磁盘型：不支持Tair扩展数据结构。
+
+[上一篇：Redis开源版命令支持](products/redis/documents/developer-reference/commands-supported-by-apsaradb-for-redis-community-edition.md)[下一篇：Redis String命令增强](products/redis/documents/developer-reference/cas-cad-command.md)
+
+该文章对您有帮助吗？
+
+反馈
+
+### 为什么选择阿里云
+
+[什么是云计算](https://www.aliyun.com/about/what-is-cloud-computing)[全球基础设施](https://infrastructure.aliyun.com/)[技术领先](https://www.aliyun.com/why-us/leading-technology)[稳定可靠](https://www.aliyun.com/why-us/reliability)[安全合规](https://www.aliyun.com/why-us/security-compliance)[分析师报告](https://www.aliyun.com/analyst-reports)
+
+### 大模型
+
+[千问大模型](https://www.aliyun.com/product/tongyi)[大模型服务](https://bailian.console.aliyun.com/?tab=model#/model-market)[AI应用构建](https://bailian.console.aliyun.com/app-center?tab=app#/app-center)
+
+### 产品和定价
+
+[全部产品](https://www.aliyun.com/product/list)[免费试用](https://free.aliyun.com/)[产品动态](https://www.aliyun.com/product/news/)[产品定价](https://www.aliyun.com/price/detail)[配置报价器](https://www.aliyun.com/price/cpq/list)[云上成本管理](https://www.aliyun.com/price/cost-management)
+
+### 技术内容
+
+[技术解决方案](https://www.aliyun.com/solution/tech-solution)[帮助文档](https://help.aliyun.com/)[开发者社区](https://developer.aliyun.com/)[天池大赛](https://tianchi.aliyun.com/)[阿里云认证](https://edu.aliyun.com/)
+
+### 权益
+
+[免费试用](https://free.aliyun.com/)[解决方案免费试用](https://www.aliyun.com/solution/free)[高校计划](https://university.aliyun.com/)[5亿算力补贴](https://www.aliyun.com/benefit/form/index)[推荐返现计划](https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&pageCode=yunparterIndex)
+
+### 服务
+
+[基础服务](https://www.aliyun.com/service)[企业增值服务](https://www.aliyun.com/service/supportplans)[迁云服务](https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn)[官网公告](https://www.aliyun.com/notice/)[健康看板](https://status.aliyun.com/)[信任中心](https://security.aliyun.com/trust-center)
+
+### 关注阿里云
+
+关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务
+
+联系我们：4008013260
+
+[法律声明](https://help.aliyun.com/product/67275.html)[Cookies 政策](https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html)[廉正举报](https://aliyun.jubao.alibaba.com/)[安全举报](https://report.aliyun.com/)[联系我们](https://www.aliyun.com/contact)[加入我们](https://careers.aliyun.com/)
+
+### 友情链接
+
+[阿里巴巴集团](https://www.alibabagroup.com/cn/global/home)[淘宝网](https://www.taobao.com/)[天猫](https://www.tmall.com/)[全球速卖通](https://www.aliexpress.com/)[阿里巴巴国际交易市场](https://www.alibaba.com/)[1688](https://www.1688.com/)[阿里妈妈](https://www.alimama.com/index.htm)[飞猪](https://www.fliggy.com/)[阿里云计算](https://www.aliyun.com/)[万网](https://wanwang.aliyun.com/)[高德](https://mobile.amap.com/)[UC](https://www.uc.cn/)[友盟](https://www.umeng.com/)[优酷](https://www.youku.com/)[钉钉](https://www.dingtalk.com/)[支付宝](https://www.alipay.com/)[达摩院](https://damo.alibaba.com/)[淘宝海外](https://world.taobao.com/)[阿里云盘](https://www.aliyundrive.com/)[淘宝闪购](https://www.ele.me/)
+
+© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证：[浙B2-20080101](http://beian.miit.gov.cn/)域名注册服务机构许可：[浙D3-20210002](https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 )
+
+[浙公网安备 33010602009975号](http://www.beian.gov.cn/portal/registerSystemInfo)[浙B2-20080101-4](https://beian.miit.gov.cn/)

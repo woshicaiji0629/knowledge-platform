@@ -1,0 +1,14 @@
+{
+  "id": "ecs:user-guide/attach-an-instance-ram-role-to-an-ecs-instance:22",
+  "document_id": "ecs:user-guide/attach-an-instance-ram-role-to-an-ecs-instance",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "给ECS实例授予RAM角色-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/attach-an-instance-ram-role-to-an-ecs-instance",
+  "chunk_index": 22,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ecs/documents/user-guide/attach-an-instance-ram-role-to-an-ecs-instance.chunk-0022.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/attach-an-instance-ram-role-to-an-ecs-instance.md",
+  "heading_path": "获取元数据服务器的访问凭证用于鉴权$token=Invoke-RestMethod-Headers@{\"X-aliyun-ecs-metadata-token-ttl-seconds\"=\"元数据服务器的访问凭证有效期\"} -MethodPUT-Urihttp://100.100.100.200/latest/api/token# 获取实例RAM角色的临时凭证Invoke-RestMethod-Headers@{\"X-aliyun-ecs-metadata-token\"=$token} -MethodGET-Urihttp://100.100.100.200/latest/meta-data/ram/security-credentials/实例RAM角色名称",
+  "char_count": 715
+}

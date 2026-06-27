@@ -1,0 +1,2 @@
+21 | [全部地域](sls-supported-regions1.md) | [Flowlog](usage-notes-6.md) [日志中心](usage-notes-6.md) |
+| 接入负载均衡 4 层秒级监控指标 | 日志服务 与负载均衡联合推出负载均衡 4 层秒级监控功能。您可以通过秒级监控指标查看负载均衡相关的秒级流量、QPS、错误率等信息，进行更精细的服务监控和问题定位。 | 2021-06-04 | [全部地域](sls-supported-regions1.md) | [负载均衡](layer-4-monitoring-metrics-for-clb-usage-notes.md) [4](layer-4-monitoring-metrics-for-clb-usage-notes.md) [层秒级监控指标](layer-4-monitoring-metrics-for-clb-usage-notes.md) |

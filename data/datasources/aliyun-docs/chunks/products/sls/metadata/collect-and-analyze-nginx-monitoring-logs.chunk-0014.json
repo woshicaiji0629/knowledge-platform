@@ -1,0 +1,14 @@
+{
+  "id": "sls:collect-and-analyze-nginx-monitoring-logs:14",
+  "document_id": "sls:collect-and-analyze-nginx-monitoring-logs",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "采集及分析Nginx监控日志-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/collect-and-analyze-nginx-monitoring-logs",
+  "chunk_index": 14,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/collect-and-analyze-nginx-monitoring-logs.chunk-0014.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/collect-and-analyze-nginx-monitoring-logs.md",
+  "heading_path": "采集和查询分析Nginx监控日志 > 步骤三：查询和分析日志 > 服务",
+  "char_count": 303
+}

@@ -1,0 +1,17 @@
+{
+  "id": "rds:support/reduce-the-storage-capacity-of-an-apsaradb-rds-for-mysql-instance-that-uses-essds",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "features",
+  "title": "RDS MySQL云盘实例存储空间缩容-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/support/reduce-the-storage-capacity-of-an-apsaradb-rds-for-mysql-instance-that-uses-essds",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/support/reduce-the-storage-capacity-of-an-apsaradb-rds-for-mysql-instance-that-uses-essds.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/support/reduce-the-storage-capacity-of-an-apsaradb-rds-for-mysql-instance-that-uses-essds.md",
+  "word_count": 997,
+  "text_units": 2726,
+  "local_links": 15,
+  "external_links": 67,
+  "has_tables": true,
+  "table_count": 2,
+  "quality": "accepted"
+}

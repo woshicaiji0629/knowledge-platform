@@ -1,0 +1,14 @@
+{
+  "id": "sls:query-and-analyze-json-logs:2",
+  "document_id": "sls:query-and-analyze-json-logs",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "查询分析JSON日志的步骤和示例-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/query-and-analyze-json-logs",
+  "chunk_index": 2,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/query-and-analyze-json-logs.chunk-0002.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/query-and-analyze-json-logs.md",
+  "heading_path": "查询和分析JSON日志 > 步骤一：创建索引",
+  "char_count": 479
+}

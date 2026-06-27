@@ -1,0 +1,9 @@
+一跳权重为0。当主路由健康检查失败时，备份路由生效。
+负载分担：需要选择2-16个实例作为路由下一跳。每个实例对应的权重需要相同，权重的有效范围为0-255的整数，系统会将流量平均分配给下一跳实例。
+主备方式的示意图：
+路由到专线网关
+通过使用高速通道的[专线网关](https://help.aliyun.com/zh/express-connect/user-guide/ecr/)[ECR](https://help.aliyun.com/zh/express-connect/user-guide/ecr/)，可将本地IDC接入云上网络。
+VPC默认接收来自ECR的动态路由，目标网段为本地IDC网段，下一跳为专线网关，使云上VPC与云下IDC互通。
+VPC路由表关闭了动态路由接收的情况下，需手动在VPC路由表中配置目标网段为本地IDC网段，下一跳为专线网关的路由，实现云上VPC与云下本地IDC互通。
+路由到网关型负载均衡终端节点
+仅[这些地域](../../slb/documents/gateway-based-load-balancing-gwlb/product-overview/regions-and-zones-supported-by-gwlb.md)支持网关型负载均衡终端节点，具体使用场景请查看[使用网关路由表-GWLB](vpc-route-table.md)[高可用架构](vpc-route-table.md)。

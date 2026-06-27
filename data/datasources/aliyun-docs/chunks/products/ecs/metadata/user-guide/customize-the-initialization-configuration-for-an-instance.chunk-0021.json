@@ -1,0 +1,14 @@
+{
+  "id": "ecs:user-guide/customize-the-initialization-configuration-for-an-instance:21",
+  "document_id": "ecs:user-guide/customize-the-initialization-configuration-for-an-instance",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "自定义数据格式运行频率与用法-云服务器ECS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/customize-the-initialization-configuration-for-an-instance",
+  "chunk_index": 21,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ecs/documents/user-guide/customize-the-initialization-configuration-for-an-instance.chunk-0021.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/customize-the-initialization-configuration-for-an-instance.md",
+  "heading_path": "使用自定义数据进行实例初始化 > 通过调用API获取 > 修改已有实例自定义数据",
+  "char_count": 414
+}

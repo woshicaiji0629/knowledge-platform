@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/user-guide/work-with-gang-scheduling:0",
+  "document_id": "ack:ack-managed-and-ack-dedicated/user-guide/work-with-gang-scheduling",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "使用Gang scheduling实现批量作业的All-or-Nothing调度-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/work-with-gang-scheduling",
+  "chunk_index": 0,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/work-with-gang-scheduling.chunk-0000.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/work-with-gang-scheduling.md",
+  "heading_path": "使用Gang scheduling",
+  "char_count": 245
+}

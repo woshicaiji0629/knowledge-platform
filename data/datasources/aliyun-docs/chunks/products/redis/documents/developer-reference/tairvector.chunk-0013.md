@@ -1,0 +1,1 @@
+ta_count" // 用户记录数。 24) "3" 25) "current_record_count" // 总向量数。 26) "3" 27) "ef_construct" // HNSW 算法模式下，动态列表的长度。 28) "100" 29) "inverted_index_productname" // 倒排索引信息：字段名称、数据类型、数量。 30) "field: productname, type: string, size: 1" 31) "delete_record_count" // 待回收的向量数。 32) "0" |

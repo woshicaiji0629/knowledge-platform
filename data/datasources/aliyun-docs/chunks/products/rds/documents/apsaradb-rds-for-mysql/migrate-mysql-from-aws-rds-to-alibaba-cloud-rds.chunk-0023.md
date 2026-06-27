@@ -1,0 +1,1 @@
+为 SSL 安全连接 ，您需要提前开启 RDS 实例的 SSL 加密功能，详情请参见 [设置](configure-a-cloud-certificate-to-enable-ssl-encryption.md) [SSL](configure-a-cloud-certificate-to-enable-ssl-encryption.md) [加密](configure-a-cloud-certificate-to-enable-ssl-encryption.md) 。 |  |

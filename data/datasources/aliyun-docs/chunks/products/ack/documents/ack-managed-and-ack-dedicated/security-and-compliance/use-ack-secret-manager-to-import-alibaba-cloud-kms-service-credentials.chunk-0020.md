@@ -1,0 +1,6 @@
+| 参数 | 替换说明 |
+| --- | --- |
+| <KMS_SECRET_NAME> | 必填，替换为目标 KMS 凭据名称。 |
+| <KUBERNETES_SECRET_KEY> | 必填，为一系列键值对的集合。KMS 的单条凭据会存放在 Kubernetes Secret Data 的某一条键值对中，需将 <KUBERNETES_SECRET_KEY> 替换为目标键值对的键。 |
+| <KMS_SECRET_VERSION_STAGE> | 选填，替换为 KMS 凭据的版本状态（并非凭据的版本号），例如 ACSCurrent。 RDS 凭据、PolarDB 凭据、Redis/Tair 凭据、RAM 凭据和 ECS 凭据只能获取 ACSPrevious 和 ACSCurrent 对应版本的凭据值。 如需指定 KMS 凭据版本号进行同步，请将以下模板中的 versionStage 字段替换为 versionId ，并填入 KMS 凭据版本号。 RDS 凭据、PolarDB 凭据、Redis/Tair 凭据、RAM 凭据和 ECS 凭据不支持指定 VersionId，设置该参数将被忽略。 关于凭据版本号和版本状态请参考 [凭据的组成](../../../../kms/documents/key-management-service/user-guide/secret-management-overview.md) 中凭据版本的说明 |
+| <KMS_SERVICE_ENDPOINT> | 选填，如需指定 KMS 服务请求 Endpoint，需将其替换为对应的 Endpoint 的地址。 参数支持 KMS 服务的共享网关和专属网关，可按需配置。 参数是凭据级配置，可以为 KMS 凭据单独配置 Endpoint 地址，同时也支持全局配置，具体的配置说明请参考 [配置](use-ack-secret-manager-to-import-alibaba-cloud-kms-service-credentials.md) [KMS](use-ack-secret-manager-to-import-alibaba-cloud-kms-service-credentials.md) [服务](use-ack-secret-manager-to-import-alibaba-cloud-kms-service-credentials.md) [Endpoint](use-ack-secret-manager-to-import-alibaba-cloud-kms-service-credentials.md) [地址](use-ack-secret-manager-to-import-alibaba-cloud-kms-service-credentials.m

@@ -1,0 +1,14 @@
+{
+  "id": "rds:apsaradb-rds-for-mysql/what-do-i-do-if-my-apsaradb-rds-instance-is-in-the-locking-state:9",
+  "document_id": "rds:apsaradb-rds-for-mysql/what-do-i-do-if-my-apsaradb-rds-instance-is-in-the-locking-state",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "troubleshoot",
+  "title": "阿里云RDS数据库被锁定，报错LOCK_WRITE_GROWTH或LOCK_READ或LOCK_WRITE-云数据库 RDS(RDS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-mysql/what-do-i-do-if-my-apsaradb-rds-instance-is-in-the-locking-state",
+  "chunk_index": 9,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/rds/documents/apsaradb-rds-for-mysql/what-do-i-do-if-my-apsaradb-rds-instance-is-in-the-locking-state.chunk-0009.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-mysql/what-do-i-do-if-my-apsaradb-rds-instance-is-in-the-locking-state.md",
+  "heading_path": "实例状态显示“锁定中”时如何解决？ > 账号欠费或实例到期处理方法",
+  "char_count": 221
+}

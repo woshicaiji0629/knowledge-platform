@@ -1,0 +1,1 @@
+此外，您也可以使用UnitedDeployment来定义工作负载。UnitedDeployment通过弹性单元Subset来灵活、便捷地管理多个同质的工作负载，动态分配在各Subset上的工作负载副本数量。您可以将UnitedDeployment和上述工作负载伸缩方案搭配使用，实现工作负载的灵活扩缩容与调度，例如多种计算资源混合使用场景。更多信息，请参见[基于](use-the-uniteddeployment-controller-in-ack-clusters.md)[UnitedDeployment](use-the-uniteddeployment-controller-in-ack-clusters.md)[实现工作负载的伸缩](use-the-uniteddeployment-controller-in-ack-clusters.md)。

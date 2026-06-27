@@ -1,0 +1,1 @@
+o-connect-to-the-master-nodes-of-a-dedicated-kubernetes-cluster.md)[专有版集群的](use-ssh-to-connect-to-the-master-nodes-of-a-dedicated-kubernetes-cluster.md)[Master](use-ssh-to-connect-to-the-master-nodes-of-a-dedicated-kubernetes-cluster.md)[节点](use-ssh-to-connect-to-the-master-nodes-of-a-dedicated-kubernetes-cluster.md)。

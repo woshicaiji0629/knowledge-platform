@@ -1,0 +1,21 @@
+## 常见问题
+[私钥文件如何去除密码保护？](faq-about-https.md)
+[源站已经配置了](faq-about-https.md)[HTTPS，CDN](faq-about-https.md)[上还需要配置](faq-about-https.md)[HTTPS](faq-about-https.md)[吗？](faq-about-https.md)
+[源站的](faq-about-https.md)[HTTPS](faq-about-https.md)[证书更新了，CDN](faq-about-https.md)[上需要同步更新吗？](faq-about-https.md)
+[为什么大多数设备能够顺利访问通过](faq-about-https.md)[HTTPS](faq-about-https.md)[协议加速的域名，但是一些设备却无法访问？](faq-about-https.md)
+Q：CDN域名更新或更换SSL证书后，HTTPS访问仍失败或显示旧证书，如何处理？
+确保证书已正确部署：登录CDN控制台，在HTTPS配置中确认已选择新证书或上传了新证书内容。
+检查域名匹配：确保证书绑定的域名与CDN加速域名完全一致（包括www前缀等）。
+清除缓存：配置生效后（通常1~10分钟），需清除CDN节点缓存及本地浏览器缓存后再测试。可使用无痕浏览器窗口进行验证。
+若源站证书更新，CDN侧不会自动同步，必须手动在CDN控制台更新证书。
+Q：CDN配置HTTPS证书后，浏览器访问仍提示"不安全"或显示混合内容警告，如何排查？
+检查网页源代码中是否引用了HTTP协议的资源（片、JS、CSS），需将其替换为HTTPS协议地址以解决混合内容问题。
+清理本地浏览器缓存或使用无痕模式访问，排除缓存导致的旧证书显示。
+确认客户端系统时间是否正确。系统时间不正确可能导致证书验证失败。
+若使用iOS设备访问报错，可能是证书链不完整，建议使用在线工具（如[myssl.com](https://myssl.com/)）检测并补全中间证书后重新上传。
+Q：为什么在CDN控制台选择"云盾（SSL）证书中心"证书时，找不到已购买的证书或提示域名不匹配？
+检查证书绑定的域名是否与当前CDN加速域名完全一致。例如二级域名image.example.com不能直接使用主域名example.com的证书，需单独为该二级域名申请证书。
+检查账号是否一致，确保证书和CDN域名在同一阿里云账号下。
+申请SSL免费证书时不会自动添加www前缀，需手动输入完整的域名进行申请。
+若因域名格式（如根域名与子域名）导致无法自动匹配，建议在数字证书管理服务控制台创建部署任务将证书部署至CDN，或下载证书文件后通过"自定义上传"方式配置。
+Q：CDN配置HTTPS后访问返回ERR_SSL_PROTOCOL

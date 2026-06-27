@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-edge/security-and-compliance/work-with-cluster-auditing",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "使用集群的API Server审计功能实现集群安全运维-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/security-and-compliance/work-with-cluster-auditing",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-edge/security-and-compliance/work-with-cluster-auditing.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/security-and-compliance/work-with-cluster-auditing.md",
+  "word_count": 1607,
+  "text_units": 4663,
+  "local_links": 16,
+  "external_links": 66,
+  "has_tables": true,
+  "table_count": 4,
+  "quality": "accepted"
+}

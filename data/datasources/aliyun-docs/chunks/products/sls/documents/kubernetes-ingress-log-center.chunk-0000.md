@@ -1,0 +1,2 @@
+# Kubernetes Ingress日志中心
+阿里云Kubernetes Ingress组件除了提供外部可访问的URL、负载均衡、SSL、基于名称的虚拟主机外，还支持将所有您的HTTP请求日志记录到标准输出中。日志服务推出Ingress日志中心功能，用于分析和监控Ingress后端对接的服务状态。本文介绍Ingress日志中心相关的功能说明、功能优势、资产说明、费用说明、使用限制等信息。

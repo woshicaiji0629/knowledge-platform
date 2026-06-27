@@ -1,0 +1,1 @@
+-listener.md)[UDP](../../slb/documents/classic-load-balancer/user-guide/add-a-udp-listener.md)[监听](../../slb/documents/classic-load-balancer/user-guide/add-a-udp-listener.md)。而网关型负载均衡配置会监听所有端口的所有数据包。

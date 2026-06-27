@@ -1,0 +1,1 @@
+maxIdleConns: 100 maxOpenConns: 0 connMaxLifetime: 0s # 0 means connections don't have a max lifetime. archiveTTL: 30d archive: true mysql: host: rm-xxx.mysql.cn-beijing.rds.aliyuncs.com port: 3306 database: argo-workflow tableName: argo_workflows userNameSecret: name: argo-mysql-config key: username passwordSecret: name: argo-mysql-config key: password

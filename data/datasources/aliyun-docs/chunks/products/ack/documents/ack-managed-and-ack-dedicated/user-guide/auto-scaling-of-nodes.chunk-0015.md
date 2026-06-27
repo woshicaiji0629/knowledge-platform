@@ -1,0 +1,2 @@
+aq-about-node-auto-scaling.md) [cluster-autoscaler](faq-about-node-auto-scaling.md) [组件的节点缩容？](faq-about-node-auto-scaling.md) |  |
+| cluster-autoscaler 组件 相关 | [如何升级](faq-about-node-auto-scaling.md) [cluster-autoscaler](faq-about-node-auto-scaling.md) [组件至最新版本？](faq-about-node-auto-scaling.md) [哪些操作会触发](faq-about-node-auto-scaling.md) [cluster-autoscaler](faq-about-node-auto-scaling.md) [组件自动更新？](faq-about-node-auto-scaling.md) [ACK](faq-about-node-auto-scaling.md) [托管集群已经完成了角色授权，但节点伸缩活动仍然无法正常运行？](faq-about-node-auto-scaling.md) |  |

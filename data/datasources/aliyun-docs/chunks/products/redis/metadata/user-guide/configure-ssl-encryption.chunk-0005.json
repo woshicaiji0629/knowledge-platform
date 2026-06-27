@@ -1,0 +1,14 @@
+{
+  "id": "redis:user-guide/configure-ssl-encryption:5",
+  "document_id": "redis:user-guide/configure-ssl-encryption",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "deployment",
+  "title": "配置SSL加密提升连接安全性-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/user-guide/configure-ssl-encryption",
+  "chunk_index": 5,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/redis/documents/user-guide/configure-ssl-encryption.chunk-0005.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/user-guide/configure-ssl-encryption.md",
+  "heading_path": "设置SSL加密 > 相关API",
+  "char_count": 169
+}

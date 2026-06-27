@@ -1,0 +1,17 @@
+{
+  "id": "sls:developer-reference/get-started-with-log-service-sdk-for-python",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "使用日志服务PythonSDK完成常见操作-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/developer-reference/get-started-with-log-service-sdk-for-python",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/developer-reference/get-started-with-log-service-sdk-for-python.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/developer-reference/get-started-with-log-service-sdk-for-python.md",
+  "word_count": 1161,
+  "text_units": 1964,
+  "local_links": 6,
+  "external_links": 77,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

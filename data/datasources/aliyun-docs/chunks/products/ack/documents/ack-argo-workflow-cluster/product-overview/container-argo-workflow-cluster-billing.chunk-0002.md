@@ -1,0 +1,6 @@
+| 云产品名称 | 开通选项 | 产品说明 | 是否支持包年包月 | 是否支持资源包 | 计费说明 |
+| --- | --- | --- | --- | --- | --- |
+| [容器计算服务](https://help.aliyun.com/zh/cs/product-overview/product-introduction) [ACS](https://help.aliyun.com/zh/cs/product-overview/product-introduction) | 必须开通 | 为运行 Argo 工作流提供算力。 | 不支持 | 不支持 ACS 支持 [节省计划](https://help.aliyun.com/zh/cs/product-overview/savings-plan) 。 | [产品计费](https://help.aliyun.com/zh/cs/product-overview/product-billing-rules) |
+| [专有网络](../../../../vpc/documents/what-is-vpc.md) [VPC](../../../../vpc/documents/what-is-vpc.md) | 必须开通 | 用于构建集群网络环境和路由规则。 | 不支持 | 不支持 | [产品计费](../../../../vpc/documents/product-overview/product-billing.md) |
+| [传统型负载均衡](../../../../slb/documents/classic-load-balancer/product-overview/what-is-clb.md) [CLB](../../../../slb/documents/classic-load-balancer/product-overview/what-is-clb.md) | 必须开通 | 为集群 API Server 提供负载均衡实例。 | 不支持 | 不支持 | [计费概述](../../../../slb/documents/classic-load-balancer/product-overview/billing-overview.md) |
+| [弹性公网](../../../../eip/documents/product-overview/what-is-eip.md) [IP](../../../../eip/documents/product-overview/what-is-eip.md) | 可选 | 为 API Server 提供公网服务。 | 不支持 | 不支持 | [计费概述](../../../../eip/documents/billing-overview.

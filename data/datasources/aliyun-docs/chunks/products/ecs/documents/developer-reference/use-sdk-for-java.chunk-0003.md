@@ -1,0 +1,3 @@
+### 1. 初始化客户端
+阿里云SDK支持多种访问凭据用于初始化客户端，例如AccessKey和STS Token等，更多方式请参见[管理访问凭据](https://help.aliyun.com/zh/sdk/developer-reference/v2-manage-access-credentials)。本示例以通过AccessKey初始化客户端为例。
+import com.aliyun.ecs20140526.Client; import com.aliyun.teaopenapi.models.Config; public class Sample { private static Client createClient() throws Exception { Config config = new Config() // 必填，请确保代码运行环境设置了环境变量 ALIBABA_CLOUD_ACCESS_KEY_ID。 .setAccessKeyId(System.getenv("ALIBABA_CLOUD_ACCESS_KEY_ID")) // 必填，请确保代码运行环境设置了环境变量 ALIBABA_CLOUD_ACCESS_KEY_SECRET。 .setAccessKeySecret(System.getenv("ALIBABA_CLOUD_ACCESS_KEY_SECRET")) // Endpoint 请参考 https://api.aliyun.com/product/Ecs .setEndpoint("ecs.cn-hangzhou.aliyuncs.com"); return new Client(config); } }

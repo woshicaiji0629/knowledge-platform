@@ -1,0 +1,17 @@
+{
+  "id": "sls:logreduce",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "selection",
+  "title": "如何开启、查看、对比日志聚类-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/logreduce",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/logreduce.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/logreduce.md",
+  "word_count": 781,
+  "text_units": 2459,
+  "local_links": 0,
+  "external_links": 66,
+  "has_tables": true,
+  "table_count": 14,
+  "quality": "accepted"
+}

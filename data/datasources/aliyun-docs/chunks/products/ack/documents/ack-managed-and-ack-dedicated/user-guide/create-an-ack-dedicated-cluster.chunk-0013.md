@@ -1,0 +1,6 @@
+| 配置项 | 描述 |
+| --- | --- |
+| Master 实例数量 | 指定可用区内部署 Master 节点的数量。 |
+| 付费类型 | 支持 按量付费 和 包年包月 两种付费类型。选择 包年包月 时，需设置 购买时长 和是否启用 自动续费 。 |
+| 实例规格 | 选择 Master 节点的 [实例规格族](../../../../ecs/documents/user-guide/overview-of-instance-families.md) 。您可以参见 [选择](select-ecs-instances-to-create-the-master-and-worker-nodes-of-an-ack-cluster.md) [Master](select-ecs-instances-to-create-the-master-and-worker-nodes-of-an-ack-cluster.md) [节点规格](select-ecs-instances-to-create-the-master-and-worker-nodes-of-an-ack-cluster.md) 获取配置建议。 |
+| 系统盘 | 根据业务需求选择 [云盘](../../../../ecs/documents/user-guide/elastic-block-storage-devices.md) 类型，包括 ESSD AutoPL、ESSD 云盘、ESSD Entry 以及上一代云盘（SSD 云盘和高效云盘），配置容量和 IOPS 等。 可用系统盘类型取决于所选的 [实例规格族](../../../../ecs/documents/user-guide/overview-of-instance-families.md) 。未展示的云盘类型即为不支持使用。 ESSD 云盘自定义性能和加密能力 支持自定义性能级别。云盘容量越大，可选择的性能级别越高（460 GiB 容量以上可选 PL2，1260 GiB 以上可选 PL3），详情请参见 [容量范围与性能级别的关系](../../../../ecs/documents/user-guide/essds.md) 。 系统盘中仅 ESSD 云盘支持 加密 。选择密钥时，阿里云默认使用服务密钥（Default Service CMK）进行加密；您也可以选择在 KMS 服务中预先创建的自定义密钥（BYOK）进行加密。 支持选择 配置更多系统盘类型 ，配置与 系统盘 不同的磁盘类型，提高扩容成功率。创建节点时，ACK 将根据指定的磁盘类型顺序，选择第一个匹配的类型。 云资源及计费说明： [ECS](../../../../ecs/documents/block-storage-devices.md) [块存储](../..

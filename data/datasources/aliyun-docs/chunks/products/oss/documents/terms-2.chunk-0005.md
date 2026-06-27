@@ -1,0 +1,2 @@
+## Endpoint（访问域名）
+Endpoint表示OSS对外服务的访问域名。OSS以HTTP RESTful API的形式对外提供服务，当访问不同的Region的时候，需要不同的域名。通过内网和外网访问同一个Region所需要的Endpoint也是不同的。例如杭州Region的外网Endpoint是oss-cn-hangzhou.aliyuncs.com，内网Endpoint是oss-cn-hangzhou-internal.aliyuncs.com。具体的内容请参见[各个](user-guide/regions-and-endpoints.md)[Region](user-guide/regions-and-endpoints.md)[对应的](user-guide/regions-and-endpoints.md)[Endpoint](user-guide/regions-and-endpoints.md)。

@@ -1,0 +1,1 @@
+store-data-of-an-apsaradb-rds-for-postgresql-instance.md)、[恢复](../apsaradb-rds-for-mariadb/restore-the-data-of-an-apsaradb-rds-for-mariadb-instance.md)[MariaDB](../apsaradb-rds-for-mariadb/restore-the-data-of-an-apsaradb-rds-for-mariadb-instance.md)[数据](../apsaradb-rds-for-mariadb/restore-the-data-of-an-apsaradb-rds-for-mariadb-instance.md)。

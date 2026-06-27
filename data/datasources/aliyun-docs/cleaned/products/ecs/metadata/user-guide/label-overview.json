@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/label-overview",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "使用标签对云服务器ECS资源进行分类以精细化管理资源-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/label-overview",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/label-overview.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/label-overview.md",
+  "word_count": 1823,
+  "text_units": 4315,
+  "local_links": 17,
+  "external_links": 101,
+  "has_tables": true,
+  "table_count": 6,
+  "quality": "accepted"
+}

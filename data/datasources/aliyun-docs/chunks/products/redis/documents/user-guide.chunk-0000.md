@@ -1,0 +1,15 @@
+# 操作指南
+更新时间: 2023-06-27 17:33:56
+- [登录控制台](user-guide/console-logon.md)
+- [连接指南](user-guide/connection-management.md)
+- [数据迁移与同步](user-guide/data-migration-and-synchronization.md)
+- [管理事件](user-guide/manage-events.md)
+- [管理实例](user-guide/manage-instances.md)
+- [账号与安全](user-guide/security-management.md)
+- [数据基本操作](user-guide/manage-apsaradb-for-redis-instances-by-using-dms.md)
+- [性能与监控](user-guide/performance-monitoring.md)
+- [审计与日志](user-guide/log-management.md)
+- [备份与恢复](user-guide/backup-and-restoration-solutions.md)
+- [全球多活](user-guide/overview-of-global-distributed-cache-for-tair.md)
+- [性能调优](user-guide/performance-optimization.md)
+[阿里云首页](https://www.aliyun.com/)[云数据库 Tair（兼容 Redis）](https://www.aliyun.com/product/tair)[相关技术圈](https://developer.aliyun.com/group/hbasespark/)

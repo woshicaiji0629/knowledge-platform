@@ -1,0 +1,2 @@
+出大 Key | 优点：支持定制化分析，对线上服务无影响。 缺点：时效性差，RDB 文件较大时耗时较长。 | [Redis-rdb-tools](https://github.com/sripathikrishnan/redis-rdb-tools) 是通过 Python 编写的开源工具，支持定制化分析 RDB 快照文件。 [下载](download-a-backup-file.md) [RDB](download-a-backup-file.md) [文件](download-a-backup-file.md) 后，您可以根据业务需求分析实例中所有 Key 的内存占用情况，并支持灵活地查询。 |
+| 通过 MONITOR 命令找出热 Key | 优点：方便、安全。 缺点：会占用 CPU、内存、网络资源，时效性与准确性较差。 | MONITOR 命令能够忠实地打印实例中的所有请求，包括时间信息、Client 信息、命令以及 Key 信息。 在发生紧急情况时，可以通过短暂执行 MONITOR 命令并将返回信息输入至文件，在关闭 MONITOR 命令后，对文件中请求进行归类分析，找出这段时间中的热 Key。 说明 由于 MONITOR 命令对实例性能消耗较大，非特殊情况不推荐使用 MONITOR 命令。 |

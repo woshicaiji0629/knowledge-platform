@@ -1,0 +1,2 @@
+../../../ecs/documents/user-guide/network-faq.md) [IP](../../../ecs/documents/user-guide/network-faq.md) [地址](../../../ecs/documents/user-guide/network-faq.md) 。 将 ECS 实例的内网 IP 地址 [添加至实例的白名单](configure-whitelists.md) 中。 |
+| 本地 | 获取本地设备公网 IP 地址。以下是不同系统通过命令方式获取本地设备公网 IP 地址的参考方法： Linux 操作系统：打开终端，输入 curl ifconfig.me 命令后回车。 Windows 操作系统：打开命令提示符，输入 curl ip.me 命令后回车。 macOS 操作系统：打开终端，输入 curl ifconfig.me 命令后回车。 将本地客户端的公网 IP 地址 [添加至实例的白名单](configure-whitelists.md) 中。 实例默认仅提供内网连接地址，通过公网连接时您需要手动 [申请公网连接地址](apply-for-a-public-endpoint-for-an-apsaradb-for-redis-instance.md) 。 |

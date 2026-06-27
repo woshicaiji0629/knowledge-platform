@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-edge/user-guide/overview-of-node-scaling",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "集群节点资源自动扩缩容-节点自动伸缩-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/user-guide/overview-of-node-scaling",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-edge/user-guide/overview-of-node-scaling.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/user-guide/overview-of-node-scaling.md",
+  "word_count": 1504,
+  "text_units": 3942,
+  "local_links": 59,
+  "external_links": 65,
+  "has_tables": true,
+  "table_count": 3,
+  "quality": "accepted"
+}

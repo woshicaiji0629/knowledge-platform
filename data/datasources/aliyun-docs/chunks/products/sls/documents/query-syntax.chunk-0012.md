@@ -1,0 +1,6 @@
+ime 字段值为空或非法数字的日志。 | (request_time:"") or (not request_time > -10000000000) | [调试](https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-demo-log/logsearch/nginx-access-log?encode%3Dbase64%26queryString%3DcmVxdWVzdF90aW1lOiogbm90IHJlcXVlc3RfdGltZSA%2BIC0xMDAwMDAwMDAwMA%3D%3D%26queryTimeType%3D99) |
+| 查询包含 request_time 字段且字段值为数字的日志。 | request_time > -1000000000 | [调试](https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-demo-log/logsearch/nginx-access-log?encode%3Dbase64%26queryString%3DcmVxdWVzdF90aW1lID4gLTEwMDAwMDAwMDA%3D) |
+| 查询包含 and 的日志。 | "and" 说明 此处的 and 为普通字符串，不代表运算符。 | [调试](https://sls.aliyun.com/doc/playground/demo.html?dest=/lognext/project/nginx-demo-log/logsearch/nginx-access-log?encode%3Dbase64%26queryString%3DImFuZCI%3D) |
+| 查询 request method 字段值是 PUT 的日志。 | "request method":PUT 重要 字段名 request method 中存在空格，在查询时需使用双引号（""）包裹。 | 无 |
+| 查询日志主题为 HTTPS 或 HTTP 的日志。 | __topic__:HTTPS or __topic__:HTTP | 无 |
+| 查询采集于 192.0.2.1 主机的日志。 | __tag__:__client_ip__:192.0.2.1 此处的 __tag__:__client_ip__ 为日志服务保留字段，表示日志所在主机的 IP 地址。更多信息，请参见 [保留字段](reserved-fields.md) 。 重要 通过数据加工或者 Logtail 插件处理的日志，其 tag 中的 key 会被转换成普通 key，即查询时需使用双引号（""）包裹字段名，例如 "__

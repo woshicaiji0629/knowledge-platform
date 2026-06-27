@@ -1,0 +1,5 @@
+## 步骤二：配置组件认证信息
+需要通过自定义资源SecretStore来配置ack-secret-manager的认证信息，以确保该组件有权限获取KMS服务中的凭据信息，否则ack-secret-manager将无法向集群中导入或同步凭据信息。可以根据集群类型选择如下三种授权方式进行配置。
+[通过](use-ack-secret-manager-to-import-alibaba-cloud-kms-service-credentials.md)[RRSA](use-ack-secret-manager-to-import-alibaba-cloud-kms-service-credentials.md)[授权](use-ack-secret-manager-to-import-alibaba-cloud-kms-service-credentials.md)：适用于1.22及以上版本的ACK托管集群和ACK Serverless集群。
+[为集群对应的](use-ack-secret-manager-to-import-alibaba-cloud-kms-service-credentials.md)[Worker RAM](use-ack-secret-manager-to-import-alibaba-cloud-kms-service-credentials.md)[角色添加权限](use-ack-secret-manager-to-import-alibaba-cloud-kms-service-credentials.md)：适用于ACK托管集群、ACK专有集群和ACK One注册集群。
+[通过设置](use-ack-secret-manager-to-import-alibaba-cloud-kms-service-credentials.md)[AK](use-ack-secret-manager-to-import-alibaba-cloud-kms-service-credentials.md)[扮演指定](use-ack-secret-manager-to-import-alibaba-cloud-kms-service-credentials.md)[RAM](use-ack-secret-manager-to-import-alibaba-cloud-kms-service-credentials.md)[角色](use-ack-secret-manager-to-import-alibaba-cloud-kms-service-credentials.md)：适用于所有容器服务Kubernetes集群。

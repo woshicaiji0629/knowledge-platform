@@ -1,0 +1,11 @@
+center.md)。
+云资源及计费说明：[SLS](../../../../sls/documents/billing-overview.md)
+集群巡检
+启用智能运维的[集群巡检功能](work-with-the-cluster-inspection-feature.md)，定期扫描集群内配额、资源水位、组件版本等，确保集群配置符合最佳实践，并提前暴露潜在风险。
+步骤六：确认配置和计费信息
+单击下一步：确认配置。
+在确认配置页面，确认集群的配置信息，包括功能配置、资源计费、云产品依赖检查等，并阅读服务协议。
+您可以在创建页面下方查看集群涉及的费用总览，也可以查看ACK和各产品的计费文档，请参见[计费概述](../product-overview/ack-pro-cluster-billing.md)、[云产品资源费用](../product-overview/billing-of-cloud-services.md)。
+说明
+一个包含多节点的集群创建时间约为十分钟。
+您还可以在确认配置页面的右上角单击同等代码，生成当前集群配置对应的Terraform或SDK示例参数。

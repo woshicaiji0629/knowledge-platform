@@ -1,0 +1,6 @@
+中当前正在执行的请求数量，即该队列的实际并发负载，供您了解 API Server 的实际负载情况，判断是否接近系统最大并发限制，防止过载。 |
+| apiserver_flowcontrol_current_inqueue_requests | Gauge | 某个优先级队列中当前在队列中等待处理的请求数量，即该队列的请求积压情况，以了解 API Server 的流量压力以及队列是否过载。 |
+| apiserver_flowcontrol_nominal_limit_seats | Gauge | APF 名义并发限制席位数量，即 API Server 理论上（nominal）的最大并发处理能力，以 Seat 为单位。供您了解 API Server 如何通过流量控制策略将资源分配给不同优先级的队列。 |
+| apiserver_flowcontrol_current_limit_seats | Gauge | APF 当前并发限制席位数量。表示某个优先级队列的当前并发限制（Current Concurrency Limit），即在动态调整后实际允许的最大并发席位数量，反映当前队列的实际并发能力（可能因系统负载或其他因素而动态变化）。 与 nominal_limit_seats 不同，此值可能会受全局流量控制策略影响。 |
+| apiserver_flowcontrol_current_executing_seats | Gauge | APF 当前在执行的席位数量，表示某个优先级队列中当前正在执行的请求数对应的席位数量，反映了当前队列中正在消耗的并发资源。供您了解队列的实际负载情况。 如果 current_executing_seats 接近 current_limit_seats，表明该队列的并发资源可能即将耗尽。 您可以提升 API Server 的 maxMutatingRequestsInflight 和 maxRequestsInflight 的参数取值以优化配置。操作入口及参数取值，请参见 [自定义](customize-ack-pro-control-plane-component-parameters-1693464061811.md) [Pro](customize-ack-pro-control-plane-component-parameters-1693464061811.md) [版集群的控制面组件参数](customize-ack-pro-control-plane-component-parameters-1693464061811.md) 。 |
+| apiserver_flowcontrol_current_inqueue_seats | Gauge | APF 当前队列中席位数量，表示某个优先级队列中当前等待处理的请求数

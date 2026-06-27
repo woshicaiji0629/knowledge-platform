@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/user-guide/network:4",
+  "document_id": "ack:ack-managed-and-ack-dedicated/user-guide/network",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "容器网络互联负载均衡服务发现-网络-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/user-guide/network",
+  "chunk_index": 4,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/network.chunk-0004.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/user-guide/network.md",
+  "heading_path": "网络概述 > 服务（Service）",
+  "char_count": 462
+}

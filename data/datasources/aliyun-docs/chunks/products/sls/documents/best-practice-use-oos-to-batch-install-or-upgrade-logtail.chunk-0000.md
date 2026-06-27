@@ -1,0 +1,3 @@
+## 使用场景
+运维编排服务（Operation Orchestration Service，简称OOS）是阿里云提供的自动化运维平台。您可以使用自定义模板或阿里云提供的公共模板，对ECS、RDS、SLB、VPC等资源进行自动化运维。更多信息，请参见[什么是系统运维管理](https://help.aliyun.com/zh/oos/product-overview/introduction-to-oos)。
+当您需要在大量的阿里云ECS实例中安装、更新或卸载Logtail时，可以使用运维编排OOS进行批量自动操作。如果您的服务器是与日志服务属于不同账号的ECS、其他云厂商的服务器或自建IDC，您需要手动安装Logtail。具体操作，请参见[安装](install-logtail-on-a-linux-server.md)[Logtail（Linux](install-logtail-on-a-linux-server.md)[系统）](install-logtail-on-a-linux-server.md)或[安装](install-logtail-on-a-windows-server.md)[Logtail（Windows](install-logtail-on-a-windows-server.md)[系统）](install-logtail-on-a-windows-server.md)。

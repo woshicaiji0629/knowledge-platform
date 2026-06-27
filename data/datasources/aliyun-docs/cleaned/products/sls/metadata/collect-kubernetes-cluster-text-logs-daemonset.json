@@ -1,0 +1,17 @@
+{
+  "id": "sls:collect-kubernetes-cluster-text-logs-daemonset",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "通过控制台采集集群容器日志（标准输出/文件）-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/collect-kubernetes-cluster-text-logs-daemonset",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/collect-kubernetes-cluster-text-logs-daemonset.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/collect-kubernetes-cluster-text-logs-daemonset.md",
+  "word_count": 5603,
+  "text_units": 19121,
+  "local_links": 6,
+  "external_links": 150,
+  "has_tables": true,
+  "table_count": 52,
+  "quality": "accepted"
+}

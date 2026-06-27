@@ -1,0 +1,818 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    如何通过控制台创建Logtail采集Windows事件日志-日志服务(SLS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/sls/collect-windows-event-logs">
+  <meta name="keywords" content="采集Windows事件日志,配置Windows事件日志采集,Windows事件日志采集方法,Windows事件日志采集参数">
+  <meta name="description" content="您可以通过Logtail插件采集Windows事件日志。本文介绍如何通过日志服务控制台创建Logtail配置采集Windows事件日志。">
+  <meta name="last-modified" content="2026-06-02T15:46:07+08:00">
+  <meta name="date" content="2018-12-27T11:46:04+08:00">
+  <meta property="og:title" content="采集Windows事件日志">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/sls/collect-windows-event-logs">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="您可以通过Logtail插件采集Windows事件日志。本文介绍如何通过日志服务控制台创建Logtail配置采集Windows事件日志。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/sls/collect-windows-event-logs",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "101177",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/sls/collect-windows-event-logs","nodeId":null,"data":{"lastModifiedTime":1780386367000,"keywords":"采集Windows事件日志,配置Windows事件日志采集,Windows事件日志采集方法,Windows事件日志采集参数","docTitle":"采集Windows事件日志","language":"zh","seoTitle":"如何通过控制台创建Logtail采集Windows事件日志-日志服务(SLS)-阿里云帮助中心","title":"采集Windows事件日志","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"concept-crk-h1k-ggb\">\n    \n    \n    <p id=\"shortdesc-lyx-hqy-gz1\" data-tag=\"shortdesc\" class=\"shortdesc\">您可以通过<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>插件采集<span class=\"help-letter-space\"></span>Windows<span class=\"help-letter-space\"></span>事件日志。本文介绍如何通过日志服务控制台创建<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>配置采集<span class=\"help-letter-space\"></span>Windows<span class=\"help-letter-space\"></span>事件日志。</p>\n    <div data-tag=\"taskbody\" id=\"taskbody-o5g-etp-yu7\" class=\"taskbody\">\n      <section data-tag=\"prereq\" id=\"prereq-e7d-fed-ovr\" data-type=\"prereq\" class=\"section prereq\">\n        <h2 id=\"d41e14\">前提条件</h2>\n        <ul data-tag=\"ul\" id=\"ul-kws-8g5-2kp\" class=\"ul\">\n          <li data-tag=\"li\" id=\"li-69f-7i7-gpr\" class=\"li\">\n            <p id=\"c8d29eea7dfp4\">已在服务器上安装<span class=\"help-letter-space\"></span>Windows Logtail 1.0.0.0<span class=\"help-letter-space\"></span>及以上版本。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/install-logtail-on-a-windows-server#concept-j22-xnv-vdb\" id=\"xref-t0o-4tn-pu5\" title=\"\" class=\"xref\">安装<span class=\"help-letter-space\"></span>Logtail（Windows<span class=\"help-letter-space\"></span>系统）</a>。</p>\n          </li>\n          <li data-tag=\"li\" id=\"li-kbz-yk5-uz3\" is-conref=\"true\" class=\"li\">\n            <p id=\"523c4e0c166vh\">目标服务器持续产生日志。</p>\n            <div data-tag=\"note\" id=\"note-y0m-nfs-stp\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n              <p id=\"3d665ffc56q0a\">Logtail<span class=\"help-letter-space\"></span>只采集增量日志。如果下发<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>配置后，日志文件无更新，则<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>不会采集该文件中的日志。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/log-collection-process-of-logtail#section-u34-x5s-cfb\" id=\"xref-elc-8om-8jn\" title=\"\" class=\"xref\">读取日志</a>。</p>\n            </div></div>\n          </li>\n        </ul>\n      </section>\n      <section data-tag=\"section\" id=\"section-cyl-n1k-ggb\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-4o6-6k1-b2f\" class=\"title\">原理</h2>\n        <p data-tag=\"p\" id=\"p-q8f-0sw-5ux\" class=\"p\">对于事件日志，Windows<span class=\"help-letter-space\"></span>提供了<span class=\"help-letter-space\"></span><a href=\"https://docs.microsoft.com/en-us/windows/desktop/wes/windows-event-log\" id=\"xref-mtx-qee-j6k\" class=\"\" target=\"_blank\">Windows Event Log</a><span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span><a href=\"https://docs.microsoft.com/en-us/windows/desktop/EventLog/event-logging\" id=\"xref-5d2-4su-7zl\" class=\"\" target=\"_blank\">Event Logging</a><span class=\"help-letter-space\"></span>两套<span class=\"help-letter-space\"></span>API，前者是后者的升级，仅在<span class=\"help-letter-space\"></span>Windows Vista<span class=\"help-letter-space\"></span>及以上的版本中提供。Logtail<span class=\"help-letter-space\"></span>插件会根据所运行的系统，自动选择<span class=\"help-letter-space\"></span>API（优先选择<span class=\"help-letter-space\"></span>Windows Event Log）来获取<span class=\"help-letter-space\"></span>Windows<span class=\"help-letter-space\"></span>事件日志。</p>\n        <p data-tag=\"p\" id=\"p-186-404-neu\" class=\"p\">Windows<span class=\"help-letter-space\"></span>事件日志采用发布订阅的模式，应用程序或者内核将事件日志发布到指定的通道（例如<span class=\"help-letter-space\"></span>Application、Security、System），Logtail<span class=\"help-letter-space\"></span>通过对应的<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>插件调用<span class=\"help-letter-space\"></span>Windows API，实现对这些通道的订阅，从而不断地获取相关的事件日志并发送到日志服务。</p>\n        <p data-tag=\"p\" id=\"p-60g-61l-v3d\" class=\"p\">Logtail<span class=\"help-letter-space\"></span>支持同时采集多个通道事件，例如同时采集应用程序和系统日志。</p>\n        <p id=\"a57c83ef9bcs1\"><img data-tag=\"image\" id=\"image-mpi-r2g-9ty\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1530559951/p35294.png\" width=\"720\" alt=\"实现原理\" placement=\"break\" class=\"image break\"></p>\n      </section>\n      <section data-tag=\"section\" id=\"section-nnm-pck-ggb\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-db2-5m7-35r\" class=\"title\">查看通道信息</h2>\n        <p data-tag=\"p\" id=\"p-8aj-caq-lmy\" class=\"p\">您可以在<span class=\"help-letter-space\"></span>Windows<span class=\"help-letter-space\"></span>服务器的<b id=\"uicontrol-hxb-yaq-s1r\">事件查看器</b>中查看通道信息。</p>\n        <ol data-tag=\"steps\" id=\"steps-4fd-wra-z4l\" class=\"steps\">\n          <li data-tag=\"step\" id=\"step-vs0-rn2-lvu\" class=\"step\">\n            <p id=\"64f76ede84r2d\"><span data-tag=\"cmd\" id=\"cmd-eud-7gm-8jr\" class=\"cmd\">单击<b id=\"uicontrol-bqv-81t-gsq\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">开始</b>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-dy8-qci-lxr\" class=\"step\">\n            <p id=\"b96d0fdd99eh3\"><span data-tag=\"cmd\" id=\"cmd-lc5-251-juq\" class=\"cmd\">搜索并打开<b id=\"uicontrol-g4l-g3l-1fh\">事件查看器</b>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-5x3-kf5-5xt\" class=\"step\">\n            <p id=\"ae62109764vcz\"><span data-tag=\"cmd\" id=\"cmd-jtv-hpx-8fk\" class=\"cmd\">在左侧导航栏中展开<span class=\"help-letter-space\"></span><b id=\"uicontrol-xj5-cgo-1pm\">Windows 日志</b>或<b id=\"755f3e6d3ao70\">应用程序和服务日志</b>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-8v9-z3s-6qy\" class=\"step\">\n            <p id=\"5c49bd74d42va\"><span data-tag=\"cmd\" id=\"cmd-63d-7yb-i0p\" class=\"cmd\">查看通道的全名与通道相关信息。</span></p>\n            <section id=\"a50cd63fa5720\" data-tag=\"tabbed-content-box\" outputclass=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n              <section id=\"99f34b5f74emn\" class=\"section\">\n                <h4 id=\"c636ff00e9g29\"><b>Windows<span class=\"help-letter-space\"></span>日志</b></h4>\n                <ul id=\"6bcdfca827eo1\">\n                  <li id=\"1edbd96343huz\">\n                    <p id=\"35ed4862bfnb6\">在<span class=\"help-letter-space\"></span><b id=\"uicontrol-6q8-qgy-flx\">Windows<span class=\"help-letter-space\"></span>日志</b>下，选择目标通道，右键单击<b data-tag=\"uicontrol\" id=\"uicontrol-lcr-c6z-3qu\" class=\"uicontrol\">属性</b>，查看通道全名，包括： </p>\n                    <ul id=\"a8fffce047lpu\">\n                      <li data-tag=\"li\" id=\"d7ea604612bnp\" class=\"li\">\n                        <p id=\"1b3c917d7byl3\">应用程序：Application</p>\n                      </li>\n                      <li data-tag=\"li\" id=\"5a91189ce0qq3\" class=\"li\">\n                        <p id=\"5a935145132sk\">安全：Security</p>\n                      </li>\n                      <li data-tag=\"li\" id=\"af1fd6ab13kml\" class=\"li\">\n                        <p id=\"68563b4bf5j06\">Setup：Setup</p>\n                      </li>\n                      <li data-tag=\"li\" id=\"5ef978d0edrb0\" class=\"li\">\n                        <p id=\"e6db96cd10ug3\">系统：System</p>\n                      </li>\n                    </ul>\n                  </li>\n                  <li id=\"c33558df71xs4\">\n                    <p id=\"03c0b9cadecil\">在<span class=\"help-letter-space\"></span><b id=\"uicontrol-swk-rp8-0xm\">Windows<span class=\"help-letter-space\"></span>日志</b>下，单击目标通道，在页面中间区域查看事件的级别、日期和时间、来源和事件<span class=\"help-letter-space\"></span>ID<span class=\"help-letter-space\"></span>等信息。 </p>\n                    <p data-tag=\"p\" id=\"5d413a4076z5p\" class=\"p\">在<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>配置中，您可根据这些信息进行日志过滤。</p>\n                  </li>\n                </ul>\n              </section>\n              <section id=\"0f6ded83a2ewz\" class=\"section\">\n                <h4 id=\"6b730ffda9dt6\">应用程序和服务日志</h4>\n                <ul id=\"d4cc116a6bj6i\">\n                  <li id=\"5489810143kgr\">\n                    <p id=\"58c0f38514opd\">在<b id=\"6b3347ac6eapz\">应用程序和服务日志</b>下，选择目标通道，右键单击<b data-tag=\"uicontrol\" id=\"35fecaacb7w0n\" data-init-id=\"uicontrol_lcr_c6z_3qu\" class=\"uicontrol\">属性</b>，查看通道全名，例如： </p>\n                    <ul id=\"6c156e44ef2lw\">\n                      <li data-tag=\"li\" id=\"273772a567fka\" class=\"li\">\n                        <p id=\"467f76dcd0mb4\">获取<span class=\"help-letter-space\"></span>TerminalServices-LocalSessionManager/Operational<span class=\"help-letter-space\"></span>的通道名。</p>\n                      </li>\n                      <li id=\"c85dfa6e8fvd1\">\n                        <p id=\"73e2971deb5kz\">获取<span class=\"help-letter-space\"></span>PowerShell/Operational<span class=\"help-letter-space\"></span>的通道名。</p>\n                      </li>\n                    </ul>\n                  </li>\n                </ul>\n              </section>\n            </section>\n          </li>\n        </ol>\n      </section>\n      <section data-tag=\"section\" id=\"section-bvn-wxk-ggb\" data-type=\"section\" class=\"section\">\n        <h2 data-tag=\"title\" id=\"title-n29-mup-3jy\" class=\"title\">采集步骤</h2>\n        <ol data-tag=\"steps\" id=\"steps-3jx-i56-e1b\" class=\"steps\">\n          <li data-tag=\"step\" id=\"step-ysi-d9y-rq6\" is-conref=\"true\" class=\"step\"><p id=\"6a7cc970501ga\"><span data-tag=\"ph\" id=\"ph-q0d-de9-ecs\" class=\"ph\">登录<span data-tag=\"ph\" id=\"ph-i3r-pp7-fzx\" props=\"china intl\" data-cond-props=\"china intl\" class=\"ph\"><a href=\"https://sls.console.aliyun.com\" id=\"xref-ivv-0k8-uct\" class=\"\" target=\"_blank\">日志服务控制台</a></span>。</span></p></li>\n          <li data-tag=\"step\" id=\"step-fdl-y0r-g27\" class=\"step\">\n            <p id=\"3d5f7fdfcew46\"><span data-tag=\"cmd\" id=\"cmd-v9g-27r-s5u\" class=\"cmd\">在<b id=\"wintitle-zsm-ngi-vrf\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">接入数据</b>区域，单击<span class=\"help-letter-space\"></span><b id=\"uicontrol-6yr-ebi-0rl\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">Windows 事件日志</b>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"step-ktb-a91-kfz\" is-conref=\"true\" class=\"step\">\n            <p id=\"f6044645e67ik\"><span data-tag=\"cmd\" id=\"cmd-m5z-93e-z6x\" class=\"cmd\">选择目标<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>LogStore，单击<b id=\"uicontrol-hbj-atr-rmz\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">下一步</b>。</span></p>\n          </li>\n          <li data-tag=\"step\" id=\"32633b44c77du\" docid=\"4537680\" is-conref=\"true\" class=\"step\"><p id=\"61904d6069wir\">在<b data-tag=\"uicontrol\" id=\"7c5e58f06dhs6\" class=\"uicontrol\">机器组配置</b>页面，配置机器组。</p><ol id=\"52f9407e93mdw\"><li id=\"6327a379fepb1\"><p id=\"2b49b0058btul\">根据实际需求，选择使用场景和安装环境。</p><div id=\"eaf448af90dxi\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong><p id=\"68af2ac913dy9\">无论是否已有机器组，都必须根据实际需求正确选择使用场景和安装环境，这将影响后续的页面配置。</p></div></div></li><li id=\"86dc6816ffb3f\"><p id=\"6b90deaf0e48g\">确认目标机器组已在<b data-tag=\"uicontrol\" id=\"uicontrol-xdq-r2n-ot4\" class=\"uicontrol\">应用机器组</b>区域，单击<b data-tag=\"uicontrol\" id=\"uicontrol-eyk-3gx-5qm\" class=\"uicontrol\">下一步</b>。</p><section id=\"ef608e13b97zx\" outputclass=\"tabbed-content-box\" data-tag=\"tabbed-content-box\" class=\"tabbed-content-box section\"><section id=\"2c48082d5fe09\" class=\"section\"><h3 id=\"05cc31da119jp\"><b>已有机器组</b></h3><p id=\"a646a625a3rzr\">从<b data-tag=\"uicontrol\" id=\"b95c830577j6m\" class=\"uicontrol\">源机器组</b>列表选择目标机器组。</p><p id=\"689367e7bb781\"><img id=\"b08659c4dcq10\" src=\"https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9040119071/p769795.png\" alt=\"image\" placement=\"break\" width=\"288\" height=\"195\" class=\"image break\"></p></section><section id=\"02edd76345kot\" class=\"section\"><h3 id=\"7720e23c2f9ew\"><b>没有可用机器组</b></h3><p id=\"d1238073b0dtg\">单击<b data-tag=\"uicontrol\" id=\"ce1b334419cc8\" class=\"uicontrol\">创建机器组</b>，在<b data-tag=\"uicontrol\" id=\"b2d021a7a5ty5\" class=\"uicontrol\">创建机器组</b>面板设置相关参数。机器组标识分为<span class=\"help-letter-space\"></span><b data-tag=\"uicontrol\" id=\"f7d5ca955ch2o\" class=\"uicontrol\">IP<span class=\"help-letter-space\"></span>地址</b>和<b data-tag=\"uicontrol\" id=\"23e5073b6fl6q\" class=\"uicontrol\">用户自定义标识</b>，更多信息请参见<a href=\"https://help.aliyun.com/zh/sls/create-a-user-defined-identity-machine-group\" id=\"3c81832178han\" title=\"\" class=\"xref\">创建用户自定义标识机器组（推荐）</a>或<a href=\"https://help.aliyun.com/zh/sls/create-an-ip-address-based-machine-group\" id=\"30e99cf97bnq5\" title=\"\" class=\"xref\">创建<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址机器组</a>。</p><div type=\"important\" id=\"913a05b38at41\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong><p id=\"be17d407a9cap\">创建机器组后立刻应用，可能因为连接未生效，导致心跳为<span class=\"help-letter-space\"></span><b data-tag=\"uicontrol\" id=\"uicontrol-ktf-pym-6j3\" class=\"uicontrol\">FAIL</b>，您可单击<b data-tag=\"uicontrol\" id=\"uicontrol-qam-k54-f8l\" class=\"uicontrol\">自动重试</b>。如果还未解决，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/sls/troubleshoot-the-errors-related-to-logtail-machine-groups#concept-nfs-hs3-bfb\" id=\"d04c310a24jsi\" title=\"\" class=\"xref\">Logtail<span class=\"help-letter-space\"></span>机器组无心跳</a>进行排查。</p></div></div></section></section></li></ol></li>\n          <li data-tag=\"step\" id=\"step-jie-fn2-l8a\" class=\"step\">\n            <p id=\"66c6858c8e7yt\"><span data-tag=\"cmd\" id=\"cmd-atj-3b6-lyr\" class=\"cmd\">在<b id=\"wintitle-y5s-naj-lzc\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">数据源设置</b>页签中，设置<b id=\"uicontrol-wbj-qa2-yvx\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">配置名称</b>和<b id=\"uicontrol-m3v-hms-gdb\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">插件配置</b>，然后单击<b id=\"uicontrol-mbt-5xr-czu\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">下一步</b>。</span></p>\n            <div data-tag=\"info\" id=\"info-gk1-shn-8vs\" class=\"info\">\n              <ul data-tag=\"ul\" id=\"ul-hxc-8zu-2jy\" is-conref=\"true\" class=\"ul\">\n<li data-tag=\"li\" id=\"li-2kp-xz0-koy\" class=\"li\">\n<p id=\"e981ab616b9bf\"><span data-tag=\"parmname\" id=\"parmname-8t9-vgy-gx3\" class=\"parmname\">inputs</span><span class=\"help-letter-space\"></span>为数据源配置，必选项。 </p>\n<div data-tag=\"note\" id=\"note-bd7-b23-f71\" type=\"important\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong>\n<p id=\"e981ab626b3bd\">一个<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-yp5-88z-thb\" class=\"parmname\">inputs</span><span class=\"help-letter-space\"></span>中只允许配置一个类型的数据源。</p>\n</div></div>\n</li>\n<li data-tag=\"li\" id=\"li-zdr-fmc-vn2\" class=\"li\">\n<p id=\"e981ab636bgbe\"><span data-tag=\"parmname\" id=\"parmname-fp7-e0d-7iz\" class=\"parmname\">processors</span><span class=\"help-letter-space\"></span>为处理配置，用于解析数据。可选项，您可以配置一种或多种处理方式。</p>\n<p data-tag=\"p\" id=\"p-kj1-c52-5mq\" class=\"p\">如果当前的<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-3sg-tc7-yp2\" class=\"parmname\">inputs</span><span class=\"help-letter-space\"></span>配置无法满足日志解析需求，您可以在<b id=\"wintitle-o37-xuo-r90\">插件配置</b>中添加<span class=\"help-letter-space\"></span>processors<span class=\"help-letter-space\"></span>配置，即添加<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>插件处理数据。例如提取字段、提取日志时间、脱敏数据、过滤日志等。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/overview-22/#concept-hy3-nyc-wdb\" id=\"xref-fzn-ews-zfm\" title=\"\" class=\"xref\">使用<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>插件处理数据</a>。</p>\n</li>\n</ul>\n              <div data-tag=\"p\" id=\"p-7ue-d6z-7kh\" class=\"p\">\n                <p id=\"005aaccfd8ub8\">例如您要采集<b id=\"uicontrol-dpk-ac2-1vn\">应用程序</b>、<b data-tag=\"uicontrol\" id=\"uicontrol-9ap-5r4-1yk\" class=\"uicontrol\">系统</b>、TerminalServices-LocalSessionManager/Operational<span class=\"help-letter-space\"></span>等通道对应的日志，则可以在<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-092-io0-ifn\" class=\"parmname\">inputs</span><span class=\"help-letter-space\"></span>中添加如下示例。</p><pre data-tag=\"codeblock\" id=\"codeblock-ekf-v6a-q8a\" outputclass=\"language-plaintext\" code-type=\"xCode\" class=\"pre codeblock language-plaintext\"><code>{\n    \"inputs\": [\n        {\n            \"type\": \"service_wineventlog\",\n            \"detail\": {\n                \"Name\": \"Application\",\n                \"IgnoreOlder\": 259200\n            }\n        },\n        {\n            \"type\": \"service_wineventlog\",\n            \"detail\": {\n                \"Name\": \"System\",\n                \"IgnoreOlder\": 259200\n            }\n        },\n        {\n            \"type\": \"service_wineventlog\",\n            \"detail\": {\n                \"Name\": \"Microsoft-Windows-TerminalServices-LocalSessionManager/Operational\",\n                \"IgnoreOlder\": 259200\n            }\n        }      \n    ]\n}</code></pre>\n                <table id=\"table-loi-n2f-mwv\" tablewidth=\"709\" tablecolswidth=\"118 118 118 355\" autofit=\"false\" class=\"table\">\n                  <colgroup colwidth=\"0.67*\" style=\"width:16.64%\"></colgroup>\n                  <colgroup colwidth=\"0.67*\" style=\"width:16.64%\"></colgroup>\n                  <colgroup colwidth=\"0.67*\" style=\"width:16.64%\"></colgroup>\n                  <colgroup colwidth=\"2.01*\" style=\"width:50.07%\"></colgroup>\n                  <tbody class=\"tbody\">\n                    <tr id=\"row-1cq-u6u-t3n\">\n                      <td id=\"concept-crk-h1k-ggb-entry-a3n-ifz-cup\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                        <p id=\"f10696234ew08\"><b>参数</b></p>\n                      </td>\n                      <td id=\"concept-crk-h1k-ggb-entry-2qn-1op-j58\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                        <p id=\"3d72e66546ola\"><b>类型</b></p>\n                      </td>\n                      <td id=\"concept-crk-h1k-ggb-entry-bkv-nt4-mtu\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                        <p id=\"df24533d1ccke\"><b>是否必选</b></p>\n                      </td>\n                      <td id=\"concept-crk-h1k-ggb-entry-h8a-v18-q0c\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                        <p id=\"fd3f47f24178k\"><b>说明</b></p>\n                      </td>\n                    </tr>\n                    <tr id=\"row-gx6-7pv-dwz\">\n                      <td id=\"entry-lbu-hcd-js2\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"edb51f6001ozs\"><span data-tag=\"parmname\" id=\"parmname-m7s-izl-elx\" class=\"parmname\">type</span></p>\n                      </td>\n                      <td id=\"entry-6th-bqf-81i\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"70a6ced79df5z\">String</p>\n                      </td>\n                      <td id=\"entry-pk3-0rc-9kj\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"0ff8a06e99phf\">是</p>\n                      </td>\n                      <td id=\"entry-wjd-lv0-949\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"2cd018abf0pk8\">数据源类型，固定为<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-lb2-7xq-910\" class=\"parmname\">service_wineventlog</span>。</p>\n                      </td>\n                    </tr>\n                    <tr id=\"row-t7i-a27-dlp\">\n                      <td id=\"entry-qp3-owb-jih\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"efba462d9a95k\"><span data-tag=\"parmname\" id=\"parmname-av9-csw-a92\" class=\"parmname\">Name</span></p>\n                      </td>\n                      <td id=\"entry-o3j-hrr-cw9\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"fb8da0923bu1e\">String</p>\n                      </td>\n                      <td id=\"entry-9j8-1ax-f4l\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"baf354d0f1ieh\">是</p>\n                      </td>\n                      <td id=\"entry-39f-k2b-tun\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"edb82689d2uz3\">待采集事件日志所属的通道名称。不配置时，默认为<span class=\"help-letter-space\"></span>Application，表示采集<b id=\"uicontrol-ru0-tqg-xn4\">应用程序</b>通道中的事件日志。您可以在<span class=\"help-letter-space\"></span>Windows<span class=\"help-letter-space\"></span>系统中查看通道全名。更多信息，请参见<a href=\"#step-8v9-z3s-6qy\" id=\"xref-g0h-0iv-gsl\" title=\"\" class=\"xref\">步骤<span class=\"help-letter-space\"></span>4</a>。</p>\n                      </td>\n                    </tr>\n                    <tr id=\"row-r78-4oo-6c1\">\n                      <td id=\"entry-v3x-nxk-653\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"9e5b30f4c7c58\"><span data-tag=\"parmname\" id=\"parmname-n74-3rt-e6g\" class=\"parmname\">IgnoreOlder</span></p>\n                      </td>\n                      <td id=\"entry-v26-774-kig\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"d91cabc895xs4\">UINT</p>\n                      </td>\n                      <td id=\"entry-fau-0wx-vv0\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"2ac91b0bb08el\">否</p>\n                      </td>\n                      <td id=\"entry-gxo-7ni-p6j\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"9b98093e5ar3t\">根据事件时间过滤日志，此配置是相对于采集开始时间的偏移量，单位为秒，早于此设置的日志会被忽略。 例如： </p>\n                        <ul data-tag=\"ul\" id=\"ul-1bm-jtq-tkf\" class=\"ul\">\n                          <li data-tag=\"li\" id=\"li-zsl-zvk-21y\" class=\"li\">\n                            <p id=\"e96cc41bd3lvh\">设置为<span class=\"help-letter-space\"></span>3600，表示相对于采集开始时间一小时前的日志都会被忽略。</p>\n                          </li>\n                          <li data-tag=\"li\" id=\"li-99a-6jx-18n\" class=\"li\">\n                            <p id=\"8a410ff69f1vc\">设置为<span class=\"help-letter-space\"></span>14400，表示相对于采集开始时间四小时前的日志都会被忽略。</p>\n                          </li>\n                        </ul>\n                        <p data-tag=\"p\" id=\"p-j22-hom-9ax\" class=\"p\">默认为空，表示不根据事件时间进行过滤，采集服务器上所有的历史事件日志。</p>\n                        <div data-tag=\"note\" id=\"note-dts-12a-6t4\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                          <p id=\"4b9a5701a6r7k\">该选项仅在首次配置采集时生效，Logtail<span class=\"help-letter-space\"></span>会记录事件采集的<span class=\"help-letter-space\"></span>Checkpoint，保证不会重复采集事件日志。</p>\n                        </div></div>\n                      </td>\n                    </tr>\n                    <tr id=\"row-k9h-jjr-ay5\">\n                      <td id=\"entry-rvn-m8a-154\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"44454ce27buc6\"><span data-tag=\"parmname\" id=\"parmname-tt7-3ui-qlo\" class=\"parmname\">Level</span></p>\n                      </td>\n                      <td id=\"entry-0u7-vex-tg6\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"6b5394e26csns\">String</p>\n                      </td>\n                      <td id=\"entry-a4b-yc7-dj0\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"5f8ff8c5f0m2t\">否</p>\n                      </td>\n                      <td id=\"entry-85o-4qw-emm\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"6256fce743urc\">根据事件等级过滤日志，默认值为<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-i3b-x7o-vx1\" class=\"parmname\">information, warning, error, critical</span>，表示采集除了<span class=\"help-letter-space\"></span>verbose<span class=\"help-letter-space\"></span>等级外的其他所有日志。 可选值包括：information、warning、error、critical、verbose。您可以使用半角逗号（,）指定多个等级。 </p>\n                        <div data-tag=\"note\" id=\"note-u2m-6vo-qjv\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                          <p id=\"1df3e69ee166w\">该参数仅支持<span class=\"help-letter-space\"></span>Windows Event Log API，即只能在<span class=\"help-letter-space\"></span>Windows Vista<span class=\"help-letter-space\"></span>及以上的操作系统上使用。</p>\n                        </div></div>\n                      </td>\n                    </tr>\n                    <tr id=\"row-3q0-1k4-1ee\">\n                      <td id=\"entry-p3j-qo0-qnu\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"abd5a58788ofl\"><span data-tag=\"parmname\" id=\"parmname-h3m-d29-02k\" class=\"parmname\">EventID</span></p>\n                      </td>\n                      <td id=\"entry-84p-9k6-wsg\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"e945b90f914ou\">String</p>\n                      </td>\n                      <td id=\"entry-i1y-hy8-imh\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"4808334015vqs\">否</p>\n                      </td>\n                      <td id=\"entry-ur7-mz2-9e5\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"3eed5bd790b0n\">根据事件<span class=\"help-letter-space\"></span>ID<span class=\"help-letter-space\"></span>过滤日志，可以指定正向过滤（单个或范围）或者反向过滤（不支持范围设置）。默认为空，表示采集所有事件。例如： </p>\n                        <ul data-tag=\"ul\" id=\"ul-ofv-bl4-2kx\" class=\"ul\">\n                          <li data-tag=\"li\" id=\"li-zo3-ykd-z9n\" class=\"li\">\n                            <p id=\"a922739291j2k\"><span data-tag=\"parmname\" id=\"parmname-f3j-v7c-4pt\" class=\"parmname\">1-200</span><span class=\"help-letter-space\"></span>表示只采集事件<span class=\"help-letter-space\"></span>ID<span class=\"help-letter-space\"></span>在<span class=\"help-letter-space\"></span>1-200<span class=\"help-letter-space\"></span>范围内的事件日志。</p>\n                          </li>\n                          <li data-tag=\"li\" id=\"li-62e-znu-15n\" class=\"li\">\n                            <p id=\"4f9a0abfc2sj5\"><span data-tag=\"parmname\" id=\"parmname-usn-ro7-w6z\" class=\"parmname\">20</span><span class=\"help-letter-space\"></span>表示只采集事件<span class=\"help-letter-space\"></span>ID<span class=\"help-letter-space\"></span>为<span class=\"help-letter-space\"></span>20<span class=\"help-letter-space\"></span>的事件日志。</p>\n                          </li>\n                          <li data-tag=\"li\" id=\"li-btk-9qw-q0w\" class=\"li\">\n                            <p id=\"17b091bf16cvo\"><span data-tag=\"parmname\" id=\"parmname-qg8-qx7-s8c\" class=\"parmname\">-100</span><span class=\"help-letter-space\"></span>表示采集除了事件<span class=\"help-letter-space\"></span>ID<span class=\"help-letter-space\"></span>为<span class=\"help-letter-space\"></span>100<span class=\"help-letter-space\"></span>以外的所有事件日志。</p>\n                          </li>\n                          <li data-tag=\"li\" id=\"li-ngc-828-3dg\" class=\"li\">\n                            <p id=\"37e29a4097rve\"><span data-tag=\"parmname\" id=\"parmname-2f1-7o0-fa2\" class=\"parmname\">1-200,-100</span><span class=\"help-letter-space\"></span>表示采集<span class=\"help-letter-space\"></span>1-200<span class=\"help-letter-space\"></span>范围内除了<span class=\"help-letter-space\"></span>100<span class=\"help-letter-space\"></span>以外的事件日志。</p>\n                          </li>\n                        </ul>\n                        <p data-tag=\"p\" id=\"p-sws-80f-8xc\" class=\"p\">您可以使用半角逗号（,）指定多个值。 </p>\n                        <div data-tag=\"note\" id=\"note-t8g-jba-nx7\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                          <p id=\"458c2291b6xoc\">该参数仅支持<span class=\"help-letter-space\"></span>Windows Event Log API，即只能在<span class=\"help-letter-space\"></span>Windows Vista<span class=\"help-letter-space\"></span>及以上的操作系统上使用。</p>\n                        </div></div>\n                      </td>\n                    </tr>\n                    <tr id=\"row-050-16q-oec\">\n                      <td id=\"entry-6ie-vnb-tl3\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"87b4197e4e0b6\"><span data-tag=\"parmname\" id=\"parmname-agw-80e-21i\" class=\"parmname\">Provider</span></p>\n                      </td>\n                      <td id=\"entry-21n-rhb-xvl\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"1d81a21526u8t\">String<span class=\"help-letter-space\"></span>数组</p>\n                      </td>\n                      <td id=\"entry-s36-bmq-6ko\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"76d83e17da5i5\">否</p>\n                      </td>\n                      <td id=\"entry-0g3-fqe-oa8\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"fec3c4b31bn29\">根据事件来源过滤日志。例如设置为<span data-tag=\"parmname\" id=\"parmname-kav-8hr-t08\" class=\"parmname\">[\"App1\", \"App2\"] </span>表示只采集来源名字为<span class=\"help-letter-space\"></span>App1<span class=\"help-letter-space\"></span>和<span class=\"help-letter-space\"></span>App2<span class=\"help-letter-space\"></span>的事件日志，其他事件日志都会被忽略。 </p>\n                        <p data-tag=\"p\" id=\"p-e53-0tn-1eb\" class=\"p\">默认为空，表示采集所有来源的事件。</p>\n                        <div data-tag=\"note\" id=\"note-dcl-8r0-h2q\" is-conref=\"true\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                          <p id=\"1df3e69ee166w\">该参数仅支持<span class=\"help-letter-space\"></span>Windows Event Log API，即只能在<span class=\"help-letter-space\"></span>Windows Vista<span class=\"help-letter-space\"></span>及以上的操作系统上使用。</p>\n                        </div></div>\n                      </td>\n                    </tr>\n                    <tr id=\"row-93q-i42-smn\">\n                      <td id=\"entry-g7s-g4f-lqb\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"0df9cd84c1kvq\"><span data-tag=\"parmname\" id=\"parmname-fxx-gph-ab3\" class=\"parmname\">IgnoreZeroValue</span></p>\n                      </td>\n                      <td id=\"entry-7xv-4uu-f5u\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"68938e49d2jnx\">Boolean</p>\n                      </td>\n                      <td id=\"entry-vfu-zhq-y72\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"171eeccec3kgf\">否</p>\n                      </td>\n                      <td id=\"entry-cac-s11-f51\" rowspan=\"1\" colspan=\"1\">\n                        <p id=\"555f5179d3bkt\">并非每条事件日志都拥有所有的字段，您可以使用此参数过滤空字段，空字段的定义根据类型而定，例如整数类型使用<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-538-43h-y0l\" class=\"parmname\">0</span><span class=\"help-letter-space\"></span>表示空字段。 </p>\n                        <p data-tag=\"p\" id=\"p-poy-t5f-kdt\" class=\"p\">默认为<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-ne6-4zl-13x\" class=\"parmname\">false</span>，表示不过滤空字段。</p>\n                      </td>\n                    </tr>\n                  </tbody>\n                </table>\n              </div>\n            </div>\n          </li>\n          <li id=\"55450aea17uto\" docid=\"4537680\" is-conref=\"true\"><p id=\"e97b73306byq3\">创建索引和预览数据，然后单击<b data-tag=\"uicontrol\" id=\"uicontrol-z6i-qm8-6d4\" class=\"uicontrol ph\">下一步</b>。日志服务默认开启全文索引。您也可以根据采集到的日志，手动创建字段索引，或者单击<b data-tag=\"uicontrol\" id=\"uicontrol-djz-h5q-iwv\" class=\"uicontrol ph\">自动生成索引</b>，日志服务将自动生成字段索引。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/create-indexes#task-jqz-v55-cfb\" id=\"f535077c051jv\" title=\"\" class=\"xref\">创建索引</a>。</p><div id=\"info-8z5-fix-wsq\" data-tag=\"info\" class=\"itemgroup info\"><div type=\"important\" id=\"2aab12706bft5\" class=\"note note-important\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note important\"></i></div><div class=\"noteContentSpan\"><strong>重要 </strong><p id=\"29e379a3641qh\">如果需要查询日志中的所有字段，建议使用全文索引。如果只需查询部分字段、建议使用字段索引，减少索引流量。如果需要对字段进行分析（SELECT<span class=\"help-letter-space\"></span>语句），必须创建字段索引。</p></div></div></div></li>\n          <li data-tag=\"step\" id=\"step-dz9-fw2-6a5\" is-conref=\"true\" class=\"step\">\n            <p id=\"177e76fe83jg7\"><span data-tag=\"cmd\" id=\"cmd-494-4s1-b0x\" class=\"cmd\">单击<b id=\"uicontrol-7h2-nkr-sf0\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">查询日志</b>，系统将跳转至<span class=\"help-letter-space\"></span>LogStore<span class=\"help-letter-space\"></span>查询分析页面。</span></p>\n            <div class=\"itemgroup info\" data-tag=\"info\" id=\"info-mwn-ak3-ja6\">\n              <p id=\"848d04bba8i26\">您需要等待<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>分钟左右，待索引生效后，才能在<b id=\"wintitle-6d0-st7-62e\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">原始日志</b>页签中，查看已采集到的日志。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/quick-guide-to-query-and-analysis#task-tqc-ddm-gfb\" id=\"xref-388-hb7-yfx\" title=\"\" class=\"xref\">查询与分析快速指引</a>。</p>\n            </div>\n          </li>\n        </ol>\n      </section>\n      <section class=\"section\" data-tag=\"section\" id=\"section-84g-tdr-c4u\" data-type=\"section\" is-conref=\"true\">\n        <h2 data-tag=\"title\" id=\"title-0c3-h9m-ksv\" class=\"title\">问题排查</h2>\n        <p data-tag=\"p\" id=\"p-y9a-fo6-pwb\" class=\"p\">使用<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>采集日志后，如果预览页面或查询页面无数据，您可以参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/sls/what-do-i-do-if-errors-occur-when-i-use-logtail-to-collect-logs#LogService-user-guide-0083\" id=\"xref-4c9-o6j-ne9\" title=\"\" class=\"xref\">Logtail<span class=\"help-letter-space\"></span>采集日志失败的排查思路</a>进行排查。</p>\n      </section>\n      <section data-tag=\"postreq\" id=\"postreq-wzx-h9c-byp\" data-type=\"postreq\" class=\"postreq section\">\n        <h2 id=\"d41e338\">后续步骤</h2>\n        <div data-tag=\"p\" id=\"p-t5x-c7z-ezi\" class=\"p\">\n<p id=\"f5935f2f451o1\">采集<span class=\"help-letter-space\"></span>Windows<span class=\"help-letter-space\"></span>事件至日志服务后，您可以在日志服务控制台上查看日志。</p>\n          <pre data-tag=\"codeblock\" id=\"codeblock-3ee85f16eede\" code-type=\"xCode\" outputclass=\"language-text\" class=\"pre codeblock language-text\"><code>_source_: xxx\n__tag__:__client_ip__: xxx\n__tag__:__hostname__: xxx\n__tag__:__receive_time__: 1545292473\n__topic__:\nactivity_id: {085C7022-038B-40E4-BF0B-EB97C4337940}\ncomputer_name: xxx\nevent_data: {\"DCName\":\"\\\\\\\\HZ-FT-xxx\",\"ProcessingMode\":\"0\",\"ProcessingTimeInMilliseconds\":\"5812\",\"SupportInfo1\":\"1\",\"SupportInfo2\":\"4220\"}\nevent_id: 1501\nkernel_time: 0\nkeywords: []\nlevel: 信息\nlog_name: System\nmessage: 成功处理了此用户的组策略设置。自上一次成功处理了组策略后，没有检测到更改。\nmessage_error:\nopcode: 开始\nprocess_id: 248024\nprocessor_id: 0\nprocessor_time: 0\nprovider_guid: {AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9}\nrecord_number: 6908\nrelated_activity_id:\nsession_id: 0\nsource_name: Microsoft-Windows-GroupPolicy</code></pre>\n          <table id=\"table-g8v-6z5-k0b\" tablewidth=\"709\" tablecolswidth=\"177 532\" autofit=\"false\" class=\"table\">\n            <colgroup colwidth=\"0.5*\" style=\"width:24.96%\"></colgroup>\n            <colgroup colwidth=\"1.5*\" style=\"width:75.04%\"></colgroup>\n            <tbody class=\"tbody\">\n              <tr id=\"row-7te-mb0-wfo\">\n                <td id=\"concept-crk-h1k-ggb-entry-pyi-7ds-8wu\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"85bacbc80dmzj\"><b>字段名</b></p>\n                </td>\n                <td id=\"concept-crk-h1k-ggb-entry-t7k-oe7-g5r\" rowspan=\"1\" style=\"background-color:#e5e5e5\" colspan=\"1\">\n                  <p id=\"652910bfb3n97\"><b>说明</b></p>\n                </td>\n              </tr>\n              <tr id=\"row-ny4-g3q-0m4\">\n                <td id=\"entry-rj1-33u-r2g\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"415e1076f7u83\"><span data-tag=\"parmname\" id=\"parmname-qlk-veq-wic\" class=\"parmname\">activity_id</span></p>\n                </td>\n                <td id=\"entry-6ex-ilc-tu4\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"b95df421dey76\">当前事件所属活动的全局事务<span class=\"help-letter-space\"></span>ID，同一个活动的事件具有相同的全局事务<span class=\"help-letter-space\"></span>ID。</p>\n                </td>\n              </tr>\n              <tr id=\"row-vx8-xl1-m2m\">\n                <td id=\"entry-g3d-x04-3xn\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"10a1193a8fsem\"><span data-tag=\"parmname\" id=\"parmname-z4k-s7g-yl4\" class=\"parmname\">computer_name</span></p>\n                </td>\n                <td id=\"entry-5fc-3oz-80g\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"a1312b13ee76p\">产生当前事件的节点名。</p>\n                </td>\n              </tr>\n              <tr id=\"row-bv5-ry9-vgv\">\n                <td id=\"entry-9ve-kub-yqj\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"65c9c67abey0b\"><span data-tag=\"parmname\" id=\"parmname-207-749-rki\" class=\"parmname\">event_data</span></p>\n                </td>\n                <td id=\"entry-2kj-4ob-lp8\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"b0ff75cc9abee\">和当前事件相关的数据。</p>\n                </td>\n              </tr>\n              <tr id=\"row-5i6-mgr-frc\">\n                <td id=\"entry-qa4-7lo-jp5\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"3b8fa7b850axs\"><span data-tag=\"parmname\" id=\"parmname-l6q-5xk-vgs\" class=\"parmname\">event_id</span></p>\n                </td>\n                <td id=\"entry-w0i-9nv-uzf\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"fa666dffdcy8q\">当前事件的<span class=\"help-letter-space\"></span>ID。</p>\n                </td>\n              </tr>\n              <tr id=\"row-6vn-url-pou\">\n                <td id=\"entry-njh-d16-6t4\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"cbdeb396fe62s\"><span data-tag=\"parmname\" id=\"parmname-lzp-tcv-7cl\" class=\"parmname\">kernel_time</span></p>\n                </td>\n                <td id=\"entry-isx-bup-bpq\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"9951958c80ehj\">当前事件消耗的内核时间，一般为<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-omz-4ak-lhp\" class=\"parmname\">0</span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-fci-hgp-wkx\">\n                <td id=\"entry-vam-27t-qn7\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"82d62afbecboy\"><span data-tag=\"parmname\" id=\"parmname-rf7-a7z-hmj\" class=\"parmname\">keywords</span></p>\n                </td>\n                <td id=\"entry-bfp-6dh-gwo\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"d99eaa15d21zq\">当前事件关联的关键字，用于事件分类。</p>\n                </td>\n              </tr>\n              <tr id=\"row-uw0-41a-etw\">\n                <td id=\"entry-dgu-zvw-7ul\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"d6ad9304d754c\"><span data-tag=\"parmname\" id=\"parmname-kx3-0vi-qdi\" class=\"parmname\">level</span></p>\n                </td>\n                <td id=\"entry-wve-4mc-23j\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"8ed07affe8h0f\">当前事件的等级。</p>\n                </td>\n              </tr>\n              <tr id=\"row-qod-wpm-ox3\">\n                <td id=\"entry-i26-4q3-1d2\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"f65519f8f6vfe\"><span data-tag=\"parmname\" id=\"parmname-637-3ni-5xo\" class=\"parmname\">log_name</span></p>\n                </td>\n                <td id=\"entry-ryn-two-k3g\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"82c5be5fe8ozf\">当前事件的通道名，即<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>采集配置中<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-oqd-lpj-76d\" class=\"parmname\">Name</span><span class=\"help-letter-space\"></span>参数。</p>\n                </td>\n              </tr>\n              <tr id=\"row-6qi-8f5-v4x\">\n                <td id=\"entry-ay5-4f7-utt\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"722399733feg5\"><span data-tag=\"parmname\" id=\"parmname-0i6-f9d-gc8\" class=\"parmname\">message</span></p>\n                </td>\n                <td id=\"entry-2gy-y0u-sz7\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"b3d0c22d355k4\">当前事件关联的消息。</p>\n                </td>\n              </tr>\n              <tr id=\"row-nzo-n3r-ljb\">\n                <td id=\"entry-y4h-ie9-mqu\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"247e917550tly\"><span data-tag=\"parmname\" id=\"parmname-3rj-9i7-oty\" class=\"parmname\">message_error</span></p>\n                </td>\n                <td id=\"entry-mvk-kgr-q6s\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"91f9062b90cib\">在解析当前事件关联消息时发生的错误信息。</p>\n                </td>\n              </tr>\n              <tr id=\"row-doa-hpp-vu2\">\n                <td id=\"entry-8b2-45v-zvy\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"54b06bfeedtwp\"><span data-tag=\"parmname\" id=\"parmname-826-7ls-cz6\" class=\"parmname\">opcode</span></p>\n                </td>\n                <td id=\"entry-rna-u04-ij2\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"913a9f462dcyx\">当前事件关联的操作码。</p>\n                </td>\n              </tr>\n              <tr id=\"row-lx0-lip-c0m\">\n                <td id=\"entry-xfw-50a-cgy\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"6914b60b9f1tx\"><span data-tag=\"parmname\" id=\"parmname-zjf-jjy-dcp\" class=\"parmname\">process_id</span></p>\n                </td>\n                <td id=\"entry-mzz-gc1-e7d\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"7eb48ed26a8h0\">当前事件的进程<span class=\"help-letter-space\"></span>ID。</p>\n                </td>\n              </tr>\n              <tr id=\"row-ysm-4ee-3eh\">\n                <td id=\"entry-7ri-5d8-zpk\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"fc85aa7a40jdm\"><span data-tag=\"parmname\" id=\"parmname-q9w-g1b-b37\" class=\"parmname\">processor_id</span></p>\n                </td>\n                <td id=\"entry-zva-dhx-dl6\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"b25661d9deqpp\">当前事件对应的处理器<span class=\"help-letter-space\"></span>ID，一般为<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-tya-g7v-55a\" class=\"parmname\">0</span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-r04-0f8-vvu\">\n                <td id=\"entry-1t8-s08-v7m\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"bb8aaf567a25i\"><span data-tag=\"parmname\" id=\"parmname-9eg-y8i-l2a\" class=\"parmname\">processor_time</span></p>\n                </td>\n                <td id=\"entry-hdd-239-k7i\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"3a5aacf4a4ldh\">当前事件消耗的处理器时间，一般为<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-wsg-i8e-348\" class=\"parmname\">0</span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-jrs-rto-lb9\">\n                <td id=\"entry-7q2-ai4-6kg\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"c152653d75fcu\"><span data-tag=\"parmname\" id=\"parmname-rrt-hqu-lc8\" class=\"parmname\">provider_guid</span></p>\n                </td>\n                <td id=\"entry-jr5-i9b-a3j\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"d00d10f1613a9\">当前事件来源的全局事务<span class=\"help-letter-space\"></span>ID。</p>\n                </td>\n              </tr>\n              <tr id=\"row-tr5-7b9-mdi\">\n                <td id=\"entry-zg2-k78-1bj\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"d4060d8eabffx\"><span data-tag=\"parmname\" id=\"parmname-kd3-4bl-7gz\" class=\"parmname\">record_number</span></p>\n                </td>\n                <td id=\"entry-gxu-s1z-m7p\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"a2fa5be971ro5\">当前事件关联的记录编号。事件的记录编号会随着每条事件的写入递增，当超过<span class=\"help-letter-space\"></span>2 <sup>32</sup>（Event Logging）或<span class=\"help-letter-space\"></span>2 <sup>64</sup>（Windows Event Log）后会重新从<span class=\"help-letter-space\"></span>0<span class=\"help-letter-space\"></span>开始。</p>\n                </td>\n              </tr>\n              <tr id=\"row-ce2-gkz-rv8\">\n                <td id=\"entry-lyo-wap-58x\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"dd724593aa0pw\"><span data-tag=\"parmname\" id=\"parmname-nzp-o79-5pn\" class=\"parmname\">related_activity_id</span></p>\n                </td>\n                <td id=\"entry-d33-opu-f6j\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"f74e3cb0198xq\">当前事件所属活动关联的其他活动的全局事务<span class=\"help-letter-space\"></span>ID。</p>\n                </td>\n              </tr>\n              <tr id=\"row-0v1-9gz-yah\">\n                <td id=\"entry-ujp-v2m-q4s\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"9e44e53580aio\"><span data-tag=\"parmname\" id=\"parmname-xgg-rmw-y36\" class=\"parmname\">session_id</span></p>\n                </td>\n                <td id=\"entry-vuf-5ls-tuz\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"577476b5a8455\">当前事件的会话<span class=\"help-letter-space\"></span>ID，一般为<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-j21-j95-c2o\" class=\"parmname\">0</span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-0n8-w7p-5nj\">\n                <td id=\"entry-nix-s1n-e7y\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"39d38947cdsi0\"><span data-tag=\"parmname\" id=\"parmname-hel-i82-pme\" class=\"parmname\">source_name</span></p>\n                </td>\n                <td id=\"entry-c9b-4b2-nd3\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"301ec08acc3vc\">当前事件的来源，即<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>采集配置中<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-gyb-j4s-av6\" class=\"parmname\">Provider</span><span class=\"help-letter-space\"></span>参数。</p>\n                </td>\n              </tr>\n              <tr id=\"row-qyu-5hg-g25\">\n                <td id=\"entry-5pg-o6o-m1t\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"2a644f28e58fy\"><span data-tag=\"parmname\" id=\"parmname-kfl-ubf-dne\" class=\"parmname\">task</span></p>\n                </td>\n                <td id=\"entry-1lr-ygd-f82\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"8dcd28b750y5a\">当前事件关联的任务。</p>\n                </td>\n              </tr>\n              <tr id=\"row-lyb-wcz-6qo\">\n                <td id=\"entry-f2w-4lr-0b5\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"cb874c6646f4e\"><span data-tag=\"parmname\" id=\"parmname-c26-fzx-fqk\" class=\"parmname\">thread_id</span></p>\n                </td>\n                <td id=\"entry-1q4-nl5-r42\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"2945064027i0h\">当前事件的线程<span class=\"help-letter-space\"></span>ID。</p>\n                </td>\n              </tr>\n              <tr id=\"row-o3n-ixr-u6h\">\n                <td id=\"entry-qxp-j9e-1ke\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"1d7247fd168vl\"><span data-tag=\"parmname\" id=\"parmname-8mi-0h7-329\" class=\"parmname\">type</span></p>\n                </td>\n                <td id=\"entry-nrk-fx0-y41\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"193e41e06ftfe\">获取当前事件使用的<span class=\"help-letter-space\"></span>API。</p>\n                </td>\n              </tr>\n              <tr id=\"row-0e4-han-gzr\">\n                <td id=\"entry-m88-ba4-p58\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"d8eb68c4708f7\"><span data-tag=\"parmname\" id=\"parmname-444-xcb-06l\" class=\"parmname\">user_data</span></p>\n                </td>\n                <td id=\"entry-oip-3cm-4iv\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"5efd6568671o5\">当前事件关联的用户数据。</p>\n                </td>\n              </tr>\n              <tr id=\"row-gkh-tdt-3m5\">\n                <td id=\"entry-zce-897-cpf\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"0be7c22aa3jtm\"><span data-tag=\"parmname\" id=\"parmname-bpt-5zc-ull\" class=\"parmname\">user_domain</span></p>\n                </td>\n                <td id=\"entry-iti-fu7-rh1\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"e9e3c212f3rht\">当前事件关联的用户域。</p>\n                </td>\n              </tr>\n              <tr id=\"row-l32-cy6-cia\">\n                <td id=\"entry-gs8-elm-05r\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"fc89bccfcd8vk\"><span data-tag=\"parmname\" id=\"parmname-wuv-lan-xyi\" class=\"parmname\">user_identifier</span></p>\n                </td>\n                <td id=\"entry-l13-qzj-u79\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"8042d20a77o9f\">当前事件关联的用户<span class=\"help-letter-space\"></span>Windows<span class=\"help-letter-space\"></span>安全标识。</p>\n                </td>\n              </tr>\n              <tr id=\"row-170-h3h-jjm\">\n                <td id=\"entry-lz8-gj0-vh9\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"17e685c29fyuh\"><span data-tag=\"parmname\" id=\"parmname-twn-b1w-taq\" class=\"parmname\">user_name</span></p>\n                </td>\n                <td id=\"entry-xy2-3u6-jyg\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"2e890d17121mh\">当前事件关联的用户名。</p>\n                </td>\n              </tr>\n              <tr id=\"row-9yt-pdj-a78\">\n                <td id=\"entry-bao-6fa-9xn\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"540116e55cg2j\"><span data-tag=\"parmname\" id=\"parmname-w9x-dds-2rj\" class=\"parmname\">user_time</span></p>\n                </td>\n                <td id=\"entry-iw8-zy2-xdc\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"d2bb697403luv\">当前事件消耗的用户态时间，一般为<span class=\"help-letter-space\"></span><span data-tag=\"parmname\" id=\"parmname-phk-n8c-u05\" class=\"parmname\">0</span>。</p>\n                </td>\n              </tr>\n              <tr id=\"row-58u-eh0-x79\">\n                <td id=\"entry-roi-cw9-s3n\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"cfdb20fc43rmc\"><span data-tag=\"parmname\" id=\"parmname-hsu-bbq-n1s\" class=\"parmname\">user_type</span></p>\n                </td>\n                <td id=\"entry-kbh-8is-2m9\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"eb6e2651a9x54\">当前事件关联的用户的类型。</p>\n                </td>\n              </tr>\n              <tr id=\"row-224-s5c-t97\">\n                <td id=\"entry-obw-o60-kz1\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"e9c6cfc4adb4r\"><span data-tag=\"parmname\" id=\"parmname-phc-841-mxr\" class=\"parmname\">version</span></p>\n                </td>\n                <td id=\"entry-cmu-1xp-eld\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"3085a3eed21cd\">当前事件的版本号。</p>\n                </td>\n              </tr>\n              <tr id=\"row-laz-7yt-t83\">\n                <td id=\"entry-93q-d4a-as3\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"16a6877afceom\"><span data-tag=\"parmname\" id=\"parmname-e8r-85r-7nl\" class=\"parmname\">xml</span></p>\n                </td>\n                <td id=\"entry-bi0-024-pzf\" rowspan=\"1\" colspan=\"1\">\n                  <p id=\"1b54af3f54i9f\">当前事件最原始的信息，XML<span class=\"help-letter-space\"></span>格式。</p>\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </section>\n</div>\n  </main>\n\n\n\n</div>","path":"https://help.aliyun.com/zh/sls/collect-windows-event-logs","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"alias":"/sls/collect-windows-event-logs","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":6,"developerUrl":"https://developer.aliyun.com/group/sls/","nodeType":1,"version":26,"url":"/zh/sls/collect-windows-event-logs","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":101177,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"children":[{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"采集Windows事件日志","id":101177,"title":"采集Windows事件日志","url":"/zh/sls/collect-windows-event-logs"}],"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"事件数据采集（Event）","id":2843023,"title":"事件数据采集（Event）","url":"/zh/sls/acquisition-events-sls/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据采集","id":128134,"title":"数据采集","url":"/zh/sls/data-collection-1/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"productUrl":"https://www.aliyun.com/product/sls","nodeId":101177,"desc":"您可以通过Logtail插件采集Windows事件日志。本文介绍如何通过日志服务控制台创建Logtail配置采集Windows事件日志。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据采集","id":128134,"title":"数据采集","url":"/zh/sls/data-collection-1/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"事件数据采集（Event）","id":2843023,"title":"事件数据采集（Event）","url":"/zh/sls/acquisition-events-sls/"},{"emptyNode":false,"level":6,"validDocument":true,"headNavEnable":false,"docTitle":"采集Windows事件日志","id":101177,"title":"采集Windows事件日志","url":"/zh/sls/collect-windows-event-logs"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=2150468617825418025533452e673b&asid=AQAAAADqbT9qGtPWFAAAAABOeqVG9AiZBw==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2929180" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/start-using-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开始使用</span>
+</a>
+</li>
+ <li id="128096" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/resource-management/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">资源管理</span>
+</a>
+</li>
+ <li id="128134" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-collection-1/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据采集</span>
+</a>
+</li>
+ <li id="2842370" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-processing-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据处理</span>
+</a>
+</li>
+ <li id="270795" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-storage/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据存储</span>
+</a>
+</li>
+ <li id="128135" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/index-and-query/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">查询与分析</span>
+</a>
+</li>
+ <li id="2928734" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-monitoring/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据监控</span>
+</a>
+</li>
+ <li id="2928732" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-log-output-and-integration/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据输出与集成</span>
+</a>
+</li>
+ <li id="2928739" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-technical-solutions/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">技术解决方案</span>
+</a>
+</li>
+ <li id="154068" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2528763" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/security-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="169976" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/faq-15">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>采集Windows事件日志</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/sls" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="concept-crk-h1k-ggb">
+    
+    
+    <p id="shortdesc-lyx-hqy-gz1" data-tag="shortdesc" class="shortdesc">您可以通过<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>插件采集<span class="help-letter-space"></span>Windows<span class="help-letter-space"></span>事件日志。本文介绍如何通过日志服务控制台创建<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>配置采集<span class="help-letter-space"></span>Windows<span class="help-letter-space"></span>事件日志。</p>
+    <div data-tag="taskbody" id="taskbody-o5g-etp-yu7" class="taskbody">
+      <section data-tag="prereq" id="prereq-e7d-fed-ovr" data-type="prereq" class="section prereq">
+        <h2 id="d41e14">前提条件</h2>
+        <ul data-tag="ul" id="ul-kws-8g5-2kp" class="ul">
+          <li data-tag="li" id="li-69f-7i7-gpr" class="li">
+            <p id="c8d29eea7dfp4">已在服务器上安装<span class="help-letter-space"></span>Windows Logtail 1.0.0.0<span class="help-letter-space"></span>及以上版本。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/install-logtail-on-a-windows-server#concept-j22-xnv-vdb" id="xref-t0o-4tn-pu5" title="" class="xref">安装<span class="help-letter-space"></span>Logtail（Windows<span class="help-letter-space"></span>系统）</a>。</p>
+          </li>
+          <li data-tag="li" id="li-kbz-yk5-uz3" is-conref="true" class="li">
+            <p id="523c4e0c166vh">目标服务器持续产生日志。</p>
+            <div data-tag="note" id="note-y0m-nfs-stp" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+              <p id="3d665ffc56q0a">Logtail<span class="help-letter-space"></span>只采集增量日志。如果下发<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>配置后，日志文件无更新，则<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>不会采集该文件中的日志。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/log-collection-process-of-logtail#section-u34-x5s-cfb" id="xref-elc-8om-8jn" title="" class="xref">读取日志</a>。</p>
+            </div></div>
+          </li>
+        </ul>
+      </section>
+      <section data-tag="section" id="section-cyl-n1k-ggb" data-type="section" class="section">
+        <h2 data-tag="title" id="title-4o6-6k1-b2f" class="title">原理</h2>
+        <p data-tag="p" id="p-q8f-0sw-5ux" class="p">对于事件日志，Windows<span class="help-letter-space"></span>提供了<span class="help-letter-space"></span><a href="https://docs.microsoft.com/en-us/windows/desktop/wes/windows-event-log" id="xref-mtx-qee-j6k" class="" target="_blank">Windows Event Log</a><span class="help-letter-space"></span>和<span class="help-letter-space"></span><a href="https://docs.microsoft.com/en-us/windows/desktop/EventLog/event-logging" id="xref-5d2-4su-7zl" class="" target="_blank">Event Logging</a><span class="help-letter-space"></span>两套<span class="help-letter-space"></span>API，前者是后者的升级，仅在<span class="help-letter-space"></span>Windows Vista<span class="help-letter-space"></span>及以上的版本中提供。Logtail<span class="help-letter-space"></span>插件会根据所运行的系统，自动选择<span class="help-letter-space"></span>API（优先选择<span class="help-letter-space"></span>Windows Event Log）来获取<span class="help-letter-space"></span>Windows<span class="help-letter-space"></span>事件日志。</p>
+        <p data-tag="p" id="p-186-404-neu" class="p">Windows<span class="help-letter-space"></span>事件日志采用发布订阅的模式，应用程序或者内核将事件日志发布到指定的通道（例如<span class="help-letter-space"></span>Application、Security、System），Logtail<span class="help-letter-space"></span>通过对应的<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>插件调用<span class="help-letter-space"></span>Windows API，实现对这些通道的订阅，从而不断地获取相关的事件日志并发送到日志服务。</p>
+        <p data-tag="p" id="p-60g-61l-v3d" class="p">Logtail<span class="help-letter-space"></span>支持同时采集多个通道事件，例如同时采集应用程序和系统日志。</p>
+        <p id="a57c83ef9bcs1"><img data-tag="image" id="image-mpi-r2g-9ty" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/1530559951/p35294.png" width="720" alt="实现原理" placement="break" class="image break"></p>
+      </section>
+      <section data-tag="section" id="section-nnm-pck-ggb" data-type="section" class="section">
+        <h2 data-tag="title" id="title-db2-5m7-35r" class="title">查看通道信息</h2>
+        <p data-tag="p" id="p-8aj-caq-lmy" class="p">您可以在<span class="help-letter-space"></span>Windows<span class="help-letter-space"></span>服务器的<b id="uicontrol-hxb-yaq-s1r">事件查看器</b>中查看通道信息。</p>
+        <ol data-tag="steps" id="steps-4fd-wra-z4l" class="steps">
+          <li data-tag="step" id="step-vs0-rn2-lvu" class="step">
+            <p id="64f76ede84r2d"><span data-tag="cmd" id="cmd-eud-7gm-8jr" class="cmd">单击<b id="uicontrol-bqv-81t-gsq" data-tag="uicontrol" data-isbold="true" class="uicontrol">开始</b>。</span></p>
+          </li>
+          <li data-tag="step" id="step-dy8-qci-lxr" class="step">
+            <p id="b96d0fdd99eh3"><span data-tag="cmd" id="cmd-lc5-251-juq" class="cmd">搜索并打开<b id="uicontrol-g4l-g3l-1fh">事件查看器</b>。</span></p>
+          </li>
+          <li data-tag="step" id="step-5x3-kf5-5xt" class="step">
+            <p id="ae62109764vcz"><span data-tag="cmd" id="cmd-jtv-hpx-8fk" class="cmd">在左侧导航栏中展开<span class="help-letter-space"></span><b id="uicontrol-xj5-cgo-1pm">Windows 日志</b>或<b id="755f3e6d3ao70">应用程序和服务日志</b>。</span></p>
+          </li>
+          <li data-tag="step" id="step-8v9-z3s-6qy" class="step">
+            <p id="5c49bd74d42va"><span data-tag="cmd" id="cmd-63d-7yb-i0p" class="cmd">查看通道的全名与通道相关信息。</span></p>
+            <section id="a50cd63fa5720" data-tag="tabbed-content-box" outputclass="tabbed-content-box" class="tabbed-content-box section">
+              <section id="99f34b5f74emn" class="section">
+                <h4 id="c636ff00e9g29"><b>Windows<span class="help-letter-space"></span>日志</b></h4>
+                <ul id="6bcdfca827eo1">
+                  <li id="1edbd96343huz">
+                    <p id="35ed4862bfnb6">在<span class="help-letter-space"></span><b id="uicontrol-6q8-qgy-flx">Windows<span class="help-letter-space"></span>日志</b>下，选择目标通道，右键单击<b data-tag="uicontrol" id="uicontrol-lcr-c6z-3qu" class="uicontrol">属性</b>，查看通道全名，包括： </p>
+                    <ul id="a8fffce047lpu">
+                      <li data-tag="li" id="d7ea604612bnp" class="li">
+                        <p id="1b3c917d7byl3">应用程序：Application</p>
+                      </li>
+                      <li data-tag="li" id="5a91189ce0qq3" class="li">
+                        <p id="5a935145132sk">安全：Security</p>
+                      </li>
+                      <li data-tag="li" id="af1fd6ab13kml" class="li">
+                        <p id="68563b4bf5j06">Setup：Setup</p>
+                      </li>
+                      <li data-tag="li" id="5ef978d0edrb0" class="li">
+                        <p id="e6db96cd10ug3">系统：System</p>
+                      </li>
+                    </ul>
+                  </li>
+                  <li id="c33558df71xs4">
+                    <p id="03c0b9cadecil">在<span class="help-letter-space"></span><b id="uicontrol-swk-rp8-0xm">Windows<span class="help-letter-space"></span>日志</b>下，单击目标通道，在页面中间区域查看事件的级别、日期和时间、来源和事件<span class="help-letter-space"></span>ID<span class="help-letter-space"></span>等信息。 </p>
+                    <p data-tag="p" id="5d413a4076z5p" class="p">在<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>配置中，您可根据这些信息进行日志过滤。</p>
+                  </li>
+                </ul>
+              </section>
+              <section id="0f6ded83a2ewz" class="section">
+                <h4 id="6b730ffda9dt6">应用程序和服务日志</h4>
+                <ul id="d4cc116a6bj6i">
+                  <li id="5489810143kgr">
+                    <p id="58c0f38514opd">在<b id="6b3347ac6eapz">应用程序和服务日志</b>下，选择目标通道，右键单击<b data-tag="uicontrol" id="35fecaacb7w0n" data-init-id="uicontrol_lcr_c6z_3qu" class="uicontrol">属性</b>，查看通道全名，例如： </p>
+                    <ul id="6c156e44ef2lw">
+                      <li data-tag="li" id="273772a567fka" class="li">
+                        <p id="467f76dcd0mb4">获取<span class="help-letter-space"></span>TerminalServices-LocalSessionManager/Operational<span class="help-letter-space"></span>的通道名。</p>
+                      </li>
+                      <li id="c85dfa6e8fvd1">
+                        <p id="73e2971deb5kz">获取<span class="help-letter-space"></span>PowerShell/Operational<span class="help-letter-space"></span>的通道名。</p>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </section>
+            </section>
+          </li>
+        </ol>
+      </section>
+      <section data-tag="section" id="section-bvn-wxk-ggb" data-type="section" class="section">
+        <h2 data-tag="title" id="title-n29-mup-3jy" class="title">采集步骤</h2>
+        <ol data-tag="steps" id="steps-3jx-i56-e1b" class="steps">
+          <li data-tag="step" id="step-ysi-d9y-rq6" is-conref="true" class="step"><p id="6a7cc970501ga"><span data-tag="ph" id="ph-q0d-de9-ecs" class="ph">登录<span data-tag="ph" id="ph-i3r-pp7-fzx" props="china intl" data-cond-props="china intl" class="ph"><a href="https://sls.console.aliyun.com" id="xref-ivv-0k8-uct" class="" target="_blank">日志服务控制台</a></span>。</span></p></li>
+          <li data-tag="step" id="step-fdl-y0r-g27" class="step">
+            <p id="3d5f7fdfcew46"><span data-tag="cmd" id="cmd-v9g-27r-s5u" class="cmd">在<b id="wintitle-zsm-ngi-vrf" data-tag="uicontrol" data-isbold="true" class="uicontrol">接入数据</b>区域，单击<span class="help-letter-space"></span><b id="uicontrol-6yr-ebi-0rl" data-tag="uicontrol" data-isbold="true" class="uicontrol">Windows 事件日志</b>。</span></p>
+          </li>
+          <li data-tag="step" id="step-ktb-a91-kfz" is-conref="true" class="step">
+            <p id="f6044645e67ik"><span data-tag="cmd" id="cmd-m5z-93e-z6x" class="cmd">选择目标<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>和<span class="help-letter-space"></span>LogStore，单击<b id="uicontrol-hbj-atr-rmz" data-tag="uicontrol" data-isbold="true" class="uicontrol">下一步</b>。</span></p>
+          </li>
+          <li data-tag="step" id="32633b44c77du" docid="4537680" is-conref="true" class="step"><p id="61904d6069wir">在<b data-tag="uicontrol" id="7c5e58f06dhs6" class="uicontrol">机器组配置</b>页面，配置机器组。</p><ol id="52f9407e93mdw"><li id="6327a379fepb1"><p id="2b49b0058btul">根据实际需求，选择使用场景和安装环境。</p><div id="eaf448af90dxi" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong><p id="68af2ac913dy9">无论是否已有机器组，都必须根据实际需求正确选择使用场景和安装环境，这将影响后续的页面配置。</p></div></div></li><li id="86dc6816ffb3f"><p id="6b90deaf0e48g">确认目标机器组已在<b data-tag="uicontrol" id="uicontrol-xdq-r2n-ot4" class="uicontrol">应用机器组</b>区域，单击<b data-tag="uicontrol" id="uicontrol-eyk-3gx-5qm" class="uicontrol">下一步</b>。</p><section id="ef608e13b97zx" outputclass="tabbed-content-box" data-tag="tabbed-content-box" class="tabbed-content-box section"><section id="2c48082d5fe09" class="section"><h3 id="05cc31da119jp"><b>已有机器组</b></h3><p id="a646a625a3rzr">从<b data-tag="uicontrol" id="b95c830577j6m" class="uicontrol">源机器组</b>列表选择目标机器组。</p><p id="689367e7bb781"><img id="b08659c4dcq10" src="https://help-static-aliyun-doc.aliyuncs.com/assets/img/zh-CN/9040119071/p769795.png" alt="image" placement="break" width="288" height="195" class="image break"></p></section><section id="02edd76345kot" class="section"><h3 id="7720e23c2f9ew"><b>没有可用机器组</b></h3><p id="d1238073b0dtg">单击<b data-tag="uicontrol" id="ce1b334419cc8" class="uicontrol">创建机器组</b>，在<b data-tag="uicontrol" id="b2d021a7a5ty5" class="uicontrol">创建机器组</b>面板设置相关参数。机器组标识分为<span class="help-letter-space"></span><b data-tag="uicontrol" id="f7d5ca955ch2o" class="uicontrol">IP<span class="help-letter-space"></span>地址</b>和<b data-tag="uicontrol" id="23e5073b6fl6q" class="uicontrol">用户自定义标识</b>，更多信息请参见<a href="https://help.aliyun.com/zh/sls/create-a-user-defined-identity-machine-group" id="3c81832178han" title="" class="xref">创建用户自定义标识机器组（推荐）</a>或<a href="https://help.aliyun.com/zh/sls/create-an-ip-address-based-machine-group" id="30e99cf97bnq5" title="" class="xref">创建<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址机器组</a>。</p><div type="important" id="913a05b38at41" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong><p id="be17d407a9cap">创建机器组后立刻应用，可能因为连接未生效，导致心跳为<span class="help-letter-space"></span><b data-tag="uicontrol" id="uicontrol-ktf-pym-6j3" class="uicontrol">FAIL</b>，您可单击<b data-tag="uicontrol" id="uicontrol-qam-k54-f8l" class="uicontrol">自动重试</b>。如果还未解决，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/sls/troubleshoot-the-errors-related-to-logtail-machine-groups#concept-nfs-hs3-bfb" id="d04c310a24jsi" title="" class="xref">Logtail<span class="help-letter-space"></span>机器组无心跳</a>进行排查。</p></div></div></section></section></li></ol></li>
+          <li data-tag="step" id="step-jie-fn2-l8a" class="step">
+            <p id="66c6858c8e7yt"><span data-tag="cmd" id="cmd-atj-3b6-lyr" class="cmd">在<b id="wintitle-y5s-naj-lzc" data-tag="uicontrol" data-isbold="true" class="uicontrol">数据源设置</b>页签中，设置<b id="uicontrol-wbj-qa2-yvx" data-tag="uicontrol" data-isbold="true" class="uicontrol">配置名称</b>和<b id="uicontrol-m3v-hms-gdb" data-tag="uicontrol" data-isbold="true" class="uicontrol">插件配置</b>，然后单击<b id="uicontrol-mbt-5xr-czu" data-tag="uicontrol" data-isbold="true" class="uicontrol">下一步</b>。</span></p>
+            <div data-tag="info" id="info-gk1-shn-8vs" class="info">
+              <ul data-tag="ul" id="ul-hxc-8zu-2jy" is-conref="true" class="ul">
+<li data-tag="li" id="li-2kp-xz0-koy" class="li">
+<p id="e981ab616b9bf"><span data-tag="parmname" id="parmname-8t9-vgy-gx3" class="parmname">inputs</span><span class="help-letter-space"></span>为数据源配置，必选项。 </p>
+<div data-tag="note" id="note-bd7-b23-f71" type="important" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong>
+<p id="e981ab626b3bd">一个<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-yp5-88z-thb" class="parmname">inputs</span><span class="help-letter-space"></span>中只允许配置一个类型的数据源。</p>
+</div></div>
+</li>
+<li data-tag="li" id="li-zdr-fmc-vn2" class="li">
+<p id="e981ab636bgbe"><span data-tag="parmname" id="parmname-fp7-e0d-7iz" class="parmname">processors</span><span class="help-letter-space"></span>为处理配置，用于解析数据。可选项，您可以配置一种或多种处理方式。</p>
+<p data-tag="p" id="p-kj1-c52-5mq" class="p">如果当前的<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-3sg-tc7-yp2" class="parmname">inputs</span><span class="help-letter-space"></span>配置无法满足日志解析需求，您可以在<b id="wintitle-o37-xuo-r90">插件配置</b>中添加<span class="help-letter-space"></span>processors<span class="help-letter-space"></span>配置，即添加<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>插件处理数据。例如提取字段、提取日志时间、脱敏数据、过滤日志等。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/overview-22/#concept-hy3-nyc-wdb" id="xref-fzn-ews-zfm" title="" class="xref">使用<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>插件处理数据</a>。</p>
+</li>
+</ul>
+              <div data-tag="p" id="p-7ue-d6z-7kh" class="p">
+                <p id="005aaccfd8ub8">例如您要采集<b id="uicontrol-dpk-ac2-1vn">应用程序</b>、<b data-tag="uicontrol" id="uicontrol-9ap-5r4-1yk" class="uicontrol">系统</b>、TerminalServices-LocalSessionManager/Operational<span class="help-letter-space"></span>等通道对应的日志，则可以在<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-092-io0-ifn" class="parmname">inputs</span><span class="help-letter-space"></span>中添加如下示例。</p><pre data-tag="codeblock" id="codeblock-ekf-v6a-q8a" outputclass="language-plaintext" code-type="xCode" class="pre codeblock language-plaintext"><code>{
+    "inputs": [
+        {
+            "type": "service_wineventlog",
+            "detail": {
+                "Name": "Application",
+                "IgnoreOlder": 259200
+            }
+        },
+        {
+            "type": "service_wineventlog",
+            "detail": {
+                "Name": "System",
+                "IgnoreOlder": 259200
+            }
+        },
+        {
+            "type": "service_wineventlog",
+            "detail": {
+                "Name": "Microsoft-Windows-TerminalServices-LocalSessionManager/Operational",
+                "IgnoreOlder": 259200
+            }
+        }      
+    ]
+}</code></pre>
+                <table id="table-loi-n2f-mwv" tablewidth="709" tablecolswidth="118 118 118 355" autofit="false" class="table">
+                  <colgroup colwidth="0.67*" style="width:16.64%"></colgroup>
+                  <colgroup colwidth="0.67*" style="width:16.64%"></colgroup>
+                  <colgroup colwidth="0.67*" style="width:16.64%"></colgroup>
+                  <colgroup colwidth="2.01*" style="width:50.07%"></colgroup>
+                  <tbody class="tbody">
+                    <tr id="row-1cq-u6u-t3n">
+                      <td id="concept-crk-h1k-ggb-entry-a3n-ifz-cup" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                        <p id="f10696234ew08"><b>参数</b></p>
+                      </td>
+                      <td id="concept-crk-h1k-ggb-entry-2qn-1op-j58" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                        <p id="3d72e66546ola"><b>类型</b></p>
+                      </td>
+                      <td id="concept-crk-h1k-ggb-entry-bkv-nt4-mtu" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                        <p id="df24533d1ccke"><b>是否必选</b></p>
+                      </td>
+                      <td id="concept-crk-h1k-ggb-entry-h8a-v18-q0c" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                        <p id="fd3f47f24178k"><b>说明</b></p>
+                      </td>
+                    </tr>
+                    <tr id="row-gx6-7pv-dwz">
+                      <td id="entry-lbu-hcd-js2" rowspan="1" colspan="1">
+                        <p id="edb51f6001ozs"><span data-tag="parmname" id="parmname-m7s-izl-elx" class="parmname">type</span></p>
+                      </td>
+                      <td id="entry-6th-bqf-81i" rowspan="1" colspan="1">
+                        <p id="70a6ced79df5z">String</p>
+                      </td>
+                      <td id="entry-pk3-0rc-9kj" rowspan="1" colspan="1">
+                        <p id="0ff8a06e99phf">是</p>
+                      </td>
+                      <td id="entry-wjd-lv0-949" rowspan="1" colspan="1">
+                        <p id="2cd018abf0pk8">数据源类型，固定为<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-lb2-7xq-910" class="parmname">service_wineventlog</span>。</p>
+                      </td>
+                    </tr>
+                    <tr id="row-t7i-a27-dlp">
+                      <td id="entry-qp3-owb-jih" rowspan="1" colspan="1">
+                        <p id="efba462d9a95k"><span data-tag="parmname" id="parmname-av9-csw-a92" class="parmname">Name</span></p>
+                      </td>
+                      <td id="entry-o3j-hrr-cw9" rowspan="1" colspan="1">
+                        <p id="fb8da0923bu1e">String</p>
+                      </td>
+                      <td id="entry-9j8-1ax-f4l" rowspan="1" colspan="1">
+                        <p id="baf354d0f1ieh">是</p>
+                      </td>
+                      <td id="entry-39f-k2b-tun" rowspan="1" colspan="1">
+                        <p id="edb82689d2uz3">待采集事件日志所属的通道名称。不配置时，默认为<span class="help-letter-space"></span>Application，表示采集<b id="uicontrol-ru0-tqg-xn4">应用程序</b>通道中的事件日志。您可以在<span class="help-letter-space"></span>Windows<span class="help-letter-space"></span>系统中查看通道全名。更多信息，请参见<a href="#step-8v9-z3s-6qy" id="xref-g0h-0iv-gsl" title="" class="xref">步骤<span class="help-letter-space"></span>4</a>。</p>
+                      </td>
+                    </tr>
+                    <tr id="row-r78-4oo-6c1">
+                      <td id="entry-v3x-nxk-653" rowspan="1" colspan="1">
+                        <p id="9e5b30f4c7c58"><span data-tag="parmname" id="parmname-n74-3rt-e6g" class="parmname">IgnoreOlder</span></p>
+                      </td>
+                      <td id="entry-v26-774-kig" rowspan="1" colspan="1">
+                        <p id="d91cabc895xs4">UINT</p>
+                      </td>
+                      <td id="entry-fau-0wx-vv0" rowspan="1" colspan="1">
+                        <p id="2ac91b0bb08el">否</p>
+                      </td>
+                      <td id="entry-gxo-7ni-p6j" rowspan="1" colspan="1">
+                        <p id="9b98093e5ar3t">根据事件时间过滤日志，此配置是相对于采集开始时间的偏移量，单位为秒，早于此设置的日志会被忽略。 例如： </p>
+                        <ul data-tag="ul" id="ul-1bm-jtq-tkf" class="ul">
+                          <li data-tag="li" id="li-zsl-zvk-21y" class="li">
+                            <p id="e96cc41bd3lvh">设置为<span class="help-letter-space"></span>3600，表示相对于采集开始时间一小时前的日志都会被忽略。</p>
+                          </li>
+                          <li data-tag="li" id="li-99a-6jx-18n" class="li">
+                            <p id="8a410ff69f1vc">设置为<span class="help-letter-space"></span>14400，表示相对于采集开始时间四小时前的日志都会被忽略。</p>
+                          </li>
+                        </ul>
+                        <p data-tag="p" id="p-j22-hom-9ax" class="p">默认为空，表示不根据事件时间进行过滤，采集服务器上所有的历史事件日志。</p>
+                        <div data-tag="note" id="note-dts-12a-6t4" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                          <p id="4b9a5701a6r7k">该选项仅在首次配置采集时生效，Logtail<span class="help-letter-space"></span>会记录事件采集的<span class="help-letter-space"></span>Checkpoint，保证不会重复采集事件日志。</p>
+                        </div></div>
+                      </td>
+                    </tr>
+                    <tr id="row-k9h-jjr-ay5">
+                      <td id="entry-rvn-m8a-154" rowspan="1" colspan="1">
+                        <p id="44454ce27buc6"><span data-tag="parmname" id="parmname-tt7-3ui-qlo" class="parmname">Level</span></p>
+                      </td>
+                      <td id="entry-0u7-vex-tg6" rowspan="1" colspan="1">
+                        <p id="6b5394e26csns">String</p>
+                      </td>
+                      <td id="entry-a4b-yc7-dj0" rowspan="1" colspan="1">
+                        <p id="5f8ff8c5f0m2t">否</p>
+                      </td>
+                      <td id="entry-85o-4qw-emm" rowspan="1" colspan="1">
+                        <p id="6256fce743urc">根据事件等级过滤日志，默认值为<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-i3b-x7o-vx1" class="parmname">information, warning, error, critical</span>，表示采集除了<span class="help-letter-space"></span>verbose<span class="help-letter-space"></span>等级外的其他所有日志。 可选值包括：information、warning、error、critical、verbose。您可以使用半角逗号（,）指定多个等级。 </p>
+                        <div data-tag="note" id="note-u2m-6vo-qjv" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                          <p id="1df3e69ee166w">该参数仅支持<span class="help-letter-space"></span>Windows Event Log API，即只能在<span class="help-letter-space"></span>Windows Vista<span class="help-letter-space"></span>及以上的操作系统上使用。</p>
+                        </div></div>
+                      </td>
+                    </tr>
+                    <tr id="row-3q0-1k4-1ee">
+                      <td id="entry-p3j-qo0-qnu" rowspan="1" colspan="1">
+                        <p id="abd5a58788ofl"><span data-tag="parmname" id="parmname-h3m-d29-02k" class="parmname">EventID</span></p>
+                      </td>
+                      <td id="entry-84p-9k6-wsg" rowspan="1" colspan="1">
+                        <p id="e945b90f914ou">String</p>
+                      </td>
+                      <td id="entry-i1y-hy8-imh" rowspan="1" colspan="1">
+                        <p id="4808334015vqs">否</p>
+                      </td>
+                      <td id="entry-ur7-mz2-9e5" rowspan="1" colspan="1">
+                        <p id="3eed5bd790b0n">根据事件<span class="help-letter-space"></span>ID<span class="help-letter-space"></span>过滤日志，可以指定正向过滤（单个或范围）或者反向过滤（不支持范围设置）。默认为空，表示采集所有事件。例如： </p>
+                        <ul data-tag="ul" id="ul-ofv-bl4-2kx" class="ul">
+                          <li data-tag="li" id="li-zo3-ykd-z9n" class="li">
+                            <p id="a922739291j2k"><span data-tag="parmname" id="parmname-f3j-v7c-4pt" class="parmname">1-200</span><span class="help-letter-space"></span>表示只采集事件<span class="help-letter-space"></span>ID<span class="help-letter-space"></span>在<span class="help-letter-space"></span>1-200<span class="help-letter-space"></span>范围内的事件日志。</p>
+                          </li>
+                          <li data-tag="li" id="li-62e-znu-15n" class="li">
+                            <p id="4f9a0abfc2sj5"><span data-tag="parmname" id="parmname-usn-ro7-w6z" class="parmname">20</span><span class="help-letter-space"></span>表示只采集事件<span class="help-letter-space"></span>ID<span class="help-letter-space"></span>为<span class="help-letter-space"></span>20<span class="help-letter-space"></span>的事件日志。</p>
+                          </li>
+                          <li data-tag="li" id="li-btk-9qw-q0w" class="li">
+                            <p id="17b091bf16cvo"><span data-tag="parmname" id="parmname-qg8-qx7-s8c" class="parmname">-100</span><span class="help-letter-space"></span>表示采集除了事件<span class="help-letter-space"></span>ID<span class="help-letter-space"></span>为<span class="help-letter-space"></span>100<span class="help-letter-space"></span>以外的所有事件日志。</p>
+                          </li>
+                          <li data-tag="li" id="li-ngc-828-3dg" class="li">
+                            <p id="37e29a4097rve"><span data-tag="parmname" id="parmname-2f1-7o0-fa2" class="parmname">1-200,-100</span><span class="help-letter-space"></span>表示采集<span class="help-letter-space"></span>1-200<span class="help-letter-space"></span>范围内除了<span class="help-letter-space"></span>100<span class="help-letter-space"></span>以外的事件日志。</p>
+                          </li>
+                        </ul>
+                        <p data-tag="p" id="p-sws-80f-8xc" class="p">您可以使用半角逗号（,）指定多个值。 </p>
+                        <div data-tag="note" id="note-t8g-jba-nx7" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                          <p id="458c2291b6xoc">该参数仅支持<span class="help-letter-space"></span>Windows Event Log API，即只能在<span class="help-letter-space"></span>Windows Vista<span class="help-letter-space"></span>及以上的操作系统上使用。</p>
+                        </div></div>
+                      </td>
+                    </tr>
+                    <tr id="row-050-16q-oec">
+                      <td id="entry-6ie-vnb-tl3" rowspan="1" colspan="1">
+                        <p id="87b4197e4e0b6"><span data-tag="parmname" id="parmname-agw-80e-21i" class="parmname">Provider</span></p>
+                      </td>
+                      <td id="entry-21n-rhb-xvl" rowspan="1" colspan="1">
+                        <p id="1d81a21526u8t">String<span class="help-letter-space"></span>数组</p>
+                      </td>
+                      <td id="entry-s36-bmq-6ko" rowspan="1" colspan="1">
+                        <p id="76d83e17da5i5">否</p>
+                      </td>
+                      <td id="entry-0g3-fqe-oa8" rowspan="1" colspan="1">
+                        <p id="fec3c4b31bn29">根据事件来源过滤日志。例如设置为<span data-tag="parmname" id="parmname-kav-8hr-t08" class="parmname">["App1", "App2"] </span>表示只采集来源名字为<span class="help-letter-space"></span>App1<span class="help-letter-space"></span>和<span class="help-letter-space"></span>App2<span class="help-letter-space"></span>的事件日志，其他事件日志都会被忽略。 </p>
+                        <p data-tag="p" id="p-e53-0tn-1eb" class="p">默认为空，表示采集所有来源的事件。</p>
+                        <div data-tag="note" id="note-dcl-8r0-h2q" is-conref="true" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                          <p id="1df3e69ee166w">该参数仅支持<span class="help-letter-space"></span>Windows Event Log API，即只能在<span class="help-letter-space"></span>Windows Vista<span class="help-letter-space"></span>及以上的操作系统上使用。</p>
+                        </div></div>
+                      </td>
+                    </tr>
+                    <tr id="row-93q-i42-smn">
+                      <td id="entry-g7s-g4f-lqb" rowspan="1" colspan="1">
+                        <p id="0df9cd84c1kvq"><span data-tag="parmname" id="parmname-fxx-gph-ab3" class="parmname">IgnoreZeroValue</span></p>
+                      </td>
+                      <td id="entry-7xv-4uu-f5u" rowspan="1" colspan="1">
+                        <p id="68938e49d2jnx">Boolean</p>
+                      </td>
+                      <td id="entry-vfu-zhq-y72" rowspan="1" colspan="1">
+                        <p id="171eeccec3kgf">否</p>
+                      </td>
+                      <td id="entry-cac-s11-f51" rowspan="1" colspan="1">
+                        <p id="555f5179d3bkt">并非每条事件日志都拥有所有的字段，您可以使用此参数过滤空字段，空字段的定义根据类型而定，例如整数类型使用<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-538-43h-y0l" class="parmname">0</span><span class="help-letter-space"></span>表示空字段。 </p>
+                        <p data-tag="p" id="p-poy-t5f-kdt" class="p">默认为<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-ne6-4zl-13x" class="parmname">false</span>，表示不过滤空字段。</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </li>
+          <li id="55450aea17uto" docid="4537680" is-conref="true"><p id="e97b73306byq3">创建索引和预览数据，然后单击<b data-tag="uicontrol" id="uicontrol-z6i-qm8-6d4" class="uicontrol ph">下一步</b>。日志服务默认开启全文索引。您也可以根据采集到的日志，手动创建字段索引，或者单击<b data-tag="uicontrol" id="uicontrol-djz-h5q-iwv" class="uicontrol ph">自动生成索引</b>，日志服务将自动生成字段索引。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/create-indexes#task-jqz-v55-cfb" id="f535077c051jv" title="" class="xref">创建索引</a>。</p><div id="info-8z5-fix-wsq" data-tag="info" class="itemgroup info"><div type="important" id="2aab12706bft5" class="note note-important"><div class="note-icon-wrapper"><i class="icon-note note important"></i></div><div class="noteContentSpan"><strong>重要 </strong><p id="29e379a3641qh">如果需要查询日志中的所有字段，建议使用全文索引。如果只需查询部分字段、建议使用字段索引，减少索引流量。如果需要对字段进行分析（SELECT<span class="help-letter-space"></span>语句），必须创建字段索引。</p></div></div></div></li>
+          <li data-tag="step" id="step-dz9-fw2-6a5" is-conref="true" class="step">
+            <p id="177e76fe83jg7"><span data-tag="cmd" id="cmd-494-4s1-b0x" class="cmd">单击<b id="uicontrol-7h2-nkr-sf0" data-tag="uicontrol" data-isbold="true" class="uicontrol">查询日志</b>，系统将跳转至<span class="help-letter-space"></span>LogStore<span class="help-letter-space"></span>查询分析页面。</span></p>
+            <div class="itemgroup info" data-tag="info" id="info-mwn-ak3-ja6">
+              <p id="848d04bba8i26">您需要等待<span class="help-letter-space"></span>1<span class="help-letter-space"></span>分钟左右，待索引生效后，才能在<b id="wintitle-6d0-st7-62e" data-tag="uicontrol" data-isbold="true" class="uicontrol">原始日志</b>页签中，查看已采集到的日志。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/quick-guide-to-query-and-analysis#task-tqc-ddm-gfb" id="xref-388-hb7-yfx" title="" class="xref">查询与分析快速指引</a>。</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+      <section class="section" data-tag="section" id="section-84g-tdr-c4u" data-type="section" is-conref="true">
+        <h2 data-tag="title" id="title-0c3-h9m-ksv" class="title">问题排查</h2>
+        <p data-tag="p" id="p-y9a-fo6-pwb" class="p">使用<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>采集日志后，如果预览页面或查询页面无数据，您可以参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/sls/what-do-i-do-if-errors-occur-when-i-use-logtail-to-collect-logs#LogService-user-guide-0083" id="xref-4c9-o6j-ne9" title="" class="xref">Logtail<span class="help-letter-space"></span>采集日志失败的排查思路</a>进行排查。</p>
+      </section>
+      <section data-tag="postreq" id="postreq-wzx-h9c-byp" data-type="postreq" class="postreq section">
+        <h2 id="d41e338">后续步骤</h2>
+        <div data-tag="p" id="p-t5x-c7z-ezi" class="p">
+<p id="f5935f2f451o1">采集<span class="help-letter-space"></span>Windows<span class="help-letter-space"></span>事件至日志服务后，您可以在日志服务控制台上查看日志。</p>
+          <pre data-tag="codeblock" id="codeblock-3ee85f16eede" code-type="xCode" outputclass="language-text" class="pre codeblock language-text"><code>_source_: xxx
+__tag__:__client_ip__: xxx
+__tag__:__hostname__: xxx
+__tag__:__receive_time__: 1545292473
+__topic__:
+activity_id: {085C7022-038B-40E4-BF0B-EB97C4337940}
+computer_name: xxx
+event_data: {"DCName":"\\\\HZ-FT-xxx","ProcessingMode":"0","ProcessingTimeInMilliseconds":"5812","SupportInfo1":"1","SupportInfo2":"4220"}
+event_id: 1501
+kernel_time: 0
+keywords: []
+level: 信息
+log_name: System
+message: 成功处理了此用户的组策略设置。自上一次成功处理了组策略后，没有检测到更改。
+message_error:
+opcode: 开始
+process_id: 248024
+processor_id: 0
+processor_time: 0
+provider_guid: {AEA1B4FA-97D1-45F2-A64C-4D69FFFD92C9}
+record_number: 6908
+related_activity_id:
+session_id: 0
+source_name: Microsoft-Windows-GroupPolicy</code></pre>
+          <table id="table-g8v-6z5-k0b" tablewidth="709" tablecolswidth="177 532" autofit="false" class="table">
+            <colgroup colwidth="0.5*" style="width:24.96%"></colgroup>
+            <colgroup colwidth="1.5*" style="width:75.04%"></colgroup>
+            <tbody class="tbody">
+              <tr id="row-7te-mb0-wfo">
+                <td id="concept-crk-h1k-ggb-entry-pyi-7ds-8wu" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="85bacbc80dmzj"><b>字段名</b></p>
+                </td>
+                <td id="concept-crk-h1k-ggb-entry-t7k-oe7-g5r" rowspan="1" style="background-color:#e5e5e5" colspan="1">
+                  <p id="652910bfb3n97"><b>说明</b></p>
+                </td>
+              </tr>
+              <tr id="row-ny4-g3q-0m4">
+                <td id="entry-rj1-33u-r2g" rowspan="1" colspan="1">
+                  <p id="415e1076f7u83"><span data-tag="parmname" id="parmname-qlk-veq-wic" class="parmname">activity_id</span></p>
+                </td>
+                <td id="entry-6ex-ilc-tu4" rowspan="1" colspan="1">
+                  <p id="b95df421dey76">当前事件所属活动的全局事务<span class="help-letter-space"></span>ID，同一个活动的事件具有相同的全局事务<span class="help-letter-space"></span>ID。</p>
+                </td>
+              </tr>
+              <tr id="row-vx8-xl1-m2m">
+                <td id="entry-g3d-x04-3xn" rowspan="1" colspan="1">
+                  <p id="10a1193a8fsem"><span data-tag="parmname" id="parmname-z4k-s7g-yl4" class="parmname">computer_name</span></p>
+                </td>
+                <td id="entry-5fc-3oz-80g" rowspan="1" colspan="1">
+                  <p id="a1312b13ee76p">产生当前事件的节点名。</p>
+                </td>
+              </tr>
+              <tr id="row-bv5-ry9-vgv">
+                <td id="entry-9ve-kub-yqj" rowspan="1" colspan="1">
+                  <p id="65c9c67abey0b"><span data-tag="parmname" id="parmname-207-749-rki" class="parmname">event_data</span></p>
+                </td>
+                <td id="entry-2kj-4ob-lp8" rowspan="1" colspan="1">
+                  <p id="b0ff75cc9abee">和当前事件相关的数据。</p>
+                </td>
+              </tr>
+              <tr id="row-5i6-mgr-frc">
+                <td id="entry-qa4-7lo-jp5" rowspan="1" colspan="1">
+                  <p id="3b8fa7b850axs"><span data-tag="parmname" id="parmname-l6q-5xk-vgs" class="parmname">event_id</span></p>
+                </td>
+                <td id="entry-w0i-9nv-uzf" rowspan="1" colspan="1">
+                  <p id="fa666dffdcy8q">当前事件的<span class="help-letter-space"></span>ID。</p>
+                </td>
+              </tr>
+              <tr id="row-6vn-url-pou">
+                <td id="entry-njh-d16-6t4" rowspan="1" colspan="1">
+                  <p id="cbdeb396fe62s"><span data-tag="parmname" id="parmname-lzp-tcv-7cl" class="parmname">kernel_time</span></p>
+                </td>
+                <td id="entry-isx-bup-bpq" rowspan="1" colspan="1">
+                  <p id="9951958c80ehj">当前事件消耗的内核时间，一般为<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-omz-4ak-lhp" class="parmname">0</span>。</p>
+                </td>
+              </tr>
+              <tr id="row-fci-hgp-wkx">
+                <td id="entry-vam-27t-qn7" rowspan="1" colspan="1">
+                  <p id="82d62afbecboy"><span data-tag="parmname" id="parmname-rf7-a7z-hmj" class="parmname">keywords</span></p>
+                </td>
+                <td id="entry-bfp-6dh-gwo" rowspan="1" colspan="1">
+                  <p id="d99eaa15d21zq">当前事件关联的关键字，用于事件分类。</p>
+                </td>
+              </tr>
+              <tr id="row-uw0-41a-etw">
+                <td id="entry-dgu-zvw-7ul" rowspan="1" colspan="1">
+                  <p id="d6ad9304d754c"><span data-tag="parmname" id="parmname-kx3-0vi-qdi" class="parmname">level</span></p>
+                </td>
+                <td id="entry-wve-4mc-23j" rowspan="1" colspan="1">
+                  <p id="8ed07affe8h0f">当前事件的等级。</p>
+                </td>
+              </tr>
+              <tr id="row-qod-wpm-ox3">
+                <td id="entry-i26-4q3-1d2" rowspan="1" colspan="1">
+                  <p id="f65519f8f6vfe"><span data-tag="parmname" id="parmname-637-3ni-5xo" class="parmname">log_name</span></p>
+                </td>
+                <td id="entry-ryn-two-k3g" rowspan="1" colspan="1">
+                  <p id="82c5be5fe8ozf">当前事件的通道名，即<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>采集配置中<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-oqd-lpj-76d" class="parmname">Name</span><span class="help-letter-space"></span>参数。</p>
+                </td>
+              </tr>
+              <tr id="row-6qi-8f5-v4x">
+                <td id="entry-ay5-4f7-utt" rowspan="1" colspan="1">
+                  <p id="722399733feg5"><span data-tag="parmname" id="parmname-0i6-f9d-gc8" class="parmname">message</span></p>
+                </td>
+                <td id="entry-2gy-y0u-sz7" rowspan="1" colspan="1">
+                  <p id="b3d0c22d355k4">当前事件关联的消息。</p>
+                </td>
+              </tr>
+              <tr id="row-nzo-n3r-ljb">
+                <td id="entry-y4h-ie9-mqu" rowspan="1" colspan="1">
+                  <p id="247e917550tly"><span data-tag="parmname" id="parmname-3rj-9i7-oty" class="parmname">message_error</span></p>
+                </td>
+                <td id="entry-mvk-kgr-q6s" rowspan="1" colspan="1">
+                  <p id="91f9062b90cib">在解析当前事件关联消息时发生的错误信息。</p>
+                </td>
+              </tr>
+              <tr id="row-doa-hpp-vu2">
+                <td id="entry-8b2-45v-zvy" rowspan="1" colspan="1">
+                  <p id="54b06bfeedtwp"><span data-tag="parmname" id="parmname-826-7ls-cz6" class="parmname">opcode</span></p>
+                </td>
+                <td id="entry-rna-u04-ij2" rowspan="1" colspan="1">
+                  <p id="913a9f462dcyx">当前事件关联的操作码。</p>
+                </td>
+              </tr>
+              <tr id="row-lx0-lip-c0m">
+                <td id="entry-xfw-50a-cgy" rowspan="1" colspan="1">
+                  <p id="6914b60b9f1tx"><span data-tag="parmname" id="parmname-zjf-jjy-dcp" class="parmname">process_id</span></p>
+                </td>
+                <td id="entry-mzz-gc1-e7d" rowspan="1" colspan="1">
+                  <p id="7eb48ed26a8h0">当前事件的进程<span class="help-letter-space"></span>ID。</p>
+                </td>
+              </tr>
+              <tr id="row-ysm-4ee-3eh">
+                <td id="entry-7ri-5d8-zpk" rowspan="1" colspan="1">
+                  <p id="fc85aa7a40jdm"><span data-tag="parmname" id="parmname-q9w-g1b-b37" class="parmname">processor_id</span></p>
+                </td>
+                <td id="entry-zva-dhx-dl6" rowspan="1" colspan="1">
+                  <p id="b25661d9deqpp">当前事件对应的处理器<span class="help-letter-space"></span>ID，一般为<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-tya-g7v-55a" class="parmname">0</span>。</p>
+                </td>
+              </tr>
+              <tr id="row-r04-0f8-vvu">
+                <td id="entry-1t8-s08-v7m" rowspan="1" colspan="1">
+                  <p id="bb8aaf567a25i"><span data-tag="parmname" id="parmname-9eg-y8i-l2a" class="parmname">processor_time</span></p>
+                </td>
+                <td id="entry-hdd-239-k7i" rowspan="1" colspan="1">
+                  <p id="3a5aacf4a4ldh">当前事件消耗的处理器时间，一般为<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-wsg-i8e-348" class="parmname">0</span>。</p>
+                </td>
+              </tr>
+              <tr id="row-jrs-rto-lb9">
+                <td id="entry-7q2-ai4-6kg" rowspan="1" colspan="1">
+                  <p id="c152653d75fcu"><span data-tag="parmname" id="parmname-rrt-hqu-lc8" class="parmname">provider_guid</span></p>
+                </td>
+                <td id="entry-jr5-i9b-a3j" rowspan="1" colspan="1">
+                  <p id="d00d10f1613a9">当前事件来源的全局事务<span class="help-letter-space"></span>ID。</p>
+                </td>
+              </tr>
+              <tr id="row-tr5-7b9-mdi">
+                <td id="entry-zg2-k78-1bj" rowspan="1" colspan="1">
+                  <p id="d4060d8eabffx"><span data-tag="parmname" id="parmname-kd3-4bl-7gz" class="parmname">record_number</span></p>
+                </td>
+                <td id="entry-gxu-s1z-m7p" rowspan="1" colspan="1">
+                  <p id="a2fa5be971ro5">当前事件关联的记录编号。事件的记录编号会随着每条事件的写入递增，当超过<span class="help-letter-space"></span>2 <sup>32</sup>（Event Logging）或<span class="help-letter-space"></span>2 <sup>64</sup>（Windows Event Log）后会重新从<span class="help-letter-space"></span>0<span class="help-letter-space"></span>开始。</p>
+                </td>
+              </tr>
+              <tr id="row-ce2-gkz-rv8">
+                <td id="entry-lyo-wap-58x" rowspan="1" colspan="1">
+                  <p id="dd724593aa0pw"><span data-tag="parmname" id="parmname-nzp-o79-5pn" class="parmname">related_activity_id</span></p>
+                </td>
+                <td id="entry-d33-opu-f6j" rowspan="1" colspan="1">
+                  <p id="f74e3cb0198xq">当前事件所属活动关联的其他活动的全局事务<span class="help-letter-space"></span>ID。</p>
+                </td>
+              </tr>
+              <tr id="row-0v1-9gz-yah">
+                <td id="entry-ujp-v2m-q4s" rowspan="1" colspan="1">
+                  <p id="9e44e53580aio"><span data-tag="parmname" id="parmname-xgg-rmw-y36" class="parmname">session_id</span></p>
+                </td>
+                <td id="entry-vuf-5ls-tuz" rowspan="1" colspan="1">
+                  <p id="577476b5a8455">当前事件的会话<span class="help-letter-space"></span>ID，一般为<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-j21-j95-c2o" class="parmname">0</span>。</p>
+                </td>
+              </tr>
+              <tr id="row-0n8-w7p-5nj">
+                <td id="entry-nix-s1n-e7y" rowspan="1" colspan="1">
+                  <p id="39d38947cdsi0"><span data-tag="parmname" id="parmname-hel-i82-pme" class="parmname">source_name</span></p>
+                </td>
+                <td id="entry-c9b-4b2-nd3" rowspan="1" colspan="1">
+                  <p id="301ec08acc3vc">当前事件的来源，即<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>采集配置中<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-gyb-j4s-av6" class="parmname">Provider</span><span class="help-letter-space"></span>参数。</p>
+                </td>
+              </tr>
+              <tr id="row-qyu-5hg-g25">
+                <td id="entry-5pg-o6o-m1t" rowspan="1" colspan="1">
+                  <p id="2a644f28e58fy"><span data-tag="parmname" id="parmname-kfl-ubf-dne" class="parmname">task</span></p>
+                </td>
+                <td id="entry-1lr-ygd-f82" rowspan="1" colspan="1">
+                  <p id="8dcd28b750y5a">当前事件关联的任务。</p>
+                </td>
+              </tr>
+              <tr id="row-lyb-wcz-6qo">
+                <td id="entry-f2w-4lr-0b5" rowspan="1" colspan="1">
+                  <p id="cb874c6646f4e"><span data-tag="parmname" id="parmname-c26-fzx-fqk" class="parmname">thread_id</span></p>
+                </td>
+                <td id="entry-1q4-nl5-r42" rowspan="1" colspan="1">
+                  <p id="2945064027i0h">当前事件的线程<span class="help-letter-space"></span>ID。</p>
+                </td>
+              </tr>
+              <tr id="row-o3n-ixr-u6h">
+                <td id="entry-qxp-j9e-1ke" rowspan="1" colspan="1">
+                  <p id="1d7247fd168vl"><span data-tag="parmname" id="parmname-8mi-0h7-329" class="parmname">type</span></p>
+                </td>
+                <td id="entry-nrk-fx0-y41" rowspan="1" colspan="1">
+                  <p id="193e41e06ftfe">获取当前事件使用的<span class="help-letter-space"></span>API。</p>
+                </td>
+              </tr>
+              <tr id="row-0e4-han-gzr">
+                <td id="entry-m88-ba4-p58" rowspan="1" colspan="1">
+                  <p id="d8eb68c4708f7"><span data-tag="parmname" id="parmname-444-xcb-06l" class="parmname">user_data</span></p>
+                </td>
+                <td id="entry-oip-3cm-4iv" rowspan="1" colspan="1">
+                  <p id="5efd6568671o5">当前事件关联的用户数据。</p>
+                </td>
+              </tr>
+              <tr id="row-gkh-tdt-3m5">
+                <td id="entry-zce-897-cpf" rowspan="1" colspan="1">
+                  <p id="0be7c22aa3jtm"><span data-tag="parmname" id="parmname-bpt-5zc-ull" class="parmname">user_domain</span></p>
+                </td>
+                <td id="entry-iti-fu7-rh1" rowspan="1" colspan="1">
+                  <p id="e9e3c212f3rht">当前事件关联的用户域。</p>
+                </td>
+              </tr>
+              <tr id="row-l32-cy6-cia">
+                <td id="entry-gs8-elm-05r" rowspan="1" colspan="1">
+                  <p id="fc89bccfcd8vk"><span data-tag="parmname" id="parmname-wuv-lan-xyi" class="parmname">user_identifier</span></p>
+                </td>
+                <td id="entry-l13-qzj-u79" rowspan="1" colspan="1">
+                  <p id="8042d20a77o9f">当前事件关联的用户<span class="help-letter-space"></span>Windows<span class="help-letter-space"></span>安全标识。</p>
+                </td>
+              </tr>
+              <tr id="row-170-h3h-jjm">
+                <td id="entry-lz8-gj0-vh9" rowspan="1" colspan="1">
+                  <p id="17e685c29fyuh"><span data-tag="parmname" id="parmname-twn-b1w-taq" class="parmname">user_name</span></p>
+                </td>
+                <td id="entry-xy2-3u6-jyg" rowspan="1" colspan="1">
+                  <p id="2e890d17121mh">当前事件关联的用户名。</p>
+                </td>
+              </tr>
+              <tr id="row-9yt-pdj-a78">
+                <td id="entry-bao-6fa-9xn" rowspan="1" colspan="1">
+                  <p id="540116e55cg2j"><span data-tag="parmname" id="parmname-w9x-dds-2rj" class="parmname">user_time</span></p>
+                </td>
+                <td id="entry-iw8-zy2-xdc" rowspan="1" colspan="1">
+                  <p id="d2bb697403luv">当前事件消耗的用户态时间，一般为<span class="help-letter-space"></span><span data-tag="parmname" id="parmname-phk-n8c-u05" class="parmname">0</span>。</p>
+                </td>
+              </tr>
+              <tr id="row-58u-eh0-x79">
+                <td id="entry-roi-cw9-s3n" rowspan="1" colspan="1">
+                  <p id="cfdb20fc43rmc"><span data-tag="parmname" id="parmname-hsu-bbq-n1s" class="parmname">user_type</span></p>
+                </td>
+                <td id="entry-kbh-8is-2m9" rowspan="1" colspan="1">
+                  <p id="eb6e2651a9x54">当前事件关联的用户的类型。</p>
+                </td>
+              </tr>
+              <tr id="row-224-s5c-t97">
+                <td id="entry-obw-o60-kz1" rowspan="1" colspan="1">
+                  <p id="e9c6cfc4adb4r"><span data-tag="parmname" id="parmname-phc-841-mxr" class="parmname">version</span></p>
+                </td>
+                <td id="entry-cmu-1xp-eld" rowspan="1" colspan="1">
+                  <p id="3085a3eed21cd">当前事件的版本号。</p>
+                </td>
+              </tr>
+              <tr id="row-laz-7yt-t83">
+                <td id="entry-93q-d4a-as3" rowspan="1" colspan="1">
+                  <p id="16a6877afceom"><span data-tag="parmname" id="parmname-e8r-85r-7nl" class="parmname">xml</span></p>
+                </td>
+                <td id="entry-bi0-024-pzf" rowspan="1" colspan="1">
+                  <p id="1b54af3f54i9f">当前事件最原始的信息，XML<span class="help-letter-space"></span>格式。</p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+</div>
+  </main>
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/sls/collect-kubernetes-events" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：采集Kubernetes事件</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/sls/collect-docker-events" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：采集Docker事件<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

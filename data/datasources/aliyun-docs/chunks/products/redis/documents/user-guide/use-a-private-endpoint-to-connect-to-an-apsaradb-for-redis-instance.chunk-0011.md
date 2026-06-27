@@ -1,0 +1,6 @@
+s = Arrays.asList("r-bp10noxlhcoim2****.redis.rds.aliyuncs.com:6379"); RedisClusterConfiguration redisClusterConfiguration = new RedisClusterConfiguration(clusterNodes); redisClusterConfiguration.setUsername("user"); redisClusterConfiguration.setPassword("password"); JedisPoolConfig jedisPoolConfig = new JedisPoolConfig(); // 最大空闲连接数，由于直连模式为客户端直接连接某个数据库分片，需要保证：业务机器数 * MaxTotal < 单个数据库分片的最大连接数。 jedisPoolConfig.setMaxTotal(30); // 最大空闲连接数, 根据业务需要设置。 jedisPoolConfig.setMaxIdle(20); // 关闭 testOn[Borrow|Return]，防止产生额外的 PING jedisPoolConfig.setTestOnBorrow(false); jedisPoolConfig.setTestOnReturn(false); return new JedisConnectionFactory(redisClusterConfiguration, jedisPoolConfig); }
+Spring Data Redis With Lettuce
+警告
+Lettuce 默认配置可能导致实例变更时应用延迟增加和无法访问等问题。请仔细阅读[Lettuce](use-a-private-endpoint-to-connect-to-an-apsaradb-for-redis-instance.md)[相关参数说明](use-a-private-endpoint-to-connect-to-an-apsaradb-for-redis-instance.md)，以正确配置 Lettuce。
+Lettuce 的版本应大于等于 6.3.0.RELEASE，更多信息请参见[【通知】Lettuce](../product-overview/notice-on-lettuce-update.md)[客户端升级建议](../product-overview/notice-on-lettuce-update.md)。
+/** * TCP_KEEPALIVE打开，并且配置三个参数分别为: * TCP_KEEPIDLE = 30 * TCP_KEEPINTVL = 10 * TCP_KEEPCNT = 3 */ priva

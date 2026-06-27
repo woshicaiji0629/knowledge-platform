@@ -1,0 +1,17 @@
+{
+  "id": "cdn:product-overview/billing-of-https-requests-for-static-content",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "pricing",
+  "title": "静态HTTPS请求数的计费标准及示例-CDN(CDN)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/product-overview/billing-of-https-requests-for-static-content",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/product-overview/billing-of-https-requests-for-static-content.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/product-overview/billing-of-https-requests-for-static-content.md",
+  "word_count": 690,
+  "text_units": 1424,
+  "local_links": 0,
+  "external_links": 70,
+  "has_tables": true,
+  "table_count": 8,
+  "quality": "accepted"
+}

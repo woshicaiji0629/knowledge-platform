@@ -1,0 +1,17 @@
+{
+  "id": "vpc:vpc-terms-of-service",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "features",
+  "title": "专有网络（VPC）相关协议-专有网络VPC-阿里云",
+  "source_url": "https://help.aliyun.com/zh/vpc/vpc-terms-of-service",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/vpc/documents/vpc-terms-of-service.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/vpc-terms-of-service.md",
+  "word_count": 504,
+  "text_units": 821,
+  "local_links": 0,
+  "external_links": 65,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

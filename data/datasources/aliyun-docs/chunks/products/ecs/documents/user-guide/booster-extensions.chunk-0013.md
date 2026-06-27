@@ -1,0 +1,1 @@
+金属服务器实例规格族](elastic-bare-metal-server-overview.md) [ebmgn7i](elastic-bare-metal-server-overview.md) [GPU](elastic-bare-metal-server-overview.md) [计算型弹性裸金属服务器实例规格族](elastic-bare-metal-server-overview.md) [ebmgn7e](elastic-bare-metal-server-overview.md) |  |

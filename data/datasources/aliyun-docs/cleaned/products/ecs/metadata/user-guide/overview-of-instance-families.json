@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/overview-of-instance-families",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "performance",
+  "title": "ECS实例规格族的特点和指标数据-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/overview-of-instance-families",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/overview-of-instance-families.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/overview-of-instance-families.md",
+  "word_count": 64058,
+  "text_units": 141526,
+  "local_links": 73,
+  "external_links": 2996,
+  "has_tables": true,
+  "table_count": 2295,
+  "quality": "accepted"
+}

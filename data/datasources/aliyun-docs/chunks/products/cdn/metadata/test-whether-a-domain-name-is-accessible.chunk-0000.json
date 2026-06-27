@@ -1,0 +1,14 @@
+{
+  "id": "cdn:test-whether-a-domain-name-is-accessible:0",
+  "document_id": "cdn:test-whether-a-domain-name-is-accessible",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "在本地测试加速域名-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/test-whether-a-domain-name-is-accessible",
+  "chunk_index": 0,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/cdn/documents/test-whether-a-domain-name-is-accessible.chunk-0000.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/test-whether-a-domain-name-is-accessible.md",
+  "heading_path": "模拟访问测试（可选）",
+  "char_count": 246
+}

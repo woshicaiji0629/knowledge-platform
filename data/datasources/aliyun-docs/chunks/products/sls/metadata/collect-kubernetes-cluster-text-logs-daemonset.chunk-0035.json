@@ -1,0 +1,14 @@
+{
+  "id": "sls:collect-kubernetes-cluster-text-logs-daemonset:35",
+  "document_id": "sls:collect-kubernetes-cluster-text-logs-daemonset",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "通过控制台采集集群容器日志（标准输出/文件）-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/collect-kubernetes-cluster-text-logs-daemonset",
+  "chunk_index": 35,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/sls/documents/collect-kubernetes-cluster-text-logs-daemonset.chunk-0035.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/collect-kubernetes-cluster-text-logs-daemonset.md",
+  "heading_path": "===================== 必需要补充的内容 ===================== # 本集群要采集的Project名，例如 k8s-log-custom-sd89ehdq projectName: \"\" # Project所属地域，例如上海：cn-shanghai region: \"\" # Project所属主账号uid，请用引号包围，例如\"123456789\" aliUid: \"\" # 使用网络，可选参数：公网Internet，内网Intranet，默认使用公网 net: Internet # 主账号或者子账号的AK，SK，需具备AliyunLogFullAccess系统策略权限 accessKeyID: \"\" accessKeySecret: \"\" # 自定义集群ID，命名只支持大小写，数字，短划线(-)。 clusterID: \"\"",
+  "char_count": 551
+}

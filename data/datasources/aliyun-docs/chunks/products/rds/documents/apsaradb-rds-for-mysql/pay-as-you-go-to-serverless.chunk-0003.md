@@ -1,0 +1,3 @@
+## 注意事项
+Serverless实例会根据负载自动弹升弹降，并调整innodb_buffer_pool大小，因此转Serverless后对innodb_buffer_pool_size、innodb_buffer_pool_instances参数的自定义修改会被忽略。
+建议设置RCU上限大于或等于当前规格核数，例如原实例为4核，则Serverless RCU扩缩上限设置为大于或等于4。

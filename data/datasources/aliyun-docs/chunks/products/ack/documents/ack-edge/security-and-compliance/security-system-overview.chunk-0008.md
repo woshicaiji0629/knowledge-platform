@@ -1,0 +1,6 @@
+[用户或](../../ack-managed-and-ack-dedicated/user-guide/grant-rbac-permissions-to-ram-users-or-ram-roles.md)[RAM](../../ack-managed-and-ack-dedicated/user-guide/grant-rbac-permissions-to-ram-users-or-ram-roles.md)[角色的](../../ack-managed-and-ack-dedicated/user-guide/grant-rbac-permissions-to-ram-users-or-ram-roles.md)[RBAC](../../ack-managed-and-ack-dedicated/user-guide/grant-rbac-permissions-to-ram-users-or-ram-roles.md)[权限](../../ack-managed-and-ack-dedicated/user-guide/grant-rbac-permissions-to-ram-users-or-ram-roles.md)。
+ACK同时支持以组件管理的方式安装Gatekeeper组件，提供基于OPA策略引擎的细粒度访问控制能力。具体操作，请参见[gatekeeper](../../product-overview/gatekeeper.md)。
+审计
+ACK和SLS日志服务进行了深度集成，支持多种审计日志的采集、检索和图表化展示功能，具体包括以下三种：
+集群API Server审计日志：帮助您记录或追溯集群访问者的日常操作，是集群安全运维中的重要环节。在集群审计页面，您可以查看内容丰富的审计报表，同时可基于日志内容设置对指定资源类型操作的实时告警。具体操作，请参见[使用集群](../../ack-managed-and-ack-dedicated/security-and-compliance/work-with-cluster-auditing.md)[API Server](../../ack-managed-and-ack-dedicated/security-and-compliance/work-with-cluster-auditing.md)[审计功能](../../ack-managed-and-ack-dedicated/security-and-compliance/work-with-cluster-auditing.md)。
+Ingress流量审计：通过不同的可视化流量报表帮助您了解集群Ingress的整体状态，比如服务访问的PV和UV，成功和失败比例，以及延迟信息等全方位的流量监控，同时支持基于日志服务提供的机器学习算法

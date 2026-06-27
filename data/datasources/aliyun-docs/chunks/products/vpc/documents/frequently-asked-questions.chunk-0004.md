@@ -1,0 +1,9 @@
+ns.md)[ECS](frequently-asked-questions.md)[的公网出口](frequently-asked-questions.md)[IP？](frequently-asked-questions.md)
+[IPv4](frequently-asked-questions.md)[网关和公网](frequently-asked-questions.md)[NAT](frequently-asked-questions.md)[网关有什么区别？](frequently-asked-questions.md)
+[公网](frequently-asked-questions.md)[IP](frequently-asked-questions.md)[和私网](frequently-asked-questions.md)[IP](frequently-asked-questions.md)[如何切换？](frequently-asked-questions.md)
+[如何通过](frequently-asked-questions.md)[VPC](frequently-asked-questions.md)[实现](frequently-asked-questions.md)[ECS](frequently-asked-questions.md)[内网访问](frequently-asked-questions.md)[OSS？](frequently-asked-questions.md)
+[如何只允许特定](frequently-asked-questions.md)[IP](frequently-asked-questions.md)[访问](frequently-asked-questions.md)[ECS](frequently-asked-questions.md)[实例？网络](frequently-asked-questions.md)[ACL](frequently-asked-questions.md)[和安全组有什么区别？](frequently-asked-questions.md)
+[不同安全组之间如何互通？](frequently-asked-questions.md)
+[安全组规则不生效如何排查？](frequently-asked-questions.md)
+[如何迁移](frequently-asked-questions.md)[ECS](frequently-asked-questions.md)[到另一个](frequently-asked-questions.md)[VPC？](frequently-asked-questions.md)
+[VPC](frequently-asked-que

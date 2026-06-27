@@ -1,0 +1,17 @@
+{
+  "id": "cdn:security-and-compliance/custom-policies-for-dcdn",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "selection",
+  "title": "自定义权限策略的配置方法与场景示例-CDN-阿里云",
+  "source_url": "https://help.aliyun.com/zh/cdn/security-and-compliance/custom-policies-for-dcdn",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/cdn/documents/security-and-compliance/custom-policies-for-dcdn.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/security-and-compliance/custom-policies-for-dcdn.md",
+  "word_count": 584,
+  "text_units": 1330,
+  "local_links": 6,
+  "external_links": 61,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

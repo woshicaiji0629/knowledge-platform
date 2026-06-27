@@ -1,0 +1,17 @@
+{
+  "id": "sls:collect-metric-data-from-hosts",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "如何通过Logtail采集主机监控数据-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/collect-metric-data-from-hosts",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/collect-metric-data-from-hosts.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/collect-metric-data-from-hosts.md",
+  "word_count": 1059,
+  "text_units": 2520,
+  "local_links": 0,
+  "external_links": 81,
+  "has_tables": true,
+  "table_count": 28,
+  "quality": "accepted"
+}

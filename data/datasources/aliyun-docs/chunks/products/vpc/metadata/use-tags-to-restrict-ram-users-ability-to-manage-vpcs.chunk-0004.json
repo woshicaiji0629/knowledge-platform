@@ -1,0 +1,14 @@
+{
+  "id": "vpc:use-tags-to-restrict-ram-users-ability-to-manage-vpcs:4",
+  "document_id": "vpc:use-tags-to-restrict-ram-users-ability-to-manage-vpcs",
+  "source": "aliyun_docs",
+  "product": "vpc",
+  "topic": "performance",
+  "title": "使用标签限制 RAM 用户管理 VPC-专有网络VPC(VPC)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/vpc/use-tags-to-restrict-ram-users-ability-to-manage-vpcs",
+  "chunk_index": 4,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/vpc/documents/use-tags-to-restrict-ram-users-ability-to-manage-vpcs.chunk-0004.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/vpc/documents/use-tags-to-restrict-ram-users-ability-to-manage-vpcs.md",
+  "heading_path": "使用标签限制 RAM 用户管理 VPC > 隔离 VPC 各租户创建/删除交换机 > 场景示例",
+  "char_count": 385
+}

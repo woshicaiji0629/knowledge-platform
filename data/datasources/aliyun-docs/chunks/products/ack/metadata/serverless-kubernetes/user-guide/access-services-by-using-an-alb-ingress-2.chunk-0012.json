@@ -1,0 +1,14 @@
+{
+  "id": "ack:serverless-kubernetes/user-guide/access-services-by-using-an-alb-ingress-2:12",
+  "document_id": "ack:serverless-kubernetes/user-guide/access-services-by-using-an-alb-ingress-2",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "使用ALB Ingress访问集群内服务-容器服务 Kubernetes 版 ACK-阿里云",
+  "source_url": "https://help.aliyun.com/zh/ack/serverless-kubernetes/user-guide/access-services-by-using-an-alb-ingress-2",
+  "chunk_index": 12,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/serverless-kubernetes/user-guide/access-services-by-using-an-alb-ingress-2.chunk-0012.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/serverless-kubernetes/user-guide/access-services-by-using-an-alb-ingress-2.md",
+  "heading_path": "通过ALB Ingress访问服务 > 相关文档 > 为什么选择阿里云",
+  "char_count": 328
+}

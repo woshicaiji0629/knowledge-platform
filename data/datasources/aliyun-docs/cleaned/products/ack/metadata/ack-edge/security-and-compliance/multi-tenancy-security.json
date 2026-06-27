@@ -1,0 +1,17 @@
+{
+  "id": "ack:ack-edge/security-and-compliance/multi-tenancy-security",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "多租户安全-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-edge/security-and-compliance/multi-tenancy-security",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ack/documents/ack-edge/security-and-compliance/multi-tenancy-security.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-edge/security-and-compliance/multi-tenancy-security.md",
+  "word_count": 894,
+  "text_units": 4043,
+  "local_links": 2,
+  "external_links": 73,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}

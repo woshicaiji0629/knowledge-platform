@@ -1,0 +1,14 @@
+{
+  "id": "ack:ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies:18",
+  "document_id": "ack:ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies",
+  "source": "aliyun_docs",
+  "product": "ack",
+  "topic": "features",
+  "title": "基于gatekeeper组件配置Pod级别的安全策略管理-容器服务 Kubernetes 版 ACK(ACK)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ack/ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies",
+  "chunk_index": 18,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/ack/documents/ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies.chunk-0018.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ack/documents/ack-managed-and-ack-dedicated/security-and-compliance/configure-and-enforce-ack-pod-security-policies.md",
+  "heading_path": "创建 CRD apiVersion: apiextensions.k8s.io/v1 kind: CustomResourceDefinition metadata: name: simplestthings.example.com spec: group: example.com scope: Namespaced names: plural: simplestthings singular: simplestthing kind: SimplestThing versions: - name: v1 served: true storage: true schema: openAPIV3Schema: type: object properties: spec: type: object properties: message: type: string --- # 创建 CR 实例 apiVersion: example.com/v1 kind: SimplestThing metadata: name: my-simple-thing namespace: default labels: protected: \"false\" spec: message: \"Hello\" > 相关文档 > 大模型",
+  "char_count": 197
+}

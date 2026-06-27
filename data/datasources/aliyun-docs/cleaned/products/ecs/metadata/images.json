@@ -1,0 +1,17 @@
+{
+  "id": "ecs:images",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "pricing",
+  "title": "镜像计费-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/images",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/images.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/images.md",
+  "word_count": 1200,
+  "text_units": 3971,
+  "local_links": 1,
+  "external_links": 84,
+  "has_tables": true,
+  "table_count": 25,
+  "quality": "accepted"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "redis:developer-reference/tairroaring-command",
+  "source": "aliyun_docs",
+  "product": "redis",
+  "topic": "features",
+  "title": "TairRoaring扩展数据结构命令参考-云数据库 Tair（兼容 Redis®）-阿里云",
+  "source_url": "https://help.aliyun.com/zh/redis/developer-reference/tairroaring-command",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/redis/documents/developer-reference/tairroaring-command.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/redis/documents/developer-reference/tairroaring-command.md",
+  "word_count": 3272,
+  "text_units": 7316,
+  "local_links": 5,
+  "external_links": 93,
+  "has_tables": true,
+  "table_count": 57,
+  "quality": "accepted"
+}

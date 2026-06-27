@@ -1,0 +1,14 @@
+{
+  "id": "cdn:test-whether-a-domain-name-is-accessible:3",
+  "document_id": "cdn:test-whether-a-domain-name-is-accessible",
+  "source": "aliyun_docs",
+  "product": "cdn",
+  "topic": "features",
+  "title": "在本地测试加速域名-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/cdn/test-whether-a-domain-name-is-accessible",
+  "chunk_index": 3,
+  "chunk_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/chunks/products/cdn/documents/test-whether-a-domain-name-is-accessible.chunk-0003.md",
+  "cleaned_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/cdn/documents/test-whether-a-domain-name-is-accessible.md",
+  "heading_path": "localhost name resolution is handled within DNS itself. # 127.0.0.1 localhost # ::1 localhost > macOS系统",
+  "char_count": 114
+}

@@ -1,0 +1,6 @@
+## 步骤五：运行SDK示例代码
+以运行Java SDK示例代码为例。
+打开IntelliJ IDEA，单击File->Open，选择解压后的工程文件夹，等待Maven自动安装依赖信息。
+在调用之前，需要先获取访问凭证AccessKey，建议使用前面创建的RAM用户AccessKey。更多信息，请参见[创建](../../../ram/documents/user-guide/create-an-accesskey-pair.md)[RAM](../../../ram/documents/user-guide/create-an-accesskey-pair.md)[用户的](../../../ram/documents/user-guide/create-an-accesskey-pair.md)[AccessKey](../../../ram/documents/user-guide/create-an-accesskey-pair.md)。
+重要
+获取RAM用户的AccessKey之后，还需要在环境变量中设置AccessKey，具体操作步骤请参见[在](https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems)[Linux、macOS](https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems)[和](https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems)[Windows](https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-environment-variable-on-linux-macos-and-windows-systems)[系统配置环境变量](https://help.aliyun.com/zh/sdk/developer-reference/configure-the-alibaba-cloud-accesskey-envir

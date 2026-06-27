@@ -1,0 +1,17 @@
+{
+  "id": "ecs:user-guide/start-using-security-groups",
+  "source": "aliyun_docs",
+  "product": "ecs",
+  "topic": "features",
+  "title": "使用安全组-云服务器 ECS(ECS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/ecs/user-guide/start-using-security-groups",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/ecs/documents/user-guide/start-using-security-groups.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/ecs/documents/user-guide/start-using-security-groups.md",
+  "word_count": 2456,
+  "text_units": 7712,
+  "local_links": 46,
+  "external_links": 140,
+  "has_tables": true,
+  "table_count": 11,
+  "quality": "accepted"
+}

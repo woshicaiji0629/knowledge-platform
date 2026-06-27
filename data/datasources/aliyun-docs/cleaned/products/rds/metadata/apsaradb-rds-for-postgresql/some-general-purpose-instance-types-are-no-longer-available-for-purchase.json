@@ -1,0 +1,17 @@
+{
+  "id": "rds:apsaradb-rds-for-postgresql/some-general-purpose-instance-types-are-no-longer-available-for-purchase",
+  "source": "aliyun_docs",
+  "product": "rds",
+  "topic": "performance",
+  "title": "【停售/下线】2023年01月31日起RDS PostgreSQL部分基础系列通用规格停止售卖-云数据库 RDS-阿里云",
+  "source_url": "https://help.aliyun.com/zh/rds/apsaradb-rds-for-postgresql/some-general-purpose-instance-types-are-no-longer-available-for-purchase",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/rds/documents/apsaradb-rds-for-postgresql/some-general-purpose-instance-types-are-no-longer-available-for-purchase.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/rds/documents/apsaradb-rds-for-postgresql/some-general-purpose-instance-types-are-no-longer-available-for-purchase.md",
+  "word_count": 951,
+  "text_units": 1687,
+  "local_links": 2,
+  "external_links": 80,
+  "has_tables": true,
+  "table_count": 9,
+  "quality": "accepted"
+}

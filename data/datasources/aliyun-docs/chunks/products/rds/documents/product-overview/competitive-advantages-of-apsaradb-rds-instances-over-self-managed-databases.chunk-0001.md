@@ -1,0 +1,6 @@
+| 对比项 | RDS MySQL | ECS 自建 | 自购服务器搭建数据库 |
+| --- | --- | --- | --- |
+| 性价比 | 弹性资源。 [AliSQL](../apsaradb-rds-for-mysql/overview-of-alisql-features.md) 深度定制的独立 MySQL 分支，提供了类似于 MySQL 企业版的诸多功能，提升用户使用感受。 最多 2 倍存储空间大小的 [免费备份空间](../apsaradb-rds-for-mysql/billable-items-and-pricing-for-the-backup-storage-of-an-apsaradb-rds-for-mysql-instance.md) 。 公网流量免费。 免费使用自带的域名。 更新速度快，紧跟 MySQL 最新版本。 | 弹性资源。 开源版无性能优化。 备份空间独立收费。 公网流量收费。 | 一次投入的沉没成本大。 开源版无性能优化。 需要独立准备备份资源，成本极高。 公网流量收费，域名费用高。 |
+| 可用性 | 基础系列约 15 分钟即可完成故障转移。 高可用系列和集群系列提供自研高可用系统，实现 30 秒内故障恢复。 [只读实例](../overview-of-read-only-apsaradb-rds-for-mysql-instances.md) 自动实现负载均衡。 [读写分离](../apsaradb-rds-for-mysql/enable-the-proxy-terminal-feature-for-an-apsaradb-rds-for-mysql-instance.md) 使用方便。 未来会推出分析节点，满足分析型场景需求。 | 基础系列约 30 分钟完成故障转移。 需要单独购买高可用系统。 需要单独实现或者购买负载均衡服务。 分析型场景需要与分析型数据库结合，搭建难度大、成本高。 | 单机实例，少则两小时，多则等待配货数周。 需要单独购买高可用系统。 需要单独实现或者购买负载均衡设备。 分析型场景需要与分析型数据库结合，搭建难度大、成本高。 |
+| 可靠性 | 数据可靠性高，自动主备复制、数据备份、日志备份等。 MySQL 集群系列实现多可用区容灾，通过组复制技术提供数据强一致性，并且提供可靠性更强的备节点。备节点的故障发现时长为秒级，在 99%的场景下，备节点从故障发生到节点恢复不超过 10 分钟。 | 在好的架构下才能实现高可靠性。 实现 RPO=0 的成本极高，需要单独购买研发服务。 | 数据可靠性一般，取决于单块磁盘的损害概率。 实现 RPO=0 的成本极高，需要单独购买研发服务。 |
+| 易用性 | [自动化备份恢复](../apsaradb-rds-for-mysql/enable-the

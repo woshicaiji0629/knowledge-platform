@@ -1,0 +1,17 @@
+{
+  "id": "sls:enable-managed-openclaw-with-sls",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "SLS一键接入实现OpenClaw受控运行-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/enable-managed-openclaw-with-sls",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/enable-managed-openclaw-with-sls.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/enable-managed-openclaw-with-sls.md",
+  "word_count": 2018,
+  "text_units": 9139,
+  "local_links": 1,
+  "external_links": 73,
+  "has_tables": true,
+  "table_count": 18,
+  "quality": "accepted"
+}

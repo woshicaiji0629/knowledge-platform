@@ -1,0 +1,633 @@
+
+
+<!DOCTYPE html><html lang="zh"><head>
+  <meta name="nav-disable" content="flex">
+  
+  <link rel="icon" href="https://img.alicdn.com/imgextra/i2/O1CN01TFs5Qw27uYvfA6gib_!!6000000007857-55-tps-32-32.svg" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="72x72" href="https://img.alicdn.com/imgextra/i4/O1CN01jlcNT71YBfZJJI7qY_!!6000000003021-2-tps-128-128.png">
+  
+
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="applicable-device" content="pc,mobile">
+  <meta name="nav-config" content="footer=default">
+  <meta name="aplus-core" content="aplus.js">
+  <meta name="aplus-ajax" content="chksum">
+  <meta name="aplus-waiting" content="MAN">
+  <meta name="aplus-pvhash" content="1">
+  
+  <meta name="data-spm" content="a2c4g">
+  
+  <script>
+    window.pageStartTime = Date.now();
+  </script>
+
+  
+  <title>
+    处理插件-日志服务(SLS)-阿里云帮助中心
+  </title>
+  <link rel="canonical" href="https://help.aliyun.com/zh/sls/processing-plug-ins/">
+  <meta name="keywords" content="Logtail插件,解析数据">
+  <meta name="description" content="处理插件用于将原始日志进一步解析为结构化数据。">
+  <meta name="last-modified" content="2026-05-20T20:39:22+08:00">
+  <meta name="date" content="2024-11-02T08:58:20+08:00">
+  <meta property="og:title" content="数据采集时处理（处理插件）">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://help.aliyun.com/zh/sls/processing-plug-ins/">
+  <meta property="og:image" content="https://img.alicdn.com/imgextra/i1/O1CN012QgtoH1c1Mu70xD3w_!!6000000003540-2-tps-640-640.png">
+  <meta property="og:description" content="处理插件用于将原始日志进一步解析为结构化数据。">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "url": "https://help.aliyun.com/zh/sls/processing-plug-ins/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "阿里云计算",
+      "url": "https://www.aliyun.com/",
+      "logo": "https://img.alicdn.com/imgextra/i1/O1CN01BEqugB1KebzCRyIJl_!!6000000001189-55-tps-48-48.svg"
+    }
+  }
+  </script>
+  
+
+  <link href="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/css/index.css" rel="stylesheet">
+  
+
+  <script>
+    window.globalData = {
+      nodeId: "2856931",
+      website: "cn",
+      language: "zh",
+    }
+    window.$ACE_TRACKER_CONFIG = {
+      "enableHistory": true,
+      "enableHash": false
+    }
+  </script>
+<script>
+    window.__ICE_SSR_ENABLED__=true;
+    window.__ICE_APP_DATA__={};
+window.__ICE_PAGE_PROPS__={"docDetailData":{"storeData":{"alias":"/sls/processing-plug-ins/","nodeId":null,"data":{"lastModifiedTime":1779280762000,"keywords":"Logtail插件,解析数据","docTitle":"数据采集时处理（处理插件）","language":"zh","seoTitle":"处理插件-日志服务(SLS)-阿里云帮助中心","title":"数据采集时处理（处理插件）","content":"<div lang=\"zh\" class=\"icms-help-docs-content\">\n\n  <main id=\"main-2815236\">\n    \n    \n    <p id=\"bddac1d1f43n5\" data-tag=\"shortdesc\" class=\"shortdesc\">处理插件用于将原始日志进一步解析为结构化数据。</p>\n    <div id=\"763c4c62a3t2r\" data-tag=\"body\" class=\"body\">\n      <section id=\"e0f9ce506e9w6\" class=\"section\">\n        <h2 id=\"cbb48df06ewdc\"><b>背景信息</b></h2>\n        <p id=\"c48f3ff687i1e\">处理插件可分为原生处理插件和扩展处理插件。</p>\n        <ul id=\"d44e3ec26efxx\">\n          <li id=\"d44e3ec06eyyp\">\n            <p id=\"93b03858d8osu\">原生插件：性能较优，适用于大部分业务场景，推荐优先使用。</p>\n          </li>\n          <li id=\"d63611906eb5a\">\n            <p id=\"ab305dfbd2nh2\">扩展插件：功能覆盖更广，当您的业务日志过于复杂，无法使用原生插件处理时，可以考虑使用扩展插件完成日志解析，但性能会受到一定影响。</p>\n          </li>\n        </ul>\n      </section>\n      <section id=\"section-qwd-3bj-eia\" data-type=\"section\" data-tag=\"section\" class=\"section\">\n        <h2 id=\"title-wtu-7hb-a1m\" data-tag=\"title\" class=\"title\">使用限制</h2>\n        <ul id=\"3e381d816eowy\">\n          <li id=\"01f082f06cqtr\">\n            <h3 id=\"03a63da924gx8\"><b>性能限制</b></h3>\n            <ul id=\"9605ad4757rcw\">\n              <li id=\"a0426b8327hyt\">\n                <p id=\"71a588c84fmxb\">使用扩展插件进行日志处理时，采集器会消耗更多的资源（以<span class=\"help-letter-space\"></span>CPU<span class=\"help-letter-space\"></span>为主），请根据实际情况调整采集器的参数配置，更多信息请参见<a href=\"https://help.aliyun.com/zh/sls/loongcollector-management-linux\" id=\"ef5cf8431c70g\" title=\"\" class=\"xref\">配置管理</a>。</p>\n              </li>\n              <li id=\"caceeb34b3enf\">\n                <p id=\"e8edb56277eev\">当原始数据量的生成速度超过<span class=\"help-letter-space\"></span>5 MB/s<span class=\"help-letter-space\"></span>时，不建议使用过于复杂的插件组合来处理日志，推荐使用扩展插件进行简单处理，再通过<a href=\"https://help.aliyun.com/zh/sls/data-transformation-overview#concept-1130481\" id=\"a82978c1cf2u8\" title=\"\" class=\"xref\">数据加工</a>完成进一步处理。</p>\n              </li>\n            </ul>\n          </li>\n          <li data-tag=\"li\" id=\"li-hb0-k54-imv\" class=\"li\">\n            <h3 id=\"de80e6faa068r\"><b>日志采集限制</b></h3>\n            <ul id=\"2a6146a13aa63\">\n              <li id=\"7a106c955cu62\">\n                <p id=\"7191a4d030soh\">扩展插件对文本日志的处理采用行模式，即文件级别的元数据（例如<code data-tag=\"code\" code-type=\"xCode\" id=\"9c725f513202o\" class=\"code\">__tag__:__path__</code>、<code data-tag=\"code\" code-type=\"xCode\" id=\"a3c8229c8dqdz\" class=\"code\">__topic__</code>等）会被存放到每一条日志中。</p>\n              </li>\n              <li id=\"80fe3a67ce9to\">\n                <p id=\"9e84d17c65kxb\">添加扩展插件后会影响和<span class=\"help-letter-space\"></span>Tag<span class=\"help-letter-space\"></span>相关的功能：</p>\n                <ul id=\"9ac45c4192qfi\">\n                  <li id=\"a0f27798ec11p\">\n                    <p id=\"efdccee0cf32q\">上下文查询和<span class=\"help-letter-space\"></span>LiveTail<span class=\"help-letter-space\"></span>功能不可用。如果您要使用这些功能，需要额外添加<span class=\"help-letter-space\"></span>aggregators<span class=\"help-letter-space\"></span>配置。</p>\n                  </li>\n                  <li id=\"e648faf209skd\">\n                    <p id=\"7b335817338rz\"><code data-tag=\"code\" code-type=\"xCode\" id=\"cfed423626026\" class=\"code\">__topic__</code>字段会被重命名为<code data-tag=\"code\" code-type=\"xCode\" id=\"aa316262b710i\" class=\"code\">__log_topic__</code>。如果您添加了<span class=\"help-letter-space\"></span>aggregators<span class=\"help-letter-space\"></span>配置，日志中将同时存在<code data-tag=\"code\" code-type=\"xCode\" id=\"39896ded5066p\" class=\"code\">__topic__</code>字段和<code data-tag=\"code\" code-type=\"xCode\" id=\"8e64d9cfbaa2q\" class=\"code\">__log_topic__</code>字段。如果您不需要<code data-tag=\"code\" code-type=\"xCode\" id=\"fdb3b95559357\" class=\"code\">__log_topic__</code>字段，可使用<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/sls/drop-fields#concept-2010732\" id=\"5c6927bb2e5zl\" title=\"\" class=\"xref\">processor_drop</a><span class=\"help-letter-space\"></span>插件删除该字段。</p>\n                  </li>\n                  <li id=\"789aa32c343r1\">\n                    <p id=\"b7d140c54db3v\"><code data-tag=\"code\" code-type=\"xCode\" id=\"dfb22ceedeegl\" class=\"code\">__tag__:__path__</code>等字段不再具备原生字段索引，需要<a href=\"https://help.aliyun.com/zh/sls/create-indexes\" id=\"a0e3870f4bh42\" title=\"\" class=\"xref\">创建字段索引</a>。</p>\n                  </li>\n                </ul>\n              </li>\n            </ul>\n          </li>\n          <li id=\"f81f2156eaenc\">\n            <h3 id=\"401c401976eqk\"><b>插件组合限制</b></h3>\n            <ul id=\"76bcda70ffrwa\">\n              <li id=\"33af1dd06eylu\">\n                <p id=\"4b0f7f1230edb\">Logtail 2.0<span class=\"help-letter-space\"></span>以下版本（不包括<span class=\"help-letter-space\"></span>2.0<span class=\"help-letter-space\"></span>版本）：</p>\n                <ul id=\"a80f3a6d0dbgo\">\n                  <li id=\"c6d978861b1zv\">\n                    <p id=\"ea45673e8b47t\">不支持同时添加原生插件和扩展插件。</p>\n                  </li>\n                  <li id=\"67e07118d3qyh\">\n                    <p id=\"5d6e176bce9v2\">原生插件仅可用于采集文本日志。使用原生插件时，须符合如下要求：</p>\n                    <ul id=\"4782072f162zs\">\n                      <li id=\"c24bdbbc4ab1y\">\n                        <p id=\"5e5c9ab83culi\">第一个处理插件必须为正则解析插件、分隔符模式解析插件、JSON<span class=\"help-letter-space\"></span>解析插件、Nginx<span class=\"help-letter-space\"></span>模式解析插件、Apache<span class=\"help-letter-space\"></span>模式解析插件或<span class=\"help-letter-space\"></span>IIS<span class=\"help-letter-space\"></span>模式解析插件。</p>\n                      </li>\n                      <li id=\"b03b90c798bor\">\n                        <p id=\"ebb2261422ngl\">第一个处理插件之后仅允许存在<span class=\"help-letter-space\"></span>1<span class=\"help-letter-space\"></span>个时间解析处理插件，1<span class=\"help-letter-space\"></span>个过滤插件和多个脱敏插件。</p>\n                      </li>\n                    </ul>\n                  </li>\n                </ul>\n              </li>\n              <li id=\"5671322071su9\">\n                <p id=\"69fcc06561z48\">Logtail 2.0<span class=\"help-letter-space\"></span>版本：扩展处理插件只能出现在所有的原生处理插件之后，不能出现在任何原生处理插件之前。</p>\n              </li>\n            </ul>\n          </li>\n          <li id=\"7b4beb1af6i2n\">\n            <h3 id=\"d8f728e99f2zp\"><b>原生插件解析参数组合限制</b></h3>\n            <p id=\"3726e4e2f2kx6\">对于<span class=\"help-letter-space\"></span>Logtail <b>2.0<span class=\"help-letter-space\"></span>以下版本的</b>正则解析、JSON<span class=\"help-letter-space\"></span>解析、分隔符解析、Nginx<span class=\"help-letter-space\"></span>模式解析、Apache<span class=\"help-letter-space\"></span>模式解析、IIS<span class=\"help-letter-space\"></span>模式解析的原生插件，您可以根据不同场景选择不同的参数配置组合。其余的配置组合无效，日志服务不能保证配置效果。</p>\n            <ul id=\"b83e5620744x8\">\n              <li id=\"59a7eb14e7cjz\" sourcekey=\"1242\">\n                <p id=\"a7b1956166qr9\">只上传解析成功的日志：</p>\n<p id=\"p-5306d373e594\">不勾选<b>解析失败时保留原始字段</b>和<b>解析成功时保留原始字段</b>。</p>\n              </li>\n              <li id=\"80719b37d50md\" sourcekey=\"1254\">\n                <p id=\"5cf176c1e51j3\">解析成功时上传解析后的日志，解析失败时上传原始日志：</p>\n                <p id=\"p-9dd41410752d\">勾选<b>解析失败时保留原始字段</b>，不勾选<b>解析成功时保留原始字段</b>，将<b>重命名的原始字段</b>设置为<code data-tag=\"code\" class=\"code\">__raw__</code>。</p>\n              </li>\n              <li id=\"adf1b907dee0w\" sourcekey=\"1266\">\n                <p id=\"3eb6a53a78vfd\">解析成功时不仅上传解析后的日志，且追加原始日志字段，解析失败时上传原始日志。</p>\n                <p id=\"c873a1ec006ox\">例如，原始日志<code data-tag=\"code\" code-type=\"xCode\" id=\"c034da5311aqs\" class=\"code\">\"content\": \"{\"request_method\":\"GET\", \"request_time\":\"200\"}\"</code>解析成功，追加原始字段是在解析后日志的基础上再增加一个字段，字段名为重命名的原始字段（如果不填则默认为原始字段名），字段值为原始日志<code data-tag=\"code\" code-type=\"xCode\" id=\"078d43dec3ztm\" class=\"code\">{\"request_method\":\"GET\", \"request_time\":\"200\"}</code>。</p>\n                <p id=\"p-faad45afc36f\">勾选<b>解析失败时保留原始字段</b>和<b>解析成功时保留原始字段</b>，打开<b>高级参数</b>开关并填入 <code data-tag=\"code\" class=\"code\">{\"CopingRawLog\":true}</code>。对于 Logtail 2.0 以下版本，仅部分参数组合有效。</p>\n              </li>\n            </ul>\n          </li>\n        </ul>\n      </section>\n      <section id=\"10d2ad2d7dona\" class=\"section\">\n        <h2 id=\"a35bd36572ccq\">处理插件列表</h2>\n        <h3 id=\"aacda77927xov\"><b>原生插件列表</b></h3>\n        <table id=\"83bbc573a9skh\" tablewidth=\"688\" tablecolswidth=\"239 449\" autofit=\"false\" class=\"table\">\n          <colgroup colwidth=\"0.69*\" style=\"width:34.74%\"></colgroup>\n          <colgroup colwidth=\"1.31*\" style=\"width:65.26%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"ac32c190f25jo\" style=\"height:42px\">\n              <td id=\"302ca968bbs9g\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p id=\"65ef3c9307r4l\"><b>插件名称</b></p>\n              </td>\n              <td id=\"2aa97bd5e4h1u\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p id=\"2f5efe60f74g3\"><b>说明</b></p>\n              </td>\n            </tr>\n            <tr id=\"9fa86f6222yg6\">\n              <td id=\"323b38376ct0l\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"5adc8eb1e8xk8\">正则解析</p>\n              </td>\n              <td id=\"3dcefb707fns0\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"5f26791816k4w\"><a href=\"https://help.aliyun.com/zh/sls/regular-parsing\" id=\"fd4cb12661ztj\" title=\"\" class=\"xref\">原生插件：正则解析</a></p>\n              </td>\n            </tr>\n            <tr id=\"c8074f29096mu\" style=\"height:42px\">\n              <td id=\"969d9ba1a9419\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"101a78c469mh1\">JSON<span class=\"help-letter-space\"></span>解析</p>\n              </td>\n              <td id=\"f477777556z8b\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"af78fb0b19blp\"><a href=\"https://help.aliyun.com/zh/sls/json-parsing\" id=\"53f51961c76b6\" title=\"\" class=\"xref\">原生插件：JSON<span class=\"help-letter-space\"></span>解析</a></p>\n              </td>\n            </tr>\n            <tr id=\"b6f276e148u8w\">\n              <td id=\"1293792e918vu\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"71af9acf31a30\">分隔符模式解析</p>\n              </td>\n              <td id=\"2865f33ccee6c\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"26a4d457acqvt\"><a href=\"https://help.aliyun.com/zh/sls/separator-pattern-resolution\" id=\"6282e284608jb\" title=\"\" class=\"xref\">原生插件：分隔符模式解析</a></p>\n              </td>\n            </tr>\n            <tr id=\"9ebb193f949e0\">\n              <td id=\"d3e05e5e7b77e\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"563f43586egsv\">Nginx<span class=\"help-letter-space\"></span>模式解析</p>\n              </td>\n              <td id=\"501141d204gy7\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"788659eb80ugw\"><a href=\"https://help.aliyun.com/zh/sls/nginx-schema-parsing\" id=\"2138e73b82r78\" title=\"\" class=\"xref\">原生插件：Nginx<span class=\"help-letter-space\"></span>模式解析</a></p>\n              </td>\n            </tr>\n            <tr id=\"4a805404c2iy9\">\n              <td id=\"0b18159c32nk5\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"89e847e2cebjn\">Apache<span class=\"help-letter-space\"></span>模式解析</p>\n              </td>\n              <td id=\"09c4d89afcthj\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"fefe8b70e458a\"><a href=\"https://help.aliyun.com/zh/sls/apache-pattern-parsing\" id=\"29c108ae6a5b5\" title=\"\" class=\"xref\">原生插件：Apache<span class=\"help-letter-space\"></span>模式解析</a></p>\n              </td>\n            </tr>\n            <tr id=\"86decc50451fu\">\n              <td id=\"6bc63461c6pmm\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"4ff6528ba98rt\">IIS<span class=\"help-letter-space\"></span>模式解析</p>\n              </td>\n              <td id=\"e78fc86d5e4xu\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"59e70c1148ppy\"><a href=\"https://help.aliyun.com/zh/sls/iis-schema-parsing\" id=\"d590c60232sdt\" title=\"\" class=\"xref\">原生插件：IIS<span class=\"help-letter-space\"></span>模式解析</a></p>\n              </td>\n            </tr>\n            <tr id=\"777592a965fl0\">\n              <td id=\"1e90afdf54aan\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"92d3e564b0hcj\">时间解析</p>\n              </td>\n              <td id=\"8b43824d306mm\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"8d7294efadcyq\"><a href=\"https://help.aliyun.com/zh/sls/time-parsing\" id=\"5d59ca8463tgk\" title=\"\" class=\"xref\">原生插件：时间解析</a></p>\n              </td>\n            </tr>\n            <tr id=\"f80ae31eb8vnl\">\n              <td id=\"db9ade0ce3qwo\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"b09d34bb25zjl\">过滤处理</p>\n              </td>\n              <td id=\"6345fea696qp7\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"070d6187012s2\"><a href=\"https://help.aliyun.com/zh/sls/filtration-treatment\" id=\"a1be7b0e1agms\" title=\"\" class=\"xref\">原生插件：过滤处理</a></p>\n              </td>\n            </tr>\n            <tr id=\"758340ae05bgg\">\n              <td id=\"6027f80cae0lk\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"3630812210bdl\">脱敏处理</p>\n              </td>\n              <td id=\"4fed94ea36u56\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"2742e7f990532\"><a href=\"https://help.aliyun.com/zh/sls/desensitization-treatment\" id=\"b2599d47eaufg\" title=\"\" class=\"xref\">原生插件：脱敏处理插件</a></p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <h3 id=\"1846e9fea5vls\"><b>扩展插件</b></h3>\n        <table id=\"a55c8ada81ngo\" tablewidth=\"100\" tablecolswidth=\"35.94 64.06\" autofit=\"true\" class=\"table\">\n          <colgroup colwidth=\"0.72*\" style=\"width:35.94%\"></colgroup>\n          <colgroup colwidth=\"1.28*\" style=\"width:64.06%\"></colgroup>\n          <tbody class=\"tbody\">\n            <tr id=\"d30398de4cq8r\" style=\"height:42px\">\n              <td id=\"cf364425e0s9e\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p id=\"4924d03da0ci6\"><b>功能</b></p>\n              </td>\n              <td id=\"3705a8a4b3zfr\" rowspan=\"1\" style=\"background-color:#e5e5e5;vertical-align:middle\" colspan=\"1\">\n                <p id=\"c6ba38d357rv4\"><b>说明</b></p>\n              </td>\n            </tr>\n            <tr id=\"2bfd1ac4af6yj\">\n              <td id=\"159d372eedwfd\" rowspan=\"7\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"bb7433d98f837\">提取字段</p>\n              </td>\n              <td id=\"c86b8c9d36j2r\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"f415e42419jgq\"><a href=\"https://help.aliyun.com/zh/sls/extract-content-from-log-fields#section-0ep-ioy-sy9\" id=\"779ac438877io\" title=\"\" class=\"xref\">正则模式</a></p>\n              </td>\n            </tr>\n            <tr id=\"6f15ec807f2py\">\n              <td id=\"83c85ed509rfm\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"876f7b0059uo4\"><a href=\"https://help.aliyun.com/zh/sls/extract-content-from-log-fields#section-z12-grj-9sp\" id=\"cf80805a433os\" title=\"\" class=\"xref\">标定模式</a></p>\n              </td>\n            </tr>\n            <tr id=\"002139bc48seb\">\n              <td id=\"726d2e5ab26za\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"60f5a6971774l\"><a href=\"https://help.aliyun.com/zh/sls/extract-content-from-log-fields#section-xa7-r2y-zuo\" id=\"27d00b0feba1w\" title=\"\" class=\"xref\">CSV<span class=\"help-letter-space\"></span>模式</a></p>\n              </td>\n            </tr>\n            <tr id=\"e7cbcbafc0va3\">\n              <td id=\"b2c5748c17q72\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"bf5be10783h67\"><a href=\"https://help.aliyun.com/zh/sls/extract-content-from-log-fields#section-dan-hh1-4ps\" id=\"3446d2e40f0bd\" title=\"\" class=\"xref\">单字符分隔符模式</a></p>\n              </td>\n            </tr>\n            <tr id=\"370c9b404b4vh\">\n              <td id=\"393f7d2e82eyl\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"37fbcefd75eya\"><a href=\"https://help.aliyun.com/zh/sls/extract-content-from-log-fields#section-3zc-g8s-zuw\" id=\"07982da255esl\" title=\"\" class=\"xref\">多字符分隔符模式</a></p>\n              </td>\n            </tr>\n            <tr id=\"b3f844ee191kw\">\n              <td id=\"d7b4881614y5q\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"a42f8b522brn1\"><a href=\"https://help.aliyun.com/zh/sls/extract-content-from-log-fields#section-tji-pwi-7m5\" id=\"b74757df2e2sg\" title=\"\" class=\"xref\">键值对模式</a></p>\n              </td>\n            </tr>\n            <tr id=\"eb6171087cojx\">\n              <td id=\"37972da1f2kyn\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"7a3d36213a379\"><a href=\"https://help.aliyun.com/zh/sls/extract-content-from-log-fields#section-67d-dzp-uga\" id=\"8d3a17bf15m6n\" title=\"\" class=\"xref\">Grok<span class=\"help-letter-space\"></span>模式</a></p>\n              </td>\n            </tr>\n            <tr id=\"9d0528c12d1av\">\n              <td id=\"a154db378f2ux\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"1a763ca4ae1t7\">添加字段</p>\n              </td>\n              <td id=\"022d82fa94k13\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"81418e7688cim\"><a href=\"https://help.aliyun.com/zh/sls/add-fields#concept-2010731\" id=\"d6554a0b08dc1\" title=\"\" class=\"xref\">扩展插件：添加字段</a></p>\n              </td>\n            </tr>\n            <tr id=\"62a2a4b55fctj\">\n              <td id=\"acd03c6fcbd2n\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"6fc2fd593erg8\">丢弃字段</p>\n              </td>\n              <td id=\"ef5118fba4av0\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"eda5d8bdb1vz5\"><a href=\"https://help.aliyun.com/zh/sls/drop-fields#concept-2010732\" id=\"bfd5ccad5c6i3\" title=\"\" class=\"xref\">扩展插件：丢弃字段</a></p>\n              </td>\n            </tr>\n            <tr id=\"5048979e67gu7\">\n              <td id=\"0fd7017799y7n\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"0704306f97wcd\">重命名字段</p>\n              </td>\n              <td id=\"65f412faa609r\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"f85466fbfcdw2\"><a href=\"https://help.aliyun.com/zh/sls/rename-fields#concept-2010739\" id=\"fd98f5c0b98eg\" title=\"\" class=\"xref\">扩展插件：重命名字段</a></p>\n              </td>\n            </tr>\n            <tr id=\"7adc9188123v9\">\n              <td id=\"d568b8b858csx\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"1749c77553h2p\">打包字段</p>\n              </td>\n              <td id=\"435022d9bdlse\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"152e516a3bgks\">将一个或多个字段打包为一个<span class=\"help-letter-space\"></span>JSON Object<span class=\"help-letter-space\"></span>格式的字段。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/encapsulate-fields#concept-2010738\" id=\"399f4dcebca2x\" title=\"\" class=\"xref\">扩展插件：打包字段</a>。</p>\n              </td>\n            </tr>\n            <tr id=\"51ab67541a9rh\">\n              <td id=\"a0ab2e42db2nx\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"81e8b68f74s87\">展开<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>字段</p>\n              </td>\n              <td id=\"15aae15d9elmv\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"9358f723bei6v\"><a href=\"https://help.aliyun.com/zh/sls/expand-json-fields#concept-2010735\" id=\"59ef5703f8jiv\" title=\"\" class=\"xref\">扩展插件：展开<span class=\"help-letter-space\"></span>JSON<span class=\"help-letter-space\"></span>字段</a></p>\n              </td>\n            </tr>\n            <tr id=\"a9beb58874vef\">\n              <td id=\"761add98abcid\" rowspan=\"2\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"c07dc067d5duw\">过滤日志</p>\n              </td>\n              <td id=\"013638658dvh1\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"796ee04b67ngn\">通过正则表达式匹配日志字段的值，从而实现日志过滤。更多信息，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/sls/filter-logs#section-qxi-2gh-kk6\" id=\"ff0812a72feoo\" title=\"\" class=\"xref\">processor_filter_regex</a>。</p>\n              </td>\n            </tr>\n            <tr id=\"9b300530deg94\">\n              <td id=\"37d70d3977lkq\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"33cc8ee7520wb\">通过正则表达式匹配日志字段名称，从而实现日志过滤。更多信息，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/sls/filter-logs#section-hri-qy7-h56\" id=\"e3e3279fde5dl\" title=\"\" class=\"xref\">processor_filter_key_regex</a>。</p>\n              </td>\n            </tr>\n            <tr id=\"38fb43409bk0u\">\n              <td id=\"d7595b609cd14\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"3673ad7773eiv\">提取日志时间</p>\n              </td>\n              <td id=\"9afd8b45a5ubu\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"1bc70996010xm\">解析原始日志中的时间字段，并可将解析结果设置为日志时间。更多信息，请参见<span class=\"help-letter-space\"></span><a href=\"https://help.aliyun.com/zh/sls/extract-log-time#section-xxl-q69-w5q\" id=\"f9d54cdfe727b\" title=\"\" class=\"xref\">Go<span class=\"help-letter-space\"></span>语言时间格式</a>。</p>\n              </td>\n            </tr>\n            <tr id=\"08fe2bd4692b1\">\n              <td id=\"b338e0e7ab5zx\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"aa48c08d32tr9\">转换<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址</p>\n              </td>\n              <td id=\"9653ab6f8frlf\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"c5dcc772476pn\">将日志中的<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址转换为地理位置（国家、省份、城市、经纬度）。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/convert-ip-addresses#concept-2010729\" id=\"4aaa2309ccwfl\" title=\"\" class=\"xref\">扩展插件：转换<span class=\"help-letter-space\"></span>IP<span class=\"help-letter-space\"></span>地址</a>。</p>\n              </td>\n            </tr>\n            <tr id=\"74513618a11xn\">\n              <td id=\"9c6f711301hqj\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"f8c3bda62dn51\">数据脱敏</p>\n              </td>\n              <td id=\"7aaa7c3c27e15\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"f56319c901fgk\">将日志中的敏感数据替换为指定字符串或<span class=\"help-letter-space\"></span>MD5<span class=\"help-letter-space\"></span>值。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/desensitization-plug-in#db09c59087exo\" id=\"51c544988em3a\" title=\"\" class=\"xref\">扩展插件：数据脱敏</a>。</p>\n              </td>\n            </tr>\n            <tr id=\"a571fe9c08mka\">\n              <td id=\"a31b1dee7866v\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"af566568d84j9\">字段值映射</p>\n              </td>\n              <td id=\"05d6f6e604gc1\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"006ec1cf16xi6\"><a href=\"https://help.aliyun.com/zh/sls/map-field-values#concept-2293488\" id=\"ae0b24b756qc6\" title=\"\" class=\"xref\">扩展插件：字段值映射处理</a></p>\n              </td>\n            </tr>\n            <tr id=\"7ad06368acc8p\">\n              <td id=\"067a996c75cm0\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"c5526ef077tau\">字段加密</p>\n              </td>\n              <td id=\"1dce793548bzh\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"341d10f9c453c\"><a href=\"https://help.aliyun.com/zh/sls/encrypt-fields#concept-2293532\" id=\"5bd7da5be8z6e\" title=\"\" class=\"xref\">扩展插件：字段加密</a></p>\n              </td>\n            </tr>\n            <tr id=\"633e4b8a82n0k\">\n              <td id=\"67606284f89yg\" rowspan=\"3\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"5071112c57i9j\">数据编码与解码</p>\n              </td>\n              <td id=\"4ca3d4f40drge\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"a746a3f3d52qr\"><a href=\"https://help.aliyun.com/zh/sls/encode-and-decode-data#section-1x2-yk0-g4l\" id=\"e66c7f1ce5tte\" title=\"\" class=\"xref\">BASE64<span class=\"help-letter-space\"></span>解码</a></p>\n              </td>\n            </tr>\n            <tr id=\"fa5f6ee9cc70c\">\n              <td id=\"4d9be18cc1da2\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"cefe42f055uox\"><a href=\"https://help.aliyun.com/zh/sls/encode-and-decode-data#section-5bw-71r-bxp\" id=\"a1130c4f4c9qi\" title=\"\" class=\"xref\">BASE64<span class=\"help-letter-space\"></span>编码</a></p>\n              </td>\n            </tr>\n            <tr id=\"bcf2a64e1bvax\">\n              <td id=\"3d616337dd0ij\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"0d07a653db9u2\"><a href=\"https://help.aliyun.com/zh/sls/encode-and-decode-data#section-2ym-k1j-gba\" id=\"06217cf25e2ol\" title=\"\" class=\"xref\">MD5<span class=\"help-letter-space\"></span>编码</a></p>\n              </td>\n            </tr>\n            <tr id=\"097f5850aerhj\">\n              <td id=\"225b55de6a5sk\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p jc=\"left\" id=\"6a78ceaaac9s3\" style=\"text-align:left\">Log<span class=\"help-letter-space\"></span>转为<span class=\"help-letter-space\"></span>Metric</p>\n              </td>\n              <td id=\"f7d6a5912fceo\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"30011c3e8917g\">将采集到的日志转成<span class=\"help-letter-space\"></span><span data-tag=\"ph\" data-product-code=\"sls\" outputclass=\"productName\" id=\"0477ae1cbdoew\" data-type=\"productSimpleName\" tagname=\"span\" data-reuse-tag=\"productSimpleName\" data-init-id=\"span_product_simple_name_4265552\" class=\"ph productName\">SLS</span> Metric。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/log-to-metric\" id=\"ad18272860n0g\" title=\"\" class=\"xref\">扩展插件：Log<span class=\"help-letter-space\"></span>转为<span class=\"help-letter-space\"></span>Metric</a>。</p>\n              </td>\n            </tr>\n            <tr id=\"5b8bff648afvw\">\n              <td id=\"c5900bc847b8m\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"0e511514adyjf\">Log<span class=\"help-letter-space\"></span>转为<span class=\"help-letter-space\"></span>Trace</p>\n              </td>\n              <td id=\"fe450e1cf5f29\" rowspan=\"1\" style=\"vertical-align:middle\" colspan=\"1\">\n                <p id=\"2918933ae7dco\">将采集到的日志转成<span class=\"help-letter-space\"></span><span data-tag=\"ph\" data-product-code=\"sls\" outputclass=\"productName\" id=\"4f22d8fa16aru\" data-type=\"productSimpleName\" tagname=\"span\" data-reuse-tag=\"productSimpleName\" data-init-id=\"span_product_simple_name_4265552\" class=\"ph productName\">SLS</span> Trace。更多信息，请参见<a href=\"https://help.aliyun.com/zh/sls/log-to-trace\" id=\"944c6cd1458cf\" title=\"\" class=\"xref\">扩展插件：Log<span class=\"help-letter-space\"></span>转为<span class=\"help-letter-space\"></span>Trace</a>。</p>\n              </td>\n            </tr>\n          </tbody>\n        </table>\n        <h2 id=\"b30f8c3d478qs\"><b>添加插件</b></h2>\n        <section id=\"794a4c4136opk\" outputclass=\"tabbed-content-box\" data-tag=\"tabbed-content-box\" class=\"tabbed-content-box section\">\n          <section id=\"b3c83e0509y51\" class=\"section\">\n            <h3 id=\"33baadd793v8w\" outputclass=\"h3\" data-tag=\"p\" class=\"p h3\">在修改配置时添加插件</h3>\n            <ol id=\"929113c6d860y\" data-tag=\"ol\" class=\"ol\">\n              <li id=\"e27f93034d8rv\" data-tag=\"step\" class=\"step\">\n                <p id=\"a1290fc5daub0\" data-init-id=\"6a7cc970501ga\"><span data-tag=\"ph\" id=\"ph-q0d-de9-ecs\" class=\"ph\">登录<span data-tag=\"ph\" id=\"ph-i3r-pp7-fzx\" props=\"china intl\" data-cond-props=\"china intl\" class=\"ph\"><a href=\"https://sls.console.aliyun.com\" id=\"xref-ivv-0k8-uct\" class=\"\" target=\"_blank\">日志服务控制台</a></span>。</span></p>\n              </li>\n              <li id=\"6807527166yya\">\n                <p id=\"9e6e3f72c3rrn\" data-init-id=\"6a7cf08050vb9\">在<span class=\"help-letter-space\"></span>Project<span class=\"help-letter-space\"></span>列表区域，单击目标<span class=\"help-letter-space\"></span>Project。</p>\n              </li>\n              <li data-tag=\"li\" id=\"31c59dcfa8g0r\" class=\"li\">\n                <p id=\"be745ae2d0xrh\">在<b id=\"60953f284eu7t\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">日志存储</b>的日志库页签中，单击目标日志库前面的<b data-tag=\"uicontrol\" id=\"uicontrol-jc9-bol-00p\" class=\"uicontrol\">&gt;</b>，选择<b id=\"375b4e19fdx9v\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">数据接入</b>下的<span class=\"help-letter-space\"></span><b id=\"6019daf0244j8\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">Logtail<span class=\"help-letter-space\"></span>配置</b>。</p>\n                <p id=\"p-9baee560db3a\">单击目标<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>配置对应操作列的<b>管理<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>配置</b>。</p>\n              </li>\n              <li data-tag=\"li\" id=\"9487f6a373zwa\" class=\"li\">\n                <p id=\"c7a65aba28pcs\">在<span class=\"help-letter-space\"></span><b id=\"1ba7069322zxo\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">Logtail<span class=\"help-letter-space\"></span>配置</b>列表中，单击目标<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>配置后<b id=\"271a2d0982cw2\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">操作</b>列的<b id=\"b2c4418a8cchs\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">管理<span class=\"help-letter-space\"></span>Logtail<span class=\"help-letter-space\"></span>配置</b>。</p>\n              </li>\n              <li data-tag=\"li\" id=\"ffaa6d8b4d2is\" class=\"li\">\n                <p id=\"c8e7303901mtz\">单击页面上方的<b id=\"dc68a8e37fxo7\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">编辑</b>，在页面下方的<b id=\"cdb03a1f3dpr8\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">处理配置</b>区域，新增插件，然后单击<b id=\"981f2154a91pn\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">保存</b>。</p>\n              </li>\n            </ol>\n          </section>\n          <section id=\"9caf008b77j0g\" class=\"section\">\n            <h3 data-tag=\"p\" id=\"66738b964coyg\" outputclass=\"h3\" class=\"p h3\">在创建配置时添加插件</h3>\n            <ol id=\"8fb1d4face7kr\" start=\"1\">\n              <li data-tag=\"step\" id=\"c2091c798aqf9\" class=\"step\">\n                <p id=\"b7005d99899q1\" data-init-id=\"6a7cc970501ga\"><span data-tag=\"ph\" id=\"1113ef2cbfqdm\" data-init-id=\"ph_q0d_de9_ecs\" class=\"ph\">登录<span data-tag=\"ph\" id=\"84a00c8446fx4\" props=\"china intl\" data-init-id=\"ph_i3r_pp7_fzx\" data-cond-props=\"china intl\" class=\"ph\"><a href=\"https://sls.console.aliyun.com\" id=\"8568e32fbc98j\" class=\"\" target=\"_blank\">日志服务控制台</a></span>。</span></p>\n              </li>\n              <li id=\"c190e2b470nk8\">\n                <p id=\"24506303fa9iw\">单击控制台页面右侧的<b id=\"28c39733f5717\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">快速接入数据</b>卡片。</p>\n              </li>\n              <li id=\"fc2078132elpf\">\n                <p id=\"b116efcee1pd7\">在<b id=\"733594f131ef8\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">接入数据</b>对话框中，单击任意卡片，按照配置向导进行操作，在<span class=\"help-letter-space\"></span><b id=\"16112d2480dlt\" data-tag=\"uicontrol\" data-isbold=\"true\" class=\"uicontrol\">Logtail<span class=\"help-letter-space\"></span>配置</b>步骤中添加插件。具体操作，请参见<a href=\"https://help.aliyun.com/zh/sls/collect-host-logs\" id=\"2ca94ee556r2r\" title=\"\" class=\"xref\">采集主机文本日志</a>。</p>\n                <div type=\"note\" id=\"206823c8c6z07\" class=\"note note-note\"><div class=\"note-icon-wrapper\"><i class=\"icon-note note note\"></i></div><div class=\"noteContentSpan\"><strong>说明 </strong>\n                  <p id=\"8ecaa8a695p1u\">该插件配置与在修改配置时的插件配置相同。</p>\n                </div></div>\n              </li>\n            </ol>\n          </section>\n        </section>\n      </section>\n    </div>\n  </main>\n\n\n\n\n</div>","path":"https://help.aliyun.com/zh/sls/processing-plug-ins/","productNodeVO":{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"alias":"/sls/processing-plug-ins","showType":1,"taskStatus":"NO_TASK_AVAILABLE","website":"cn","level":5,"developerUrl":"https://developer.aliyun.com/group/sls/","nodeType":8,"version":6,"url":"/zh/sls/processing-plug-ins/","tags":[{"value":"1","key":"accept","desc":"已承接"},{"value":false,"key":"autoTranslation","desc":"非自动翻译"},{"value":2856931,"key":"nodeId","desc":"文档ID"}],"userVO":{},"recommendDocs":[],"directoryPath":{"children":[{"children":[{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"数据采集时处理（处理插件）","id":2856931,"title":"数据采集时处理（处理插件）","url":"/zh/sls/processing-plug-ins/"}],"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据处理","id":2842370,"title":"数据处理","url":"/zh/sls/data-processing-sls/"}],"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},"productUrl":"https://www.aliyun.com/product/sls","nodeId":2856931,"desc":"处理插件用于将原始日志进一步解析为结构化数据。"},"breadcrumb":[{"emptyNode":false,"level":3,"validDocument":true,"headNavEnable":false,"docTitle":"日志服务","id":28958,"title":"日志服务","url":"/zh/sls/"},{"emptyNode":false,"level":4,"validDocument":true,"headNavEnable":false,"docTitle":"数据处理","id":2842370,"title":"数据处理","url":"/zh/sls/data-processing-sls/"},{"emptyNode":false,"level":5,"validDocument":true,"headNavEnable":false,"docTitle":"数据采集时处理（处理插件）","id":2856931,"title":"数据采集时处理（处理插件）","url":"/zh/sls/processing-plug-ins/"}],"isMachineTranslation":false,"isNotFound":false,"helpResponseCode":200,"redirectUrl":"","helpDocVersion":1,"reloadFlag":true}}};
+  </script><link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-aliyun-com-global-nav-search/0.8.5/index.css,hmod-aliyun-com-global-nav/0.3.18/index.css" rel="stylesheet"/>
+<link href="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.css,hmod-ace-2024-global-footer/0.2.1/index.css" rel="stylesheet"/>
+</head>
+
+<body><script>
+with(document)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("exparams","category=&userid=&aplus&yunid=&&trid=2150473317825534152727664e1aa7&asid=AQAAAABHmz9qtdCzOwAAAABXpWsNK6Hbhg==",id="tb-beacon-aplus",src=(location>"https"?"//g":"//g")+".alicdn.com/alilog/mlog/aplus_v2.js")
+</script>
+
+  <script>
+    var _performance_domStart = window.performance && window.performance.now();
+  </script>
+  <header><div id="35ed6b66d57084d03def49c3ad672872"><div class="_18a32969382a277c44015217fbc5cb5a_box"><div class="_3bd147f6948a20d6c528ac898ad4ba47_pc de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family" data-ai-assistant-text-selection-tooltip="disabled"><header class="_702422913dd5754f065139ec2d2def80_container   "><button class="_17fcaf1a4ee37405e5ad5fbad24204b4_container _17fcaf1a4ee37405e5ad5fbad24204b4_loading" aria-label="打开菜单" data-spm="d_dashboard_trigger" data-tracker-exp="true"><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_burger "><span class="_17fcaf1a4ee37405e5ad5fbad24204b4_middle"></span></span></button><a href="https://www.aliyun.com/" class="_3f46140aade30bc61f3012933357c477_logo _702422913dd5754f065139ec2d2def80_logo" data-tracker-content="LOGO" data-spm="d_logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4608 1024" fill="#ff6a00" width="80"><path d="M3266.56 773.12h327.68v-102.4h-327.68v-102.4H3584V35.84H2846.72v532.48h317.44v102.4h-327.68v102.4h327.68v112.64h-353.28v102.4h814.08v-102.4h-353.28v-112.64zM3276.8 138.24h215.04v112.64H3276.8V138.24z m0 215.04h215.04V460.8H3276.8V353.28zM3174.4 460.8h-215.04V353.28H3174.4V460.8z m0-209.92h-215.04V138.24H3174.4v112.64zM537.6 445.44H1075.2v122.88H537.6z"></path><path d="M1341.44 5.12h-353.28L1075.2 128l256 81.92c46.08 15.36 76.8 61.44 76.8 107.52v389.12c0 46.08-30.72 92.16-76.8 107.52l-256 81.92-87.04 122.88h353.28c148.48 0 266.24-117.76 266.24-266.24V276.48c0-148.48-117.76-271.36-266.24-271.36zM276.48 814.08c-46.08-15.36-76.8-61.44-76.8-107.52V317.44c0-46.08 30.72-92.16 76.8-107.52l256-81.92L619.52 5.12H266.24C117.76 5.12 0 128 0 276.48v471.04c0 148.48 117.76 266.24 266.24 266.24h353.28l-87.04-122.88-256-76.8zM2493.44 250.88h-261.12v537.6h261.12V250.88z m-107.52 430.08h-56.32V353.28h56.32v327.68zM1848.32 988.16h102.4V138.24h107.52L1996.8 419.84v102.4h61.44v225.28c0 15.36-10.24 25.6-25.6 25.6h-25.6v102.4h51.2c56.32 0 102.4-46.08 102.4-102.4v-358.4H2099.2l61.44-281.6v-102.4h-312.32v957.44z"></path><path d="M2206.72 138.24H2560v660.48c0 46.08-35.84 87.04-87.04 87.04h-76.8v102.4h107.52c87.04 0 163.84-71.68 163.84-163.84V138.24h35.84v-102.4h-496.64v102.4zM3763.2 40.96h737.28v102.4H3763.2zM4541.44 527.36v-102.4H3727.36v102.4h204.8l-163.84 358.4v102.4h691.2c30.72 0 51.2-25.6 51.2-51.2 0-10.24 0-15.36-5.12-20.48l-87.04-194.56h-112.64l76.8 163.84h-496.64l163.84-358.4h491.52z"></path></svg></a><div class="e76910c82efe8556eb8a6ce6019c5d00_container"><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-left"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_left"></i></button><div class="e76910c82efe8556eb8a6ce6019c5d00_menu-warp"><nav class="_0b0e00051b37611378e027e6ac3a695a_menus"><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/tongyi" data-spm="d_menu_0">大模型</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/product/list" data-spm="d_menu_1">产品</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/solution/tech-solution/" data-spm="d_menu_2">解决方案</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/benefit" data-spm="d_menu_3">权益</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/price" data-spm="d_menu_4">定价</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://market.aliyun.com/" data-spm="d_menu_5">云市场</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://partner.aliyun.com/management/v2" data-spm="d_menu_6">伙伴</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/service" data-spm="d_menu_7">服务</a><a class="_2cdcedb5935313401458d214540870bc_menu" href="https://www.aliyun.com/about" data-spm="d_menu_8">了解阿里云</a></nav></div><button class="e76910c82efe8556eb8a6ce6019c5d00_controller" data-spm="dscroll-right"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-button_right"></i></button></div><div class="_702422913dd5754f065139ec2d2def80_search-wrap " style="--left-width:0px;--right-width:0px"><div class="global-nav-search _626567c051250ffe2f303af907d3fc83_global-nav-search"><div class="global-search-container _626567c051250ffe2f303af907d3fc83_global-nav-search-desktop-container"><div class="ff4f4a96a12f52ffbdd0d6adbdb6a2b0_position-desktop-search-container"><div><div class="f6fd7e4d3293f0634b9ac54848c275b7_default-search-panel  f6fd7e4d3293f0634b9ac54848c275b7_hidden-default-search-panel"></div><div class="_3b4f5487091623b0b6852e2b46d2729e_search-recommend-panel  _3b4f5487091623b0b6852e2b46d2729e_hidden-search-recommend-panel"><button class="_4b65cdd64479a2fabe582b8c0789821e_search-no-content " type="button">查看 &quot;&quot; 全部搜索结果</button></div></div></div></div><div class="_626567c051250ffe2f303af907d3fc83_global-nav-search-mobile-container"><a class="_626567c051250ffe2f303af907d3fc83_search-button" href="https://www.aliyun.com/search?from=h5-global-nav-search"><span role="img" class="_9a1d73bbcd1a80626a31035a12410804_icon _626567c051250ffe2f303af907d3fc83_search-button-icon"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="search"><g><g><path fill-opacity="1" fill-rule="evenodd" d="M14,4C15.3558,4,16.653399999999998,4.262105,17.8926,4.786314C19.089100000000002,5.29242,20.1486,6.00666,21.071,6.92905C21.9933,7.85144,22.7076,8.91087,23.2137,10.10735C23.7379,11.34664,24,12.64419,24,14C24,15.3558,23.7379,16.653399999999998,23.2137,17.892699999999998C22.8382,18.7803,22.3482,19.5925,21.7436,20.3293L27.7072,26.2928L26.293,27.7071L20.3294,21.7435C19.592599999999997,22.3481,18.7803,22.8382,17.8926,23.2137C16.653399999999998,23.7379,15.3558,24,14,24C12.64419,24,11.34664,23.7379,10.10735,23.2137C8.91087,22.7076,7.85144,21.9933,6.92905,21.0709C6.00666,20.1486,5.29242,19.089100000000002,4.786314,17.8926C4.262105,16.653399999999998,4,15.3558,4,14C4,12.64419,4.262105,11.34664,4.786314,10.10735C5.29242,8.91087,6.00666,7.85144,6.92905,6.92905C7.85144,6.00666,8.91087,5.29242,10.10735,4.786314C11.34664,4.262105,12.64419,4,14,4ZM14,6C11.79102,6,9.905439999999999,6.78109,8.34326,8.34326C6.78109,9.905439999999999,6,11.79102,6,14C6,16.209,6.78109,18.0946,8.34326,19.6567C9.905439999999999,21.2189,11.79102,22,14,22C16.209,22,18.0946,21.2189,19.6567,19.6567C21.2189,18.0946,22,16.209,22,14C22,11.79102,21.2189,9.905439999999999,19.6567,8.34326C18.0946,6.78109,16.209,6,14,6Z"></path></g></g></svg></span></a></div></div></div><div class="_174801eef2caf75aeaee91c72b19c09a_container"><a class="global-nav-ai-assistant _174801eef2caf75aeaee91c72b19c09a_item _2d3ef330b3f8055912d355b9a255bfcf_btn" href="https://www.aliyun.com/ai-assistant?displayMode=side" data-spm="dai_assistant" target="_blank"><div class="LogoStyled-aliyun-ai-assistant-rc-8096__sc-1qusfpt-0 cpJKij"><div class="ai-assistant-brand-logo-icon" style="background:no-repeat center/100%  url(https://img.alicdn.com/imgextra/i4/O1CN012X1Rxl1clAgB5waMK_!!6000000003640-2-tps-52-52.png)"><img src="https://img.alicdn.com/imgextra/i2/O1CN01bYc1m81RrcSAyOjMu_!!6000000002165-54-tps-60-60.apng" loading="lazy"/></div><div class="ai-assistant-brand-logo-tooltip "><div class="ai-assistant-logo-tooltip-content">AI 助理</div></div></div></a><button class="_174801eef2caf75aeaee91c72b19c09a_item c017bf0be22012eb313124a5a5408d0f_button"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-intl"></i></button><button class="_174801eef2caf75aeaee91c72b19c09a_item"><i class="ee52067fb65534cb06d3b35f654f5441_icon ddd10ed9ffa4788f54781e516c4c6560-contact f9c0581c7b0803efa9027b0f2d228294_icon"></i></button><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://help.aliyun.com/" target="_blank" data-spm="d_quick_access_3">文档</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://beian.aliyun.com/" target="_blank" data-spm="d_quick_access_4">备案</a><a class="_174801eef2caf75aeaee91c72b19c09a_item" href="https://home.console.aliyun.com/home/dashboard/ProductAndService" target="_blank" data-spm="d_quick_access_5" rel="nofollow">控制台</a><span class="f8312ad103723788906e97b238dccd8c_loading _174801eef2caf75aeaee91c72b19c09a_item"></span></div></header></div><div class="_3bd147f6948a20d6c528ac898ad4ba47_mobile de5ef2fee09ebcb2b1dcaf0c982523bc_theme _277ebb348812c9712fac6b680ad5e513_reset _277ebb348812c9712fac6b680ad5e513_aliyun-font-family"></div><div class="_18a32969382a277c44015217fbc5cb5a_box"></div></div></div></header>
+
+  <div id="app"><div class="MainLayout--mainContainer--FzmzeDI" id="docs-container"><div class="MainLayout--helpBodyHead--fFcCOhC"><div class="HelpBodyHead--helpBodyHeadBox--VWOHGv0 help-body-head" data-spm="help-sub-nav"><div class="HelpBodyHead--helpBodyHead--YgG0_RH help-body-head-content"><div class="HelpBodyHead--helpHeadDocName--eZC8orQ"><a href="/zh" data-spm="d_logo">官方文档</a></div><div class="help-tablist"></div><div class="HelpBodyHead--bodyHeadRight--mgSoj67"></div></div><div class="HelpBodyHead--productList--YJ9ism5" style="display:none"><div class="ProductList--allProducts--Z87vhzs"><div class="ProductList--allProductsHead--l2aMmm6"><div class="ProductList--allProductsSearchWrapper--PgTrGTl"><div class="ProductList--allProductsSearch--edTNjmr"><span role="img" class="Icon--icon--jErARdR ProductList--searchIcon--NrFYKki"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="输入文档关键字查找"></div></div></div><div class="ProductList--allProductsBody--jNYsZlh"></div></div></div></div></div><div class="PcLayout--docsContainer--pwbB9bE"><div class="PcLayout--mobileHelpBodyHead--g_YCRMg"><div class="HelpBodyHead--mobileHeadBlank--_hX8BWJ"></div></div><div class="PcLayout--aliyunAppLayout--_QE36ni"><nav class="aliyun-docs-menu" id="aliyun-docs-menu"><div class="Menu--helpMenuBox--WZ7MX3B" id="help-menu-box" style="width:300px"><div class="Menu--helpMenuInnerBox--kxSXymh aliyun-docs-toc-content" style="width:300px"><div class="Menu--helpMenuDrag--fs9WrRe help-menu-drag-box"></div><div class="Menu--helpMenu--reWzeMt"><div class="help-menu-subproduct"></div><div class="MenuSearch--collapseActionBar--m98Zp_n"><div class="MenuSearch--searchContainer--yxqXL6w"><div class="MenuSearch--searchInputWrapper--xJnk941"><span role="img" class="Icon--icon--jErARdR MenuSearch--searchIcon--YWpGKq9"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="document-search"><g fill-rule="evenodd" stroke-width="1"><path d="M19,3 L27,11 L27,29 L5,29 L5,3 L19,3 Z M18,5 L7,5 L7,27 L25,27 L25,12 L18,12 L18,5 Z M20,6.82842636 L20,10 L23.1715736,10 L20,6.82842636 Z"></path><path d="M15.5,13.5 C16.8806419,13.5 18.0591358,13.9881726 19.0354815,14.9645178 C20.0118272,15.9408637 20.5,17.1193577 20.5,18.5 C20.5,19.5346034 20.2258676,20.4556918 19.6776028,21.2632651 L22.1636839,23.7493687 L20.749464,25.1635761 L18.2634125,22.6775026 C17.4558048,23.2258342 16.5346673,23.5 15.5,23.5 C14.1193581,23.5 12.9408642,23.0118272 11.9645183,22.0354815 C10.9881728,21.0591364 10.5,19.8806426 10.5,18.5 C10.5,17.1193576 10.9881728,15.9408636 11.9645183,14.9645181 C12.9408638,13.9881727 14.1193577,13.5 15.5,13.5 Z M15.5,15.5 C14.6716423,15.5 13.9645529,15.7929106 13.3787317,16.3787317 C12.7929106,16.9645527 12.5,17.6716421 12.5,18.5 C12.5,19.3283571 12.7929105,20.0354462 13.3787315,20.6212673 C13.964553,21.2070891 14.6716425,21.5 15.5,21.5 C16.3283577,21.5 17.0354471,21.2070891 17.6212683,20.6212673 C18.2070894,20.0354462 18.5,19.3283571 18.5,18.5 C18.5,17.6716421 18.2070894,16.9645526 17.6212683,16.3787315 C17.0354471,15.7929105 16.3283577,15.5 15.5,15.5 Z"></path></g></svg></span><input placeholder="在目录中筛选" class="MenuSearch--searchInput--vYXA7NN"></div></div></div><div class="help-menu-scroll-container Menu--menuContent--f6GC88t" data-spm="help-menu-undefined"><ul id="common-menu-container">
+ <li id="2929180" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/start-using-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开始使用</span>
+</a>
+</li>
+ <li id="128096" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/resource-management/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">资源管理</span>
+</a>
+</li>
+ <li id="128134" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-collection-1/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据采集</span>
+</a>
+</li>
+ <li id="2842370" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-processing-sls/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据处理</span>
+</a>
+</li>
+ <li id="270795" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-storage/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据存储</span>
+</a>
+</li>
+ <li id="128135" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/index-and-query/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">查询与分析</span>
+</a>
+</li>
+ <li id="2928734" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/data-monitoring/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据监控</span>
+</a>
+</li>
+ <li id="2928732" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-log-output-and-integration/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">数据输出与集成</span>
+</a>
+</li>
+ <li id="2928739" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/sls-technical-solutions/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">技术解决方案</span>
+</a>
+</li>
+ <li id="154068" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/developer-reference/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">开发参考</span>
+</a>
+</li>
+ <li id="2528763" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/security-compliance/">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">安全合规</span>
+</a>
+</li>
+ <li id="169976" class="Menu--level1--UN3zYr3">
+<a href="/zh/sls/faq-15">
+<i class="iconfont icon-close-arrow"></i>
+<span class="Menu--menuItemText--a6B4ZGH">常见问题</span>
+</a>
+</li>
+</ul></div></div></div></div></nav><main class="aliyun-docs-view" id="aliyun-docs-view"><div class="ProductDetail--contentWrapper--iCunrBZ"><section class="aliyun-docs-content" style="height:auto"><header class="aliyun-docs-view-header"><div class="Header--topBar--LXfTLL5"><div class="BreadCrumb--breadcrumb--s_Uzlex"><div class="help-header-breadcrumb"><a href="/zh">首页</a></div></div></div><div class="Header--title--iTk2tUo"><h1>数据采集时处理（处理插件）</h1><div class="Header--actionBar--dvzFYrk"><div class="Header--left--x8TGxDL"><span class="Header--updateTime--YXGPhcZ">更新时间：</span></div><div class="Header--right--l4TSW1E"><span class="Header--copyButtonWrapper--LDbniON"><span class="CopyAsMarkdown--copyButton--SVGoWIG"><span role="img" class="Icon--icon--jErARdR"><svg width="1em" height="1em" viewBox="0 0 32 32" focusable="false" color="currentColor" fill="currentColor" class="" data-icon="copy"><g fill-rule="evenodd" stroke-width="1"><polygon fill-rule="nonzero" points="8 6.80000019 8 4 28 4 28 24 25 24 25 22 26 22 26 6 10 6 10 6.80000019"></polygon><path d="M24,8 L24,28 L4,28 L4,8 L24,8 Z M22,10 L6,10 L6,26 L22,26 L22,10 Z"></path></g></svg></span>复制 MD 格式</span></span><div class="Header--linkButton--LpCRs1O"><div class="OuterUrl--outUrl--ZFzJIhk"><a href="https://www.aliyun.com/product/sls" target="_blank" rel="noreferrer">产品详情</a></div></div><div class="Contact--contactButton--TBwTX5R"><span class="Contact--favoritesBtn--J8mRVBp" title="收藏本文档" data-spm-click="gostr=/aliyun;locaid=collect"><i class="help-iconfont help-icon-like"></i></span><a href="/my_favorites.html">我的收藏</a></div></div></div></div></header><div class="pc-markdown-container unionContainer" id="pc-markdown-container"><div class="markdown-body"><div lang="zh" class="icms-help-docs-content">
+
+  <main id="main-2815236">
+    
+    
+    <p id="bddac1d1f43n5" data-tag="shortdesc" class="shortdesc">处理插件用于将原始日志进一步解析为结构化数据。</p>
+    <div id="763c4c62a3t2r" data-tag="body" class="body">
+      <section id="e0f9ce506e9w6" class="section">
+        <h2 id="cbb48df06ewdc"><b>背景信息</b></h2>
+        <p id="c48f3ff687i1e">处理插件可分为原生处理插件和扩展处理插件。</p>
+        <ul id="d44e3ec26efxx">
+          <li id="d44e3ec06eyyp">
+            <p id="93b03858d8osu">原生插件：性能较优，适用于大部分业务场景，推荐优先使用。</p>
+          </li>
+          <li id="d63611906eb5a">
+            <p id="ab305dfbd2nh2">扩展插件：功能覆盖更广，当您的业务日志过于复杂，无法使用原生插件处理时，可以考虑使用扩展插件完成日志解析，但性能会受到一定影响。</p>
+          </li>
+        </ul>
+      </section>
+      <section id="section-qwd-3bj-eia" data-type="section" data-tag="section" class="section">
+        <h2 id="title-wtu-7hb-a1m" data-tag="title" class="title">使用限制</h2>
+        <ul id="3e381d816eowy">
+          <li id="01f082f06cqtr">
+            <h3 id="03a63da924gx8"><b>性能限制</b></h3>
+            <ul id="9605ad4757rcw">
+              <li id="a0426b8327hyt">
+                <p id="71a588c84fmxb">使用扩展插件进行日志处理时，采集器会消耗更多的资源（以<span class="help-letter-space"></span>CPU<span class="help-letter-space"></span>为主），请根据实际情况调整采集器的参数配置，更多信息请参见<a href="https://help.aliyun.com/zh/sls/loongcollector-management-linux" id="ef5cf8431c70g" title="" class="xref">配置管理</a>。</p>
+              </li>
+              <li id="caceeb34b3enf">
+                <p id="e8edb56277eev">当原始数据量的生成速度超过<span class="help-letter-space"></span>5 MB/s<span class="help-letter-space"></span>时，不建议使用过于复杂的插件组合来处理日志，推荐使用扩展插件进行简单处理，再通过<a href="https://help.aliyun.com/zh/sls/data-transformation-overview#concept-1130481" id="a82978c1cf2u8" title="" class="xref">数据加工</a>完成进一步处理。</p>
+              </li>
+            </ul>
+          </li>
+          <li data-tag="li" id="li-hb0-k54-imv" class="li">
+            <h3 id="de80e6faa068r"><b>日志采集限制</b></h3>
+            <ul id="2a6146a13aa63">
+              <li id="7a106c955cu62">
+                <p id="7191a4d030soh">扩展插件对文本日志的处理采用行模式，即文件级别的元数据（例如<code data-tag="code" code-type="xCode" id="9c725f513202o" class="code">__tag__:__path__</code>、<code data-tag="code" code-type="xCode" id="a3c8229c8dqdz" class="code">__topic__</code>等）会被存放到每一条日志中。</p>
+              </li>
+              <li id="80fe3a67ce9to">
+                <p id="9e84d17c65kxb">添加扩展插件后会影响和<span class="help-letter-space"></span>Tag<span class="help-letter-space"></span>相关的功能：</p>
+                <ul id="9ac45c4192qfi">
+                  <li id="a0f27798ec11p">
+                    <p id="efdccee0cf32q">上下文查询和<span class="help-letter-space"></span>LiveTail<span class="help-letter-space"></span>功能不可用。如果您要使用这些功能，需要额外添加<span class="help-letter-space"></span>aggregators<span class="help-letter-space"></span>配置。</p>
+                  </li>
+                  <li id="e648faf209skd">
+                    <p id="7b335817338rz"><code data-tag="code" code-type="xCode" id="cfed423626026" class="code">__topic__</code>字段会被重命名为<code data-tag="code" code-type="xCode" id="aa316262b710i" class="code">__log_topic__</code>。如果您添加了<span class="help-letter-space"></span>aggregators<span class="help-letter-space"></span>配置，日志中将同时存在<code data-tag="code" code-type="xCode" id="39896ded5066p" class="code">__topic__</code>字段和<code data-tag="code" code-type="xCode" id="8e64d9cfbaa2q" class="code">__log_topic__</code>字段。如果您不需要<code data-tag="code" code-type="xCode" id="fdb3b95559357" class="code">__log_topic__</code>字段，可使用<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/sls/drop-fields#concept-2010732" id="5c6927bb2e5zl" title="" class="xref">processor_drop</a><span class="help-letter-space"></span>插件删除该字段。</p>
+                  </li>
+                  <li id="789aa32c343r1">
+                    <p id="b7d140c54db3v"><code data-tag="code" code-type="xCode" id="dfb22ceedeegl" class="code">__tag__:__path__</code>等字段不再具备原生字段索引，需要<a href="https://help.aliyun.com/zh/sls/create-indexes" id="a0e3870f4bh42" title="" class="xref">创建字段索引</a>。</p>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li id="f81f2156eaenc">
+            <h3 id="401c401976eqk"><b>插件组合限制</b></h3>
+            <ul id="76bcda70ffrwa">
+              <li id="33af1dd06eylu">
+                <p id="4b0f7f1230edb">Logtail 2.0<span class="help-letter-space"></span>以下版本（不包括<span class="help-letter-space"></span>2.0<span class="help-letter-space"></span>版本）：</p>
+                <ul id="a80f3a6d0dbgo">
+                  <li id="c6d978861b1zv">
+                    <p id="ea45673e8b47t">不支持同时添加原生插件和扩展插件。</p>
+                  </li>
+                  <li id="67e07118d3qyh">
+                    <p id="5d6e176bce9v2">原生插件仅可用于采集文本日志。使用原生插件时，须符合如下要求：</p>
+                    <ul id="4782072f162zs">
+                      <li id="c24bdbbc4ab1y">
+                        <p id="5e5c9ab83culi">第一个处理插件必须为正则解析插件、分隔符模式解析插件、JSON<span class="help-letter-space"></span>解析插件、Nginx<span class="help-letter-space"></span>模式解析插件、Apache<span class="help-letter-space"></span>模式解析插件或<span class="help-letter-space"></span>IIS<span class="help-letter-space"></span>模式解析插件。</p>
+                      </li>
+                      <li id="b03b90c798bor">
+                        <p id="ebb2261422ngl">第一个处理插件之后仅允许存在<span class="help-letter-space"></span>1<span class="help-letter-space"></span>个时间解析处理插件，1<span class="help-letter-space"></span>个过滤插件和多个脱敏插件。</p>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li id="5671322071su9">
+                <p id="69fcc06561z48">Logtail 2.0<span class="help-letter-space"></span>版本：扩展处理插件只能出现在所有的原生处理插件之后，不能出现在任何原生处理插件之前。</p>
+              </li>
+            </ul>
+          </li>
+          <li id="7b4beb1af6i2n">
+            <h3 id="d8f728e99f2zp"><b>原生插件解析参数组合限制</b></h3>
+            <p id="3726e4e2f2kx6">对于<span class="help-letter-space"></span>Logtail <b>2.0<span class="help-letter-space"></span>以下版本的</b>正则解析、JSON<span class="help-letter-space"></span>解析、分隔符解析、Nginx<span class="help-letter-space"></span>模式解析、Apache<span class="help-letter-space"></span>模式解析、IIS<span class="help-letter-space"></span>模式解析的原生插件，您可以根据不同场景选择不同的参数配置组合。其余的配置组合无效，日志服务不能保证配置效果。</p>
+            <ul id="b83e5620744x8">
+              <li id="59a7eb14e7cjz" sourcekey="1242">
+                <p id="a7b1956166qr9">只上传解析成功的日志：</p>
+<p id="p-5306d373e594">不勾选<b>解析失败时保留原始字段</b>和<b>解析成功时保留原始字段</b>。</p>
+              </li>
+              <li id="80719b37d50md" sourcekey="1254">
+                <p id="5cf176c1e51j3">解析成功时上传解析后的日志，解析失败时上传原始日志：</p>
+                <p id="p-9dd41410752d">勾选<b>解析失败时保留原始字段</b>，不勾选<b>解析成功时保留原始字段</b>，将<b>重命名的原始字段</b>设置为<code data-tag="code" class="code">__raw__</code>。</p>
+              </li>
+              <li id="adf1b907dee0w" sourcekey="1266">
+                <p id="3eb6a53a78vfd">解析成功时不仅上传解析后的日志，且追加原始日志字段，解析失败时上传原始日志。</p>
+                <p id="c873a1ec006ox">例如，原始日志<code data-tag="code" code-type="xCode" id="c034da5311aqs" class="code">"content": "{"request_method":"GET", "request_time":"200"}"</code>解析成功，追加原始字段是在解析后日志的基础上再增加一个字段，字段名为重命名的原始字段（如果不填则默认为原始字段名），字段值为原始日志<code data-tag="code" code-type="xCode" id="078d43dec3ztm" class="code">{"request_method":"GET", "request_time":"200"}</code>。</p>
+                <p id="p-faad45afc36f">勾选<b>解析失败时保留原始字段</b>和<b>解析成功时保留原始字段</b>，打开<b>高级参数</b>开关并填入 <code data-tag="code" class="code">{"CopingRawLog":true}</code>。对于 Logtail 2.0 以下版本，仅部分参数组合有效。</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </section>
+      <section id="10d2ad2d7dona" class="section">
+        <h2 id="a35bd36572ccq">处理插件列表</h2>
+        <h3 id="aacda77927xov"><b>原生插件列表</b></h3>
+        <table id="83bbc573a9skh" tablewidth="688" tablecolswidth="239 449" autofit="false" class="table">
+          <colgroup colwidth="0.69*" style="width:34.74%"></colgroup>
+          <colgroup colwidth="1.31*" style="width:65.26%"></colgroup>
+          <tbody class="tbody">
+            <tr id="ac32c190f25jo" style="height:42px">
+              <td id="302ca968bbs9g" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p id="65ef3c9307r4l"><b>插件名称</b></p>
+              </td>
+              <td id="2aa97bd5e4h1u" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p id="2f5efe60f74g3"><b>说明</b></p>
+              </td>
+            </tr>
+            <tr id="9fa86f6222yg6">
+              <td id="323b38376ct0l" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="5adc8eb1e8xk8">正则解析</p>
+              </td>
+              <td id="3dcefb707fns0" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="5f26791816k4w"><a href="https://help.aliyun.com/zh/sls/regular-parsing" id="fd4cb12661ztj" title="" class="xref">原生插件：正则解析</a></p>
+              </td>
+            </tr>
+            <tr id="c8074f29096mu" style="height:42px">
+              <td id="969d9ba1a9419" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="101a78c469mh1">JSON<span class="help-letter-space"></span>解析</p>
+              </td>
+              <td id="f477777556z8b" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="af78fb0b19blp"><a href="https://help.aliyun.com/zh/sls/json-parsing" id="53f51961c76b6" title="" class="xref">原生插件：JSON<span class="help-letter-space"></span>解析</a></p>
+              </td>
+            </tr>
+            <tr id="b6f276e148u8w">
+              <td id="1293792e918vu" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="71af9acf31a30">分隔符模式解析</p>
+              </td>
+              <td id="2865f33ccee6c" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="26a4d457acqvt"><a href="https://help.aliyun.com/zh/sls/separator-pattern-resolution" id="6282e284608jb" title="" class="xref">原生插件：分隔符模式解析</a></p>
+              </td>
+            </tr>
+            <tr id="9ebb193f949e0">
+              <td id="d3e05e5e7b77e" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="563f43586egsv">Nginx<span class="help-letter-space"></span>模式解析</p>
+              </td>
+              <td id="501141d204gy7" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="788659eb80ugw"><a href="https://help.aliyun.com/zh/sls/nginx-schema-parsing" id="2138e73b82r78" title="" class="xref">原生插件：Nginx<span class="help-letter-space"></span>模式解析</a></p>
+              </td>
+            </tr>
+            <tr id="4a805404c2iy9">
+              <td id="0b18159c32nk5" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="89e847e2cebjn">Apache<span class="help-letter-space"></span>模式解析</p>
+              </td>
+              <td id="09c4d89afcthj" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="fefe8b70e458a"><a href="https://help.aliyun.com/zh/sls/apache-pattern-parsing" id="29c108ae6a5b5" title="" class="xref">原生插件：Apache<span class="help-letter-space"></span>模式解析</a></p>
+              </td>
+            </tr>
+            <tr id="86decc50451fu">
+              <td id="6bc63461c6pmm" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="4ff6528ba98rt">IIS<span class="help-letter-space"></span>模式解析</p>
+              </td>
+              <td id="e78fc86d5e4xu" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="59e70c1148ppy"><a href="https://help.aliyun.com/zh/sls/iis-schema-parsing" id="d590c60232sdt" title="" class="xref">原生插件：IIS<span class="help-letter-space"></span>模式解析</a></p>
+              </td>
+            </tr>
+            <tr id="777592a965fl0">
+              <td id="1e90afdf54aan" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="92d3e564b0hcj">时间解析</p>
+              </td>
+              <td id="8b43824d306mm" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="8d7294efadcyq"><a href="https://help.aliyun.com/zh/sls/time-parsing" id="5d59ca8463tgk" title="" class="xref">原生插件：时间解析</a></p>
+              </td>
+            </tr>
+            <tr id="f80ae31eb8vnl">
+              <td id="db9ade0ce3qwo" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="b09d34bb25zjl">过滤处理</p>
+              </td>
+              <td id="6345fea696qp7" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="070d6187012s2"><a href="https://help.aliyun.com/zh/sls/filtration-treatment" id="a1be7b0e1agms" title="" class="xref">原生插件：过滤处理</a></p>
+              </td>
+            </tr>
+            <tr id="758340ae05bgg">
+              <td id="6027f80cae0lk" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="3630812210bdl">脱敏处理</p>
+              </td>
+              <td id="4fed94ea36u56" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="2742e7f990532"><a href="https://help.aliyun.com/zh/sls/desensitization-treatment" id="b2599d47eaufg" title="" class="xref">原生插件：脱敏处理插件</a></p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h3 id="1846e9fea5vls"><b>扩展插件</b></h3>
+        <table id="a55c8ada81ngo" tablewidth="100" tablecolswidth="35.94 64.06" autofit="true" class="table">
+          <colgroup colwidth="0.72*" style="width:35.94%"></colgroup>
+          <colgroup colwidth="1.28*" style="width:64.06%"></colgroup>
+          <tbody class="tbody">
+            <tr id="d30398de4cq8r" style="height:42px">
+              <td id="cf364425e0s9e" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p id="4924d03da0ci6"><b>功能</b></p>
+              </td>
+              <td id="3705a8a4b3zfr" rowspan="1" style="background-color:#e5e5e5;vertical-align:middle" colspan="1">
+                <p id="c6ba38d357rv4"><b>说明</b></p>
+              </td>
+            </tr>
+            <tr id="2bfd1ac4af6yj">
+              <td id="159d372eedwfd" rowspan="7" style="vertical-align:middle" colspan="1">
+                <p id="bb7433d98f837">提取字段</p>
+              </td>
+              <td id="c86b8c9d36j2r" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="f415e42419jgq"><a href="https://help.aliyun.com/zh/sls/extract-content-from-log-fields#section-0ep-ioy-sy9" id="779ac438877io" title="" class="xref">正则模式</a></p>
+              </td>
+            </tr>
+            <tr id="6f15ec807f2py">
+              <td id="83c85ed509rfm" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="876f7b0059uo4"><a href="https://help.aliyun.com/zh/sls/extract-content-from-log-fields#section-z12-grj-9sp" id="cf80805a433os" title="" class="xref">标定模式</a></p>
+              </td>
+            </tr>
+            <tr id="002139bc48seb">
+              <td id="726d2e5ab26za" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="60f5a6971774l"><a href="https://help.aliyun.com/zh/sls/extract-content-from-log-fields#section-xa7-r2y-zuo" id="27d00b0feba1w" title="" class="xref">CSV<span class="help-letter-space"></span>模式</a></p>
+              </td>
+            </tr>
+            <tr id="e7cbcbafc0va3">
+              <td id="b2c5748c17q72" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="bf5be10783h67"><a href="https://help.aliyun.com/zh/sls/extract-content-from-log-fields#section-dan-hh1-4ps" id="3446d2e40f0bd" title="" class="xref">单字符分隔符模式</a></p>
+              </td>
+            </tr>
+            <tr id="370c9b404b4vh">
+              <td id="393f7d2e82eyl" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="37fbcefd75eya"><a href="https://help.aliyun.com/zh/sls/extract-content-from-log-fields#section-3zc-g8s-zuw" id="07982da255esl" title="" class="xref">多字符分隔符模式</a></p>
+              </td>
+            </tr>
+            <tr id="b3f844ee191kw">
+              <td id="d7b4881614y5q" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="a42f8b522brn1"><a href="https://help.aliyun.com/zh/sls/extract-content-from-log-fields#section-tji-pwi-7m5" id="b74757df2e2sg" title="" class="xref">键值对模式</a></p>
+              </td>
+            </tr>
+            <tr id="eb6171087cojx">
+              <td id="37972da1f2kyn" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="7a3d36213a379"><a href="https://help.aliyun.com/zh/sls/extract-content-from-log-fields#section-67d-dzp-uga" id="8d3a17bf15m6n" title="" class="xref">Grok<span class="help-letter-space"></span>模式</a></p>
+              </td>
+            </tr>
+            <tr id="9d0528c12d1av">
+              <td id="a154db378f2ux" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="1a763ca4ae1t7">添加字段</p>
+              </td>
+              <td id="022d82fa94k13" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="81418e7688cim"><a href="https://help.aliyun.com/zh/sls/add-fields#concept-2010731" id="d6554a0b08dc1" title="" class="xref">扩展插件：添加字段</a></p>
+              </td>
+            </tr>
+            <tr id="62a2a4b55fctj">
+              <td id="acd03c6fcbd2n" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="6fc2fd593erg8">丢弃字段</p>
+              </td>
+              <td id="ef5118fba4av0" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="eda5d8bdb1vz5"><a href="https://help.aliyun.com/zh/sls/drop-fields#concept-2010732" id="bfd5ccad5c6i3" title="" class="xref">扩展插件：丢弃字段</a></p>
+              </td>
+            </tr>
+            <tr id="5048979e67gu7">
+              <td id="0fd7017799y7n" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="0704306f97wcd">重命名字段</p>
+              </td>
+              <td id="65f412faa609r" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="f85466fbfcdw2"><a href="https://help.aliyun.com/zh/sls/rename-fields#concept-2010739" id="fd98f5c0b98eg" title="" class="xref">扩展插件：重命名字段</a></p>
+              </td>
+            </tr>
+            <tr id="7adc9188123v9">
+              <td id="d568b8b858csx" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="1749c77553h2p">打包字段</p>
+              </td>
+              <td id="435022d9bdlse" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="152e516a3bgks">将一个或多个字段打包为一个<span class="help-letter-space"></span>JSON Object<span class="help-letter-space"></span>格式的字段。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/encapsulate-fields#concept-2010738" id="399f4dcebca2x" title="" class="xref">扩展插件：打包字段</a>。</p>
+              </td>
+            </tr>
+            <tr id="51ab67541a9rh">
+              <td id="a0ab2e42db2nx" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="81e8b68f74s87">展开<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>字段</p>
+              </td>
+              <td id="15aae15d9elmv" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="9358f723bei6v"><a href="https://help.aliyun.com/zh/sls/expand-json-fields#concept-2010735" id="59ef5703f8jiv" title="" class="xref">扩展插件：展开<span class="help-letter-space"></span>JSON<span class="help-letter-space"></span>字段</a></p>
+              </td>
+            </tr>
+            <tr id="a9beb58874vef">
+              <td id="761add98abcid" rowspan="2" style="vertical-align:middle" colspan="1">
+                <p id="c07dc067d5duw">过滤日志</p>
+              </td>
+              <td id="013638658dvh1" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="796ee04b67ngn">通过正则表达式匹配日志字段的值，从而实现日志过滤。更多信息，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/sls/filter-logs#section-qxi-2gh-kk6" id="ff0812a72feoo" title="" class="xref">processor_filter_regex</a>。</p>
+              </td>
+            </tr>
+            <tr id="9b300530deg94">
+              <td id="37d70d3977lkq" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="33cc8ee7520wb">通过正则表达式匹配日志字段名称，从而实现日志过滤。更多信息，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/sls/filter-logs#section-hri-qy7-h56" id="e3e3279fde5dl" title="" class="xref">processor_filter_key_regex</a>。</p>
+              </td>
+            </tr>
+            <tr id="38fb43409bk0u">
+              <td id="d7595b609cd14" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="3673ad7773eiv">提取日志时间</p>
+              </td>
+              <td id="9afd8b45a5ubu" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="1bc70996010xm">解析原始日志中的时间字段，并可将解析结果设置为日志时间。更多信息，请参见<span class="help-letter-space"></span><a href="https://help.aliyun.com/zh/sls/extract-log-time#section-xxl-q69-w5q" id="f9d54cdfe727b" title="" class="xref">Go<span class="help-letter-space"></span>语言时间格式</a>。</p>
+              </td>
+            </tr>
+            <tr id="08fe2bd4692b1">
+              <td id="b338e0e7ab5zx" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="aa48c08d32tr9">转换<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址</p>
+              </td>
+              <td id="9653ab6f8frlf" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="c5dcc772476pn">将日志中的<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址转换为地理位置（国家、省份、城市、经纬度）。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/convert-ip-addresses#concept-2010729" id="4aaa2309ccwfl" title="" class="xref">扩展插件：转换<span class="help-letter-space"></span>IP<span class="help-letter-space"></span>地址</a>。</p>
+              </td>
+            </tr>
+            <tr id="74513618a11xn">
+              <td id="9c6f711301hqj" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="f8c3bda62dn51">数据脱敏</p>
+              </td>
+              <td id="7aaa7c3c27e15" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="f56319c901fgk">将日志中的敏感数据替换为指定字符串或<span class="help-letter-space"></span>MD5<span class="help-letter-space"></span>值。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/desensitization-plug-in#db09c59087exo" id="51c544988em3a" title="" class="xref">扩展插件：数据脱敏</a>。</p>
+              </td>
+            </tr>
+            <tr id="a571fe9c08mka">
+              <td id="a31b1dee7866v" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="af566568d84j9">字段值映射</p>
+              </td>
+              <td id="05d6f6e604gc1" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="006ec1cf16xi6"><a href="https://help.aliyun.com/zh/sls/map-field-values#concept-2293488" id="ae0b24b756qc6" title="" class="xref">扩展插件：字段值映射处理</a></p>
+              </td>
+            </tr>
+            <tr id="7ad06368acc8p">
+              <td id="067a996c75cm0" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="c5526ef077tau">字段加密</p>
+              </td>
+              <td id="1dce793548bzh" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="341d10f9c453c"><a href="https://help.aliyun.com/zh/sls/encrypt-fields#concept-2293532" id="5bd7da5be8z6e" title="" class="xref">扩展插件：字段加密</a></p>
+              </td>
+            </tr>
+            <tr id="633e4b8a82n0k">
+              <td id="67606284f89yg" rowspan="3" style="vertical-align:middle" colspan="1">
+                <p id="5071112c57i9j">数据编码与解码</p>
+              </td>
+              <td id="4ca3d4f40drge" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="a746a3f3d52qr"><a href="https://help.aliyun.com/zh/sls/encode-and-decode-data#section-1x2-yk0-g4l" id="e66c7f1ce5tte" title="" class="xref">BASE64<span class="help-letter-space"></span>解码</a></p>
+              </td>
+            </tr>
+            <tr id="fa5f6ee9cc70c">
+              <td id="4d9be18cc1da2" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="cefe42f055uox"><a href="https://help.aliyun.com/zh/sls/encode-and-decode-data#section-5bw-71r-bxp" id="a1130c4f4c9qi" title="" class="xref">BASE64<span class="help-letter-space"></span>编码</a></p>
+              </td>
+            </tr>
+            <tr id="bcf2a64e1bvax">
+              <td id="3d616337dd0ij" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="0d07a653db9u2"><a href="https://help.aliyun.com/zh/sls/encode-and-decode-data#section-2ym-k1j-gba" id="06217cf25e2ol" title="" class="xref">MD5<span class="help-letter-space"></span>编码</a></p>
+              </td>
+            </tr>
+            <tr id="097f5850aerhj">
+              <td id="225b55de6a5sk" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p jc="left" id="6a78ceaaac9s3" style="text-align:left">Log<span class="help-letter-space"></span>转为<span class="help-letter-space"></span>Metric</p>
+              </td>
+              <td id="f7d6a5912fceo" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="30011c3e8917g">将采集到的日志转成<span class="help-letter-space"></span><span data-tag="ph" data-product-code="sls" outputclass="productName" id="0477ae1cbdoew" data-type="productSimpleName" tagname="span" data-reuse-tag="productSimpleName" data-init-id="span_product_simple_name_4265552" class="ph productName">SLS</span> Metric。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/log-to-metric" id="ad18272860n0g" title="" class="xref">扩展插件：Log<span class="help-letter-space"></span>转为<span class="help-letter-space"></span>Metric</a>。</p>
+              </td>
+            </tr>
+            <tr id="5b8bff648afvw">
+              <td id="c5900bc847b8m" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="0e511514adyjf">Log<span class="help-letter-space"></span>转为<span class="help-letter-space"></span>Trace</p>
+              </td>
+              <td id="fe450e1cf5f29" rowspan="1" style="vertical-align:middle" colspan="1">
+                <p id="2918933ae7dco">将采集到的日志转成<span class="help-letter-space"></span><span data-tag="ph" data-product-code="sls" outputclass="productName" id="4f22d8fa16aru" data-type="productSimpleName" tagname="span" data-reuse-tag="productSimpleName" data-init-id="span_product_simple_name_4265552" class="ph productName">SLS</span> Trace。更多信息，请参见<a href="https://help.aliyun.com/zh/sls/log-to-trace" id="944c6cd1458cf" title="" class="xref">扩展插件：Log<span class="help-letter-space"></span>转为<span class="help-letter-space"></span>Trace</a>。</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <h2 id="b30f8c3d478qs"><b>添加插件</b></h2>
+        <section id="794a4c4136opk" outputclass="tabbed-content-box" data-tag="tabbed-content-box" class="tabbed-content-box section">
+          <section id="b3c83e0509y51" class="section">
+            <h3 id="33baadd793v8w" outputclass="h3" data-tag="p" class="p h3">在修改配置时添加插件</h3>
+            <ol id="929113c6d860y" data-tag="ol" class="ol">
+              <li id="e27f93034d8rv" data-tag="step" class="step">
+                <p id="a1290fc5daub0" data-init-id="6a7cc970501ga"><span data-tag="ph" id="ph-q0d-de9-ecs" class="ph">登录<span data-tag="ph" id="ph-i3r-pp7-fzx" props="china intl" data-cond-props="china intl" class="ph"><a href="https://sls.console.aliyun.com" id="xref-ivv-0k8-uct" class="" target="_blank">日志服务控制台</a></span>。</span></p>
+              </li>
+              <li id="6807527166yya">
+                <p id="9e6e3f72c3rrn" data-init-id="6a7cf08050vb9">在<span class="help-letter-space"></span>Project<span class="help-letter-space"></span>列表区域，单击目标<span class="help-letter-space"></span>Project。</p>
+              </li>
+              <li data-tag="li" id="31c59dcfa8g0r" class="li">
+                <p id="be745ae2d0xrh">在<b id="60953f284eu7t" data-tag="uicontrol" data-isbold="true" class="uicontrol">日志存储</b>的日志库页签中，单击目标日志库前面的<b data-tag="uicontrol" id="uicontrol-jc9-bol-00p" class="uicontrol">&gt;</b>，选择<b id="375b4e19fdx9v" data-tag="uicontrol" data-isbold="true" class="uicontrol">数据接入</b>下的<span class="help-letter-space"></span><b id="6019daf0244j8" data-tag="uicontrol" data-isbold="true" class="uicontrol">Logtail<span class="help-letter-space"></span>配置</b>。</p>
+                <p id="p-9baee560db3a">单击目标<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>配置对应操作列的<b>管理<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>配置</b>。</p>
+              </li>
+              <li data-tag="li" id="9487f6a373zwa" class="li">
+                <p id="c7a65aba28pcs">在<span class="help-letter-space"></span><b id="1ba7069322zxo" data-tag="uicontrol" data-isbold="true" class="uicontrol">Logtail<span class="help-letter-space"></span>配置</b>列表中，单击目标<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>配置后<b id="271a2d0982cw2" data-tag="uicontrol" data-isbold="true" class="uicontrol">操作</b>列的<b id="b2c4418a8cchs" data-tag="uicontrol" data-isbold="true" class="uicontrol">管理<span class="help-letter-space"></span>Logtail<span class="help-letter-space"></span>配置</b>。</p>
+              </li>
+              <li data-tag="li" id="ffaa6d8b4d2is" class="li">
+                <p id="c8e7303901mtz">单击页面上方的<b id="dc68a8e37fxo7" data-tag="uicontrol" data-isbold="true" class="uicontrol">编辑</b>，在页面下方的<b id="cdb03a1f3dpr8" data-tag="uicontrol" data-isbold="true" class="uicontrol">处理配置</b>区域，新增插件，然后单击<b id="981f2154a91pn" data-tag="uicontrol" data-isbold="true" class="uicontrol">保存</b>。</p>
+              </li>
+            </ol>
+          </section>
+          <section id="9caf008b77j0g" class="section">
+            <h3 data-tag="p" id="66738b964coyg" outputclass="h3" class="p h3">在创建配置时添加插件</h3>
+            <ol id="8fb1d4face7kr" start="1">
+              <li data-tag="step" id="c2091c798aqf9" class="step">
+                <p id="b7005d99899q1" data-init-id="6a7cc970501ga"><span data-tag="ph" id="1113ef2cbfqdm" data-init-id="ph_q0d_de9_ecs" class="ph">登录<span data-tag="ph" id="84a00c8446fx4" props="china intl" data-init-id="ph_i3r_pp7_fzx" data-cond-props="china intl" class="ph"><a href="https://sls.console.aliyun.com" id="8568e32fbc98j" class="" target="_blank">日志服务控制台</a></span>。</span></p>
+              </li>
+              <li id="c190e2b470nk8">
+                <p id="24506303fa9iw">单击控制台页面右侧的<b id="28c39733f5717" data-tag="uicontrol" data-isbold="true" class="uicontrol">快速接入数据</b>卡片。</p>
+              </li>
+              <li id="fc2078132elpf">
+                <p id="b116efcee1pd7">在<b id="733594f131ef8" data-tag="uicontrol" data-isbold="true" class="uicontrol">接入数据</b>对话框中，单击任意卡片，按照配置向导进行操作，在<span class="help-letter-space"></span><b id="16112d2480dlt" data-tag="uicontrol" data-isbold="true" class="uicontrol">Logtail<span class="help-letter-space"></span>配置</b>步骤中添加插件。具体操作，请参见<a href="https://help.aliyun.com/zh/sls/collect-host-logs" id="2ca94ee556r2r" title="" class="xref">采集主机文本日志</a>。</p>
+                <div type="note" id="206823c8c6z07" class="note note-note"><div class="note-icon-wrapper"><i class="icon-note note note"></i></div><div class="noteContentSpan"><strong>说明 </strong>
+                  <p id="8ecaa8a695p1u">该插件配置与在修改配置时的插件配置相同。</p>
+                </div></div>
+              </li>
+            </ol>
+          </section>
+        </section>
+      </section>
+    </div>
+  </main>
+
+
+
+
+</div></div><div class="aliyun-docs-pagination"><div class="NextPage--container--cfVcdEE"><span class="NextPage--paginationLeft--WTOmehr"><a href="/zh/sls/comparison-of-processing-plug-ins-write-processors-data-processing-and-consumer-processors" data-spm-click="gostr=/aliyun;locaid=preDoc"><i class="iconfont icon-prev-arrow"></i>上一篇：处理插件、写入处理器、数据加工、消费处理器的对比</a></span><span class="NextPage--paginationRight--TgS6P1r"><a href="/zh/sls/sls-data-parsing-class-plug-in" data-spm-click="gostr=/aliyun;locaid=nextDoc">下一篇：数据解析类插件<i class="iconfont icon-next-arrow"></i></a></span></div></div></div><div class="RecommendDoc--container--M1qVQax"></div><div class="FeedbackButton--feedbackContainer--njtB22l aliyun-docs-feedback" id="help-doc-feedback"><div class="FeedbackButton--feedbackHelpTip--JxaBwdy">该文章对您有帮助吗？</div><div class="FeedbackButton--feedbackButtonContainer--ujiXFNJ"><div class="FeedbackButton--feedbackButtonBox--GmY1Nor"><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty"></i></button><button class="FeedbackButton--iconButton--fx4Xcop"><i class="help-iconfont help-icon-tag-empty" style="display:inline-block;transform:rotateX(-180deg)"></i></button><button class="FeedbackButton--clickButton--YxH6n96"><i class="help-iconfont help-icon-bianji"></i>反馈</button></div></div></div></section><div class="aliyun-docs-side" id="aliyun-docs-side"><div id="aliyun-docs-side-content" class="aliyun-docs-side-content ProductDetail--rightBox--GGLE5sH"><ul class="Outline--synopsisBox--zm_HamD" id="outline-container"></ul></div><div id="aliyun-docs-side-blank" class="aliyun-docs-side-blank"></div></div></div></main></div></div><div id="aliyun-docs-selection-div"></div></div></div>
+  <footer><div id="19c84ed1a69bbc2e4d171734f520dc90"><div class="_18a32969382a277c44015217fbc5cb5a_box"><footer class="_49ada0cd752f65901c49f2eed0d6c3d5_container" aria-label="PC 端页尾"><div class="_49ada0cd752f65901c49f2eed0d6c3d5_inner"><div class="_296d5000d6fdcaff9d0bfd209c64fbbc_services"><nav class="_296d5000d6fdcaff9d0bfd209c64fbbc_homepage-footer-main-services" aria-label="页脚导航"><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">为什么选择阿里云</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/about/what-is-cloud-computing" target="_blank">什么是云计算</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://infrastructure.aliyun.com/" target="_blank">全球基础设施</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/leading-technology" target="_blank">技术领先</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/reliability" target="_blank">稳定可靠</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/why-us/security-compliance" target="_blank">安全合规</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/analyst-reports" target="_blank">分析师报告</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">大模型</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/tongyi" target="_blank">千问大模型</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/?tab=model#/model-market" target="_blank" rel="nofollow">大模型服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://bailian.console.aliyun.com/app-center?tab=app#/app-center" target="_blank" rel="nofollow">AI应用构建</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">产品和定价</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/list" target="_blank">全部产品</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/product/news/" target="_blank">产品动态</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/detail" target="_blank">产品定价</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cpq/list" target="_blank">配置报价器</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/price/cost-management" target="_blank">云上成本管理</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">技术内容</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/tech-solution" target="_blank">技术解决方案</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://help.aliyun.com/" target="_blank">帮助文档</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://developer.aliyun.com/" target="_blank">开发者社区</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://tianchi.aliyun.com/" target="_blank">天池大赛</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://edu.aliyun.com/" target="_blank">阿里云认证</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">权益</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://free.aliyun.com/" target="_blank">免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/solution/free" target="_blank">解决方案免费试用</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://university.aliyun.com/" target="_blank">高校计划</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/benefit/form/index" target="_blank">5亿算力补贴</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://dashi.aliyun.com/?ambRef=shouYeDaoHang2&amp;pageCode=yunparterIndex" target="_blank">推荐返现计划</a></section><section class="a52e48969cced2d562e47543eeb73ebb_ali-main-services"><h3 class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-title">服务</h3><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service" target="_blank">基础服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/supportplans" target="_blank">企业增值服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/service/devopsimpl/devopsimpl_cloudmigration_public_cn" target="_blank">迁云服务</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://www.aliyun.com/notice/" target="_blank">官网公告</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://status.aliyun.com/" target="_blank">健康看板</a><a class="a52e48969cced2d562e47543eeb73ebb_ali-main-services-link" href="https://security.aliyun.com/trust-center" target="_blank">信任中心</a></section></nav><article class="_7b44142961778903dda8af3f769cd06c_focus"><h3 class="_7b44142961778903dda8af3f769cd06c_ali-main-services-title">关注阿里云</h3><p class="_7b44142961778903dda8af3f769cd06c_ali-main-services-desc">关注阿里云公众号或下载阿里云APP，关注云资讯，随时随地运维管控云服务</p><img alt="阿里云APP" src="https://img.alicdn.com/imgextra/i4/O1CN01XLesV31fkf7pYNATb_!!6000000004045-2-tps-400-400.png" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><img alt="阿里云微信" src="https://img.alicdn.com/tfs/TB1AOdINW6qK1RjSZFmXXX0PFXa-258-258.jpg" class="_7b44142961778903dda8af3f769cd06c_ali-official-code" loading="lazy"/><p class="_7b44142961778903dda8af3f769cd06c_consult-text">联系我们：4008013260</p></article></div><div class="_4598709a854bea355ceb6ef9f23f10d4_about-link-wrap"><a href="https://help.aliyun.com/product/67275.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">法律声明</a><a href="https://terms.alicdn.com/legal-agreement/terms/platform_service/20220906101446934/20220906101446934.html" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">Cookies 政策</a><a href="https://aliyun.jubao.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">廉正举报</a><a href="https://report.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">安全举报</a><a href="https://www.aliyun.com/contact" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">联系我们</a><a href="https://careers.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-about-link" target="_blank">加入我们</a></div><section class="_4598709a854bea355ceb6ef9f23f10d4_friend-link-wrap"><h3 hidden="">友情链接</h3><a href="https://www.alibabagroup.com/cn/global/home" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴集团</a><a href="https://www.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝网</a><a href="https://www.tmall.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">天猫</a><a href="https://www.aliexpress.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">全球速卖通</a><a href="https://www.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里巴巴国际交易市场</a><a href="https://www.1688.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">1688</a><a href="https://www.alimama.com/index.htm" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里妈妈</a><a href="https://www.fliggy.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">飞猪</a><a href="https://www.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云计算</a><a href="https://wanwang.aliyun.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">万网</a><a href="https://mobile.amap.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">高德</a><a href="https://www.uc.cn/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">UC</a><a href="https://www.umeng.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">友盟</a><a href="https://www.youku.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">优酷</a><a href="https://www.dingtalk.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">钉钉</a><a href="https://www.alipay.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">支付宝</a><a href="https://damo.alibaba.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">达摩院</a><a href="https://world.taobao.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝海外</a><a href="https://www.aliyundrive.com/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">阿里云盘</a><a href="https://www.ele.me/" class="_4598709a854bea355ceb6ef9f23f10d4_ali-friend-link" target="_blank">淘宝闪购</a></section><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-copyright-text">© 2009-现在 Aliyun.com 版权所有 增值电信业务经营许可证： <a href="http://beian.miit.gov.cn/" target="_blank">浙B2-20080101</a> 域名注册服务机构许可： <a href="https://domain.miit.gov.cn/域名注册服务机构/互联网域名/阿里云计算有限公司 " target="_blank">浙D3-20210002</a></p><p class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-wrap"><a href="https://zzlz.gsxt.gov.cn/businessCheck/verifKey.do?showType=p&amp;serial=91330106673959654P-SAIC_SHOW_10000091330106673959654P1710919400712&amp;signData=MEUCIQDEkCd8cK7%2Fyqe6BNMWvoMPtAnsgKa7FZetfPkjZMsvhAIgOX1G9YC6FKyndE7o7hL0KaBVn4f%20V%2Fiof3iAgpsV09o%3D" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//gw.alicdn.com/tfs/TB1GxwdSXXXXXa.aXXXXXXXXXXX-65-70.gif" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="" loading="lazy"/></a><a href="http://www.beian.gov.cn/portal/registerSystemInfo" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><img src="//img.alicdn.com/tfs/TB1..50QpXXXXX7XpXXXXXXXXXX-40-40.png" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-img" alt="浙公网安备 33010602009975号" loading="lazy"/><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text">浙公网安备 33010602009975号</span></a><a href="https://beian.miit.gov.cn/" target="_blank" class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link"><span class="_4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text _4598709a854bea355ceb6ef9f23f10d4_ali-report-link-text-unique">浙B2-20080101-4</span></a></p></div></footer><footer class="_4b41e3343c851a7a8833c9165b249eb2_container" aria-label="移动端页尾"></footer></div></div></footer>
+
+
+
+<script>
+  var _performance_domEnd = window.performance && window.performance.now();
+</script>
+
+
+  <script>
+    window.ALIYUN_PERF && window.ALIYUN_PERF.getPCP().then(rst => {
+      var data = {
+        product: 'help.aliyun.com',
+        ua: navigator.userAgent,
+        device: 'pc',
+        page: 'index',
+        lang: 'zh',
+        cna: '',
+        url: window.location.href,
+        action: 'pcp',
+        userParams1: rst || 0,
+      };
+      let queryStr = Object.keys(data).map(key => data[key] &&
+        `${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`).join('&');
+      fetch('https://help-new.cn-wulanchabu.log.aliyuncs.com/logstores/web-tracking/track?APIVersion=0.6.0&' +
+        queryStr);
+    });
+  </script>
+  
+
+  <script crossorigin="" src="https://g.alicdn.com/code/lib/??react/16.8.6/umd/react.production.min.js,react-dom/16.8.6/umd/react-dom.production.min.js"></script>
+  <script src="https://g.alicdn.com/code/lib/lodash.js/4.17.21/lodash.min.js" crossorigin="anonymous"></script>
+  <script>
+  window.resourceBaseUrl="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/"
+</script>
+<script defer="" src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/index.js"></script>
+<script defer src="https://g.alicdn.com/aliyun-help/help-portal-fe/0.12.44/js/vendor.js"></script>
+  
+  <script async="" src="https://g.alicdn.com/dawn/assets-loader/scripts/fast-login.js?tenantName=help-new-aliyun-com"></script>
+  <script async="" src="https://g.alicdn.com/aliyun/perf/js/index.js"></script>
+  <script src="//cloud-assets.alicdn.com/website.js" crossorigin=""></script>
+  
+
+<script src="https://website.alyasset.com/npm.combo/@ali/biu-loader/0.1.9/~~index.js,plugins/global-react.js,plugins/ace-module.js"></script>
+<script src="https://website.alyasset.com/npm.combo/@ali/~~hmod-preact/0.0.1/index.js,hmod-preact-hooks/0.0.1/index.js,hmod-preact-compat/0.0.1/index.js,hmod-preact-bridge/0.1.4/index.js"></script>
+<script src="https://website.alyasset.com/code.combo/aliyun-com/~~lowcode-env-inject/0.1.0/aliyun.prod.pc.zh-CN.js,lowcode-engine/0.1.125/renderer/build/js/index.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-aliyun-com-floating-toolbar/0.2.4/index.js,hmod-aliyun-com-global-nav-search/0.8.5/index.js,hmod-aliyun-com-global-nav-search/0.8.5/locales/zh-CN.js,hmod-aliyun-com-global-nav/0.3.18/index.js,hmod-aliyun-com-global-nav/0.3.18/locales/zh-CN.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/35ed6b66d57084d03def49c3ad672872.js"></script>
+<script src="https://g.alicdn.com/code/npm/@ali/??hmod-ace-2023-box/0.1.0/index.js,hmod-ace-2024-global-footer/0.2.1/index.js,hmod-ace-2024-global-footer/0.2.1/locales/zh-CN.js,hmod-lowcode-normal-page/0.1.0/index.js"></script>
+<script src="https://website.alyasset.com/lowcode/entry/prod/19c84ed1a69bbc2e4d171734f520dc90.js"></script>
+</body></html>

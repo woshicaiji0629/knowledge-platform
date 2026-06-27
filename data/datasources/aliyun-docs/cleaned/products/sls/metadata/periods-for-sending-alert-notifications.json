@@ -1,0 +1,17 @@
+{
+  "id": "sls:periods-for-sending-alert-notifications",
+  "source": "aliyun_docs",
+  "product": "sls",
+  "topic": "features",
+  "title": "通知发送时段机制及示例-日志服务(SLS)-阿里云帮助中心",
+  "source_url": "https://help.aliyun.com/zh/sls/periods-for-sending-alert-notifications",
+  "raw_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/products/sls/documents/periods-for-sending-alert-notifications.md",
+  "output_document_path": "/Users/zhangji/zhangji/code/knowledge-platform/data/datasources/aliyun-docs/cleaned/products/sls/documents/periods-for-sending-alert-notifications.md",
+  "word_count": 517,
+  "text_units": 1331,
+  "local_links": 0,
+  "external_links": 64,
+  "has_tables": false,
+  "table_count": 0,
+  "quality": "accepted"
+}
