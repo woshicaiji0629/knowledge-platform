@@ -2,6 +2,10 @@ from dataclasses import dataclass, field
 from datetime import datetime
 
 
+def _empty_metadata() -> dict[str, str]:
+    return {}
+
+
 @dataclass(frozen=True)
 class RawDocument:
     id: str
@@ -10,7 +14,7 @@ class RawDocument:
     title: str
     content: str
     fetched_at: datetime
-    metadata: dict[str, str] = field(default_factory=dict)
+    metadata: dict[str, str] = field(default_factory=_empty_metadata)
 
 
 @dataclass(frozen=True)
@@ -22,4 +26,4 @@ class DocumentChunk:
     title: str
     content: str
     chunk_index: int
-    metadata: dict[str, str] = field(default_factory=dict)
+    metadata: dict[str, str] = field(default_factory=_empty_metadata)

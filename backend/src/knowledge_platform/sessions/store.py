@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 
 from knowledge_platform.sessions.models import ChatMessage, ChatSession, MessageRole
 
@@ -25,7 +25,7 @@ class InMemorySessionStore:
     def append_message(self, session_id: str, message: ChatMessage) -> ChatSession:
         session = self.get_or_create(session_id=session_id)
         session.messages.append(message)
-        session.updated_at = datetime.now(timezone.utc)
+        session.updated_at = datetime.now(UTC)
         if session.title == "新会话" and message.role == MessageRole.USER:
             session.title = message.content[:32]
         return session

@@ -186,7 +186,7 @@ def clean_document(data_root: Path, document: dict[str, str]) -> CleanedDocument
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(cleaned_markdown, encoding="utf-8")
 
-        metadata = {
+        metadata: dict[str, Any] = {
             "id": document["id"],
             "source": document.get("source", "aliyun_docs"),
             "product": document["product"],
@@ -394,7 +394,7 @@ def _read_documents(manifest: dict[str, Any]) -> list[dict[str, str]]:
 
 
 def _write_cleaned_manifest(data_root: Path, documents: list[CleanedDocument]) -> None:
-    manifest = {
+    manifest: dict[str, Any] = {
         "source": "aliyun_docs",
         "documents": [
             {
@@ -418,7 +418,7 @@ def _write_cleaned_manifest(data_root: Path, documents: list[CleanedDocument]) -
 
 
 def _write_candidate_manifest(data_root: Path, documents: list[CleanedDocument]) -> None:
-    manifest = {
+    manifest: dict[str, Any] = {
         "source": "aliyun_docs",
         "documents": [
             {
@@ -448,7 +448,7 @@ def _write_quality_report(
     candidate_documents: list[CleanedDocument],
     discarded_documents: list[CleanedDocument],
 ) -> None:
-    report = {
+    report: dict[str, Any] = {
         "source": "aliyun_docs",
         "accepted": len(accepted_documents),
         "candidate": len(candidate_documents),

@@ -1,9 +1,10 @@
+from typing import Any, cast
+
 from fastapi.testclient import TestClient
 
 from knowledge_platform.main import app
 
-
-client = TestClient(app)
+client = cast(Any, TestClient(app))
 
 
 def test_health() -> None:

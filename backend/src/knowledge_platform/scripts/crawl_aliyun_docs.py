@@ -302,6 +302,10 @@ def _is_excluded_url(url: str, exclude_url_patterns: list[str]) -> bool:
     return any(pattern in url for pattern in exclude_url_patterns)
 
 
+def is_excluded_url(url: str, exclude_url_patterns: list[str]) -> bool:
+    return _is_excluded_url(url=url, exclude_url_patterns=exclude_url_patterns)
+
+
 def _is_excluded_crawled_page(crawled_page: CrawledPage, product: str, exclude_url_patterns: list[str]) -> bool:
     if crawled_page.document.metadata.get("product") != product:
         return True
@@ -312,11 +316,12 @@ def _is_excluded_crawled_page(crawled_page: CrawledPage, product: str, exclude_u
 
 
 def _delete_crawled_page_files(crawled_page: CrawledPage) -> None:
+    document_path = Path(str(crawled_page.document.metadata.get("document_path", "")))
     for metadata_key in ("raw_path", "document_path", "metadata_path"):
         path = Path(str(crawled_page.document.metadata.get(metadata_key, "")))
         if path.is_file():
             path.unlink()
-            _remove_empty_parents(path.parent, stop_at=Path(str(crawled_page.document.metadata.get("document_path", ""))).parents[2])
+            _remove_empty_parents(path.parent, stop_at=document_path.parents[2])
 
 
 def _remove_empty_parents(path: Path, stop_at: Path) -> None:
@@ -385,13 +390,20 @@ def _metadata_documents(repo_root: Path) -> list[RawDocument]:
 
     documents: list[RawDocument] = []
     for metadata_path in sorted(products_root.glob("*/metadata/**/*.json")):
-        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        metadata = cast(dict[str, Any], json.loads(metadata_path.read_text(encoding="utf-8")))
         product = str(metadata.get("product", "general"))
         document_path = str(metadata.get("document_path", ""))
         url = str(metadata.get("url", ""))
         title = str(metadata.get("title", url))
         if not document_path or not url:
             continue
+        document_metadata: dict[str, str] = {
+            "product": product,
+            "topic": str(metadata.get("topic", "features")),
+            "raw_path": str(metadata.get("raw_path", "")),
+            "document_path": document_path,
+            "metadata_path": str(metadata_path),
+        }
         documents.append(
             RawDocument(
                 id=_document_id_from_path(data_root=data_root, product=product, document_path=Path(document_path)),
@@ -400,13 +412,7 @@ def _metadata_documents(repo_root: Path) -> list[RawDocument]:
                 title=title,
                 content="",
                 fetched_at=datetime.now(UTC),
-                metadata={
-                    "product": product,
-                    "topic": str(metadata.get("topic", "features")),
-                    "raw_path": str(metadata.get("raw_path", "")),
-                    "document_path": document_path,
-                    "metadata_path": str(metadata_path),
-                },
+                metadata=document_metadata,
             )
         )
     return documents
@@ -444,22 +450,21 @@ def _write_crawl_report(repo_root: Path, reports: list[ProductCrawlReport]) -> N
         {"product": report.product, "url": url} for report in reports for url in report.remaining_retry_urls
     ]
     summary = Counter[str]()
-    for report in reports:
-        summary["crawled"] += report.crawled
-        summary["anti_bot"] += report.anti_bot
-        summary["failed"] += report.failed
-        summary["retried"] += report.retried
-        summary["remaining_retry_urls"] += len(report.remaining_retry_urls)
-    report = {
+    for product_report in reports:
+        summary["crawled"] += product_report.crawled
+        summary["anti_bot"] += product_report.anti_bot
+        summary["failed"] += product_report.failed
+        summary["retried"] += product_report.retried
+        summary["remaining_retry_urls"] += len(product_report.remaining_retry_urls)
+    crawl_report: dict[str, Any] = {
         "source": "aliyun_docs",
         "updated_at": datetime.now(UTC).isoformat(),
         "summary": dict(summary),
         "products": [asdict(product_report) for product_report in reports],
     }
-    report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
-    retry_path.write_text(
-        json.dumps({"source": "aliyun_docs", "urls": all_retry_urls}, ensure_ascii=False, indent=2), encoding="utf-8"
-    )
+    retry_payload: dict[str, Any] = {"source": "aliyun_docs", "urls": all_retry_urls}
+    report_path.write_text(json.dumps(crawl_report, ensure_ascii=False, indent=2), encoding="utf-8")
+    retry_path.write_text(json.dumps(retry_payload, ensure_ascii=False, indent=2), encoding="utf-8")
 
 
 def _sleep(seconds: float) -> None:

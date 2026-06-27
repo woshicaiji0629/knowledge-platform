@@ -5,6 +5,10 @@ from knowledge_platform.api.v1.router import router as v1_router
 from knowledge_platform.config.settings import get_settings
 
 
+def health_response(environment: str) -> dict[str, str]:
+    return {"status": "ok", "environment": environment}
+
+
 def create_app() -> FastAPI:
     settings = get_settings()
     app = FastAPI(title=settings.app_name)
@@ -16,10 +20,10 @@ def create_app() -> FastAPI:
         allow_headers=["*"],
     )
 
-    @app.get("/health")
     def health() -> dict[str, str]:
-        return {"status": "ok", "environment": settings.app_env}
+        return health_response(settings.app_env)
 
+    app.add_api_route("/health", health, methods=["GET"])
     app.include_router(v1_router, prefix="/api/v1")
     return app
 

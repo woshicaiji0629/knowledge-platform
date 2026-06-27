@@ -3,7 +3,7 @@ from pathlib import Path
 
 from knowledge_platform.crawlers.aliyun_docs import AliyunDocsCrawler, FetchResult
 from knowledge_platform.crawlers.base import CrawlRequest
-from knowledge_platform.scripts.crawl_aliyun_docs import _is_excluded_url
+from knowledge_platform.scripts.crawl_aliyun_docs import is_excluded_url
 
 
 def test_aliyun_docs_crawler_saves_raw_html_and_metadata(tmp_path: Path) -> None:
@@ -103,6 +103,6 @@ def test_aliyun_docs_crawler_skips_anti_bot_pages(tmp_path: Path) -> None:
 def test_crawl_script_excludes_product_api_reference_urls() -> None:
     patterns = ["/developer-reference/api-"]
 
-    assert _is_excluded_url("https://help.aliyun.com/zh/vpc/developer-reference/api-vpc-2016-04-28-createvpc", patterns)
-    assert not _is_excluded_url("https://help.aliyun.com/zh/vpc/developer-reference/endpoint", patterns)
-    assert not _is_excluded_url("https://help.aliyun.com/zh/vpc/vpc-user-guide/", patterns)
+    assert is_excluded_url("https://help.aliyun.com/zh/vpc/developer-reference/api-vpc-2016-04-28-createvpc", patterns)
+    assert not is_excluded_url("https://help.aliyun.com/zh/vpc/developer-reference/endpoint", patterns)
+    assert not is_excluded_url("https://help.aliyun.com/zh/vpc/vpc-user-guide/", patterns)

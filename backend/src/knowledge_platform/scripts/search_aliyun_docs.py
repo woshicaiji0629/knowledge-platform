@@ -38,7 +38,7 @@ async def _main_async() -> None:
         if not embedding_batch.embeddings:
             continue
         results = await vector_store.search_points(vector=embedding_batch.embeddings[0].vector, limit=args.limit)
-        query_report = {
+        query_report: dict[str, Any] = {
             "query": query,
             "request_id": embedding_batch.request_id,
             "usage": embedding_batch.usage,

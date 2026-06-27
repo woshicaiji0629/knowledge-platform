@@ -20,7 +20,11 @@ class RuleBasedIntentClassifier:
     def classify(self, message: str) -> IntentResult:
         normalized_message = message.strip().lower()
         if any(keyword in normalized_message for keyword in ["报错", "错误", "失败", "error", "fail"]):
-            return IntentResult(intent=Intent.TROUBLESHOOTING, confidence=0.72, reason="matched troubleshooting keyword")
+            return IntentResult(
+                intent=Intent.TROUBLESHOOTING,
+                confidence=0.72,
+                reason="matched troubleshooting keyword",
+            )
         if any(keyword in normalized_message for keyword in ["怎么", "如何", "步骤", "how to"]):
             return IntentResult(intent=Intent.HOW_TO, confidence=0.68, reason="matched how-to keyword")
         if any(keyword in normalized_message for keyword in ["文档", "api", "配置", "参数", "aliyun", "阿里云"]):

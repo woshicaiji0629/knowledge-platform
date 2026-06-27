@@ -285,22 +285,31 @@ class AliyunDocsCrawler(DocumentCrawler):
 
         self._write_text_file(local_paths.raw_path, html)
         self._write_text_file(local_paths.document_path, markdown)
+        page_metadata: dict[str, Any] = {
+            "source": self.source,
+            "product": local_paths.product,
+            "topic": topic,
+            "url": fetch_result.final_url,
+            "title": title,
+            "fetched_at": fetched_at.isoformat(),
+            "status_code": str(fetch_result.status_code),
+            "content_type": fetch_result.content_type,
+            "raw_path": str(local_paths.raw_path),
+            "document_path": str(local_paths.document_path),
+        }
         self._write_json_file(
             local_paths.metadata_path,
-            metadata={
-                "source": self.source,
-                "product": local_paths.product,
-                "topic": topic,
-                "url": fetch_result.final_url,
-                "title": title,
-                "fetched_at": fetched_at.isoformat(),
-                "status_code": str(fetch_result.status_code),
-                "content_type": fetch_result.content_type,
-                "raw_path": str(local_paths.raw_path),
-                "document_path": str(local_paths.document_path),
-            },
+            metadata=page_metadata,
         )
 
+        document_metadata: dict[str, str] = {
+            "product": local_paths.product,
+            "topic": topic,
+            "content_type": fetch_result.content_type,
+            "raw_path": str(local_paths.raw_path),
+            "document_path": str(local_paths.document_path),
+            "metadata_path": str(local_paths.metadata_path),
+        }
         document = RawDocument(
             id=document_id,
             source=self.source,
@@ -308,14 +317,7 @@ class AliyunDocsCrawler(DocumentCrawler):
             title=title,
             content=content,
             fetched_at=fetched_at,
-            metadata={
-                "product": local_paths.product,
-                "topic": topic,
-                "content_type": fetch_result.content_type,
-                "raw_path": str(local_paths.raw_path),
-                "document_path": str(local_paths.document_path),
-                "metadata_path": str(local_paths.metadata_path),
-            },
+            metadata=document_metadata,
         )
         links = [self._normalize_url(urljoin(fetch_result.final_url, link)) for link in parsed_html.links]
         return CrawledPage(document=document, links=links)
@@ -455,7 +457,7 @@ class AliyunDocsCrawler(DocumentCrawler):
                 "document_path": document.metadata["document_path"],
                 "metadata_path": document.metadata["metadata_path"],
             }
-        manifest = {
+        manifest: dict[str, Any] = {
             "source": self.source,
             "updated_at": datetime.now(UTC).isoformat(),
             "documents": list(document_by_id.values()),

@@ -31,7 +31,7 @@ def main() -> None:
     repo_root = Path(__file__).resolve().parents[4]
     data_root = repo_root / "data" / "datasources" / "aliyun-docs"
     manifest_path = data_root / "cleaned-manifest.json"
-    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    manifest = cast(dict[str, Any], json.loads(manifest_path.read_text(encoding="utf-8")))
     documents = _read_documents(manifest)
 
     chunker = create_chunker(
@@ -112,6 +112,12 @@ def _chunk_document(data_root: Path, document: dict[str, str], chunker: Document
 def _to_raw_document(document: dict[str, str]) -> RawDocument:
     document_path = Path(document["cleaned_document_path"])
     content = document_path.read_text(encoding="utf-8")
+    document_metadata: dict[str, str] = {
+        "product": document["product"],
+        "topic": document["topic"],
+        "cleaned_document_path": document["cleaned_document_path"],
+        "cleaned_metadata_path": document["metadata_path"],
+    }
     return RawDocument(
         id=document["id"],
         source="aliyun_docs",
@@ -119,12 +125,7 @@ def _to_raw_document(document: dict[str, str]) -> RawDocument:
         title=document["title"],
         content=content,
         fetched_at=datetime.now(UTC),
-        metadata={
-            "product": document["product"],
-            "topic": document["topic"],
-            "cleaned_document_path": document["cleaned_document_path"],
-            "cleaned_metadata_path": document["metadata_path"],
-        },
+        metadata=document_metadata,
     )
 
 
@@ -137,7 +138,7 @@ def _write_chunk(data_root: Path, document: dict[str, str], chunk: DocumentChunk
     metadata_path.parent.mkdir(parents=True, exist_ok=True)
 
     chunk_path.write_text(chunk.content.strip() + "\n", encoding="utf-8")
-    metadata = {
+    metadata: dict[str, Any] = {
         "id": chunk.id,
         "document_id": chunk.document_id,
         "source": chunk.source,
@@ -190,7 +191,7 @@ def _write_chunk_manifest(
     overlap_chars: int,
     min_content_chars: int,
 ) -> None:
-    manifest = {
+    manifest: dict[str, Any] = {
         "source": "aliyun_docs",
         "updated_at": datetime.now(UTC).isoformat(),
         "chunking": {

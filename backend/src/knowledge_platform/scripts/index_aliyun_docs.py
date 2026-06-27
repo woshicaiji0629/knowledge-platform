@@ -367,7 +367,7 @@ def write_index_report(
     reports: list[BatchIndexReport],
 ) -> None:
     usage_total = usage_total_from_reports(reports)
-    report = {
+    report: dict[str, Any] = {
         "source": "aliyun_docs",
         "updated_at": datetime.now(UTC).isoformat(),
         "collection": collection,
