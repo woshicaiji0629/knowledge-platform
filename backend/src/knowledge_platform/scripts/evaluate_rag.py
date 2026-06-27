@@ -40,7 +40,37 @@ class EvalResult:
     citations: list[dict[str, str | float]]
     context_chars: int
     duration_ms: int
+    target_product_citations: int = 0
+    off_product_citations: int = 0
+    interface_reference_citations: int = 0
+    top_score: float = 0.0
+    avg_score: float = 0.0
+    quality_warnings: list[str] | None = None
     error: str = ""
+
+
+@dataclass(frozen=True)
+class CitationQuality:
+    target_product_citations: int
+    off_product_citations: int
+    interface_reference_citations: int
+    top_score: float
+    avg_score: float
+    warnings: list[str]
+
+
+INTERFACE_REFERENCE_PATTERNS = [
+    "api-reference",
+    "developer-reference",
+    "sdk-reference",
+    "openapi",
+    "list-of-operations",
+    "api参考",
+    "sdk参考",
+    "接口调用",
+]
+
+DEFAULT_LOW_SCORE_THRESHOLD = 0.55
 
 
 def main() -> None:
@@ -74,6 +104,7 @@ async def _main_async() -> None:
             retrieval_service=retrieval_service,
             answer_generator=answer_generator,
             semaphore=semaphore,
+            low_score_threshold=args.low_score_threshold,
         )
         for case in cases
     ]
@@ -151,7 +182,27 @@ def markdown_report(results: list[EvalResult]) -> str:
         f"- succeeded: {success_count}",
         f"- failed: {len(results) - success_count}",
         "",
+        "## Quality Summary",
+        "",
+        "| case | product_filter | citations | target | off_product | interface_refs | "
+        "top_score | avg_score | warnings |",
+        "| --- | --- | ---: | ---: | ---: | ---: | ---: | ---: | --- |",
     ]
+    for result in results:
+        warnings = ", ".join(result.quality_warnings or []) or "-"
+        lines.append(
+            "| "
+            f"{result.id} | "
+            f"{result.product_filter or '-'} | "
+            f"{len(result.citations)} | "
+            f"{result.target_product_citations} | "
+            f"{result.off_product_citations} | "
+            f"{result.interface_reference_citations} | "
+            f"{result.top_score:.4f} | "
+            f"{result.avg_score:.4f} | "
+            f"{warnings} |"
+        )
+    lines.append("")
     for result in results:
         lines.extend(
             [
@@ -184,6 +235,7 @@ async def _evaluate_case(
     retrieval_service: QdrantRetrievalService,
     answer_generator: AnswerGeneratorProtocol,
     semaphore: asyncio.Semaphore,
+    low_score_threshold: float,
 ) -> EvalResult:
     async with semaphore:
         started_at = time.perf_counter()
@@ -204,6 +256,7 @@ async def _evaluate_case(
                 retrieval_context=retrieval_context,
                 answer=answer,
                 duration_ms=_duration_ms(started_at),
+                low_score_threshold=low_score_threshold,
             )
         except Exception as error:
             return EvalResult(
@@ -216,6 +269,7 @@ async def _evaluate_case(
                 citations=[],
                 context_chars=0,
                 duration_ms=_duration_ms(started_at),
+                quality_warnings=["error"],
                 error=str(error),
             )
 
@@ -225,7 +279,14 @@ def _success_result(
     retrieval_context: RetrievalContext,
     answer: str,
     duration_ms: int,
+    low_score_threshold: float,
 ) -> EvalResult:
+    citations = [_citation_dict(citation) for citation in retrieval_context.citations]
+    citation_quality = evaluate_citation_quality(
+        citations=citations,
+        product_filter=case.product_filter,
+        low_score_threshold=low_score_threshold,
+    )
     return EvalResult(
         id=case.id,
         question=case.question,
@@ -233,9 +294,15 @@ def _success_result(
         product_filter=case.product_filter,
         tags=case.tags or [],
         answer=answer,
-        citations=[_citation_dict(citation) for citation in retrieval_context.citations],
+        citations=citations,
         context_chars=len(retrieval_context.context_text),
         duration_ms=duration_ms,
+        target_product_citations=citation_quality.target_product_citations,
+        off_product_citations=citation_quality.off_product_citations,
+        interface_reference_citations=citation_quality.interface_reference_citations,
+        top_score=citation_quality.top_score,
+        avg_score=citation_quality.avg_score,
+        quality_warnings=citation_quality.warnings,
     )
 
 
@@ -246,6 +313,57 @@ def _citation_dict(citation: Citation) -> dict[str, str | float]:
         "source": citation.source,
         "score": citation.score,
     }
+
+
+def evaluate_citation_quality(
+    citations: list[dict[str, str | float]],
+    product_filter: str,
+    low_score_threshold: float = DEFAULT_LOW_SCORE_THRESHOLD,
+) -> CitationQuality:
+    scores = [_citation_score(citation) for citation in citations]
+    top_score = max(scores, default=0.0)
+    avg_score = round(sum(scores) / len(scores), 6) if scores else 0.0
+    target_product_citations = sum(1 for citation in citations if _is_target_product_citation(citation, product_filter))
+    off_product_citations = len(citations) - target_product_citations if product_filter else 0
+    interface_reference_citations = sum(1 for citation in citations if _is_interface_reference_citation(citation))
+
+    warnings: list[str] = []
+    if not citations:
+        warnings.append("no_citations")
+    if off_product_citations > 0:
+        warnings.append("off_product_citations")
+    if interface_reference_citations > 0:
+        warnings.append("interface_reference_citations")
+    if citations and top_score < low_score_threshold:
+        warnings.append("low_top_score")
+
+    return CitationQuality(
+        target_product_citations=target_product_citations,
+        off_product_citations=off_product_citations,
+        interface_reference_citations=interface_reference_citations,
+        top_score=round(top_score, 6),
+        avg_score=avg_score,
+        warnings=warnings,
+    )
+
+
+def _is_target_product_citation(citation: dict[str, str | float], product_filter: str) -> bool:
+    if not product_filter:
+        return False
+    url = str(citation.get("url", "")).lower()
+    return f"/zh/{product_filter.lower()}/" in url
+
+
+def _is_interface_reference_citation(citation: dict[str, str | float]) -> bool:
+    text = " ".join(str(citation.get(key, "")) for key in ("title", "url")).lower()
+    return any(pattern in text for pattern in INTERFACE_REFERENCE_PATTERNS)
+
+
+def _citation_score(citation: dict[str, str | float]) -> float:
+    score = citation.get("score", 0.0)
+    if isinstance(score, int | float):
+        return float(score)
+    return 0.0
 
 
 def _answer_generator(provider: Literal["dashscope", "skeleton"]) -> AnswerGeneratorProtocol:
@@ -276,6 +394,12 @@ def _parse_args() -> argparse.Namespace:
         choices=["dashscope", "skeleton"],
         default="dashscope",
         help="Use skeleton to evaluate retrieval without paid answer generation.",
+    )
+    parser.add_argument(
+        "--low-score-threshold",
+        type=float,
+        default=DEFAULT_LOW_SCORE_THRESHOLD,
+        help="Warn when a case has citations but the top retrieval score is below this threshold.",
     )
     parser.add_argument("--report-jsonl", default=str(default_report_root / "results.jsonl"), help="JSONL report path.")
     parser.add_argument(
