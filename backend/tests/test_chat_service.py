@@ -9,13 +9,22 @@ from knowledge_platform.sessions.store import InMemorySessionStore
 
 
 class FakeRetrievalService:
-    async def retrieve(self, query: str, limit: int | None = None) -> RetrievalContext:
+    def __init__(self) -> None:
+        self.last_product_filter: str | None = None
+
+    async def retrieve(
+        self,
+        query: str,
+        limit: int | None = None,
+        product_filter: str | None = None,
+    ) -> RetrievalContext:
+        self.last_product_filter = product_filter
         return RetrievalContext(
             context_text=f"context for {query}",
             citations=[
                 Citation(
                     title="ECS product overview",
-                    url="https://help.aliyun.com/ecs",
+                    url="https://help.aliyun.com/zh/ecs/product-overview",
                     source="aliyun_docs",
                     score=0.8,
                 )
@@ -34,17 +43,22 @@ class FakeAnswerGenerator:
 
 def test_chat_service_uses_async_retrieval_context() -> None:
     answer_generator = FakeAnswerGenerator()
+    retrieval_service = FakeRetrievalService()
     service = ChatService(
         session_store=InMemorySessionStore(),
-        retrieval_service=FakeRetrievalService(),
+        retrieval_service=retrieval_service,
         answer_generator=answer_generator,
         intent_classifier=RuleBasedIntentClassifier(),
     )
 
-    result = asyncio.run(service.send_message(session_id="session-1", message="ECS 怎么选型"))
+    result = asyncio.run(service.send_message(session_id="session-1", message="ECS 怎么选型", product_filter="ecs"))
 
+    assert retrieval_service.last_product_filter == "ecs"
     assert result.assistant_message.citations[0].title == "ECS product overview"
     assert result.assistant_message.content == "generated answer for ECS 怎么选型"
+    assert result.quality.target_product_citations == 1
+    assert result.quality.off_product_citations == 0
+    assert result.quality.quality_warnings == []
     assert len(result.session.messages) == 2
     assert answer_generator.last_request is not None
     assert answer_generator.last_request.context_text == "context for ECS 怎么选型"

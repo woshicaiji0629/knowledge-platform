@@ -1,4 +1,9 @@
-from knowledge_platform.services.retrieval_service import deduplicate_scored_points, product_payload_filter
+from knowledge_platform.services.retrieval_service import (
+    deduplicate_scored_points,
+    evaluate_retrieval_quality,
+    product_payload_filter,
+)
+from knowledge_platform.sessions.models import Citation
 from knowledge_platform.vectorstores.qdrant import QdrantConfig, QdrantVectorStore, ScoredVectorPoint
 
 
@@ -28,6 +33,46 @@ def test_deduplicate_scored_points_by_source_url() -> None:
     deduplicated = deduplicate_scored_points(results, limit=2)
 
     assert [result.id for result in deduplicated] == ["1", "3"]
+
+
+def test_evaluate_retrieval_quality_counts_product_matches() -> None:
+    quality = evaluate_retrieval_quality(
+        citations=[
+            Citation(
+                title="ECS overview",
+                url="https://help.aliyun.com/zh/ecs/product-overview",
+                source="aliyun_docs",
+                score=0.8,
+            )
+        ],
+        product_filter="ecs",
+    )
+
+    assert quality.target_product_citations == 1
+    assert quality.off_product_citations == 0
+    assert quality.interface_reference_citations == 0
+    assert quality.top_score == 0.8
+    assert quality.avg_score == 0.8
+    assert quality.quality_warnings == []
+
+
+def test_evaluate_retrieval_quality_warns_for_off_product_interface_reference() -> None:
+    quality = evaluate_retrieval_quality(
+        citations=[
+            Citation(
+                title="API参考",
+                url="https://help.aliyun.com/zh/rds/developer-reference/api-create",
+                source="aliyun_docs",
+                score=0.4,
+            )
+        ],
+        product_filter="ecs",
+    )
+
+    assert quality.target_product_citations == 0
+    assert quality.off_product_citations == 1
+    assert quality.interface_reference_citations == 1
+    assert quality.quality_warnings == ["off_product_citations", "interface_reference_citations", "low_top_score"]
 
 
 def test_qdrant_ensure_collection_ignores_existing_collection() -> None:

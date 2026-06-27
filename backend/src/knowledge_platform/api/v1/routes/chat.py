@@ -4,6 +4,7 @@ from fastapi import APIRouter, HTTPException, status
 from pydantic import BaseModel, Field
 
 from knowledge_platform.services.factory import create_chat_service
+from knowledge_platform.services.retrieval_service import RetrievalQuality
 from knowledge_platform.sessions.models import ChatMessage, ChatSession, Citation
 from knowledge_platform.sessions.store import session_store
 
@@ -36,11 +37,22 @@ class ChatSessionResponse(BaseModel):
 
 class SendMessageRequest(BaseModel):
     message: str = Field(min_length=1)
+    product_filter: str | None = None
+
+
+class RetrievalQualityResponse(BaseModel):
+    target_product_citations: int
+    off_product_citations: int
+    interface_reference_citations: int
+    top_score: float
+    avg_score: float
+    quality_warnings: list[str]
 
 
 class SendMessageResponse(BaseModel):
     session: ChatSessionResponse
     message: ChatMessageResponse
+    quality: RetrievalQualityResponse
 
 
 @router.get("/sessions", response_model=list[ChatSessionResponse])
@@ -58,10 +70,15 @@ def get_session(session_id: str) -> ChatSessionResponse:
 
 @router.post("/sessions/{session_id}/messages", response_model=SendMessageResponse)
 async def send_message(session_id: str, request: SendMessageRequest) -> SendMessageResponse:
-    result = await create_chat_service().send_message(session_id=session_id, message=request.message)
+    result = await create_chat_service().send_message(
+        session_id=session_id,
+        message=request.message,
+        product_filter=request.product_filter,
+    )
     return SendMessageResponse(
         session=_to_session_response(result.session),
         message=_to_message_response(result.assistant_message),
+        quality=_to_quality_response(result.quality),
     )
 
 
@@ -92,4 +109,15 @@ def _to_citation_response(citation: Citation) -> CitationResponse:
         url=citation.url,
         source=citation.source,
         score=citation.score,
+    )
+
+
+def _to_quality_response(quality: RetrievalQuality) -> RetrievalQualityResponse:
+    return RetrievalQualityResponse(
+        target_product_citations=quality.target_product_citations,
+        off_product_citations=quality.off_product_citations,
+        interface_reference_citations=quality.interface_reference_citations,
+        top_score=quality.top_score,
+        avg_score=quality.avg_score,
+        quality_warnings=quality.quality_warnings,
     )

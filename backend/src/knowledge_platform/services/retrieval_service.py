@@ -13,8 +13,37 @@ class RetrievalContext:
     citations: list[Citation]
 
 
+@dataclass(frozen=True)
+class RetrievalQuality:
+    target_product_citations: int
+    off_product_citations: int
+    interface_reference_citations: int
+    top_score: float
+    avg_score: float
+    quality_warnings: list[str]
+
+
+INTERFACE_REFERENCE_PATTERNS = [
+    "api-reference",
+    "developer-reference",
+    "sdk-reference",
+    "openapi",
+    "list-of-operations",
+    "api参考",
+    "sdk参考",
+    "接口调用",
+]
+
+DEFAULT_LOW_SCORE_THRESHOLD = 0.55
+
+
 class RetrievalServiceProtocol(Protocol):
-    async def retrieve(self, query: str, limit: int | None = None) -> RetrievalContext:
+    async def retrieve(
+        self,
+        query: str,
+        limit: int | None = None,
+        product_filter: str | None = None,
+    ) -> RetrievalContext:
         raise NotImplementedError
 
 
@@ -24,7 +53,12 @@ class RetrievalService:
         self._default_limit = default_limit
         self._context_max_chars = context_max_chars
 
-    async def retrieve(self, query: str, limit: int | None = None) -> RetrievalContext:
+    async def retrieve(
+        self,
+        query: str,
+        limit: int | None = None,
+        product_filter: str | None = None,
+    ) -> RetrievalContext:
         results = self._vector_store.search(query=query, limit=limit or self._default_limit)
         citations = [
             Citation(
@@ -123,6 +157,49 @@ def deduplicate_scored_points(results: list[ScoredVectorPoint], limit: int) -> l
         if len(deduplicated) >= limit:
             break
     return deduplicated
+
+
+def evaluate_retrieval_quality(
+    citations: list[Citation],
+    product_filter: str | None,
+    low_score_threshold: float = DEFAULT_LOW_SCORE_THRESHOLD,
+) -> RetrievalQuality:
+    scores = [citation.score for citation in citations]
+    top_score = max(scores, default=0.0)
+    avg_score = round(sum(scores) / len(scores), 6) if scores else 0.0
+    target_product_citations = sum(1 for citation in citations if _is_target_product_citation(citation, product_filter))
+    off_product_citations = len(citations) - target_product_citations if product_filter else 0
+    interface_reference_citations = sum(1 for citation in citations if _is_interface_reference_citation(citation))
+
+    quality_warnings: list[str] = []
+    if not citations:
+        quality_warnings.append("no_citations")
+    if off_product_citations > 0:
+        quality_warnings.append("off_product_citations")
+    if interface_reference_citations > 0:
+        quality_warnings.append("interface_reference_citations")
+    if citations and top_score < low_score_threshold:
+        quality_warnings.append("low_top_score")
+
+    return RetrievalQuality(
+        target_product_citations=target_product_citations,
+        off_product_citations=off_product_citations,
+        interface_reference_citations=interface_reference_citations,
+        top_score=round(top_score, 6),
+        avg_score=avg_score,
+        quality_warnings=quality_warnings,
+    )
+
+
+def _is_target_product_citation(citation: Citation, product_filter: str | None) -> bool:
+    if not product_filter:
+        return False
+    return f"/zh/{product_filter.lower()}/" in citation.url.lower()
+
+
+def _is_interface_reference_citation(citation: Citation) -> bool:
+    text = f"{citation.title} {citation.url}".lower()
+    return any(pattern in text for pattern in INTERFACE_REFERENCE_PATTERNS)
 
 
 def _truncate_context(context_text: str, max_chars: int) -> str:
