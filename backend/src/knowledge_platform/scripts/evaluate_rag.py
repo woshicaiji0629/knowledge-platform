@@ -15,7 +15,12 @@ from knowledge_platform.llm.answer import (
     SkeletonAnswerGenerator,
     dashscope_chat_config_from_env,
 )
-from knowledge_platform.services.retrieval_service import QdrantRetrievalService, RetrievalContext
+from knowledge_platform.services.retrieval_service import (
+    DEFAULT_LOW_SCORE_THRESHOLD,
+    QdrantRetrievalService,
+    RetrievalContext,
+    evaluate_retrieval_quality,
+)
 from knowledge_platform.sessions.models import Citation
 from knowledge_platform.vectorstores.qdrant import QdrantConfig, QdrantVectorStore
 
@@ -47,30 +52,6 @@ class EvalResult:
     avg_score: float = 0.0
     quality_warnings: list[str] | None = None
     error: str = ""
-
-
-@dataclass(frozen=True)
-class CitationQuality:
-    target_product_citations: int
-    off_product_citations: int
-    interface_reference_citations: int
-    top_score: float
-    avg_score: float
-    warnings: list[str]
-
-
-INTERFACE_REFERENCE_PATTERNS = [
-    "api-reference",
-    "developer-reference",
-    "sdk-reference",
-    "openapi",
-    "list-of-operations",
-    "api参考",
-    "sdk参考",
-    "接口调用",
-]
-
-DEFAULT_LOW_SCORE_THRESHOLD = 0.55
 
 
 def main() -> None:
@@ -282,8 +263,8 @@ def _success_result(
     low_score_threshold: float,
 ) -> EvalResult:
     citations = [_citation_dict(citation) for citation in retrieval_context.citations]
-    citation_quality = evaluate_citation_quality(
-        citations=citations,
+    citation_quality = evaluate_retrieval_quality(
+        citations=retrieval_context.citations,
         product_filter=case.product_filter,
         low_score_threshold=low_score_threshold,
     )
@@ -302,7 +283,7 @@ def _success_result(
         interface_reference_citations=citation_quality.interface_reference_citations,
         top_score=citation_quality.top_score,
         avg_score=citation_quality.avg_score,
-        quality_warnings=citation_quality.warnings,
+        quality_warnings=citation_quality.quality_warnings,
     )
 
 
@@ -313,57 +294,6 @@ def _citation_dict(citation: Citation) -> dict[str, str | float]:
         "source": citation.source,
         "score": citation.score,
     }
-
-
-def evaluate_citation_quality(
-    citations: list[dict[str, str | float]],
-    product_filter: str,
-    low_score_threshold: float = DEFAULT_LOW_SCORE_THRESHOLD,
-) -> CitationQuality:
-    scores = [_citation_score(citation) for citation in citations]
-    top_score = max(scores, default=0.0)
-    avg_score = round(sum(scores) / len(scores), 6) if scores else 0.0
-    target_product_citations = sum(1 for citation in citations if _is_target_product_citation(citation, product_filter))
-    off_product_citations = len(citations) - target_product_citations if product_filter else 0
-    interface_reference_citations = sum(1 for citation in citations if _is_interface_reference_citation(citation))
-
-    warnings: list[str] = []
-    if not citations:
-        warnings.append("no_citations")
-    if off_product_citations > 0:
-        warnings.append("off_product_citations")
-    if interface_reference_citations > 0:
-        warnings.append("interface_reference_citations")
-    if citations and top_score < low_score_threshold:
-        warnings.append("low_top_score")
-
-    return CitationQuality(
-        target_product_citations=target_product_citations,
-        off_product_citations=off_product_citations,
-        interface_reference_citations=interface_reference_citations,
-        top_score=round(top_score, 6),
-        avg_score=avg_score,
-        warnings=warnings,
-    )
-
-
-def _is_target_product_citation(citation: dict[str, str | float], product_filter: str) -> bool:
-    if not product_filter:
-        return False
-    url = str(citation.get("url", "")).lower()
-    return f"/zh/{product_filter.lower()}/" in url
-
-
-def _is_interface_reference_citation(citation: dict[str, str | float]) -> bool:
-    text = " ".join(str(citation.get(key, "")) for key in ("title", "url")).lower()
-    return any(pattern in text for pattern in INTERFACE_REFERENCE_PATTERNS)
-
-
-def _citation_score(citation: dict[str, str | float]) -> float:
-    score = citation.get("score", 0.0)
-    if isinstance(score, int | float):
-        return float(score)
-    return 0.0
 
 
 def _answer_generator(provider: Literal["dashscope", "skeleton"]) -> AnswerGeneratorProtocol:

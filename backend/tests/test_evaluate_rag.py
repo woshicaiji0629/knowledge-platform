@@ -4,7 +4,6 @@ import pytest
 
 from knowledge_platform.scripts.evaluate_rag import (
     EvalResult,
-    evaluate_citation_quality,
     load_eval_cases,
     markdown_report,
 )
@@ -67,49 +66,3 @@ def test_markdown_report_includes_answers_and_citations() -> None:
     assert "实例规格选型方法" in report
     assert "## Quality Summary" in report
     assert "| ecs-sizing | ecs | 1 | 0 | 0 | 0 | 0.0000 | 0.0000 | - |" in report
-
-
-def test_evaluate_citation_quality_counts_target_product_citations() -> None:
-    quality = evaluate_citation_quality(
-        citations=[
-            {
-                "title": "什么是 ECS",
-                "url": "https://help.aliyun.com/zh/ecs/product-overview",
-                "source": "aliyun_docs",
-                "score": 0.8,
-            },
-            {
-                "title": "ECS 计费",
-                "url": "https://help.aliyun.com/zh/ecs/billing",
-                "source": "aliyun_docs",
-                "score": 0.7,
-            },
-        ],
-        product_filter="ecs",
-    )
-
-    assert quality.target_product_citations == 2
-    assert quality.off_product_citations == 0
-    assert quality.top_score == 0.8
-    assert quality.avg_score == 0.75
-    assert quality.warnings == []
-
-
-def test_evaluate_citation_quality_warns_for_off_product_and_interface_reference() -> None:
-    quality = evaluate_citation_quality(
-        citations=[
-            {
-                "title": "API参考",
-                "url": "https://help.aliyun.com/zh/rds/developer-reference/api-create",
-                "source": "aliyun_docs",
-                "score": 0.4,
-            }
-        ],
-        product_filter="ecs",
-        low_score_threshold=0.55,
-    )
-
-    assert quality.target_product_citations == 0
-    assert quality.off_product_citations == 1
-    assert quality.interface_reference_citations == 1
-    assert quality.warnings == ["off_product_citations", "interface_reference_citations", "low_top_score"]
