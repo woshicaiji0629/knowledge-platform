@@ -2,6 +2,8 @@ import argparse
 import asyncio
 import hashlib
 import json
+import time
+from collections import Counter
 from dataclasses import asdict, dataclass
 from datetime import UTC, datetime
 from pathlib import Path
@@ -13,6 +15,8 @@ from knowledge_platform.embeddings.dashscope import (
     dashscope_config_from_env,
 )
 from knowledge_platform.vectorstores.qdrant import QdrantConfig, QdrantVectorStore, vector_point_from_record
+
+DEFAULT_EMBEDDING_PRICE_PER_MILLION_TOKENS = 0.6
 
 
 @dataclass
@@ -43,6 +47,7 @@ def main() -> None:
 
 async def _main_async() -> None:
     args = _parse_args()
+    started_at = time.monotonic()
     repo_root = Path(__file__).resolve().parents[4]
     data_root = repo_root / "data" / "datasources" / "aliyun-docs"
     manifest_path = data_root / "chunk-manifest.json"
@@ -87,10 +92,18 @@ async def _main_async() -> None:
         result = await task
         total_indexed += result.indexed
         reports.append(result.report)
+        _print_progress(
+            completed_batches=len(reports),
+            total_batches=len(batches),
+            reports=reports,
+            started_at=started_at,
+            interval_batches=args.progress_interval_batches,
+        )
 
     reports.sort(key=lambda report: report.batch_index)
     report_path = _report_path(data_root=data_root, value=args.report_path)
-    _write_index_report(
+    elapsed_seconds = time.monotonic() - started_at
+    write_index_report(
         report_path=report_path,
         collection=args.collection,
         qdrant_endpoint=args.qdrant_endpoint,
@@ -101,11 +114,21 @@ async def _main_async() -> None:
         concurrency=args.concurrency,
         dry_run=args.dry_run,
         skip_existing=not args.no_skip_existing,
+        embedding_price_per_million_tokens=args.embedding_price_per_million_tokens,
+        elapsed_seconds=elapsed_seconds,
         reports=reports,
+    )
+    usage_total = usage_total_from_reports(reports)
+    estimated_embedding_cost_cny = estimate_embedding_cost_cny(
+        usage=usage_total,
+        price_per_million_tokens=args.embedding_price_per_million_tokens,
     )
     print(f"chunks: {len(records)}")
     print(f"indexed: {total_indexed}")
     print(f"skipped_existing: {sum(report.skipped_existing for report in reports)}")
+    print(f"usage_total: {usage_total}")
+    print(f"estimated_embedding_cost_cny: {estimated_embedding_cost_cny}")
+    print(f"elapsed_seconds: {round(elapsed_seconds, 3)}")
     print(f"collection: {args.collection}")
     print(f"report: {report_path}")
 
@@ -126,6 +149,18 @@ def _parse_args() -> argparse.Namespace:
     )
     parser.add_argument("--no-skip-existing", action="store_true", help="Re-embed chunks even if points already exist.")
     parser.add_argument("--dry-run", action="store_true", help="Read chunks without embedding or upserting.")
+    parser.add_argument(
+        "--progress-interval-batches",
+        type=int,
+        default=50,
+        help="Print progress every N completed batches. Use 0 to disable progress output.",
+    )
+    parser.add_argument(
+        "--embedding-price-per-million-tokens",
+        type=float,
+        default=DEFAULT_EMBEDDING_PRICE_PER_MILLION_TOKENS,
+        help="Embedding price in CNY per million tokens for cost estimates.",
+    )
     return parser.parse_args()
 
 
@@ -276,7 +311,47 @@ def _report_path(data_root: Path, value: str | None) -> Path:
     return Path(value)
 
 
-def _write_index_report(
+def _print_progress(
+    completed_batches: int,
+    total_batches: int,
+    reports: list[BatchIndexReport],
+    started_at: float,
+    interval_batches: int,
+) -> None:
+    if interval_batches <= 0:
+        return
+    if completed_batches != total_batches and completed_batches % interval_batches != 0:
+        return
+    indexed = sum(report.indexed for report in reports)
+    skipped_existing = sum(report.skipped_existing for report in reports)
+    embedded = sum(report.embedded for report in reports)
+    elapsed_seconds = time.monotonic() - started_at
+    print(
+        "progress: "
+        f"batches={completed_batches}/{total_batches} "
+        f"indexed={indexed} "
+        f"skipped_existing={skipped_existing} "
+        f"embedded={embedded} "
+        f"elapsed_seconds={round(elapsed_seconds, 3)}",
+        flush=True,
+    )
+
+
+def usage_total_from_reports(reports: list[BatchIndexReport]) -> dict[str, int]:
+    usage_total: Counter[str] = Counter()
+    for report in reports:
+        usage_total.update(report.usage)
+    return dict(sorted(usage_total.items()))
+
+
+def estimate_embedding_cost_cny(usage: dict[str, int], price_per_million_tokens: float) -> float:
+    if price_per_million_tokens <= 0:
+        return 0.0
+    tokens = usage.get("total_tokens", usage.get("prompt_tokens", 0))
+    return round(tokens * price_per_million_tokens / 1_000_000, 6)
+
+
+def write_index_report(
     report_path: Path,
     collection: str,
     qdrant_endpoint: str,
@@ -287,8 +362,11 @@ def _write_index_report(
     concurrency: int,
     dry_run: bool,
     skip_existing: bool,
+    embedding_price_per_million_tokens: float,
+    elapsed_seconds: float,
     reports: list[BatchIndexReport],
 ) -> None:
+    usage_total = usage_total_from_reports(reports)
     report = {
         "source": "aliyun_docs",
         "updated_at": datetime.now(UTC).isoformat(),
@@ -302,6 +380,13 @@ def _write_index_report(
         "concurrency": concurrency,
         "dry_run": dry_run,
         "skip_existing": skip_existing,
+        "usage_total": usage_total,
+        "embedding_price_per_million_tokens": embedding_price_per_million_tokens,
+        "estimated_embedding_cost_cny": estimate_embedding_cost_cny(
+            usage=usage_total,
+            price_per_million_tokens=embedding_price_per_million_tokens,
+        ),
+        "elapsed_seconds": round(elapsed_seconds, 3),
         "batches": [asdict(batch_report) for batch_report in reports],
     }
     report_path.parent.mkdir(parents=True, exist_ok=True)

@@ -14,8 +14,16 @@
     "/developer-reference/api-"
   ],
   "crawl_products": [
+    "ecs",
+    "rds",
+    "redis",
+    "oss",
     "model-studio",
-    "slb"
+    "slb",
+    "vpc",
+    "cdn",
+    "sls",
+    "ack"
   ],
   "products": [
     {
