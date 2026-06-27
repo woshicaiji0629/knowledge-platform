@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from uuid import uuid4
 
+from knowledge_platform.llm.answer import AnswerGenerationRequest, AnswerGeneratorProtocol
 from knowledge_platform.llm.intent import RuleBasedIntentClassifier
 from knowledge_platform.services.retrieval_service import RetrievalServiceProtocol
 from knowledge_platform.sessions.models import ChatMessage, ChatSession, MessageRole
@@ -18,10 +19,12 @@ class ChatService:
         self,
         session_store: InMemorySessionStore,
         retrieval_service: RetrievalServiceProtocol,
+        answer_generator: AnswerGeneratorProtocol,
         intent_classifier: RuleBasedIntentClassifier,
     ) -> None:
         self._session_store = session_store
         self._retrieval_service = retrieval_service
+        self._answer_generator = answer_generator
         self._intent_classifier = intent_classifier
 
     async def send_message(self, session_id: str, message: str) -> ChatTurnResult:
@@ -35,7 +38,13 @@ class ChatService:
         self._session_store.append_message(session_id=session_id, message=user_message)
 
         retrieval_context = await self._retrieval_service.retrieve(query=message)
-        answer = self._build_skeleton_answer(message=message, context_text=retrieval_context.context_text)
+        answer = await self._answer_generator.generate(
+            AnswerGenerationRequest(
+                question=message,
+                context_text=retrieval_context.context_text,
+                citations=retrieval_context.citations,
+            )
+        )
         assistant_message = ChatMessage(
             id=str(uuid4()),
             role=MessageRole.ASSISTANT,
@@ -45,8 +54,3 @@ class ChatService:
         )
         session = self._session_store.append_message(session_id=session_id, message=assistant_message)
         return ChatTurnResult(session=session, assistant_message=assistant_message)
-
-    def _build_skeleton_answer(self, message: str, context_text: str) -> str:
-        if context_text:
-            return f"已根据本地文档索引生成占位回答。问题：{message}"
-        return "当前还没有可用的本地文档索引。请先运行阿里云官方文档采集和入库流程。"

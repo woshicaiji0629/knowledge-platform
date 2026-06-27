@@ -1,6 +1,12 @@
 from knowledge_platform.config.settings import get_settings
 from knowledge_platform.crawlers.aliyun_docs import AliyunDocsCrawler
 from knowledge_platform.embeddings.dashscope import DashScopeEmbeddingProvider, dashscope_config_from_env
+from knowledge_platform.llm.answer import (
+    AnswerGeneratorProtocol,
+    DashScopeAnswerGenerator,
+    SkeletonAnswerGenerator,
+    dashscope_chat_config_from_env,
+)
 from knowledge_platform.llm.intent import RuleBasedIntentClassifier
 from knowledge_platform.services.chat_service import ChatService
 from knowledge_platform.services.ingestion_service import IngestionService
@@ -20,6 +26,7 @@ def create_chat_service() -> ChatService:
     return ChatService(
         session_store=session_store,
         retrieval_service=_create_retrieval_service(),
+        answer_generator=_create_answer_generator(),
         intent_classifier=RuleBasedIntentClassifier(),
     )
 
@@ -53,3 +60,16 @@ def _create_retrieval_service() -> RetrievalServiceProtocol:
         default_limit=settings.retrieval_top_k,
         context_max_chars=settings.retrieval_context_max_chars,
     )
+
+
+def _create_answer_generator() -> AnswerGeneratorProtocol:
+    settings = get_settings()
+    provider = settings.answer_generator_provider.lower()
+
+    if provider == "dashscope":
+        return DashScopeAnswerGenerator(config=dashscope_chat_config_from_env())
+
+    if provider != "skeleton":
+        raise ValueError(f"Unsupported answer generator provider: {settings.answer_generator_provider}")
+
+    return SkeletonAnswerGenerator()

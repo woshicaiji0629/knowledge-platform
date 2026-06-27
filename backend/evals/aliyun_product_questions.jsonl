@@ -1,0 +1,10 @@
+{"id":"ecs-sizing","product":"ECS","question":"ECS 产品选型怎么考虑？","tags":["compute","sizing"]}
+{"id":"oss-vs-nas","product":"OSS","question":"OSS 和 NAS 分别适合什么场景，怎么选择？","tags":["storage","comparison"]}
+{"id":"rds-vs-polardb","product":"RDS","question":"RDS MySQL 和 PolarDB MySQL 怎么选？","tags":["database","comparison"]}
+{"id":"ack-fit","product":"ACK","question":"ACK 适合哪些团队和业务场景？","tags":["container","scenario"]}
+{"id":"fc-fit","product":"函数计算","question":"函数计算适合什么业务场景，不适合什么场景？","tags":["serverless","scenario"]}
+{"id":"sls-observability","product":"SLS","question":"日志服务 SLS、ARMS 和云监控分别解决什么问题？","tags":["observability","comparison"]}
+{"id":"cdn-vs-dcdn","product":"CDN","question":"CDN 和 DCDN 怎么选？","tags":["network","comparison"]}
+{"id":"tair-fit","product":"Tair","question":"Redis 或 Tair 适合什么业务场景？","tags":["database","cache"]}
+{"id":"maxcompute-fit","product":"MaxCompute","question":"MaxCompute 适合什么数据处理场景？","tags":["data","scenario"]}
+{"id":"slb-selection","product":"负载均衡","question":"ALB、NLB 和 CLB 怎么选择？","tags":["network","comparison"]}

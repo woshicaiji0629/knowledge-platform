@@ -22,17 +22,17 @@ frontend/             React + TypeScript 前端
 
 - 后端 FastAPI 应用入口
 - 后端配置加载与 `.env` 示例
-- 阿里云官方文档采集计划骨架
-- 文档模型、切块器、向量库抽象
+- 阿里云官方文档采集、清洗、切块和索引脚本
+- 文档模型、切块器、向量库抽象和 Qdrant 实现
 - 会话管理、上下文消息存储骨架
 - 规则型意图识别骨架
-- RAG 问答 API 骨架
+- RAG 问答 API，支持真实检索和可配置回答生成
 - AI Provider 抽象和阿里云智能客服 Provider 占位实现
 - Data Source 抽象与内存数据源示例
 - React + TypeScript 问答页面
 - 前端 loading、错误态和空输入处理
 
-当前不会真实爬取阿里云文档、调用 embedding/LLM 或写入真实向量数据库。真实采集、文本清洗、embedding、向量库和模型调用需要在确认方案后补充。
+默认配置不会调用付费模型。设置 `VECTOR_STORE_PROVIDER=qdrant` 后，聊天接口会使用本地 Qdrant 索引和 DashScope embedding 做真实检索；设置 `ANSWER_GENERATOR_PROVIDER=dashscope` 后，会调用 DashScope 文本模型生成回答。
 
 ## 后端运行
 
@@ -56,7 +56,7 @@ curl -X POST http://127.0.0.1:8000/api/v1/customer-service/chat \
   -d '{"message":"你好","session_id":"demo-session"}'
 ```
 
-RAG 会话问答骨架接口：
+RAG 会话问答接口：
 
 ```bash
 curl -X POST http://127.0.0.1:8000/api/v1/chat/sessions/demo-session/messages \
@@ -125,12 +125,28 @@ cd backend
 cp .env.example .env
 ```
 
+启用本地 Qdrant 检索和 DashScope 回答生成时，至少配置：
+
+```bash
+VECTOR_STORE_PROVIDER=qdrant
+ANSWER_GENERATOR_PROVIDER=dashscope
+DASHSCOPE_API_KEY=your-api-key
+```
+
+运行小规模 RAG 评测：
+
+```bash
+cd backend
+uv run python -m knowledge_platform.scripts.evaluate_rag --limit 10
+```
+
+评测报告默认写入 `runtime-data/evals/`。如只想验证检索和报告生成、不调用文本生成模型，可以加 `--answer-provider skeleton`。
+
 ## 后续建议
 
-1. 确认第一批允许爬取的阿里云官方文档 URL。
-2. 确认爬虫频率、robots、缓存和版权边界。
-3. 确认 embedding/LLM 供应商。
-4. 确认向量数据库选型。
-5. 补充真实采集、清洗、切块、入库、检索和回答生成实现。
+1. 将会话存储从内存替换为 SQLite 或业务数据库。
+2. 增加数据源管理、采集任务状态和索引状态页面。
+3. 增加回答质量评测集，对比不同切块、召回和模型配置。
+4. 将采集、清洗、切块、入库流程服务化。
 
 详细设计见 [docs/rag-architecture.md](docs/rag-architecture.md)。

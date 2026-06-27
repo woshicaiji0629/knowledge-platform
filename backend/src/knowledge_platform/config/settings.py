@@ -19,6 +19,7 @@ class Settings(BaseSettings):
     qdrant_collection: str = "aliyun_docs_product_v1"
     retrieval_top_k: int = 5
     retrieval_context_max_chars: int = 6000
+    answer_generator_provider: str = "skeleton"
 
     model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8")
 
