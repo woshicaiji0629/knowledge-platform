@@ -50,12 +50,17 @@ class QdrantVectorStore:
             return set()
         return await asyncio.to_thread(self._existing_source_ids_sync, source_ids)
 
-    async def search_points(self, vector: list[float], limit: int = 5) -> list[ScoredVectorPoint]:
+    async def search_points(
+        self,
+        vector: list[float],
+        limit: int = 5,
+        payload_filter: dict[str, Any] | None = None,
+    ) -> list[ScoredVectorPoint]:
         if not vector:
             return []
         if limit <= 0:
             raise ValueError("limit must be greater than 0")
-        return await asyncio.to_thread(self._search_points_sync, vector, limit)
+        return await asyncio.to_thread(self._search_points_sync, vector, limit, payload_filter)
 
     def _ensure_collection_sync(self, vector_size: int) -> None:
         payload = {
@@ -121,13 +126,20 @@ class QdrantVectorStore:
                 existing_source_ids.add(source_id)
         return existing_source_ids
 
-    def _search_points_sync(self, vector: list[float], limit: int) -> list[ScoredVectorPoint]:
-        payload = {
+    def _search_points_sync(
+        self,
+        vector: list[float],
+        limit: int,
+        payload_filter: dict[str, Any] | None,
+    ) -> list[ScoredVectorPoint]:
+        payload: dict[str, Any] = {
             "vector": vector,
             "limit": limit,
             "with_payload": True,
             "with_vector": False,
         }
+        if payload_filter is not None:
+            payload["filter"] = payload_filter
         response_data = self._request_json(
             method="POST",
             path=f"/collections/{urllib.parse.quote(self._config.collection_name)}/points/search",

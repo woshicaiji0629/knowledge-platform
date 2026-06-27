@@ -1,10 +1,10 @@
-{"id":"ecs-sizing","product":"ECS","question":"ECS 产品选型怎么考虑？","tags":["compute","sizing"]}
-{"id":"oss-vs-nas","product":"OSS","question":"OSS 和 NAS 分别适合什么场景，怎么选择？","tags":["storage","comparison"]}
-{"id":"rds-vs-polardb","product":"RDS","question":"RDS MySQL 和 PolarDB MySQL 怎么选？","tags":["database","comparison"]}
-{"id":"ack-fit","product":"ACK","question":"ACK 适合哪些团队和业务场景？","tags":["container","scenario"]}
-{"id":"fc-fit","product":"函数计算","question":"函数计算适合什么业务场景，不适合什么场景？","tags":["serverless","scenario"]}
-{"id":"sls-observability","product":"SLS","question":"日志服务 SLS、ARMS 和云监控分别解决什么问题？","tags":["observability","comparison"]}
-{"id":"cdn-vs-dcdn","product":"CDN","question":"CDN 和 DCDN 怎么选？","tags":["network","comparison"]}
-{"id":"tair-fit","product":"Tair","question":"Redis 或 Tair 适合什么业务场景？","tags":["database","cache"]}
-{"id":"maxcompute-fit","product":"MaxCompute","question":"MaxCompute 适合什么数据处理场景？","tags":["data","scenario"]}
-{"id":"slb-selection","product":"负载均衡","question":"ALB、NLB 和 CLB 怎么选择？","tags":["network","comparison"]}
+{"id":"ecs-sizing","product":"ECS","product_filter":"ecs","question":"ECS 产品选型怎么考虑？","tags":["compute","sizing"]}
+{"id":"oss-vs-nas","product":"OSS","product_filter":"oss","question":"OSS 和 NAS 分别适合什么场景，怎么选择？","tags":["storage","comparison"]}
+{"id":"rds-vs-polardb","product":"RDS","product_filter":"rds","question":"RDS MySQL 和 PolarDB MySQL 怎么选？","tags":["database","comparison"]}
+{"id":"ack-fit","product":"ACK","product_filter":"ack","question":"ACK 适合哪些团队和业务场景？","tags":["container","scenario"]}
+{"id":"model-studio-fit","product":"Model Studio","product_filter":"model-studio","question":"百炼 Model Studio 适合什么 AI 应用开发场景？","tags":["ai","scenario"]}
+{"id":"sls-observability","product":"SLS","product_filter":"sls","question":"日志服务 SLS 适合解决哪些可观测和日志分析问题？","tags":["observability","scenario"]}
+{"id":"cdn-vs-dcdn","product":"CDN","product_filter":"cdn","question":"CDN 适合什么加速场景，和全站加速怎么区分？","tags":["network","scenario"]}
+{"id":"tair-fit","product":"Tair","product_filter":"redis","question":"Redis 或 Tair 适合什么业务场景？","tags":["database","cache"]}
+{"id":"vpc-fit","product":"VPC","product_filter":"vpc","question":"专有网络 VPC 适合解决哪些网络隔离和组网问题？","tags":["network","scenario"]}
+{"id":"slb-selection","product":"负载均衡","product_filter":"slb","question":"ALB、NLB 和 CLB 怎么选择？","tags":["network","comparison"]}

@@ -25,6 +25,7 @@ class EvalCase:
     id: str
     question: str
     product: str = ""
+    product_filter: str = ""
     tags: list[str] | None = None
 
 
@@ -33,6 +34,7 @@ class EvalResult:
     id: str
     question: str
     product: str
+    product_filter: str
     tags: list[str]
     answer: str
     citations: list[dict[str, str | float]]
@@ -103,6 +105,7 @@ def load_eval_cases(path: Path) -> list[EvalCase]:
         case_id = case_data.get("id")
         question = case_data.get("question")
         product = case_data.get("product", "")
+        product_filter = case_data.get("product_filter", "")
         tags = case_data.get("tags")
         if not isinstance(case_id, str) or not case_id:
             raise ValueError(f"Eval case line {line_number} missing string id")
@@ -110,6 +113,8 @@ def load_eval_cases(path: Path) -> list[EvalCase]:
             raise ValueError(f"Eval case line {line_number} missing string question")
         if not isinstance(product, str):
             raise ValueError(f"Eval case line {line_number} product must be a string")
+        if not isinstance(product_filter, str):
+            raise ValueError(f"Eval case line {line_number} product_filter must be a string")
         if tags is not None and (
             not isinstance(tags, list) or any(not isinstance(tag, str) for tag in cast(list[object], tags))
         ):
@@ -119,6 +124,7 @@ def load_eval_cases(path: Path) -> list[EvalCase]:
                 id=case_id,
                 question=question,
                 product=product,
+                product_filter=product_filter,
                 tags=cast(list[str] | None, tags),
             )
         )
@@ -152,6 +158,7 @@ def markdown_report(results: list[EvalResult]) -> str:
                 f"## {result.id}",
                 "",
                 f"- product: {result.product or '-'}",
+                f"- product_filter: {result.product_filter or '-'}",
                 f"- question: {result.question}",
                 f"- duration_ms: {result.duration_ms}",
                 f"- context_chars: {result.context_chars}",
@@ -181,7 +188,10 @@ async def _evaluate_case(
     async with semaphore:
         started_at = time.perf_counter()
         try:
-            retrieval_context = await retrieval_service.retrieve(query=case.question)
+            retrieval_context = await retrieval_service.retrieve(
+                query=case.question,
+                product_filter=case.product_filter or None,
+            )
             answer = await answer_generator.generate(
                 AnswerGenerationRequest(
                     question=case.question,
@@ -200,6 +210,7 @@ async def _evaluate_case(
                 id=case.id,
                 question=case.question,
                 product=case.product,
+                product_filter=case.product_filter,
                 tags=case.tags or [],
                 answer="",
                 citations=[],
@@ -219,6 +230,7 @@ def _success_result(
         id=case.id,
         question=case.question,
         product=case.product,
+        product_filter=case.product_filter,
         tags=case.tags or [],
         answer=answer,
         citations=[_citation_dict(citation) for citation in retrieval_context.citations],

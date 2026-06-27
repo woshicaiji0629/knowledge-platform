@@ -4,7 +4,7 @@ from typing import Protocol
 from knowledge_platform.embeddings.dashscope import DashScopeEmbeddingProvider
 from knowledge_platform.sessions.models import Citation
 from knowledge_platform.vectorstores.base import VectorStore
-from knowledge_platform.vectorstores.qdrant import QdrantVectorStore
+from knowledge_platform.vectorstores.qdrant import QdrantVectorStore, ScoredVectorPoint
 
 
 @dataclass(frozen=True)
@@ -55,15 +55,23 @@ class QdrantRetrievalService:
         self._default_limit = default_limit
         self._context_max_chars = context_max_chars
 
-    async def retrieve(self, query: str, limit: int | None = None) -> RetrievalContext:
+    async def retrieve(
+        self,
+        query: str,
+        limit: int | None = None,
+        product_filter: str | None = None,
+    ) -> RetrievalContext:
         embedding_batch = await self._embedding_provider.embed_texts_with_metadata([query])
         if not embedding_batch.embeddings:
             return RetrievalContext(context_text="", citations=[])
 
+        target_limit = limit or self._default_limit
         results = await self._vector_store.search_points(
             vector=embedding_batch.embeddings[0].vector,
-            limit=limit or self._default_limit,
+            limit=target_limit * 4,
+            payload_filter=product_payload_filter(product_filter),
         )
+        results = deduplicate_scored_points(results, target_limit)
         citations = [
             Citation(
                 title=str(result.payload.get("title", "")),
@@ -88,6 +96,33 @@ def _context_chunk(payload: dict[str, object]) -> str:
     header_parts = [part for part in [title, heading_path, source_url] if part]
     header = "\n".join(header_parts)
     return f"{header}\n{content}".strip()
+
+
+def product_payload_filter(product_filter: str | None) -> dict[str, object] | None:
+    if not product_filter:
+        return None
+    return {
+        "must": [
+            {
+                "key": "product",
+                "match": {"value": product_filter},
+            }
+        ]
+    }
+
+
+def deduplicate_scored_points(results: list[ScoredVectorPoint], limit: int) -> list[ScoredVectorPoint]:
+    deduplicated: list[ScoredVectorPoint] = []
+    seen_keys: set[str] = set()
+    for result in results:
+        dedupe_key = str(result.payload.get("source_url") or result.payload.get("source_id") or result.id)
+        if dedupe_key in seen_keys:
+            continue
+        seen_keys.add(dedupe_key)
+        deduplicated.append(result)
+        if len(deduplicated) >= limit:
+            break
+    return deduplicated
 
 
 def _truncate_context(context_text: str, max_chars: int) -> str:

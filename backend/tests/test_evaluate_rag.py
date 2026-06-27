@@ -8,7 +8,10 @@ from knowledge_platform.scripts.evaluate_rag import EvalResult, load_eval_cases,
 def test_load_eval_cases(tmp_path: Path) -> None:
     questions_path = tmp_path / "questions.jsonl"
     questions_path.write_text(
-        '{"id":"ecs-sizing","product":"ECS","question":"ECS 怎么选型？","tags":["compute"]}\n',
+        (
+            '{"id":"ecs-sizing","product":"ECS","product_filter":"ecs",'
+            '"question":"ECS 怎么选型？","tags":["compute"]}\n'
+        ),
         encoding="utf-8",
     )
 
@@ -17,6 +20,7 @@ def test_load_eval_cases(tmp_path: Path) -> None:
     assert len(cases) == 1
     assert cases[0].id == "ecs-sizing"
     assert cases[0].question == "ECS 怎么选型？"
+    assert cases[0].product_filter == "ecs"
     assert cases[0].tags == ["compute"]
 
 
@@ -35,6 +39,7 @@ def test_markdown_report_includes_answers_and_citations() -> None:
                 id="ecs-sizing",
                 question="ECS 怎么选型？",
                 product="ECS",
+                product_filter="ecs",
                 tags=["compute"],
                 answer="根据业务负载选择实例规格。",
                 citations=[
@@ -52,5 +57,6 @@ def test_markdown_report_includes_answers_and_citations() -> None:
     )
 
     assert "# RAG Evaluation Report" in report
+    assert "product_filter: ecs" in report
     assert "根据业务负载选择实例规格。" in report
     assert "实例规格选型方法" in report
